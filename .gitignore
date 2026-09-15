@@ -28,3 +28,6 @@ panelB.pkl
 
 # 编辑器本地配置
 .vscode/
+
+# 本机 AI 助手权限配置
+.claude/
