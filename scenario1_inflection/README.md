@@ -3,7 +3,7 @@
 本目录承载主论文情景一阈值控制隔离律 $q_c(t)$ 拐点分析的计算代码与四张配图，并记录对论文的改动。
 
 - **2026-07-21 第一轮**：补齐拐点位置/两端消失/曲率幅度三块，统一记号 $\qinf$。
-- **2026-07-21 第二轮（定稿）**：按 `../ai_markdown/拐点/PLAN_inflection_FINAL.md` 纠错升级——引入相对位置 $\lambda$、重写「参数方向」、加参数分工表、修正 §4.4 误导措辞、三张图改期刊风。
+- **2026-07-21 第二轮（定稿）**：引入相对位置 $\lambda$、重写「参数方向」、加参数分工表、修正 §4.4 误导措辞、三张图改期刊风。
 - **2026-08-02 第三轮**：把四参数方向由数值扫描提升为解析偏导；新增启动点引理、相对位置命题和控制时长推论；加入 $q_0$ 驻点检测、解析差分校验及 $\lambda$ 四面板图。
 - **2026-08-05 第四轮**：§4.3 加「操作性动机」段（$\lambda$ = 释放节奏的前重/后重偏向，弯曲幅度受 §4.4 上界 `eq:s1:qcpp-bound` 封顶、方向引 `prop:s1:lambda-sensitivity`，明确非严重度指标）。B/C 清理：$\qinf$ 定义去重、定理假设改「设…则…」、两方向表加统一引导句、定理证明标点统一、$\lambda$ 图注删不存在的空心三角、弦偏差数字去重。图调整：landscape 的 $q_0$ 扫到 0.42（露可行截断）、scan\_t 低/中/高取值重定、$\lambda$ 图删 t-exit 标注与底部状态带、各面板扫到 0、$q_0$ 面板只画 $\beta=0.155$ 不可行区。删图：移除 §9.2 的 `fig:neff_inflection`（$\qinf$–$\beta$ + 残差面板，学术论文不必展示差分精度），验证结论并入正文——连带解决原遗留项 1。
 
@@ -19,7 +19,9 @@
 | `fig_landscape4.py` | 4 行 × 2 列存在性与时长图谱 → `../figures/scenario1_inflection_landscape.pdf` |
 | `fig_scan_t.py` | 横轴真实时间的低/中/高扫描 → `../figures/scenario1_inflection_scan_t.pdf` |
 | `fig_diagnose.py` | 三面板曲率诊断 → `../figures/scenario1_inflection_diagnose.pdf` |
-| `inflection_scan_beta.csv` | 早期 $\beta$ 扫描输出（探索性记录） |
+
+早期 $\beta$ 扫描输出已归档至
+`../archive_unused/superseded/scenario1_inflection/inflection_scan_beta.csv`。
 
 **图风格**：蓝色顺序色、serif（Times New Roman）+ `mathtext=stix`、英文轴标签、无子图标题、`frameon=False` 图例、去顶/右边框、输出 PDF。图注写死参数值，不用「基准」字样。
 
@@ -103,5 +105,6 @@ $\eta/N$ 由 0.05 降到 0.005 时 $\Delta t$ 5.9→60.7 天、弦偏差 4.44%�
 ## 4. 遗留项
 
 1. §4 小节编号：新增两小节后，Ṡ与$t_2$、清零时间、总累计分别为 §4.5/4.6/4.7（正文全用 `\ref`）。
-2. `figures/neff_inflection_beta.pdf` 已成孤儿文件（第四轮删图后不再被论文引用）；由 `../xian_control_comparison/effective_population_sensitivity/` 生成，留着无害，如需清理可删。
+2. 第四轮删图后不再被论文引用的 `neff_inflection_beta.pdf` 已移至
+   `../archive_unused/superseded/figures/`。
 3. A 类可选改进（未做）：把 §4.3 的引理/命题/推论**证明移附录**以给正文减重（结构取舍，待定）。

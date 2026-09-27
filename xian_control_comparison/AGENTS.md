@@ -2,6 +2,8 @@
 
 > 目录变更（2026-07，论文整合）：`fit_method_comparison/`、`tdinn_q_only_comparison/`、`low_eta_analysis/` 已归档至仓库根目录 `archive_unused/`；参考资料（He\_Tang PDF/txt、pptx 等）移至根目录 `refs/`。本文件中出现的这些名称应理解为其归档后位置。当前 `xian_control_comparison/` 下仅保留 `effective_population_sensitivity/` 与 `threshold_landscape_analysis/` 两个有效子模块。
 
+> 输出管理（2026-09）：本目录和两个有效子模块的 CSV、PDF、PNG 与生成表格均视为可复现过程输出，运行时在原路径生成但不纳入版本控制。清理前快照位于根目录 `archive_unused/generated_snapshots/`；论文采用的定稿副本仍位于根目录 `figures/` 与 `table/`。
+
 ## 用途
 
 本文件夹用于西安疫情控制策略的理论与数值分析，主要比较三类策略：
@@ -353,7 +355,7 @@ J_q=\int_0^T \frac{(q(t)-q_0)_+}{1-q_0}\,dt.
 ```tex
 c_0\in[6,13],
 \qquad
-\eta\in[100,30000].
+\eta\in[50,40000].
 ```
 
 输出指标建议包括：

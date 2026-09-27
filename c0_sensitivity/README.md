@@ -1,5 +1,8 @@
 # 固定阈值比例下的 c0 数值实验
 
+运行 `run_c0_sensitivity.py` 后，过程数据和图片写入 `outputs/`。该目录不纳入版本控制；
+清理前的输出快照保存在 `../archive_unused/generated_snapshots/c0_sensitivity_outputs/`。
+
 ## 实验口径
 
 - 固定参数：`N_eff=20000`、`beta=0.1498`、`gamma=0.2953`、`q0=0.323`。
@@ -55,6 +58,9 @@
 
 ## 文件
 
+下列图、CSV 和 JSON 生成文件均位于 `outputs/`；源码 `run_c0_sensitivity.py`
+和输入 `inputs/xian_observed_data_processed.csv` 仍位于模块根目录：
+
 - `c0_sensitivity_main.png/.pdf`：I(t) 与 q(t) 的两面板主图。
 - `c0_sensitivity_main_linear.png/.pdf`：仅将主图 I(t) 纵轴改为线性坐标的对照版。
 - `c0_sensitivity_main_linear_cumulative.png/.pdf`：线性主图；用清零时总累计感染柱状图替代相对时间 inset。
@@ -66,10 +72,10 @@
 
 | 本目录输出 | ../figures/ 目标名 | 正文 |
 |---|---|---|
-| `c0_sensitivity_main_linear_cumulative.pdf` | `c0_sensitivity_panel.pdf` | 图 23（`fig:c0-panel`） |
-| `c0_sensitivity_phase.pdf` | `c0_sensitivity_phase.pdf` | 图 24（`fig:c0-phase`） |
-| `c0_sensitivity_scan.pdf` | `c0_sensitivity_scan.pdf` | 附录（`fig:c0-scan`） |
-| `c0_beta_existence.pdf` | `c0_beta_existence.pdf` | 附录（`fig:c0-beta-existence`） |
+| `outputs/c0_sensitivity_main_linear_cumulative.pdf` | `c0_sensitivity_panel.pdf` | 图 23（`fig:c0-panel`） |
+| `outputs/c0_sensitivity_phase.pdf` | `c0_sensitivity_phase.pdf` | 图 24（`fig:c0-phase`） |
+| `outputs/c0_sensitivity_scan.pdf` | `c0_sensitivity_scan.pdf` | 附录（`fig:c0-scan`） |
+| `outputs/c0_beta_existence.pdf` | `c0_beta_existence.pdf` | 附录（`fig:c0-beta-existence`） |
 
 `c0_sensitivity_main.pdf` 与 `c0_sensitivity_main_linear.pdf` 仅作对照，不进论文。
 - `c0_sensitivity_scan.png/.pdf`：c0 连续扫描的八指标图，上排 t1、Δt、tail、t_end

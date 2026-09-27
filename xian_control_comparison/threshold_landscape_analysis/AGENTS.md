@@ -4,6 +4,10 @@
 
 本目录保存西安 SIQR 模型下 `情景一阈值控制` 的单阈值响应图谱实验。当前阶段只做理论量、数值轨迹、成本指标和可行性状态的整理，不写论文最终结论，也不把阶段性结果解释为某一策略已经优于另一策略。
 
+本目录只跟踪源码、规范和 `notes.md`。各输出目录由主程序重新生成并已加入 `.gitignore`；
+清理前的二维图谱快照位于
+`archive_unused/generated_snapshots/xian_threshold_landscape_eta_c0/`。
+
 处理本目录内容时，应同时遵守项目根目录 `AGENTS.md` 和 `xian_control_comparison/AGENTS.md`。若涉及本目录已经生成的图谱、表格和报告，以本文件的实验口径为准。
 
 ## 控制律与基本口径
@@ -109,7 +113,7 @@ w_c=1,\quad w_q=2.
 该目录保存 `eta` 与 `c0` 的二维敏感性图谱。主扫描范围为：
 
 ```tex
-c_0\in[6,13],\qquad \eta\in[100,30000].
+c_0\in[6,13],\qquad \eta\in[50,40000].
 ```
 
 主要文件：
@@ -130,7 +134,10 @@ c_0\in[6,13],\qquad \eta\in[100,30000].
 
 这些图保留彩色热图底图，并叠加红色虚线等高线和曲线标签。等高线绘制时横向坐标使用 `log10(eta)`，但横轴刻度仍标回真实 `eta`；这只是绘图坐标变换，不改变 CSV 中的真实阈值和指标值。`status` 是分类状态变量，当前又全部为 `ok`，因此不生成 `heatmap_status_contour.*`。
 
-当前 `eta_c0_heatmap_summary.csv` 中 1680 个组合均为 `status=ok`。尽管如此，`status` 字段仍保留为可行性诊断字段，后续扩大参数范围时可能出现 `q_below_q0`、`q_out_of_bounds`、`threshold_not_reached` 或 `not_cleared`。
+当前程序使用 98 个 `eta` 点和 47 个 `c0` 点；本次从空输出重建得到的
+`eta_c0_heatmap_summary.csv` 含 4606 个组合，均为 `status=ok`。尽管如此，
+`status` 字段仍保留为可行性诊断字段，后续扩大参数范围时可能出现
+`q_below_q0`、`q_out_of_bounds`、`threshold_not_reached` 或 `not_cleared`。
 
 当前二维扫描中，固定 `eta` 改变 `c0` 的数值影响应分指标理解。对固定 `eta`，当 `c0` 从 6 增至 13 时，`control_duration` 一般缩短约 `17%-18%`。低阈值下这个绝对变化仍很大，例如 `eta=100` 时，`control_duration` 从约 `27474.82` 降至 `22429.22`，`t_{\rm end}` 从约 `29287.83` 降至 `23648.88`；但由于平台期仍是万天量级，从热图尺度看，`eta` 对控制持续时间的主导作用更强。高阈值下平台期较短，`c0` 对清零终止时刻的相对影响更明显；例如 `eta=26326` 时，`t_{\rm end}` 从约 `379.97` 降至 `256.95`，约下降 `32.38%`。
 

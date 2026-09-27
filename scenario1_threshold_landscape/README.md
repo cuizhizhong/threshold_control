@@ -10,19 +10,15 @@ scenario1_threshold_landscape/
 ├── run_all.m
 ├── common/
 ├── scripts/
-├── current_run/
-│   ├── output_csv/
-│   ├── figures/
-│   ├── tables/
-│   └── logs/
-└── archive_runs/
+└── current_run/                   # 运行时创建，不纳入版本控制
 ```
 
 - `run_all.m`：推荐入口，先清空 `current_run/` 输出目录，再顺序生成数据、图和表。
 - `scripts/`：数据生成、单独绘图和表格脚本。
 - `common/`：共享参数、指标计算、轨迹重构、读表和保存图形函数。
-- `current_run/`：最新一轮完整结果。
-- `archive_runs/`：早期历史结果，仅供参考，不再由脚本自动写入。
+- `current_run/`：运行时创建的最新一轮完整结果，不纳入版本控制。
+- 清理前的完整结果快照位于
+  `../archive_unused/generated_snapshots/scenario1_threshold_landscape_current_run/`。
 
 ## 推荐运行
 
@@ -32,7 +28,7 @@ scenario1_threshold_landscape/
 matlab -batch "run('E:\work\draft\scenario1_threshold_landscape\run_all.m')"
 ```
 
-运行 `run_all.m` 会先清空 `current_run/` 的 `output_csv/`、`figures/`、`tables/`、`logs/`（避免上一轮的过期文件残留），再重新生成本轮完整结果，不再自动归档。如需保留某一轮结果，请在重跑前手动把 `current_run/` 复制到别处。`archive_runs/` 保留了早期的历史结果，但不再由脚本自动写入。
+运行 `run_all.m` 会先清空 `current_run/` 的 `output_csv/`、`figures/`、`tables/`、`logs/`（避免上一轮的过期文件残留），再重新生成本轮完整结果。`current_run/` 已加入 `.gitignore`；如需长期保留某次结果，应在重跑前复制到 `archive_unused/` 下的新目录并补充归档说明。
 
 注意：单独重画某一类图（下面“单独运行模块”）不会清空目录，只覆盖对应输出；清空只发生在 `run_all.m`。
 
@@ -90,14 +86,14 @@ c0_list = 2.3:0.1:14;
 
 ## 当前结果
 
-最新结果都在 `current_run/` 下，完整一轮应包含：
+重新运行后，最新结果位于 `current_run/`；完整一轮应包含：
 
 - `current_run/output_csv/`：8 个 CSV；
 - `current_run/figures/`：17 张 PDF；
 - `current_run/tables/`：4 个 LaTeX 表格；
 - `current_run/logs/`：各脚本运行日志。
 
-最近一次完整运行（2026-07-28）得到：
+归档的最近一次完整运行（2026-07-28）得到：
 
 - `landscape_summary.csv`：28438 行；
 - `valid`：26780/28438；

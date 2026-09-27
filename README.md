@@ -55,14 +55,12 @@ $$
 ├── xian_control_comparison/       # 西安三种控制策略的拟合、比较与敏感性分析
 ├── xian_dom/                      # 有效人口占优区域及图 20--23 的求解和绘图
 ├── c0_sensitivity/                # 固定阈值比例下的 c0 敏感性实验
-├── 真实数据/                       # 六个地区的原始 Excel 数据，请勿直接修改
+├── 真实数据/                       # 当前主线使用的西安原始 Excel 数据，请勿直接修改
 ├── figures/                       # 主论文采用的成品图
 ├── table/                         # 主论文采用的 CSV 与 LaTeX 表格
 ├── refs/                          # 参考论文、文本摘录和模型示意图
-├── archive_unused/                # 已归档的旧实验与非当前主线内容
-├── ai_markdown/                   # 分析记录与阶段性材料
-├── AGENTS.md                      # 项目研究口径和协作约定
-└── PROGRESS.md                    # 论文整合过程记录
+├── archive_unused/                # 旧实验、非当前主线数据与可复现输出快照
+└── AGENTS.md                      # 项目研究口径和协作约定
 ```
 
 主要入口如下：
@@ -169,9 +167,13 @@ xelatex -interaction=nonstopmode flatten_curve_analysis_cn.tex
 
 ## 6. 数据、产物与版本管理
 
-- `真实数据/` 保存原始输入，分析代码不应直接覆写这些文件。
+- `真实数据/` 只保留当前主线使用的西安原始输入；其余五个地区的数据已移至
+  `archive_unused/inactive_scope/multicity_raw_data/`，分析代码不应直接覆写原始文件。
 - 主论文使用的成品图和表集中复制到 `figures/` 与 `table/`。
-- 各实验模块的过程输出保留在各自目录，正式输出与探索性输出应使用不同目录或后缀。
+- 各实验模块的过程输出由运行命令重新生成并已加入 `.gitignore`；清理前的输出快照保存在
+  `archive_unused/generated_snapshots/`，不再与活动源码混放。
+- 当前不参与论文主线但仍有追溯价值的代码、数据和图片统一放在 `archive_unused/`；
+  归档清单和恢复方式见 [`archive_unused/README.md`](archive_unused/README.md)。
 - LaTeX 中间文件、Python 缓存、本机编辑器设置和本机 AI 助手权限配置不纳入版本控制。
 - 提交前应检查 `git status` 与 `git diff`，避免把无关或含本机信息的文件加入提交。
 

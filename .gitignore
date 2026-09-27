@@ -31,3 +31,26 @@ panelB.pkl
 
 # 本机 AI 助手权限配置
 .claude/
+
+# 可复现的实验过程输出（论文定稿图表单独保存在 figures/ 与 table/）
+scenario1_threshold_landscape/current_run/
+c0_sensitivity/outputs/
+
+xian_control_comparison/xian_*.csv
+xian_control_comparison/xian_*.pdf
+xian_control_comparison/xian_*.png
+xian_control_comparison/xian_*_table.tex
+
+xian_control_comparison/threshold_landscape_analysis/eta_landscape/
+xian_control_comparison/threshold_landscape_analysis/representative_eta_panels/
+xian_control_comparison/threshold_landscape_analysis/cost_weight_analysis/
+xian_control_comparison/threshold_landscape_analysis/eta_c0_heatmap/
+xian_control_comparison/threshold_landscape_analysis/representative_c0_panels/
+xian_control_comparison/threshold_landscape_analysis/high_c0_stress_test_panels/
+
+xian_control_comparison/effective_population_sensitivity/figures/
+xian_control_comparison/effective_population_sensitivity/representative_panels/
+xian_control_comparison/effective_population_sensitivity/*.csv
+xian_control_comparison/effective_population_sensitivity/*_note.tex
+xian_control_comparison/effective_population_sensitivity/*_note.pdf
+xian_control_comparison/effective_population_sensitivity/*_table.tex

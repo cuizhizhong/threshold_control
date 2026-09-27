@@ -4,6 +4,9 @@
 
 本目录是 `N=763` 情景一阈值控制的独立数值实验模块，用于生成“阈值响应图谱”。本实验只研究情景一：
 
+`current_run/` 是运行时输出目录，已加入 `.gitignore`。清理前的完整快照位于
+`archive_unused/generated_snapshots/scenario1_threshold_landscape_current_run/`；活动目录只跟踪源码、验证脚本和说明文件。
+
 - 固定接触率 `c(t)=c0`；
 - 在平台期使用理论推导得到的时间开环隔离控制 `q_c(t)`；
 - 考察二维参数平面 `(\eta/N,c_0)` 对启动时间、平台时长、清零时间、隔离强度、控制成本和累计感染的影响。

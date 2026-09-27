@@ -17,8 +17,9 @@
 
     python caliber.py
 
-TDINN 参照量取自 xian_control_comparison/xian_control_comparison_summary.csv，
-作为该次疫情已发生结局的固定参照，不随 N_eff 重算。
+TDINN 参照量最初由西安比较程序生成，清理前的 CSV 快照现存于
+archive_unused/generated_snapshots/xian_control_comparison_main/。本文件已将这些数值
+固化为下方常数，因此运行时不读取该 CSV，也不随 N_eff 重算。
 """
 
 from __future__ import annotations

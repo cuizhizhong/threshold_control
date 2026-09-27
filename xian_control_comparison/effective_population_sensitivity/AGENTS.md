@@ -4,6 +4,10 @@
 
 本目录用于保存“有效混合人口规模” \(N_{\rm eff}\) 对情景一阈值控制影响的探索性数值实验。该实验不替代西安主基准 \(N=13,163,000\)，也不修改 `xian_control_comparison.py`、`archive_unused/low_eta_analysis/` 或 `threshold_landscape_analysis/` 中的既有结果。
 
+本目录只跟踪源码和实验规范。CSV、PDF、PNG、LaTeX 笔记及 `figures/`、
+`representative_panels/` 均由主程序重新生成并已加入 `.gitignore`；清理前快照位于
+`archive_unused/generated_snapshots/effective_population_sensitivity/`。
+
 本实验的核心问题是：若把 SIQR 模型中的人口规模从全市人口解释为有效混合人口 \(N_{\rm eff}\)，则固定绝对阈值和同比例阈值下的启动时间、平台控制时长和清零时间如何变化。
 
 ## 模型口径
