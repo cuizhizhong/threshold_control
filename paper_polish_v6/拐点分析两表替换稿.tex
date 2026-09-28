@@ -1,0 +1,53 @@
+% 依赖 booktabs、array、tabularx、multirow 和 threeparttable；保留原稿标签。
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \setlength{\tabcolsep}{3.5pt}
+  \renewcommand{\arraystretch}{1.25}
+  \begin{threeparttable}
+    \caption{启动时易感者人数与拐点相对位置的参数敏感性}
+    \label{tab:s1:lambda-sensitivity}
+    \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.29\textwidth}*{4}{>{\centering\arraybackslash}p{0.10\textwidth}}>{\raggedright\arraybackslash}X@{}}
+      \toprule
+      \multirow{2}{*}{分析量} & \multicolumn{4}{c}{偏导数符号} & \multirow{2}{*}{依据}\\
+      \cmidrule(lr){2-5}
+       & $\beta$ & $q_0$ & $c_0$ & $\eta$ & \\
+      \midrule
+      启动时易感者人数 $S^*$ & $>0$ & $<0$ & $>0$ & $<0$ & 引理~\ref{lem:s1:Sstar-sensitivity}\\
+      拐点相对位置 $\lambda$ & $>0$ & 不定 & $>0$ & $<0$ & 命题~\ref{prop:s1:lambda-sensitivity}\\
+      \bottomrule
+    \end{tabularx}
+    \begin{tablenotes}[flushleft]
+      \footnotesize
+      \item 注：表中各项为分析量关于列示参数的偏导数符号，求导时固定 $N,S_0,I_0$ 及其余模型参数。关于 $S^*$ 的结果要求满足控制触发条件；关于 $\lambda$ 的结果还要求 $S_c<2\bar S<S^*$。不定表示偏导数的符号不能在上述参数范围内统一确定。
+    \end{tablenotes}
+  \end{threeparttable}
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \small
+  \setlength{\tabcolsep}{3.5pt}
+  \renewcommand{\arraystretch}{1.25}
+  \begin{threeparttable}
+    \caption{拐点相关量与控制持续时间的参数敏感性}
+    \label{tab:s1:inflection-roles}
+    \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.29\textwidth}*{4}{>{\centering\arraybackslash}p{0.10\textwidth}}>{\raggedright\arraybackslash}X@{}}
+      \toprule
+      \multirow{2}{*}{分析量} & \multicolumn{4}{c}{偏导数符号} & \multirow{2}{*}{依据}\\
+      \cmidrule(lr){2-5}
+       & $\beta$ & $q_0$ & $c_0$ & $\eta$ & \\
+      \midrule
+      拐点处隔离率 $\qinf$ & $<0$ & $=0$ & $=0$ & $=0$ & 定理~\ref{thm:s1:inflection}\\
+      $\qinf-q_0$ & $<0$ & $<0$ & $=0$ & $=0$ & 式~\eqref{eq:s1:inflection-exist}\\
+      $S^*-2\bar S$ & $>0$ & $<0$ & $>0$ & $<0$ & 引理~\ref{lem:s1:Sstar-sensitivity}、式~\eqref{eq:s1:barS}\\
+      控制持续时间 $\Delta t$ & $>0$ & $<0$ & 不定 & $<0$ & 推论~\ref{cor:s1:duration-sensitivity}\\
+      \bottomrule
+    \end{tabularx}
+    \begin{tablenotes}[flushleft]
+      \footnotesize
+      \item 注：表中各项为分析量关于列示参数的偏导数符号，求导时固定 $N,S_0,I_0$ 及其余模型参数。结果在控制触发条件下成立。$\qinf-q_0$ 和 $S^*-2\bar S$ 同时为正时存在内部拐点；$=0$ 表示该量不依赖相应参数。$\partial\Delta t/\partial c_0$ 的符号由推论~\ref{cor:s1:duration-sensitivity} 中的判据确定。
+    \end{tablenotes}
+  \end{threeparttable}
+\end{table}

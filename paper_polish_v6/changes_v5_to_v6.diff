@@ -1,0 +1,1247 @@
+--- flatten_curve_analysis_cn_connected.tex
++++ flatten_curve_analysis_cn_notation.tex
+@@ -75,9 +75,9 @@
+     \label{fig:model_schematic}
+ \end{figure}
+ \subsection{医疗容量约束与三阶段控制策略}
+-本文以非隔离感染者人数的上限 $I(t)\le\eta$ 表示医疗容量约束，其中 $\eta$ 为给定的等效容量阈值，并不直接等同于实际 ICU 床位数。以感染人数上限表征医疗容量、并在达到上限后维持感染平台的处理可见 Miclo 等的研究~\cite{Miclo2022ICU}。在本文模型中，接触率与隔离率均影响传播过程；为考察仅加强接触追踪隔离时的控制效果，固定 $c(t)\equiv c_0$，以 $q(t)$ 作为唯一的控制变量。
+-
+-容量约束 $I(t)\le\eta$ 本身并不能唯一确定隔离率。本文选取一类以感染人数首次达到阈值为启动条件、以维持 $I(t)\equiv\eta$ 为平台目标的控制策略。记常规隔离率为 $0\le q_0<1$，常规接触率为 $c_0>0$，加强隔离的启动和结束时间分别为 $t_1$、$t_2$，平台期隔离率记为 $q_c(t)$。控制函数为
++本文以非隔离感染者人数的上限 $I(t)\le\eta$ 表示医疗容量约束，其中 $\eta$ 为给定的等效容量阈值，并不直接等同于实际 ICU 床位数。以感染人数上限表征医疗容量、并在达到上限后使感染人数维持在阈值水平的处理可见 Miclo 等的研究~\cite{Miclo2022ICU}。在本文模型中，接触率与隔离率均影响传播过程；为考察仅加强接触追踪隔离时的控制效果，固定 $c(t)\equiv c_0$，以 $q(t)$ 作为唯一的控制变量。
++
++容量约束 $I(t)\le\eta$ 本身并不能唯一确定隔离率。本文选取一类以感染人数首次达到阈值为启动条件、以维持 $I(t)\equiv\eta$ 为控制目标的控制策略。记常规隔离率为 $0\le q_0<1$，常规接触率为 $c_0>0$，加强隔离的启动和结束时间分别为 $t_1$、$t_2$，阈值控制期隔离率记为 $q_c(t)$。控制函数为
+ \begin{equation}
+ c(t)\equiv c_0,\qquad
+ q(t)=
+@@ -95,15 +95,15 @@
+ \[
+ \frac{\beta c_0(1-q_c(t))}{N}S(t)=\gamma.
+ \]
+-由此维持 $I(t)\equiv\eta$，相应区间称为平台期。平台期内要求 $q_0\le q_c(t)\le1$。由于 $S(t)$ 仍随感染和隔离而减少，维持上述平衡所需的隔离率也随之变化，而不是一个预先给定的常数。
+-
+-加强隔离的结束条件由恢复常规控制后感染人数是否继续增长决定。当 $q(t)=q_0$ 时，感染人数的增长率由 $\beta c_0(1-q_0)S/N-\gamma$ 的符号确定。因而，平台期在易感者人数降至常规控制下的临界值时结束：
++由此在 $[t_1,t_2]$ 内维持 $I(t)\equiv\eta$，本文将这一阶段称为阈值控制期。阈值控制期内要求 $q_0\le q_c(t)\le1$。由于 $S(t)$ 仍随感染和隔离而减少，维持上述平衡所需的隔离率也随之变化，而不是一个预先给定的常数。
++
++加强隔离的结束条件由恢复常规控制后感染人数是否继续增长决定。当 $q(t)=q_0$ 时，感染人数的增长率由 $\beta c_0(1-q_0)S/N-\gamma$ 的符号确定。因而，阈值控制期在易感者人数降至常规控制下的临界值时结束：
+ \begin{equation}
+ S(t_2)=S_c\doteq\frac{\gamma N}{\beta c_0(1-q_0)}.
+ \end{equation}
+-在本文不考虑易感者回流的模型中，恢复 $q_0$ 后 $S(t)$ 继续下降，因此 $t>t_2$ 时感染人数下降，不再超过容量阈值。相反，在平台上 $S>S_c$ 时恢复 $q_0$，感染人数会重新增加，因而不能满足所要求的上限。
+-
+-本文将上述方案称为隔离率阈值控制。其启动和结束时刻分别由感染人数阈值与易感者临界值确定，控制持续时间是策略作用下的结果，而非独立指定的参数。以下研究这一给定策略的控制函数、持续时间、累计感染和成本；维持感染平台是本文选定的控制要求，不作其为所有允许控制中最优方案的结论。
++在本文不考虑易感者回流的模型中，恢复 $q_0$ 后 $S(t)$ 继续下降，因此 $t>t_2$ 时感染人数下降，不再超过容量阈值。相反，在阈值控制期内 $S>S_c$ 时恢复 $q_0$，感染人数会重新增加，因而不能满足所要求的上限。
++
++本文将上述方案称为隔离率阈值控制。其启动和结束时刻分别由感染人数阈值与易感者临界值确定，控制持续时间是策略作用下的结果，而非独立指定的参数。以下研究这一给定策略的控制函数、持续时间、累计感染和成本；使感染人数维持在阈值水平是本文选定的控制要求，不作其为所有允许控制中最优方案的结论。
+ 
+ \subsection{常规阶段的首次积分与感染峰值}
+ 判断阈值控制是否被触发，需要先确定常规控制下的感染峰值及其对应轨迹。式~\eqref{eq:model:full} 中，$S$ 和 $I$ 的方程不依赖于 $S_q$、$I_q$ 和 $R$，因此这一分析可归结为二维系统
+@@ -173,13 +173,13 @@
+ 
+ \section{隔离率阈值控制的解析结果}
+ \label{sec:s1}
+-常规阶段的首次积分确定了进入平台时的状态。平台建立后，感染人数保持不变，但易感者人数和隔离率仍随时间变化；当系统达到退出条件后，感染人数又按常规控制下降。本节将这三个阶段连接起来，给出控制过程及其终止指标的解析表达。
++常规阶段的首次积分确定了进入阈值控制期时的状态。阈值控制开始后，感染人数保持不变，但易感者人数和隔离率仍随时间变化；当系统达到退出条件后，感染人数又按常规控制下降。本节将这三个阶段连接起来，给出控制过程及其终止指标的解析表达。
+ 
+ 按照式~\eqref{eq:model:piecewise-control}，整个过程中
+ \begin{equation*}
+ c(t)=c_0,\qquad t\ge 0,
+ \end{equation*}
+-隔离率在控制前后均为 $q_0$，平台期内为 $q_c(t)$。
++隔离率在控制前后均为 $q_0$，阈值控制期内为 $q_c(t)$。
+ 
+ 相应的二维系统为
+ \begin{equation}
+@@ -199,7 +199,7 @@
+ \end{cases}
+ \quad i=1,2,
+ \end{equation}
+-其中 $\beta_1^0$ 和 $\beta_2^0$ 由式~\eqref{eq:model:beta12-baseline} 给出，平台期的系数为
++其中 $\beta_1^0$ 和 $\beta_2^0$ 由式~\eqref{eq:model:beta12-baseline} 给出，阈值控制期的系数为
+ \begin{equation}
+ \beta_1^1(t)=\frac{c_0\big[\beta+q_c(t)(1-\beta)\big]}{N},
+ \quad
+@@ -224,7 +224,7 @@
+ \subsection{控制启动点与启动时间}
+ 当 $I_0<\eta<I_{\max}^{no}$ 时，同一条常规轨迹在感染上升和下降阶段各经过一次 $I=\eta$。策略使用的是上升阶段的交点，因此求取 $S^*$ 时必须区分这两个交点。确定 $S^*$ 后，再由常规阶段的易感者方程得到启动时间。
+ 
+-\begin{theorem}[控制启动点与首次到达时间]
++\begin{theorem}
+ \label{thm:s1:trigger}
+ 设 $S_0>S_c$ 且 $I_0<\eta<I_{\max}^{no}$。记
+ \begin{equation}
+@@ -323,13 +323,13 @@
+ \end{proof}
+ 
+ \begin{remark}
+-定理~\ref{thm:s1:trigger} 对应正持续时间的平台。若 $\eta=I_0$，则 $t_1=0$、$S^*=S_0$；若 $\eta=I_{\max}^{no}$，则 $z_\eta=-1/e$、$W_{-1}(z_\eta)=-1$、$S^*=S_c$，平台持续时间为零。若 $\eta>I_{\max}^{no}$，常规控制轨迹不会达到阈值；若 $\eta<I_0$，初始感染人数已超过阈值，不属于本文讨论的触发情形。
++定理~\ref{thm:s1:trigger} 对应持续时间为正的阈值控制。若 $\eta=I_0$，则 $t_1=0$、$S^*=S_0$；若 $\eta=I_{\max}^{no}$，则 $z_\eta=-1/e$、$W_{-1}(z_\eta)=-1$、$S^*=S_c$，控制持续时间为零。若 $\eta>I_{\max}^{no}$，常规控制轨迹不会达到阈值；若 $\eta<I_0$，初始感染人数已超过阈值，不属于本文讨论的触发情形。
+ \end{remark}
+ 
+ \subsection{阈值控制期的隔离控制律}
+-定理~\ref{thm:s1:trigger} 给出的启动状态满足 $S^*>S_c$。此时常规隔离率不足以阻止感染人数继续上升，必须提高 $q(t)$。平台要求将这一选择具体化：进入 $I$ 的流量须恰好补偿其移出量，由此确定控制期的隔离率。
+-
+-\begin{theorem}[阈值控制期的隔离控制律]
++定理~\ref{thm:s1:trigger} 给出的启动状态满足 $S^*>S_c$。此时常规隔离率不足以阻止感染人数继续上升，必须提高 $q(t)$。恒定感染要求将这一选择具体化：进入 $I$ 的流量须恰好补偿其移出量，由此确定控制期的隔离率。
++
++\begin{theorem}
+ \label{thm:s1:qc-structure}
+ 设 $c(t)\equiv c_0$，且 $S_0>S_c$、$0<I_0<\eta<I_{\max}^{no}$。
+ 若在阈值控制期 $t\in[t_1,t_2]$ 内要求 $I(t)\equiv\eta$，
+@@ -352,7 +352,7 @@
+ \end{theorem}
+ 
+ \begin{proof}
+-由平台条件 $I(t)\equiv\eta$，有 $\dot I=0$。
++由恒定感染条件 $I(t)\equiv\eta$，有 $\dot I=0$。
+ 代入系统~\eqref{eq:s1:dynamics} 的第二个方程，得
+ \[
+ \frac{\beta c_0(1-q)S}{N}\eta-\gamma\eta=0.
+@@ -364,9 +364,9 @@
+ 该解唯一。结合三阶段控制的定义，即得式~\eqref{eq:s1:q-piecewise}。
+ \end{proof}
+ 
+-式~\eqref{eq:s1:q-control} 将所需隔离率表示为易感者人数的函数。沿平台轨迹考察这一关系，可进一步确定隔离率在启动和结束时是否连续，以及控制期内如何变化。这些性质如下。
+-
+-\begin{corollaryn}[阈值控制律的结构]
++式~\eqref{eq:s1:q-control} 将所需隔离率表示为易感者人数的函数。沿阈值控制期轨迹考察这一关系，可进一步确定隔离率在启动和结束时是否连续，以及控制期内如何变化。这些性质如下。
++
++\begin{corollaryn}
+ \label{cor:s1:qc-structure}
+ 在定理~\ref{thm:s1:qc-structure} 的条件下，隔离控制律具有以下性质：
+ \begin{enumerate}
+@@ -391,7 +391,7 @@
+ q_c(S_c)=q_0,\qquad q_c(S^*)=q_{\max}.
+ \]
+ 在 $t=t_1$ 左侧系统仍采用常规隔离率，故 $q(t_1^-)=q_0$。
+-进入平台期后，$q(t_1)=q(t_1^+)=q_c(S^*)=q_{\max}$，且
++进入阈值控制期后，$q(t_1)=q(t_1^+)=q_c(S^*)=q_{\max}$，且
+ \[
+ \Delta q:=q_{\max}-q_0
+ =\frac{\gamma N}{\beta c_0}
+@@ -404,7 +404,7 @@
+ \dot S=-\frac{c_0\eta}{N}(S-\bar S),\qquad
+ \bar S=\frac{(1-\beta)\gamma N}{\beta c_0}.
+ \]
+-因此，沿平台轨迹有
++因此，沿阈值控制期轨迹有
+ \[
+ \frac{d}{dt}q_c(S(t))
+ =\frac{\gamma N}{\beta c_0}\frac{\dot S(t)}{S(t)^2}
+@@ -421,10 +421,10 @@
+ 式~\eqref{eq:s1:q-control} 给出控制律的状态表达。代入下一小节的理论轨迹后，可得时间函数 $q_c(t)$；本文数值计算采用该预定函数，不作实时反馈修正。
+ \end{remark}
+ 
+-\subsection{平台期的状态轨迹与控制持续时间}
+-上述控制律给出了隔离率与状态的关系，但确定其时间变化和持续时间还需要求出 $S(t)$。代入平台条件后，易感者方程化为 $\dot S=-(c_0\eta/N)(S-\bar S)$，因此平台轨迹可以显式求得，并据此将控制律写为时间函数。
+-\begin{theorem}[平台期的状态轨迹与时间控制函数]
+-    在定理~\ref{thm:s1:qc-structure} 的条件下，平台期 $t\in[t_1,t_2]$ 内的易感者人数为
++\subsection{阈值控制期的状态轨迹与控制持续时间}
++上述控制律给出了隔离率与状态的关系，但确定其时间变化和持续时间还需要求出 $S(t)$。代入恒定感染条件后，易感者方程化为 $\dot S=-(c_0\eta/N)(S-\bar S)$，因此阈值控制期轨迹可以显式求得，并据此将控制律写为时间函数。
++\begin{theorem}
++    在定理~\ref{thm:s1:qc-structure} 的条件下，阈值控制期 $t\in[t_1,t_2]$ 内的易感者人数为
+     \begin{equation}
+         S(t) = \left( S^* - \bar S \right) e^{\frac{-c_0\eta}{N}(t - t_1 )} + \bar S
+         \label{eq:s1:S-analytic}
+@@ -457,9 +457,9 @@
+     q_c(t)= 1 - \frac{1}{\left[\frac{\beta c_0 S^* }{\gamma N} + \beta- 1 \right] e^{\frac{-c_0 \eta}{N} (t-t_1)} + 1-\beta}
+     \]
+ \end{proof}
+-式~\eqref{eq:s1:S-analytic} 描述了平台上易感者人数的下降过程。加强隔离并不在预定日期结束，而是持续到 $S(t)$ 达到 $S_c$。由于 $S^*>S_c>\bar S$，该轨迹在有限时间内达到退出状态，所需时间由下面的结果给出。
+-
+-\begin{theorem}[控制结束时间与持续时间]
++式~\eqref{eq:s1:S-analytic} 描述了阈值控制期内易感者人数的下降过程。加强隔离并不在预定日期结束，而是持续到 $S(t)$ 达到 $S_c$。由于 $S^*>S_c>\bar S$，该轨迹在有限时间内达到退出状态，所需时间由下面的结果给出。
++
++\begin{theorem}
+     在定理~\ref{thm:s1:qc-structure} 的条件下，以 $S(t_2)=S_c$ 为结束条件，则控制结束时间为
+     \begin{equation}
+     t_2
+@@ -482,7 +482,7 @@
+     \end{equation}
+ \end{theorem}
+ \begin{proof}   
+-    平台期内，易感者人数从 $S^*$ 下降至 $S_c$。对易感者方程积分，得
++    阈值控制期内，易感者人数从 $S^*$ 下降至 $S_c$。对易感者方程积分，得
+     \begin{align*}
+         \Delta t=t_2-t_1=\int_{t_1}^{t_2} dt=&\int_{S^*}^{S_c} \frac{1}{\dot{S}} \, dS
+         =\frac{N}{c_0\eta}\int_{S_c}^{S^*} \frac{1}{S-\bar S}\,dS
+@@ -547,7 +547,7 @@
+ 控制结束并不等于感染过程结束：在 $t_2$ 时仍有 $I(t_2)=\eta$。恢复常规隔离率后，$S(t)<S_c$，感染人数随之下降；当 $\eta>1$ 时，还需要一段时间才能达到社区动态清零。因此，控制持续时间与疫情持续时间应分别计算。
+ 
+ 沿用 Zhou 等~\cite{Zhou2024SPCI} 对隔离区外动态清零的定义，本文以非隔离感染者人数在下降阶段达到 $1$ 作为判据，记相应时刻为 $t_{end}$，即 $I(t_{end})=1$ 且 $I'(t_{end})<0$。退出后的常规轨迹从 $(S_c,\eta)$ 出发，利用同一首次积分即可确定该时刻及其对应的易感者人数。
+-\begin{theorem}[动态清零时间]\label{thm:s1:tend}
++\begin{theorem}\label{thm:s1:tend}
+     在上述阈值控制下，设动态清零时刻位于控制结束之后。记 $C_2=\eta+(\beta_2^0/\beta_1^0)S_c-\rho_1\ln S_c$，则 $t_{end}$ 由下式给出
+     \[
+     t_{end}=t_2+\int_{S_c}^{S(t_{end})}\frac{1}
+@@ -649,7 +649,7 @@
+ 
+ 
+ \subsection{总累计感染}
+-峰值约束只限制同时存在的非隔离感染者人数，不能由此确定整个过程的累计感染规模。平台期虽有 $I(t)\equiv\eta$，仍不断出现新感染者；此外，直接进入 $I_q$ 的感染者也应计入总数。为与动态清零时间采用同一评价终点，将从初始时刻到动态清零时刻的总累计感染定义为
++峰值约束只限制同时存在的非隔离感染者人数，不能由此确定整个过程的累计感染规模。阈值控制期虽有 $I(t)\equiv\eta$，仍不断出现新感染者；此外，直接进入 $I_q$ 的感染者也应计入总数。为与动态清零时间采用同一评价终点，将从初始时刻到动态清零时刻的总累计感染定义为
+ \begin{equation}
+ \Itcum
+ =
+@@ -674,9 +674,9 @@
+ \Itcum=I_{\rm cum}+I_{q_{\rm cum}}.
+ \]
+ 
+-前后两个常规阶段具有相同的参数，感染流量均可用易感者人数的变化表示；平台阶段则使用已求得的 $S(t)$ 和 $q_c(t)$。分别计算三段流量，可将累计感染写成启动、退出和清零时刻的易感者人数的函数。
+-
+-\begin{theorem}[总累计感染的分段表达]\label{thm:s1:Itcum}
++前后两个常规阶段具有相同的参数，感染流量均可用易感者人数的变化表示；阈值控制阶段则使用已求得的 $S(t)$ 和 $q_c(t)$。分别计算三段流量，可将累计感染写成启动、退出和清零时刻的易感者人数的函数。
++
++\begin{theorem}\label{thm:s1:Itcum}
+     设系统在 $t_1$ 启动阈值控制，在 $t_2$ 结束控制，并在 $t_{\rm end}>t_2$ 达到动态清零。记 $S_{\rm end}=S(t_{\rm end})$，则从初始时刻到 $t_{\rm end}$ 的总累计感染为
+     \[
+     \Itcum
+@@ -766,7 +766,9 @@
+ 
+ \section{成本与参数敏感性}
+ \label{sec:cost}
+-第~\ref{sec:s1}~节确定了给定参数下的三阶段控制过程。不同容量阈值和常规接触水平会改变启动状态、所需隔离率及平台时长，因而即使都能满足各自的感染上限，控制投入也可能不同。本节以累计控制强度评价这一投入，并分析有关指标的参数依赖。
++第~\ref{sec:s1}~节确定了给定参数下的三阶段控制过程。不同容量阈值和常规接触水平会改变启动状态、所需隔离率及控制持续时间，因而即使都能满足各自的感染上限，控制投入也可能不同。本节以累计控制强度评价这一投入，并分析有关指标的参数依赖。
++
++以下分析均在相应结论规定的参数范围内进行。对某一参数求偏导时，除特别说明外，固定人口规模、初始状态及其余独立参数。
+ 
+ \subsection{成本函数}
+ 
+@@ -810,24 +812,24 @@
+ 
+ 
+ \subsection{启动点的参数敏感性}
+-平台时长、最大隔离率和成本的表达式都含有 $S^*$，而 $S^*$ 又由常规轨迹与感染阈值的交点确定。因此，分析这些指标时需要同时计入启动状态的变化，不能把 $S^*$ 视为独立于参数的常量。下面先给出其参数导数的符号，作为后续分析的依据。
+-
+-\begin{lemma}[启动点的参数敏感性]
++控制持续时间、最大隔离率和成本的表达式都含有 $S^*$，而 $S^*$ 又由常规轨迹与感染阈值的交点确定。因此，分析这些指标时需要同时计入启动状态的变化，不能把 $S^*$ 视为独立于参数的常量。下面先给出其参数导数的符号，作为后续分析的依据。
++
++\begin{lemma}
+ \label{lem:s1:Sstar-sensitivity}
+ 设 $S_0>S_c$ 且 $I_0<\eta<I_{\max}^{no}$。固定其余参数时，
+ 启动点 $S^*$ 满足
+ \[
+-S^*_\eta<0,
+-\qquad
+-S^*_{c_0}>0,
+-\qquad
+-S^*_\beta>0,
+-\qquad
+-S^*_{q_0}<0.
++\frac{\partial S^*}{\partial \eta}<0,
++\qquad
++\frac{\partial S^*}{\partial c_0}>0,
++\qquad
++\frac{\partial S^*}{\partial \beta}>0,
++\qquad
++\frac{\partial S^*}{\partial q_0}<0.
+ \]
+ 若固定 $N,S_0,I_0$ 并以 $\theta=\eta/N$ 为参数，则
+ \[
+-S^*_\theta=NS^*_\eta<0.
++\frac{\partial S^*}{\partial \theta}=N\frac{\partial S^*}{\partial \eta}<0.
+ \]
+ \end{lemma}
+ 
+@@ -850,18 +852,18 @@
+ \end{equation}
+ 由于 $\rho_1/S_c=\beta(1-q_0)/[\beta+q_0(1-\beta)]$，
+ \[
+-F_{S^*}
++\frac{\partial F}{\partial S^*}
+ =
+ \rho_1
+ \left(
+ \frac1{S^*}-\frac1{S_c}
+ \right)<0,
+ \]
+-其中使用了上升支条件 $S^*>S_c$。隐函数定理因而适用。
+-
+-首先，$F_\eta=-1$，故
+-\begin{equation}
+-S^*_\eta
++由于启动时感染人数处于上升阶段，有 $S^*>S_c$，故上述偏导数非零，隐函数定理适用。
++
++首先，$\frac{\partial F}{\partial \eta}=-1$，故
++\begin{equation}
++\frac{\partial S^*}{\partial \eta}
+ =
+ \frac{1}{
+ \rho_1
+@@ -872,15 +874,15 @@
+ <0.
+ \label{eq:s1:Sstar-eta-sign}
+ \end{equation}
+-其次，$\rho_{1,c_0}=-\rho_1/c_0$，从而
+-\[
+-F_{c_0}
++其次，$\frac{\partial \rho_1}{\partial c_0}=-\rho_1/c_0$，从而
++\[
++\frac{\partial F}{\partial c_0}
+ =
+ -\frac{\rho_1}{c_0}\ln\frac{S^*}{S_0}>0,
+ \]
+ 并有
+ \begin{equation}
+-S^*_{c_0}
++\frac{\partial S^*}{\partial c_0}
+ =
+ \frac{\ln(S^*/S_0)}
+ {c_0
+@@ -902,14 +904,14 @@
+ {\left[\beta+q_0(1-\beta)\right]^2},
+ \]
+ \[
+-\rho_{1,\beta}
++\frac{\partial \rho_1}{\partial \beta}
+ =
+ -\frac{\rho_1(1-q_0)}
+ {\beta+q_0(1-\beta)}.
+ \]
+ 因此
+ \begin{equation}
+-S^*_\beta
++\frac{\partial S^*}{\partial \beta}
+ =
+ \frac{
+ \displaystyle
+@@ -930,7 +932,7 @@
+ >0.
+ \label{eq:s1:Sstar-beta-sign}
+ \end{equation}
+-上式分母为正。由 $S_0>S^*$、$\ln(S^*/S_0)<0$，分子第一项非负、第二项严格为正，故 $S^*_\beta>0$。
++上式分母为正。由 $S_0>S^*$、$\ln(S^*/S_0)<0$，分子第一项非负、第二项严格为正，故 $\frac{\partial S^*}{\partial \beta}>0$。
+ 
+ 最后，对 $q_0$ 有
+ \[
+@@ -941,7 +943,7 @@
+ -\frac{\beta}
+ {\left[\beta+q_0(1-\beta)\right]^2},
+ \qquad
+-\rho_{1,q_0}
++\frac{\partial \rho_1}{\partial q_0}
+ =
+ -\frac{\rho_1(1-\beta)}
+ {\beta+q_0(1-\beta)}.
+@@ -956,7 +958,7 @@
+ \]
+ 可得
+ \begin{equation}
+-S^*_{q_0}
++\frac{\partial S^*}{\partial q_0}
+ =
+ -\frac{
+ \beta
+@@ -984,7 +986,7 @@
+ \]
+ 故式~\eqref{eq:s1:Sstar-q0-sign} 方括号内严格为正。
+ 当固定 $N$ 且 $\eta=N\theta$ 时，链式法则给出
+-$S^*_\theta=NS^*_\eta<0$。
++$\frac{\partial S^*}{\partial \theta}=N\frac{\partial S^*}{\partial \eta}<0$。
+ \end{proof}
+ 
+ \subsection{启动时间与最大隔离率的参数敏感性}
+@@ -1030,7 +1032,7 @@
+ I_0+a(S_0-S_c)+aS_c\ln\frac{S_c}{S_0}.
+ \label{eq:s1:Imax-no-c0}
+ \end{equation}
+-在感染初期处于增长支的参数范围 $S_c<S_0$ 内，
++当 $S_0>S_c$、感染人数在初始阶段增加时，
+ \begin{equation}
+ \frac{d I_{\max}^{no}}{dc_0}
+ =
+@@ -1038,7 +1040,7 @@
+ \label{eq:s1:Imax-no-c0-derivative}
+ \end{equation}
+ 若给定阈值满足
+-$I_0<\eta<I_0+aS_0$，式~\eqref{eq:s1:c0-min-def} 所定义的临界值在该分支上存在且唯一，并满足
++$I_0<\eta<I_0+aS_0$，式~\eqref{eq:s1:c0-min-def} 所定义的临界值在上述参数范围内存在且唯一，并满足
+ \begin{equation}
+ I_{\max}^{no}\!\left(c_{0,\min}(\eta)\right)=\eta.
+ \label{eq:s1:c0-min-equality}
+@@ -1055,7 +1057,7 @@
+ \end{aligned}
+ \label{eq:s1:c0-min-regimes}
+ \end{equation}
+-当 $c_0<c_{0,\min}$ 时，无需加强隔离；当 $c_0=c_{0,\min}$ 时，轨迹在感染峰值处与 $I=\eta$ 相切，$S^*=S_c$ 且 $\Delta t=0$；当 $c_0>c_{0,\min}$ 时，平台持续时间为正。
++当 $c_0<c_{0,\min}$ 时，无需加强隔离；当 $c_0=c_{0,\min}$ 时，轨迹在感染峰值处与 $I=\eta$ 相切，$S^*=S_c$ 且 $\Delta t=0$；当 $c_0>c_{0,\min}$ 时，控制持续时间为正。
+ 相应地，
+ \begin{equation}
+ c_0\downarrow c_{0,\min}^{+}
+@@ -1067,7 +1069,7 @@
+ \end{equation}
+ 在 $c_0>c_{0,\min}$ 时，$\Delta t$ 的变化方向由推论~\ref{cor:s1:duration-sensitivity} 给出的导数判据确定。
+ 
+-\begin{proposition}[启动时间与最大隔离率的参数敏感性]
++\begin{proposition}
+ \label{prop:s1:sensitivity}
+ 设参数满足以下触发条件：
+ \[
+@@ -1079,21 +1081,21 @@
+ \]
+ 固定其余参数，启动时间和最大隔离率满足
+ \[
+-(t_1)_\eta>0,
+-\qquad
+-(t_1)_{c_0}<0,
++\frac{\partial t_1}{\partial \eta}>0,
++\qquad
++\frac{\partial t_1}{\partial c_0}<0,
+ \]
+ 以及
+ \[
+-(q_{\max})_\eta<0,
+-\qquad
+-(q_{\max})_{c_0}>0.
++\frac{\partial q_{\max}}{\partial \eta}<0,
++\qquad
++\frac{\partial q_{\max}}{\partial c_0}>0.
+ \]
+ \end{proposition}
+ 
+ \begin{proof}
+ 由引理~\ref{lem:s1:Sstar-sensitivity}，有
+-$S^*_\eta<0$ 与 $S^*_{c_0}>0$。启动时间可写为
++$\frac{\partial S^*}{\partial \eta}<0$ 与 $\frac{\partial S^*}{\partial c_0}>0$。启动时间可写为
+ \begin{equation}
+ t_1
+ =
+@@ -1131,7 +1133,7 @@
+ \frac{\partial S^*}{\partial c_0} \nonumber\\
+ &-\frac{N}{c_0\bigl[\beta+q_0(1-\beta)\bigr]}
+ \int_{S^*}^{S_0}
+-\frac{I_{c_0}(S;c_0)}{S I^2(S;c_0)}\,dS
++\frac{\frac{\partial I(S;c_0)}{\partial c_0}}{S I^2(S;c_0)}\,dS
+ <0.
+ \end{align}
+ 
+@@ -1154,35 +1156,35 @@
+ \]
+ 于是
+ \[
+-(q_{\max})_\eta
+-=
+-\frac{\gamma N}{\beta c_0(S^*)^2}S^*_\eta<0,
++\frac{\partial q_{\max}}{\partial \eta}
++=
++\frac{\gamma N}{\beta c_0(S^*)^2}\frac{\partial S^*}{\partial \eta}<0,
+ \]
+ 以及
+ \[
+-(q_{\max})_{c_0}
++\frac{\partial q_{\max}}{\partial c_0}
+ =
+ \frac{\gamma N}{\beta c_0^2(S^*)^2}
+-\left(S^*+c_0S^*_{c_0}\right)>0.
++\left(S^*+c_0\frac{\partial S^*}{\partial c_0}\right)>0.
+ \]
+ \end{proof}
+ 
+ \subsection{控制时长的参数敏感性}
+-命题~\ref{prop:s1:sensitivity} 表明，增大 $c_0$ 会使控制更早启动，并提高启动时所需的隔离率，但这并不直接决定平台持续多久。式~\eqref{eq:s1:t2} 中，参数既改变起止状态，也改变时间尺度，控制时长的导数需要同时考虑这些作用。结合启动点的参数导数，可得以下结果。
+-
+-\begin{corollaryn}[控制时长的参数敏感性]
++命题~\ref{prop:s1:sensitivity} 表明，增大 $c_0$ 会使控制更早启动，并提高启动时所需的隔离率，但这并不直接决定阈值控制需持续多久。式~\eqref{eq:s1:t2} 中，参数既改变起止状态，也改变时间尺度，控制时长的导数需要同时考虑这些作用。结合启动点的参数导数，可得以下结果。
++
++\begin{corollaryn}
+ \label{cor:s1:duration-sensitivity}
+ 设 $S_0>S_c$ 且 $I_0<\eta<I_{\max}^{no}$。固定其余参数时，有
+ \[
+-\Delta t_\eta<0,
+-\qquad
+-\Delta t_\beta>0,
+-\qquad
+-\Delta t_{q_0}<0.
++\frac{\partial \Delta t}{\partial \eta}<0,
++\qquad
++\frac{\partial \Delta t}{\partial \beta}>0,
++\qquad
++\frac{\partial \Delta t}{\partial q_0}<0.
+ \]
+ 若固定 $N,S_0,I_0$，则
+-$\Delta t_\theta=N\Delta t_\eta<0$。
+-另一方面，$\Delta t_{c_0}$ 没有固定符号。令
++$\frac{\partial \Delta t}{\partial \theta}=N\frac{\partial \Delta t}{\partial \eta}<0$。
++另一方面，$\frac{\partial \Delta t}{\partial c_0}$ 没有固定符号。令
+ \[
+ \Theta
+ =
+@@ -1213,7 +1215,7 @@
+ \frac{N}{c_0\eta}
+ \ln\frac{S^*-\bar S}{S_c-\bar S}
+ \]
+-及 $S^*_\eta<0$，有
++及 $\frac{\partial S^*}{\partial \eta}<0$，有
+ \[
+ \frac{\partial\Delta t}{\partial\eta}
+ =
+@@ -1221,18 +1223,18 @@
+ \ln\frac{S^*-\bar S}{S_c-\bar S}
+ +
+ \frac{N}{c_0\eta}
+-\frac{S^*_\eta}{S^*-\bar S}
++\frac{\frac{\partial S^*}{\partial \eta}}{S^*-\bar S}
+ <0.
+ \]
+ 固定 $N$ 时 $\eta=N\theta$，故
+-$\Delta t_\theta=N\Delta t_\eta<0$；等价地，
++$\frac{\partial \Delta t}{\partial \theta}=N\frac{\partial \Delta t}{\partial \eta}<0$；等价地，
+ \[
+ \frac{\partial\Delta t}{\partial\theta}
+ =
+ \frac1{c_0}
+ \left[
+ \frac1{\theta}
+-\frac{S^*_\theta}{S^*-\bar S}
++\frac{\frac{\partial S^*}{\partial \theta}}{S^*-\bar S}
+ -
+ \frac1{\theta^2}
+ \ln\frac{S^*-\bar S}{S_c-\bar S}
+@@ -1244,40 +1246,40 @@
+ \frac{\partial}{\partial\beta}
+ \ln\frac{S^*-\bar S}{S_c-\bar S}
+ =
+-\frac{S^*_\beta-\bar S_\beta}{S^*-\bar S}
++\frac{\frac{\partial S^*}{\partial \beta}-\frac{\partial \bar S}{\partial \beta}}{S^*-\bar S}
+ -
+-\frac{(S_c)_\beta-\bar S_\beta}{S_c-\bar S}.
++\frac{\frac{\partial S_c}{\partial \beta}-\frac{\partial \bar S}{\partial \beta}}{S_c-\bar S}.
+ \]
+ 其中
+ \[
+-\bar S_\beta
++\frac{\partial \bar S}{\partial \beta}
+ =
+ -\frac{\bar S}{\beta(1-\beta)}<0,
+ \qquad
+-(S_c)_\beta-\bar S_\beta
++\frac{\partial S_c}{\partial \beta}-\frac{\partial \bar S}{\partial \beta}
+ =
+ -\frac{q_0S_c}{\beta}\le0.
+ \]
+-第一项严格为正，第二项非负，故 $\Delta t_\beta>0$。
++第一项严格为正，第二项非负，故 $\frac{\partial \Delta t}{\partial \beta}>0$。
+ 
+ 由于 $\bar S$ 不含 $q_0$，
+ \[
+ \frac{\partial}{\partial q_0}
+ \ln\frac{S^*-\bar S}{S_c-\bar S}
+ =
+-\frac{S^*_{q_0}}{S^*-\bar S}
++\frac{\frac{\partial S^*}{\partial q_0}}{S^*-\bar S}
+ -
+-\frac{(S_c)_{q_0}}{S_c-\bar S},
+-\qquad
+-(S_c)_{q_0}
++\frac{\frac{\partial S_c}{\partial q_0}}{S_c-\bar S},
++\qquad
++\frac{\partial S_c}{\partial q_0}
+ =
+ \frac{S_c}{1-q_0}>0.
+ \]
+-结合 $S^*_{q_0}<0$，得到 $\Delta t_{q_0}<0$。
++结合 $\frac{\partial S^*}{\partial q_0}<0$，得到 $\frac{\partial \Delta t}{\partial q_0}<0$。
+ 
+ 最后，由
+-$\bar S_{c_0}=-\bar S/c_0$、
+-$(S_c)_{c_0}=-S_c/c_0$ 及
++$\frac{\partial \bar S}{\partial c_0}=-\bar S/c_0$、
++$\frac{\partial S_c}{\partial c_0}=-S_c/c_0$ 及
+ 式~\eqref{eq:s1:Sstar-c0-sign}，可得
+ \[
+ \frac{\partial\Delta t}{\partial c_0}
+@@ -1299,14 +1301,14 @@
+ $\ln(S_0/S^*)>0$，当 $\Theta\le0$ 时导数必为正。
+ \end{proof}
+ 
+-在上述触发范围内，提高 $\eta$ 对应更晚的启动时刻、更低的最大隔离率和更短的平台期，其代价是允许更高的非隔离感染人数。相比之下，增大 $c_0$ 虽然提高最大隔离率，却不一定延长平台期。这些结果区分了控制强度与持续时间的变化；累计感染和动态清零时间还包含退出后的感染过程，不能仅由平台时长推断。
++在上述触发范围内，提高 $\eta$ 对应更晚的启动时刻、更低的最大隔离率和更短的阈值控制期，其代价是允许更高的非隔离感染人数。相比之下，增大 $c_0$ 虽然提高最大隔离率，却不一定延长阈值控制期。这些结果区分了控制强度与持续时间的变化；累计感染和动态清零时间还包含退出后的感染过程，不能仅由控制持续时间推断。
+ 
+ \section{隔离控制函数的拐点分析}
+ \label{sec:s1:shape}
+-前面的结果给出了平台持续时间和最大隔离率，并证明 $q_c(t)$ 在控制期内严格递减。然而，单调性并不说明隔离率的下降速度是否一直增大或减小。考察内部拐点可以进一步确定下降速度是否在平台内达到最大值，以及这一时刻如何随参数变化。
++前面的结果给出了控制持续时间和最大隔离率，并证明 $q_c(t)$ 在控制期内严格递减。然而，单调性并不说明隔离率的下降速度是否一直增大或减小。考察内部拐点可以进一步确定下降速度是否在阈值控制期内达到最大值，以及这一时刻如何随参数变化。
+ 
+ \subsection{拐点的存在条件}
+-\begin{theorem}[隔离控制函数的拐点]\label{thm:s1:inflection}
++\begin{theorem}\label{thm:s1:inflection}
+     设 $S_0>S_c$ 且 $I_0<\eta<I_{\max}^{no}$。隔离控制函数 $q_c(t)$ 在 $(t_1,t_2)$ 内存在唯一拐点，当且仅当
+     \[
+     S_c<2\bar S<S^*.
+@@ -1338,7 +1340,7 @@
+     \]
+ \end{theorem}
+ \begin{proof}
+-    对推论~\ref{cor:s1:qc-structure} 中沿平台轨迹的一阶导数继续求导，得
++    对推论~\ref{cor:s1:qc-structure} 中沿阈值控制期轨迹的一阶导数继续求导，得
+     \[
+     q_c''(t)
+     =
+@@ -1353,7 +1355,7 @@
+     \quad\Rightarrow\quad
+     q_c''(t)>0.
+     \]
+-    由于 $S(t)$ 在平台期由 $S^*$ 严格递减至 $S_c$，方程 $S(t)=2\bar S$ 在 $(t_1,t_2)$ 内至多有一个解，且存在当且仅当
++    由于 $S(t)$ 在阈值控制期由 $S^*$ 严格递减至 $S_c$，方程 $S(t)=2\bar S$ 在 $(t_1,t_2)$ 内至多有一个解，且存在当且仅当
+     \[
+     S_c<2\bar S<S^*.
+     \]
+@@ -1408,9 +1410,9 @@
+ 
+ \subsection{拐点的相对位置与边界情形}
+ \label{sec:s1:inflection-position}
+-定理~\ref{thm:s1:inflection} 给出了拐点的绝对时刻，但不同参数下平台的起止时间也会改变。若要比较隔离率下降最快的时刻在各自平台中的位置，需要将拐点时间与平台持续时间联系起来。
+-
+-当 $S_c<2\bar S<S^*$ 时，由平台期轨迹
++定理~\ref{thm:s1:inflection} 给出了拐点的绝对时刻，但不同参数下阈值控制的起止时间也会改变。若要比较隔离率下降最快的时刻在各自控制区间内的位置，需要将拐点时间与控制持续时间联系起来。
++
++当 $S_c<2\bar S<S^*$ 时，由阈值控制期轨迹
+ \[
+ S(t)=\bar S+(S^*-\bar S)e^{-c_0\eta(t-t_1)/N},
+ \]
+@@ -1445,27 +1447,27 @@
+ \in(0,1).
+ \label{eq:s1:lambda}
+ \end{equation}
+-$\lambda$ 接近 $0$ 或 $1$，分别表示拐点相对靠近平台起点或终点。
++$\lambda$ 接近 $0$ 或 $1$，分别表示拐点相对靠近控制起点或终点。
+ 拐点处 $\lvert q_c'(t)\rvert$ 最大，因此 $\lambda$ 给出隔离率下降最快时刻的相对位置，但不直接反映绝对时刻 $t_{\mathrm{inf}}$ 的变化。
+ 
+-上述相对位置只在内部拐点存在时使用。参数变化使拐点到达平台端点后，其内部存在条件不再成立。若 $2\bar S\le S_c$，则 $q_c''(t)<0$ 对所有 $t\in(t_1,t_2)$ 成立；等号 $2\bar S=S_c$ 对应拐点到达平台终点 $t_2$。
+-若 $2\bar S\ge S^*$，则 $q_c''(t)>0$ 对所有 $t\in(t_1,t_2)$ 成立；等号 $2\bar S=S^*$ 对应拐点到达平台起点 $t_1$。
++上述相对位置只在内部拐点存在时使用。参数变化使拐点到达控制区间端点后，其内部存在条件不再成立。若 $2\bar S\le S_c$，则 $q_c''(t)<0$ 对所有 $t\in(t_1,t_2)$ 成立；等号 $2\bar S=S_c$ 对应拐点到达控制终点 $t_2$。
++若 $2\bar S\ge S^*$，则 $q_c''(t)>0$ 对所有 $t\in(t_1,t_2)$ 成立；等号 $2\bar S=S^*$ 对应拐点到达控制起点 $t_1$。
+ 在两种等号情形中，二阶导数仅在相应端点取零，控制区间内部均不存在拐点。
+ 
+ \subsection{拐点相对位置的参数敏感性}
+-拐点处的隔离率 $\qinf$ 仅由 $\beta$ 决定，但拐点的相对位置还取决于平台的起止状态。因此，拐点处隔离率保持不变，并不意味着 $\lambda$ 不变。结合第~\ref{sec:cost}~节对 $S^*$ 的分析，可以确定各参数对 $\lambda$ 的影响。
+-
+-\begin{proposition}[拐点相对位置的参数敏感性]
++拐点处的隔离率 $\qinf$ 仅由 $\beta$ 决定，但拐点的相对位置还取决于阈值控制的起止状态。因此，拐点处隔离率保持不变，并不意味着 $\lambda$ 不变。结合第~\ref{sec:cost}~节对 $S^*$ 的分析，可以确定各参数对 $\lambda$ 的影响。
++
++\begin{proposition}
+ \label{prop:s1:lambda-sensitivity}
+ 设 $S_0>S_c$、$I_0<\eta<I_{\max}^{no}$ 且 $S_c<2\bar S<S^*$。固定其余参数时，有
+ \[
+-\lambda_\eta<0,
+-\qquad
+-\lambda_{c_0}>0,
+-\qquad
+-\lambda_\beta>0.
+-\]
+-关于常规控制隔离率 $q_0$，偏导 $\lambda_{q_0}$ 一般没有固定符号；
++\frac{\partial \lambda}{\partial \eta}<0,
++\qquad
++\frac{\partial \lambda}{\partial c_0}>0,
++\qquad
++\frac{\partial \lambda}{\partial \beta}>0.
++\]
++关于常规控制隔离率 $q_0$，偏导 $\frac{\partial \lambda}{\partial q_0}$ 一般没有固定符号；
+ 其驻点满足
+ \begin{equation}
+ \frac{
+@@ -1480,11 +1482,11 @@
+ }{
+ S^*-\bar S
+ }
+-S^*_{q_0}.
++\frac{\partial S^*}{\partial q_0}.
+ \label{eq:s1:lambda-q0-stationary}
+ \end{equation}
+ 若固定 $N,S_0,I_0$，则
+-$\lambda_\theta=N\lambda_\eta<0$。
++$\frac{\partial \lambda}{\partial \theta}=N\frac{\partial \lambda}{\partial \eta}<0$。
+ \end{proposition}
+ 
+ \begin{proof}
+@@ -1496,50 +1498,50 @@
+ B:=
+ \ln\frac{\bar S}{S_c-\bar S}.
+ \]
+-内部拐点条件保证 $A,B>0$，且
++内部拐点条件保证 $A,B>0$。对所考察的任一参数 $p$，有
+ \[
+ \lambda=\frac{A}{A+B},
+ \qquad
+-\lambda_p
+-=
+-\frac{BA_p-AB_p}{(A+B)^2}.
++\frac{\partial \lambda}{\partial p}
++=
++\frac{B\frac{\partial A}{\partial p}-A\frac{\partial B}{\partial p}}{(A+B)^2}.
+ \]
+ 由引理~\ref{lem:s1:Sstar-sensitivity}，
+ \[
+-A_\eta
+-=
+-\frac{S^*_\eta}{S^*-\bar S}<0,
+-\qquad
+-B_\eta=0,
+-\]
+-故 $\lambda_\eta=BA_\eta/(A+B)^2<0$。
+-
+-由于 $\bar S_{c_0}=-\bar S/c_0$，直接整理得
+-\[
+-A_{c_0}
+-=
+-\frac{S^*_{c_0}+S^*/c_0}{S^*-\bar S}>0,
+-\qquad
+-B_{c_0}=0,
+-\]
+-从而 $\lambda_{c_0}>0$。
++\frac{\partial A}{\partial \eta}
++=
++\frac{\frac{\partial S^*}{\partial \eta}}{S^*-\bar S}<0,
++\qquad
++\frac{\partial B}{\partial \eta}=0,
++\]
++故 $\frac{\partial \lambda}{\partial \eta}=B\frac{\partial A}{\partial \eta}/(A+B)^2<0$。
++
++由于 $\frac{\partial \bar S}{\partial c_0}=-\bar S/c_0$，直接整理得
++\[
++\frac{\partial A}{\partial c_0}
++=
++\frac{\frac{\partial S^*}{\partial c_0}+S^*/c_0}{S^*-\bar S}>0,
++\qquad
++\frac{\partial B}{\partial c_0}=0,
++\]
++从而 $\frac{\partial \lambda}{\partial c_0}>0$。
+ 
+ 又有
+ \[
+-\bar S_\beta
++\frac{\partial \bar S}{\partial \beta}
+ =
+ -\frac{\bar S}{\beta(1-\beta)},
+ \]
+ \[
+-A_\beta
++\frac{\partial A}{\partial \beta}
+ =
+ \frac{
+-S^*_\beta+\dfrac{S^*}{\beta(1-\beta)}
++\frac{\partial S^*}{\partial \beta}+\dfrac{S^*}{\beta(1-\beta)}
+ }{
+ S^*-\bar S
+ }>0,
+ \qquad
+-B_\beta
++\frac{\partial B}{\partial \beta}
+ =
+ -\frac{1}{
+ (1-\beta)\bigl[\beta+q_0(1-\beta)\bigr]
+@@ -1547,18 +1549,18 @@
+ \]
+ 因此
+ \[
+-\lambda_\beta
+-=
+-\frac{BA_\beta-AB_\beta}{(A+B)^2}>0.
++\frac{\partial \lambda}{\partial \beta}
++=
++\frac{B\frac{\partial A}{\partial \beta}-A\frac{\partial B}{\partial \beta}}{(A+B)^2}>0.
+ \]
+ 
+ 最后，$\bar S$ 不含 $q_0$，故
+ \[
+-A_{q_0}
+-=
+-\frac{S^*_{q_0}}{S^*-\bar S}<0,
+-\qquad
+-B_{q_0}
++\frac{\partial A}{\partial q_0}
++=
++\frac{\frac{\partial S^*}{\partial q_0}}{S^*-\bar S}<0,
++\qquad
++\frac{\partial B}{\partial q_0}
+ =
+ -\frac{1}{
+ (1-q_0)\bigl[\beta+q_0(1-\beta)\bigr]
+@@ -1566,11 +1568,11 @@
+ \]
+ 于是
+ \[
+-\lambda_{q_0}
++\frac{\partial \lambda}{\partial q_0}
+ =
+ \frac{1}{(A+B)^2}
+ \left[
+-\frac{B S^*_{q_0}}{S^*-\bar S}
++\frac{B \frac{\partial S^*}{\partial q_0}}{S^*-\bar S}
+ +
+ \frac{A}{
+ (1-q_0)\bigl[\beta+q_0(1-\beta)\bigr]
+@@ -1579,53 +1581,63 @@
+ \]
+ 方括号内两项符号相反。令其和为零，并代入 $A,B$ 的表达式，即得
+ 式~\eqref{eq:s1:lambda-q0-stationary}。固定 $N$ 时，
+-$\eta=N\theta$ 给出 $\lambda_\theta=N\lambda_\eta<0$。
++$\eta=N\theta$ 给出 $\frac{\partial \lambda}{\partial \theta}=N\frac{\partial \lambda}{\partial \eta}<0$。
+ \end{proof}
+ 
+ 
+-在内部拐点存在的范围内，提高 $\eta$ 使隔离率下降最快的时刻在平台内相对前移，提高 $\beta$ 或 $c_0$ 则使其相对后移。$q_0$ 的影响由相反方向的两项共同决定，不能据此断言每条参数曲线都非单调。启动点、拐点相对位置及控制时长的参数依赖汇总于表~\ref{tab:s1:lambda-sensitivity} 和表~\ref{tab:s1:inflection-roles}。
++在内部拐点存在的范围内，提高 $\eta$ 使隔离率下降最快的时刻在阈值控制期内相对前移，提高 $\beta$ 或 $c_0$ 则使其相对后移。$q_0$ 的影响由相反方向的两项共同决定，不能据此断言每条参数曲线都非单调。启动时易感者人数、拐点相对位置及控制持续时间的参数敏感性汇总于表~\ref{tab:s1:lambda-sensitivity} 和表~\ref{tab:s1:inflection-roles}。两表均列出关于 $\eta$ 的结果；固定 $N$ 时，改用 $\theta=\eta/N$ 不改变相应偏导数的符号。
+ 
+ \begin{table}[htbp]
+   \centering
+-  \footnotesize
+-  \caption{启动点与拐点归一化相对位置的参数变化方向}
+-  \label{tab:s1:lambda-sensitivity}
+-  \begin{tabular}{lccc}
+-    \toprule
+-    参数 $p$ & $S^*_p$ & $\lambda_p$ & 解释\\
+-    \midrule
+-    $\eta$  & $<0$ & $<0$ & 归一化位置向 $t_1$ 端移动\\
+-    $c_0$   & $>0$ & $>0$ & 归一化位置向 $t_2$ 端移动\\
+-    $\beta$ & $>0$ & $>0$ & 归一化位置向 $t_2$ 端移动\\
+-    $q_0$   & $<0$ & 符号不定 & 由式~\eqref{eq:s1:lambda-q0-stationary} 判定\\
+-    \bottomrule
+-  \end{tabular}
++  \small
++  \setlength{\tabcolsep}{3.5pt}
++  \renewcommand{\arraystretch}{1.25}
++  \begin{threeparttable}
++    \caption{启动时易感者人数与拐点相对位置的参数敏感性}
++    \label{tab:s1:lambda-sensitivity}
++    \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.29\textwidth}*{4}{>{\centering\arraybackslash}p{0.10\textwidth}}>{\raggedright\arraybackslash}X@{}}
++      \toprule
++      \multirow{2}{*}{分析量} & \multicolumn{4}{c}{偏导数符号} & \multirow{2}{*}{依据}\\
++      \cmidrule(lr){2-5}
++       & $\beta$ & $q_0$ & $c_0$ & $\eta$ & \\
++      \midrule
++      启动时易感者人数 $S^*$ & $>0$ & $<0$ & $>0$ & $<0$ & 引理~\ref{lem:s1:Sstar-sensitivity}\\
++      拐点相对位置 $\lambda$ & $>0$ & 不定 & $>0$ & $<0$ & 命题~\ref{prop:s1:lambda-sensitivity}\\
++      \bottomrule
++    \end{tabularx}
++    \begin{tablenotes}[flushleft]
++      \footnotesize
++      \item 注：表中各项为分析量关于列示参数的偏导数符号，求导时固定 $N,S_0,I_0$ 及其余模型参数。关于 $S^*$ 的结果要求满足控制触发条件；关于 $\lambda$ 的结果还要求 $S_c<2\bar S<S^*$。不定表示偏导数的符号不能在上述参数范围内统一确定。
++    \end{tablenotes}
++  \end{threeparttable}
+ \end{table}
+ 
+ 
+ \begin{table}[htbp]
+   \centering
+-  \footnotesize
+-  \caption{拐点相关指标与控制时长的参数方向（固定 $N,S_0,I_0$ 及未被求导参数）。$+$、$-$ 分别表示相应量或条件中的差值的局部导数为正、负，$\times$ 表示不依赖该参数；$c_0$ 对 $\Delta t$ 的方向须由推论~\ref{cor:s1:duration-sensitivity} 的 $\Theta$ 判据确定。}
+-  \label{tab:s1:inflection-roles}
+-  \begin{tabularx}{\textwidth}{lccccX}
+-    \toprule
+-    影响对象 & $\beta$ & $q_0$ & $c_0$ & $\theta=\eta/N$ & 解析依据\\
+-    \midrule
+-    $\qinf$ 的值
+-      & $-$ & $\times$ & $\times$ & $\times$
+-      & $\qinf=1-[2(1-\beta)]^{-1}$\\
+-    $t_2$ 端条件中的差值（$\qinf-q_0$）
+-      & $-$ & $-$ & $\times$ & $\times$
+-      & 式~\eqref{eq:s1:inflection-exist} 的下界\\
+-    $t_1$ 端条件中的差值（$S^*-2\bar S$）
+-      & $+$ & $-$ & $+$ & $-$
+-      & 引理~\ref{lem:s1:Sstar-sensitivity} 及 $\bar S$ 的显式表达式\\
+-    控制时长 $\Delta t$
+-      & $+$ & $-$ & 判据 & $-$
+-      & 推论~\ref{cor:s1:duration-sensitivity}\\
+-    \bottomrule
+-  \end{tabularx}
++  \small
++  \setlength{\tabcolsep}{3.5pt}
++  \renewcommand{\arraystretch}{1.25}
++  \begin{threeparttable}
++    \caption{拐点相关量与控制持续时间的参数敏感性}
++    \label{tab:s1:inflection-roles}
++    \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.29\textwidth}*{4}{>{\centering\arraybackslash}p{0.10\textwidth}}>{\raggedright\arraybackslash}X@{}}
++      \toprule
++      \multirow{2}{*}{分析量} & \multicolumn{4}{c}{偏导数符号} & \multirow{2}{*}{依据}\\
++      \cmidrule(lr){2-5}
++       & $\beta$ & $q_0$ & $c_0$ & $\eta$ & \\
++      \midrule
++      拐点处隔离率 $\qinf$ & $<0$ & $=0$ & $=0$ & $=0$ & 定理~\ref{thm:s1:inflection}\\
++      $\qinf-q_0$ & $<0$ & $<0$ & $=0$ & $=0$ & 式~\eqref{eq:s1:inflection-exist}\\
++      $S^*-2\bar S$ & $>0$ & $<0$ & $>0$ & $<0$ & 引理~\ref{lem:s1:Sstar-sensitivity}、式~\eqref{eq:s1:barS}\\
++      控制持续时间 $\Delta t$ & $>0$ & $<0$ & 不定 & $<0$ & 推论~\ref{cor:s1:duration-sensitivity}\\
++      \bottomrule
++    \end{tabularx}
++    \begin{tablenotes}[flushleft]
++      \footnotesize
++      \item 注：表中各项为分析量关于列示参数的偏导数符号，求导时固定 $N,S_0,I_0$ 及其余模型参数。结果在控制触发条件下成立。$\qinf-q_0$ 和 $S^*-2\bar S$ 同时为正时存在内部拐点；$=0$ 表示该量不依赖相应参数。$\partial\Delta t/\partial c_0$ 的符号由推论~\ref{cor:s1:duration-sensitivity} 中的判据确定。
++    \end{tablenotes}
++  \end{threeparttable}
+ \end{table}
+ 
+ 
+@@ -1684,7 +1696,7 @@
+     \midrule
+     受控情形
+     & \multicolumn{2}{l}{$\max I(t)=38.1500$}
+-    & 平台误差
++    & 阈值维持误差
+     & \multicolumn{2}{l}{$\max_{[t_1,t_2]}|I-\eta|=1.07\times10^{-7}$} \\
+     常规控制情形
+     & \multicolumn{2}{l}{$\max I(t)=300.3726$}
+@@ -1706,7 +1718,7 @@
+ &0.0736525&0.1969606&0.3890712
+ \end{array}
+ \]
+-这三个位置两侧的 $\lambda_{q_0}$ 均由正变负，且极大值位置随 $\beta$ 增大而增大。这是所考察参数范围内的数值结果，不涉及一般参数下驻点的唯一性。
++这三个位置两侧的 $\frac{\partial \lambda}{\partial q_0}$ 均由正变负，且极大值位置随 $\beta$ 增大而增大。这是所考察参数范围内的数值结果，不涉及一般参数下驻点的唯一性。
+ 
+ \begin{figure}[htbp]
+     \centering
+@@ -1721,7 +1733,7 @@
+ \begin{figure}[htbp]
+     \centering
+     \includegraphics[width=0.8\textwidth]{scenario1_inflection_landscape.pdf}
+-    \caption{四个参数对拐点存在性和平台时长的影响，基准参数同本节设定。左列为 $q_{\max},\qinf,q_0$，满足 $q_0<\qinf<q_{\max}$ 时存在内部拐点；右列分别为拐点前后的时长 $t_{\rm inf}-t_1$ 和 $t_2-t_{\rm inf}$，虚线表示总时长 $\Delta t$。}
++    \caption{四个参数对拐点存在性和控制持续时间的影响，基准参数同本节设定。左列为 $q_{\max},\qinf,q_0$，满足 $q_0<\qinf<q_{\max}$ 时存在内部拐点；右列分别为拐点前后的时长 $t_{\rm inf}-t_1$ 和 $t_2-t_{\rm inf}$，虚线表示总时长 $\Delta t$。}
+     \label{fig:s1:inflection-landscape}
+ \end{figure}
+ \begin{figure}[htbp]
+@@ -1779,7 +1791,7 @@
+ \begin{figure}[htbp]
+     \centering
+     \includegraphics[width=0.8\textwidth]{figures/c0_sensitivity_selected_eta.pdf}
+-    \caption{不同阈值比例下控制指标随 $c_0$ 的变化。四条曲线对应 $\eta/N=0.2\%,0.6\%,1\%,2\%$。六个面板依次为 $t_1,\Delta t,t_{\rm end},q_{\max},J,\Itcum$，圆点表示平台时长的数值极大值。}
++    \caption{不同阈值比例下控制指标随 $c_0$ 的变化。四条曲线对应 $\eta/N=0.2\%,0.6\%,1\%,2\%$。六个面板依次为 $t_1,\Delta t,t_{\rm end},q_{\max},J,\Itcum$，圆点表示控制持续时间的数值极大值。}
+     \label{fig:scenario1_summary_c0}
+ \end{figure}
+ 
+@@ -1793,7 +1805,7 @@
+ \begin{figure}[htbp]
+     \centering
+     \includegraphics[width=0.8\textwidth]{figures/scenario1_heatmaps_c0_eta.pdf}
+-    \caption{$(\eta/N,c_0)$ 平面上的启动时间、平台时长、清零时间和累计感染。实线为触发边界 $c_{0,\min}(\eta)$，白色区域无需加强隔离，虚线为各指标的等值线。}
++    \caption{$(\eta/N,c_0)$ 平面上的启动时间、控制持续时间、清零时间和累计感染。实线为触发边界 $c_{0,\min}(\eta)$，白色区域无需加强隔离，虚线为各指标的等值线。}
+     \label{fig:scenario1_heatmaps_c0_eta}
+ \end{figure}
+ 
+@@ -1809,7 +1821,7 @@
+ \]
+ 相应的数值极大值位于 $c_0\approx5.1$，约为 $7.5788$ 天。对于 $\eta/N=0.2\%,0.6\%,1\%,2\%$，极大值位置分别约为 $c_0=4.3,4.4,4.4,4.6$，对应时长为 $211.5435,69.8417,41.5169,20.2813$ 天。
+ 
+-表~\ref{tab:scenario1_eta_summary} 和图~\ref{fig:scenario1_summary_eta} 表明，增大 $\eta$ 会推迟控制启动、降低 $q_{\max}$，并缩短平台期。当 $c_0=10$、$\eta/N$ 从 $0.2\%$ 增至 $2\%$ 时，
++表~\ref{tab:scenario1_eta_summary} 和图~\ref{fig:scenario1_summary_eta} 表明，增大 $\eta$ 会推迟控制启动、降低 $q_{\max}$，并缩短阈值控制期。当 $c_0=10$、$\eta/N$ 从 $0.2\%$ 增至 $2\%$ 时，
+ \[
+ \Delta t:152.0574\to15.0431,\qquad
+ t_{\rm end}:180.5821\to46.8029,
+@@ -1818,7 +1830,7 @@
+ J:60.8005\to5.8888,\qquad
+ \Itcum:173.0314\to233.7810.
+ \]
+-在这一参数范围内，提高阈值缩短了平台期和清零时间，降低了控制成本，但增加了累计感染。图~\ref{fig:scenario1_heatmaps_c0_eta} 给出这些指标在 $(\eta/N,c_0)$ 平面上的变化。触发边界 $c_{0,\min}(\eta)$ 随 $\eta$ 增大而升高；其下方的常规感染峰值低于阈值，无需启动加强隔离。
++在这一参数范围内，提高阈值缩短了阈值控制期和清零时间，降低了控制成本，但增加了累计感染。图~\ref{fig:scenario1_heatmaps_c0_eta} 给出这些指标在 $(\eta/N,c_0)$ 平面上的变化。触发边界 $c_{0,\min}(\eta)$ 随 $\eta$ 增大而升高；其下方的常规感染峰值低于阈值，无需启动加强隔离。
+ 
+ \section{西安疫情数据应用}
+ \label{sec:xian}
+@@ -1869,11 +1881,11 @@
+ \begin{equation}
+ \eta=0.002N=26{,}326.
+ \end{equation}
+-按第~\ref{sec:s1}节，常规控制下临界易感人数 $S_c=\gamma N/[\beta c_0(1-q_0)]=2{,}974{,}125.41$；数值求得达到阈值时刻 $t_1=16.90$、启动点 $S^*=13{,}020{,}440.75$。平台期由理论开环控制 $q_c(t)=1-\gamma N/[\beta c_0 S(t)]$（其中 $S(t)=\bar S+(S^*-\bar S)e^{-c_0\eta(t-t_1)/N}$，$\bar S=\gamma N(1-\beta)/(\beta c_0)$）维持 $I(t)\equiv\eta$，解除时刻
++按第~\ref{sec:s1}节，常规控制下临界易感人数 $S_c=\gamma N/[\beta c_0(1-q_0)]=2{,}974{,}125.41$；数值求得达到阈值时刻 $t_1=16.90$、启动点 $S^*=13{,}020{,}440.75$。阈值控制期由理论开环控制 $q_c(t)=1-\gamma N/[\beta c_0 S(t)]$（其中 $S(t)=\bar S+(S^*-\bar S)e^{-c_0\eta(t-t_1)/N}$，$\bar S=\gamma N(1-\beta)/(\beta c_0)$）维持 $I(t)\equiv\eta$，解除时刻
+ \[
+ t_2=t_1+\frac{N}{c_0\eta}\ln\frac{S^*-\bar S}{S_c-\bar S}\approx101.97,
+ \]
+-控制时长约 $85.07$ 天；启动隔离率 $q_c(t_1)=0.8454$，终点 $q_c(t_2)=q_0=0.3230$。平台段最大数值偏差约为 $2.89\times10^{-8}$。
++控制时长约 $85.07$ 天；启动隔离率 $q_c(t_1)=0.8454$，终点 $q_c(t_2)=q_0=0.3230$。阈值控制阶段最大数值偏差约为 $2.89\times10^{-8}$。
+ 
+ \subsection{比较指标与三策略数值结果}
+ 三类策略均计算至各自的动态清零时刻，即 $I(t)$ 超过 $1$ 后再次下降至 $1$ 的时刻。成本采用第~\ref{sec:cost}~节的定义，权重为 $w_c=1,w_q=2$：TDINN 从初始时刻积分至清零，阈值控制仅在 $[t_1,t_2]$ 内产生额外成本，常规控制的额外成本为零。
+@@ -1897,7 +1909,7 @@
+ \begin{figure}[htbp]
+     \centering
+     \includegraphics[width=0.7\textwidth]{xian_effective_reproduction_number.pdf}
+-    \caption{三类策略下有效再生数 $R_e(t)$ 的变化。水平虚线为 $R_e=1$，阈值控制在平台期维持这一临界水平。}
++    \caption{三类策略下有效再生数 $R_e(t)$ 的变化。水平虚线为 $R_e=1$，阈值控制在阈值控制期维持这一临界水平。}
+     \label{fig:xian_Re}
+ \end{figure}
+ 
+@@ -1909,16 +1921,16 @@
+     \resizebox{\textwidth}{!}{\input{../table/xian_control_comparison_results_table.tex}}
+ \end{table}
+ 
+-采用全市人口及 $\eta=0.002N$ 时，阈值控制将社区感染峰值限制为 $26{,}326$，平台持续约 $85.07$ 天，动态清零时间约为 $258.11$ 天，总累计感染约为 $2.38\times10^6$。TDINN 重构的峰值和累计感染分别约为 $152$ 和 $2097$。阈值控制的二次加权成本为 $40.77$，低于 TDINN 的 $49.35$，但感染峰值、累计感染和清零时间均较大。后文采用更精确的 TDINN 参照值 $I_{\rm peak}^{\rm T}=151.90$、$\Itcum^{\rm T}=2096.76$ 和 $J^{\rm T}=49.35$。
+-
+-有效再生数为 $R_e(t)=\beta c(t)(1-q(t))S(t)/(\gamma N)$。常规控制下 $R_e(0)\approx4.43$，感染人数初期快速增长；TDINN 同时降低接触率并提高隔离率，使 $R_e$ 较快降至 $1$ 以下；阈值控制则在平台期保持 $R_e=1$，待 $S$ 下降至 $S_c$ 后恢复常规隔离率，感染人数才开始下降。因此，较低的加权成本在这里伴随着更长的感染持续时间和更高的累计感染。
++采用全市人口及 $\eta=0.002N$ 时，阈值控制将社区感染峰值限制为 $26{,}326$，阈值控制持续约 $85.07$ 天，动态清零时间约为 $258.11$ 天，总累计感染约为 $2.38\times10^6$。TDINN 重构的峰值和累计感染分别约为 $152$ 和 $2097$。阈值控制的二次加权成本为 $40.77$，低于 TDINN 的 $49.35$，但感染峰值、累计感染和清零时间均较大。后文采用更精确的 TDINN 参照值 $I_{\rm peak}^{\rm T}=151.90$、$\Itcum^{\rm T}=2096.76$ 和 $J^{\rm T}=49.35$。
++
++有效再生数为 $R_e(t)=\beta c(t)(1-q(t))S(t)/(\gamma N)$。常规控制下 $R_e(0)\approx4.43$，感染人数初期快速增长；TDINN 同时降低接触率并提高隔离率，使 $R_e$ 较快降至 $1$ 以下；阈值控制则在阈值控制期保持 $R_e=1$，待 $S$ 下降至 $S_c$ 后恢复常规隔离率，感染人数才开始下降。因此，较低的加权成本在这里伴随着更长的感染持续时间和更高的累计感染。
+ 
+ \subsection{阈值 \texorpdfstring{$\eta$}{eta} 的敏感性}
+ 取 $\eta/N\in\{0.0001,0.0002,0.0005,0.001,0.0015,0.002,0.003,0.004,0.005,0.0075,0.01\}$，结果见表~\ref{tab:xian_eta_sens} 和图~\ref{fig:xian_eta_sens}。在这一范围内，有
+ \[
+ \eta\downarrow\ \Rightarrow\ t_1\downarrow,\qquad \Delta t\uparrow,\qquad J\uparrow,\qquad t_{\rm end}\uparrow.
+ \]
+-当 $\eta/N$ 从 $0.01$ 降至 $0.0001$ 时，启动时间仅由 $18.55$ 天提前至 $13.93$ 天，平台时长却由 $16.61$ 天增加至 $1710.66$ 天，动态清零时间达到 $2209.55$ 天。降低阈值减慢了平台期的易感者减少过程，其对持续时间的影响远大于对启动时间的影响。
++当 $\eta/N$ 从 $0.01$ 降至 $0.0001$ 时，启动时间仅由 $18.55$ 天提前至 $13.93$ 天，控制持续时间却由 $16.61$ 天增加至 $1710.66$ 天，动态清零时间达到 $2209.55$ 天。降低阈值减慢了阈值控制期的易感者减少过程，其对持续时间的影响远大于对启动时间的影响。
+ 
+ \begin{table}[htbp]
+     \centering
+@@ -1931,13 +1943,13 @@
+ \begin{figure}[htbp]
+     \centering
+     \includegraphics[width=0.7\textwidth]{xian_eta_sensitivity.pdf}
+-    \caption{西安参数下控制指标随 $\eta/N$ 的变化。(a) 启动隔离率；(b) 加权成本；(c) 累计感染；(d) 平台时长与动态清零时间。水平线为 TDINN 的对应参照值。}
++    \caption{西安参数下控制指标随 $\eta/N$ 的变化。(a) 启动隔离率；(b) 加权成本；(c) 累计感染；(d) 控制持续时间与动态清零时间。水平线为 TDINN 的对应参照值。}
+     \label{fig:xian_eta_sens}
+ \end{figure}
+ 
+ \FloatBarrier
+ \subsection{接触率 \texorpdfstring{$c_0$}{c0} 与阈值 \texorpdfstring{$\eta$}{eta} 的联合变化}
+-图~\ref{fig:xian_heatmaps} 给出 $(\eta,c_0)$ 平面上的平台时长、清零时间、累计感染和成本。两条参照线分别为 $\eta=0.002N=26326$ 和 $\eta=I_{\rm peak}^{\rm T}=151.90$。
++图~\ref{fig:xian_heatmaps} 给出 $(\eta,c_0)$ 平面上的控制持续时间、清零时间、累计感染和成本。两条参照线分别为 $\eta=0.002N=26326$ 和 $\eta=I_{\rm peak}^{\rm T}=151.90$。
+ 
+ 在西安全市人口设定（$N=13\,163\,000$，$c_0=12.8872$）下，由控制时长闭式
+ \[
+@@ -1947,12 +1959,12 @@
+ \[
+ \Delta t(\eta=151.90)\approx1.48\times10^{4}\ \text{d}\approx 40.6\ \text{年}.
+ \]
+-这一时长是模型在固定参数和全市人口假设下的外推结果。由时间尺度 $N/(c_0\eta)$ 可见，较大的易感人群和较低的感染阈值会延长平台期。在观测期累计病例约为 $2050$ 的拟合中，$S(t)\approx N$；但阈值策略需要持续至 $S=S_c$，因此其时间估计对人口规模尤为敏感。下一节考察不同有效混合人口下的结果。
++这一时长是模型在固定参数和全市人口假设下的外推结果。由时间尺度 $N/(c_0\eta)$ 可见，较大的易感人群和较低的感染阈值会延长阈值控制期。在观测期累计病例约为 $2050$ 的拟合中，$S(t)\approx N$；但阈值策略需要持续至 $S=S_c$，因此其时间估计对人口规模尤为敏感。下一节考察不同有效混合人口下的结果。
+ 
+ \begin{figure}[htbp]
+     \centering
+     \includegraphics[width=0.8\textwidth]{xian_heatmaps.pdf}
+-    \caption{西安参数下 $(\eta,c_0)$ 平面上的控制指标。(a) 平台时长；(b) 动态清零时间；(c) 累计感染；(d) 加权成本。竖直参照线为 $\eta=151.90$ 和 $\eta=26326$，等值线表示各指标的水平。}
++    \caption{西安参数下 $(\eta,c_0)$ 平面上的控制指标。(a) 控制持续时间；(b) 动态清零时间；(c) 累计感染；(d) 加权成本。竖直参照线为 $\eta=151.90$ 和 $\eta=26326$，等值线表示各指标的水平。}
+     \label{fig:xian_heatmaps}
+ \end{figure}
+ 
+@@ -2001,8 +2013,8 @@
+ \subsection{规模不变性与单调性}
+ \label{sec:dom:theory}
+ 
+-\begin{lemma}[对人口规模 $N$ 的不变性]\label{lem:dom:scaling}
+-固定归一化初值 $S_0/N,I_0/N$ 及传播和常规控制参数，在满足阈值触发条件时，平台控制时长 $\Delta t$、二次加权成本 $J$、
++\begin{lemma}\label{lem:dom:scaling}
++固定归一化初值 $S_0/N,I_0/N$ 及传播和常规控制参数，在满足阈值触发条件时，控制持续时间 $\Delta t$、二次加权成本 $J$、
+ 最大隔离率 $q_{\max}$ 以及峰值比例 $\eta/N$ 在 $(N,\eta)$ 中都只与比例 $\theta=\eta/N$ 有关；
+ 特别地 $s^*:=S^\ast/N$ 只与 $\theta$ 有关。
+ \end{lemma}
+@@ -2047,7 +2059,7 @@
+ 
+ 固定绝对初值的数值计算不完全满足上述引理的前提，其近似程度由第~\ref{sec:dom:setup}~小节的数值结果说明。
+ 
+-\begin{lemma}[控制时长与成本关于阈值比例的单调性]\label{lem:dom:mono}
++\begin{lemma}\label{lem:dom:mono}
+ 固定归一化初值和其余参数，$\Delta t$ 与 $J$ 在 $\theta\in(i_0,i_{\max}^{no})$ 上均严格单调递减。
+ 此外，沿任意满足
+ \[
+@@ -2066,7 +2078,7 @@
+ \begin{proof}
+ 由引理~\ref{lem:dom:scaling}，$\Delta t,J$ 是 $\theta$ 的函数；固定 $N$ 时 $\theta$ 与 $\eta$ 同增，
+ 故其对 $\theta$ 的单调性等同于对 $\eta$ 的单调性。推论~\ref{cor:s1:duration-sensitivity} 已给出
+-$(\Delta t)_\eta<0$，引理~\ref{lem:s1:Sstar-sensitivity} 给出 $S^\ast_\eta<0$。对 $J$，式~\eqref{eq:dom:Jtheta} 中的系数 $1/(c_0\theta)$ 随 $\theta$ 严格递减，积分上限 $s^*$ 也随 $\theta$ 减小。由于被积函数非负且在积分区间内部为正，故 $J$ 严格递减。
++$\frac{\partial \Delta t}{\partial \eta}<0$，引理~\ref{lem:s1:Sstar-sensitivity} 给出 $\frac{\partial S^\ast}{\partial \eta}<0$。对 $J$，式~\eqref{eq:dom:Jtheta} 中的系数 $1/(c_0\theta)$ 随 $\theta$ 严格递减，积分上限 $s^*$ 也随 $\theta$ 减小。由于被积函数非负且在积分区间内部为正，故 $J$ 严格递减。
+ 
+ 对于低阈值极限，
+ 沿任意满足
+@@ -2145,7 +2157,7 @@
+ 
+ 在无回流模型下，可由累计感染量得到不依赖于控制函数具体形式的有效人口下界。
+ 
+-\begin{proposition}[有效人口下界]\label{prop:dom:floor}
++\begin{proposition}\label{prop:dom:floor}
+ 对于本节的西安重构轨迹，记 $I_{\rm cum}^{\rm T},I_{q_{\rm cum}}^{\rm T}$ 为累计社区感染和累计隔离感染，则
+ \begin{equation}
+   N_{\rm eff}\ \ge\ N_{\rm floor}
+@@ -2183,7 +2195,7 @@
+ 
+ 下面由峰值、成本和时长条件确定有效人口上界。
+ 
+-\begin{proposition}[占优区域]\label{prop:dom:region}
++\begin{proposition}\label{prop:dom:region}
+ 在引理~\ref{lem:dom:mono} 的条件下，设 $\theta_{\rm cost}$ 和 $\theta_{\rm dur}(T_{\max})$ 按式~\eqref{eq:dom:thetadefs} 存在。隔离率阈值控制同时满足
+ (i) $I_{\rm peak}^{\rm thr}=\eta\le I_{\rm peak}^{\rm T}$、
+ (ii) $J\le J^{\rm T}$、
+@@ -2221,7 +2233,7 @@
+ 由引理~\ref{lem:dom:mono} 与式~\eqref{eq:dom:thetadefs}，
+ 条件 (ii) 等价于 $\eta/N\ge\theta_{\rm cost}$，
+ 条件 (iii) 等价于 $\eta/N\ge\theta_{\rm dur}(T_{\max})$。
+-再与平台持续时间为正的触发条件 $\eta/N<i_{\max}^{no}$ 取交，即得式~\eqref{eq:dom:band}。
++再与控制持续时间为正的触发条件 $\eta/N<i_{\max}^{no}$ 取交，即得式~\eqref{eq:dom:band}。
+ 触发条件取严格不等式以排除 $\Delta t=0$；三个比较条件允许等号。
+ 
+ 该区间非空当且仅当
+@@ -2238,7 +2250,7 @@
+ 这里的占优仅指满足所列指标的比较条件；其中峰值条件 $\eta\le I_{\rm peak}^{\rm T}$ 是对阈值的预设要求，不代表该策略在其他指标上也较低。
+ \end{remark}
+ 
+-\begin{corollaryn}[放宽时长约束时的有效人口上界]\label{cor:ceiling}
++\begin{corollaryn}\label{cor:ceiling}
+ 由引理~\ref{lem:dom:mono}，$\theta_{\rm dur}(T_{\max})$ 随 $T_{\max}$ 增大而单调递减，
+ 且 $\theta_{\rm dur}(T_{\max})\to0\ (T_{\max}\to\infty)$，因此
+ \[
+@@ -2262,7 +2274,7 @@
+   \frac{I_{\rm peak}^{\rm T}}
+        {\theta_{\rm cost}}.
+ \]
+-故即使允许任意长的平台期，有效人口上界仍被成本约束限制在 $N^\ast_\infty$。
++故即使允许任意长的阈值控制期，有效人口上界仍被成本约束限制在 $N^\ast_\infty$。
+ 若 $\theta_{\rm cost}\ge i_{\max}^{no}$，则即使令 $T_{\max}\to\infty$，
+ 命题~\ref{prop:dom:region} 的占优区仍对所有 $N$ 为空。
+ \end{corollaryn}
+@@ -2272,7 +2284,7 @@
+ 
+ 以下在峰值、成本和时长条件之外，加入累计感染与动态清零时间的比较。
+ 
+-\begin{corollaryn}[加入累计感染约束后的比较范围]\label{cor:cum}
++\begin{corollaryn}\label{cor:cum}
+ 在命题~\ref{prop:dom:region} 的占优区域上再加约束
+ (iv) $\Itcum^{\rm thr}\le\Itcum^{\rm T}$。由定理~\ref{thm:s1:Itcum}，
+ 到清零的总累计感染为
+@@ -2304,7 +2316,7 @@
+ 两个上界的大小由具体参数决定。西安参数下的计算结果见第~\ref{sec:dom:xian}~小节。
+ \end{corollaryn}
+ 
+-\begin{corollaryn}[加入清零时间约束后的比较范围]\label{cor:clr}
++\begin{corollaryn}\label{cor:clr}
+ 阈值控制到动态清零的时刻 $t_{\rm end}$ 由定理~\ref{thm:s1:tend} 给出。由于清零条件为 $I=1$，即 $i=1/N$，退出段还依赖于绝对人口规模，故 $t_{\rm end}=t_{\rm end}(\theta,N)$。本节数值结果中，固定 $\theta$ 时清零时间随 $N$ 增大。若再要求
+ (v) $t_{\rm end}^{\rm thr}\le t_{\rm end}^{\rm T}$，
+ 则在占优区域内该约束给出一条 $(N,\eta)$ 平面上的曲线边界
+@@ -2318,7 +2330,7 @@
+ 故该区间为空集：不存在同时满足下界与清零不劣的有效人口（第~\ref{sec:dom:xian}~小节）。
+ \end{corollaryn}
+ 
+-\begin{remarkn}[两类指标的分界]\label{rem:dom:dichotomy}
++\begin{remarkn}\label{rem:dom:dichotomy}
+ 在固定归一化初值和其余参数时，$\Delta t,J,q_{\max}$ 仅依赖于 $\theta=\eta/N$，其等值条件可写成 $\eta=\theta N$。绝对峰值约束 $\eta\le I_{\rm peak}^{\rm T}$ 以及累计感染、清零时间的条件仍涉及人口规模。因此，相同 $\theta$ 并不意味着所有比较条件相同。
+ \end{remarkn}
+ 
+@@ -2327,14 +2339,14 @@
+ 
+ 采用西安参数和固定绝对初值，分别固定阈值比例及绝对阈值，比较不同 $N_{\rm eff}$ 下的控制结果。
+ 
+-固定 $\theta=0.002$，取 $N_{\rm eff}\in\{5\times10^4,\dots,1.316\times10^7\}$。六个人口规模下的平台时长均约为 $85.07$ 天，相对极差为 $2.4\times10^{-7}$。以 $t-t_1$ 为时间变量时，归一化感染轨迹和隔离率近似重合，见图~\ref{fig:neff_collapse}。启动时间则由 $11.39$ 天增加至 $16.90$ 天，这是固定绝对初值、初始感染比例随 $N$ 变化的结果。
++固定 $\theta=0.002$，取 $N_{\rm eff}\in\{5\times10^4,\dots,1.316\times10^7\}$。六个人口规模下的控制持续时间均约为 $85.07$ 天，相对极差为 $2.4\times10^{-7}$。以 $t-t_1$ 为时间变量时，归一化感染轨迹和隔离率近似重合，见图~\ref{fig:neff_collapse}。启动时间则由 $11.39$ 天增加至 $16.90$ 天，这是固定绝对初值、初始感染比例随 $N$ 变化的结果。
+ 
+ 固定绝对阈值 $\eta=100$，把 $N_{\rm eff}$ 从 $1.316\times10^7$ 降到 $5\times10^{4}$，
+-则 $\theta=\eta/N_{\rm eff}$ 增大，平台控制时长由 $\Delta t\approx2.25\times10^4$ 天缩短到约
+-$85$ 天（图~\ref{fig:neff_time}）。这是降低 $N_{\rm eff}$ 通过增大 $\theta$ 缩短平台期的数值体现，
++则 $\theta=\eta/N_{\rm eff}$ 增大，控制持续时间由 $\Delta t\approx2.25\times10^4$ 天缩短到约
++$85$ 天（图~\ref{fig:neff_time}）。这是降低 $N_{\rm eff}$ 通过增大 $\theta$ 缩短阈值控制期的数值体现，
+ 与提高 $\eta$ 同向。
+ 
+-两组结果中，平台时长主要随 $\theta$ 变化：
++两组结果中，控制持续时间主要随 $\theta$ 变化：
+ \[
+ \Delta t\approx\frac{1}{c_0\theta}\ln\frac{s^*-\bar s}{s_c-\bar s}\approx\frac{\text{const}}{c_0\theta},
+ \]
+@@ -2351,11 +2363,11 @@
+ \begin{figure}[htbp]
+     \centering
+     \includegraphics[width=0.95\textwidth]{neff_time_metrics.pdf}
+-    \caption{固定 $\eta=100$ 时，启动时间、平台时长和动态清零时间随有效人口的变化。图中 $T_{\rm clear}$ 表示动态清零时间。}
++    \caption{固定 $\eta=100$ 时，启动时间、控制持续时间和动态清零时间随有效人口的变化。图中 $T_{\rm clear}$ 表示动态清零时间。}
+     \label{fig:neff_time}
+ \end{figure}
+ 
+-固定 $\beta=0.1498$，在所考察的 $\eta\in\{80,100,150\}$、$N_{\rm eff}\in\{4,5,6\}\times10^4$ 参数组中，拐点处的隔离率均约为 $0.4119$，与理论值的最大绝对误差约为 $8\times10^{-9}$。这与 $\qinf$ 仅依赖于 $\beta$ 的表达式一致。当 $q_0=0.3230$ 时，条件 $\qinf=q_0$ 给出 $\beta_{\max}=0.261448$；超过该值后，平台区间内不再有内部拐点。
++固定 $\beta=0.1498$，在所考察的 $\eta\in\{80,100,150\}$、$N_{\rm eff}\in\{4,5,6\}\times10^4$ 参数组中，拐点处的隔离率均约为 $0.4119$，与理论值的最大绝对误差约为 $8\times10^{-9}$。这与 $\qinf$ 仅依赖于 $\beta$ 的表达式一致。当 $q_0=0.3230$ 时，条件 $\qinf=q_0$ 给出 $\beta_{\max}=0.261448$；超过该值后，阈值控制区间内不再有内部拐点。
+ 
+ \subsection{西安参数下的占优区域}
+ \label{sec:dom:xian}
+@@ -2444,7 +2456,7 @@
+   =\bigl[\,1.06\times10^{4},\ 9.17\times10^{4}\,\bigr],
+   \label{eq:dom:main-interval}
+ \end{equation}
+-在此范围内，存在阈值使感染峰值不超过 $151.90$、加权成本不超过 $49.35$。成本边界对应的平台时长为 $102.83$ 天；若允许时长小于该值，有效人口上界进一步减小，见表~\ref{tab:dom:thresholds}。
++在此范围内，存在阈值使感染峰值不超过 $151.90$、加权成本不超过 $49.35$。成本边界对应的控制持续时间为 $102.83$ 天；若允许时长小于该值，有效人口上界进一步减小，见表~\ref{tab:dom:thresholds}。
+ 
+ 在固定乘积 $\beta c_0$ 的参数分析中，区间两端随 $\beta$ 改变，但比值 $N^\ast_\infty/N_{\rm floor}$ 的相对极差仅为 $0.22\%$。因此，在所考察范围内，区间的相对宽度对 $\beta$ 的变化不敏感，具体结果见附录~\ref{app:dom:numerics}。
+ 
+@@ -2452,16 +2464,16 @@
+ 
+ 清零时间边界整体位于人口下界左侧，其最大值 $N=5166$ 仍低于 $N_{\rm floor}=1.06\times10^4$。因此，在本节计算范围内，没有同时满足 $N\ge N_{\rm floor}$ 与 $t_{\rm end}\le t_{\rm end}^{\rm T}$ 的有效人口。
+ 
+-图~\ref{fig:panel_eta_lever} 固定 $N_{\rm eff}=2\times10^4$，比较三个阈值。各平台均低于 TDINN 峰值参照，但累计感染均高于 TDINN。这与 $N_{\rm eff}>N_{\rm cum,\infty}^\ast$ 一致，说明峰值条件与累计感染条件并不等价。
+-
+-图~\ref{fig:panel_N_lever} 固定 $\eta=100$。随 $N_{\rm eff}$ 增大，平台高度保持不变，持续时间增加；在本节参数范围内，$\Delta t\approx0.170N/\eta$。图~\ref{fig:panel_N_decomp} 中，人口从 $3970$ 增至 $60381$ 时，常规控制的感染峰值由 $415$ 增至 $6319$，清零时间由 $38.5$ 天增至 $50.9$ 天；阈值控制的平台时长由 $6.3$ 天增至 $102.8$ 天，清零时间由 $45.3$ 天增至 $201.6$ 天。较低的固定感染峰值因此可能伴随明显延长的疫情持续时间。
++图~\ref{fig:panel_eta_lever} 固定 $N_{\rm eff}=2\times10^4$，比较三个阈值。各阈值均低于 TDINN 峰值参照，但累计感染均高于 TDINN。这与 $N_{\rm eff}>N_{\rm cum,\infty}^\ast$ 一致，说明峰值条件与累计感染条件并不等价。
++
++图~\ref{fig:panel_N_lever} 固定 $\eta=100$。随 $N_{\rm eff}$ 增大，感染人数维持的阈值保持不变，持续时间增加；在本节参数范围内，$\Delta t\approx0.170N/\eta$。图~\ref{fig:panel_N_decomp} 中，人口从 $3970$ 增至 $60381$ 时，常规控制的感染峰值由 $415$ 增至 $6319$，清零时间由 $38.5$ 天增至 $50.9$ 天；阈值控制的控制持续时间由 $6.3$ 天增至 $102.8$ 天，清零时间由 $45.3$ 天增至 $201.6$ 天。较低的固定感染峰值因此可能伴随明显延长的疫情持续时间。
+ 
+ 这些轨迹中的拐点相对位置均约为 $\lambda=0.861$，拐点处隔离率约为 $\qinf=0.4119$。前者是本组参数下的近似结果，后者由仅含 $\beta$ 的解析表达式确定。
+ 
+ \begin{figure}[htbp]
+   \centering
+   \includegraphics[width=0.8\textwidth]{figures/fig_panel_A.pdf}
+-  \caption{固定 $N_{\rm eff}=2\times10^4$，三个阈值 $\eta=22.7,33.1,75.2$ 分别对应 $150$ 天时长条件、成本条件和 $45$ 天时长条件。(a) 非隔离感染者人数，含同人口下的常规控制及固定 TDINN 参照；(b) 隔离率，内嵌图为累计感染。实心圆表示隔离率拐点时刻在感染平台上的位置，空心圆为隔离率曲线的拐点，短竖线表示清零时刻。}
++  \caption{固定 $N_{\rm eff}=2\times10^4$，三个阈值 $\eta=22.7,33.1,75.2$ 分别对应 $150$ 天时长条件、成本条件和 $45$ 天时长条件。(a) 非隔离感染者人数，含同人口下的常规控制及固定 TDINN 参照；(b) 隔离率，内嵌图为累计感染。实心圆表示隔离率拐点时刻在感染人数曲线水平段上的位置，空心圆为隔离率曲线的拐点，短竖线表示清零时刻。}
+   \label{fig:panel_eta_lever}
+ \end{figure}
+ 
+@@ -2486,7 +2498,7 @@
+ 
+ 固定西安传播参数 $\beta,\gamma,q_0$、$N_{\rm eff}=2\times10^4$、$\theta=0.002$（即 $\eta=40$）和绝对初值 $I_0=1.00663\times10^{-3}$，考察 $c_0$ 的影响。这里的 $c_0$ 是给定的常规接触水平，不作为额外控制量。
+ 
+-图~\ref{fig:c0-panel} 中，各感染平台高度相同。增大 $c_0$ 会使启动时间提前、最大隔离率升高，与命题~\ref{prop:s1:sensitivity} 一致。$c_0=3.43$ 时，$q_{\max}=0.383<\qinf=0.4119$，无内部拐点；$c_0=3.59$ 时，$q_{\max}=0.423$，内部拐点出现。存在拐点的各条轨迹均满足 $\qinf=0.4119$。
++图~\ref{fig:c0-panel} 中，各控制轨迹的感染阈值相同。增大 $c_0$ 会使启动时间提前、最大隔离率升高，与命题~\ref{prop:s1:sensitivity} 一致。$c_0=3.43$ 时，$q_{\max}=0.383<\qinf=0.4119$，无内部拐点；$c_0=3.59$ 时，$q_{\max}=0.423$，内部拐点出现。存在拐点的各条轨迹均满足 $\qinf=0.4119$。
+ 
+ \begin{figure}[htbp]
+     \centering
+@@ -2495,16 +2507,16 @@
+     \label{fig:c0-panel}
+ \end{figure}
+ 
+-图~\ref{fig:c0-scan} 中，平台时长随 $c_0$ 先增加后减小，在 $c_0\approx6.61$ 时达到约 $103.2$ 天；成本和累计感染的极大值分别位于 $c_0\approx18.12$ 和 $13.88$，对应 $J\approx42.80$ 和 $\Itcum\approx3610$。三个极大值并不重合。
+-
+-动态清零时间在所考察范围内随 $c_0$ 增大而减小，从 $c_0=3.43$ 时约 $368$ 天降至 $c_0=30$ 时约 $102$ 天。虽然平台时长在部分区间增加，但启动时间和退出后的下降时间缩短，使总时间减小。因此，平台时长不能单独决定清零时间。
+-
+-图~\ref{fig:c0-phase} 给出 $(\theta,c_0)$ 平面上的触发边界、内部拐点边界和平台时长驻点曲线。三者分别对应控制是否启动、隔离率是否存在内部拐点以及平台时长的变化方向。
++图~\ref{fig:c0-scan} 中，控制持续时间随 $c_0$ 先增加后减小，在 $c_0\approx6.61$ 时达到约 $103.2$ 天；成本和累计感染的极大值分别位于 $c_0\approx18.12$ 和 $13.88$，对应 $J\approx42.80$ 和 $\Itcum\approx3610$。三个极大值并不重合。
++
++动态清零时间在所考察范围内随 $c_0$ 增大而减小，从 $c_0=3.43$ 时约 $368$ 天降至 $c_0=30$ 时约 $102$ 天。虽然控制持续时间在部分区间增加，但启动时间和退出后的下降时间缩短，使总时间减小。因此，控制持续时间不能单独决定清零时间。
++
++图~\ref{fig:c0-phase} 给出 $(\theta,c_0)$ 平面上的触发边界、内部拐点边界和控制持续时间驻点曲线。三者分别对应控制是否启动、隔离率是否存在内部拐点以及控制持续时间的变化方向。
+ 
+ \begin{figure}[htbp]
+     \centering
+     \includegraphics[width=0.72\textwidth]{c0_sensitivity_phase.pdf}
+-    \caption{$(\theta,c_0)$ 平面上的触发边界、内部拐点边界 $s^*=2\bar s$ 和平台时长驻点曲线 $\partial\Delta t/\partial c_0=0$。灰色等值线表示平台时长，水平点线为 $\theta=0.002$。}
++    \caption{$(\theta,c_0)$ 平面上的触发边界、内部拐点边界 $s^*=2\bar s$ 和控制持续时间驻点曲线 $\partial\Delta t/\partial c_0=0$。灰色等值线表示控制持续时间，水平点线为 $\theta=0.002$。}
+     \label{fig:c0-phase}
+ \end{figure}
+ 
+@@ -2518,11 +2530,11 @@
+ \section{讨论与局限}
+ \label{sec:discussion}
+ 
+-本文在含接触追踪与隔离的 SIQR 型模型中，研究了接触率保持不变的隔离率阈值控制。由常规阶段的首次积分和平台条件，得到启动点、平台轨迹、隔离控制函数及控制持续时间，并给出动态清零时间和累计感染的分段表达。控制在启动时使隔离率跳跃增加，随后逐渐放松，直至恢复常规水平。
+-
+-容量阈值与控制时间之间存在直接的权衡。降低 $\eta$ 可限制感染峰值，但会延长平台期并增加隔离成本。西安参数下，$\eta=0.002N$ 时阈值控制的加权成本低于 TDINN，感染峰值、累计感染和清零时间却更高。因此，策略比较需要同时考察这些指标，而不能仅依据成本或峰值作出判断。
+-
+-在固定归一化初值和其余参数时，平台时长、成本和最大隔离率仅通过 $\theta=\eta/N$ 依赖于人口与阈值。固定绝对初值的数值结果在所考察范围内近似满足这一关系。累计感染和清零时间还涉及绝对人口规模，这也是加入相应条件后比较区域明显缩小的原因。
++本文在含接触追踪与隔离的 SIQR 型模型中，研究了接触率保持不变的隔离率阈值控制。由常规阶段的首次积分和恒定感染条件，得到启动点、阈值控制期轨迹、隔离控制函数及控制持续时间，并给出动态清零时间和累计感染的分段表达。控制在启动时使隔离率跳跃增加，随后逐渐放松，直至恢复常规水平。
++
++容量阈值与控制时间之间存在直接的权衡。降低 $\eta$ 可限制感染峰值，但会延长阈值控制期并增加隔离成本。西安参数下，$\eta=0.002N$ 时阈值控制的加权成本低于 TDINN，感染峰值、累计感染和清零时间却更高。因此，策略比较需要同时考察这些指标，而不能仅依据成本或峰值作出判断。
++
++在固定归一化初值和其余参数时，控制持续时间、成本和最大隔离率仅通过 $\theta=\eta/N$ 依赖于人口与阈值。固定绝对初值的数值结果在所考察范围内近似满足这一关系。累计感染和清零时间还涉及绝对人口规模，这也是加入相应条件后比较区域明显缩小的原因。
+ 
+ 有效人口分析以 TDINN 的全市拟合结果为固定参照，所得区间依赖于相同混合人口假设和当前成本定义。边界明确的校园、厂区或邮轮，与通过空间分区和接触限制形成的人群，其成本含义并不相同；后一情形的分区成本未计入 $J$。因而 $J_c=0$ 只表示阈值策略未进一步降低模型中的接触率，不表示实际干预没有其他成本。有效人口仍需由接触调查、出行数据或实际防控单元等外部信息确定。
+ 
+@@ -2539,7 +2551,7 @@
+ \theta_{\rm cost}=1.656\times10^{-3},\qquad
+ \theta_{\rm dur45}=3.762\times10^{-3}.
+ \]
+-初值仍取固定绝对值 $I_0$，不同 $N_{\rm eff}$ 下不重新拟合。三个人口规模分别对应累计感染、$45$ 天平台时长和成本条件的临界值，结果见图~\ref{fig:panel_eta_Ncumstar}--\ref{fig:panel_eta_Nstarinf}。各参数组中，拐点的相对位置约为 $\lambda=0.861$，而绝对时刻随启动时间改变。
++初值仍取固定绝对值 $I_0$，不同 $N_{\rm eff}$ 下不重新拟合。三个人口规模分别对应累计感染、$45$ 天控制持续时间和成本条件的临界值，结果见图~\ref{fig:panel_eta_Ncumstar}--\ref{fig:panel_eta_Nstarinf}。各参数组中，拐点的相对位置约为 $\lambda=0.861$，而绝对时刻随启动时间改变。
+ 
+ \begin{figure}[!htbp]
+   \centering
+@@ -2588,12 +2600,12 @@
+ \section{常规接触率的敏感性分析}
+ \label{app:c0_scan}
+ 
+-固定 $N_{\rm eff}=2\times10^4$、$\theta=0.002$，图~\ref{fig:c0-scan} 给出各项指标随 $c_0$ 的变化。平台时长、成本与累计感染均存在数值极大值，其余时间指标在所考察范围内递减。
++固定 $N_{\rm eff}=2\times10^4$、$\theta=0.002$，图~\ref{fig:c0-scan} 给出各项指标随 $c_0$ 的变化。控制持续时间、成本与累计感染均存在数值极大值，其余时间指标在所考察范围内递减。
+ 
+ \begin{figure}[htbp]
+     \centering
+     \includegraphics[width=\textwidth]{c0_sensitivity_scan.pdf}
+-    \caption{固定 $N_{\rm eff}=2\times10^4$、$\theta=0.002$ 时各指标随 $c_0$ 的变化。(a)--(d) 依次为启动时间、平台时长、退出后的下降时间和动态清零时间；(e)--(h) 依次为最大隔离率、拐点相对位置、成本和累计感染。竖线标示触发边界 $3.334$、拐点边界 $3.543$ 和时长极大值位置 $6.607$。}
++    \caption{固定 $N_{\rm eff}=2\times10^4$、$\theta=0.002$ 时各指标随 $c_0$ 的变化。(a)--(d) 依次为启动时间、控制持续时间、退出后的下降时间和动态清零时间；(e)--(h) 依次为最大隔离率、拐点相对位置、成本和累计感染。竖线标示触发边界 $3.334$、拐点边界 $3.543$ 和时长极大值位置 $6.607$。}
+     \label{fig:c0-scan}
+ \end{figure}
+ 

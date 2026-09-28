@@ -1,0 +1,625 @@
+{
+  "input": "/mnt/data/paper_polish_v5/flatten_curve_analysis_cn_connected.tex",
+  "subscript_derivative_replacements": [
+    {
+      "old": "I_{c_0}(S;c_0)",
+      "new": "\\frac{\\partial I(S;c_0)}{\\partial c_0}"
+    },
+    {
+      "old": "S^*_\\eta",
+      "new": "\\frac{\\partial S^*}{\\partial \\eta}"
+    },
+    {
+      "old": "S^*_{c_0}",
+      "new": "\\frac{\\partial S^*}{\\partial c_0}"
+    },
+    {
+      "old": "S^*_\\beta",
+      "new": "\\frac{\\partial S^*}{\\partial \\beta}"
+    },
+    {
+      "old": "S^*_{q_0}",
+      "new": "\\frac{\\partial S^*}{\\partial q_0}"
+    },
+    {
+      "old": "S^*_\\theta",
+      "new": "\\frac{\\partial S^*}{\\partial \\theta}"
+    },
+    {
+      "old": "S^*_\\eta",
+      "new": "\\frac{\\partial S^*}{\\partial \\eta}"
+    },
+    {
+      "old": "S^*_\\eta",
+      "new": "\\frac{\\partial S^*}{\\partial \\eta}"
+    },
+    {
+      "old": "S^*_{c_0}",
+      "new": "\\frac{\\partial S^*}{\\partial c_0}"
+    },
+    {
+      "old": "S^*_\\beta",
+      "new": "\\frac{\\partial S^*}{\\partial \\beta}"
+    },
+    {
+      "old": "S^*_\\beta",
+      "new": "\\frac{\\partial S^*}{\\partial \\beta}"
+    },
+    {
+      "old": "S^*_{q_0}",
+      "new": "\\frac{\\partial S^*}{\\partial q_0}"
+    },
+    {
+      "old": "S^*_\\theta",
+      "new": "\\frac{\\partial S^*}{\\partial \\theta}"
+    },
+    {
+      "old": "S^*_\\eta",
+      "new": "\\frac{\\partial S^*}{\\partial \\eta}"
+    },
+    {
+      "old": "S^*_\\eta",
+      "new": "\\frac{\\partial S^*}{\\partial \\eta}"
+    },
+    {
+      "old": "S^*_{c_0}",
+      "new": "\\frac{\\partial S^*}{\\partial c_0}"
+    },
+    {
+      "old": "S^*_\\eta",
+      "new": "\\frac{\\partial S^*}{\\partial \\eta}"
+    },
+    {
+      "old": "S^*_{c_0}",
+      "new": "\\frac{\\partial S^*}{\\partial c_0}"
+    },
+    {
+      "old": "S^*_\\eta",
+      "new": "\\frac{\\partial S^*}{\\partial \\eta}"
+    },
+    {
+      "old": "S^*_\\eta",
+      "new": "\\frac{\\partial S^*}{\\partial \\eta}"
+    },
+    {
+      "old": "S^*_\\theta",
+      "new": "\\frac{\\partial S^*}{\\partial \\theta}"
+    },
+    {
+      "old": "S^*_\\beta",
+      "new": "\\frac{\\partial S^*}{\\partial \\beta}"
+    },
+    {
+      "old": "S^*_{q_0}",
+      "new": "\\frac{\\partial S^*}{\\partial q_0}"
+    },
+    {
+      "old": "S^*_{q_0}",
+      "new": "\\frac{\\partial S^*}{\\partial q_0}"
+    },
+    {
+      "old": "S^*_{q_0}",
+      "new": "\\frac{\\partial S^*}{\\partial q_0}"
+    },
+    {
+      "old": "S^*_\\eta",
+      "new": "\\frac{\\partial S^*}{\\partial \\eta}"
+    },
+    {
+      "old": "S^*_{c_0}",
+      "new": "\\frac{\\partial S^*}{\\partial c_0}"
+    },
+    {
+      "old": "S^*_\\beta",
+      "new": "\\frac{\\partial S^*}{\\partial \\beta}"
+    },
+    {
+      "old": "S^*_{q_0}",
+      "new": "\\frac{\\partial S^*}{\\partial q_0}"
+    },
+    {
+      "old": "S^*_{q_0}",
+      "new": "\\frac{\\partial S^*}{\\partial q_0}"
+    },
+    {
+      "old": "S^*_p",
+      "new": "\\frac{\\partial S^*}{\\partial p}"
+    },
+    {
+      "old": "S^\\ast_\\eta",
+      "new": "\\frac{\\partial S^\\ast}{\\partial \\eta}"
+    },
+    {
+      "old": "\\lambda_\\eta",
+      "new": "\\frac{\\partial \\lambda}{\\partial \\eta}"
+    },
+    {
+      "old": "\\lambda_{c_0}",
+      "new": "\\frac{\\partial \\lambda}{\\partial c_0}"
+    },
+    {
+      "old": "\\lambda_\\beta",
+      "new": "\\frac{\\partial \\lambda}{\\partial \\beta}"
+    },
+    {
+      "old": "\\lambda_{q_0}",
+      "new": "\\frac{\\partial \\lambda}{\\partial q_0}"
+    },
+    {
+      "old": "\\lambda_\\theta",
+      "new": "\\frac{\\partial \\lambda}{\\partial \\theta}"
+    },
+    {
+      "old": "\\lambda_\\eta",
+      "new": "\\frac{\\partial \\lambda}{\\partial \\eta}"
+    },
+    {
+      "old": "\\lambda_p",
+      "new": "\\frac{\\partial \\lambda}{\\partial p}"
+    },
+    {
+      "old": "\\lambda_\\eta",
+      "new": "\\frac{\\partial \\lambda}{\\partial \\eta}"
+    },
+    {
+      "old": "\\lambda_{c_0}",
+      "new": "\\frac{\\partial \\lambda}{\\partial c_0}"
+    },
+    {
+      "old": "\\lambda_\\beta",
+      "new": "\\frac{\\partial \\lambda}{\\partial \\beta}"
+    },
+    {
+      "old": "\\lambda_{q_0}",
+      "new": "\\frac{\\partial \\lambda}{\\partial q_0}"
+    },
+    {
+      "old": "\\lambda_\\theta",
+      "new": "\\frac{\\partial \\lambda}{\\partial \\theta}"
+    },
+    {
+      "old": "\\lambda_\\eta",
+      "new": "\\frac{\\partial \\lambda}{\\partial \\eta}"
+    },
+    {
+      "old": "\\lambda_p",
+      "new": "\\frac{\\partial \\lambda}{\\partial p}"
+    },
+    {
+      "old": "\\lambda_{q_0}",
+      "new": "\\frac{\\partial \\lambda}{\\partial q_0}"
+    },
+    {
+      "old": "\\Delta t_\\eta",
+      "new": "\\frac{\\partial \\Delta t}{\\partial \\eta}"
+    },
+    {
+      "old": "\\Delta t_\\beta",
+      "new": "\\frac{\\partial \\Delta t}{\\partial \\beta}"
+    },
+    {
+      "old": "\\Delta t_{q_0}",
+      "new": "\\frac{\\partial \\Delta t}{\\partial q_0}"
+    },
+    {
+      "old": "\\Delta t_\\theta",
+      "new": "\\frac{\\partial \\Delta t}{\\partial \\theta}"
+    },
+    {
+      "old": "\\Delta t_\\eta",
+      "new": "\\frac{\\partial \\Delta t}{\\partial \\eta}"
+    },
+    {
+      "old": "\\Delta t_{c_0}",
+      "new": "\\frac{\\partial \\Delta t}{\\partial c_0}"
+    },
+    {
+      "old": "\\Delta t_\\theta",
+      "new": "\\frac{\\partial \\Delta t}{\\partial \\theta}"
+    },
+    {
+      "old": "\\Delta t_\\eta",
+      "new": "\\frac{\\partial \\Delta t}{\\partial \\eta}"
+    },
+    {
+      "old": "\\Delta t_\\beta",
+      "new": "\\frac{\\partial \\Delta t}{\\partial \\beta}"
+    },
+    {
+      "old": "\\Delta t_{q_0}",
+      "new": "\\frac{\\partial \\Delta t}{\\partial q_0}"
+    },
+    {
+      "old": "(\\Delta t)_\\eta",
+      "new": "\\frac{\\partial \\Delta t}{\\partial \\eta}"
+    },
+    {
+      "old": "(t_1)_\\eta",
+      "new": "\\frac{\\partial t_1}{\\partial \\eta}"
+    },
+    {
+      "old": "(t_1)_{c_0}",
+      "new": "\\frac{\\partial t_1}{\\partial c_0}"
+    },
+    {
+      "old": "(q_{\\max})_\\eta",
+      "new": "\\frac{\\partial q_{\\max}}{\\partial \\eta}"
+    },
+    {
+      "old": "(q_{\\max})_{c_0}",
+      "new": "\\frac{\\partial q_{\\max}}{\\partial c_0}"
+    },
+    {
+      "old": "(q_{\\max})_\\eta",
+      "new": "\\frac{\\partial q_{\\max}}{\\partial \\eta}"
+    },
+    {
+      "old": "(q_{\\max})_{c_0}",
+      "new": "\\frac{\\partial q_{\\max}}{\\partial c_0}"
+    },
+    {
+      "old": "\\bar S_\\beta",
+      "new": "\\frac{\\partial \\bar S}{\\partial \\beta}"
+    },
+    {
+      "old": "\\bar S_\\beta",
+      "new": "\\frac{\\partial \\bar S}{\\partial \\beta}"
+    },
+    {
+      "old": "\\bar S_\\beta",
+      "new": "\\frac{\\partial \\bar S}{\\partial \\beta}"
+    },
+    {
+      "old": "\\bar S_\\beta",
+      "new": "\\frac{\\partial \\bar S}{\\partial \\beta}"
+    },
+    {
+      "old": "\\bar S_{c_0}",
+      "new": "\\frac{\\partial \\bar S}{\\partial c_0}"
+    },
+    {
+      "old": "\\bar S_{c_0}",
+      "new": "\\frac{\\partial \\bar S}{\\partial c_0}"
+    },
+    {
+      "old": "\\bar S_\\beta",
+      "new": "\\frac{\\partial \\bar S}{\\partial \\beta}"
+    },
+    {
+      "old": "(S_c)_\\beta",
+      "new": "\\frac{\\partial S_c}{\\partial \\beta}"
+    },
+    {
+      "old": "(S_c)_\\beta",
+      "new": "\\frac{\\partial S_c}{\\partial \\beta}"
+    },
+    {
+      "old": "(S_c)_{q_0}",
+      "new": "\\frac{\\partial S_c}{\\partial q_0}"
+    },
+    {
+      "old": "(S_c)_{q_0}",
+      "new": "\\frac{\\partial S_c}{\\partial q_0}"
+    },
+    {
+      "old": "(S_c)_{c_0}",
+      "new": "\\frac{\\partial S_c}{\\partial c_0}"
+    },
+    {
+      "old": "F_{S^*}",
+      "new": "\\frac{\\partial F}{\\partial S^*}"
+    },
+    {
+      "old": "F_\\eta",
+      "new": "\\frac{\\partial F}{\\partial \\eta}"
+    },
+    {
+      "old": "F_{c_0}",
+      "new": "\\frac{\\partial F}{\\partial c_0}"
+    },
+    {
+      "old": "A_p",
+      "new": "\\frac{\\partial A}{\\partial p}"
+    },
+    {
+      "old": "A_\\eta",
+      "new": "\\frac{\\partial A}{\\partial \\eta}"
+    },
+    {
+      "old": "A_\\eta",
+      "new": "\\frac{\\partial A}{\\partial \\eta}"
+    },
+    {
+      "old": "A_{c_0}",
+      "new": "\\frac{\\partial A}{\\partial c_0}"
+    },
+    {
+      "old": "A_\\beta",
+      "new": "\\frac{\\partial A}{\\partial \\beta}"
+    },
+    {
+      "old": "A_\\beta",
+      "new": "\\frac{\\partial A}{\\partial \\beta}"
+    },
+    {
+      "old": "A_{q_0}",
+      "new": "\\frac{\\partial A}{\\partial q_0}"
+    },
+    {
+      "old": "B_p",
+      "new": "\\frac{\\partial B}{\\partial p}"
+    },
+    {
+      "old": "B_\\eta",
+      "new": "\\frac{\\partial B}{\\partial \\eta}"
+    },
+    {
+      "old": "B_{c_0}",
+      "new": "\\frac{\\partial B}{\\partial c_0}"
+    },
+    {
+      "old": "B_\\beta",
+      "new": "\\frac{\\partial B}{\\partial \\beta}"
+    },
+    {
+      "old": "B_\\beta",
+      "new": "\\frac{\\partial B}{\\partial \\beta}"
+    },
+    {
+      "old": "B_{q_0}",
+      "new": "\\frac{\\partial B}{\\partial q_0}"
+    },
+    {
+      "old": "\\rho_{1,c_0}",
+      "new": "\\frac{\\partial \\rho_1}{\\partial c_0}"
+    },
+    {
+      "old": "\\rho_{1,\\beta}",
+      "new": "\\frac{\\partial \\rho_1}{\\partial \\beta}"
+    },
+    {
+      "old": "\\rho_{1,q_0}",
+      "new": "\\frac{\\partial \\rho_1}{\\partial q_0}"
+    }
+  ],
+  "word_replacements": [
+    {
+      "old": "其中使用了上升支条件 $S^*>S_c$。隐函数定理因而适用。",
+      "new": "由于启动时感染人数处于上升阶段，有 $S^*>S_c$，故上述偏导数非零，隐函数定理适用。",
+      "count": 1
+    },
+    {
+      "old": "在感染初期处于增长支的参数范围 $S_c<S_0$ 内，",
+      "new": "当 $S_0>S_c$、感染人数在初始阶段增加时，",
+      "count": 1
+    },
+    {
+      "old": "所定义的临界值在该分支上存在且唯一",
+      "new": "所定义的临界值在上述参数范围内存在且唯一",
+      "count": 1
+    },
+    {
+      "old": "平台控制时长",
+      "new": "控制持续时间",
+      "count": 2
+    },
+    {
+      "old": "平台持续时间",
+      "new": "控制持续时间",
+      "count": 5
+    },
+    {
+      "old": "平台时长",
+      "new": "控制持续时间",
+      "count": 26
+    },
+    {
+      "old": "平台持续多久",
+      "new": "阈值控制需持续多久",
+      "count": 1
+    },
+    {
+      "old": "平台持续约",
+      "new": "阈值控制持续约",
+      "count": 1
+    },
+    {
+      "old": "平台期",
+      "new": "阈值控制期",
+      "count": 26
+    },
+    {
+      "old": "平台阶段",
+      "new": "阈值控制阶段",
+      "count": 1
+    },
+    {
+      "old": "平台段",
+      "new": "阈值控制阶段",
+      "count": 1
+    },
+    {
+      "old": "平台目标",
+      "new": "控制目标",
+      "count": 1
+    },
+    {
+      "old": "平台条件",
+      "new": "恒定感染条件",
+      "count": 3
+    },
+    {
+      "old": "平台要求",
+      "new": "恒定感染要求",
+      "count": 1
+    },
+    {
+      "old": "平台轨迹",
+      "new": "阈值控制期轨迹",
+      "count": 5
+    },
+    {
+      "old": "平台区间",
+      "new": "阈值控制区间",
+      "count": 1
+    },
+    {
+      "old": "平台的起止状态",
+      "new": "阈值控制的起止状态",
+      "count": 1
+    },
+    {
+      "old": "平台的起止时间",
+      "new": "阈值控制的起止时间",
+      "count": 1
+    },
+    {
+      "old": "平台起点",
+      "new": "控制起点",
+      "count": 2
+    },
+    {
+      "old": "平台终点",
+      "new": "控制终点",
+      "count": 1
+    },
+    {
+      "old": "平台端点",
+      "new": "控制区间端点",
+      "count": 1
+    },
+    {
+      "old": "各自平台中",
+      "new": "各自控制区间内",
+      "count": 1
+    },
+    {
+      "old": "平台内",
+      "new": "阈值控制期内",
+      "count": 2
+    },
+    {
+      "old": "各平台均低于 TDINN 峰值参照",
+      "new": "各阈值均低于 TDINN 峰值参照",
+      "count": 1
+    },
+    {
+      "old": "各感染平台高度相同",
+      "new": "各控制轨迹的感染阈值相同",
+      "count": 1
+    },
+    {
+      "old": "平台高度保持不变",
+      "new": "感染人数维持的阈值保持不变",
+      "count": 1
+    },
+    {
+      "old": "感染平台上的位置",
+      "new": "感染人数曲线水平段上的位置",
+      "count": 1
+    },
+    {
+      "old": "在平台上 $S>S_c$ 时",
+      "new": "在阈值控制期内 $S>S_c$ 时",
+      "count": 1
+    },
+    {
+      "old": "平台上易感者人数",
+      "new": "阈值控制期内易感者人数",
+      "count": 1
+    },
+    {
+      "old": "进入平台时",
+      "new": "进入阈值控制期时",
+      "count": 1
+    },
+    {
+      "old": "平台建立后",
+      "new": "阈值控制开始后",
+      "count": 1
+    },
+    {
+      "old": "正持续时间的平台",
+      "new": "持续时间为正的阈值控制",
+      "count": 1
+    },
+    {
+      "old": "维持感染平台",
+      "new": "使感染人数维持在阈值水平",
+      "count": 2
+    },
+    {
+      "old": "平台误差",
+      "new": "阈值维持误差",
+      "count": 1
+    },
+    {
+      "old": "由此维持 $I(t)\\equiv\\eta$，相应区间称为阈值控制期。",
+      "new": "由此在 $[t_1,t_2]$ 内维持 $I(t)\\equiv\\eta$，本文将这一阶段称为阈值控制期。",
+      "count": 1
+    },
+    {
+      "old": "启动点、拐点相对位置及控制时长的参数依赖汇总于表~\\ref{tab:s1:lambda-sensitivity} 和表~\\ref{tab:s1:inflection-roles}。",
+      "new": "启动时易感者人数、拐点相对位置及控制持续时间的参数敏感性汇总于表~\\ref{tab:s1:lambda-sensitivity} 和表~\\ref{tab:s1:inflection-roles}。两表均列出关于 $\\eta$ 的结果；固定 $N$ 时，改用 $\\theta=\\eta/N$ 不改变相应偏导数的符号。",
+      "count": 1
+    }
+  ],
+  "removed_result_titles": [
+    "控制启动点与首次到达时间",
+    "阈值控制期的隔离控制律",
+    "阈值控制律的结构",
+    "阈值控制期的状态轨迹与时间控制函数",
+    "控制结束时间与持续时间",
+    "动态清零时间",
+    "总累计感染的分段表达",
+    "启动点的参数敏感性",
+    "启动时间与最大隔离率的参数敏感性",
+    "控制时长的参数敏感性",
+    "隔离控制函数的拐点",
+    "拐点相对位置的参数敏感性",
+    "对人口规模 $N$ 的不变性",
+    "控制时长与成本关于阈值比例的单调性",
+    "有效人口下界",
+    "占优区域",
+    "放宽时长约束时的有效人口上界",
+    "加入累计感染约束后的比较范围",
+    "加入清零时间约束后的比较范围",
+    "两类指标的分界"
+  ],
+  "checks": {
+    "same_labels": true,
+    "duplicate_labels": [],
+    "unresolved_internal_labels": [],
+    "equation_env_count_before": 66,
+    "equation_env_count_after": 66,
+    "same_result_counts": {
+      "theorem": true,
+      "lemma": true,
+      "proposition": true,
+      "corollaryn": true,
+      "proof": true
+    },
+    "result_titles_remaining": 0,
+    "remaining_prose_terms": {
+      "上升支": 0,
+      "增长支": 0,
+      "下降支": 0,
+      "平台": 0,
+      "情景一": 0
+    },
+    "derivative_expansion_count": 95,
+    "numbered_equations_same_after_notation_normalization": true,
+    "numbered_display_environment_count": 68,
+    "no_new_newcommand": true,
+    "same_figure_includes": true,
+    "same_citation_keys": true
+  },
+  "compile_checks": {
+    "pages": 49,
+    "overfull_boxes": 0,
+    "underfull_boxes": 1,
+    "undefined_reference_warnings": 0,
+    "missing_glyph_warnings": 0,
+    "visual_review": "All pages reviewed in contact sheets; derivative passages and both tables inspected at higher resolution."
+  }
+}
