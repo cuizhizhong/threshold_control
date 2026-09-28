@@ -1765,7 +1765,24 @@ c_0=2.3,2.4,\ldots,14,
   \begin{threeparttable}
     \caption{固定 $\eta/N=5\%$ 时不同 $c_0$ 下的关键控制指标}
     \label{tab:scenario1_c0_summary}
-    \input{table/scenario1_c0_summary_table.tex}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l*{6}{S[table-format=3.4]}@{}}
+    \toprule
+    \multirow{2}{*}{变量} & \multicolumn{6}{c}{常规接触率 $c_0$} \\
+    \cmidrule(lr){2-7}
+     & {3.347} & {4} & {5} & {8} & {10} & {12} \\
+    \midrule
+    $S^*$ & 559.1496 & 654.6273 & 682.5742 & 703.7125 & 708.3470 & 711.0304 \\
+    $S_c$ & 523.3306 & 437.9004 & 350.3203 & 218.9502 & 175.1602 & 145.9668 \\
+    \addlinespace[3pt]
+    $t_1$ & 29.9176 & 15.3697 & 9.3039 & 4.3073 & 3.1754 & 2.5150 \\
+    $\Delta t$ & 2.0432 & 6.8658 & 7.5778 & 6.6308 & 5.9026 & 5.3007 \\
+    $t_{\rm end}$ & 71.4690 & 58.7277 & 49.9657 & 38.0095 & 33.7732 & 30.7687 \\
+    \addlinespace[3pt]
+    $q_{\max}$ & 0.0783 & 0.3413 & 0.4946 & 0.6936 & 0.7565 & 0.7978 \\
+    $J$ & 0.0053 & 0.4374 & 1.0561 & 2.0006 & 2.2236 & 2.3110 \\
+    $I_{t_{\rm cum}}$ & 382.5525 & 360.7318 & 342.5629 & 303.5829 & 285.7244 & 271.9295 \\
+    \bottomrule
+    \end{tabular*}
     \begin{tablenotes}[flushleft]
       \footnotesize
       \item 注：第一列参数取 $c_0=c_{0,\min}+0.02\approx3.3470$，其余列为主文代表值。
@@ -1782,7 +1799,25 @@ c_0=2.3,2.4,\ldots,14,
   \begin{threeparttable}
     \caption{固定 $c_0=10$ 时不同医疗容量阈值下的关键控制指标}
     \label{tab:scenario1_eta_summary}
-    \input{table/scenario1_eta_summary_table.tex}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l*{4}{S[table-format=3.4]}@{}}
+    \toprule
+    \multirow{2}{*}{变量} & \multicolumn{4}{c}{医疗容量阈值 $\eta$} \\
+    \cmidrule(lr){2-5}
+     & {1.526} & {4.578} & {7.63} & {15.26} \\
+    \midrule
+    $\eta/N$ & 0.002 & 0.006 & 0.01 & 0.02 \\
+    $S^*$ & 761.2486 & 756.8844 & 752.5126 & 741.5490 \\
+    $S_c$ & 175.1602 & 175.1602 & 175.1602 & 175.1602 \\
+    \addlinespace[3pt]
+    $t_1$ & 0.3602 & 1.3001 & 1.7406 & 2.3459 \\
+    $\Delta t$ & 152.0574 & 50.5672 & 30.2685 & 15.0431 \\
+    $t_{\rm end}$ & 180.5821 & 86.5579 & 64.9343 & 46.8029 \\
+    \addlinespace[3pt]
+    $q_{\max}$ & 0.7734 & 0.7721 & 0.7708 & 0.7674 \\
+    $J$ & 60.8005 & 20.1265 & 11.9912 & 5.8888 \\
+    $I_{t_{\rm cum}}$ & 173.0314 & 195.3349 & 208.9166 & 233.7810 \\
+    \bottomrule
+    \end{tabular*}
     \begin{tablenotes}[flushleft]
       \footnotesize
       \item 注：各列对应 $\eta/N=0.2\%,0.6\%,1\%,2\%$。
@@ -1887,7 +1922,16 @@ q_{\rm TDINN}(t)=(0.3230-0.9844)e^{-(0.0452t)^2}+0.9844,
   \begin{threeparttable}
     \caption{固定参数后的初始条件估计}
     \label{tab:xian_initial_fit}
-    \input{table/xian_initial_fit_table.tex}
+    \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.34\textwidth}>{\centering\arraybackslash}X S[table-format=8.6]@{}}
+    \toprule
+    名称 & 符号或定义 & {取值} \\
+    \midrule
+    总人口 & $N$ & 13163000 \\
+    初始易感人数 & $S_0$ & 13162999.9990 \\
+    初始感染人数 & $I_0$ & 0.001007 \\
+    初始康复人数 & $R(0)=N-S_0-I_0$ & 0.0000 \\
+    \bottomrule
+    \end{tabularx}
     \begin{tablenotes}[flushleft]
       \footnotesize
       \item 注：$I_0$ 为模型中的有效初始感染人数；初值拟合的残差准则为均方误差（MSE）。
@@ -1904,7 +1948,17 @@ q_{\rm TDINN}(t)=(0.3230-0.9844)e^{-(0.0452t)^2}+0.9844,
   \begin{threeparttable}
     \caption{不同初值设定下的模型输出}
     \label{tab:xian_i0_sensitivity}
-    \input{table/xian_i0_sensitivity_table.tex}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lS[table-format=1.6]S[table-format=7.0]*{2}{S[table-format=5.2]}@{}}
+    \toprule
+    \multirow{2}{*}{初值设定} & {\multirow{2}{*}{$I_0$}} & {\multirow{2}{*}{累计病例}} & \multicolumn{2}{c}{新增峰值} \\
+    \cmidrule(lr){4-5}
+     & & & {社区} & {隔离区} \\
+    \midrule
+    真实数据 & {---} & 2050 & 60.00 & 141.00 \\
+    最小二乘拟合 & 0.001007 & 2099 & 53.88 & 115.93 \\
+    强行取 $I_0=1$ & 1.000000 & 1083554 & 36873.66 & 63966.54 \\
+    \bottomrule
+    \end{tabular*}
   \end{threeparttable}
 \end{table}
 
@@ -1954,7 +2008,22 @@ t_2=t_1+\frac{N}{c_0\eta}\ln\frac{S^*-\bar S}{S_c-\bar S}\approx101.97,
   \begin{threeparttable}
     \caption{$\eta=0.002N$ 下三类控制策略的数值比较}
     \label{tab:xian_summary}
-    \input{table/xian_control_comparison_results_table.tex}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l*{3}{S[table-format=7.2]}@{}}
+    \toprule
+    比较量 & {TDINN控制} & {情景一阈值控制} & {常规控制} \\
+    \midrule
+    感染峰值 $\max I$ & 152 & 26326 & 1377550 \\
+    启动时间 $t_1$（d） & 0.00 & 16.90 & 0.00 \\
+    解除时间 $t_2$（d） & 45.27 & 101.97 & 0.00 \\
+    控制时长 $\Delta t$（d） & 45.27 & 85.07 & 0.00 \\
+    清零时间 $t_{\rm end}$（d） & 45.27 & 258.11 & 75.58 \\
+    总累计感染 $\Itcum$ & 2097 & 2377943 & 4587183 \\
+    \addlinespace[3pt]
+    接触率分项成本 $J_c$ & 19.15 & 0.00 & 0.00 \\
+    隔离率分项成本 $J_q$ & 25.15 & 36.80 & 0.00 \\
+    二次加权总成本 $J$ & 49.35 & 40.77 & 0.00 \\
+    \bottomrule
+    \end{tabular*}
     \begin{tablenotes}[flushleft]
       \footnotesize
       \item 注：表内 $\max I$、$\Itcum$ 为直接模拟取整值。
@@ -1982,7 +2051,25 @@ t_2=t_1+\frac{N}{c_0\eta}\ln\frac{S^*-\bar S}{S_c-\bar S}\approx101.97,
   \begin{threeparttable}
     \caption{不同医疗阈值 $\eta$ 下隔离率阈值控制的数值指标}
     \label{tab:xian_eta_sens}
-    \input{table/xian_eta_sensitivity_table.tex}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}S[table-format=6.0]S[table-format=1.4]S[table-format=2.2]S[table-format=4.2]S[table-format=4.2]S[table-format=4.2]S[table-format=1.4]S[table-format=3.2]S[table-format=7.0]@{}}
+    \toprule
+    \multicolumn{2}{c}{阈值设置} & \multicolumn{4}{c}{时间量（d）} & \multicolumn{2}{c}{隔离强度与成本} & {总累计感染} \\
+    \cmidrule(lr){1-2}\cmidrule(lr){3-6}\cmidrule(lr){7-8}
+    {$\eta$} & {$\eta/N$} & {$t_1$} & {$t_2$} & {$\Delta t$} & {$t_{\rm end}$} & {$q_c(t_1)$} & {$J$} & {$\Itcum$} \\
+    \midrule
+    1316 & 0.0001 & 13.93 & 1724.59 & 1710.66 & 2209.55 & 0.8470 & 826.41 & 2155649 \\
+    2633 & 0.0002 & 14.61 & 869.70 & 855.09 & 1243.16 & 0.8469 & 412.91 & 2182123 \\
+    6582 & 0.0005 & 15.52 & 357.27 & 341.75 & 620.77 & 0.8466 & 164.82 & 2234666 \\
+    13163 & 0.001 & 16.21 & 186.84 & 170.63 & 389.32 & 0.8462 & 82.12 & 2293939 \\
+    19744 & 0.0015 & 16.61 & 130.20 & 113.59 & 304.01 & 0.8458 & 54.55 & 2339486 \\
+    26326 & 0.002 & 16.90 & 101.97 & 85.07 & 258.11 & 0.8454 & 40.77 & 2377943 \\
+    39489 & 0.003 & 17.31 & 73.86 & 56.55 & 208.39 & 0.8445 & 26.98 & 2442608 \\
+    52652 & 0.004 & 17.60 & 59.89 & 42.29 & 181.18 & 0.8436 & 20.09 & 2497306 \\
+    65815 & 0.005 & 17.83 & 51.56 & 33.73 & 163.66 & 0.8428 & 15.95 & 2545663 \\
+    98722 & 0.0075 & 18.25 & 40.57 & 22.32 & 138.11 & 0.8405 & 10.44 & 2649240 \\
+    131630 & 0.01 & 18.55 & 35.16 & 16.61 & 123.89 & 0.8382 & 7.68 & 2737382 \\
+    \bottomrule
+    \end{tabular*}
   \end{threeparttable}
 \end{table}
 
