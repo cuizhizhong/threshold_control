@@ -1,0 +1,34 @@
+本轮直接更新：
+latex/flatten_curve_analysis_cn.tex
+latex/flatten_curve_analysis_cn.pdf
+
+本轮新增成品：
+latex/flatten_curve_supplement_cn.tex
+latex/flatten_curve_supplement_cn.pdf
+latex/build_paper.ps1
+
+新增图文件（每个基名均有 PDF/SVG/PNG）：
+latex/figures/revision_v4/baseline_q_joint
+latex/figures/revision_v4/xian_observed_fit
+latex/figures/revision_v4/xian_strategy_process
+latex/figures/revision_v4/population_threshold_levers
+latex/figures/revision_v4/critical_population_cases
+latex/figures/revision_v4/c0_phase_stationary
+
+新增实现与记录：
+latex/revision_v4/plot_revisions.py
+latex/revision_v4/verify_revision.py
+latex/revision_v4/README.md
+latex/revision_v4/old_to_new_figures.md
+latex/revision_v4/old_to_new_tables.md
+latex/revision_v4/validation_report.md
+latex/revision_v4/changed_files.txt
+latex/revision_v4/protected_before.json
+latex/revision_v4/data/（原输出副本、合图数值缓存）
+latex/revision_v4/qa/（检查 JSON、图文件哈希、最终 PDF 渲染与过程记录）
+latex/revision_v4/before/（修改前主稿、PDF、参考文献、六份表格源文件备份）
+
+编译同步生成或刷新同名 aux/bbl/bcf/blg/log/out/run.xml 等辅助文件。
+未修改 elegantpaper.cls、references.bib、原图资产、原研究模块和 latex/table 六份旧源表。
+未改动用户原有的 latex_theory 删除状态。
+

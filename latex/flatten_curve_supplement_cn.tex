@@ -1,0 +1,137 @@
+%!TEX program = xelatex
+\documentclass[lang=cn,a4paper,newtx]{elegantpaper}
+
+\title{隔离率阈值控制策略分析：补充表格}
+\author{ XXX \and XXX}
+\institute{School of Mathematics and Statistics, Shaanxi Normal University}
+% \version{0.1}
+\date{}
+
+\usepackage{amsmath,amssymb,mathrsfs}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{threeparttable}
+\usepackage{siunitx}
+\usepackage{xurl}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\graphicspath{{./}{figures/}{table/}}
+\numberwithin{equation}{section}
+% 推论与定理共用编号。
+\theoremstyle{plain}
+\newtheorem{corollaryn}[theorem]{推论}
+% 需要交叉引用的注记采用编号环境。
+\newtheorem{remarkn}[theorem]{注记}
+\allowdisplaybreaks[3]
+\renewcommand{\arraystretch}{1.12}
+\emergencystretch=2em
+\newcommand{\qinf}{q_{\mathrm{inf}}}
+\newcommand{\Itcum}{I_{t_{\mathrm{cum}}}}
+\addbibresource{references.bib}
+
+\renewcommand{\thetable}{S\arabic{table}}
+\begin{document}
+\maketitle
+本文件收录基准参数分析、初值设定比较及西安阈值敏感性结果。完整输出与原表显示值保存在 \texttt{revision\_v4/data/} 和 \texttt{revision\_v4/before/} 中。
+
+\begin{table}[htbp]
+\centering\small
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{threeparttable}
+\caption{基准参数下代表性控制结果}
+\label{tab:sup:baseline}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lS[table-format=2.4]S[table-format=3.4]S[table-format=3.4]S[table-format=1.4]S[table-format=2.4]S[table-format=3.4]@{}}
+\toprule
+参数取值 & {$t_1$（d）} & {$\Delta t$（d）} & {$t_{\mathrm{end}}$（d）} & {$q_{\max}$} & {$J$} & {\shortstack{总累计感染\\（人）}}\\
+\midrule
+\multicolumn{7}{@{}l}{固定 $\eta/N=5\%$，改变 $c_0$}\\
+\addlinespace[2pt]
+$c_0\approx3.3470$ & 29.9176 & 2.0432 & 71.4690 & 0.0783 & 0.0053 & 382.5525\\
+$c_0=4$ & 15.3697 & 6.8658 & 58.7277 & 0.3413 & 0.4374 & 360.7318\\
+$c_0=5$ & 9.3039 & 7.5778 & 49.9657 & 0.4946 & 1.0561 & 342.5629\\
+$c_0=8$ & 4.3073 & 6.6308 & 38.0095 & 0.6936 & 2.0006 & 303.5829\\
+$c_0=10$ & 3.1754 & 5.9026 & 33.7732 & 0.7565 & 2.2236 & 285.7244\\
+$c_0=12$ & 2.5150 & 5.3007 & 30.7687 & 0.7978 & 2.3110 & 271.9295\\
+\addlinespace[5pt]
+\multicolumn{7}{@{}l}{固定 $c_0=10$，改变 $\eta/N$}\\
+\addlinespace[2pt]
+$\eta/N=0.2\%$ & 0.3602 & 152.0574 & 180.5821 & 0.7734 & 60.8005 & 173.0314\\
+$\eta/N=0.6\%$ & 1.3001 & 50.5672 & 86.5579 & 0.7721 & 20.1265 & 195.3349\\
+$\eta/N=1\%$ & 1.7406 & 30.2685 & 64.9343 & 0.7708 & 11.9912 & 208.9166\\
+$\eta/N=2\%$ & 2.3459 & 15.0431 & 46.8029 & 0.7674 & 5.8888 & 233.7810\\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]\footnotesize
+\item 注：数值取自基准实验的保存结果；首行 $c_0=c_{0,\min}+0.02$，近似数不作重新求解的输入。第一组阈值为 $5\%$；正文多阈值曲线另取 $0.2\%,0.6\%,1\%,2\%$。$S^*$、$S_c$ 等完整输出保留在数据文件中。
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\clearpage
+
+\begin{table}[htbp]
+\centering\small
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{threeparttable}
+\caption{不同初值设定下的观测窗口比较}
+\label{tab:sup:initial}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lS[table-format=1.6]S[table-format=7.0]S[table-format=5.2]S[table-format=5.2]@{}}
+\toprule
+数据或初值设定 & {$I_0$（人）} & {\shortstack{累计病例\\（40 d）}} & {\shortstack{社区日新增峰值\\（例）}} & {\shortstack{隔离日新增峰值\\（例）}}\\
+\midrule
+观测数据 & {---} & 2050 & 60 & 141\\
+最小二乘拟合 & 0.001007 & 2099 & 53.88 & 115.93\\
+固定 $I_0=1$ & 1 & 1083554 & 36873.66 & 63966.54\\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]\footnotesize
+\item 注：观测窗口为 2021 年 12 月 9 日至 2022 年 1 月 17 日的 40 个日区间。保留原初值拟合程序的输出：其 MSE 解在 $t=40$ 的总累计为 $2098.9747$，即表内 $2099$；主稿事件积分输出在同一时刻为 $2090.1355$，在动态清零时刻 $45.2725$ d 为 $2096.7578$。两套程序使用相同拟合初值，但积分容差和分段方式不同，故差异不只来自统计终点。本轮未重新拟合或统一重算全部参照量，以上数值精度差异尚待后续统一积分设置核定。日新增峰值不等于社区现存感染者峰值。
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\clearpage
+
+\begin{table}[htbp]
+\centering\small
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{threeparttable}
+\caption{西安参数下不同阈值的控制结果}
+\label{tab:sup:eta}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}S[table-format=1.4]S[table-format=1.4]S[table-format=4.2]S[table-format=4.2]S[table-format=3.2]S[table-format=7.0]@{}}
+\toprule
+{$\eta/N$} & {$q_{\max}$} & {$\Delta t$（d）} & {$t_{\mathrm{end}}$（d）} & {$J$} & {总累计感染（人）}\\
+\midrule
+0.0001 & 0.8470 & 1710.66 & 2209.55 & 826.41 & 2155649\\
+0.0002 & 0.8469 & 855.09 & 1243.16 & 412.91 & 2182123\\
+0.0005 & 0.8466 & 341.75 & 620.77 & 164.82 & 2234666\\
+0.0010 & 0.8462 & 170.63 & 389.32 & 82.12 & 2293939\\
+0.0015 & 0.8458 & 113.59 & 304.01 & 54.55 & 2339486\\
+0.0020 & 0.8454 & 85.07 & 258.11 & 40.77 & 2377943\\
+0.0030 & 0.8445 & 56.55 & 208.39 & 26.98 & 2442608\\
+0.0040 & 0.8436 & 42.29 & 181.18 & 20.09 & 2497306\\
+0.0050 & 0.8428 & 33.73 & 163.66 & 15.95 & 2545663\\
+0.0075 & 0.8405 & 22.32 & 138.11 & 10.44 & 2649240\\
+0.0100 & 0.8382 & 16.61 & 123.89 & 7.68 & 2737382\\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]\footnotesize
+\item 注：数值取自西安阈值敏感性保存结果；$q_{\max}=q_c(t_1)$。$\eta/N$ 为比例而非百分数，0.002对应0.2\%。输入与完整输出仍读取原数据；累计量计算至各策略的动态清零终点。长时间结果沿用原文固定参数模型的外推解释，不作为现实预测。
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\clearpage
+\end{document}
+

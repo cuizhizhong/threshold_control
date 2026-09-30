@@ -1,0 +1,115 @@
+{
+  "artifact": "E:/work/draft/latex/flatten_curve_analysis_cn.pdf",
+  "sha256": "79fd50c586b463125ea30131bc25e258a3a7408fce442ddb3dde83adfdd14fb2",
+  "status": "reviewed_for_requested_layout_changes",
+  "page_count": 40,
+  "reviewed_page_renders": [
+    {
+      "page": 13,
+      "sha256": "95973f8b51b650a011dcb504a7dac6f4dba3ba008c862ad3bfbcd18f994403b9"
+    },
+    {
+      "page": 14,
+      "sha256": "c1b32bae8e8b1baa148c168cca17dd573874a7b31e1c9a1890f76fa235163e24"
+    },
+    {
+      "page": 15,
+      "sha256": "dea9588e5f34ae9c6e9bd4263e166302accccb5f526178e5e9fc8e6a19e25d97"
+    },
+    {
+      "page": 18,
+      "sha256": "155f1d7a2db238fc6dec722bf4dc96005b6bfa1c5a69599bc3f07d15c2311327"
+    },
+    {
+      "page": 19,
+      "sha256": "2f14595726fdda1ac68a098d6c0816469723be51417a0e30be73480021266c4b"
+    },
+    {
+      "page": 20,
+      "sha256": "6184d6aacafecdca3c51d8e971599fff3d00bbc378b4154f23c5649d6e35c472"
+    },
+    {
+      "page": 21,
+      "sha256": "a39f0a84deeb7e841a9d8e74614e268e2bcf36d5839aa056e3e93ad95d3ab942"
+    },
+    {
+      "page": 22,
+      "sha256": "17a87f3d88333a1a398bbffb5709a8ccb219c08a2956c343362fd0a3bad0883b"
+    },
+    {
+      "page": 23,
+      "sha256": "1f94881298d92fee16f0129add10275f265a27d84b85a6758ac273d1388f8cbf"
+    },
+    {
+      "page": 24,
+      "sha256": "8a305d53629be284a242728ecc563f9e437679aa5b1b82331401c3a2c18c0a22"
+    },
+    {
+      "page": 25,
+      "sha256": "9c023e98319958ae28bdf81f76073cd92e1778cdb96c08098eb1ef18130593e7"
+    },
+    {
+      "page": 32,
+      "sha256": "b789d0b687fe8e3f65bd9b2f6dfd4b75b2375d8c4077dbbde0e9e60b6e951fbb"
+    },
+    {
+      "page": 33,
+      "sha256": "00fa27f91a32ccf76ecd73a9f21a2669c4e0c629ed967c31041828746b6dd7df"
+    },
+    {
+      "page": 34,
+      "sha256": "857509a3da4162c6304064af68d5a27322aa1942ef799247ab3a1828e0135c62"
+    },
+    {
+      "page": 35,
+      "sha256": "099f0a0a7c9e2d5b23c2268352acfa04779da37996868d6116f8b107b8c45a73"
+    },
+    {
+      "page": 36,
+      "sha256": "59b63ce50cc5364826dc7268f6a1bacbd89f9851a1207af6c08b2437c7624268"
+    },
+    {
+      "page": 37,
+      "sha256": "dcbb38587268c5eeb60e7a6583b85d04aadd9f919467a61fbc5a09712954e73a"
+    },
+    {
+      "page": 38,
+      "sha256": "d644f43f6e7e13c295581fb4e82c8e80989b928dcb1fd9948744da9e2ef47ee0"
+    },
+    {
+      "page": 40,
+      "sha256": "92d72ef64b4430b65afd178b14a893df18e088e1980f704691bf7670c61cb2f9"
+    }
+  ],
+  "checks": {
+    "captions_and_axes_visible": true,
+    "figure_10_order": "I; c,q; total cumulative,Re",
+    "figure_14_all_five_population_curves": true,
+    "figure_14_cumulative_insets": 2,
+    "figure_18_cumulative_insets": 3,
+    "figure_18_shared_legend": "upper_right_a",
+    "figure_15_linear_y_ticks": [
+      0,
+      20,
+      40,
+      60,
+      80
+    ],
+    "bibliography_entries_visible": 5
+  },
+  "manual_collision_review": {
+    "math_glyph_crops": [
+      "review_013.png",
+      "review_032.png",
+      "review_033.png"
+    ],
+    "math_glyph_result": "no_visible_overlap",
+    "inset_background_and_bar_edge_warnings": "reviewed_at_figure_and_page_scale; labels_visible",
+    "raw_reports_preserved": true
+  },
+  "limitations": [
+    "源代码通用预检仍有字体 FAIL：遵循用户原图 Times/STIX 约束，不替换为默认无衬线字体。",
+    "原模板存在字体形状与字号替代提示；没有修改模板。",
+    "此为本次指定图件排版验收，不是某一具体期刊的投稿规范认证。"
+  ]
+}

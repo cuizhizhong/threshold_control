@@ -19,6 +19,8 @@
 \usepackage{threeparttable}
 \usepackage{siunitx}
 \usepackage{xurl}
+\usepackage{xr}
+\externaldocument{flatten_curve_supplement_cn}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 
@@ -1303,6 +1305,21 @@ $\ln(S_0/S^*)>0$，当 $\Theta\le0$ 时导数必为正。
 
 在上述触发范围内，提高 $\eta$ 对应更晚的启动时刻、更低的最大隔离率和更短的阈值控制期，其代价是允许更高的非隔离感染人数。相比之下，增大 $c_0$ 虽然提高最大隔离率，却不一定延长阈值控制期。这些结果区分了控制强度与持续时间的变化；累计感染和动态清零时间还包含退出后的感染过程，不能仅由控制持续时间推断。
 
+\subsection{参数敏感性的数值图像}
+以下图像取 $N=763,S_0=762,I_0=1,\beta=0.155,\gamma=0.3504,q_0=0.01526$ 为基准，其余取值在图注中说明。图~\ref{fig:baseline:q-joint} 比较不同 $c_0$ 与 $\eta$ 下的控制轨迹。图~\ref{fig:scenario1_heatmaps_c0_eta} 将时长、清零时间和累计感染放在同一参数平面内；触发边界下方无需加强隔离。数值计算方法与代表值见第~\ref{sec:numerics}~节及补充表~\ref{tab:sup:baseline}。
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/layout_v5/baseline_q_joint.pdf}
+\caption{基准参数下的隔离率轨迹。(a) 固定 $\eta/N=5\%$，$c_0=4,5,8,10,12$；(b) 固定 $c_0=10$，$\eta/N=0.2\%,0.6\%,1\%,2\%$。三角形、短竖线分别表示 $t_1,t_2$，红点为内部拐点。水平虚线为 $q_0$，点线为 $\qinf$。$c_0=4$ 时不存在内部拐点。横轴 $t$ 的单位为天。}
+\label{fig:baseline:q-joint}
+\end{figure}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/scenario1_heatmaps_c0_eta.pdf}
+    \caption{$(\eta/N,c_0)$ 平面上的启动时间、控制持续时间、清零时间和累计感染。实线为触发边界 $c_{0,\min}(\eta)$，白色区域无需加强隔离，虚线为各指标的等值线。}
+    \label{fig:scenario1_heatmaps_c0_eta}
+\end{figure}
+\FloatBarrier
 \section{隔离控制函数的拐点分析}
 \label{sec:s1:shape}
 前面的结果给出了控制持续时间和最大隔离率，并证明 $q_c(t)$ 在控制期内严格递减。然而，单调性并不说明隔离率的下降速度是否一直增大或减小。考察内部拐点可以进一步确定下降速度是否在阈值控制期内达到最大值，以及这一时刻如何随参数变化。
@@ -1585,7 +1602,7 @@ $\eta=N\theta$ 给出 $\frac{\partial \lambda}{\partial \theta}=N\frac{\partial 
 \end{proof}
 
 
-在内部拐点存在的范围内，提高 $\eta$ 使隔离率下降最快的时刻在阈值控制期内相对前移，提高 $\beta$ 或 $c_0$ 则使其相对后移。$q_0$ 的影响由相反方向的两项共同决定，不能据此断言每条参数曲线都非单调。启动时易感者人数、拐点相对位置及控制持续时间的参数敏感性汇总于表~\ref{tab:s1:lambda-sensitivity} 和表~\ref{tab:s1:inflection-roles}。两表均列出关于 $\eta$ 的结果；固定 $N$ 时，改用 $\theta=\eta/N$ 不改变相应偏导数的符号。
+在内部拐点存在的范围内，提高 $\eta$ 使隔离率下降最快的时刻在阈值控制期内相对前移，提高 $\beta$ 或 $c_0$ 则使其相对后移。$q_0$ 的影响由相反方向的两项共同决定，不能据此断言每条参数曲线都非单调。启动时易感者人数、拐点相对位置及控制持续时间的参数敏感性汇总于表~\ref{tab:s1:lambda-sensitivity}。该表列出关于 $\eta$ 的结果；固定 $N$ 时，改用 $\theta=\eta/N$ 不改变相应偏导数的符号。
 
 \begin{table}[htbp]
   \centering
@@ -1593,7 +1610,7 @@ $\eta=N\theta$ 给出 $\frac{\partial \lambda}{\partial \theta}=N\frac{\partial 
   \setlength{\tabcolsep}{3.5pt}
   \renewcommand{\arraystretch}{1.25}
   \begin{threeparttable}
-    \caption{启动时易感者人数与拐点相对位置的参数敏感性}
+    \caption{主要控制量的参数敏感性}
     \label{tab:s1:lambda-sensitivity}
     \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.29\textwidth}*{4}{>{\centering\arraybackslash}p{0.10\textwidth}}>{\raggedright\arraybackslash}X@{}}
       \toprule
@@ -1603,106 +1620,21 @@ $\eta=N\theta$ 给出 $\frac{\partial \lambda}{\partial \theta}=N\frac{\partial 
       \midrule
       启动时易感者人数 $S^*$ & $>0$ & $<0$ & $>0$ & $<0$ & 引理~\ref{lem:s1:Sstar-sensitivity}\\
       拐点相对位置 $\lambda$ & $>0$ & 不定 & $>0$ & $<0$ & 命题~\ref{prop:s1:lambda-sensitivity}\\
-      \bottomrule
-    \end{tabularx}
-    \begin{tablenotes}[flushleft]
-      \footnotesize
-      \item 注：表中各项为分析量关于列示参数的偏导数符号，求导时固定 $N,S_0,I_0$ 及其余模型参数。关于 $S^*$ 的结果要求满足控制触发条件；关于 $\lambda$ 的结果还要求 $S_c<2\bar S<S^*$。不定表示偏导数的符号不能在上述参数范围内统一确定。
-    \end{tablenotes}
-  \end{threeparttable}
-\end{table}
-
-
-\begin{table}[htbp]
-  \centering
-  \small
-  \setlength{\tabcolsep}{3.5pt}
-  \renewcommand{\arraystretch}{1.25}
-  \begin{threeparttable}
-    \caption{拐点相关量与控制持续时间的参数敏感性}
-    \label{tab:s1:inflection-roles}
-    \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.29\textwidth}*{4}{>{\centering\arraybackslash}p{0.10\textwidth}}>{\raggedright\arraybackslash}X@{}}
-      \toprule
-      \multirow{2}{*}{变量} & \multicolumn{4}{c}{偏导数符号} & \multirow{2}{*}{依据}\\
-      \cmidrule(lr){2-5}
-       & $\beta$ & $q_0$ & $c_0$ & $\eta$ & \\
-      \midrule
       拐点处隔离率 $\qinf$ & $<0$ & $=0$ & $=0$ & $=0$ & 定理~\ref{thm:s1:inflection}\\
-      $\qinf-q_0$ & $<0$ & $<0$ & $=0$ & $=0$ & 式~\eqref{eq:s1:inflection-exist}\\
-      $S^*-2\bar S$ & $>0$ & $<0$ & $>0$ & $<0$ & 引理~\ref{lem:s1:Sstar-sensitivity}、式~\eqref{eq:s1:barS}\\
       控制持续时间 $\Delta t$ & $>0$ & $<0$ & 不定 & $<0$ & 推论~\ref{cor:s1:duration-sensitivity}\\
       \bottomrule
     \end{tabularx}
     \begin{tablenotes}[flushleft]
       \footnotesize
-      \item 注：表中各项为分析量关于列示参数的偏导数符号，求导时固定 $N,S_0,I_0$ 及其余模型参数。结果在控制触发条件下成立。$\qinf-q_0$ 和 $S^*-2\bar S$ 同时为正时存在内部拐点；$=0$ 表示该量不依赖相应参数。$\partial\Delta t/\partial c_0$ 的符号由推论~\ref{cor:s1:duration-sensitivity} 中的判据确定。
+      \item 注：表中各项为分析量关于列示参数的偏导数符号，求导时固定 $N,S_0,I_0$ 及其余模型参数。关于 $S^*$、$\Delta t$ 的结果要求满足控制触发条件；关于 $\lambda$ 和实际拐点取值 $\qinf$ 的结果还要求 $S_c<2\bar S<S^*$。不定表示偏导数的符号不能在上述参数范围内统一确定。
     \end{tablenotes}
   \end{threeparttable}
 \end{table}
 
 
-\section{数值验证与参数分析}
-\label{sec:num}
-\subsection{基准参数与解析解验证}
-本节数值示例取
-\[
-N=763,\quad S_0=762,\quad I_0=1,\quad
-\beta=0.155,\quad c_0=10,\quad q_0=0.01526,\quad \gamma=0.3504.
-\]
-常规控制下的再生数为
-\[
-R_0=\frac{\beta c_0(1-q_0)}{\gamma}\approx 4.3560.
-\]
 
-取医疗容量阈值为总人数的 $5\%$，即
-$\eta=0.05N=38.15$。
-表~\ref{tab:results} 和图~\ref{fig:scenario1:single-sim} 给出阈值控制与常规控制的比较。采用预定时间控制函数 $q_c(t)$ 后，$I(t)$ 在 $[t_1,t_2]$ 内维持于 $\eta$，最大数值偏差约为 $1.07\times10^{-7}$。常规控制下的感染峰值约为 $300.3726$，超过容量阈值。
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/optimal_control_with_quarantine_panels.pdf}
-    \caption{基准参数下阈值控制与常规控制的时间轨迹。阈值控制在 $[t_1,t_2]$ 内维持 $I(t)=\eta$，隔离率由 $q_{\max}$ 逐渐下降至 $q_0$。}
-    \label{fig:scenario1:single-sim}
-\end{figure}
 
-\begin{table}[htbp]
-  \centering
-  \small
-  \sisetup{group-digits=false}
-  \setlength{\tabcolsep}{3.5pt}
-  \renewcommand{\arraystretch}{1.25}
-  \begin{threeparttable}
-    \caption{阈值控制数值模拟中的参数、理论结果与数值验证}
-    \label{tab:results}
-    \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\centering\arraybackslash}p{0.16\textwidth}>{\raggedright\arraybackslash}X>{\centering\arraybackslash}p{0.16\textwidth}@{}}
-\toprule
-变量（符号） & 数值 & 变量（符号） & 数值 \\
-\midrule
-\multicolumn{4}{@{}l}{模型参数} \\
-\addlinespace[2pt]
-移出率 $\gamma$ & 0.3504 & 基本再生数 $R_0$ & 4.3560 \\
-传播概率 $\beta$ & 0.1550 & 常规接触率 $c_0$ & 10.0000 \\
-总人数 $N$ & 763.0000 & 常规隔离率 $q_0$ & 0.0153 \\
-医疗容量阈值 $\eta$ & 38.1500 & 临界易感人数 $S_c$ & 175.1602 \\
-初始易感人数 $S_0$ & 762.0000 & 初始感染人数 $I_0$ & 1.0000 \\
-\midrule
-\multicolumn{4}{@{}l}{理论结果} \\
-\addlinespace[2pt]
-启动点 $S^*$ & 708.3470 & 启动时间 $t_1$ & 3.1754 \\
-解除时间 $t_2$ & 9.0780 & 控制时长 $\Delta t$ & 5.9026 \\
-最大隔离率 $q_c(t_1)$ & 0.7565 & 终点隔离强度 $q_c(t_2)=q_0$ & 0.0153 \\
-\midrule
-\multicolumn{4}{@{}l}{数值验证} \\
-\addlinespace[2pt]
-受控情形感染峰值 & 38.1500 & 阈值维持误差 & $1.07\times10^{-7}$ \\
-常规控制感染峰值 & 300.3726 & 常规控制峰值时间 & 6.7065 \\
-\bottomrule
-    \end{tabularx}
-    \begin{tablenotes}[flushleft]
-      \footnotesize
-      \item 注：时间单位为 d。感染峰值为相应策略下的 $\max I(t)$；阈值维持误差为 $\max_{[t_1,t_2]}|I-\eta|$。
-    \end{tablenotes}
-  \end{threeparttable}
-\end{table}
+
 \subsection{拐点的数值分析}
 
 图~\ref{fig:s1:lambda-sensitivity} 给出 $\lambda$ 随 $\eta/N,c_0,\beta,q_0$ 的变化。
@@ -1720,29 +1652,50 @@ q_0^\dagger
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth]{scenario1_inflection_lambda_sensitivity.pdf}
-    \caption{拐点相对位置 $\lambda$ 随 $\eta/N,c_0,\beta,q_0$ 的变化。基准参数同本节设定；$q_0$ 面板另比较 $\beta=0.10,0.12,0.155$。空心圆表示数值局部极大值，浅灰区域表示不满足触发条件，深灰区域表示已触发控制但无内部拐点。$q_0$ 面板的灰色区域对应 $\beta=0.155$。}
+    \includegraphics[width=0.8\textwidth]{figures/layout_v5/scenario1_inflection_lambda_sensitivity.pdf}
+    \caption{拐点相对位置 $\lambda$ 随 $\eta/N,c_0,\beta,q_0$ 的变化。基准取 $N=763,S_0=762,I_0=1,\beta=0.155,\gamma=0.3504,c_0=10,q_0=0.01526,\eta/N=0.05$；$q_0$ 面板另比较 $\beta=0.10,0.12,0.155$。空心圆表示数值局部极大值，浅灰区域表示不满足触发条件，深灰区域表示已触发控制但无内部拐点。$q_0$ 面板的灰色区域对应 $\beta=0.155$。}
     \label{fig:s1:lambda-sensitivity}
 \end{figure}
 
 
-图~\ref{fig:s1:inflection-landscape} 给出拐点的存在范围及其前后两段时长。改变 $\beta$ 时，两端的拐点边界均可能出现；改变 $c_0$ 时，内部拐点在 $S^*=2\bar S$ 处出现。对于图示的 $q_0$ 和 $\eta/N$ 范围，只要满足控制触发条件，内部拐点就存在。由于 $\qinf$ 仅依赖于 $\beta$，其值在其余三个参数的比较中保持不变。相应的隔离率时间轨迹见图~\ref{fig:s1:inflection-scan}。
+改变 $\beta$ 时，两端的拐点边界均可能出现；改变 $c_0$ 时，内部拐点在 $S^*=2\bar S$ 处出现。对于图示的 $q_0$ 和 $\eta/N$ 范围，只要满足控制触发条件，内部拐点就存在。由于 $\qinf$ 仅依赖于 $\beta$，其值在其余三个参数的比较中保持不变。相应的隔离率时间轨迹见图~\ref{fig:s1:inflection-scan}。
+
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{scenario1_inflection_landscape.pdf}
-    \caption{四个参数对拐点存在性和控制持续时间的影响，基准参数同本节设定。左列为 $q_{\max},\qinf,q_0$，满足 $q_0<\qinf<q_{\max}$ 时存在内部拐点；右列分别为拐点前后的时长 $t_{\rm inf}-t_1$ 和 $t_2-t_{\rm inf}$，虚线表示总时长 $\Delta t$。}
-    \label{fig:s1:inflection-landscape}
-\end{figure}
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.8\textwidth]{scenario1_inflection_scan_t.pdf}
-    \caption{不同 $q_0,\beta,c_0,\eta/N$ 下的隔离率时间轨迹。其余参数同图~\ref{fig:s1:inflection-landscape}。圆点为内部拐点，短竖线为控制结束时刻 $t_2$。}
+    \includegraphics[width=0.8\textwidth]{figures/layout_v5/scenario1_inflection_scan_t.pdf}
+    \caption{不同 $q_0,\beta,c_0,\eta/N$ 下的隔离率时间轨迹。其余参数同图~\ref{fig:s1:lambda-sensitivity}。圆点为内部拐点，短竖线为控制结束时刻 $t_2$。横轴 $t$ 的单位为天。}
     \label{fig:s1:inflection-scan}
 \end{figure}
 
 附录~\ref{app:c0_beta} 给出了 $(c_0,\beta)$ 平面上的拐点存在范围。固定 $\theta=0.002$、$q_0=0.3230$ 时，西安参数 $(c_0,\beta)=(12.8872,0.1498)$ 位于该范围内。
 
+\FloatBarrier
+\section{数值验证与参数分析}
+\label{sec:numerics}
+\label{sec:num}
+\subsection{基准参数与解析解验证}
+本节数值示例取
+\[
+N=763,\quad S_0=762,\quad I_0=1,\quad
+\beta=0.155,\quad c_0=10,\quad q_0=0.01526,\quad \gamma=0.3504.
+\]
+常规控制下的再生数为
+\[
+R_0=\frac{\beta c_0(1-q_0)}{\gamma}\approx 4.3560.
+\]
+
+取医疗容量阈值为总人数的 $5\%$，即
+$\eta=0.05N=38.15$。
+图~\ref{fig:scenario1:single-sim} 给出阈值控制与常规控制的比较。采用预定时间控制函数 $q_c(t)$ 后，$I(t)$ 在 $[t_1,t_2]$ 内维持于 $\eta$，最大数值偏差约为 $1.07\times10^{-7}$。常规控制下的感染峰值约为 $300.3726$，超过容量阈值。
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/optimal_control_with_quarantine_panels.pdf}
+    \caption{基准参数下阈值控制与常规控制的时间轨迹。阈值控制在 $[t_1,t_2]$ 内维持 $I(t)=\eta$，隔离率由 $q_{\max}$ 逐渐下降至 $q_0$。横轴 $t$ 的单位为天。}
+    \label{fig:scenario1:single-sim}
+\end{figure}
+
+在上述基准参数下，$S^*=708.3470$、$S_c=175.1602$，启动、解除与控制持续时间分别为 $t_1=3.1754$、$t_2=9.0780$、$\Delta t=5.9026$ d；启动隔离率为 $0.7565$，解除时恢复为 $q_0=0.0153$。受控感染峰值为 $38.1500$，阈值维持误差 $\max_{[t_1,t_2]}|I-\eta|=1.07\times10^{-7}$；常规控制峰值为 $300.3726$，出现在 $6.7065$ d。
 \subsection{接触率与容量阈值的影响}
 固定基准参数中的其余取值，分别考察 $c_0$ 和 $\eta$ 的影响。不同 $c_0$ 对应不同的常规接触水平，每条轨迹内仍保持 $c(t)\equiv c_0$。当 $\eta=0.05N$ 时，控制触发边界为
 \[
@@ -1754,117 +1707,37 @@ c_0=2.3,2.4,\ldots,14,
 \qquad
 \frac{\eta}{N}=0.2\%,0.22\%,\ldots,5\%,
 \]
-仅在满足触发条件的参数范围内计算控制指标。表~\ref{tab:scenario1_c0_summary} 固定 $\eta/N=5\%$，表~\ref{tab:scenario1_eta_summary} 固定 $c_0=10$；相应的时间轨迹与参数变化见图~\ref{fig:scenario1_u_time_c0}--\ref{fig:scenario1_heatmaps_c0_eta}。
+仅在满足触发条件的参数范围内计算控制指标。补充表~\ref{tab:sup:baseline} 分别列出固定 $\eta/N=5\%$ 与固定 $c_0=10$ 的结果；控制轨迹见图~\ref{fig:baseline:q-joint}，多指标变化见图~\ref{fig:scenario1_summary_c0}、\ref{fig:scenario1_summary_eta}。
 
-\begin{table}[htbp]
-  \centering
-  \small
-  \sisetup{group-digits=false}
-  \setlength{\tabcolsep}{3.5pt}
-  \renewcommand{\arraystretch}{1.25}
-  \begin{threeparttable}
-    \caption{固定 $\eta/N=5\%$ 时不同 $c_0$ 下的关键控制指标}
-    \label{tab:scenario1_c0_summary}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l*{6}{S[table-format=3.4]}@{}}
-    \toprule
-    \multirow{2}{*}{变量} & \multicolumn{6}{c}{常规接触率 $c_0$} \\
-    \cmidrule(lr){2-7}
-     & {3.347} & {4} & {5} & {8} & {10} & {12} \\
-    \midrule
-    $S^*$ & 559.1496 & 654.6273 & 682.5742 & 703.7125 & 708.3470 & 711.0304 \\
-    $S_c$ & 523.3306 & 437.9004 & 350.3203 & 218.9502 & 175.1602 & 145.9668 \\
-    \addlinespace[3pt]
-    $t_1$ & 29.9176 & 15.3697 & 9.3039 & 4.3073 & 3.1754 & 2.5150 \\
-    $\Delta t$ & 2.0432 & 6.8658 & 7.5778 & 6.6308 & 5.9026 & 5.3007 \\
-    $t_{\rm end}$ & 71.4690 & 58.7277 & 49.9657 & 38.0095 & 33.7732 & 30.7687 \\
-    \addlinespace[3pt]
-    $q_{\max}$ & 0.0783 & 0.3413 & 0.4946 & 0.6936 & 0.7565 & 0.7978 \\
-    $J$ & 0.0053 & 0.4374 & 1.0561 & 2.0006 & 2.2236 & 2.3110 \\
-    $I_{t_{\rm cum}}$ & 382.5525 & 360.7318 & 342.5629 & 303.5829 & 285.7244 & 271.9295 \\
-    \bottomrule
-    \end{tabular*}
-    \begin{tablenotes}[flushleft]
-      \footnotesize
-      \item 注：第一列参数取 $c_0=c_{0,\min}+0.02\approx3.3470$，其余列为主文代表值。
-    \end{tablenotes}
-  \end{threeparttable}
-\end{table}
 
-\begin{table}[htbp]
-  \centering
-  \small
-  \sisetup{group-digits=false}
-  \setlength{\tabcolsep}{3.5pt}
-  \renewcommand{\arraystretch}{1.25}
-  \begin{threeparttable}
-    \caption{固定 $c_0=10$ 时不同医疗容量阈值下的关键控制指标}
-    \label{tab:scenario1_eta_summary}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l*{4}{S[table-format=3.4]}@{}}
-    \toprule
-    \multirow{2}{*}{变量} & \multicolumn{4}{c}{医疗容量阈值 $\eta$} \\
-    \cmidrule(lr){2-5}
-     & {1.526} & {4.578} & {7.63} & {15.26} \\
-    \midrule
-    $\eta/N$ & 0.002 & 0.006 & 0.01 & 0.02 \\
-    $S^*$ & 761.2486 & 756.8844 & 752.5126 & 741.5490 \\
-    $S_c$ & 175.1602 & 175.1602 & 175.1602 & 175.1602 \\
-    \addlinespace[3pt]
-    $t_1$ & 0.3602 & 1.3001 & 1.7406 & 2.3459 \\
-    $\Delta t$ & 152.0574 & 50.5672 & 30.2685 & 15.0431 \\
-    $t_{\rm end}$ & 180.5821 & 86.5579 & 64.9343 & 46.8029 \\
-    \addlinespace[3pt]
-    $q_{\max}$ & 0.7734 & 0.7721 & 0.7708 & 0.7674 \\
-    $J$ & 60.8005 & 20.1265 & 11.9912 & 5.8888 \\
-    $I_{t_{\rm cum}}$ & 173.0314 & 195.3349 & 208.9166 & 233.7810 \\
-    \bottomrule
-    \end{tabular*}
-    \begin{tablenotes}[flushleft]
-      \footnotesize
-      \item 注：各列对应 $\eta/N=0.2\%,0.6\%,1\%,2\%$。
-    \end{tablenotes}
-  \end{threeparttable}
-\end{table}
+
+
+
+
+
+
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.7\textwidth]{figures/scenario1_u_time_c0.pdf}
-    \caption{固定 $\eta/N=5\%$，$c_0=4,5,8,10,12$ 时的隔离率轨迹。三角形与短竖线分别表示 $t_1,t_2$，圆点为内部拐点。$c_0=4$ 时无内部拐点。}
-    \label{fig:scenario1_u_time_c0}
-\end{figure}
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.7\textwidth]{figures/scenario1_u_time_eta.pdf}
-    \caption{固定 $c_0=10$，$\eta/N=0.2\%,0.6\%,1\%,2\%$ 时的隔离率轨迹。三角形与短竖线分别表示 $t_1,t_2$，圆点为内部拐点。各拐点对应相同的隔离率 $\qinf$。}
-    \label{fig:scenario1_u_time_eta}
-\end{figure}
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.8\textwidth]{figures/c0_sensitivity_selected_eta.pdf}
-    \caption{不同阈值比例下控制指标随 $c_0$ 的变化。四条曲线对应 $\eta/N=0.2\%,0.6\%,1\%,2\%$。六个面板依次为 $t_1,\Delta t,t_{\rm end},q_{\max},J,\Itcum$，圆点表示控制持续时间的数值极大值。}
+    \includegraphics[width=\textwidth]{figures/layout_v5/c0_sensitivity_selected_eta.pdf}
+    \caption{不同阈值比例下各变量随 $c_0$ 的变化。 $\eta/N=0.2\%,0.6\%,1\%,2\%$，红色圆点表示$\Delta t$极大值。}
     \label{fig:scenario1_summary_c0}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/eta_sensitivity_selected_c0.pdf}
-    \caption{不同常规接触率下控制指标随 $\eta/N$ 的变化，$c_0=5,8,10,12$。六个面板依次为 $t_1,\Delta t,t_{\rm end},q_{\max},J,\Itcum$。}
+    \includegraphics[width=\textwidth]{figures/layout_v5/eta_sensitivity_selected_c0.pdf}
+    \caption{不同常规接触率下各变量随$\eta/N$ 的变化，$c_0=5,8,10,12$。}
     \label{fig:scenario1_summary_eta}
 \end{figure}
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.8\textwidth]{figures/scenario1_heatmaps_c0_eta.pdf}
-    \caption{$(\eta/N,c_0)$ 平面上的启动时间、控制持续时间、清零时间和累计感染。实线为触发边界 $c_{0,\min}(\eta)$，白色区域无需加强隔离，虚线为各指标的等值线。}
-    \label{fig:scenario1_heatmaps_c0_eta}
-\end{figure}
+
 
 %\clearpage
 
-图~\ref{fig:scenario1_u_time_c0} 中，$c_0=4$ 时 $q_{\max}=0.3413<\qinf\approx0.4083$，不存在内部拐点；$c_0=5,8,10,12$ 时均存在唯一内部拐点。图~\ref{fig:scenario1_u_time_eta} 中，各拐点对应的隔离率相同，但启动时间和控制持续时间随阈值改变。
+图~\ref{fig:baseline:q-joint}(a) 中，$c_0=4$ 时 $q_{\max}=0.3413<\qinf\approx0.4083$，不存在内部拐点；$c_0=5,8,10,12$ 时均存在唯一内部拐点。图~\ref{fig:baseline:q-joint}(b) 中，各拐点对应的隔离率相同，但启动时间和控制持续时间随阈值改变。
 
-由表~\ref{tab:scenario1_c0_summary} 和图~\ref{fig:scenario1_summary_c0}，增大 $c_0$ 会提高启动点 $S^*$ 和最大隔离率 $q_{\max}$，并使启动时间提前。控制时长在所考察范围内先增加后减小。例如，$\eta/N=5\%$ 时，
+由表~\ref{tab:sup:baseline} 和图~\ref{fig:scenario1_summary_c0}，增大 $c_0$ 会提高启动点 $S^*$ 和最大隔离率 $q_{\max}$，并使启动时间提前。控制时长在所考察范围内先增加后减小。例如，$\eta/N=5\%$ 时，
 \[
 \Delta t(3.3470)=2.0432,\qquad
 \Delta t(5)=7.5778,\qquad
@@ -1872,7 +1745,7 @@ c_0=2.3,2.4,\ldots,14,
 \]
 相应的数值极大值位于 $c_0\approx5.1$，约为 $7.5788$ 天。对于 $\eta/N=0.2\%,0.6\%,1\%,2\%$，极大值位置分别约为 $c_0=4.3,4.4,4.4,4.6$，对应时长为 $211.5435,69.8417,41.5169,20.2813$ 天。
 
-表~\ref{tab:scenario1_eta_summary} 和图~\ref{fig:scenario1_summary_eta} 表明，增大 $\eta$ 会推迟控制启动、降低 $q_{\max}$，并缩短阈值控制期。当 $c_0=10$、$\eta/N$ 从 $0.2\%$ 增至 $2\%$ 时，
+表~\ref{tab:sup:baseline} 和图~\ref{fig:scenario1_summary_eta} 表明，增大 $\eta$ 会推迟控制启动、降低 $q_{\max}$，并缩短阈值控制期。当 $c_0=10$、$\eta/N$ 从 $0.2\%$ 增至 $2\%$ 时，
 \[
 \Delta t:152.0574\to15.0431,\qquad
 t_{\rm end}:180.5821\to46.8029,
@@ -1889,19 +1762,14 @@ J:60.8005\to5.8888,\qquad
 本节采用 He、Tang 和 Xiao~\cite{He2023TDINN} 给出的西安疫情 TDINN 控制函数和日报数据，将隔离率阈值控制用于西安参数下的数值计算，并与 TDINN 控制及常规控制比较。TDINN 控制同时降低接触率、提高隔离率；阈值控制则保持接触率不变，仅通过提高隔离率使社区感染者人数 $I(t)$ 不超过 $\eta$。记社区感染者 $I(t)$、新增社区感染 $I_{\rm new}(t)$、新增隔离感染 $I_{q_{\rm new}}(t)$、累计社区感染 $I_{\rm cum}(t)$、累计隔离感染 $I_{q_{\rm cum}}(t)$，以及总累计感染 $\Itcum(t)=I_{\rm cum}(t)+I_{q_{\rm cum}}(t)$。
 
 \subsection{真实数据与 TDINN 控制函数}
-病例数据包含社区发现病例数 $I_{\rm new}(t)$ 和隔离发现病例数 $I_{q_{\rm new}}(t)$，覆盖 2021 年 12 月 9 日至 2022 年 1 月 17 日共 40 天，其中社区发现 583 例、隔离发现 1467 例，合计 2050 例（图~\ref{fig:xian_observed_daily}）。TDINN 控制曲线取自文献~\cite{He2023TDINN} 表 3 中西安的拟合结果 $c_2(t),q_2(t)$：
+病例数据包含社区发现病例数 $I_{\rm new}(t)$ 和隔离发现病例数 $I_{q_{\rm new}}(t)$，覆盖 2021 年 12 月 9 日至 2022 年 1 月 17 日共 40 天，其中社区发现 583 例、隔离发现 1467 例，合计 2050 例（图~\ref{fig:xian:observed-fit}）。TDINN 控制曲线取自文献~\cite{He2023TDINN} 表 3 中西安的拟合结果 $c_2(t),q_2(t)$：
 \begin{equation}
 c_{\rm TDINN}(t)=(12.8872-3.4625)e^{-(0.0463t)^2}+3.4625,\qquad
 q_{\rm TDINN}(t)=(0.3230-0.9844)e^{-(0.0452t)^2}+0.9844,
 \end{equation}
 因此常规初始控制水平为 $c_0=12.8872,\ q_0=0.3230$。
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.78\textwidth]{xian_observed_daily_cases.pdf}
-    \caption{西安疫情的每日新增病例。$I_{\rm new}$ 和 $I_{q_{\rm new}}$ 分别为社区发现与隔离发现病例数。}
-    \label{fig:xian_observed_daily}
-\end{figure}
+
 
 \subsection{模型与初值拟合}
 在系统~\eqref{eq:model:full} 中，引入累计变量 $I_{\rm cum}(t),I_{q_{\rm cum}}(t)$，满足
@@ -1911,57 +1779,47 @@ q_{\rm TDINN}(t)=(0.3230-0.9844)e^{-(0.0452t)^2}+0.9844,
 \end{equation}
 总人口取西安市 2021 年末常住人口 $N=13{,}163{,}000$；传播参数固定为文献~\cite{He2023TDINN} 表 1 的估计值 $\beta=0.1498,\ \gamma=0.2953,\ \delta_q=0.3531$。由于原文未给出拟合初值，本文设 $R(0)=0$，从而 $N=S_0+I_0$，只用最小二乘估计 $I_0$ 并令 $S_0=N-I_0$；拟合准则为每日新增 $I_{\rm new},I_{q_{\rm new}}$ 与累计 $I_{\rm cum},I_{q_{\rm cum}}$ 四项均方误差之和。拟合结果见表~\ref{tab:xian_initial_fit}。
 
-拟合得到的 $I_0$ 是给定时间原点和控制函数下的模型初值，不对应整数病例数。若改取 $I_0=1$，模型计算的 $40$ 天累计病例约为 $1.08\times10^6$，远高于观测值，见表~\ref{tab:xian_i0_sensitivity}。
+拟合得到的 $I_0$ 是给定时间原点和控制函数下的模型初值，不对应整数病例数。若改取 $I_0=1$，模型计算的 $40$ 天累计病例约为 $1.08\times10^6$，远高于观测值，见表~\ref{tab:sup:initial}。
 
 \begin{table}[htbp]
-  \centering
-  \small
-  \sisetup{group-digits=false}
-  \setlength{\tabcolsep}{3.5pt}
-  \renewcommand{\arraystretch}{1.25}
-  \begin{threeparttable}
-    \caption{固定参数后的初始条件估计}
-    \label{tab:xian_initial_fit}
-    \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.34\textwidth}>{\centering\arraybackslash}X S[table-format=8.6]@{}}
-    \toprule
-    名称 & 符号或定义 & {取值} \\
-    \midrule
-    总人口 & $N$ & 13163000 \\
-    初始易感人数 & $S_0$ & 13162999.9990 \\
-    初始感染人数 & $I_0$ & 0.001007 \\
-    初始康复人数 & $R(0)=N-S_0-I_0$ & 0.0000 \\
-    \bottomrule
-    \end{tabularx}
-    \begin{tablenotes}[flushleft]
-      \footnotesize
-      \item 注：$I_0$ 为模型中的有效初始感染人数；初值拟合的残差准则为均方误差（MSE）。
-    \end{tablenotes}
-  \end{threeparttable}
+\centering\small
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{threeparttable}
+\caption{西安算例的参数与初始条件}
+\label{tab:xian_initial_fit}
+\begin{tabularx}{\linewidth}{@{}l>{\raggedright\arraybackslash}p{0.25\linewidth}>{\raggedright\arraybackslash}p{0.22\linewidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+符号 & 含义 & 取值或定义 & 来源或确定方式\\
+\midrule
+$N$ & 总人口 & \num{13163000} & 统计资料~\cite{XianStat2021}\\
+$\beta$ & 传播概率 & 0.1498 & 文献~\cite{He2023TDINN}\\
+$\gamma$ & 非隔离感染者移出率 & 0.2953 & 文献~\cite{He2023TDINN}\\
+$\delta_q$ & 隔离感染者移出率 & 0.3531 & 文献~\cite{He2023TDINN}\\
+$c_0$ & 常规接触率 & 12.8872 & 所采用控制函数在初始时刻的值\\
+$q_0$ & 常规隔离率 & 0.3230 & 所采用控制函数在初始时刻的值\\
+$I_0$ & 初始感染人数 & $\approx1.00663\times10^{-3}$ & 固定其余量后以最小二乘估计\\
+$S_0$ & 初始易感人数 & $N-I_0$ & 总人口关系\\
+$R(0)$ & 初始康复人数 & $0$ & 本文设定\\
+$\eta$ & 代表性容量阈值 & $0.002N=\num{26326}$ & 本文设定\\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}[flushleft]\footnotesize
+\item 注：参数和来源类别沿用正文设定。仅 $I_0$ 为本文固定其他量后的初值估计；$S_0$ 不作独立估计。计算使用未取整的拟合结果。
+\end{tablenotes}
+\end{threeparttable}
 \end{table}
 
-\begin{table}[htbp]
-  \centering
-  \small
-  \sisetup{group-digits=false}
-  \setlength{\tabcolsep}{3.5pt}
-  \renewcommand{\arraystretch}{1.25}
-  \begin{threeparttable}
-    \caption{不同初值设定下的模型输出}
-    \label{tab:xian_i0_sensitivity}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lS[table-format=1.6]S[table-format=7.0]*{2}{S[table-format=5.2]}@{}}
-    \toprule
-    \multirow{2}{*}{初值设定} & {\multirow{2}{*}{$I_0$}} & {\multirow{2}{*}{累计病例}} & \multicolumn{2}{c}{新增峰值} \\
-    \cmidrule(lr){4-5}
-     & & & {社区} & {隔离区} \\
-    \midrule
-    真实数据 & {---} & 2050 & 60.00 & 141.00 \\
-    最小二乘拟合 & 0.001007 & 2099 & 53.88 & 115.93 \\
-    强行取 $I_0=1$ & 1.000000 & 1083554 & 36873.66 & 63966.54 \\
-    \bottomrule
-    \end{tabular*}
-  \end{threeparttable}
-\end{table}
 
+
+
+图~\ref{fig:xian:observed-fit} 使用与三策略比较一致的轨迹输出。补充表~\ref{tab:sup:initial} 保留原初值拟合程序的结果；两套既有积分设置造成的小幅数值差异及统计终点在该表注中说明。
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/layout_v5/xian_observed_fit.pdf}
+\caption{西安疫情观测窗口内的日新增病例与 TDINN 重构。(a) 社区发现病例；(b) 隔离发现病例。点为观测值，实线取自三策略比较所用的同一 TDINN 轨迹，以相邻整数日累计量之差计算日新增。40 个日区间从 2021 年 12 月 9 日起算；本图用于拟合重构的比较，并非独立数据验证。}
+\label{fig:xian:observed-fit}
+\end{figure}
 \subsection{西安参数下的隔离率阈值控制}
 西安市 2021 年末常住人口约 1316.30 万~\cite{XianStat2021}；《2022 年陕西省卫生健康统计年鉴》给出 2021 年西安市卫生机构床位 79426 张~\cite{ShaanxiHealth2022}，约为 $0.006N$。考虑疫情期间不可能将全部床位用于收治，按约三分之一可调配估算，取代表性阈值
 \begin{equation}
@@ -1976,107 +1834,59 @@ t_2=t_1+\frac{N}{c_0\eta}\ln\frac{S^*-\bar S}{S_c-\bar S}\approx101.97,
 \subsection{比较指标与三策略数值结果}
 三类策略均计算至各自的动态清零时刻，即 $I(t)$ 超过 $1$ 后再次下降至 $1$ 的时刻。成本采用第~\ref{sec:cost}~节的定义，权重为 $w_c=1,w_q=2$：TDINN 从初始时刻积分至清零，阈值控制仅在 $[t_1,t_2]$ 内产生额外成本，常规控制的额外成本为零。
 
-图~\ref{fig:xian_panels}--\ref{fig:xian_Re} 分别给出三类策略下的感染与控制轨迹、累计感染和有效再生数，主要指标列于表~\ref{tab:xian_summary}。
+图~\ref{fig:xian:strategy-process} 给出三类策略下的感染、总累计感染、有效再生数与控制轨迹，主要指标列于表~\ref{tab:xian_summary}。
 
 \begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.7\textwidth]{xian_control_comparison_panels.pdf}
-    \caption{$\eta=0.002N$ 时三类策略的比较。(a) 非隔离感染者人数；(b)、(c) 每日新增社区和隔离感染；(d)、(e) 接触率和隔离率。(b)、(c) 内嵌图中的点为观测数据，竖线表示观测结束及阈值控制的启动、结束时刻。}
-    \label{fig:xian_panels}
+\centering
+\includegraphics[width=135mm]{figures/layout_v5/xian_strategy_process.pdf}
+\caption{$\eta=0.002N$ 时三策略的全过程比较。(a) 社区感染者人数 $I(t)$；(b) 接触率 $c(t)$；(c) 隔离率 $q(t)$；(d) 总累计感染 $\Itcum(t)$；(e) 有效再生数 $R_e(t)$。各轨迹分别画至自身的动态清零时刻，横轴使用同一时间原点，$t$ 的单位为天。(a) 为对数纵轴；(d) 为对称对数纵轴（线性区阈值为 $100$ 人），散点为观测累计量；(e) 的水平虚线为 $R_e=1$。浅红色竖虚线标记控制启动与解除，灰色竖点线标记观测窗口结束。}
+\label{fig:xian:strategy-process}
 \end{figure}
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.7\textwidth]{xian_control_cumulative.pdf}
-    \caption{三类策略下的累计感染。(a) 社区累计感染 $I_{\rm cum}$；(b) 隔离累计感染 $I_{q_{\rm cum}}$；(c) 总累计感染 $\Itcum$。}
-    \label{fig:xian_cumulative}
-\end{figure}
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.7\textwidth]{xian_effective_reproduction_number.pdf}
-    \caption{三类策略下有效再生数 $R_e(t)$ 的变化。水平虚线为 $R_e=1$，阈值控制在阈值控制期维持这一临界水平。}
-    \label{fig:xian_Re}
-\end{figure}
+
+
 
 \begin{table}[htbp]
-  \centering
-  \small
-  \sisetup{group-digits=false}
-  \setlength{\tabcolsep}{3.5pt}
-  \renewcommand{\arraystretch}{1.25}
-  \begin{threeparttable}
-    \caption{$\eta=0.002N$ 下三类控制策略的数值比较}
-    \label{tab:xian_summary}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l*{3}{S[table-format=7.2]}@{}}
-    \toprule
-    比较量 & {TDINN控制} & {情景一阈值控制} & {常规控制} \\
-    \midrule
-    感染峰值 $\max I$ & 152 & 26326 & 1377550 \\
-    启动时间 $t_1$（d） & 0.00 & 16.90 & 0.00 \\
-    解除时间 $t_2$（d） & 45.27 & 101.97 & 0.00 \\
-    控制时长 $\Delta t$（d） & 45.27 & 85.07 & 0.00 \\
-    清零时间 $t_{\rm end}$（d） & 45.27 & 258.11 & 75.58 \\
-    总累计感染 $\Itcum$ & 2097 & 2377943 & 4587183 \\
-    \addlinespace[3pt]
-    接触率分项成本 $J_c$ & 19.15 & 0.00 & 0.00 \\
-    隔离率分项成本 $J_q$ & 25.15 & 36.80 & 0.00 \\
-    二次加权总成本 $J$ & 49.35 & 40.77 & 0.00 \\
-    \bottomrule
-    \end{tabular*}
-    \begin{tablenotes}[flushleft]
-      \footnotesize
-      \item 注：表内 $\max I$、$\Itcum$ 为直接模拟取整值。
-    \end{tablenotes}
-  \end{threeparttable}
+\centering\small
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{threeparttable}
+\caption{西安参数下三种策略的感染结局与干预指标}
+\label{tab:xian_summary}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lS[table-format=7.0]S[table-format=7.0]S[table-format=3.2]S[table-format=2.2]@{}}
+\toprule
+策略 & {社区感染峰值} & {\shortstack{总累计感染}} & {\shortstack{动态清零时间}} & {$J$}\\
+\midrule
+TDINN控制 & 152 & 2097 & 45.27 & 49.35\\
+情景一阈值控制 & 26326 & 2377943 & 258.11 & 40.77\\
+常规控制 & 1377550 & 4587183 & 75.58 & 0.00\\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]\footnotesize
+\item 注：$\eta=0.002N$，各策略沿用原文规定的动态清零终点；人数四舍五入至整数；用于后续比较的 TDINN 参照为峰值151.90、总累计2096.76、清零时间45.27 d、$J=49.35$。$J$ 为二次加权积分，不由线性指标 $J_c,J_q$ 直接加总。阈值策略的启动、解除与控制时长分别为 $16.90$、$101.97$、$85.07$ d。
+\end{tablenotes}
+\end{threeparttable}
 \end{table}
+
 
 采用全市人口及 $\eta=0.002N$ 时，阈值控制将社区感染峰值限制为 $26{,}326$，阈值控制持续约 $85.07$ 天，动态清零时间约为 $258.11$ 天，总累计感染约为 $2.38\times10^6$。TDINN 重构的峰值和累计感染分别约为 $152$ 和 $2097$。阈值控制的二次加权成本为 $40.77$，低于 TDINN 的 $49.35$，但感染峰值、累计感染和清零时间均较大。后文采用更精确的 TDINN 参照值 $I_{\rm peak}^{\rm T}=151.90$、$\Itcum^{\rm T}=2096.76$ 和 $J^{\rm T}=49.35$。
 
 有效再生数为 $R_e(t)=\beta c(t)(1-q(t))S(t)/(\gamma N)$。常规控制下 $R_e(0)\approx4.43$，感染人数初期快速增长；TDINN 同时降低接触率并提高隔离率，使 $R_e$ 较快降至 $1$ 以下；阈值控制则在阈值控制期保持 $R_e=1$，待 $S$ 下降至 $S_c$ 后恢复常规隔离率，感染人数才开始下降。因此，较低的加权成本在这里伴随着更长的感染持续时间和更高的累计感染。
 
 \subsection{阈值 \texorpdfstring{$\eta$}{eta} 的敏感性}
-取 $\eta/N\in\{0.0001,0.0002,0.0005,0.001,0.0015,0.002,0.003,0.004,0.005,0.0075,0.01\}$，结果见表~\ref{tab:xian_eta_sens} 和图~\ref{fig:xian_eta_sens}。在这一范围内，有
+取 $\eta/N\in\{0.0001,0.0002,0.0005,0.001,0.0015,0.002,0.003,0.004,0.005,0.0075,0.01\}$，结果见表~\ref{tab:sup:eta} 和图~\ref{fig:xian_eta_sens}。在这一范围内，有
 \[
 \eta\downarrow\ \Rightarrow\ t_1\downarrow,\qquad \Delta t\uparrow,\qquad J\uparrow,\qquad t_{\rm end}\uparrow.
 \]
 当 $\eta/N$ 从 $0.01$ 降至 $0.0001$ 时，启动时间仅由 $18.55$ 天提前至 $13.93$ 天，控制持续时间却由 $16.61$ 天增加至 $1710.66$ 天，动态清零时间达到 $2209.55$ 天。降低阈值减慢了阈值控制期的易感者减少过程，其对持续时间的影响远大于对启动时间的影响。
 
-\begin{table}[htbp]
-  \centering
-  \small
-  \sisetup{group-digits=false}
-  \setlength{\tabcolsep}{3.5pt}
-  \renewcommand{\arraystretch}{1.25}
-  \begin{threeparttable}
-    \caption{不同医疗阈值 $\eta$ 下隔离率阈值控制的数值指标}
-    \label{tab:xian_eta_sens}
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}S[table-format=6.0]S[table-format=1.4]S[table-format=2.2]S[table-format=4.2]S[table-format=4.2]S[table-format=4.2]S[table-format=1.4]S[table-format=3.2]S[table-format=7.0]@{}}
-    \toprule
-    \multicolumn{2}{c}{阈值设置} & \multicolumn{4}{c}{时间量（d）} & \multicolumn{2}{c}{隔离强度与成本} & {总累计感染} \\
-    \cmidrule(lr){1-2}\cmidrule(lr){3-6}\cmidrule(lr){7-8}
-    {$\eta$} & {$\eta/N$} & {$t_1$} & {$t_2$} & {$\Delta t$} & {$t_{\rm end}$} & {$q_c(t_1)$} & {$J$} & {$\Itcum$} \\
-    \midrule
-    1316 & 0.0001 & 13.93 & 1724.59 & 1710.66 & 2209.55 & 0.8470 & 826.41 & 2155649 \\
-    2633 & 0.0002 & 14.61 & 869.70 & 855.09 & 1243.16 & 0.8469 & 412.91 & 2182123 \\
-    6582 & 0.0005 & 15.52 & 357.27 & 341.75 & 620.77 & 0.8466 & 164.82 & 2234666 \\
-    13163 & 0.001 & 16.21 & 186.84 & 170.63 & 389.32 & 0.8462 & 82.12 & 2293939 \\
-    19744 & 0.0015 & 16.61 & 130.20 & 113.59 & 304.01 & 0.8458 & 54.55 & 2339486 \\
-    26326 & 0.002 & 16.90 & 101.97 & 85.07 & 258.11 & 0.8454 & 40.77 & 2377943 \\
-    39489 & 0.003 & 17.31 & 73.86 & 56.55 & 208.39 & 0.8445 & 26.98 & 2442608 \\
-    52652 & 0.004 & 17.60 & 59.89 & 42.29 & 181.18 & 0.8436 & 20.09 & 2497306 \\
-    65815 & 0.005 & 17.83 & 51.56 & 33.73 & 163.66 & 0.8428 & 15.95 & 2545663 \\
-    98722 & 0.0075 & 18.25 & 40.57 & 22.32 & 138.11 & 0.8405 & 10.44 & 2649240 \\
-    131630 & 0.01 & 18.55 & 35.16 & 16.61 & 123.89 & 0.8382 & 7.68 & 2737382 \\
-    \bottomrule
-    \end{tabular*}
-  \end{threeparttable}
-\end{table}
+
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{xian_eta_sensitivity.pdf}
-    \caption{西安参数下控制指标随 $\eta/N$ 的变化。(a) 启动隔离率；(b) 加权成本；(c) 累计感染；(d) 控制持续时间与动态清零时间。水平线为 TDINN 的对应参照值。}
+    \caption{西安参数下控制指标随 $\eta/N$ 的变化。(a) 启动隔离率；(b) 加权成本；(c) 累计感染；(d) 控制持续时间与动态清零时间。水平线为 TDINN 参照值。(d) 中 TDINN 的控制时长和清零时间均为 $45.27$ d，前者为干预持续时间，后者为从共同时间原点起算的终点，数值相同并不表示两个定义相同。}
     \label{fig:xian_eta_sens}
 \end{figure}
 
@@ -2124,33 +1934,9 @@ $S_c,\bar S,I_{\max}^{no}$ 均随 $N$ 同比例缩放，故 $i_{\max}^{no}$ 不�
 
 由首次积分，$i_0$ 通过 $\theta-i_0$ 和 $s_0=1-i_0$ 影响启动点。这一影响的数量级估计为 $O(i_0/\theta)$；在 $N\ge1.06\times10^4$、$\theta\ge1.14\times10^{-3}$ 时，$i_0/\theta\le8\times10^{-5}$。数值计算所得 $\Delta t$ 和 $J$ 的跨人口相对极差分别为 $2.4\times10^{-7}$ 和 $5.9\times10^{-7}$；当 $i_0$ 在 $10^{-11}$ 至 $10^{-7}$ 内变化时，$\theta_{\rm cost}$ 和 $N^\ast$ 在七位有效数字内未显示变化。
 
-TDINN 的四个参照量见表~\ref{tab:dom:tdinn}。社区峰值、累计感染和清零时间由拟合轨迹重构，成本则由拟合控制函数按 $w_c=1,w_q=2$ 积分得到；这些量均不随本节的 $N_{\rm eff}$ 改变。
+TDINN 的四个参照量见表~\ref{tab:xian_summary}。社区峰值、累计感染和清零时间由拟合轨迹重构，成本则由拟合控制函数按 $w_c=1,w_q=2$ 积分得到；这些量均不随本节的 $N_{\rm eff}$ 改变。
 
-\begin{table}[htbp]
-  \centering
-  \small
-  \sisetup{group-digits=false}
-  \setlength{\tabcolsep}{3.5pt}
-  \renewcommand{\arraystretch}{1.25}
-  \begin{threeparttable}
-    \caption{TDINN 比较基准：西安全市尺度下的四个参照量}
-    \label{tab:dom:tdinn}
-\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\centering\arraybackslash}X S[table-format=4.2]@{}}
-    \toprule
-    参照量 & 符号 & {数值} \\
-    \midrule
-    社区峰值 & $I_{\rm peak}^{\rm T}$ & 151.90 \\
-    总累计感染 & $\Itcum^{\rm T}$ & 2096.76 \\
-    清零时刻（d） & $t_{\rm end}^{\rm T}$ & 45.27 \\
-    二次加权成本 & $J^{\rm T}$ & 49.35 \\
-    \bottomrule
-  \end{tabularx}
-    \begin{tablenotes}[flushleft]
-      \footnotesize
-      \item 注：前三项由数据重构得到；$J^{\rm T}$ 由式~\eqref{eq:cost:J} 对拟合控制函数积分得到。
-    \end{tablenotes}
-  \end{threeparttable}
-\end{table}
+
 
 \subsection{规模不变性与单调性}
 \label{sec:dom:theory}
@@ -2479,13 +2265,13 @@ $\max_\eta N_{\rm clr}(\eta)=5166<N_{\rm floor}=1.06\times10^{4}$，
 \subsection{规模不变性的数值验证}
 \label{sec:scaling}
 
-采用西安参数和固定绝对初值，分别固定阈值比例及绝对阈值，比较不同 $N_{\rm eff}$ 下的控制结果。
+采用西安参数和固定绝对初值，分别固定阈值比例及绝对阈值，比较不同 $N_{\rm eff}$ 下的控制结果。固定归一化初值时，前述规模不变性为精确结论；本小节固定绝对初值，因此仅检验近似重合，不能将两种初值设定混为一谈。
 
-固定 $\theta=0.002$，取 $N_{\rm eff}\in\{5\times10^4,\dots,1.316\times10^7\}$。六个人口规模下的控制持续时间均约为 $85.07$ 天，相对极差为 $2.4\times10^{-7}$。以 $t-t_1$ 为时间变量时，归一化感染轨迹和隔离率近似重合，见图~\ref{fig:neff_collapse}。启动时间则由 $11.39$ 天增加至 $16.90$ 天，这是固定绝对初值、初始感染比例随 $N$ 变化的结果。
+固定 $\theta=0.002$，取 $N_{\rm eff}\in\{5\times10^4,\dots,1.316\times10^7\}$。六个人口规模下的控制持续时间均约为 $85.07$ 天，相对极差为 $2.4\times10^{-7}$。以 $t-t_1$ 为时间变量时，归一化感染轨迹和隔离率近似重合。启动时间则由 $11.39$ 天增加至 $16.90$ 天，这是固定绝对初值、初始感染比例随 $N$ 变化的结果。
 
 固定绝对阈值 $\eta=100$，把 $N_{\rm eff}$ 从 $1.316\times10^7$ 降到 $5\times10^{4}$，
 则 $\theta=\eta/N_{\rm eff}$ 增大，控制持续时间由 $\Delta t\approx2.25\times10^4$ 天缩短到约
-$85$ 天（图~\ref{fig:neff_time}）。这是降低 $N_{\rm eff}$ 通过增大 $\theta$ 缩短阈值控制期的数值体现，
+$85$ 天。这是降低 $N_{\rm eff}$ 通过增大 $\theta$ 缩短阈值控制期的数值体现，
 与提高 $\eta$ 同向。
 
 两组结果中，控制持续时间主要随 $\theta$ 变化：
@@ -2495,62 +2281,42 @@ $85$ 天（图~\ref{fig:neff_time}）。这是降低 $N_{\rm eff}$ 通过增大 
 其中对数因子在 $\theta\in[5\times10^{-4},8\times10^{-3}]$ 内仅由 $2.20$ 变到 $2.15$，
 故 $\Delta t$ 近似与 $\theta$ 成反比。
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.7\textwidth]{neff_scaling_collapse.pdf}
-    \caption{固定绝对初值和 $\theta=0.002$ 时，不同有效人口下的归一化感染轨迹与隔离率，时间变量为 $t-t_1$。空心圆表示各条轨迹达到 $I=1$ 的时刻。}
-    \label{fig:neff_collapse}
-\end{figure}
 
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.95\textwidth]{neff_time_metrics.pdf}
-    \caption{固定 $\eta=100$ 时，启动时间、控制持续时间和动态清零时间随有效人口的变化。图中 $T_{\rm clear}$ 表示动态清零时间。}
-    \label{fig:neff_time}
-\end{figure}
+
+
 
 固定 $\beta=0.1498$，在所考察的 $\eta\in\{80,100,150\}$、$N_{\rm eff}\in\{4,5,6\}\times10^4$ 参数组中，拐点处的隔离率均约为 $0.4119$，与理论值的最大绝对误差约为 $8\times10^{-9}$。这与 $\qinf$ 仅依赖于 $\beta$ 的表达式一致。当 $q_0=0.3230$ 时，条件 $\qinf=q_0$ 给出 $\beta_{\max}=0.261448$；超过该值后，阈值控制区间内不再有内部拐点。
 
 \subsection{西安参数下的占优区域}
 \label{sec:dom:xian}
 
-取 $\beta=0.1498,\gamma=0.2953,c_0=12.8872,q_0=0.3230$，$S_0/N\approx1$，参照量见表~\ref{tab:dom:tdinn}。由式~\eqref{eq:s1:Imax-no}，$i_{\max}^{no}\approx0.1047$。表~\ref{tab:dom:thresholds} 给出阈值比例和临界有效人口；在所考察的 $T_{\max}=45,60,90,150$ 天及不限制时长的设定下，均有 $\theta_{\rm bind}<i_{\max}^{no}$。
+取 $\beta=0.1498,\gamma=0.2953,c_0=12.8872,q_0=0.3230$，$S_0/N\approx1$，参照量见表~\ref{tab:xian_summary}。由式~\eqref{eq:s1:Imax-no}，$i_{\max}^{no}\approx0.1047$。表~\ref{tab:dom:thresholds} 给出各项条件对应的有效人口界值；在所考察的 $T_{\max}=45,60,90,150$ 天及不限制时长的设定下，均有 $\theta_{\rm bind}<i_{\max}^{no}$。
 当 $T_{\max}\approx103$ 天时，$\theta_{\rm dur}=\theta_{\rm cost}$；更短的允许时长使时长条件起约束作用，更长的允许时长则由成本条件决定阈值下限。
 
 \begin{table}[htbp]
-  \centering
-  \small
-  \sisetup{group-digits=false}
-  \setlength{\tabcolsep}{3.5pt}
-  \renewcommand{\arraystretch}{1.25}
-  \begin{threeparttable}
-    \caption{西安参数下的阈值比例与临界有效人口}
-    \label{tab:dom:thresholds}
-\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.18\textwidth}>{\centering\arraybackslash}X>{\centering\arraybackslash}p{0.23\textwidth}>{\raggedright\arraybackslash}p{0.21\textwidth}@{}}
-    \toprule
-    类别 & 变量 & 数值 & 依据 \\
-    \midrule
-    \multirow{4}{*}{阈值比例} & $\theta_{\rm cost}$ & $1.656\times10^{-3}$ & 式~\eqref{eq:dom:thetadefs} \\
-    & $\theta_{\rm dur}(45\,\mathrm d)$ & $3.762\times10^{-3}$ & 式~\eqref{eq:dom:thetadefs} \\
-    & $\theta_{\rm dur}(90\,\mathrm d)$ & $1.891\times10^{-3}$ & 式~\eqref{eq:dom:thetadefs} \\
-    & $\theta_{\rm dur}(150\,\mathrm d)$ & $1.137\times10^{-3}$ & 式~\eqref{eq:dom:thetadefs} \\
-    \midrule
-    \multirow{4}{*}{有效人口上界} & $N^\ast(45\,\mathrm d)$ & $4.04\times10^{4}$ & 式~\eqref{eq:dom:Nstar} \\
-    & $N^\ast(60\,\mathrm d)$ & $5.37\times10^{4}$ & 式~\eqref{eq:dom:Nstar} \\
-    & $N^\ast(90\,\mathrm d)$ & $8.03\times10^{4}$ & 式~\eqref{eq:dom:Nstar} \\
-    & $N^\ast_\infty$ & $9.17\times10^{4}$ & 推论~\ref{cor:ceiling} \\
-    \midrule
-    \multirow{3}{*}{\makecell[l]{人口下界与\\附加约束}} & $N_{\rm floor}$ & $1.06\times10^{4}$ & 命题~\ref{prop:dom:floor} \\
-    & $N_{\rm cum,\infty}^\ast$ & $1.18\times10^{4}$ & 推论~\ref{cor:cum} \\
-    & $\max_\eta N_{\rm clr}(\eta)$ & $5166$ & 推论~\ref{cor:clr} \\
-    \bottomrule
-  \end{tabularx}
-    \begin{tablenotes}[flushleft]
-      \footnotesize
-      \item 注：上段为式~\eqref{eq:dom:thetadefs} 数值求解得到的两类阈值比例；中段为命题~\ref{prop:dom:region} 的临界有效人口 $N^\ast(T_{\max})=I_{\rm peak}^{\rm T}/\theta_{\rm bind}(T_{\max})$；下段为下界与两项附加约束给出的临界值。
-    \end{tablenotes}
-  \end{threeparttable}
+\centering\small
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{threeparttable}
+\caption{不同指标限制对应的有效人口界值}
+\label{tab:dom:thresholds}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{0.27\linewidth}>{\centering\arraybackslash}p{0.21\linewidth}>{\centering\arraybackslash}p{0.16\linewidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+比较条件 & 相关量 & 数值（人） & 与人口下界的关系\\
+\midrule
+人口相容条件 & $N_{\mathrm{floor}}$ & $1.06\times10^4$ & 比较时施加的下界\\
+峰值、成本及45 d时长条件 & $N^*(45\,\mathrm d)$ & $4.04\times10^4$ & 对应上界高于下界\\
+峰值与成本，不另设时长上限 & $N^*_{\infty}$ & $9.17\times10^4$ & 对应上界高于下界\\
+再加入累计感染条件 & $N^*_{\mathrm{cum},\infty}$ & $1.18\times10^4$ & 数值界值接近下界\\
+清零时间等值条件 & \makecell{$N_{\mathrm{clr}}(\eta)$\\的最大取值} & 5166 & 扫描范围内仍低于下界\\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}[flushleft]\footnotesize
+\item 注：前四项为近似值。后两行对应本文西安参数、固定绝对初值和 $\eta\in[10,151.90]$ 的数值范围，不表示已证明任意参数下的交点唯一性或全局人口上界。全部中间阈值保留在补充数据中。
+\end{tablenotes}
+\end{threeparttable}
 \end{table}
+
 
 峰值、成本、时长和触发条件在 $(N,\eta)$ 平面上分别为
 \begin{align}
@@ -2594,7 +2360,7 @@ $\mathcal{W}_{\rm clr}\subset\mathcal{W}_{\rm cum}\subset\mathcal{W}_{\rm pcd}$�
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/fig_dom_combined.pdf}
-  \caption{西安参数下 $(N_{\rm eff},\eta)$ 平面的比较区域。(a) 峰值、成本、时长和触发条件；阴影表示仅由峰值与成本限制的区域。(b) 加入累计感染和清零时间的等值曲线。竖直实线为 $N_{\rm floor}=1.06\times10^4$。累计感染边界与成本线交于 $(11762,19.48)$，清零时间等值曲线位于人口下界左侧。圆点和方点对应图~\ref{fig:panel_eta_lever}、\ref{fig:panel_N_lever} 的参数。}
+  \caption{西安参数下 $(N_{\rm eff},\eta)$ 平面的比较区域。(a) 峰值、成本、时长和触发条件；人口下界右侧的浅蓝区域同时满足峰值、成本与触发条件，未另加时长上限；左侧灰色区域因 $N<N_{\rm floor}$ 被排除。(b) 加入累计感染和清零时间的等值曲线。竖直实线为 $N_{\rm floor}=1.06\times10^4$。累计感染边界与成本线交于 $(11762,19.48)$，清零时间等值曲线位于人口下界左侧。圆点和方点对应图~\ref{fig:dom:levers}(a,c)、\ref{fig:dom:levers}(b,d) 的参数。}
   \label{fig:dom}
 \end{figure}
 
@@ -2612,32 +2378,24 @@ $\mathcal{W}_{\rm clr}\subset\mathcal{W}_{\rm cum}\subset\mathcal{W}_{\rm pcd}$�
 
 清零时间边界整体位于人口下界左侧，其最大值 $N=5166$ 仍低于 $N_{\rm floor}=1.06\times10^4$。因此，在本节计算范围内，没有同时满足 $N\ge N_{\rm floor}$ 与 $t_{\rm end}\le t_{\rm end}^{\rm T}$ 的有效人口。
 
-图~\ref{fig:panel_eta_lever} 固定 $N_{\rm eff}=2\times10^4$，比较三个阈值。各阈值均低于 TDINN 峰值参照，但累计感染均高于 TDINN。这与 $N_{\rm eff}>N_{\rm cum,\infty}^\ast$ 一致，说明峰值条件与累计感染条件并不等价。
+图~\ref{fig:dom:levers}(a,c) 固定 $N_{\rm eff}=2\times10^4$，比较三个阈值。各阈值均低于 TDINN 峰值参照，但累计感染均高于 TDINN。这与 $N_{\rm eff}>N_{\rm cum,\infty}^\ast$ 一致，说明峰值条件与累计感染条件并不等价。
 
-图~\ref{fig:panel_N_lever} 固定 $\eta=100$。随 $N_{\rm eff}$ 增大，感染人数维持的阈值保持不变，持续时间增加；在本节参数范围内，$\Delta t\approx0.170N/\eta$。图~\ref{fig:panel_N_decomp} 中，人口从 $3970$ 增至 $60381$ 时，常规控制的感染峰值由 $415$ 增至 $6319$，清零时间由 $38.5$ 天增至 $50.9$ 天；阈值控制的控制持续时间由 $6.3$ 天增至 $102.8$ 天，清零时间由 $45.3$ 天增至 $201.6$ 天。较低的固定感染峰值因此可能伴随明显延长的疫情持续时间。
+图~\ref{fig:dom:levers}(b,d) 固定 $\eta=100$。随 $N_{\rm eff}$ 增大，感染人数维持的阈值保持不变，持续时间增加；在本节参数范围内，$\Delta t\approx0.170N/\eta$。附录图~\ref{fig:panel_N_decomp} 中，人口从 $3970$ 增至 $60381$ 时，常规控制的感染峰值由 $415$ 增至 $6319$，清零时间由 $38.5$ 天增至 $50.9$ 天；阈值控制的控制持续时间由 $6.3$ 天增至 $102.8$ 天，清零时间由 $45.3$ 天增至 $201.6$ 天。较低的固定感染峰值因此可能伴随明显延长的疫情持续时间。
+
+五个人口规模对应的总累计感染依次约为 $945,2097,5016,10784,15410$，可与固定 TDINN 参照 $2096.76$ 比较。前两个人口规模低于 $N_{\rm floor}$，不属于施加人口相容下界后的比较区域。
 
 这些轨迹中的拐点相对位置均约为 $\lambda=0.861$，拐点处隔离率约为 $\qinf=0.4119$。前者是本组参数下的近似结果，后者由仅含 $\beta$ 的解析表达式确定。
 
 \begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.8\textwidth]{figures/fig_panel_A.pdf}
-  \caption{固定 $N_{\rm eff}=2\times10^4$，三个阈值 $\eta=22.7,33.1,75.2$ 分别对应 $150$ 天时长条件、成本条件和 $45$ 天时长条件。(a) 非隔离感染者人数，含同人口下的常规控制及固定 TDINN 参照；(b) 隔离率，内嵌图为累计感染。实心圆表示隔离率拐点时刻在感染人数曲线水平段上的位置，空心圆为隔离率曲线的拐点，短竖线表示清零时刻。}
-  \label{fig:panel_eta_lever}
+\centering
+\includegraphics[width=\textwidth]{figures/layout_v5/population_threshold_levers.pdf}
+\caption{阈值与有效人口对轨迹的不同影响。左列固定 $N_{\rm eff}=20000$，$\eta=22.7,33.1,75.2$ 分别对应 $150$ d 时长、成本和 $45$ d 时长条件；右列固定 $\eta=100$，清零、累计感染、$45$ d 时长、成本和 $150$ d 时长条件分别对应 $N_{\rm eff}\approx3970,10102,26584,60381,87944$。前两个人口规模低于 $N_{\rm floor}$，仅用于展示边界外的轨迹。(a)、(b) 为社区感染者人数；(c)、(d) 为隔离率；横轴 $t$ 的单位为天。黑实线为固定 TDINN 参照，红虚线为其感染峰值；左列灰虚线为同人口常规控制，右列灰带为常规轨迹范围。空心圆标记隔离率拐点，平台上的实心点是该时刻在感染曲线上的投影，并非感染人数曲线自身的拐点；短竖线表示动态清零时刻。内嵌柱图给出清零时的总累计感染，虚线为 TDINN 参照 $2096.76$。}
+\label{fig:dom:levers}
 \end{figure}
 
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.8\textwidth]{figures/fig_panel_B.pdf}
-  \caption{固定 $\eta=100$，有效人口分别为 $3970,10102,26584,60381,87944$ 时的 (a) 感染轨迹和 (b) 隔离率。灰色带表示相同人口范围内常规控制轨迹的变化范围，黑实线为固定 TDINN 参照。内嵌图中的累计感染依次约为 $945,2097,5016,10784,15410$，水平线为 TDINN 参照值 $2096.76$。圆点含义同图~\ref{fig:panel_eta_lever}。}
-  \label{fig:panel_N_lever}
-\end{figure}
 
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=\textwidth]{figures/fig_panel_B_trajectory_decomposition.pdf}
-  \caption{固定 $\eta=100$ 时不同有效人口下的感染轨迹。(a)--(d) 分别对应 $N_{\rm eff}=3970,10102,26584,60381$，各包含阈值控制、常规控制和固定 TDINN 参照；(e) 比较四个人口规模下的常规控制；(f) 比较阈值控制与 TDINN。}
-  \label{fig:panel_N_decomp}
-\end{figure}
+
+
 
 例如，$N=5\times10^4$、$\eta=100$ 时，$J=40.77$、$\Delta t=85.07$ 天，满足峰值、成本及 $T_{\max}=150$ 天的要求；但累计感染约为 $9.03\times10^3$、清零时间约为 $176$ 天，均超过 TDINN 参照值。
 
@@ -2650,8 +2408,8 @@ $\mathcal{W}_{\rm clr}\subset\mathcal{W}_{\rm cum}\subset\mathcal{W}_{\rm pcd}$�
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{c0_sensitivity_panel.pdf}
-    \caption{固定 $N_{\rm eff}=2\times10^4$、$\theta=0.002$，不同 $c_0$ 下的 (a) 感染人数和 (b) 隔离率。内嵌图为累计感染。$c_0=3.43$ 时无内部拐点；其余曲线的拐点隔离率均为 $\qinf=0.4119$。圆点含义同图~\ref{fig:panel_eta_lever}。}
+    \includegraphics[width=112mm]{figures/layout_v5/c0_sensitivity_panel.pdf}
+    \caption{固定 $N_{\rm eff}=2\times10^4$、$\theta=0.002$，不同 $c_0$ 下的 (a) 感染人数和 (b) 隔离率，横轴 $t$ 的单位为天。内嵌图为累计感染。$c_0=3.43$ 接近触发边界且无内部拐点；$c_0\approx6.61$ 对应控制持续时间的极大值，$c_0=12.8872$ 为基准接触率。存在内部拐点的曲线均满足 $\qinf=0.4119$。空心圆为隔离率拐点，实心圆表示该时刻在感染人数平台上的位置，短竖线为动态清零时刻。}
     \label{fig:c0-panel}
 \end{figure}
 
@@ -2663,7 +2421,7 @@ $\mathcal{W}_{\rm clr}\subset\mathcal{W}_{\rm cum}\subset\mathcal{W}_{\rm pcd}$�
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.72\textwidth]{c0_sensitivity_phase.pdf}
+    \includegraphics[width=120mm]{figures/layout_v5/c0_phase_stationary.pdf}
     \caption{$(\theta,c_0)$ 平面上的触发边界、内部拐点边界 $s^*=2\bar s$ 和控制持续时间驻点曲线 $\partial\Delta t/\partial c_0=0$。灰色等值线表示控制持续时间，水平点线为 $\theta=0.002$。}
     \label{fig:c0-phase}
 \end{figure}
@@ -2690,8 +2448,16 @@ $\mathcal{W}_{\rm clr}\subset\mathcal{W}_{\rm cum}\subset\mathcal{W}_{\rm pcd}$�
 
 \clearpage
 \appendix
-\section{不同有效人口下的阈值比较}
+\section{不同有效人口下的轨迹分解与临界案例}
 \label{app:panel_eta_N}
+
+固定 $\eta=100$ 时的分人口轨迹见图~\ref{fig:panel_N_decomp}。
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{figures/layout_v5/fig_panel_B_trajectory_decomposition.pdf}
+  \caption{固定 $\eta=100$ 时不同有效人口下的感染轨迹。(a)--(d) 分别对应 $N_{\rm eff}=3970,10102,26584,60381$，各包含阈值控制、常规控制和固定 TDINN 参照；(e) 比较四个人口规模下的常规控制；(f) 比较阈值控制与 TDINN。横轴 $t$ 的单位为天。}
+  \label{fig:panel_N_decomp}
+\end{figure}
 
 本附录采用三个阈值比例：
 \[
@@ -2699,28 +2465,19 @@ $\mathcal{W}_{\rm clr}\subset\mathcal{W}_{\rm cum}\subset\mathcal{W}_{\rm pcd}$�
 \theta_{\rm cost}=1.656\times10^{-3},\qquad
 \theta_{\rm dur45}=3.762\times10^{-3}.
 \]
-初值仍取固定绝对值 $I_0$，不同 $N_{\rm eff}$ 下不重新拟合。三个人口规模分别对应累计感染、$45$ 天控制持续时间和成本条件的临界值，结果见图~\ref{fig:panel_eta_Ncumstar}--\ref{fig:panel_eta_Nstarinf}。各参数组中，拐点的相对位置约为 $\lambda=0.861$，而绝对时刻随启动时间改变。
+初值仍取固定绝对值 $I_0$，不同 $N_{\rm eff}$ 下不重新拟合。三个人口规模分别对应累计感染、$45$ 天控制持续时间和成本条件的临界值，结果见图~\ref{fig:dom:critical-cases}。各参数组中，拐点的相对位置约为 $\lambda=0.861$，而绝对时刻随启动时间改变。
 
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[width=0.7\textwidth]{figures/fig_panel_A_Ncumstar.pdf}
-  \caption{$N_{\rm eff}=11763\approx N^\ast_{\rm cum,\infty}$ 时的阈值比较。$\eta=13.375,19.481,44.246$，对应清零时间约为 $227.5,175.3,107.1$ 天。成本条件对应的累计感染约为 TDINN 参照值 $2096.76$；另外两个阈值下的累计感染分别低于和高于该参照。}
-  \label{fig:panel_eta_Ncumstar}
+当 $N_{\rm eff}=11763$ 时，三个阈值为 $13.375,19.481,44.246$，清零时间分别约为 $227.5,175.3,107.1$ d；成本条件下累计感染约为 TDINN 参照 $2096.76$，另外两个阈值的结果分别低于和高于该参照。当 $N_{\rm eff}=40382$ 时，三个阈值为 $45.918,66.880,151.904$，最后一个约等于 TDINN 峰值。当 $N_{\rm eff}=91721$ 时，三个阈值为 $104.295,151.904,345.02$，分别低于、约等于和高于 TDINN 峰值。
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/layout_v5/critical_population_cases.pdf}
+\caption{三类临界有效人口下的阈值比较。三行依次为 $N_{\rm eff}=11763,40382,91721$；左列为社区感染者人数（对数纵轴），右列为隔离率，横轴 $t$ 的单位为天。(a) 中的图例适用于三行：蓝色轨迹对应 $150$ d 时长、成本和 $45$ d 时长条件，黑实线为固定 TDINN 参照，灰虚线为同人口常规控制，红虚线为 TDINN 感染峰值。空心圆标记隔离率拐点，平台实心点为该时刻在感染曲线上的投影而非感染曲线的拐点，短竖线为清零时刻。内嵌柱图给出清零时的总累计感染，虚线为 TDINN 参照 $2096.76$。}
+\label{fig:dom:critical-cases}
 \end{figure}
 
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[width=0.7\textwidth]{figures/fig_panel_A_Nstar45.pdf}
-  \caption{$N_{\rm eff}=40382\approx N^\ast(45\,\mathrm d)$ 时的阈值比较。$45$ 天时长条件对应 $\eta=151.904$，约等于 TDINN 峰值；其余阈值 $45.918$ 和 $66.880$ 均低于该参照。}
-  \label{fig:panel_eta_Nstar45}
-\end{figure}
 
-\begin{figure}[!htbp]
-  \centering
-  \includegraphics[width=0.7\textwidth]{figures/fig_panel_A_Nstarinf.pdf}
-  \caption{$N_{\rm eff}=91721\approx N^\ast_\infty$ 时的阈值比较。成本条件对应 $\eta=151.904$，约等于 TDINN 峰值；$45$ 天时长条件对应 $\eta=345.02$，超过该峰值；$150$ 天时长条件对应 $\eta=104.295$，低于该峰值。}
-  \label{fig:panel_eta_Nstarinf}
-\end{figure}
+
+
 
 \clearpage
 
@@ -2743,7 +2500,7 @@ $\eta=100$ 处 $N_{\rm clr}\approx3.97\times10^{3}$，全段最大值为 $N=5166
 
 第~\ref{sec:scaling}~小节的累计比例计算至 $t_2$，本附录中的 $h$ 则计算至动态清零时刻，包含退出后的感染过程。两者的积分终点不同。
 
-\clearpage
+\FloatBarrier
 
 \section{常规接触率的敏感性分析}
 \label{app:c0_scan}
@@ -2758,6 +2515,7 @@ $\eta=100$ 处 $N_{\rm clr}\approx3.97\times10^{3}$，全段最大值为 $N=5166
 \end{figure}
 
 
+\clearpage
 \section{接触率与传播概率对拐点存在性的影响}
 \label{app:c0_beta}
 

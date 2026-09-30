@@ -1,0 +1,38 @@
+Nature Figure Rendered Collision Audit
+pdf: E:\work\draft\latex\figures\layout_v5\population_threshold_levers.pdf
+pages: 1
+visible text boxes: 102
+stroke paths: 233
+
+[FAIL] page 1 text-stroke: Text is crossed by 5 stroked path(s) — '(c)'
+  text bbox: (39.129600524902344, 176.15301513671875, 51.33968734741211, 187.15301513671875)
+[FAIL] page 1 text-stroke: Text is crossed by 8 stroked path(s) — '(d)'
+  text bbox: (264.6911926269531, 176.15301513671875, 278.1332702636719, 187.15301513671875)
+[FAIL] page 1 text-text: Text boxes overlap by 89.8% of the smaller box — 'IT'
+  other text: 'peak'
+  text bbox: (139.120849609375, 24.292457580566406, 151.19529724121094, 33.90870666503906)
+[FAIL] page 1 text-text: Text boxes overlap by 89.8% of the smaller box — 'IT'
+  other text: 'peak'
+  text bbox: (428.53009033203125, 65.19090270996094, 441.0968933105469, 75.1921615600586)
+[WARN] page 1 text-fill-edge: Text partially overlaps the edge of 1 filled region(s) — '3,500'
+  text bbox: (127.91252136230469, 197.33163452148438, 142.98753356933594, 204.03163146972656)
+[WARN] page 1 text-fill-edge: Text partially overlaps the edge of 1 filled region(s) — '3,569'
+  text bbox: (151.87844848632812, 196.6328125, 166.95346069335938, 203.3328094482422)
+[WARN] page 1 text-fill-edge: Text partially overlaps the edge of 1 filled region(s) — '3,773'
+  text bbox: (175.8443603515625, 194.5745391845703, 190.91937255859375, 201.2745361328125)
+[WARN] page 1 text-fill-edge: Text partially overlaps the edge of 1 filled region(s) — 'TDINN'
+  text bbox: (192.27235412597656, 206.13555908203125, 210.93336486816406, 212.13555908203125)
+[WARN] page 1 text-fill-edge: Text partially overlaps the edge of 2 filled region(s) — '9452,097'
+  text bbox: (332.7937927246094, 227.7752227783203, 360.03155517578125, 233.9752197265625)
+[WARN] page 1 text-fill-edge: Text partially overlaps the edge of 1 filled region(s) — '5,016'
+  text bbox: (361.6896057128906, 220.77915954589844, 375.6396179199219, 226.97915649414062)
+[WARN] page 1 text-fill-edge: Text partially overlaps the edge of 1 filled region(s) — '10,784'
+  text bbox: (375.75079345703125, 206.51914978027344, 392.8008117675781, 212.71914672851562)
+[WARN] page 1 text-fill-edge: Text partially overlaps the edge of 2 filled region(s) — '15,410'
+  text bbox: (391.3588562011719, 195.08607482910156, 408.40887451171875, 201.28607177734375)
+[WARN] page 1 text-fill-edge: Text partially overlaps the edge of 1 filled region(s) — 'TDINN'
+  text bbox: (418.66973876953125, 222.12306213378906, 437.33074951171875, 228.12306213378906)
+
+summary: 4 fail, 9 warn, 56 contained fill overlays, 0 contained image overlays
+verdict: FIX BEFORE DELIVERY
+note: contained overlays can be intentional; WARN findings need final-size visual review

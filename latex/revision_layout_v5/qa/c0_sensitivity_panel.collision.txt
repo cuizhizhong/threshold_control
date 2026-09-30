@@ -1,0 +1,14 @@
+Nature Figure Rendered Collision Audit
+pdf: E:\work\draft\latex\figures\layout_v5\c0_sensitivity_panel.pdf
+pages: 1
+visible text boxes: 44
+stroke paths: 88
+
+[WARN] page 1 text-fill-edge: Text partially overlaps the edge of 1 filled region(s) — '3.54'
+  text bbox: (265.39959716796875, 142.56024169921875, 276.0745849609375, 148.66024780273438)
+[WARN] page 1 text-fill-edge: Text partially overlaps the edge of 1 filled region(s) — '3.61'
+  text bbox: (287.6750183105469, 142.0806884765625, 298.3500061035156, 148.18069458007812)
+
+summary: 0 fail, 2 warn, 3 contained fill overlays, 0 contained image overlays
+verdict: REVIEW REQUIRED
+note: contained overlays can be intentional; WARN findings need final-size visual review

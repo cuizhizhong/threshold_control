@@ -1,0 +1,12 @@
+Nature Figure Rendered Collision Audit
+pdf: E:\work\draft\latex\figures\layout_v5\xian_strategy_process.pdf
+pages: 1
+visible text boxes: 63
+stroke paths: 119
+
+[FAIL] page 1 text-stroke: Text is crossed by 3 stroked path(s) — '(b)'
+  text bbox: (44.421260833740234, 120.26344299316406, 57.86334991455078, 131.26344299316406)
+
+summary: 1 fail, 0 warn, 6 contained fill overlays, 0 contained image overlays
+verdict: FIX BEFORE DELIVERY
+note: contained overlays can be intentional; WARN findings need final-size visual review

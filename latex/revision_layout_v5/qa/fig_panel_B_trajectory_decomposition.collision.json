@@ -1,0 +1,102 @@
+{
+  "pdf": "E:\\work\\draft\\latex\\figures\\layout_v5\\fig_panel_B_trajectory_decomposition.pdf",
+  "auditable": true,
+  "verdict": "FIX BEFORE DELIVERY",
+  "page_count": 1,
+  "visible_text_box_count": 53,
+  "text_trace_count": 59,
+  "stroke_path_count": 294,
+  "filled_region_count": 256,
+  "image_region_count": 0,
+  "summary": {
+    "fail": 3,
+    "warn": 0,
+    "contained_fill_overlays": 0,
+    "contained_image_overlays": 0
+  },
+  "thresholds": {
+    "text_inset_pt": 0.6,
+    "min_overlap_ratio": 0.05,
+    "clipping_tolerance_pt": 0.5
+  },
+  "findings": [
+    {
+      "severity": "FAIL",
+      "kind": "text-stroke",
+      "page": 1,
+      "message": "Text is crossed by 3 stroked path(s)",
+      "text": "(e)",
+      "text_bbox": [
+        45.8843994140625,
+        146.32374572753906,
+        58.094486236572266,
+        157.32374572753906
+      ],
+      "other_text": null,
+      "other_bbox": [
+        47.3843994140625,
+        58.5335693359375,
+        125.08412170410156,
+        194.75196838378906
+      ],
+      "object_count": 3,
+      "object_indexes": [
+        43,
+        46,
+        47
+      ]
+    },
+    {
+      "severity": "FAIL",
+      "kind": "text-stroke",
+      "page": 1,
+      "message": "Text is crossed by 3 stroked path(s)",
+      "text": "(f)",
+      "text_bbox": [
+        254.7412567138672,
+        146.32374572753906,
+        265.7303466796875,
+        157.32374572753906
+      ],
+      "other_text": null,
+      "other_bbox": [
+        256.24127197265625,
+        38.501190185546875,
+        333.94097900390625,
+        194.75196838378906
+      ],
+      "object_count": 3,
+      "object_indexes": [
+        139,
+        142,
+        143
+      ]
+    },
+    {
+      "severity": "FAIL",
+      "kind": "text-stroke",
+      "page": 1,
+      "message": "Text is crossed by 3 stroked path(s)",
+      "text": "0",
+      "text_bbox": [
+        358.544677734375,
+        128.11871337890625,
+        362.794677734375,
+        136.61871337890625
+      ],
+      "other_text": null,
+      "other_bbox": [
+        360.669677734375,
+        29.868255615234375,
+        438.3694152832031,
+        194.75196838378906
+      ],
+      "object_count": 3,
+      "object_indexes": [
+        187,
+        190,
+        191
+      ]
+    }
+  ]
+}

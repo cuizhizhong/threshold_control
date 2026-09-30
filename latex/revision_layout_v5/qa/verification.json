@@ -1,0 +1,299 @@
+{
+  "approved_figure_blocks_only": true,
+  "labels_citations_bib_supplement_unchanged": true,
+  "all_previous_figure_assets_unchanged": true,
+  "matlab_data_checks": {
+    "baseline_q_joint": {
+      "alignment": "PASS",
+      "curves_equal_original_formulas_or_csv": 9,
+      "points_checked": 4896
+    },
+    "c0_sensitivity_selected_eta": {
+      "alignment": "PASS",
+      "curves_equal_original_formulas_or_csv": 24,
+      "points_checked": 2748
+    },
+    "eta_sensitivity_selected_c0": {
+      "alignment": "PASS",
+      "curves_equal_original_formulas_or_csv": 24,
+      "points_checked": 5784
+    }
+  },
+  "figures": [
+    {
+      "figure": "baseline_q_joint",
+      "font": {
+        "pdf": "E:\\work\\draft\\latex\\figures\\layout_v5\\baseline_q_joint.pdf",
+        "auditable": true,
+        "minimum_required_pt": 5.0,
+        "minimum_found_pt": 7.0,
+        "text_run_count": 143,
+        "below_minimum_count": 0,
+        "below_minimum": [],
+        "warnings": []
+      },
+      "raw_collision_verdict": "PASS",
+      "raw_collision_summary": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 0,
+        "contained_image_overlays": 0
+      },
+      "sha256": "53815d1e45ecf854f225949b26a5b05fe23203496fc0d3ca9e33a7bef3c06d6f"
+    },
+    {
+      "figure": "c0_phase_stationary",
+      "font": {
+        "pdf": "E:\\work\\draft\\latex\\figures\\layout_v5\\c0_phase_stationary.pdf",
+        "auditable": true,
+        "minimum_required_pt": 5.0,
+        "minimum_found_pt": 5.11,
+        "text_run_count": 38,
+        "below_minimum_count": 0,
+        "below_minimum": [],
+        "warnings": []
+      },
+      "raw_collision_verdict": "PASS",
+      "raw_collision_summary": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 0,
+        "contained_image_overlays": 0
+      },
+      "sha256": "4867a361c8b122daa50aca6045f6fe154152993a6a639b857dc81d51af3663b9"
+    },
+    {
+      "figure": "c0_sensitivity_panel",
+      "font": {
+        "pdf": "E:\\work\\draft\\latex\\figures\\layout_v5\\c0_sensitivity_panel.pdf",
+        "auditable": true,
+        "minimum_required_pt": 5.0,
+        "minimum_found_pt": 5.11,
+        "text_run_count": 70,
+        "below_minimum_count": 0,
+        "below_minimum": [],
+        "warnings": []
+      },
+      "raw_collision_verdict": "REVIEW REQUIRED",
+      "raw_collision_summary": {
+        "fail": 0,
+        "warn": 2,
+        "contained_fill_overlays": 3,
+        "contained_image_overlays": 0
+      },
+      "sha256": "a5579b44080c1f50b5e29fe64f27f30cd33799f9a60d2f43cca4249b20e62765"
+    },
+    {
+      "figure": "c0_sensitivity_selected_eta",
+      "font": {
+        "pdf": "E:\\work\\draft\\latex\\figures\\layout_v5\\c0_sensitivity_selected_eta.pdf",
+        "auditable": true,
+        "minimum_required_pt": 5.0,
+        "minimum_found_pt": 7.0,
+        "text_run_count": 192,
+        "below_minimum_count": 0,
+        "below_minimum": [],
+        "warnings": []
+      },
+      "raw_collision_verdict": "FIX BEFORE DELIVERY",
+      "raw_collision_summary": {
+        "fail": 4,
+        "warn": 5,
+        "contained_fill_overlays": 1,
+        "contained_image_overlays": 0
+      },
+      "sha256": "2c0ebacf2e706134b93fed4e7974c683f32352ba57d1ec88ba7a1b7c20ecc5b0"
+    },
+    {
+      "figure": "critical_population_cases",
+      "font": {
+        "pdf": "E:\\work\\draft\\latex\\figures\\layout_v5\\critical_population_cases.pdf",
+        "auditable": true,
+        "minimum_required_pt": 5.0,
+        "minimum_found_pt": 5.11,
+        "text_run_count": 182,
+        "below_minimum_count": 0,
+        "below_minimum": [],
+        "warnings": []
+      },
+      "raw_collision_verdict": "FIX BEFORE DELIVERY",
+      "raw_collision_summary": {
+        "fail": 3,
+        "warn": 13,
+        "contained_fill_overlays": 57,
+        "contained_image_overlays": 0
+      },
+      "sha256": "a8bcfc37cc5711ca78b93abfa3739948e81a428be2795e7842c52afec3234485"
+    },
+    {
+      "figure": "eta_sensitivity_selected_c0",
+      "font": {
+        "pdf": "E:\\work\\draft\\latex\\figures\\layout_v5\\eta_sensitivity_selected_c0.pdf",
+        "auditable": true,
+        "minimum_required_pt": 5.0,
+        "minimum_found_pt": 7.0,
+        "text_run_count": 211,
+        "below_minimum_count": 0,
+        "below_minimum": [],
+        "warnings": []
+      },
+      "raw_collision_verdict": "PASS",
+      "raw_collision_summary": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 4,
+        "contained_image_overlays": 0
+      },
+      "sha256": "6e9b87d519565b8ebe235629d579696ade7857009a6048ee75d09ed77716f11f"
+    },
+    {
+      "figure": "fig_panel_B_trajectory_decomposition",
+      "font": {
+        "pdf": "E:\\work\\draft\\latex\\figures\\layout_v5\\fig_panel_B_trajectory_decomposition.pdf",
+        "auditable": true,
+        "minimum_required_pt": 5.0,
+        "minimum_found_pt": 5.95,
+        "text_run_count": 59,
+        "below_minimum_count": 0,
+        "below_minimum": [],
+        "warnings": []
+      },
+      "raw_collision_verdict": "FIX BEFORE DELIVERY",
+      "raw_collision_summary": {
+        "fail": 3,
+        "warn": 0,
+        "contained_fill_overlays": 0,
+        "contained_image_overlays": 0
+      },
+      "sha256": "db34bd7b96f9c34431013b46a24b97c87e02d1ac6e5a94bb9cac239f19ddd638"
+    },
+    {
+      "figure": "population_threshold_levers",
+      "font": {
+        "pdf": "E:\\work\\draft\\latex\\figures\\layout_v5\\population_threshold_levers.pdf",
+        "auditable": true,
+        "minimum_required_pt": 5.0,
+        "minimum_found_pt": 5.11,
+        "text_run_count": 132,
+        "below_minimum_count": 0,
+        "below_minimum": [],
+        "warnings": []
+      },
+      "raw_collision_verdict": "FIX BEFORE DELIVERY",
+      "raw_collision_summary": {
+        "fail": 4,
+        "warn": 9,
+        "contained_fill_overlays": 56,
+        "contained_image_overlays": 0
+      },
+      "sha256": "ec7f893b397df15a99d0eb1e5617f588f6c767a6a7966e9eb3db4ea64ce0c45f"
+    },
+    {
+      "figure": "scenario1_inflection_lambda_sensitivity",
+      "font": {
+        "pdf": "E:\\work\\draft\\latex\\figures\\layout_v5\\scenario1_inflection_lambda_sensitivity.pdf",
+        "auditable": true,
+        "minimum_required_pt": 5.0,
+        "minimum_found_pt": 6.3,
+        "text_run_count": 53,
+        "below_minimum_count": 0,
+        "below_minimum": [],
+        "warnings": []
+      },
+      "raw_collision_verdict": "PASS",
+      "raw_collision_summary": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 5,
+        "contained_image_overlays": 0
+      },
+      "sha256": "5093f5a38e5c12505346835686a157739822899a13ca3b2093a864d88fd88e2c"
+    },
+    {
+      "figure": "scenario1_inflection_scan_t",
+      "font": {
+        "pdf": "E:\\work\\draft\\latex\\figures\\layout_v5\\scenario1_inflection_scan_t.pdf",
+        "auditable": true,
+        "minimum_required_pt": 5.0,
+        "minimum_found_pt": 5.25,
+        "text_run_count": 86,
+        "below_minimum_count": 0,
+        "below_minimum": [],
+        "warnings": []
+      },
+      "raw_collision_verdict": "PASS",
+      "raw_collision_summary": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 12,
+        "contained_image_overlays": 0
+      },
+      "sha256": "12102a6b8ff74b1d09b4fe1b8fc23e53d3adb0ace8d83b9b0279708a520bf2b1"
+    },
+    {
+      "figure": "xian_observed_fit",
+      "font": {
+        "pdf": "E:\\work\\draft\\latex\\figures\\layout_v5\\xian_observed_fit.pdf",
+        "auditable": true,
+        "minimum_required_pt": 5.0,
+        "minimum_found_pt": 8.0,
+        "text_run_count": 24,
+        "below_minimum_count": 0,
+        "below_minimum": [],
+        "warnings": []
+      },
+      "raw_collision_verdict": "PASS",
+      "raw_collision_summary": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 0,
+        "contained_image_overlays": 0
+      },
+      "sha256": "6a84bb6c1897d35f2de41c99f1bf71933d8987a8f4c6a8843e39573b99067724"
+    },
+    {
+      "figure": "xian_strategy_process",
+      "font": {
+        "pdf": "E:\\work\\draft\\latex\\figures\\layout_v5\\xian_strategy_process.pdf",
+        "auditable": true,
+        "minimum_required_pt": 5.0,
+        "minimum_found_pt": 5.18,
+        "text_run_count": 85,
+        "below_minimum_count": 0,
+        "below_minimum": [],
+        "warnings": []
+      },
+      "raw_collision_verdict": "FIX BEFORE DELIVERY",
+      "raw_collision_summary": {
+        "fail": 1,
+        "warn": 0,
+        "contained_fill_overlays": 6,
+        "contained_image_overlays": 0
+      },
+      "sha256": "f3986790ba6a68aa8b65740f47a068ff1ca2ca86961f2578449c8b9bb1de89f7"
+    }
+  ],
+  "geometry_requires_visual_review": [],
+  "figure_pages": {
+    "2": 14,
+    "4": 19,
+    "5": 19,
+    "6": 20,
+    "7": 21,
+    "8": 21,
+    "9": 23,
+    "10": 24,
+    "14": 33,
+    "15": 34,
+    "16": 35,
+    "17": 36,
+    "18": 37
+  },
+  "page_count": 40,
+  "bibliography_pages": [
+    40
+  ],
+  "five_references_visible": true,
+  "layout_or_reference_warnings": [],
+  "source_preflight_exit_code": 1
+}

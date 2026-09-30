@@ -1,0 +1,34 @@
+Nature Figure Static Preflight
+source: E:\work\draft\latex\revision_style_restore\restore_figures.py
+backend: python
+
+[PASS] SOURCE-SYNTAX: Python source parses successfully
+[FAIL] FONT-FAMILY: No explicit publication-safe font family found in matplotlib rcParams
+[PASS] FONT-SIZE: All detected text sizes are at least 5 pt (minimum 6.2 pt)
+[WARN] FONT-GLYPH-FLOOR: Mathtext may shrink script glyphs below 5 pt (about 4.34 pt from a 6.2 pt parent); use a Unicode glyph or audit PDF Tf operators
+  - $q_0$
+[PASS] LEGEND-LABEL-CASE: No auditable literal legend labels detected
+[PASS] COLOR-MAP: No rainbow/jet/hsv color mapping detected
+[PASS] EDITABLE-TEXT: SVG and PDF editable-text settings are configured
+[PASS] EXPORT-VECTOR: Both SVG and PDF exports are present
+[WARN] EXPORT-RASTER: PNG preview is present but no TIFF submission raster was found
+[WARN] RASTER-DPI: Raster export meets the 300 dpi floor but not the 600 dpi default
+  - 300
+[WARN] FINAL-WIDTH: Detected width 159.3 mm is not near the common 89/183 mm defaults; verify the target journal
+[PASS] DATA-SAMPLING: No high-confidence row-sampling operation detected
+[PASS] DATA-EXCLUSION: No high-confidence missing-data exclusion detected
+[PASS] DEMO-DATA: No obvious simulated-data generator detected
+[WARN] LOG-GUARD: Logarithmic operation found without an obvious positivity/pseudocount guard
+  - set_yscale("log
+[PASS] INTERP-MONOTONIC: NumPy interpolation has an explicit monotonicity/reordering safeguard
+  - np.diff(df.t) > 0
+[PASS] UNCERTAINTY-ENCODING: No stochastic aggregate requiring a variability audit was inferred
+[PASS] ROTATION-ANCHOR: No rotated Matplotlib text detected
+[PASS] ANNOTATION-WORKAROUND: No high-risk hard-coded label height or opaque white text mask detected
+[PASS] PANEL-ALIGNMENT-GATE: Render-time panel-alignment gate is wired into the plotting source
+  - require_matplotlib_panel_alignment(
+[PASS] BACKEND-EXCLUSIVE: No obvious cross-backend plotting reference found for python
+
+summary: 15 pass, 5 warn, 1 fail
+verdict: FIX BEFORE DELIVERY
+note: static preflight does not validate statistics, source-data truth, or rendered appearance
