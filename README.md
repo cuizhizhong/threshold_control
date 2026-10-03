@@ -1,8 +1,19 @@
-# SIQR 模型下的情景一阈值控制研究
+# SIQR 模型下接触减少与追踪隔离的阈值控制
 
-本项目研究带接触追踪与隔离机制的 SIQR 型传染病动力学模型，重点分析医疗容量约束
-$I(t)\leq \eta$ 下的**情景一阈值控制**。当前工作包括控制律的解析推导、参数敏感性、
-数值验证、西安真实疫情数据应用，以及情景一阈值控制与 TDINN控制、常规控制之间的条件性比较。
+当前唯一正式稿件为 `latex/flatten_curve_analysis_cn.tex`，补充表格为同目录
+`flatten_curve_supplement_cn.tex`。2026-10-02 新稿来自 `ai/threshold_control_reproducible_release_20261002`；
+该交付包保持冻结。正式稿包含仅隔离基准和联合控制理论，不再只有情景一。
+
+整稿复现说明和本机验收状态见 [reproducibility/README.md](reproducibility/README.md)。
+复现入口采用独立空输出目录，不调用 Nature skills，不直接清空旧实验目录或覆盖正式图件。
+“有源代码”“供应方运行记录”“本机实际复跑通过”是不同状态；以最新运行报告为准。
+旧版本与导入前备份保留，不作为并行维护的正式主稿。
+2026-10-03 已完成本研究版本的双空目录复现和正式工程重编译：20 幅图、4 张正文表、3 张补充表及已列明关键数值通过；正文 45 页、补充材料 3 页。结果与证据边界见 [验收报告](reproducibility/validation_report.md)，未取整结果集中在 `reproducibility/results/20261003_release_final/`。这不是一般证明或真实医疗阈值认证。
+
+本项目研究带接触追踪与隔离机制的 SIQR 型传染病动力学模型，分析社区感染阈值约束
+$I(t)\leq \eta$ 下的仅隔离基准及接触率—隔离率联合分配。当前工作包括控制律推导、
+参数敏感性、数值验证、西安数据重构和与 TDINN控制、常规控制的条件性比较。
+该阈值并非由西安实际 ICU 占用独立标定；无回流模型中的固定退出目标也不等于所有可行防控策略。
 
 项目仍处于理论分析、数值实验和论文草稿整理阶段。现有结果用于说明控制策略的成立条件、
 参数依赖和行为边界，不应解读为已经证明某一种策略在所有情形下优于其他策略。
@@ -17,7 +28,7 @@ $I(t)\leq \eta$ 下的**情景一阈值控制**。当前工作包括控制律的
 - $I_q(t)$：隔离感染者；
 - $R(t)$：移出者。
 
-接触率 $c(t)$ 和隔离率 $q(t)$ 是控制变量。当前主线只讨论情景一：固定
+接触率 $c(t)$ 和隔离率 $q(t)$ 是控制变量。仅隔离解析基准采用情景一：固定
 $c(t)=c_0$，在系统首次达到医疗容量阈值 $I(t)=\eta$ 后提高隔离率，使平台期满足
 $I(t)\equiv\eta$。控制律为
 
@@ -48,16 +59,17 @@ $$
 
 ```text
 .
-├── paper_elegantpaper_relayout/   # ElegantPaper 中文主论文工程与编译后 PDF
+├── latex/                         # 唯一正式主论文工程、补充材料与 PDF
+├── reproducibility/               # 隔离复现入口、配置、对应清单与验收记录
 ├── code/                          # 情景一基准模拟和 MATLAB 参数分析
 ├── scenario1_inflection/          # q_c(t) 拐点、曲率与相对位置分析（Python）
 ├── scenario1_threshold_landscape/ # N=763 下的二维阈值响应图谱（MATLAB）
 ├── xian_control_comparison/       # 西安三种控制策略的拟合、比较与敏感性分析
-├── xian_dom/                      # 有效人口占优区域及图 20--23 的求解和绘图
+├── xian_dom/                      # 有效人口条件比较的求解与原绘图逻辑
 ├── c0_sensitivity/                # 固定阈值比例下的 c0 敏感性实验
 ├── 真实数据/                       # 当前主线使用的西安原始 Excel 数据，请勿直接修改
-├── figures/                       # 主论文采用的成品图
-├── table/                         # 主论文采用的 CSV 与 LaTeX 表格
+├── figures/                       # 原模块及历史图件；正式论文只读取 latex/figures
+├── table/                         # 原模块与历史表格；正式正文及补充表直接保存在 tex 中
 ├── refs/                          # 参考论文、文本摘录和模型示意图
 ├── archive_unused/                # 旧实验、非当前主线数据与可复现输出快照
 └── AGENTS.md                      # 项目研究口径和协作约定
@@ -65,13 +77,16 @@ $$
 
 主要入口如下：
 
-- 主论文源文件：[`paper_elegantpaper_relayout/flatten_curve_analysis_cn.tex`](paper_elegantpaper_relayout/flatten_curve_analysis_cn.tex)
-- 主论文 PDF：[`paper_elegantpaper_relayout/flatten_curve_analysis_cn.pdf`](paper_elegantpaper_relayout/flatten_curve_analysis_cn.pdf)
+- 主论文源文件：[`latex/flatten_curve_analysis_cn.tex`](latex/flatten_curve_analysis_cn.tex)
+- 主论文 PDF：[`latex/flatten_curve_analysis_cn.pdf`](latex/flatten_curve_analysis_cn.pdf)
+- 正式复现入口：[`reproducibility/run_all.ps1`](reproducibility/run_all.ps1)
 - 西安比较主程序：[`xian_control_comparison/xian_control_comparison.py`](xian_control_comparison/xian_control_comparison.py)
 - 情景一完整图谱入口：[`scenario1_threshold_landscape/run_all.m`](scenario1_threshold_landscape/run_all.m)
 - 拐点数值校验：[`scenario1_inflection/verify_anchors.py`](scenario1_inflection/verify_anchors.py)
 - 有效人口占优分析说明：[`xian_dom/README.md`](xian_dom/README.md)
 
+以下原模块入口保留供历史实验核对，并非当前整稿复现入口；部分会覆盖自身旧输出，
+不要用它们替代独立输出目录中的正式流程。
 进入带有独立 `AGENTS.md` 的子目录工作时，应同时遵守根目录与子目录规范；若细节冲突，以子目录规范为准。
 
 ## 3. 环境与依赖
@@ -80,14 +95,15 @@ $$
 
 ### Python
 
-建议使用 Python 3.10 或更高版本。主要第三方依赖为：
+本轮整稿实际验收环境为 Python 3.12.8；其他 Python 版本尚未验收。正式复现请使用
+`reproducibility/requirements.txt` 中锁定的依赖。以下通用依赖命令仅供历史模块使用：
 
 ```powershell
 python -m pip install numpy pandas scipy matplotlib openpyxl
 ```
 
 代码使用 `numpy`、`pandas`、`scipy` 和 `matplotlib` 完成数值积分、求根、参数拟合和绘图，
-使用 `openpyxl` 读取 Excel 数据。目前仓库未锁定统一的 Python 环境文件，复现时应记录实际包版本。
+使用 `openpyxl` 读取 Excel 数据。整稿复现锁定环境见 `reproducibility/requirements.txt`，实际工具和字体见运行报告。
 
 ### MATLAB
 
@@ -103,7 +119,7 @@ LaTeX 宏包和相应中英文字体。主稿使用 `biblatex` 管理参考文�
 
 以下命令均从项目根目录执行。
 
-### 西安控制策略比较
+### 历史西安控制策略比较（可能覆盖旧输出）
 
 ```powershell
 python -B xian_control_comparison\xian_control_comparison.py
@@ -111,7 +127,7 @@ python -B xian_control_comparison\xian_control_comparison.py
 
 该程序拟合西安初值并比较 TDINN控制、情景一阈值控制和常规控制，输出时间序列、汇总表和论文图。
 
-### 情景一拐点分析
+### 历史情景一拐点分析（可能覆盖旧输出）
 
 ```powershell
 conda run --no-capture-output -n thesis python -B scenario1_inflection\verify_anchors.py
@@ -123,16 +139,16 @@ conda run --no-capture-output -n thesis python -B scenario1_inflection\fig_diagn
 
 若未使用名为 `thesis` 的 Conda 环境，可将命令中的 Python 解释器替换为已安装上述依赖的环境。
 
-### 情景一阈值响应图谱
+### 历史情景一阈值响应图谱（可能覆盖旧输出）
 
 ```powershell
-matlab -batch "run('E:\work\draft\scenario1_threshold_landscape\run_all.m')"
+matlab -batch "run(fullfile(pwd,'scenario1_threshold_landscape','run_all.m'))"
 ```
 
 该入口会重建 `scenario1_threshold_landscape/current_run/` 下的数据、图、表和日志。
 如需保留某次探索性结果，应在重新运行前另行复制，避免覆盖当前输出。
 
-### 有效人口占优分析
+### 历史有效人口占优分析（可能覆盖旧输出）
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File xian_dom\run_all.ps1
@@ -142,23 +158,20 @@ powershell -ExecutionPolicy Bypass -File xian_dom\run_all.ps1
 或固定 $\eta$ 的轨迹比较图。详细口径、模块依赖和输出文件见
 [`xian_dom/README.md`](xian_dom/README.md)。
 
-### 编译主论文
+### 编译正式主论文及补充材料
 
 ```powershell
-Set-Location paper_elegantpaper_relayout
-xelatex -interaction=nonstopmode flatten_curve_analysis_cn.tex
-biber flatten_curve_analysis_cn
-xelatex -interaction=nonstopmode flatten_curve_analysis_cn.tex
-xelatex -interaction=nonstopmode flatten_curve_analysis_cn.tex
+powershell -NoProfile -ExecutionPolicy Bypass -File latex\build_paper.ps1
 ```
 
-只运行 XeLaTeX 而跳过 Biber 会使正文引文显示为 `[?]`。改动图、表、交叉引用或公式编号后，
-应执行完整四步编译并检查 PDF 页面渲染。
+该入口先为补充材料运行两遍 XeLaTeX，再执行主稿 `xelatex → biber → xelatex → xelatex`，
+使干净目录也能解析跨文档标签。跳过 Biber 会使正文引文显示为 `[?]`。改动图、表、
+交叉引用或公式编号后，应执行此完整入口并检查 PDF 页面渲染。
 
 ## 5. 研究主线与结果边界
 
-当前论文依次处理模型设定、常规阶段首次积分、情景一闭式控制律、拐点结构、成本和参数敏感性、
-数值验证、西安真实疫情应用、规模不变性与有效人口占优分析。比较 TDINN控制、情景一阈值控制和
+当前论文处理模型设定、常规阶段首次积分、仅隔离闭式控制律、拐点结构、成本和参数敏感性、
+联合控制表示及候选比较、数值验证、西安数据应用、规模不变性与有效人口条件比较。比较 TDINN控制、情景一阈值控制和
 常规控制时，结论均依赖于参数范围、有效人口、医疗容量阈值、成本权重和采用的效果指标。
 
 在当前设定下，数值结果可用于识别峰值、成本、控制时长和累计感染之间的权衡；纳入总累计感染或
@@ -169,7 +182,10 @@ xelatex -interaction=nonstopmode flatten_curve_analysis_cn.tex
 
 - `真实数据/` 只保留当前主线使用的西安原始输入；其余五个地区的数据已移至
   `archive_unused/inactive_scope/multicity_raw_data/`，分析代码不应直接覆写原始文件。
-- 主论文使用的成品图和表集中复制到 `figures/` 与 `table/`。
+- 正式稿只读取 `latex/figures/` 中的 20 幅图；4 张正文表和 3 张补充表直接保存在各自 TeX 中。
+  根 `figures/`、`table/` 保留原模块及历史产物，不作为正式稿的并行编辑入口。
+- 验收通过后，完整精度派生结果汇集到 `reproducibility/results/<运行版本>/`，对应清单、
+  环境和验收报告汇集到 `reproducibility/`；这些结果副本不是下一轮计算输入。
 - 各实验模块的过程输出由运行命令重新生成并已加入 `.gitignore`；清理前的输出快照保存在
   `archive_unused/generated_snapshots/`，不再与活动源码混放。
 - 当前不参与论文主线但仍有追溯价值的代码、数据和图片统一放在 `archive_unused/`；

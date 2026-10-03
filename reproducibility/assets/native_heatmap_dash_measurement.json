@@ -1,0 +1,2081 @@
+{
+  "schema_version": 1,
+  "purpose": "Empirical physical dash calibration for restoring original-renderer red contour style in deterministic fresh-vector raster export.",
+  "status": "measured_in_two_independent_matlab_processes",
+  "passed": true,
+  "passed_scope": "Two independently generated horizontal calibration figures produce identical RGB geometry; resolved nominal dash lengths fit measured complete on/off segments within the stated pixel-quantization bound and fit measured dash period. This does not assert exact subpixel native dash parameters, full heatmap pixel repeatability, or completed production validation.",
+  "matlab_version": "25.2.0.2998904 (R2025b)",
+  "screen_pixels_per_inch": 96,
+  "raster_resolution_dpi": 600,
+  "source_renderer": "opengl",
+  "source_renderer_mode": "auto",
+  "line_width_pt": 0.9,
+  "line_style": "--",
+  "line_color": [
+    0.7,
+    0.1,
+    0.12
+  ],
+  "resolved_dash_pt": [
+    3.6,
+    3.6
+  ],
+  "resolved_dash_total_period_pt": 7.2,
+  "observed_native_dash_mean_pt": [
+    3.6644444444444444,
+    3.5343396226415096
+  ],
+  "observed_native_period_pt": 7.199656946826758,
+  "uncertainty": {
+    "unit": "pt",
+    "mean_segment_length_conservative_absolute_bound": 0.13,
+    "one_segment_conservative_absolute_bound": 0.24,
+    "fitted_period_conservative_absolute_bound": 0.005,
+    "one_raster_pixel_pt": 0.12,
+    "interpretation": "Conservative geometric and quantization bounds, not statistical confidence intervals. Native pixels have hard red/white edges, so endpoint coverage cannot identify exact subpixel dash lengths. The reported nominal [3.6,3.6] is supported at this resolution, not proven as a renderer-internal exact array."
+  },
+  "measurement_method": {
+    "red_mask": "R>100 and G<80 and B<90 and R>3*G using integer RGB",
+    "row_choice": "row with maximum number of red pixels; all seven red rows agree for this horizontal calibration",
+    "run_definition": "half-open contiguous red intervals; exclude first and last visible intervals to avoid clipped endpoint inference",
+    "period_definition": "ordinary least squares of complete segment start pixel versus consecutive segment index",
+    "point_conversion": "measured pixels *72/600; PNG DPI metadata differs from600 by0.0012 dpi only",
+    "minimum_support": "54 complete runs and53 complete interior gaps per image; two independent MATLAB processes, smoothing_on and smoothing_off each",
+    "raw_intervals_recorded": true
+  },
+  "geometry_and_padding_calibration": {
+    "source_XData": [
+      0,
+      1
+    ],
+    "source_YData": [
+      0.5,
+      0.5
+    ],
+    "source_axes_position_pt": [
+      25.5,
+      45,
+      400.5,
+      70.5
+    ],
+    "HG_source_data_axis_width_pt": 400.5,
+    "actual_vector_export_data_path_width_pt": 399.7499885559082,
+    "target_size_pt": [
+      451.28,
+      140
+    ],
+    "integer_source_canvas_pt": [
+      451.5,
+      140.25
+    ],
+    "integer_source_canvas_pixels": [
+      602,
+      187
+    ],
+    "native_explicit_export_size_pt": [
+      454.28,
+      143
+    ],
+    "native_options": {
+      "Units": "points",
+      "Padding": "figure",
+      "PreserveAspectRatio": "on"
+    },
+    "unverified_whole_canvas_ratio_not_applied": 1.006157253599114,
+    "conclusion": "The +3 export dimensions primarily add padding, not a1.00616 curve stretch: actual visible line span is3330px in both exports, with +12px boundary translation. Matching dash-center regression estimates scale1.000137 with conservative bound0.000432, consistent with1. No unsupported whole-canvas stretch is divided into physical dash lengths.",
+    "independent_relative_scale_measurements": [
+      {
+        "process": "a",
+        "matching_complete_dash_center_count": 54,
+        "native_vs_target_only_control_fitted_scale": 1.0001368742996597,
+        "translation_pixels": 11.548163435044797,
+        "maximum_center_residual_pixels": 0.68654335200074,
+        "conservative_scale_bound": 0.00043178827169857863,
+        "same_visible_red_span_pixels": 3330,
+        "full_native_canvas_pixels": [
+          3786,
+          1193
+        ],
+        "target_only_control_canvas_pixels": [
+          3762,
+          1167
+        ],
+        "native_minus_control_first_and_last_red_pixel_translation_pixels": 12
+      },
+      {
+        "process": "b",
+        "matching_complete_dash_center_count": 54,
+        "native_vs_target_only_control_fitted_scale": 1.0001368742996597,
+        "translation_pixels": 11.548163435044797,
+        "maximum_center_residual_pixels": 0.68654335200074,
+        "conservative_scale_bound": 0.00043178827169857863,
+        "same_visible_red_span_pixels": 3330,
+        "full_native_canvas_pixels": [
+          3786,
+          1193
+        ],
+        "target_only_control_canvas_pixels": [
+          3762,
+          1167
+        ],
+        "native_minus_control_first_and_last_red_pixel_translation_pixels": 12
+      }
+    ],
+    "resolved_pt_if_measured_relative_scale_divided": [
+      [
+        3.6639429448198793,
+        3.533855928586186
+      ],
+      [
+        3.6639429448198793,
+        3.533855928586186
+      ]
+    ]
+  },
+  "fresh_vector_reference": [
+    {
+      "process": "a",
+      "mode": "print",
+      "path": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_a/dash_horizontal_vector_modes.print.pdf",
+      "sha256": "f1107b8a974942ea35fccdcd104d2a581ff5377f9466abcb46d87db7b9d3a5cc",
+      "page_rect_pt": [
+        0,
+        0,
+        452,
+        140
+      ],
+      "red_line_drawing_count": 1,
+      "red_line_dashes": "[ 7.5 4.5 ] 0",
+      "red_line_width_pt": 0.9000000357627869,
+      "red_line_rect_pt": [
+        25.5,
+        60,
+        426,
+        60
+      ],
+      "physical_dash_array_pt": [
+        7.5,
+        4.5
+      ]
+    },
+    {
+      "process": "a",
+      "mode": "vector",
+      "path": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_a/dash_horizontal_vector_modes.vector.pdf",
+      "sha256": "b6babc117edfdc7a197550d44f495ea9f279b3883c9c3d3d6d2d74461fa95be7",
+      "page_rect_pt": [
+        0,
+        0,
+        451,
+        140
+      ],
+      "red_line_drawing_count": 1,
+      "red_line_dashes": "[ 7.5 4.5 ] 0",
+      "red_line_width_pt": 0.9000000357627869,
+      "red_line_rect_pt": [
+        25.795452117919922,
+        60,
+        425.5454406738281,
+        60
+      ],
+      "physical_dash_array_pt": [
+        7.5,
+        4.5
+      ]
+    },
+    {
+      "process": "b",
+      "mode": "print",
+      "path": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_b/dash_horizontal_vector_modes.print.pdf",
+      "sha256": "d379840494cd6c8e2d2d605ac332a8d68f08679d976e217ca98f625b17f40350",
+      "page_rect_pt": [
+        0,
+        0,
+        452,
+        140
+      ],
+      "red_line_drawing_count": 1,
+      "red_line_dashes": "[ 7.5 4.5 ] 0",
+      "red_line_width_pt": 0.9000000357627869,
+      "red_line_rect_pt": [
+        25.5,
+        60,
+        426,
+        60
+      ],
+      "physical_dash_array_pt": [
+        7.5,
+        4.5
+      ]
+    },
+    {
+      "process": "b",
+      "mode": "vector",
+      "path": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_b/dash_horizontal_vector_modes.vector.pdf",
+      "sha256": "aa31db4374a2d7c3e14399a4c71776dcfb045f25cdb9a0cb23bc3e3662f1202f",
+      "page_rect_pt": [
+        0,
+        0,
+        451,
+        140
+      ],
+      "red_line_drawing_count": 1,
+      "red_line_dashes": "[ 7.5 4.5 ] 0",
+      "red_line_width_pt": 0.9000000357627869,
+      "red_line_rect_pt": [
+        25.795452117919922,
+        60,
+        425.5454406738281,
+        60
+      ],
+      "physical_dash_array_pt": [
+        7.5,
+        4.5
+      ]
+    }
+  ],
+  "production_restore_instruction": {
+    "physical_dash_array_pt": [
+      3.6,
+      3.6
+    ],
+    "observed_vector_before_restore_pt": [
+      7.5,
+      4.5
+    ],
+    "for_confirmed_pdf_CTM_uniform_scale_0_75_only": {
+      "raw_pdf_dash_array": [
+        4.8,
+        4.8
+      ],
+      "phase": 0,
+      "formula": "physical lengths/0.75. Confirm effective CTM before changing operators; do not alter paths, linewidth, color, fonts, scientific data or axes."
+    },
+    "not_valid": "Do not halve[7.5,4.5] to[3.75,2.25]; the measured native period7.19966pt excludes a6pt total period."
+  },
+  "source_snapshots": [
+    {
+      "independent_process_id": "a",
+      "calibration_report": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_a/dash_calibration.json",
+      "calibration_report_sha256": "88597bf76d567878920f22ecb902206078f71213c72546396de580603370b6a4",
+      "canonical_source_hg_sha256": "ae91b0e02efb4321bb85a282689e2d1e7c971eee1281d40fd3437e15f53d9824",
+      "source": {
+        "renderer": "opengl",
+        "renderer_mode": "auto",
+        "graphics_smoothing": "on",
+        "screen_pixels_per_inch": 96,
+        "line_color": [
+          0.7,
+          0.1,
+          0.12
+        ],
+        "line_width_bp": 0.9,
+        "line_style": "--",
+        "XData": [
+          0,
+          1
+        ],
+        "YData": [
+          0.5,
+          0.5
+        ],
+        "target_size_bp": [
+          451.28,
+          140
+        ],
+        "axes_position_bp": [
+          25.5,
+          45,
+          400.5,
+          70.5
+        ],
+        "axes_visible": "off"
+      },
+      "matlab_version": "25.2.0.2998904 (R2025b)",
+      "actual_pre_export_figure": {
+        "units": "pixels",
+        "position": [
+          64,
+          64,
+          602,
+          187
+        ],
+        "position_bp": [
+          47.25,
+          47.25,
+          451.5,
+          140.25
+        ],
+        "renderer": "opengl",
+        "renderer_mode": "auto",
+        "graphics_smoothing": "on"
+      },
+      "exports_succeeded": true
+    },
+    {
+      "independent_process_id": "b",
+      "calibration_report": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_b/dash_calibration.json",
+      "calibration_report_sha256": "9f0ef0d0fcb1e8e95ccfb785c387fd931edc21dfce4a5c8373f95803ef719fcb",
+      "canonical_source_hg_sha256": "ae91b0e02efb4321bb85a282689e2d1e7c971eee1281d40fd3437e15f53d9824",
+      "source": {
+        "renderer": "opengl",
+        "renderer_mode": "auto",
+        "graphics_smoothing": "on",
+        "screen_pixels_per_inch": 96,
+        "line_color": [
+          0.7,
+          0.1,
+          0.12
+        ],
+        "line_width_bp": 0.9,
+        "line_style": "--",
+        "XData": [
+          0,
+          1
+        ],
+        "YData": [
+          0.5,
+          0.5
+        ],
+        "target_size_bp": [
+          451.28,
+          140
+        ],
+        "axes_position_bp": [
+          25.5,
+          45,
+          400.5,
+          70.5
+        ],
+        "axes_visible": "off"
+      },
+      "matlab_version": "25.2.0.2998904 (R2025b)",
+      "actual_pre_export_figure": {
+        "units": "pixels",
+        "position": [
+          64,
+          64,
+          602,
+          187
+        ],
+        "position_bp": [
+          47.25,
+          47.25,
+          451.5,
+          140.25
+        ],
+        "renderer": "opengl",
+        "renderer_mode": "auto",
+        "graphics_smoothing": "on"
+      },
+      "exports_succeeded": true
+    }
+  ],
+  "independent_RGB_repeat_equal": {
+    "smoothing_on": true,
+    "smoothing_off": true,
+    "target_only_control": true
+  },
+  "smoothing_on_off_RGB_equal_within_both_processes": true,
+  "measurements": [
+    {
+      "process": "a",
+      "mode": "smoothing_on",
+      "path": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_a/dash_horizontal_source_renderer.smoothing_on.png",
+      "file_sha256": "2fb084424ac47861949a9d09276fe8a16a0d9c3c53410748b0fe4e3d2b65183b",
+      "rgb_sha256": "eafedf0a3b7a75e4184462cbfcac52a804e136cff765452b0969473dbee7b53e",
+      "png_size_pixels": [
+        3786,
+        1193
+      ],
+      "embedded_dpi": [
+        599.9988,
+        599.9988
+      ],
+      "measured_row_zero_based": 593,
+      "red_row_range_zero_based": [
+        593,
+        599
+      ],
+      "total_visible_runs": 56,
+      "complete_interior_runs": 54,
+      "interior_gaps": 53,
+      "complete_run_histogram_pixels": {
+        "30": 26,
+        "31": 27,
+        "32": 1
+      },
+      "complete_gap_histogram_pixels": {
+        "28": 1,
+        "29": 27,
+        "30": 25
+      },
+      "interior_run_mean_pixels": 30.537037037037038,
+      "interior_gap_mean_pixels": 29.452830188679247,
+      "interior_run_mean_pt": 3.6644444444444444,
+      "interior_gap_mean_pt": 3.5343396226415096,
+      "period_regression_pixels": 59.99714122355632,
+      "period_regression_pt": 7.199656946826758,
+      "period_fit_max_residual_pixels": 0.6013595070197653,
+      "visible_red_x_interval_inclusive": [
+        228,
+        3557
+      ],
+      "visible_red_span_pixels": 3330,
+      "first_visible_interval_pixels": [
+        228,
+        259
+      ],
+      "last_visible_interval_pixels": [
+        3527,
+        3558
+      ],
+      "complete_intervals_half_open_pixels": [
+        [
+          288,
+          319
+        ],
+        [
+          348,
+          379
+        ],
+        [
+          408,
+          438
+        ],
+        [
+          468,
+          499
+        ],
+        [
+          527,
+          558
+        ],
+        [
+          588,
+          618
+        ],
+        [
+          647,
+          679
+        ],
+        [
+          708,
+          738
+        ],
+        [
+          767,
+          798
+        ],
+        [
+          828,
+          858
+        ],
+        [
+          887,
+          918
+        ],
+        [
+          948,
+          978
+        ],
+        [
+          1007,
+          1038
+        ],
+        [
+          1068,
+          1098
+        ],
+        [
+          1127,
+          1158
+        ],
+        [
+          1188,
+          1218
+        ],
+        [
+          1247,
+          1278
+        ],
+        [
+          1308,
+          1338
+        ],
+        [
+          1367,
+          1398
+        ],
+        [
+          1428,
+          1458
+        ],
+        [
+          1487,
+          1518
+        ],
+        [
+          1548,
+          1578
+        ],
+        [
+          1607,
+          1638
+        ],
+        [
+          1668,
+          1698
+        ],
+        [
+          1727,
+          1758
+        ],
+        [
+          1788,
+          1818
+        ],
+        [
+          1847,
+          1878
+        ],
+        [
+          1908,
+          1938
+        ],
+        [
+          1967,
+          1998
+        ],
+        [
+          2028,
+          2058
+        ],
+        [
+          2087,
+          2118
+        ],
+        [
+          2148,
+          2178
+        ],
+        [
+          2207,
+          2238
+        ],
+        [
+          2268,
+          2298
+        ],
+        [
+          2327,
+          2358
+        ],
+        [
+          2388,
+          2418
+        ],
+        [
+          2447,
+          2478
+        ],
+        [
+          2508,
+          2538
+        ],
+        [
+          2567,
+          2598
+        ],
+        [
+          2628,
+          2658
+        ],
+        [
+          2687,
+          2718
+        ],
+        [
+          2748,
+          2778
+        ],
+        [
+          2807,
+          2838
+        ],
+        [
+          2868,
+          2898
+        ],
+        [
+          2927,
+          2958
+        ],
+        [
+          2988,
+          3018
+        ],
+        [
+          3047,
+          3078
+        ],
+        [
+          3108,
+          3138
+        ],
+        [
+          3167,
+          3198
+        ],
+        [
+          3228,
+          3258
+        ],
+        [
+          3287,
+          3318
+        ],
+        [
+          3348,
+          3378
+        ],
+        [
+          3407,
+          3438
+        ],
+        [
+          3468,
+          3498
+        ]
+      ]
+    },
+    {
+      "process": "a",
+      "mode": "smoothing_off",
+      "path": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_a/dash_horizontal_source_renderer.smoothing_off.png",
+      "file_sha256": "33d51750d8c7ef74c70ff627a370d732d4a2a5a0a37d80594263521ebd4566e1",
+      "rgb_sha256": "eafedf0a3b7a75e4184462cbfcac52a804e136cff765452b0969473dbee7b53e",
+      "png_size_pixels": [
+        3786,
+        1193
+      ],
+      "embedded_dpi": [
+        599.9988,
+        599.9988
+      ],
+      "measured_row_zero_based": 593,
+      "red_row_range_zero_based": [
+        593,
+        599
+      ],
+      "total_visible_runs": 56,
+      "complete_interior_runs": 54,
+      "interior_gaps": 53,
+      "complete_run_histogram_pixels": {
+        "30": 26,
+        "31": 27,
+        "32": 1
+      },
+      "complete_gap_histogram_pixels": {
+        "28": 1,
+        "29": 27,
+        "30": 25
+      },
+      "interior_run_mean_pixels": 30.537037037037038,
+      "interior_gap_mean_pixels": 29.452830188679247,
+      "interior_run_mean_pt": 3.6644444444444444,
+      "interior_gap_mean_pt": 3.5343396226415096,
+      "period_regression_pixels": 59.99714122355632,
+      "period_regression_pt": 7.199656946826758,
+      "period_fit_max_residual_pixels": 0.6013595070197653,
+      "visible_red_x_interval_inclusive": [
+        228,
+        3557
+      ],
+      "visible_red_span_pixels": 3330,
+      "first_visible_interval_pixels": [
+        228,
+        259
+      ],
+      "last_visible_interval_pixels": [
+        3527,
+        3558
+      ],
+      "complete_intervals_half_open_pixels": [
+        [
+          288,
+          319
+        ],
+        [
+          348,
+          379
+        ],
+        [
+          408,
+          438
+        ],
+        [
+          468,
+          499
+        ],
+        [
+          527,
+          558
+        ],
+        [
+          588,
+          618
+        ],
+        [
+          647,
+          679
+        ],
+        [
+          708,
+          738
+        ],
+        [
+          767,
+          798
+        ],
+        [
+          828,
+          858
+        ],
+        [
+          887,
+          918
+        ],
+        [
+          948,
+          978
+        ],
+        [
+          1007,
+          1038
+        ],
+        [
+          1068,
+          1098
+        ],
+        [
+          1127,
+          1158
+        ],
+        [
+          1188,
+          1218
+        ],
+        [
+          1247,
+          1278
+        ],
+        [
+          1308,
+          1338
+        ],
+        [
+          1367,
+          1398
+        ],
+        [
+          1428,
+          1458
+        ],
+        [
+          1487,
+          1518
+        ],
+        [
+          1548,
+          1578
+        ],
+        [
+          1607,
+          1638
+        ],
+        [
+          1668,
+          1698
+        ],
+        [
+          1727,
+          1758
+        ],
+        [
+          1788,
+          1818
+        ],
+        [
+          1847,
+          1878
+        ],
+        [
+          1908,
+          1938
+        ],
+        [
+          1967,
+          1998
+        ],
+        [
+          2028,
+          2058
+        ],
+        [
+          2087,
+          2118
+        ],
+        [
+          2148,
+          2178
+        ],
+        [
+          2207,
+          2238
+        ],
+        [
+          2268,
+          2298
+        ],
+        [
+          2327,
+          2358
+        ],
+        [
+          2388,
+          2418
+        ],
+        [
+          2447,
+          2478
+        ],
+        [
+          2508,
+          2538
+        ],
+        [
+          2567,
+          2598
+        ],
+        [
+          2628,
+          2658
+        ],
+        [
+          2687,
+          2718
+        ],
+        [
+          2748,
+          2778
+        ],
+        [
+          2807,
+          2838
+        ],
+        [
+          2868,
+          2898
+        ],
+        [
+          2927,
+          2958
+        ],
+        [
+          2988,
+          3018
+        ],
+        [
+          3047,
+          3078
+        ],
+        [
+          3108,
+          3138
+        ],
+        [
+          3167,
+          3198
+        ],
+        [
+          3228,
+          3258
+        ],
+        [
+          3287,
+          3318
+        ],
+        [
+          3348,
+          3378
+        ],
+        [
+          3407,
+          3438
+        ],
+        [
+          3468,
+          3498
+        ]
+      ]
+    },
+    {
+      "process": "a",
+      "mode": "target_only_control",
+      "path": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_a/dash_horizontal_vector_modes.png",
+      "file_sha256": "7b2796d4130e23e45f435f254b01259a83de57ba8547bdfaa3be84d757915f85",
+      "rgb_sha256": "b39bf177289e4703193152852b7029ca36f4509422386c4a37089b4edfc76eeb",
+      "png_size_pixels": [
+        3762,
+        1167
+      ],
+      "embedded_dpi": [
+        599.9988,
+        599.9988
+      ],
+      "measured_row_zero_based": 580,
+      "red_row_range_zero_based": [
+        580,
+        586
+      ],
+      "total_visible_runs": 56,
+      "complete_interior_runs": 54,
+      "interior_gaps": 53,
+      "complete_run_histogram_pixels": {
+        "30": 19,
+        "31": 32,
+        "32": 3
+      },
+      "complete_gap_histogram_pixels": {
+        "28": 1,
+        "29": 35,
+        "30": 17
+      },
+      "interior_run_mean_pixels": 30.703703703703702,
+      "interior_gap_mean_pixels": 29.30188679245283,
+      "interior_run_mean_pt": 3.684444444444444,
+      "interior_gap_mean_pt": 3.5162264150943394,
+      "period_regression_pixels": 59.989289117591014,
+      "period_regression_pt": 7.1987146941109215,
+      "period_fit_max_residual_pixels": 0.7820341782605738,
+      "visible_red_x_interval_inclusive": [
+        216,
+        3545
+      ],
+      "visible_red_span_pixels": 3330,
+      "first_visible_interval_pixels": [
+        216,
+        247
+      ],
+      "last_visible_interval_pixels": [
+        3515,
+        3546
+      ],
+      "complete_intervals_half_open_pixels": [
+        [
+          276,
+          307
+        ],
+        [
+          336,
+          367
+        ],
+        [
+          396,
+          427
+        ],
+        [
+          456,
+          487
+        ],
+        [
+          516,
+          547
+        ],
+        [
+          576,
+          607
+        ],
+        [
+          636,
+          667
+        ],
+        [
+          696,
+          727
+        ],
+        [
+          756,
+          787
+        ],
+        [
+          816,
+          847
+        ],
+        [
+          876,
+          907
+        ],
+        [
+          936,
+          967
+        ],
+        [
+          996,
+          1027
+        ],
+        [
+          1056,
+          1086
+        ],
+        [
+          1115,
+          1147
+        ],
+        [
+          1176,
+          1207
+        ],
+        [
+          1236,
+          1266
+        ],
+        [
+          1296,
+          1326
+        ],
+        [
+          1355,
+          1386
+        ],
+        [
+          1416,
+          1446
+        ],
+        [
+          1475,
+          1506
+        ],
+        [
+          1536,
+          1566
+        ],
+        [
+          1595,
+          1626
+        ],
+        [
+          1656,
+          1686
+        ],
+        [
+          1715,
+          1746
+        ],
+        [
+          1776,
+          1806
+        ],
+        [
+          1835,
+          1866
+        ],
+        [
+          1896,
+          1926
+        ],
+        [
+          1955,
+          1986
+        ],
+        [
+          2016,
+          2046
+        ],
+        [
+          2075,
+          2106
+        ],
+        [
+          2136,
+          2166
+        ],
+        [
+          2195,
+          2226
+        ],
+        [
+          2256,
+          2286
+        ],
+        [
+          2315,
+          2346
+        ],
+        [
+          2376,
+          2406
+        ],
+        [
+          2435,
+          2466
+        ],
+        [
+          2496,
+          2526
+        ],
+        [
+          2555,
+          2586
+        ],
+        [
+          2616,
+          2646
+        ],
+        [
+          2675,
+          2706
+        ],
+        [
+          2736,
+          2767
+        ],
+        [
+          2795,
+          2827
+        ],
+        [
+          2856,
+          2886
+        ],
+        [
+          2915,
+          2946
+        ],
+        [
+          2976,
+          3006
+        ],
+        [
+          3035,
+          3066
+        ],
+        [
+          3096,
+          3126
+        ],
+        [
+          3155,
+          3186
+        ],
+        [
+          3216,
+          3246
+        ],
+        [
+          3275,
+          3306
+        ],
+        [
+          3336,
+          3366
+        ],
+        [
+          3395,
+          3427
+        ],
+        [
+          3456,
+          3487
+        ]
+      ]
+    },
+    {
+      "process": "b",
+      "mode": "smoothing_on",
+      "path": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_b/dash_horizontal_source_renderer.smoothing_on.png",
+      "file_sha256": "4d543aba06a4540d3bf38d80a66f967d9c5695f6efd59796ef30f75604a2ed1b",
+      "rgb_sha256": "eafedf0a3b7a75e4184462cbfcac52a804e136cff765452b0969473dbee7b53e",
+      "png_size_pixels": [
+        3786,
+        1193
+      ],
+      "embedded_dpi": [
+        599.9988,
+        599.9988
+      ],
+      "measured_row_zero_based": 593,
+      "red_row_range_zero_based": [
+        593,
+        599
+      ],
+      "total_visible_runs": 56,
+      "complete_interior_runs": 54,
+      "interior_gaps": 53,
+      "complete_run_histogram_pixels": {
+        "30": 26,
+        "31": 27,
+        "32": 1
+      },
+      "complete_gap_histogram_pixels": {
+        "28": 1,
+        "29": 27,
+        "30": 25
+      },
+      "interior_run_mean_pixels": 30.537037037037038,
+      "interior_gap_mean_pixels": 29.452830188679247,
+      "interior_run_mean_pt": 3.6644444444444444,
+      "interior_gap_mean_pt": 3.5343396226415096,
+      "period_regression_pixels": 59.99714122355632,
+      "period_regression_pt": 7.199656946826758,
+      "period_fit_max_residual_pixels": 0.6013595070197653,
+      "visible_red_x_interval_inclusive": [
+        228,
+        3557
+      ],
+      "visible_red_span_pixels": 3330,
+      "first_visible_interval_pixels": [
+        228,
+        259
+      ],
+      "last_visible_interval_pixels": [
+        3527,
+        3558
+      ],
+      "complete_intervals_half_open_pixels": [
+        [
+          288,
+          319
+        ],
+        [
+          348,
+          379
+        ],
+        [
+          408,
+          438
+        ],
+        [
+          468,
+          499
+        ],
+        [
+          527,
+          558
+        ],
+        [
+          588,
+          618
+        ],
+        [
+          647,
+          679
+        ],
+        [
+          708,
+          738
+        ],
+        [
+          767,
+          798
+        ],
+        [
+          828,
+          858
+        ],
+        [
+          887,
+          918
+        ],
+        [
+          948,
+          978
+        ],
+        [
+          1007,
+          1038
+        ],
+        [
+          1068,
+          1098
+        ],
+        [
+          1127,
+          1158
+        ],
+        [
+          1188,
+          1218
+        ],
+        [
+          1247,
+          1278
+        ],
+        [
+          1308,
+          1338
+        ],
+        [
+          1367,
+          1398
+        ],
+        [
+          1428,
+          1458
+        ],
+        [
+          1487,
+          1518
+        ],
+        [
+          1548,
+          1578
+        ],
+        [
+          1607,
+          1638
+        ],
+        [
+          1668,
+          1698
+        ],
+        [
+          1727,
+          1758
+        ],
+        [
+          1788,
+          1818
+        ],
+        [
+          1847,
+          1878
+        ],
+        [
+          1908,
+          1938
+        ],
+        [
+          1967,
+          1998
+        ],
+        [
+          2028,
+          2058
+        ],
+        [
+          2087,
+          2118
+        ],
+        [
+          2148,
+          2178
+        ],
+        [
+          2207,
+          2238
+        ],
+        [
+          2268,
+          2298
+        ],
+        [
+          2327,
+          2358
+        ],
+        [
+          2388,
+          2418
+        ],
+        [
+          2447,
+          2478
+        ],
+        [
+          2508,
+          2538
+        ],
+        [
+          2567,
+          2598
+        ],
+        [
+          2628,
+          2658
+        ],
+        [
+          2687,
+          2718
+        ],
+        [
+          2748,
+          2778
+        ],
+        [
+          2807,
+          2838
+        ],
+        [
+          2868,
+          2898
+        ],
+        [
+          2927,
+          2958
+        ],
+        [
+          2988,
+          3018
+        ],
+        [
+          3047,
+          3078
+        ],
+        [
+          3108,
+          3138
+        ],
+        [
+          3167,
+          3198
+        ],
+        [
+          3228,
+          3258
+        ],
+        [
+          3287,
+          3318
+        ],
+        [
+          3348,
+          3378
+        ],
+        [
+          3407,
+          3438
+        ],
+        [
+          3468,
+          3498
+        ]
+      ]
+    },
+    {
+      "process": "b",
+      "mode": "smoothing_off",
+      "path": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_b/dash_horizontal_source_renderer.smoothing_off.png",
+      "file_sha256": "19e65da96be800511c996a394f088360abeee26e2dc865089851743a2a23a893",
+      "rgb_sha256": "eafedf0a3b7a75e4184462cbfcac52a804e136cff765452b0969473dbee7b53e",
+      "png_size_pixels": [
+        3786,
+        1193
+      ],
+      "embedded_dpi": [
+        599.9988,
+        599.9988
+      ],
+      "measured_row_zero_based": 593,
+      "red_row_range_zero_based": [
+        593,
+        599
+      ],
+      "total_visible_runs": 56,
+      "complete_interior_runs": 54,
+      "interior_gaps": 53,
+      "complete_run_histogram_pixels": {
+        "30": 26,
+        "31": 27,
+        "32": 1
+      },
+      "complete_gap_histogram_pixels": {
+        "28": 1,
+        "29": 27,
+        "30": 25
+      },
+      "interior_run_mean_pixels": 30.537037037037038,
+      "interior_gap_mean_pixels": 29.452830188679247,
+      "interior_run_mean_pt": 3.6644444444444444,
+      "interior_gap_mean_pt": 3.5343396226415096,
+      "period_regression_pixels": 59.99714122355632,
+      "period_regression_pt": 7.199656946826758,
+      "period_fit_max_residual_pixels": 0.6013595070197653,
+      "visible_red_x_interval_inclusive": [
+        228,
+        3557
+      ],
+      "visible_red_span_pixels": 3330,
+      "first_visible_interval_pixels": [
+        228,
+        259
+      ],
+      "last_visible_interval_pixels": [
+        3527,
+        3558
+      ],
+      "complete_intervals_half_open_pixels": [
+        [
+          288,
+          319
+        ],
+        [
+          348,
+          379
+        ],
+        [
+          408,
+          438
+        ],
+        [
+          468,
+          499
+        ],
+        [
+          527,
+          558
+        ],
+        [
+          588,
+          618
+        ],
+        [
+          647,
+          679
+        ],
+        [
+          708,
+          738
+        ],
+        [
+          767,
+          798
+        ],
+        [
+          828,
+          858
+        ],
+        [
+          887,
+          918
+        ],
+        [
+          948,
+          978
+        ],
+        [
+          1007,
+          1038
+        ],
+        [
+          1068,
+          1098
+        ],
+        [
+          1127,
+          1158
+        ],
+        [
+          1188,
+          1218
+        ],
+        [
+          1247,
+          1278
+        ],
+        [
+          1308,
+          1338
+        ],
+        [
+          1367,
+          1398
+        ],
+        [
+          1428,
+          1458
+        ],
+        [
+          1487,
+          1518
+        ],
+        [
+          1548,
+          1578
+        ],
+        [
+          1607,
+          1638
+        ],
+        [
+          1668,
+          1698
+        ],
+        [
+          1727,
+          1758
+        ],
+        [
+          1788,
+          1818
+        ],
+        [
+          1847,
+          1878
+        ],
+        [
+          1908,
+          1938
+        ],
+        [
+          1967,
+          1998
+        ],
+        [
+          2028,
+          2058
+        ],
+        [
+          2087,
+          2118
+        ],
+        [
+          2148,
+          2178
+        ],
+        [
+          2207,
+          2238
+        ],
+        [
+          2268,
+          2298
+        ],
+        [
+          2327,
+          2358
+        ],
+        [
+          2388,
+          2418
+        ],
+        [
+          2447,
+          2478
+        ],
+        [
+          2508,
+          2538
+        ],
+        [
+          2567,
+          2598
+        ],
+        [
+          2628,
+          2658
+        ],
+        [
+          2687,
+          2718
+        ],
+        [
+          2748,
+          2778
+        ],
+        [
+          2807,
+          2838
+        ],
+        [
+          2868,
+          2898
+        ],
+        [
+          2927,
+          2958
+        ],
+        [
+          2988,
+          3018
+        ],
+        [
+          3047,
+          3078
+        ],
+        [
+          3108,
+          3138
+        ],
+        [
+          3167,
+          3198
+        ],
+        [
+          3228,
+          3258
+        ],
+        [
+          3287,
+          3318
+        ],
+        [
+          3348,
+          3378
+        ],
+        [
+          3407,
+          3438
+        ],
+        [
+          3468,
+          3498
+        ]
+      ]
+    },
+    {
+      "process": "b",
+      "mode": "target_only_control",
+      "path": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_b/dash_horizontal_vector_modes.png",
+      "file_sha256": "a51cf3bdbd004f8fb4dd48c77bf7bff857c394e315fa781cde2c34be8766eb9c",
+      "rgb_sha256": "b39bf177289e4703193152852b7029ca36f4509422386c4a37089b4edfc76eeb",
+      "png_size_pixels": [
+        3762,
+        1167
+      ],
+      "embedded_dpi": [
+        599.9988,
+        599.9988
+      ],
+      "measured_row_zero_based": 580,
+      "red_row_range_zero_based": [
+        580,
+        586
+      ],
+      "total_visible_runs": 56,
+      "complete_interior_runs": 54,
+      "interior_gaps": 53,
+      "complete_run_histogram_pixels": {
+        "30": 19,
+        "31": 32,
+        "32": 3
+      },
+      "complete_gap_histogram_pixels": {
+        "28": 1,
+        "29": 35,
+        "30": 17
+      },
+      "interior_run_mean_pixels": 30.703703703703702,
+      "interior_gap_mean_pixels": 29.30188679245283,
+      "interior_run_mean_pt": 3.684444444444444,
+      "interior_gap_mean_pt": 3.5162264150943394,
+      "period_regression_pixels": 59.989289117591014,
+      "period_regression_pt": 7.1987146941109215,
+      "period_fit_max_residual_pixels": 0.7820341782605738,
+      "visible_red_x_interval_inclusive": [
+        216,
+        3545
+      ],
+      "visible_red_span_pixels": 3330,
+      "first_visible_interval_pixels": [
+        216,
+        247
+      ],
+      "last_visible_interval_pixels": [
+        3515,
+        3546
+      ],
+      "complete_intervals_half_open_pixels": [
+        [
+          276,
+          307
+        ],
+        [
+          336,
+          367
+        ],
+        [
+          396,
+          427
+        ],
+        [
+          456,
+          487
+        ],
+        [
+          516,
+          547
+        ],
+        [
+          576,
+          607
+        ],
+        [
+          636,
+          667
+        ],
+        [
+          696,
+          727
+        ],
+        [
+          756,
+          787
+        ],
+        [
+          816,
+          847
+        ],
+        [
+          876,
+          907
+        ],
+        [
+          936,
+          967
+        ],
+        [
+          996,
+          1027
+        ],
+        [
+          1056,
+          1086
+        ],
+        [
+          1115,
+          1147
+        ],
+        [
+          1176,
+          1207
+        ],
+        [
+          1236,
+          1266
+        ],
+        [
+          1296,
+          1326
+        ],
+        [
+          1355,
+          1386
+        ],
+        [
+          1416,
+          1446
+        ],
+        [
+          1475,
+          1506
+        ],
+        [
+          1536,
+          1566
+        ],
+        [
+          1595,
+          1626
+        ],
+        [
+          1656,
+          1686
+        ],
+        [
+          1715,
+          1746
+        ],
+        [
+          1776,
+          1806
+        ],
+        [
+          1835,
+          1866
+        ],
+        [
+          1896,
+          1926
+        ],
+        [
+          1955,
+          1986
+        ],
+        [
+          2016,
+          2046
+        ],
+        [
+          2075,
+          2106
+        ],
+        [
+          2136,
+          2166
+        ],
+        [
+          2195,
+          2226
+        ],
+        [
+          2256,
+          2286
+        ],
+        [
+          2315,
+          2346
+        ],
+        [
+          2376,
+          2406
+        ],
+        [
+          2435,
+          2466
+        ],
+        [
+          2496,
+          2526
+        ],
+        [
+          2555,
+          2586
+        ],
+        [
+          2616,
+          2646
+        ],
+        [
+          2675,
+          2706
+        ],
+        [
+          2736,
+          2767
+        ],
+        [
+          2795,
+          2827
+        ],
+        [
+          2856,
+          2886
+        ],
+        [
+          2915,
+          2946
+        ],
+        [
+          2976,
+          3006
+        ],
+        [
+          3035,
+          3066
+        ],
+        [
+          3096,
+          3126
+        ],
+        [
+          3155,
+          3186
+        ],
+        [
+          3216,
+          3246
+        ],
+        [
+          3275,
+          3306
+        ],
+        [
+          3336,
+          3366
+        ],
+        [
+          3395,
+          3427
+        ],
+        [
+          3456,
+          3487
+        ]
+      ]
+    }
+  ],
+  "input_hashes": [
+    {
+      "path": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_a/dash_calibration.json",
+      "sha256": "88597bf76d567878920f22ecb902206078f71213c72546396de580603370b6a4"
+    },
+    {
+      "path": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_a/dash_horizontal_source_renderer.image_geometry.json",
+      "sha256": "f7b63158634335a58622c49b6b4676119698f8b7dc6f248f687b495308129ed1"
+    },
+    {
+      "path": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_a/dash_horizontal_vector_modes.geometry.json",
+      "sha256": "29071e226f70f1e2fac7e860dee68d2b250190f4a5440adfbe342ac2a0fdb7af"
+    },
+    {
+      "path": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_a/dash_horizontal_source_renderer.smoothing_on.png",
+      "sha256": "2fb084424ac47861949a9d09276fe8a16a0d9c3c53410748b0fe4e3d2b65183b"
+    },
+    {
+      "path": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_a/dash_horizontal_source_renderer.smoothing_off.png",
+      "sha256": "33d51750d8c7ef74c70ff627a370d732d4a2a5a0a37d80594263521ebd4566e1"
+    },
+    {
+      "path": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_a/dash_horizontal_vector_modes.png",
+      "sha256": "7b2796d4130e23e45f435f254b01259a83de57ba8547bdfaa3be84d757915f85"
+    },
+    {
+      "path": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_a/dash_horizontal_vector_modes.print.pdf",
+      "sha256": "f1107b8a974942ea35fccdcd104d2a581ff5377f9466abcb46d87db7b9d3a5cc"
+    },
+    {
+      "path": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_a/dash_horizontal_vector_modes.vector.pdf",
+      "sha256": "b6babc117edfdc7a197550d44f495ea9f279b3883c9c3d3d6d2d74461fa95be7"
+    },
+    {
+      "path": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_b/dash_calibration.json",
+      "sha256": "9f0ef0d0fcb1e8e95ccfb785c387fd931edc21dfce4a5c8373f95803ef719fcb"
+    },
+    {
+      "path": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_b/dash_horizontal_source_renderer.image_geometry.json",
+      "sha256": "22d12628d641ffcd7d5f058d33b329848a49e34c22071b09b569bae7f20eac68"
+    },
+    {
+      "path": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_b/dash_horizontal_vector_modes.geometry.json",
+      "sha256": "1dfee837c938a79da15470dd5000a2e25055f0e43b6cc405d4852ff90ab8baed"
+    },
+    {
+      "path": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_b/dash_horizontal_source_renderer.smoothing_on.png",
+      "sha256": "4d543aba06a4540d3bf38d80a66f967d9c5695f6efd59796ef30f75604a2ed1b"
+    },
+    {
+      "path": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_b/dash_horizontal_source_renderer.smoothing_off.png",
+      "sha256": "19e65da96be800511c996a394f088360abeee26e2dc865089851743a2a23a893"
+    },
+    {
+      "path": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_b/dash_horizontal_vector_modes.png",
+      "sha256": "a51cf3bdbd004f8fb4dd48c77bf7bff857c394e315fa781cde2c34be8766eb9c"
+    },
+    {
+      "path": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_b/dash_horizontal_vector_modes.print.pdf",
+      "sha256": "d379840494cd6c8e2d2d605ac332a8d68f08679d976e217ca98f625b17f40350"
+    },
+    {
+      "path": "reproducibility/runs/20261003_verified_release/native_export_probe/dash_calibration_b/dash_horizontal_vector_modes.vector.pdf",
+      "sha256": "aa31db4374a2d7c3e14399a4c71776dcfb045f25cdb9a0cb23bc3e3662f1202f"
+    }
+  ],
+  "calibration_source_script": {
+    "path": "reproducibility/matlab_dash_calibration.m",
+    "sha256": "3c1761c9d61bfdd75fdb69b3767dbd9280a94da6acba85bce26677264f54d97e"
+  },
+  "historical_content_used": false,
+  "full_heatmap_recomputed_by_this_measurement": false,
+  "production_files_modified_by_this_measurement": false
+}

@@ -1,0 +1,28 @@
+{
+  "inputs": {
+    "population": "13163000",
+    "reference_beds_per_100k": "4.37",
+    "reference_coefficient": "0.0252",
+    "design_theta": "0.002"
+  },
+  "reference_scenario": {
+    "beds": "575.2231000",
+    "theta": "0.0017341269841269841269841269841270",
+    "eta_persons": "22826.313492063492063492063492064"
+  },
+  "separate_design_scenario": {
+    "eta_persons": "26326.000",
+    "implied_beds_per_100k_at_reference_coefficient": "5.0400000",
+    "implied_beds_at_reference_coefficient": "663.4152000",
+    "implied_coefficient_at_reference_bed_density": "0.02185",
+    "theta_excess_over_reference_percent": "15.331807780320366132723112128150"
+  },
+  "interpretation": {
+    "capacity_source": "陈胤孜等(2021)全国综合ICU资源预测量，不是西安实测可用床位。",
+    "coefficient_source": "Angulo等(2021)S4.1早期COVID-19名义风险比例；移用于本文仅作情景假设。",
+    "not_clinical_estimate": true,
+    "not_conservative_rounding": true,
+    "ICU_occupancy_simulated": false,
+    "epidemic_trajectories_recomputed": false
+  }
+}

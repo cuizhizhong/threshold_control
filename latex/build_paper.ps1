@@ -1,4 +1,4 @@
-# 先编译补充表的跨文档标签，再编译主稿与文献。
+﻿# 先编译补充表的跨文档标签，再编译主稿与文献。
 $ErrorActionPreference = 'Stop'
 Push-Location $PSScriptRoot
 try {

@@ -1,0 +1,9 @@
+{
+  "final_pass_logs": {
+    "flatten_curve_analysis_cn.log": [],
+    "flatten_curve_supplement_cn.log": [],
+    "flatten_curve_analysis_cn.blg": []
+  },
+  "final_pass_clean": true,
+  "note": "stdout.log汇集全部编译轮次；第一遍因尚未生成文献和交叉引用会有rerun/undefined提示。最终各文档的.log及Biber.blg中这些提示均已消失。"
+}

@@ -1,0 +1,74 @@
+{
+  "passed": true,
+  "run_directory": "reproducibility/runs/20261003_release_final",
+  "python": "3.12.8 | packaged by Anaconda, Inc. | (main, Dec 11 2024, 16:48:34) [MSC v.1929 64 bit (AMD64)]",
+  "packages": {
+    "numpy": "1.26.4",
+    "scipy": "1.13.1",
+    "pandas": "2.2.2",
+    "matplotlib": "3.9.2",
+    "openpyxl": "3.1.5",
+    "PIL": "12.0.0",
+    "PyMuPDF": "1.28.2"
+  },
+  "pinned_packages": {
+    "numpy": "1.26.4",
+    "scipy": "1.13.1",
+    "pandas": "2.2.2",
+    "matplotlib": "3.9.2",
+    "openpyxl": "3.1.5",
+    "PyMuPDF": "1.28.2",
+    "Pillow": "12.0.0"
+  },
+  "package_version_mismatches": {},
+  "tools": {
+    "xelatex": {
+      "path": "E:\\software\\texlive\\2026\\bin\\windows\\xelatex.EXE",
+      "version": "XeTeX 3.141592653-2.6-0.999998 (TeX Live 2026)"
+    },
+    "biber": {
+      "path": "E:\\software\\texlive\\2026\\bin\\windows\\biber.EXE",
+      "version": "biber version: 2.21"
+    },
+    "matlab": {
+      "path": "E:\\software\\Matlab\\bin\\matlab.EXE"
+    }
+  },
+  "matlab_version": "25.2.0.2998904 (R2025b)",
+  "symbolic_version": {
+    "Name": "Symbolic Math Toolbox",
+    "Version": "25.2",
+    "Release": "(R2025b)",
+    "Date": "28-Jul-2025"
+  },
+  "powerpoint": {
+    "version": "16.0",
+    "build": "20430"
+  },
+  "fonts_and_sha256": "reproducibility/environment.json#/fonts",
+  "font_records": 8,
+  "both_runs_software_versions_match": true,
+  "sources": [
+    {
+      "file": "reproducibility/environment.json",
+      "sha256": "eb6e550709845aee6eeae6e35a7bf9ac493f62c5712dce0882ac0ebe2763d4d4"
+    },
+    {
+      "file": "reproducibility/runs/20261003_release_final/run_1/validation/matlab_science.json",
+      "sha256": "7316c90ebd359367f70e2a45f17f3f30a13263adc771f3b15e13d84c4b9e860a"
+    },
+    {
+      "file": "reproducibility/runs/20261003_release_final/run_2/validation/matlab_science.json",
+      "sha256": "7316c90ebd359367f70e2a45f17f3f30a13263adc771f3b15e13d84c4b9e860a"
+    },
+    {
+      "file": "reproducibility/runs/20261003_release_final/run_1/logs/model_pptx_export.log",
+      "sha256": "8d4f07a20bc9917e2bf80f81207d8dec29229e2d26d066ebe0958f9209a0e9e8"
+    },
+    {
+      "file": "reproducibility/runs/20261003_release_final/run_2/logs/model_pptx_export.log",
+      "sha256": "8d4f07a20bc9917e2bf80f81207d8dec29229e2d26d066ebe0958f9209a0e9e8"
+    }
+  ],
+  "paths_are_observations_not_hardcoded_runtime_entries": true
+}

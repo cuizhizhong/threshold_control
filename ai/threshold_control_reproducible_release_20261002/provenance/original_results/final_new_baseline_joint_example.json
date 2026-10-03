@@ -1,0 +1,10 @@
+{
+  "eta": 38.15,
+  "J_min": 2.118274558487255,
+  "T_cost_min": 7.753597907636682,
+  "T_only_quarantine": 5.902555851140026,
+  "T_only_contact": 36.26077064519016,
+  "J_only_quarantine": 2.2236157029353487,
+  "J_only_contact": 11.939018759346485,
+  "method": "all real stationary roots plus both endpoints at each state; numerical integration; near the shrinking endpoint interval use a scaled local coordinate with grid cross-checks"
+}

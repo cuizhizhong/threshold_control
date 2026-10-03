@@ -1,0 +1,10 @@
+{
+  "I0": 0.00100659188867187,
+  "S0": 13162999.998993408,
+  "R0_initial": 0.0,
+  "objective": 1036.7614620871389,
+  "raw_rmse": 9.426315815158377,
+  "residual_type": "paper_mse_unified",
+  "optimizer_calls": 18,
+  "N": 13163000.0
+}

@@ -1,0 +1,39 @@
+{
+  "parameters": {
+    "N": 763.0,
+    "S0": 762.0,
+    "I0": 1.0,
+    "beta": 0.155,
+    "gamma": 0.3504,
+    "delta_q": 0.3504,
+    "c0": 10.0,
+    "q0": 0.01526,
+    "eta": 38.15,
+    "wc": 1.0,
+    "wq": 2.0
+  },
+  "Sstar": 708.3469575874326,
+  "Sc": 175.1601700006617,
+  "barS": 145.75170580645158,
+  "t1": 3.1754067956361425,
+  "minimum_cost": {
+    "strategy": "minimum_cost",
+    "duration": 7.753597909830389,
+    "cost": 2.1182745584872564,
+    "t_end": 35.62422477780535,
+    "new_infections_control": 170.22671149182105,
+    "new_Sq_control": 362.9600760949498,
+    "total_infections": 306.6332930224628,
+    "initial_c": 10.0,
+    "initial_q": 0.7564933060573481,
+    "ode_errors": {
+      "duration": 8.01616550916151e-10,
+      "new_infections_control": 9.054815564013552e-09,
+      "new_Sq_control": 9.055099781107856e-09,
+      "cost": 1.0434764163846921e-11,
+      "constant_I": 0.0,
+      "population": 2.2737367544323206e-13
+    }
+  },
+  "source": "joint_comparison_results.json；由本轮实际运行生成。"
+}

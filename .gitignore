@@ -1,6 +1,14 @@
 # 临时文件,不需要存档
 tmp/
 
+# 整稿复现的独立运行目录与本地环境；源码和正式报告保留。
+reproducibility/.venv/
+reproducibility/runs/
+reproducibility/backups/
+reproducibility/dev_*/
+reproducibility/integration_failure_probe_*/
+reproducibility/historical_optional_probe_*/
+
 # LaTeX 编译中间产物（可由源文件重新生成，不纳入版本控制）
 *.aux
 *.log
@@ -21,6 +29,12 @@ tmp/
 # Python 字节码缓存
 __pycache__/
 *.pyc
+
+# 冻结来源须完整保存，否则 MANIFEST_SHA256.json 无法在克隆后校验。
+!ai/threshold_control_reproducible_release_20261002/**
+
+# 已汇集的验收日志属于交付证据，不是待清理的临时编译产物。
+!reproducibility/release_reports/**/*.log
 
 # 绘图脚本的本地产物与缓存（成品图另行复制到 figures/）
 dominance_panels/

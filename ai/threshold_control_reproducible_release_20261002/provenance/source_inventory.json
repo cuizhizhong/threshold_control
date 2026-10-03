@@ -1,0 +1,63 @@
+{
+  "manuscript_release": "threshold_control_capacity_final_20261002（45页；补充3页）",
+  "manuscript_edits_this_delivery": false,
+  "network_or_github_sync_this_delivery": false,
+  "source_archives": [
+    {
+      "file": "threshold_control_capacity_final_20261002.zip",
+      "sha256": "b73f04cf67935fe4583e102f397cc06d456c1b1fe8766ec4510d9cc087b3c835",
+      "size_bytes": 5530419
+    },
+    {
+      "file": "threshold_control_final_package.zip",
+      "sha256": "d813ae223761c2356d23eb15f6949bb2980e1033cef4e4e3ed1e9cbb804527a8",
+      "size_bytes": 7225968
+    },
+    {
+      "file": "threshold_control_reviewed_package.zip",
+      "sha256": "51af69b798581236877b9fc2eaf5be42cd6a93bdd16c2db8febddfb9cd67d95b",
+      "size_bytes": 4804971
+    }
+  ],
+  "missing_from_last_capacity_package": [
+    "joint_comparison.py",
+    "check_completed_theory.py",
+    "联合控制完整精度结果"
+  ],
+  "recovered_code": [
+    {
+      "destination": "numerics/joint_comparison.py",
+      "archive": "threshold_control_reviewed_package.zip",
+      "member": "threshold_control_reviewed/numerics/joint_comparison.py",
+      "sha256": "cb9e13087629375bca1a95bdf9f46dfbe850959202cf941c4598d7aceef7c117",
+      "unchanged": true
+    },
+    {
+      "destination": "provenance/original_checks/check_completed_theory.py",
+      "archive": "threshold_control_final_package.zip",
+      "member": "threshold_control_final/validation/check_completed_theory.py",
+      "sha256": "6aa6e1a9ee0234729524599a4f532b6f7d9d1a83d02c6bcbc6b73e7ec5d27918",
+      "unchanged": true
+    },
+    {
+      "destination": "scripts/threshold_scale_check.py",
+      "archive": "threshold_control_capacity_final_20261002.zip",
+      "member": "threshold_control_capacity_final_20261002/scripts/threshold_scale_check.py",
+      "sha256": "db7e081a2d2c6f39a33b4fb25a30479921e4ec16b484cc9d172e60ae31e7dea3",
+      "unchanged": true
+    }
+  ],
+  "historical_limit": "旧代码及输出的存在可由压缩包核对；本轮不能认证过去每次回复描述的执行过程或日期。复现状态仅以本轮实际运行日志为准。",
+  "new_scripts_this_delivery": [
+    "scripts/reproduce_joint_example.py",
+    "scripts/verify_release.py",
+    "scripts/verify_build.py",
+    "scripts/rerun_historical_checks.py"
+  ],
+  "current_formula_mapping": {
+    "trigger": "routine_I(Sstar)=eta, Sc<Sstar<S0",
+    "state_time": "N/eta * integral 1/(c(S)*S-c0*barS) dS",
+    "cost": "N/eta * integral [(1-c/c0)^2+2*(1-c0*Sc/(c*S))^2]/(c*S-c0*barS) dS",
+    "optimization": "x=c/c0;全部允许实驻点与两个端点比较；不是仅最小化alpha。"
+  }
+}

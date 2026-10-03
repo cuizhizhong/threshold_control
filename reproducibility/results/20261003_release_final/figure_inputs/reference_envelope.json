@@ -1,0 +1,177 @@
+{
+  "I0": 0.00100659188867187,
+  "cases": [
+    {
+      "population": 3973.3552578867098,
+      "clear_time": 38.48201662777894,
+      "source": "new normalized-DOP853-unified-v1 solver"
+    },
+    {
+      "population": 6184.53563662028,
+      "clear_time": 40.50690589308199,
+      "source": "new normalized-DOP853-unified-v1 solver"
+    },
+    {
+      "population": 9626.242447036875,
+      "clear_time": 42.53165799166564,
+      "source": "new normalized-DOP853-unified-v1 solver"
+    },
+    {
+      "population": 14983.266180963208,
+      "clear_time": 44.556322003254,
+      "source": "new normalized-DOP853-unified-v1 solver"
+    },
+    {
+      "population": 23321.484648321995,
+      "clear_time": 46.580929418462794,
+      "source": "new normalized-DOP853-unified-v1 solver"
+    },
+    {
+      "population": 36299.93885398317,
+      "clear_time": 48.60550045867997,
+      "source": "new normalized-DOP853-unified-v1 solver"
+    },
+    {
+      "population": 56500.929536564734,
+      "clear_time": 50.630048115632235,
+      "source": "new normalized-DOP853-unified-v1 solver"
+    },
+    {
+      "population": 87943.8131104609,
+      "clear_time": 52.65458073898649,
+      "source": "new normalized-DOP853-unified-v1 solver"
+    }
+  ],
+  "historical_cache_used": false,
+  "reference": {
+    "parameters": {
+      "N": 13163000.0,
+      "beta": 0.1498,
+      "gamma": 0.2953,
+      "delta_q": 0.3531,
+      "c0": 12.8872,
+      "q0": 0.323
+    },
+    "fit": {
+      "I0": 0.00100659188867187,
+      "S0": 13162999.998993408,
+      "R0_initial": 0.0,
+      "objective": 1036.7614620871389,
+      "raw_rmse": 9.426315815158377,
+      "residual_type": "paper_mse_unified",
+      "optimizer_calls": 18,
+      "N": 13163000.0
+    },
+    "I0_abs": 0.00100659188867187,
+    "I_peak_T": 152.54629678969766,
+    "J_T": 49.389404357321155,
+    "Itcum_T": 2105.633048755997,
+    "t_end_T": 45.28741935927593,
+    "Ic_cum_T": 607.9633900761587,
+    "Iq_cum_T": 1497.6696586798384,
+    "strategies": [
+      {
+        "strategy": "TDINN控制",
+        "peak_I": 152.54629678969766,
+        "peak_time": 21.207546168852186,
+        "clear_time": 45.28741935927593,
+        "cum_community_infections": 607.9633900761587,
+        "cum_quarantined_infections": 1497.6696586798384,
+        "cum_total_infections": 2105.633048755997,
+        "final_I": 0.9999999999999998,
+        "final_S": 13152394.24081909,
+        "J_c": 19.163812163961705,
+        "J_q": 25.16152933522908,
+        "J": 49.389404357321155,
+        "control_start": 0.0,
+        "control_end": 45.28741935927593,
+        "control_duration": 45.28741935927593,
+        "mass_residual": 5.845546269256374e-09,
+        "post_restore_Re": 4.422272910746843
+      },
+      {
+        "status": "ok",
+        "N": 13163000.0,
+        "I0": 0.00100659188867187,
+        "eta": 26326.0,
+        "eta_fraction": 0.002,
+        "c0": 12.8872,
+        "S_star": 13020440.754052369,
+        "Sc": 2974125.4115856644,
+        "Sbar": 1711863.1646776998,
+        "s_star": 0.9891696994645878,
+        "s_c": 0.22594586428516786,
+        "s_bar": 0.1300511406729241,
+        "t1": 16.896725724327304,
+        "t2": 101.96780289071071,
+        "control_duration": 85.0710771663834,
+        "Delta_t": 85.0710771663834,
+        "delta_t": 85.0710771663834,
+        "clear_time": 258.1043336897076,
+        "t_end": 258.1043336897076,
+        "post_control_tail": 156.1365307989969,
+        "q_start": 0.8453598505859461,
+        "q_max_control": 0.8453598505859461,
+        "q_max": 0.8453598505859461,
+        "q_inf": 0.4119030816278523,
+        "has_internal_inflection": true,
+        "t_inf": 90.14689523820638,
+        "lambda_inf": 0.8610466912346156,
+        "J_c": 0.0,
+        "J_q": 36.80227228064694,
+        "J": 40.76864984009184,
+        "cost_J": 40.76864984009184,
+        "peak_I": 26326.0,
+        "cum_total_infections": 2377943.131758129,
+        "Itcum": 2377943.131758129,
+        "background_peak_I": 1377552.4932900842,
+        "q_end": 0.323,
+        "control_start": 16.896725724327304,
+        "control_end": 101.96780289071071,
+        "Delta_t_formula": 85.0710771663834,
+        "t2_formula": 101.96780289071071,
+        "t2_numeric": 101.96780289071071,
+        "Delta_t_numeric": 85.0710771663834,
+        "q_min_control": 0.323,
+        "S_end": 2236331.0553641412,
+        "s_end": 0.1698952408542233,
+        "cum_community_infections": 871710.3316825001,
+        "cum_quarantined_infections": 1506232.8000670553,
+        "strategy": "情景一阈值控制",
+        "ode_cumulative_total": 2377943.1317495555,
+        "ode_cost": 40.768649840091825,
+        "ode_clear_time": 258.1043336927783,
+        "plateau_max_error": 1.3513999874703586e-06,
+        "mass_residual": 1.4613865673140936e-08,
+        "analytic_ode_cumulative_error": 8.573755621910095e-06,
+        "analytic_ode_time_error": 3.0707383302797098e-09
+      },
+      {
+        "strategy": "常规控制",
+        "peak_I": 1377552.4932897107,
+        "peak_time": 22.986073844170033,
+        "clear_time": 75.57218992805237,
+        "cum_community_infections": 3105522.7848241697,
+        "cum_quarantined_infections": 1481660.0583429928,
+        "cum_total_infections": 4587182.8431671625,
+        "final_I": 0.9999999999999997,
+        "final_S": 166555.59639224393,
+        "J_c": 0.0,
+        "J_q": 0.0,
+        "J": 0.0,
+        "control_start": 0.0,
+        "control_end": 0.0,
+        "control_duration": 0.0,
+        "mass_residual": 8.768319403884561e-09,
+        "post_restore_Re": 0.05600153771035643
+      }
+    ],
+    "implementation": "normalized-DOP853-unified-v1",
+    "numerical_settings": {
+      "rtol": 2e-11,
+      "early_infection_atol": 1e-21,
+      "max_step": 0.4
+    },
+    "data_sha256": "5ea88fcc6041e29e267d30a858c6706e1c791b98f6da79b889fe01326d7b2bbf"
+  }
+}

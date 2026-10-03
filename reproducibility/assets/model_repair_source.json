@@ -1,0 +1,50 @@
+{
+  "static_artwork_source": "E:\\work\\draft\\latex\\figures\\Fig1.pdf",
+  "source_sha256": "1e7e116b766a19522d60f31e1cb3ca0189dc456482f40998d31fc6c322a69d1e",
+  "role": "static diagram equation glyph artwork, never a numerical-result input",
+  "original_pptx": "refs/SIQR模型示意图_Nature配色_可编辑.pptx",
+  "repairs": [
+    "S_to_Sq wrong OLE formula replaced with approved (1-beta)c(t)q(t)",
+    "missing gamma restored",
+    "missing delta_q restored"
+  ],
+  "patches": [
+    {
+      "name": "s_to_sq",
+      "formula": "(1-beta)c(t)q(t)",
+      "bounds_pt": [
+        106.0,
+        283.0,
+        232.0,
+        307.0
+      ],
+      "svg_sha256": "5b369fa86bd00cd55313dd946ef29ec8b135e533a633d2127582cf71bacbeb93",
+      "pdf_sha256": "5dda4feea6f3c599c08b46555c5f2431c0914f28a7e7ddef42e3ddba9f5173e8"
+    },
+    {
+      "name": "gamma",
+      "formula": "gamma",
+      "bounds_pt": [
+        625.0,
+        160.0,
+        643.0,
+        181.0
+      ],
+      "svg_sha256": "460d24a22670e865646bb4c3093284deed09134e19c911823bd5bf4bb13c4f0a",
+      "pdf_sha256": "af8acce6c99ce7499e80b0abdcdbd4b00732bf062f203a47f83d8584d864167e"
+    },
+    {
+      "name": "delta_q",
+      "formula": "delta_q",
+      "bounds_pt": [
+        622.0,
+        383.0,
+        644.0,
+        411.0
+      ],
+      "svg_sha256": "89933f56c15ff2cf152046a7630ad0a3a5cf6a84ed75d9d35f520b07820aaddd",
+      "pdf_sha256": "4526e21733903d35f97fed71828fa084b16218129eb35846ea12e7d36fc5cc6a"
+    }
+  ],
+  "editability": "Boxes/arrows remain editable; three restored labels are vector artwork, not native equation objects."
+}

@@ -1,0 +1,48 @@
+{
+  "case_id": "baseline_N763_same_threshold_full_class",
+  "source": "当前主稿图2参数与第6.4节末联合成本比较；不使用西安参数。",
+  "parameters": {
+    "N": 763.0,
+    "S0": 762.0,
+    "I0": 1.0,
+    "beta": 0.155,
+    "gamma": 0.3504,
+    "delta_q": 0.3504,
+    "c0": 10.0,
+    "q0": 0.01526,
+    "eta": 38.15,
+    "wc": 1.0,
+    "wq": 2.0
+  },
+  "other_initial_states": {
+    "Sq0": 0.0,
+    "Iq0": 0.0,
+    "R0": 0.0
+  },
+  "capacity_constraints": "仅论文基本界：c0*Sc/S <= c(S) <= c0；没有额外c_min或q_cap。",
+  "quadrature": {
+    "fine_eps": 1e-09,
+    "coarse_eps": 1e-07
+  },
+  "full_ode": {
+    "method": "DOP853",
+    "rtol": 2e-11,
+    "atol": 2e-12,
+    "samples_per_phase": 201
+  },
+  "endpoints": {
+    "trigger": "I=eta，上升方向",
+    "control_exit": "S=Sc，下降方向",
+    "clearance": "I=1，下降方向"
+  },
+  "units": {
+    "time": "day",
+    "populations": "person",
+    "c0_gamma_delta_q": "day^-1",
+    "beta_q0": "dimensionless",
+    "J": "weighted normalized intervention-intensity integral over days"
+  },
+  "cost_definition": "J=integral_[t1,t2] [(1-c/c0)^2+2*((q-q0)/(1-q0))^2] dt",
+  "total_infections_definition": "从t=0到各策略自身I=1终点的全部新增感染流入；不加初始I0。",
+  "note": "人工写出的JSON配置是本轮复现入口，参数逐项取自原计算程序并与当前主稿核对，不是新拟合。"
+}

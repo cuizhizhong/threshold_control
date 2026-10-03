@@ -1,0 +1,146 @@
+{
+  "parameters": {
+    "N": 763.0,
+    "S0": 762.0,
+    "I0": 1.0,
+    "beta": 0.155,
+    "gamma": 0.3504,
+    "delta_q": 0.3504,
+    "c0": 10.0,
+    "q0": 0.01526,
+    "eta": 38.15,
+    "wc": 1.0,
+    "wq": 2.0
+  },
+  "Sstar": 708.3469575874326,
+  "Sc": 175.1601700006617,
+  "barS": 145.75170580645158,
+  "t1": 3.1754067956361425,
+  "Send": 81.05874735443786,
+  "post_control_duration": 24.69522007233882,
+  "routine_peak_exact": 300.38012889938136,
+  "routine_peak_time": 6.721158238255722,
+  "quadrature_tolerance": 1e-09,
+  "rows": [
+    {
+      "strategy": "contact_only",
+      "duration": 36.2607706451902,
+      "cost": 11.939018759346496,
+      "t_end": 64.13139751316515,
+      "new_infections_control": 492.23681316890526,
+      "new_Sq_control": 40.94997441786556,
+      "total_infections": 628.643394699547,
+      "initial_c": 2.47280189636505,
+      "initial_q": 0.015260000000000162,
+      "ode_errors": {
+        "duration": 8.704148513061227e-12,
+        "new_infections_control": 9.754330676514655e-11,
+        "new_Sq_control": 9.78488401415234e-11,
+        "cost": 2.1316282072803006e-14,
+        "constant_I": 7.105427357601002e-15,
+        "population": 9.094947017729282e-13
+      }
+    },
+    {
+      "strategy": "alpha_0.5",
+      "duration": 9.236332802468816,
+      "cost": 2.5461619748831614,
+      "t_end": 37.10695967044378,
+      "new_infections_control": 186.97532483103276,
+      "new_Sq_control": 346.211462755738,
+      "total_infections": 323.3819063616745,
+      "initial_c": 6.236400948182526,
+      "initial_q": 0.6095397073313301,
+      "ode_errors": {
+        "duration": 2.6780355710798176e-11,
+        "new_infections_control": 3.0252067517722026e-10,
+        "new_Sq_control": 3.0252067517722026e-10,
+        "cost": 2.220446049250313e-15,
+        "constant_I": 0.0,
+        "population": 2.2737367544323206e-13
+      }
+    },
+    {
+      "strategy": "quarantine_only",
+      "duration": 5.9025558511400265,
+      "cost": 2.2236157029353487,
+      "t_end": 33.773182719114985,
+      "new_infections_control": 149.31778982986657,
+      "new_Sq_control": 383.86899775690426,
+      "total_infections": 285.72437136050837,
+      "initial_c": 10.0,
+      "initial_q": 0.7564933060573481,
+      "ode_errors": {
+        "duration": 3.552713678800501e-15,
+        "new_infections_control": 0.0,
+        "new_Sq_control": 5.684341886080802e-14,
+        "cost": 0.0,
+        "constant_I": 0.0,
+        "population": 2.2737367544323206e-13
+      }
+    },
+    {
+      "strategy": "minimum_cost",
+      "duration": 7.753597909830389,
+      "cost": 2.1182745584872564,
+      "t_end": 35.62422477780535,
+      "new_infections_control": 170.22671149182105,
+      "new_Sq_control": 362.9600760949498,
+      "total_infections": 306.6332930224628,
+      "initial_c": 10.0,
+      "initial_q": 0.7564933060573481,
+      "ode_errors": {
+        "duration": 8.01616550916151e-10,
+        "new_infections_control": 9.054815564013552e-09,
+        "new_Sq_control": 9.055099781107856e-09,
+        "cost": 1.0434764163846921e-11,
+        "constant_I": 0.0,
+        "population": 2.2737367544323206e-13
+      }
+    }
+  ],
+  "convergence": {
+    "contact_only": {
+      "duration": 0.0,
+      "cost": 1.7763568394002505e-15,
+      "total_infections": 0.0,
+      "new_Sq_control": 0.0,
+      "t_end": 4.263256414560601e-14
+    },
+    "alpha_0.5": {
+      "duration": 3.019806626980426e-14,
+      "cost": 4.440892098500626e-15,
+      "total_infections": 3.410605131648481e-13,
+      "new_Sq_control": 2.8421709430404007e-13,
+      "t_end": 6.394884621840902e-14
+    },
+    "quarantine_only": {
+      "duration": 1.509903313490213e-14,
+      "cost": 8.881784197001252e-16,
+      "total_infections": 1.1368683772161603e-13,
+      "new_Sq_control": 1.7053025658242404e-13,
+      "t_end": 5.684341886080802e-14
+    },
+    "minimum_cost": {
+      "duration": 2.1937118788173393e-09,
+      "cost": 4.060189517929302e-09,
+      "total_infections": 2.4779637897154316e-08,
+      "new_Sq_control": 2.4779637897154316e-08,
+      "t_end": 2.1936727989668725e-09
+    }
+  },
+  "software": {
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0"
+  },
+  "provenance": {
+    "core": "numerics/joint_comparison.py",
+    "core_sha256": "cb9e13087629375bca1a95bdf9f46dfbe850959202cf941c4598d7aceef7c117",
+    "input_sha256": "5aeafe3fe2ba5809eda90a9fbfd9c722dd9161e9d026e5740dd74f94e183f9d6",
+    "runner_sha256": "239e1ed5ed8ce3e304c185735f7e35c99a13767bce2622af9799f8a72dd70540",
+    "manuscript_sha256": "d29693d7f4f84ffbf4f2faff1ee99b36ef22613eabef3afc8560d82b967faa53",
+    "role": "本轮实际复现；旧程序原样恢复，新增配置和导出入口。",
+    "precision_note": "JSON保留binary64可往返显示位数；CSV用17位有效数字；不表示所有位数均已得到误差认证。"
+  }
+}

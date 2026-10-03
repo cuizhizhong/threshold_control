@@ -1,0 +1,17 @@
+{
+  "theta_cost": 0.001654978189844154,
+  "theta_dur45": 0.0037616235823459314,
+  "theta_dur150": 0.0011370896237983274,
+  "theta_inflection_limit": 0.10409235671111015,
+  "N_floor": 10605.758174320741,
+  "N_star_inf": 92174.19796338081,
+  "N_star45": 40553.31016480045,
+  "N_star_cum_inf": 11812.64462386088,
+  "N_star_clear_peak": 5184.387168423308,
+  "i_max_no": 0.1046533839770633,
+  "N_star_inf_theta_approx": 92174.20369996698,
+  "N_star45_theta_approx": 40553.31253919946,
+  "eta_cum_floor": 70.45366592805537,
+  "duration_at_cost_boundary": 102.90827187747264,
+  "eta_at_cumulative_cost_intersection": 19.549678769085162
+}

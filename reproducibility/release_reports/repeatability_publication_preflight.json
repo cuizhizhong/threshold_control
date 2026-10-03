@@ -1,0 +1,698 @@
+{
+  "passed": true,
+  "numeric_files": [
+    {
+      "file": "xian/diagnostics.json",
+      "numeric_fields": 14,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "xian/early_tolerance.csv",
+      "numeric_fields": 404,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "xian/eta_scan.csv",
+      "numeric_fields": 506,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "xian/fit.json",
+      "numeric_fields": 7,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "xian/heatmap.csv",
+      "numeric_fields": 211876,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "xian/observed.csv",
+      "numeric_fields": 280,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "xian/reference.json",
+      "numeric_fields": 107,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "xian/S2_difference.json",
+      "numeric_fields": 38,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "xian/S2_window.csv",
+      "numeric_fields": 12,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "xian/summary.csv",
+      "numeric_fields": 168,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "xian/timeseries.csv",
+      "numeric_fields": 108752,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/arcs.csv",
+      "numeric_fields": 80,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/beta_scan.csv",
+      "numeric_fields": 96,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/beta_summary.json",
+      "numeric_fields": 5,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/clear_arc_fixed_normalized_diagnostic.csv",
+      "numeric_fields": 48,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/critical.json",
+      "numeric_fields": 15,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/diagnostics.json",
+      "numeric_fields": 24,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_case0_0.csv",
+      "numeric_fields": 46144,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_case0_0_routine.csv",
+      "numeric_fields": 39120,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_case0_1.csv",
+      "numeric_fields": 44736,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_case0_1_routine.csv",
+      "numeric_fields": 39120,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_case0_2.csv",
+      "numeric_fields": 41984,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_case0_2_routine.csv",
+      "numeric_fields": 39120,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_case1_0.csv",
+      "numeric_fields": 46000,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_case1_0_routine.csv",
+      "numeric_fields": 39088,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_case1_1.csv",
+      "numeric_fields": 44608,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_case1_1_routine.csv",
+      "numeric_fields": 39088,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_case1_2.csv",
+      "numeric_fields": 41872,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_case1_2_routine.csv",
+      "numeric_fields": 39088,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_case2_0.csv",
+      "numeric_fields": 46352,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_case2_0_routine.csv",
+      "numeric_fields": 39184,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_case2_1.csv",
+      "numeric_fields": 44912,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_case2_1_routine.csv",
+      "numeric_fields": 39184,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_case2_2.csv",
+      "numeric_fields": 42144,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_case2_2_routine.csv",
+      "numeric_fields": 39184,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_case3_0.csv",
+      "numeric_fields": 46560,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_case3_0_routine.csv",
+      "numeric_fields": 39232,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_case3_1.csv",
+      "numeric_fields": 45104,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_case3_1_routine.csv",
+      "numeric_fields": 39232,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_case3_2.csv",
+      "numeric_fields": 42304,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_case3_2_routine.csv",
+      "numeric_fields": 39232,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_fixed_eta0.csv",
+      "numeric_fields": 39376,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_fixed_eta0_routine.csv",
+      "numeric_fields": 39008,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_fixed_eta1.csv",
+      "numeric_fields": 39424,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_fixed_eta1_routine.csv",
+      "numeric_fields": 39072,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_fixed_eta2.csv",
+      "numeric_fields": 42048,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_fixed_eta2_routine.csv",
+      "numeric_fields": 39152,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_fixed_eta3.csv",
+      "numeric_fields": 44992,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_fixed_eta3_routine.csv",
+      "numeric_fields": 39200,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_fixed_eta4.csv",
+      "numeric_fields": 46544,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/dominance_fixed_eta4_routine.csv",
+      "numeric_fields": 39232,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/duration_limits.csv",
+      "numeric_fields": 25,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/fixed_absolute_scale.csv",
+      "numeric_fields": 282,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/inflection_invariance.csv",
+      "numeric_fields": 45,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/metadata.json",
+      "numeric_fields": 314,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/representative_summary.csv",
+      "numeric_fields": 323,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/scale_invariance.csv",
+      "numeric_fields": 54,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "population/supplementary_anchors.json",
+      "numeric_fields": 101,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "c0/beta_existence.npz",
+      "numeric_fields": 97240,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "c0/cumulative_curve.csv",
+      "numeric_fields": 192,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "c0/diagnostics.json",
+      "numeric_fields": 41,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "c0/extended_scan.csv",
+      "numeric_fields": 1000,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "c0/extrema.json",
+      "numeric_fields": 50,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "c0/parameters.json",
+      "numeric_fields": 31,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "c0/phase.npz",
+      "numeric_fields": 17341,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "c0/representative_summary.csv",
+      "numeric_fields": 135,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "c0/scan.csv",
+      "numeric_fields": 15625,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "c0/timeseries.csv",
+      "numeric_fields": 248256,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint/openloop_check.json",
+      "numeric_fields": 82148,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint/results.csv",
+      "numeric_fields": 32,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint/results.json",
+      "numeric_fields": 192,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint/root_diagnostics.json",
+      "numeric_fields": 5125,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint/trajectories.csv",
+      "numeric_fields": 39732,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "workspace/scenario1_threshold_landscape/current_run/output_csv/c0_sensitivity_selected_eta.csv",
+      "numeric_fields": 15104,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "workspace/scenario1_threshold_landscape/current_run/output_csv/diagnostics.csv",
+      "numeric_fields": 6632,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "workspace/scenario1_threshold_landscape/current_run/output_csv/eta_sensitivity_c0_10.csv",
+      "numeric_fields": 7712,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "workspace/scenario1_threshold_landscape/current_run/output_csv/landscape_summary.csv",
+      "numeric_fields": 910016,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "workspace/scenario1_threshold_landscape/current_run/output_csv/main_c0_summary.csv",
+      "numeric_fields": 192,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "workspace/scenario1_threshold_landscape/current_run/output_csv/main_eta_summary.csv",
+      "numeric_fields": 128,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "workspace/scenario1_threshold_landscape/current_run/output_csv/peak_validation.csv",
+      "numeric_fields": 35,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "workspace/scenario1_threshold_landscape/current_run/output_csv/representative_cases.csv",
+      "numeric_fields": 288,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "manuscript_changes.json",
+      "numeric_fields": 2613,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "validation/independent_checks.json",
+      "numeric_fields": 1086,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "validation/baseline_science.json",
+      "numeric_fields": 307,
+      "passed": true,
+      "different_fields": []
+    }
+  ],
+  "figure_render_checks": [
+    {
+      "file": "c0_beta_existence.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "c0_sensitivity_scan.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "Fig1.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "fig_dom_combined.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "layout_v5/baseline_q_joint.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "layout_v5/c0_phase_stationary.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "layout_v5/c0_sensitivity_panel.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "layout_v5/c0_sensitivity_selected_eta.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "layout_v5/critical_population_cases.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "layout_v5/eta_sensitivity_selected_c0.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "layout_v5/fig_panel_B_trajectory_decomposition.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "layout_v5/population_threshold_levers.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "layout_v5/scenario1_inflection_lambda_sensitivity.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "layout_v5/scenario1_inflection_scan_t.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "layout_v5/xian_observed_fit.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "layout_v5/xian_strategy_process.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "optimal_control_with_quarantine_panels.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "scenario1_heatmaps_c0_eta.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "xian_eta_sensitivity.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "xian_heatmaps.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    }
+  ],
+  "numerical_tolerance": {
+    "relative": 1e-10,
+    "absolute": 1e-09
+  },
+  "failures": [],
+  "pdf_metadata_ignored": true,
+  "visual_review_required": true
+}

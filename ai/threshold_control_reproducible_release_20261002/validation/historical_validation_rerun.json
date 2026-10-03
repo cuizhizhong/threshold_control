@@ -1,0 +1,408 @@
+{
+  "scope": "Symbolic identities and independent model checks. Not a rerun of original Xi'an experiments.",
+  "symbolic": {
+    "weighted_stationary_polynomial": true,
+    "quintic_degree": 5,
+    "beta_one_quartic": true,
+    "terminal_limit": true,
+    "terminal_weighted_minimizer": true,
+    "terminal_strict_convex_limit": "2*(wc + wq)/(c0*(Sc - b))"
+  },
+  "baseline": {
+    "S_c": 175.16017000066174,
+    "S_bar": 145.75170580645158,
+    "S_star": 708.3469575874326,
+    "t1": 3.1754067956361425,
+    "duration": 5.902555851140026,
+    "t2": 9.077962646776168,
+    "q_max": 0.7564933060573481,
+    "continuous_routine_peak": 300.3801288993814,
+    "continuous_routine_peak_time": 6.721158238255706,
+    "legacy_reported_peak": 300.3726,
+    "legacy_reported_time": 6.7065,
+    "paper_action": "Historical trajectory retained; text reports routine peak approximately 300.4 at about 6.7 d; exact discrepancy disclosed in review."
+  },
+  "candidate_tests": {
+    "drawn_cases": 320,
+    "finite_candidate_checks_on_feasible_intervals": 247,
+    "capability_vs_alpha_interval_tests": 320,
+    "largest_candidate_cost_above_grid": 0.0
+  },
+  "terminal_allocation": [
+    {
+      "z": 0.1,
+      "bar_over_Sc": 0.0,
+      "contact_fraction": 0.6780102880828022,
+      "quarantine_fraction": 0.34540878274685,
+      "contact_limit_error": 0.011343621416135541
+    },
+    {
+      "z": 0.1,
+      "bar_over_Sc": 0.2,
+      "contact_fraction": 0.6750130108111018,
+      "quarantine_fraction": 0.3485120028217499,
+      "contact_limit_error": 0.008346344144435136
+    },
+    {
+      "z": 0.1,
+      "bar_over_Sc": 0.7,
+      "contact_fraction": 0.6518718353789192,
+      "quarantine_fraction": 0.3724041417602792,
+      "contact_limit_error": 0.01479483128774739
+    },
+    {
+      "z": 0.1,
+      "bar_over_Sc": 0.95,
+      "contact_fraction": 0.5464019045495173,
+      "quarantine_fraction": 0.4798152945266157,
+      "contact_limit_error": 0.12026476211714932
+    },
+    {
+      "z": 0.01,
+      "bar_over_Sc": 0.0,
+      "contact_fraction": 0.6677802364527287,
+      "quarantine_fraction": 0.33445317575515277,
+      "contact_limit_error": 0.0011135697860620297
+    },
+    {
+      "z": 0.01,
+      "bar_over_Sc": 0.2,
+      "contact_fraction": 0.6675005061195836,
+      "quarantine_fraction": 0.33473384398315753,
+      "contact_limit_error": 0.0008338394529169291
+    },
+    {
+      "z": 0.01,
+      "bar_over_Sc": 0.7,
+      "contact_fraction": 0.6651874599230821,
+      "quarantine_fraction": 0.33705458490882717,
+      "contact_limit_error": 0.0014792067435844825
+    },
+    {
+      "z": 0.01,
+      "bar_over_Sc": 0.95,
+      "contact_fraction": 0.6478040546793735,
+      "quarantine_fraction": 0.354492361210074,
+      "contact_limit_error": 0.01886261198729311
+    },
+    {
+      "z": 0.001,
+      "bar_over_Sc": 0.0,
+      "contact_fraction": 0.6667778024786636,
+      "quarantine_fraction": 0.3334445309329204,
+      "contact_limit_error": 0.0001111358119969541
+    },
+    {
+      "z": 0.001,
+      "bar_over_Sc": 0.2,
+      "contact_fraction": 0.6667500054218882,
+      "quarantine_fraction": 0.33347233726078845,
+      "contact_limit_error": 8.333875522159584e-05
+    },
+    {
+      "z": 0.001,
+      "bar_over_Sc": 0.7,
+      "contact_fraction": 0.6665185429652226,
+      "quarantine_fraction": 0.33370387685656167,
+      "contact_limit_error": 0.000148123701444014
+    },
+    {
+      "z": 0.001,
+      "bar_over_Sc": 0.95,
+      "contact_fraction": 0.6646783833804725,
+      "quarantine_fraction": 0.3355446458923112,
+      "contact_limit_error": 0.001988283286194159
+    },
+    {
+      "z": 0.0001,
+      "bar_over_Sc": 0.0,
+      "contact_fraction": 0.6666777780232691,
+      "quarantine_fraction": 0.33334444531014246,
+      "contact_limit_error": 1.1111356602477862e-05
+    },
+    {
+      "z": 0.0001,
+      "bar_over_Sc": 0.2,
+      "contact_fraction": 0.6666750000521255,
+      "quarantine_fraction": 0.33334722337389044,
+      "contact_limit_error": 8.333385458914044e-06
+    },
+    {
+      "z": 0.0001,
+      "bar_over_Sc": 0.7,
+      "contact_fraction": 0.6666518619806866,
+      "quarantine_fraction": 0.33337036221658345,
+      "contact_limit_error": 1.480468598002993e-05
+    },
+    {
+      "z": 0.0001,
+      "bar_over_Sc": 0.95,
+      "contact_fraction": 0.6664667841319414,
+      "quarantine_fraction": 0.3335554462306165,
+      "contact_limit_error": 0.00019988253472524864
+    },
+    {
+      "z": 1e-05,
+      "bar_over_Sc": 0.0,
+      "contact_fraction": 0.6666677777800688,
+      "quarantine_fraction": 0.3333344444532646,
+      "contact_limit_error": 1.1111134021746238e-06
+    },
+    {
+      "z": 1e-05,
+      "bar_over_Sc": 0.2,
+      "contact_fraction": 0.6666675000003311,
+      "quarantine_fraction": 0.33333472223392824,
+      "contact_limit_error": 8.333336645183209e-07
+    },
+    {
+      "z": 1e-05,
+      "bar_over_Sc": 0.7,
+      "contact_fraction": 0.6666651851872817,
+      "quarantine_fraction": 0.3333370370546937,
+      "contact_limit_error": 1.4814793849460273e-06
+    },
+    {
+      "z": 1e-05,
+      "bar_over_Sc": 0.95,
+      "contact_fraction": 0.6666466777271096,
+      "quarantine_fraction": 0.3333555445765533,
+      "contact_limit_error": 1.9988939557014085e-05
+    }
+  ],
+  "minimum_cost_thresholds": [
+    {
+      "eta": 4.0,
+      "J_min": 22.060541180246993,
+      "J_only_quarantine": 23.065232345924628,
+      "J_only_contact": 132.4097793176613,
+      "dJ_min_deta": -5.567856543737438
+    },
+    {
+      "eta": 10.0,
+      "J_min": 8.697008053157766,
+      "J_only_quarantine": 9.098884519397577,
+      "J_only_contact": 51.64968398322158,
+      "dJ_min_deta": -0.8910160334333581
+    },
+    {
+      "eta": 20.0,
+      "J_min": 4.240958317209805,
+      "J_only_quarantine": 4.441896550299446,
+      "J_only_contact": 24.734798940281173,
+      "dJ_min_deta": -0.22290079365119542
+    },
+    {
+      "eta": 38.15,
+      "J_min": 2.118274558487255,
+      "J_only_quarantine": 2.2236157029353487,
+      "J_only_contact": 11.939018759346485,
+      "dJ_min_deta": -0.06141171321665391
+    },
+    {
+      "eta": 70.0,
+      "J_min": 1.0489951994199664,
+      "J_only_quarantine": 1.106406123120948,
+      "J_only_contact": 5.540470382731109,
+      "dJ_min_deta": -0.01840508190275804
+    },
+    {
+      "eta": 110.0,
+      "J_min": 0.5766130140889685,
+      "J_only_quarantine": 0.6131472382481674,
+      "J_only_contact": 2.776285773118455,
+      "dJ_min_deta": -0.007619361848447937
+    }
+  ],
+  "new_baseline_joint_illustration": {
+    "eta": 38.15,
+    "J_min": 2.118274558487255,
+    "T_cost_min": 7.753597907636682,
+    "T_only_quarantine": 5.902555851140026,
+    "T_only_contact": 36.26077064519016,
+    "J_only_quarantine": 2.2236157029353487,
+    "J_only_contact": 11.939018759346485,
+    "method": "all real stationary roots plus both endpoints at each state; numerical integration; near the shrinking endpoint interval use a scaled local coordinate with grid cross-checks"
+  },
+  "full_ODE": {
+    "cases": 20,
+    "maximum_residuals": {
+      "state_residual_relative": 4.1040948417503385e-14,
+      "plateau_infection_identity_relative": 7.579122514774402e-15,
+      "plateau_quarantine_identity_relative": 1.3642420526593924e-15,
+      "whole_clearance_difference": 7.898428577846062e-10,
+      "whole_cumulative_identity_relative": 1.498771477296638e-14
+    },
+    "results": [
+      {
+        "beta": 0.12,
+        "alpha": 0.0,
+        "duration": 45.41403629832995,
+        "t_end": 86.39708453027863,
+        "cumulative": 628.5670152819105,
+        "entry_S": 1405.8585160997072
+      },
+      {
+        "beta": 0.12,
+        "alpha": 0.2,
+        "duration": 28.044166697871393,
+        "t_end": 69.02721492890407,
+        "cumulative": 490.9976480462737,
+        "entry_S": 1405.8585160997072
+      },
+      {
+        "beta": 0.12,
+        "alpha": 0.5,
+        "duration": 19.165389175068324,
+        "t_end": 60.148437407034564,
+        "cumulative": 420.6777300656599,
+        "entry_S": 1405.8585160997072
+      },
+      {
+        "beta": 0.12,
+        "alpha": 0.8,
+        "duration": 14.990875465035948,
+        "t_end": 55.97392369681404,
+        "cumulative": 387.6155814822029,
+        "entry_S": 1405.8585160997072
+      },
+      {
+        "beta": 0.12,
+        "alpha": 1.0,
+        "duration": 13.201127830324666,
+        "t_end": 54.18417606214719,
+        "cumulative": 373.44078021528617,
+        "entry_S": 1405.8585160997072
+      },
+      {
+        "beta": 0.35,
+        "alpha": 0.0,
+        "duration": 101.67123345235596,
+        "t_end": 130.6465047689863,
+        "cumulative": 1153.4066100369146,
+        "entry_S": 1454.1804910989454
+      },
+      {
+        "beta": 0.35,
+        "alpha": 0.2,
+        "duration": 45.24179209126693,
+        "t_end": 74.2170634081002,
+        "cumulative": 823.2943780745463,
+        "entry_S": 1454.1804910989454
+      },
+      {
+        "beta": 0.35,
+        "alpha": 0.5,
+        "duration": 27.649634062105356,
+        "t_end": 56.62490537869538,
+        "cumulative": 720.3802536039507,
+        "entry_S": 1454.1804910989454
+      },
+      {
+        "beta": 0.35,
+        "alpha": 0.8,
+        "duration": 20.62539820478463,
+        "t_end": 49.60066952199692,
+        "cumulative": 679.2884738386206,
+        "entry_S": 1454.1804910989454
+      },
+      {
+        "beta": 0.35,
+        "alpha": 1.0,
+        "duration": 17.805126108794926,
+        "t_end": 46.78039742593141,
+        "cumulative": 662.7898820770791,
+        "entry_S": 1454.1804910989454
+      },
+      {
+        "beta": 0.8,
+        "alpha": 0.0,
+        "duration": 131.35390622654572,
+        "t_end": 153.3711651590637,
+        "cumulative": 1427.2615668696549,
+        "entry_S": 1463.594557636453
+      },
+      {
+        "beta": 0.8,
+        "alpha": 0.2,
+        "duration": 51.54055763050721,
+        "t_end": 73.55781656303458,
+        "cumulative": 1283.5975393967892,
+        "entry_S": 1463.594557636453
+      },
+      {
+        "beta": 0.8,
+        "alpha": 0.5,
+        "duration": 30.538370002252012,
+        "t_end": 52.55562893492922,
+        "cumulative": 1245.7936016659312,
+        "entry_S": 1463.594557636453
+      },
+      {
+        "beta": 0.8,
+        "alpha": 0.8,
+        "duration": 22.49957319634774,
+        "t_end": 44.516832128889604,
+        "cumulative": 1231.3237674153022,
+        "entry_S": 1463.594557636453
+      },
+      {
+        "beta": 0.8,
+        "alpha": 1.0,
+        "duration": 19.323736560139427,
+        "t_end": 41.34099549271854,
+        "cumulative": 1225.6072614701263,
+        "entry_S": 1463.594557636453
+      },
+      {
+        "beta": 1.0,
+        "alpha": 0.0,
+        "duration": 136.98800313826075,
+        "t_end": 157.44685728955088,
+        "cumulative": 1478.1374634398846,
+        "entry_S": 1464.9341230049397
+      },
+      {
+        "beta": 1.0,
+        "alpha": 0.2,
+        "duration": 52.60500893799088,
+        "t_end": 73.06386308928884,
+        "cumulative": 1478.1374634398892,
+        "entry_S": 1464.9341230049397
+      },
+      {
+        "beta": 1.0,
+        "alpha": 0.5,
+        "duration": 31.018593734196752,
+        "t_end": 51.47744788550597,
+        "cumulative": 1478.137463439889,
+        "entry_S": 1464.9341230049397
+      },
+      {
+        "beta": 1.0,
+        "alpha": 0.8,
+        "duration": 22.809624528084413,
+        "t_end": 43.26847867945092,
+        "cumulative": 1478.1374634398885,
+        "entry_S": 1464.9341230049397
+      },
+      {
+        "beta": 1.0,
+        "alpha": 1.0,
+        "duration": 19.574538378834834,
+        "t_end": 40.03339253016224,
+        "cumulative": 1478.1374634398883,
+        "entry_S": 1464.9341230049397
+      }
+    ]
+  },
+  "xi_an_exit_bound": {
+    "N": 13163000,
+    "S0": 13162999.99899337,
+    "S_c": 2974125.41,
+    "beta": 0.1498,
+    "C_lower_bound": 1526293.4134312067,
+    "computed_from": "existing rounded SIQR parameters; not new fitted data"
+  },
+  "passed": true
+}

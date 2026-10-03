@@ -1,0 +1,78 @@
+{
+  "passed": true,
+  "boundaries": {
+    "c0_trigger": 3.3337246322908825,
+    "c0_inflection_onset": 3.543089664846589,
+    "c0_duration_max": 6.606994381722609,
+    "duration_max": 103.18101642196041,
+    "q_inf": 0.4119030816278523
+  },
+  "representative_count": 5,
+  "scan_rows": 625,
+  "phase_shape": [
+    120,
+    140
+  ],
+  "beta_shape": [
+    220,
+    220
+  ],
+  "primary_I0": 0.00100659188867187,
+  "fit20k_diagnostic": {
+    "I0": 0.002043185823664208,
+    "S0": 19999.997956814175,
+    "R0_initial": 0.0,
+    "objective": 22915.92600240641,
+    "raw_rmse": 17.810409222188778,
+    "residual_type": "paper_mse_unified",
+    "optimizer_calls": 12,
+    "N": 20000.0
+  },
+  "trajectory_checks": [
+    {
+      "plateau_max_error": 4.973799150320701e-14,
+      "mass_residual": 2.4424906541753444e-11,
+      "analytic_ode_cumulative_error": 2.7284841053187847e-12,
+      "analytic_ode_time_error": 2.5011104298755527e-12
+    },
+    {
+      "plateau_max_error": 7.887024366937112e-13,
+      "mass_residual": 3.108624468950438e-11,
+      "analytic_ode_cumulative_error": 6.821210263296962e-12,
+      "analytic_ode_time_error": 1.7053025658242404e-12
+    },
+    {
+      "plateau_max_error": 5.9188209888816345e-12,
+      "mass_residual": 1.554312234475219e-11,
+      "analytic_ode_cumulative_error": 1.9554136088117957e-11,
+      "analytic_ode_time_error": 5.684341886080802e-14
+    },
+    {
+      "plateau_max_error": 3.1104008257898386e-10,
+      "mass_residual": 3.108624468950438e-11,
+      "analytic_ode_cumulative_error": 2.26737029151991e-09,
+      "analytic_ode_time_error": 5.6559201766503975e-11
+    },
+    {
+      "plateau_max_error": 1.101525981539453e-09,
+      "mass_residual": 2.220446049250313e-11,
+      "analytic_ode_cumulative_error": 7.0649548433721066e-09,
+      "analytic_ode_time_error": 3.779518920055125e-10
+    }
+  ],
+  "tight_comparison": {
+    "clear_time": 2.404476617812179e-11,
+    "cumulative_total": 4.5565684558823705e-10
+  },
+  "artifacts": [
+    "c0\\beta_existence.npz",
+    "c0\\cumulative_curve.csv",
+    "c0\\extended_scan.csv",
+    "c0\\extrema.json",
+    "c0\\parameters.json",
+    "c0\\phase.npz",
+    "c0\\representative_summary.csv",
+    "c0\\scan.csv",
+    "c0\\timeseries.csv"
+  ]
+}

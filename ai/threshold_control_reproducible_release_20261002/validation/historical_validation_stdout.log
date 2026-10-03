@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "output": "/mnt/data/_delivery_audit/rerun/historical_validation/validation/completed_theory_checks.json",
+  "ODE": {
+    "state_residual_relative": 4.1040948417503385e-14,
+    "plateau_infection_identity_relative": 7.579122514774402e-15,
+    "plateau_quarantine_identity_relative": 1.3642420526593924e-15,
+    "whole_clearance_difference": 7.898428577846062e-10,
+    "whole_cumulative_identity_relative": 1.498771477296638e-14
+  },
+  "threshold_cost_values": [
+    {
+      "eta": 4.0,
+      "J_min": 22.060541180246993,
+      "J_only_quarantine": 23.065232345924628,
+      "J_only_contact": 132.4097793176613,
+      "dJ_min_deta": -5.567856543737438
+    },
+    {
+      "eta": 10.0,
+      "J_min": 8.697008053157766,
+      "J_only_quarantine": 9.098884519397577,
+      "J_only_contact": 51.64968398322158,
+      "dJ_min_deta": -0.8910160334333581
+    },
+    {
+      "eta": 20.0,
+      "J_min": 4.240958317209805,
+      "J_only_quarantine": 4.441896550299446,
+      "J_only_contact": 24.734798940281173,
+      "dJ_min_deta": -0.22290079365119542
+    },
+    {
+      "eta": 38.15,
+      "J_min": 2.118274558487255,
+      "J_only_quarantine": 2.2236157029353487,
+      "J_only_contact": 11.939018759346485,
+      "dJ_min_deta": -0.06141171321665391
+    },
+    {
+      "eta": 70.0,
+      "J_min": 1.0489951994199664,
+      "J_only_quarantine": 1.106406123120948,
+      "J_only_contact": 5.540470382731109,
+      "dJ_min_deta": -0.01840508190275804
+    },
+    {
+      "eta": 110.0,
+      "J_min": 0.5766130140889685,
+      "J_only_quarantine": 0.6131472382481674,
+      "J_only_contact": 2.776285773118455,
+      "dJ_min_deta": -0.007619361848447937
+    }
+  ],
+  "terminal_error_at_1e_5": 1.9988939557014085e-05
+}

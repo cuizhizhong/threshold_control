@@ -1,0 +1,23 @@
+{
+  "release": "threshold_control_reproducible_release_20261002",
+  "base_manuscript": "threshold_control_capacity_final_20261002",
+  "manuscript_changed": false,
+  "original_compile_assets_count": 28,
+  "original_compile_assets_byte_identical": true,
+  "main_pages": 45,
+  "supplement_pages": 3,
+  "figure_count": 20,
+  "main_table_count": 4,
+  "supplement_table_count": 3,
+  "clean_build_passed": true,
+  "pixel_comparison_dpi": 120,
+  "final_compile_logs_clean": true,
+  "reproduced_J_min": 2.1182745584872564,
+  "reproduced_control_duration_days": 7.753597909830389,
+  "historical_code_recovered": true,
+  "historical_execution_claims_not_authenticated": true,
+  "new_full_three_stage_ODE_run": true,
+  "Xi_an_rerun": false,
+  "ICU_demand_simulated": false,
+  "all_old_figure_data_recomputed": false
+}

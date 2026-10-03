@@ -1,0 +1,262 @@
+{
+  "unchanged_original_latex_assets": [
+    {
+      "path": "latex/build.ps1",
+      "original_sha256": "77ecc065d02543b660055bb161bf5829689fd02e3eb8347ffe44291d65550cb0",
+      "delivered_sha256": "77ecc065d02543b660055bb161bf5829689fd02e3eb8347ffe44291d65550cb0",
+      "equal": true
+    },
+    {
+      "path": "latex/build.sh",
+      "original_sha256": "a6fe224fed9c46d9b6b7561f8d7a536c231a50cd7e96cee7c673f8499ddd4de6",
+      "delivered_sha256": "a6fe224fed9c46d9b6b7561f8d7a536c231a50cd7e96cee7c673f8499ddd4de6",
+      "equal": true
+    },
+    {
+      "path": "latex/elegantpaper.cls",
+      "original_sha256": "bf80b5bb9061f11010b4595cd1bc443defe54fb093283ecf864c800371ad4b51",
+      "delivered_sha256": "bf80b5bb9061f11010b4595cd1bc443defe54fb093283ecf864c800371ad4b51",
+      "equal": true
+    },
+    {
+      "path": "latex/figures/Fig1.pdf",
+      "original_sha256": "73ee10e359390dc0a97b62b407097f1ef3d43ec2509486a3bbaa74a35943fb51",
+      "delivered_sha256": "73ee10e359390dc0a97b62b407097f1ef3d43ec2509486a3bbaa74a35943fb51",
+      "equal": true
+    },
+    {
+      "path": "latex/figures/c0_beta_existence.pdf",
+      "original_sha256": "6a356734f42fa6ae1404983a467f1fbbaa739b339660a8e1dc1faa30227013af",
+      "delivered_sha256": "6a356734f42fa6ae1404983a467f1fbbaa739b339660a8e1dc1faa30227013af",
+      "equal": true
+    },
+    {
+      "path": "latex/figures/c0_sensitivity_scan.pdf",
+      "original_sha256": "5e4329e85923e1923c6a587d9706b94177dae2ecdfb49dec8dcd5266aa6a7932",
+      "delivered_sha256": "5e4329e85923e1923c6a587d9706b94177dae2ecdfb49dec8dcd5266aa6a7932",
+      "equal": true
+    },
+    {
+      "path": "latex/figures/fig_dom_combined.pdf",
+      "original_sha256": "ce5e64f6cc3e613d3fd3f17b8f2bb8c25e55f770779b0979833570803b019455",
+      "delivered_sha256": "ce5e64f6cc3e613d3fd3f17b8f2bb8c25e55f770779b0979833570803b019455",
+      "equal": true
+    },
+    {
+      "path": "latex/figures/layout_v5/baseline_q_joint.pdf",
+      "original_sha256": "45ba732e39698e8292f4c8b1e15c2f6dcecd3ae5187bcdbc17b402780223e74e",
+      "delivered_sha256": "45ba732e39698e8292f4c8b1e15c2f6dcecd3ae5187bcdbc17b402780223e74e",
+      "equal": true
+    },
+    {
+      "path": "latex/figures/layout_v5/c0_phase_stationary.pdf",
+      "original_sha256": "3eda1863de284bb69db4df8326e98790faa8f073ad70f0420ee83858dabad7fa",
+      "delivered_sha256": "3eda1863de284bb69db4df8326e98790faa8f073ad70f0420ee83858dabad7fa",
+      "equal": true
+    },
+    {
+      "path": "latex/figures/layout_v5/c0_sensitivity_panel.pdf",
+      "original_sha256": "3207df030efb832a9d15e5c2f06af593523e9ea20bd4c33b5a3bcba763533678",
+      "delivered_sha256": "3207df030efb832a9d15e5c2f06af593523e9ea20bd4c33b5a3bcba763533678",
+      "equal": true
+    },
+    {
+      "path": "latex/figures/layout_v5/c0_sensitivity_selected_eta.pdf",
+      "original_sha256": "f19c2e8a0d8018bc0809dcc2e7dd27a996b1bc73c40330ea6340d5d9cd80e9a2",
+      "delivered_sha256": "f19c2e8a0d8018bc0809dcc2e7dd27a996b1bc73c40330ea6340d5d9cd80e9a2",
+      "equal": true
+    },
+    {
+      "path": "latex/figures/layout_v5/critical_population_cases.pdf",
+      "original_sha256": "3891fd1c51f37fdf7db8b04329e46e8eccb652ff61b023bee73f6843803a525b",
+      "delivered_sha256": "3891fd1c51f37fdf7db8b04329e46e8eccb652ff61b023bee73f6843803a525b",
+      "equal": true
+    },
+    {
+      "path": "latex/figures/layout_v5/eta_sensitivity_selected_c0.pdf",
+      "original_sha256": "5f9e735e34e234f9bd1049786b06e3dce8ab3f99eb8c34905c627211c8f65bca",
+      "delivered_sha256": "5f9e735e34e234f9bd1049786b06e3dce8ab3f99eb8c34905c627211c8f65bca",
+      "equal": true
+    },
+    {
+      "path": "latex/figures/layout_v5/fig_panel_B_trajectory_decomposition.pdf",
+      "original_sha256": "37e40b4d623d9ebddd9cc318be2da73cf4c23a08d51c18f9aa90696d2ca3cde5",
+      "delivered_sha256": "37e40b4d623d9ebddd9cc318be2da73cf4c23a08d51c18f9aa90696d2ca3cde5",
+      "equal": true
+    },
+    {
+      "path": "latex/figures/layout_v5/population_threshold_levers.pdf",
+      "original_sha256": "88e394a4a90cc84494da497adecc9321cb49e5564ea6302d04a63ded9f39f368",
+      "delivered_sha256": "88e394a4a90cc84494da497adecc9321cb49e5564ea6302d04a63ded9f39f368",
+      "equal": true
+    },
+    {
+      "path": "latex/figures/layout_v5/scenario1_inflection_lambda_sensitivity.pdf",
+      "original_sha256": "18f287080f6ee013b5369bce403d19c00343509a77999a5ffad8aae09d0cce7d",
+      "delivered_sha256": "18f287080f6ee013b5369bce403d19c00343509a77999a5ffad8aae09d0cce7d",
+      "equal": true
+    },
+    {
+      "path": "latex/figures/layout_v5/scenario1_inflection_scan_t.pdf",
+      "original_sha256": "e337327f68674b4f323ef1f0e6b95f21af050c1841f5755f19c62bb9d89282c4",
+      "delivered_sha256": "e337327f68674b4f323ef1f0e6b95f21af050c1841f5755f19c62bb9d89282c4",
+      "equal": true
+    },
+    {
+      "path": "latex/figures/layout_v5/xian_observed_fit.pdf",
+      "original_sha256": "58fb9302802d6dbbe20a54377dc388edda01a7bb374b02048ae4b10ac1618eec",
+      "delivered_sha256": "58fb9302802d6dbbe20a54377dc388edda01a7bb374b02048ae4b10ac1618eec",
+      "equal": true
+    },
+    {
+      "path": "latex/figures/layout_v5/xian_strategy_process.pdf",
+      "original_sha256": "ff52cc433d58800740f017d938eb4c7942eeec4a12dd12f7903fb25770440020",
+      "delivered_sha256": "ff52cc433d58800740f017d938eb4c7942eeec4a12dd12f7903fb25770440020",
+      "equal": true
+    },
+    {
+      "path": "latex/figures/optimal_control_with_quarantine_panels.pdf",
+      "original_sha256": "aeb1f32f1904c2f0ec3105891827ffc103dd1c031de3588757a58de04410d16b",
+      "delivered_sha256": "aeb1f32f1904c2f0ec3105891827ffc103dd1c031de3588757a58de04410d16b",
+      "equal": true
+    },
+    {
+      "path": "latex/figures/scenario1_heatmaps_c0_eta.pdf",
+      "original_sha256": "e72ade6920c187ef39c92ecbe1f545d276e84d1197f1893b1c0acd794453cfed",
+      "delivered_sha256": "e72ade6920c187ef39c92ecbe1f545d276e84d1197f1893b1c0acd794453cfed",
+      "equal": true
+    },
+    {
+      "path": "latex/figures/xian_eta_sensitivity.pdf",
+      "original_sha256": "61a2ea84ed8a705fb06e9788a84eee14a1aae07f5158c679b697084e261431f8",
+      "delivered_sha256": "61a2ea84ed8a705fb06e9788a84eee14a1aae07f5158c679b697084e261431f8",
+      "equal": true
+    },
+    {
+      "path": "latex/figures/xian_heatmaps.pdf",
+      "original_sha256": "e8386d9fd3cce4dcf4f31de078f542c1f905a739425e45b84c945ee69e9ee2d9",
+      "delivered_sha256": "e8386d9fd3cce4dcf4f31de078f542c1f905a739425e45b84c945ee69e9ee2d9",
+      "equal": true
+    },
+    {
+      "path": "latex/flatten_curve_analysis_cn.pdf",
+      "original_sha256": "e0f0da40c949cad9e4576e9ab721e03ce376948a4b491071f0de6e3242e894d3",
+      "delivered_sha256": "e0f0da40c949cad9e4576e9ab721e03ce376948a4b491071f0de6e3242e894d3",
+      "equal": true
+    },
+    {
+      "path": "latex/flatten_curve_analysis_cn.tex",
+      "original_sha256": "d29693d7f4f84ffbf4f2faff1ee99b36ef22613eabef3afc8560d82b967faa53",
+      "delivered_sha256": "d29693d7f4f84ffbf4f2faff1ee99b36ef22613eabef3afc8560d82b967faa53",
+      "equal": true
+    },
+    {
+      "path": "latex/flatten_curve_supplement_cn.pdf",
+      "original_sha256": "0041bc5065d64d31a630158bd4dd6c978e066253760d4097ff2d7014b1f5effc",
+      "delivered_sha256": "0041bc5065d64d31a630158bd4dd6c978e066253760d4097ff2d7014b1f5effc",
+      "equal": true
+    },
+    {
+      "path": "latex/flatten_curve_supplement_cn.tex",
+      "original_sha256": "35a4b7e3c48763b57f59b13460c0817e6160147116b0adc1aab480f176b9190e",
+      "delivered_sha256": "35a4b7e3c48763b57f59b13460c0817e6160147116b0adc1aab480f176b9190e",
+      "equal": true
+    },
+    {
+      "path": "latex/references.bib",
+      "original_sha256": "14861dff2fbc96f8c95c514c8f57923f86ed7d2b4b5d9019908bfdbaba4c6f8e",
+      "delivered_sha256": "14861dff2fbc96f8c95c514c8f57923f86ed7d2b4b5d9019908bfdbaba4c6f8e",
+      "equal": true
+    }
+  ],
+  "all_unchanged": true,
+  "figures_used": 20,
+  "figure_references": [
+    {
+      "reference": "figures/Fig1.pdf",
+      "exists": true
+    },
+    {
+      "reference": "figures/optimal_control_with_quarantine_panels.pdf",
+      "exists": true
+    },
+    {
+      "reference": "figures/layout_v5/baseline_q_joint.pdf",
+      "exists": true
+    },
+    {
+      "reference": "figures/scenario1_heatmaps_c0_eta.pdf",
+      "exists": true
+    },
+    {
+      "reference": "figures/layout_v5/scenario1_inflection_lambda_sensitivity.pdf",
+      "exists": true
+    },
+    {
+      "reference": "figures/layout_v5/scenario1_inflection_scan_t.pdf",
+      "exists": true
+    },
+    {
+      "reference": "figures/layout_v5/c0_sensitivity_selected_eta.pdf",
+      "exists": true
+    },
+    {
+      "reference": "figures/layout_v5/eta_sensitivity_selected_c0.pdf",
+      "exists": true
+    },
+    {
+      "reference": "figures/layout_v5/xian_observed_fit.pdf",
+      "exists": true
+    },
+    {
+      "reference": "figures/layout_v5/xian_strategy_process.pdf",
+      "exists": true
+    },
+    {
+      "reference": "xian_eta_sensitivity.pdf",
+      "exists": false
+    },
+    {
+      "reference": "xian_heatmaps.pdf",
+      "exists": false
+    },
+    {
+      "reference": "figures/fig_dom_combined.pdf",
+      "exists": true
+    },
+    {
+      "reference": "figures/layout_v5/population_threshold_levers.pdf",
+      "exists": true
+    },
+    {
+      "reference": "figures/layout_v5/c0_sensitivity_panel.pdf",
+      "exists": true
+    },
+    {
+      "reference": "figures/layout_v5/c0_phase_stationary.pdf",
+      "exists": true
+    },
+    {
+      "reference": "figures/layout_v5/fig_panel_B_trajectory_decomposition.pdf",
+      "exists": true
+    },
+    {
+      "reference": "figures/layout_v5/critical_population_cases.pdf",
+      "exists": true
+    },
+    {
+      "reference": "c0_sensitivity_scan.pdf",
+      "exists": false
+    },
+    {
+      "reference": "c0_beta_existence.pdf",
+      "exists": false
+    }
+  ],
+  "all_figure_references_resolve": false,
+  "main_table_environments": 4,
+  "supplement_table_environments": 3,
+  "pdf_kept_byte_identical": true,
+  "added_compilation_artifact": "latex/flatten_curve_analysis_cn.bbl：本轮从最终references.bib生成的便利编译产物。",
+  "font_files_in_package": []
+}

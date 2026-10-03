@@ -1,0 +1,7 @@
+{
+  "case_id": "baseline_N763_same_threshold_full_class",
+  "J_min": 2.1182745584872564,
+  "duration_days": 7.753597909830389,
+  "output_dir": "/mnt/data/threshold_control_reproducible_release_20261002/numerics/results",
+  "full_ode_check_passed": true
+}

@@ -1,0 +1,101 @@
+{
+  "description": "本轮从t=0真实初始仓室状态积分；控制取自原逐状态候选比较程序。",
+  "entry_time_ode": 3.175406795636135,
+  "entry_state_ode": [
+    708.3469575874318,
+    38.14999999999999,
+    4.120677341198581,
+    0.5860971449817212,
+    11.796267926387156
+  ],
+  "entry_time_abs_error": 7.549516567451064e-15,
+  "entry_S_abs_error": 7.958078640513122e-13,
+  "strategies": [
+    {
+      "strategy": "contact_only",
+      "t1_ode": 3.175406795636135,
+      "t2_ode": 39.43617744078318,
+      "t_end_ode": 64.13139751305071,
+      "duration_ode": 36.26077064514705,
+      "cost_ode": 11.939018759346462,
+      "total_new_infections_ode": 628.6433947000494,
+      "absolute_errors": {
+        "duration_days": 4.3151260342710884e-11,
+        "cost_days": 3.375077994860476e-14,
+        "total_new_infections_persons": 5.023821358918212e-10,
+        "control_new_infections_persons": 1.5347723092418164e-12,
+        "control_new_Sq_persons": 3.481659405224491e-13,
+        "clearance_time_days": 1.1444001302152174e-10,
+        "exit_S_persons": 1.4210854715202004e-13,
+        "control_I_max_abs_error_persons": 5.760085741712828e-10,
+        "population_max_abs_error_persons": 1.3642420526593924e-12
+      }
+    },
+    {
+      "strategy": "alpha_0.5",
+      "t1_ode": 3.175406795636135,
+      "t2_ode": 12.411739598115751,
+      "t_end_ode": 37.10695967044548,
+      "duration_ode": 9.236332802479616,
+      "cost_ode": 2.546161974883155,
+      "total_new_infections_ode": 323.3819063619222,
+      "absolute_errors": {
+        "duration_days": 1.0800249583553523e-11,
+        "cost_days": 6.217248937900877e-15,
+        "total_new_infections_persons": 2.476667759765405e-10,
+        "control_new_infections_persons": 1.837463514675619e-10,
+        "control_new_Sq_persons": 1.8530954548623413e-10,
+        "clearance_time_days": 1.6981971384666394e-12,
+        "exit_S_persons": 0.0,
+        "control_I_max_abs_error_persons": 7.314326921914471e-11,
+        "population_max_abs_error_persons": 2.0463630789890885e-12
+      }
+    },
+    {
+      "strategy": "quarantine_only",
+      "t1_ode": 3.175406795636135,
+      "t2_ode": 9.077962646613766,
+      "t_end_ode": 33.77318271900671,
+      "duration_ode": 5.902555850977631,
+      "cost_ode": 2.2236157029353447,
+      "total_new_infections_ode": 285.7243713579207,
+      "absolute_errors": {
+        "duration_days": 1.623954304363906e-10,
+        "cost_days": 3.9968028886505635e-15,
+        "total_new_infections_persons": 2.5876829568005633e-09,
+        "control_new_infections_persons": 2.2046435788070085e-09,
+        "control_new_Sq_persons": 2.203989879490109e-09,
+        "clearance_time_days": 1.0827250207512407e-10,
+        "exit_S_persons": 2.842170943040401e-14,
+        "control_I_max_abs_error_persons": 4.3807091287817457e-10,
+        "population_max_abs_error_persons": 1.1368683772161603e-12
+      }
+    },
+    {
+      "strategy": "minimum_cost",
+      "t1_ode": 3.175406795636135,
+      "t2_ode": 10.929004705439853,
+      "t_end_ode": 35.62422477781159,
+      "duration_ode": 7.753597909803718,
+      "cost_ode": 2.1182745584976987,
+      "total_new_infections_ode": 306.6332930217028,
+      "absolute_errors": {
+        "duration_days": 2.667110976517506e-11,
+        "cost_days": 1.0442313680414372e-11,
+        "total_new_infections_persons": 7.599965101690032e-10,
+        "control_new_infections_persons": 5.26569010617095e-10,
+        "control_new_Sq_persons": 5.262563718133606e-10,
+        "clearance_time_days": 6.23856521997368e-12,
+        "exit_S_persons": 2.842170943040401e-14,
+        "control_I_max_abs_error_persons": 2.665316856109712e-10,
+        "population_max_abs_error_persons": 7.958078640513122e-13
+      }
+    }
+  ],
+  "all_baseline_absolute_errors_below_5e_minus_5": true,
+  "notes": [
+    "ODE核对使用相同控制函数，检验积分实现一致性，不构成全局最优性的独立证明。",
+    "重复切换时刻按phase保留左右控制值；未将采样轨迹积分代替高精度标量结果。",
+    "没有计算ICU占用；没有重新拟合或重跑西安结果。"
+  ]
+}

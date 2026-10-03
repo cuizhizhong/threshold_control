@@ -1,0 +1,58 @@
+{
+  "parameters": {
+    "N": 20000.0,
+    "beta": 0.1498,
+    "gamma": 0.2953,
+    "delta_q": 0.3531,
+    "q0": 0.323,
+    "theta": 0.002,
+    "full_city_N": 13163000.0,
+    "full_city_I0_reference": 0.00100659188867187
+  },
+  "derived": {
+    "eta": 40.0,
+    "I0_fixed_absolute": 0.00100659188867187,
+    "I0_refit_at_N_eff": 0.002043185823664208,
+    "I0_refit_objective": 22915.92600240641,
+    "full_city_I0_reproduction": 0.00100659188867187,
+    "full_city_objective_reproduction": 1036.7614620871389,
+    "c0_trigger": 3.3337246322908825,
+    "c0_inflection_onset": 3.543089664846589,
+    "c0_duration_max": 6.606994381722609,
+    "duration_max": 103.18101642196041,
+    "q_inf": 0.4119030816278523
+  },
+  "initial_convention": "主实验固定全市一次拟合的绝对I0；20k重拟合仅诊断，不替换主实验。",
+  "fit_at_20k_diagnostic": {
+    "I0": 0.002043185823664208,
+    "S0": 19999.997956814175,
+    "R0_initial": 0.0,
+    "objective": 22915.92600240641,
+    "raw_rmse": 17.810409222188778,
+    "residual_type": "paper_mse_unified",
+    "optimizer_calls": 12,
+    "N": 20000.0
+  },
+  "representative_c0": [
+    {
+      "role": "near-trigger",
+      "c0": 3.433736371259609
+    },
+    {
+      "role": "post-inflection",
+      "c0": 3.593089664846589
+    },
+    {
+      "role": "max-duration",
+      "c0": 6.606994381722609
+    },
+    {
+      "role": "post-ridge",
+      "c0": 9.0
+    },
+    {
+      "role": "baseline",
+      "c0": 12.8872
+    }
+  ]
+}

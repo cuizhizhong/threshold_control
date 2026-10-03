@@ -1,0 +1,54 @@
+{
+  "current_manuscript_claim": {
+    "page": 24,
+    "section": "6.4",
+    "J_min_rounded": "2.1183",
+    "duration_days_rounded": "7.7536"
+  },
+  "archived_scalar_result": {
+    "eta": 38.15,
+    "J_min": 2.118274558487255,
+    "T_cost_min": 7.753597907636682,
+    "T_only_quarantine": 5.902555851140026,
+    "T_only_contact": 36.26077064519016,
+    "J_only_quarantine": 2.2236157029353487,
+    "J_only_contact": 11.939018759346485,
+    "method": "all real stationary roots plus both endpoints at each state; numerical integration; near the shrinking endpoint interval use a scaled local coordinate with grid cross-checks"
+  },
+  "current_direct_reproduction": {
+    "strategy": "minimum_cost",
+    "duration": 7.753597909830389,
+    "cost": 2.1182745584872564,
+    "t_end": 35.62422477780535,
+    "new_infections_control": 170.22671149182105,
+    "new_Sq_control": 362.9600760949498,
+    "total_infections": 306.6332930224628,
+    "initial_c": 10.0,
+    "initial_q": 0.7564933060573481,
+    "ode_errors": {
+      "duration": 8.01616550916151e-10,
+      "new_infections_control": 9.054815564013552e-09,
+      "new_Sq_control": 9.055099781107856e-09,
+      "cost": 1.0434764163846921e-11,
+      "constant_I": 0.0,
+      "population": 2.2737367544323206e-13
+    }
+  },
+  "difference_from_archived_scalar": {
+    "cost": 1.3322676295501878e-15,
+    "duration_days": 2.193706549746821e-09
+  },
+  "historical_validation_rerun_example": {
+    "eta": 38.15,
+    "J_min": 2.118274558487255,
+    "T_cost_min": 7.753597907636682,
+    "T_only_quarantine": 5.902555851140026,
+    "T_only_contact": 36.26077064519016,
+    "J_only_quarantine": 2.2236157029353487,
+    "J_only_contact": 11.939018759346485,
+    "method": "all real stationary roots plus both endpoints at each state; numerical integration; near the shrinking endpoint interval use a scaled local coordinate with grid cross-checks"
+  },
+  "explanation": "历史标量例子在退化端点附近另用缩放坐标；恢复的表格程序直接求全部多项式候选。本轮均重跑，时间末几位差异约2.2e-9天，不影响论文四位小数。保留差异，不把二者强改为同一浮点串。",
+  "global_optimum_certified_by_numerics": false,
+  "reproduction_only": "数值复现说明论文给定模型及计算目标下的数值一致性，不是证明、临床校准或全部原图重算。"
+}

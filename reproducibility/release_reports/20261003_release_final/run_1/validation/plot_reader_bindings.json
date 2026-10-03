@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "historical_numeric_or_artist_cache_used": false,
+  "reference_source": "xian/reference.json",
+  "plot_reader_bindings": [
+    "all original reference constants from new reference",
+    "new eight-member routine envelope with unified solver",
+    "population cumulative inset values at exact dynamic clearance",
+    "updated TDINN cumulative text labels",
+    "c0 boundary markers from c0/parameters.json"
+  ],
+  "original_draw_statements_and_style_preserved": true
+}

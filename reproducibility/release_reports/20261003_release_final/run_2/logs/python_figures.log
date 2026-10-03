@@ -1,0 +1,23 @@
+START xian
+EXPORTED xian_observed_fit
+EXPORTED xian_strategy_process
+START dominance
+RECOMPUTED fresh eight-member routine envelope from unified solver
+EXPORTED population_threshold_levers
+EXPORTED critical_population_cases
+START phase
+EXPORTED c0_phase_stationary
+START inflection
+beta=0.100: roots=[0.07365249503160073], candidates=[]
+beta=0.120: roots=[0.19696061483286859], candidates=[]
+beta=0.155: roots=[0.38907120547777735], candidates=[]
+EXPORTED scenario1_inflection_lambda_sensitivity
+saved -> E:\work\draft\reproducibility\runs\20261003_release_final\run_2\workspace\figures\scenario1_inflection_lambda_sensitivity.pdf
+EXPORTED scenario1_inflection_scan_t
+saved -> E:\work\draft\reproducibility\runs\20261003_release_final\run_2\workspace\figures\scenario1_inflection_scan_t.pdf
+START c0
+EXPORTED c0_sensitivity_panel
+START decomposition
+EXPORTED fig_panel_B_trajectory_decomposition
+saved unused
+{"status": "pass", "stage": "python"}

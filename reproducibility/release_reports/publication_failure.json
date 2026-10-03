@@ -1,0 +1,7 @@
+{
+  "passed": false,
+  "error": "双空目录复现尚未通过，拒绝发布",
+  "run_directory": "reproducibility\\runs\\20261003_final",
+  "time": "2026-10-03T10:57:24",
+  "note": "检查备份及正式文件状态；本记录不标记发布完成。"
+}

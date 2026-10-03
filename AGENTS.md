@@ -8,9 +8,16 @@
 
 当前主论文工程为：
 
-- `paper_elegantpaper_relayout/flatten_curve_analysis_cn.tex`
-- `paper_elegantpaper_relayout/flatten_curve_analysis_cn.pdf`
-- `paper_elegantpaper_relayout/elegantpaper.cls`
+- `latex/flatten_curve_analysis_cn.tex`
+- `latex/flatten_curve_analysis_cn.pdf`
+- `latex/elegantpaper.cls`
+
+2026-10-02 更新：新稿包含仅隔离基准与联合阈值控制。`ai/threshold_control_reproducible_release_20261002`
+为冻结的版本来源，不修改。`reproducibility/` 管理整稿的独立复现；必须从原始输入重建数据，
+旧 CSV/NPZ/pickle 只作历史回归参考。用户明确要求不使用 Nature 系列 skills。
+阈值 `theta=0.002` 是设计情景，不是实测 ICU 安全阈值；历史“床位×1/3”等解释不再适用。
+现有子目录中涉及旧图号、旧主稿路径、旧阶段范围的文字均是历史记录；正式图号由当前主稿标签确定。
+发现数值差异须查清原因后同步全部依赖，不只改表内数字。冻结包、历史输出和原始数据不得覆盖。
 
 
 
@@ -19,8 +26,8 @@
 - `code/`：情景一 MATLAB 数值模拟；
 - `xian_control_comparison/`：西安 TDINN 控制、情景一阈值控制和常规控制的比较实验；
 - `真实数据/`：原始数据文件目录，处理数据时优先从这里读取，不要直接修改原始数据文件；
-- `scenario1_inflection/`：情景一 $q_c(t)$ 拐点分析的计算与配图模块（Python），产出主论文 §4.3/§4.4/§6 的三张拐点图；含修改记录 `README.md`；
-- `xian_dom/`：§8 有效人口占优分析的绘图与求解脚本（Python），产出主论文 §8.7 的三张占优图（图 20–22）；含 `README.md`。
+- `scenario1_inflection/`：仅隔离基准 $q_c(t)$ 拐点分析的计算与原配图模块（Python），当前正式稿相关图为图 5、6；旧章节号和历史图号保留在其 `README.md`；
+- `xian_dom/`：有效人口条件比较的求解与原绘图逻辑（Python）；当前正式图号和全部适配关系以 `reproducibility/registry.json` 为准，其 `README.md` 中旧图 20–22 属于历史记录。
 
 其中，西安比较的具体执行细则由 `xian_control_comparison/AGENTS.md` 管理；根目录只保留总原则和论文草稿层面的上下文。
 
@@ -40,7 +47,9 @@
 
 ## 论文草稿总体思路
 
-本项目研究 SIQR 模型下的疫情控制问题，重点关注医疗容量阈值约束下不同控制方式的理论结构和数值表现。并且该项目现在现在主要讨论情景一,先不关心情景二和情景三。
+本项目研究 SIQR 模型下的疫情控制问题。当前新稿包含仅隔离基准及接触率—隔离率联合分配，
+不再以“只研究情景一”概括整稿。约束是社区感染人数阈值，医疗容量的比例解释须注明假设，
+不能当作已由真实 ICU 占用标定。旧情景二、三及能力受限、回流、延迟扩展仍不在本次复现范围。
 
 总体写作逻辑应保持为：
 
@@ -225,24 +234,20 @@ xelatex -interaction=nonstopmode xian_control_comparison.tex
 xelatex -interaction=nonstopmode xian_control_comparison.tex
 ```
 
-从项目根目录编译主论文（使用 biblatex/biber 管理参考文献，需跑 biber）：
+从项目根目录编译正式主论文及补充材料：
 
 ```powershell
-cd paper_elegantpaper_relayout
-xelatex -interaction=nonstopmode flatten_curve_analysis_cn.tex
-biber flatten_curve_analysis_cn
-xelatex -interaction=nonstopmode flatten_curve_analysis_cn.tex
-xelatex -interaction=nonstopmode flatten_curve_analysis_cn.tex
+powershell -NoProfile -ExecutionPolicy Bypass -File latex\build_paper.ps1
 ```
 
-主论文有 live citations（`references.bib` + `\printbibliography`），只跑两遍 xelatex 会使 `\cite` 无法解析（显示 `[?]`）。改图、表、引用、标签或公式编号后按上述四步（xelatex→biber→xelatex→xelatex）重编；仅微调正文且未动引用时，两遍 xelatex 即可。（西安比较文档 `xian_control_comparison.tex` 用内嵌 `thebibliography`，不需要 biber，仍是两遍。用 PowerShell 跑 xelatex，不要用 Git Bash——后者会触发 `fwrite: Invalid argument`。）
+正式入口先编译补充材料两遍，生成跨文档标签，再执行主稿 xelatex→biber→xelatex→xelatex。主论文有 live citations（`references.bib` + `\printbibliography`），跳过 biber 会使 `\cite` 无法解析（显示 `[?]`）。改图、表、引用、标签或公式编号后使用完整入口；干净目录不得省略补充材料步骤。（历史西安比较文档 `xian_control_comparison.tex` 用内嵌 `thebibliography`，不需要 biber，仍是两遍。用 PowerShell 跑 xelatex，不要用 Git Bash——后者会触发 `fwrite: Invalid argument`。）
 
 ## 编辑规则
 
 - 保持修改范围小；
 - 不要用探索性结果覆盖主基准输出；
 - 不要修改历史备份目录，除非用户明确要求；
-- 论文正文、公式编号、模板样式和 PDF 验证默认以 `paper_elegantpaper_relayout/flatten_curve_analysis_cn.tex` 为准；不要再同步修改根目录旧稿；
+- 论文正文、公式编号、模板样式和 PDF 验证以 `latex/flatten_curve_analysis_cn.tex` 为准；不要同步修改历史旧稿；
 - 修改代码、图例、CSV、LaTeX 表格和正文时，术语必须一致；
 - 手工编辑文件使用 `apply_patch`；
 - 不要用 shell 写文件技巧修改源文件；

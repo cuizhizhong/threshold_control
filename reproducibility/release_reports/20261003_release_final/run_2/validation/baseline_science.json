@@ -1,0 +1,437 @@
+{
+  "status": "pass",
+  "matlab": {
+    "status": "pass",
+    "source": "original MATLAB scientific functions",
+    "grid_rows": 28438,
+    "valid_rows": 26780,
+    "maximum_q_exit_error": 2.74086309204336e-16,
+    "matlab_version": "25.2.0.2998904 (R2025b)",
+    "symbolic_version": {
+      "Name": "Symbolic Math Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    "historical_cache_used": false
+  },
+  "inflection_baseline": {
+    "beta": 0.155,
+    "gamma": 0.3504,
+    "c0": 10.0,
+    "q0": 0.01526,
+    "eta": 38.15,
+    "N": 763.0,
+    "S0": 762.0,
+    "I0": 1.0,
+    "S_c": 175.1601700006617,
+    "S_bar": 145.75170580645158,
+    "R0": 4.350304067397978,
+    "q_inf": 0.40828402366863903,
+    "I_max_no": 300.3801288993815,
+    "S_star": 708.3469575874326,
+    "q_max": 0.7564933060573481,
+    "rate": 0.5,
+    "dt": 5.902555851140027,
+    "status": "ok",
+    "has_inflection": true,
+    "exit_side": null,
+    "regime": "存在内部拐点",
+    "t_inf": 2.7013118548677055,
+    "seg_high": 2.7013118548677055,
+    "seg_low": 3.201243996272322,
+    "lam": 0.4576512146591498,
+    "seg_high_frac": 0.4576512146591498
+  },
+  "inflection_check_log": "E:\\work\\draft\\reproducibility\\runs\\20261003_release_final\\run_2\\logs\\inflection_checks.log",
+  "graphics_finalization_report": "E:\\work\\draft\\reproducibility\\runs\\20261003_release_final\\run_2\\validation\\matlab_graphics_finalization.json",
+  "historical_cache_used": false,
+  "runtime_adaptations": [
+    {
+      "file": "scenario1_threshold_landscape\\scripts\\plot_heatmaps.m",
+      "change": "Explicit Visible on to off in isolated plotting only",
+      "occurrences": 2
+    },
+    {
+      "file": "latex\\revision_layout_v5\\layout_matlab.m",
+      "change": "Times panel label glyphs retain approved reference offsets as independent characters"
+    },
+    {
+      "file": "scenario1_threshold_landscape\\scripts\\plot_heatmaps.m",
+      "change": "Fresh fixed-scene native vector intermediate; original high-resolution image finalization follows"
+    },
+    {
+      "file": "code\\scenario1_q_control_with_quarantine_panels.m",
+      "change": "Restore approved community I YTicks 0:100:300 only; native vector fixed-scene export and content-only crop follow; data/ylim/other axes unchanged"
+    }
+  ],
+  "independent_full_ode": {
+    "passed": true,
+    "status": "pass",
+    "case_count": 10,
+    "cases": [
+      {
+        "c0": 3.34702736604755,
+        "eta": 38.15,
+        "checks": [
+          {
+            "rtol": 1e-09,
+            "atol": 1e-10,
+            "platform_max_abs_error": 1.6079582110251067e-11,
+            "conservation_max_abs_error": 2.2737367544323206e-13,
+            "minimum_compartment": 0.0,
+            "clear_time": 71.46903015933943,
+            "cumulative_total": 382.55246583801073,
+            "J": 0.005303082731881512,
+            "S_exit": 523.3305582664054,
+            "clear_error_vs_matlab": 2.4300561562995426e-12,
+            "cumulative_error_vs_matlab": -2.8421709430404007e-13,
+            "J_error_vs_matlab": 1.6115581091824538e-15
+          },
+          {
+            "rtol": 2e-11,
+            "atol": 2e-12,
+            "platform_max_abs_error": 5.684341886080801e-13,
+            "conservation_max_abs_error": 2.2737367544323206e-13,
+            "minimum_compartment": 0.0,
+            "clear_time": 71.46903015933962,
+            "cumulative_total": 382.55246583801085,
+            "J": 0.00530308273187995,
+            "S_exit": 523.3305582664052,
+            "clear_error_vs_matlab": 2.6290081223123707e-12,
+            "cumulative_error_vs_matlab": -1.7053025658242404e-13,
+            "J_error_vs_matlab": 4.9439619065339e-17
+          }
+        ],
+        "two_tolerance_clear_difference": 1.9895196601282805e-13,
+        "two_tolerance_cumulative_difference": 1.1368683772161603e-13
+      },
+      {
+        "c0": 4.0,
+        "eta": 38.15,
+        "checks": [
+          {
+            "rtol": 1e-09,
+            "atol": 1e-10,
+            "platform_max_abs_error": 2.5496404987279675e-10,
+            "conservation_max_abs_error": 3.410605131648481e-13,
+            "minimum_compartment": 0.0,
+            "clear_time": 58.72771624481071,
+            "cumulative_total": 360.7318165941877,
+            "J": 0.43739772511073116,
+            "S_exit": 437.9004250013268,
+            "clear_error_vs_matlab": -2.26947349801776e-11,
+            "cumulative_error_vs_matlab": -7.23048287909478e-11,
+            "J_error_vs_matlab": 6.117328865684613e-14
+          },
+          {
+            "rtol": 2e-11,
+            "atol": 2e-12,
+            "platform_max_abs_error": 5.4846793773322133e-11,
+            "conservation_max_abs_error": 4.547473508864641e-13,
+            "minimum_compartment": 0.0,
+            "clear_time": 58.72771624481243,
+            "cumulative_total": 360.7318165942077,
+            "J": 0.4373977251106769,
+            "S_exit": 437.90042500136053,
+            "clear_error_vs_matlab": -2.0975221559638157e-11,
+            "cumulative_error_vs_matlab": -5.2295945351943374e-11,
+            "J_error_vs_matlab": 6.938893903907228e-15
+          }
+        ],
+        "two_tolerance_clear_difference": 1.7195134205394424e-12,
+        "two_tolerance_cumulative_difference": 2.000888343900442e-11
+      },
+      {
+        "c0": 5.0,
+        "eta": 38.15,
+        "checks": [
+          {
+            "rtol": 1e-09,
+            "atol": 1e-10,
+            "platform_max_abs_error": 2.6093900373780343e-09,
+            "conservation_max_abs_error": 3.410605131648481e-13,
+            "minimum_compartment": 0.0,
+            "clear_time": 49.96574864324773,
+            "cumulative_total": 342.56288084508793,
+            "J": 1.0561031580394706,
+            "S_exit": 350.3203399909873,
+            "clear_error_vs_matlab": -6.344720304696239e-10,
+            "cumulative_error_vs_matlab": -4.588059709931258e-09,
+            "J_error_vs_matlab": 6.661338147750939e-16
+          },
+          {
+            "rtol": 2e-11,
+            "atol": 2e-12,
+            "platform_max_abs_error": 4.968967459717533e-10,
+            "conservation_max_abs_error": 3.410605131648481e-13,
+            "minimum_compartment": 0.0,
+            "clear_time": 49.96574864372796,
+            "cumulative_total": 342.5628808485935,
+            "J": 1.0561031580394766,
+            "S_exit": 350.3203399988347,
+            "clear_error_vs_matlab": -1.5423751165144495e-10,
+            "cumulative_error_vs_matlab": -1.082469225366367e-09,
+            "J_error_vs_matlab": 6.661338147750939e-15
+          }
+        ],
+        "two_tolerance_clear_difference": 4.802345188181789e-10,
+        "two_tolerance_cumulative_difference": 3.505590484564891e-09
+      },
+      {
+        "c0": 8.0,
+        "eta": 38.15,
+        "checks": [
+          {
+            "rtol": 1e-09,
+            "atol": 1e-10,
+            "platform_max_abs_error": 2.640611995730069e-08,
+            "conservation_max_abs_error": 3.410605131648481e-13,
+            "minimum_compartment": 0.0,
+            "clear_time": 38.00953051355447,
+            "cumulative_total": 303.58287245706964,
+            "J": 2.0005859462500815,
+            "S_exit": 218.9502123888849,
+            "clear_error_vs_matlab": -5.942226266597572e-09,
+            "cumulative_error_vs_matlab": -7.757938647046103e-08,
+            "J_error_vs_matlab": 3.2214231282523542e-12
+          },
+          {
+            "rtol": 2e-11,
+            "atol": 2e-12,
+            "platform_max_abs_error": 5.261853175397846e-10,
+            "conservation_max_abs_error": 3.410605131648481e-13,
+            "minimum_compartment": 0.0,
+            "clear_time": 38.0095305193799,
+            "cumulative_total": 303.5828725331519,
+            "J": 2.0005859462469395,
+            "S_exit": 218.95021249867253,
+            "clear_error_vs_matlab": -1.1679901490424527e-10,
+            "cumulative_error_vs_matlab": -1.4971419659559615e-09,
+            "J_error_vs_matlab": 7.949196856316121e-14
+          }
+        ],
+        "two_tolerance_clear_difference": 5.825427251693327e-09,
+        "two_tolerance_cumulative_difference": 7.608224450450507e-08
+      },
+      {
+        "c0": 10.0,
+        "eta": 38.15,
+        "checks": [
+          {
+            "rtol": 1e-09,
+            "atol": 1e-10,
+            "platform_max_abs_error": 2.1459435117776593e-08,
+            "conservation_max_abs_error": 1.1368683772161603e-13,
+            "minimum_compartment": 0.0,
+            "clear_time": 33.77318271503685,
+            "cumulative_total": 285.7243713037035,
+            "J": 2.2236157029446275,
+            "S_exit": 175.1601699234154,
+            "clear_error_vs_matlab": -4.077946869074367e-09,
+            "cumulative_error_vs_matlab": -5.680448111888836e-08,
+            "J_error_vs_matlab": 9.277467682977658e-12
+          },
+          {
+            "rtol": 2e-11,
+            "atol": 2e-12,
+            "platform_max_abs_error": 7.782929856148257e-10,
+            "conservation_max_abs_error": 2.2737367544323206e-13,
+            "minimum_compartment": 0.0,
+            "clear_time": 33.773182718949705,
+            "cumulative_total": 285.724371358286,
+            "J": 2.223615702935538,
+            "S_exit": 175.16016999765904,
+            "clear_error_vs_matlab": -1.6509460465385928e-10,
+            "cumulative_error_vs_matlab": -2.2219523998501245e-09,
+            "J_error_vs_matlab": 1.8784973576657649e-13
+          }
+        ],
+        "two_tolerance_clear_difference": 3.912852264420508e-09,
+        "two_tolerance_cumulative_difference": 5.458252871903824e-08
+      },
+      {
+        "c0": 12.0,
+        "eta": 38.15,
+        "checks": [
+          {
+            "rtol": 1e-09,
+            "atol": 1e-10,
+            "platform_max_abs_error": 2.003471877287666e-08,
+            "conservation_max_abs_error": 3.410605131648481e-13,
+            "minimum_compartment": 0.0,
+            "clear_time": 30.768720908168024,
+            "cumulative_total": 271.92951904601455,
+            "J": 2.310985660593851,
+            "S_exit": 145.96680828553824,
+            "clear_error_vs_matlab": -2.6031763411538122e-09,
+            "cumulative_error_vs_matlab": -3.5715459034690866e-08,
+            "J_error_vs_matlab": 1.475086719437968e-11
+          },
+          {
+            "rtol": 2e-11,
+            "atol": 2e-12,
+            "platform_max_abs_error": 6.066684932193311e-10,
+            "conservation_max_abs_error": 3.410605131648481e-13,
+            "minimum_compartment": 0.0,
+            "clear_time": 30.76872091067578,
+            "cumulative_total": 271.9295190804095,
+            "J": 2.310985660579454,
+            "S_exit": 145.96680833212596,
+            "clear_error_vs_matlab": -9.542233669890265e-11,
+            "cumulative_error_vs_matlab": -1.320529463555431e-09,
+            "J_error_vs_matlab": 3.539391002504999e-13
+          }
+        ],
+        "two_tolerance_clear_difference": 2.5077540044549096e-09,
+        "two_tolerance_cumulative_difference": 3.4394929571135435e-08
+      },
+      {
+        "c0": 10.0,
+        "eta": 1.526,
+        "checks": [
+          {
+            "rtol": 1e-09,
+            "atol": 1e-10,
+            "platform_max_abs_error": 1.1196377158739779e-11,
+            "conservation_max_abs_error": 2.2737367544323206e-13,
+            "minimum_compartment": 0.0,
+            "clear_time": 180.58205824207505,
+            "cumulative_total": 173.0313892884438,
+            "J": 60.80047195587696,
+            "S_exit": 175.16017000077778,
+            "clear_error_vs_matlab": 3.460627340245992e-10,
+            "cumulative_error_vs_matlab": 1.7578827282704879e-10,
+            "J_error_vs_matlab": 1.5631940186722204e-13
+          },
+          {
+            "rtol": 2e-11,
+            "atol": 2e-12,
+            "platform_max_abs_error": 3.2884805989397137e-13,
+            "conservation_max_abs_error": 4.547473508864641e-13,
+            "minimum_compartment": 0.0,
+            "clear_time": 180.58205824173785,
+            "cumulative_total": 173.03138928827303,
+            "J": 60.80047195587695,
+            "S_exit": 175.16017000066535,
+            "clear_error_vs_matlab": 8.86757334228605e-12,
+            "cumulative_error_vs_matlab": 5.030642569181509e-12,
+            "J_error_vs_matlab": 1.4921397450962104e-13
+          }
+        ],
+        "two_tolerance_clear_difference": 3.3719516068231314e-10,
+        "two_tolerance_cumulative_difference": 1.7075763025786728e-10
+      },
+      {
+        "c0": 10.0,
+        "eta": 4.578,
+        "checks": [
+          {
+            "rtol": 1e-09,
+            "atol": 1e-10,
+            "platform_max_abs_error": 3.5986680302357854e-10,
+            "conservation_max_abs_error": 4.547473508864641e-13,
+            "minimum_compartment": 0.0,
+            "clear_time": 86.55786391297697,
+            "cumulative_total": 195.33494286275862,
+            "J": 20.126469080525492,
+            "S_exit": 175.16016999758702,
+            "clear_error_vs_matlab": -1.6652279555273708e-09,
+            "cumulative_error_vs_matlab": -1.916390601763851e-09,
+            "J_error_vs_matlab": -7.105427357601002e-15
+          },
+          {
+            "rtol": 2e-11,
+            "atol": 2e-12,
+            "platform_max_abs_error": 7.296385717836529e-12,
+            "conservation_max_abs_error": 4.547473508864641e-13,
+            "minimum_compartment": 0.0,
+            "clear_time": 86.55786391460927,
+            "cumulative_total": 195.33494286463593,
+            "J": 20.12646908052548,
+            "S_exit": 175.16017000059958,
+            "clear_error_vs_matlab": -3.292655037512304e-11,
+            "cumulative_error_vs_matlab": -3.907985046680551e-11,
+            "J_error_vs_matlab": -1.7763568394002505e-14
+          }
+        ],
+        "two_tolerance_clear_difference": 1.6323014051522478e-09,
+        "two_tolerance_cumulative_difference": 1.8773107512970455e-09
+      },
+      {
+        "c0": 10.0,
+        "eta": 7.63,
+        "checks": [
+          {
+            "rtol": 1e-09,
+            "atol": 1e-10,
+            "platform_max_abs_error": 9.07152575280179e-10,
+            "conservation_max_abs_error": 4.547473508864641e-13,
+            "minimum_compartment": 0.0,
+            "clear_time": 64.9343071580824,
+            "cumulative_total": 208.91657070674358,
+            "J": 11.991211701038447,
+            "S_exit": 175.1601699974122,
+            "clear_error_vs_matlab": -1.5149907994782552e-09,
+            "cumulative_error_vs_matlab": 2.839584567482234e-09,
+            "J_error_vs_matlab": 4.618527782440651e-14
+          },
+          {
+            "rtol": 2e-11,
+            "atol": 2e-12,
+            "platform_max_abs_error": 1.758415635322308e-11,
+            "conservation_max_abs_error": 5.684341886080801e-13,
+            "minimum_compartment": 0.0,
+            "clear_time": 64.93430715956785,
+            "cumulative_total": 208.91657070395974,
+            "J": 11.991211701038447,
+            "S_exit": 175.1601700005995,
+            "clear_error_vs_matlab": -2.9544366952904966e-11,
+            "cumulative_error_vs_matlab": 5.573497219302226e-11,
+            "J_error_vs_matlab": 4.618527782440651e-14
+          }
+        ],
+        "two_tolerance_clear_difference": 1.4854464325253502e-09,
+        "two_tolerance_cumulative_difference": 2.7838495952892117e-09
+      },
+      {
+        "c0": 10.0,
+        "eta": 15.26,
+        "checks": [
+          {
+            "rtol": 1e-09,
+            "atol": 1e-10,
+            "platform_max_abs_error": 1.6406271896585167e-09,
+            "conservation_max_abs_error": 3.410605131648481e-13,
+            "minimum_compartment": 0.0,
+            "clear_time": 46.80292811383574,
+            "cumulative_total": 233.7810355852089,
+            "J": 5.888750602296424,
+            "S_exit": 175.16017000445737,
+            "clear_error_vs_matlab": 6.88373802404385e-11,
+            "cumulative_error_vs_matlab": 7.693898851357517e-09,
+            "J_error_vs_matlab": 3.4638958368304884e-14
+          },
+          {
+            "rtol": 2e-11,
+            "atol": 2e-12,
+            "platform_max_abs_error": 2.4302337919834827e-11,
+            "conservation_max_abs_error": 2.2737367544323206e-13,
+            "minimum_compartment": 0.0,
+            "clear_time": 46.80292811376803,
+            "cumulative_total": 233.78103557760275,
+            "J": 5.8887506022964,
+            "S_exit": 175.1601700007077,
+            "clear_error_vs_matlab": 1.1297629498585593e-12,
+            "cumulative_error_vs_matlab": 8.773781701165717e-11,
+            "J_error_vs_matlab": 1.0658141036401503e-14
+          }
+        ],
+        "two_tolerance_clear_difference": 6.770761729057995e-11,
+        "two_tolerance_cumulative_difference": 7.60616103434586e-09
+      }
+    ],
+    "failures": [],
+    "control": "precomputed theoretical time open-loop, not numerical S feedback"
+  }
+}

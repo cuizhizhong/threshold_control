@@ -1,0 +1,330 @@
+{
+  "schema": "configuration-index-v1",
+  "role": "集中来源索引；不是程序读取的统一可编辑配置",
+  "executable_configuration": false,
+  "paths": {"source_base": "project_root", "output_base": "<RUN>"},
+  "precision_boundary": "固定数值按实际源码字面值列示；派生/拟合结果只给本轮未取整输出定位，不能据17位保存格式认证所有尾数。",
+  "input_classes": {
+    "fixed": "模型参数、给定TDINN函数系数、成本权重、设计阈值/扫描规则、原始观测",
+    "fitted": "本轮全市I0和20k诊断I0",
+    "derived": "S0、TDINN经验参照、切换时刻、人口边界、极值、名义时间开环表",
+    "optional_historical_comparison": "仅old→new说明；缺失旧值为null/unknown，不影响新科学结果"
+  },
+  "raw_inputs": [
+    {
+      "path": "真实数据/Xianguankong.xlsx",
+      "columns": ["Date", "I_new", "Iq_new"],
+      "reader": "xian_control_comparison/xian_control_comparison.py:load_observed_data",
+      "transform": "按日期排序；日新增保留原值；累计为各日新增cumsum；拟合整数日增量由累计轨迹差分生成",
+      "outputs": ["xian/observed.csv", "xian/reference.json:data_sha256"],
+      "read_only": true
+    },
+    {
+      "path": "ai/threshold_control_reproducible_release_20261002/numerics/inputs/baseline_parameters.json",
+      "reader": "reproducibility/joint.py:run",
+      "consumed_fields": ["parameters"],
+      "descriptive_not_consumed_fields": ["other_initial_states", "quadrature", "full_ode", "endpoints", "units", "cost_definition"],
+      "read_only": true
+    }
+  ],
+  "parameter_sets": {
+    "baseline_matlab": {
+      "class": "fixed",
+      "authorities": ["scenario1_threshold_landscape/common/scenario1_params.m", "code/scenario1_q_control_with_quarantine_panels.m"],
+      "values": {"N": 763, "S0": 762, "I0": 1, "Sq0": 0, "Iq0": 0, "R0_initial": 0, "beta": 0.155, "gamma": 0.3504, "delta_q": 0.3504, "c0_base": 10, "q0": 0.01526},
+      "single_trajectory_eta_fraction": 0.05,
+      "single_trajectory_eta": 38.15,
+      "delta_q_note": "单图delta=gamma；共享指标核心不依赖隔离仓室转出率。",
+      "outputs": ["workspace/scenario1_threshold_landscape/current_run/output_csv/landscape_summary.csv", "workspace/scenario1_threshold_landscape/current_run/output_csv/main_c0_summary.csv", "workspace/scenario1_threshold_landscape/current_run/output_csv/main_eta_summary.csv", "validation/baseline_science.json"]
+    },
+    "inflection": {
+      "class": "fixed",
+      "authorities": ["scenario1_inflection/fig_lambda_sensitivity.py:BASE", "scenario1_inflection/fig_scan_t.py:base", "scenario1_inflection/inflection_analysis.py:solve"],
+      "inherits": "baseline_matlab",
+      "eta_fraction": 0.05,
+      "outputs": ["validation/baseline_science.json:inflection_baseline", "logs/inflection_checks.log", "figures/layout_v5/scenario1_inflection_lambda_sensitivity.pdf", "figures/layout_v5/scenario1_inflection_scan_t.pdf"],
+      "scan_storage_boundary": "现入口在绘图时从源函数重建扫描，不额外生成全部拐点扫描CSV。"
+    },
+    "xian": {
+      "class": "fixed_except_initial_fit",
+      "authority": "reproducibility/xian.py:Params",
+      "scientific_source": "xian_control_comparison/xian_control_comparison.py:Parameters",
+      "values": {"N": 13163000.0, "beta": 0.1498, "gamma": 0.2953, "delta_q": 0.3531, "c0": 12.8872, "q0": 0.323},
+      "eta_fraction": 0.002,
+      "eta": 26326.0,
+      "threshold_interpretation": "设计情景；不是实测ICU安全阈值",
+      "initial_states": {"I0": "xian/fit.json:I0", "S0": "N-I0", "Sq0": 0, "Iq0": 0, "R0_initial": 0, "Cc0": 0, "Cq0": 0},
+      "outputs": ["xian/fit.json", "xian/reference.json:parameters", "xian/reference.json:I0_abs"]
+    },
+    "tdinn_functions": {
+      "class": "fixed_not_refitted",
+      "authority": "reproducibility/xian.py:controls",
+      "scientific_source": "xian_control_comparison/xian_control_comparison.py:c_real/q_real",
+      "values": {"c_initial": 12.8872, "c_asymptote": 3.4625, "c_decay": 0.0463, "q_initial": 0.323, "q_asymptote": 0.9844, "q_decay": 0.0452},
+      "expressions": {"c(t)": "(12.8872-3.4625)*exp(-(0.0463*t)^2)+3.4625", "q(t)": "(0.3230-0.9844)*exp(-(0.0452*t)^2)+0.9844"},
+      "time_unit": "day"
+    },
+    "population": {
+      "class": "fixed_and_fresh_reference",
+      "authority": "reproducibility/population.py:run_population",
+      "parameter_source": "xian/reference.json:parameters",
+      "initial_source": "xian/reference.json:I0_abs",
+      "initial_rule": "所有主轨迹固定绝对I0，S0=N-I0；不随N重新拟合",
+      "tdinn_reference_source": "xian/reference.json:I_peak_T/J_T/Itcum_T/t_end_T/Ic_cum_T/Iq_cum_T",
+      "outputs": ["population/critical.json", "population/metadata.json", "population/representative_summary.csv"]
+    },
+    "c0": {
+      "class": "fixed_and_fresh_reference",
+      "authority": "reproducibility/c0.py:run_c0",
+      "parameter_source": "xian/reference.json:parameters",
+      "overrides": {"N": 20000.0, "theta": 0.002, "eta": 40.0},
+      "initial_source": "xian/reference.json:I0_abs",
+      "refit_at_20000": "仅诊断；不替换主实验I0",
+      "plot_parameter_binding": "原绘图模块P.full_city_I0_reference被本轮I0替换，不使用旧默认常数",
+      "outputs": ["c0/parameters.json:parameters", "c0/parameters.json:derived", "c0/parameters.json:fit_at_20k_diagnostic", "c0/extrema.json"]
+    },
+    "joint": {
+      "class": "fixed",
+      "authority": "ai/threshold_control_reproducible_release_20261002/numerics/inputs/baseline_parameters.json:parameters",
+      "reader": "reproducibility/joint.py:run",
+      "values": {"N": 763.0, "S0": 762.0, "I0": 1.0, "beta": 0.155, "gamma": 0.3504, "delta_q": 0.3504, "c0": 10.0, "q0": 0.01526, "eta": 38.15, "wc": 1.0, "wq": 2.0},
+      "actual_other_initial_states": {"Sq0": 0, "Iq0": 0, "R0_initial": 0, "cumulative0": 0, "cost0": 0},
+      "profiles": ["contact_only", "alpha_0.5", "quarantine_only", "minimum_cost"],
+      "capability_constraints": "仅基本可行区间；未增加c_min或q_cap限制",
+      "outputs": ["joint/results.json:parameters", "joint/results.csv", "joint/openloop_check.json"]
+    },
+    "cost_and_counting": {
+      "authorities": ["reproducibility/xian.py:rhs/structural", "scenario1_threshold_landscape/common/compute_metrics.m", "reproducibility/joint.py:_openloop"],
+      "weights": {"w_c": 1.0, "w_q": 2.0},
+      "J": "integral [w_c*((c0-c)_+/c0)^2+w_q*((q-q0)_+/(1-q0))^2] dt",
+      "J_c_J_q": "线性分项参考指标，不将J_c+J_q作为综合成本",
+      "cumulative_definition": "累计新增感染流，不加初始I0；终点为各策略自己的下降I=1",
+      "model_assumptions": "Sq无回流，参数在各给定情景内固定；q(t)是预计算时间开环，不访问完整ODE实时S(t)"
+    }
+  },
+  "numerical_settings": {
+    "xian_fit": {
+      "authority": "reproducibility/xian.py:fit_initial",
+      "objective": "四序列MSE之和：community_new/quarantine_new/community_cum/quarantine_cum，各序列均为1/m权重",
+      "optimizer": "minimize_scalar bounded in log(I0)",
+      "log_I0_bounds": [-15.0, 0.0],
+      "xatol": 1e-11,
+      "day_edges": "arange(len(observed)+1)，当前41个边界/40个日区间",
+      "outputs": ["xian/fit.json", "xian/S2_window.csv", "xian/S2_difference.json"]
+    },
+    "xian_ode": {
+      "authority": "reproducibility/xian.py:integrate/time_strategy/threshold_strategy/frame_from_stages",
+      "method": "DOP853",
+      "state_order": ["s", "i", "sq", "iq", "r", "cc", "cq", "Jc", "Jq", "J"],
+      "normalized_states": "前7项为比例；后三项成本不除以N",
+      "rtol": 2e-11,
+      "atol": [1e-14, 1e-21, 1e-15, 1e-21, 1e-15, 1e-21, 1e-21, 1e-12, 1e-12, 1e-12],
+      "max_step": 0.4,
+      "tight": {"rtol": 2e-12, "atol_multiplier": 0.1, "max_step": 0.2},
+      "dense_output": true,
+      "time_strategy_horizon": 600.0,
+      "threshold_tail_horizon": "analytic_clear_time+max(10,0.03*post_control_tail)",
+      "clearance_event": {"I": 1.0, "direction": -1, "terminal": true},
+      "sampling": "按三阶段长度分配2400基准点，每阶段至少350点，加整数日；不等于ODE步长",
+      "peak_optimizer_xatol": 1e-10,
+      "outputs": ["xian/reference.json", "xian/timeseries.csv", "xian/diagnostics.json", "xian/S2_difference.json"]
+    },
+    "xian_structural": {
+      "authority": "reproducibility/xian.py:structural",
+      "root": {"method": "brentq", "xtol": 1e-15, "rtol": 1e-14},
+      "trigger_quad": {"epsabs": 2e-10, "epsrel": 2e-11, "limit": 150},
+      "tail_quad": {"epsabs": 2e-9, "epsrel": 2e-10, "limit": 150},
+      "cost_quad": {"epsabs": 1e-12, "epsrel": 1e-11},
+      "times_false_boundary": "times=False返回的平台时长/成本可用于边界；其clear_time省略启动及尾段，不用于真实清零时间"
+    },
+    "matlab_metrics": {
+      "authority": "scenario1_threshold_landscape/common/compute_metrics.m",
+      "S_star_branch": "Lambert W branch -1",
+      "S_end_branch": "Lambert W branch 0，I=1下降支",
+      "integral_AbsTol": 1e-11,
+      "integral_RelTol": 1e-11,
+      "critical_c0_solver": "common/critical_c0_for_eta.m:fzero；未显式指定TolX，沿用MATLAB默认",
+      "invalid_point_rule": "保留valid=false，不伪造有效结果"
+    },
+    "matlab_single_trajectory": {
+      "authority": "code/scenario1_q_control_with_quarantine_panels.m",
+      "method": "ode45，三段",
+      "RelTol": 1e-8,
+      "AbsTol": 1e-10,
+      "time_end": "t2+50；此单图不是清零事件终点表",
+      "t1_integral_tolerance": "此脚本未显式指定，沿用MATLAB integral默认；不与指标模块显式容差混同"
+    },
+    "matlab_trajectory_reconstruction": {
+      "authority": "scenario1_threshold_landscape/common/compute_trajectory.m",
+      "method": "ode45",
+      "RelTol": 1e-9,
+      "AbsTol": 1e-11,
+      "sampling": "pre=max(60,min(600,ceil(t1*35)+2)); platform=max(120,min(2200,ceil(Delta_t*10)+2)); post=max(120,min(1200,ceil(tail*5)+2))"
+    },
+    "inflection_time_and_roots": {
+      "authorities": ["scenario1_inflection/fig_scan_t.py:t1_of", "scenario1_inflection/inflection_analysis.py:find_q0_stationary_points/trajectory"],
+      "t1_ode": {"method": "solve_ivp默认RK45", "rtol": 1e-9, "atol": 1e-9, "max_step": 0.05, "horizon": 3000, "event_direction": 1},
+      "q0_stationary_root": {"bounds": [0.0, 0.39], "grid_points": 2001, "xtol": 1e-13, "rtol": 1e-13, "near_zero_tol": 1e-7, "dedupe_tol": 1e-7, "bounded_optimizer_xatol": 1e-13},
+      "time_curve_points": 1500
+    },
+    "population_roots": {
+      "authority": "reproducibility/population.py:theta_root/population_arc/main_critical/run_population",
+      "theta_root": {"xtol": 1e-15, "rtol": 1e-13, "bounds": "max(2/N,1e-7) .. background_peak*(1-1e-9)"},
+      "population_arc": {"xtol": 1e-7, "rtol": 1e-12, "bounds": "eta/background_peak(N=1e8)*1.0001 .. max(1e6,10*lower)"},
+      "main_population_root_bounds": [5000.0, 2000000.0],
+      "cumulative_cost_root_bounds": [2000.0, 100000.0],
+      "fixed_eta_root_bounds": [2000.0, 200000.0],
+      "eta_cumulative_floor_root_xtol": 1e-10
+    },
+    "c0_roots": {
+      "authority": "reproducibility/c0.py:boundaries/run_c0",
+      "trigger_bounds": [2.5, 10.0],
+      "trigger_xtol": 1e-12,
+      "inflection_bounds": "trigger*(1+1e-7) .. 14",
+      "inflection_xtol": 1e-12,
+      "duration_optimizer_bounds": "trigger*(1+1e-7) .. 30",
+      "duration_optimizer_xatol": 1e-11,
+      "cost_cumulative_optimizer_xatol": 1e-9,
+      "platform_difference_samples": 4001
+    },
+    "joint_integral_and_openloop": {
+      "authorities": ["reproducibility/joint.py:run/_quadrature/_openloop/_scaled_candidates", "ai/threshold_control_reproducible_release_20261002/numerics/joint_comparison.py:compute/stationary_candidates"],
+      "quadrature": {"fine_epsabs": 1e-9, "coarse_epsabs": 1e-7, "epsrel_factor": 0.1, "limit": 500},
+      "state_roots_xtol": 1e-11,
+      "original_stationary_imaginary_tol": "1e-8*(1+abs(real))",
+      "scaled_stationary_imaginary_tol": "1e-9*(1+abs(real))",
+      "scaled_coordinates_threshold": 1e-4,
+      "openloop_fine": {"method": "DOP853", "rtol": 2e-11, "atol": 2e-12, "control_samples": 4097},
+      "openloop_coarse": {"method": "DOP853", "rtol": 2e-9, "atol": 2e-10, "control_samples": 1025},
+      "nominal_ode_tolerance_multiplier": 0.1,
+      "max_step": "pre=t1/100；platform=duration/150；post=post_control_duration/150",
+      "interpolation": "PCHIP按分支分段；进入完整仓室ODE前固定时间表",
+      "root_diagnostic_states": "linspace(Sc,Sstar,257)[1:]加6个退出邻域状态，unique",
+      "exit_neighborhood_one_minus_r": [0.001, 0.00001, 0.0000001, 0.000000001, 0.00000000001, 0.0000000000001],
+      "per_phase_check_samples": 1201,
+      "per_phase_trace_samples": 301,
+      "outputs": ["joint/results.json", "joint/root_diagnostics.json", "joint/openloop_check.json"]
+    },
+    "independent_checks": {
+      "authorities": ["reproducibility/figures.py:verify_baseline_ode", "reproducibility/checks.py:trajectory/run"],
+      "baseline_ode_levels": [{"rtol": 1e-9, "atol": 1e-10}, {"rtol": 2e-11, "atol": 2e-12}],
+      "baseline_ode_method": "DOP853",
+      "baseline_max_step": 1.0,
+      "baseline_platform_samples": 801,
+      "matlab_python_samples": 96,
+      "trajectory_thresholds": {"mass": 1e-5, "removal_identity": 1e-4, "Sq_identity": 1e-4, "minimum_compartment": -1e-7, "clear_I_error": 1e-5, "platform_error": 1e-5},
+      "cross_language_thresholds": {"q_max": 1e-10, "other_metrics": 1e-5},
+      "outputs": ["validation/baseline_independent_ode.json", "validation/independent_checks.json"]
+    },
+    "legacy_diagnostic_only": {
+      "authority": "xian_control_comparison/xian_control_comparison.py:solve_with_initials/solve_event_stage/fit_initial_conditions",
+      "fit_solver": {"rtol": 1e-7, "atol": 1e-5},
+      "event_solver": {"rtol": 1e-8, "atol": 1e-4},
+      "fitting": {"method": "least_squares in log(I0)", "residual_type": "paper_mse", "starts_I0": [0.0001, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0], "I0_bounds": [1e-8, 1000000.0], "max_nfev": 160, "xtol": 1e-8, "ftol": 1e-8, "gtol": 1e-8, "fit_removed_initial": false},
+      "early_tolerance_diagnostic_samples": 101,
+      "purpose": "S2差异来源实算对照；不生成正式TDINN参照或下游I0",
+      "outputs": ["xian/S2_difference.json", "xian/early_tolerance.csv"]
+    }
+  },
+  "sweeps": {
+    "matlab_landscape": {
+      "authority": "scenario1_threshold_landscape/common/scenario1_params.m",
+      "eta_fraction": {"start": 0.002, "step": 0.0002, "stop": 0.05, "count": 241},
+      "c0": {"start": 2.3, "step": 0.1, "stop": 14.0, "count": 118},
+      "main_c0": [4, 5, 8, 10, 12],
+      "main_eta_fraction": [0.002, 0.006, 0.01, 0.02],
+      "main_eta_sweep_c0": [5, 8, 10, 12],
+      "table_c0_extra": "critical_c0_for_eta(eta=0.05*N)+0.02，未取整数值在main_c0_summary.csv",
+      "main_c0_sweep_eta_fraction": 0.05,
+      "main_eta_sweep_fixed_c0": 10,
+      "exploratory_selected_eta_fraction": [0.002, 0.005, 0.01, 0.02],
+      "exploratory_selected_c0": [6, 10, 14],
+      "historical_validation_eta_fraction": [0.02, 0.002],
+      "generated_representative_eta_fraction": [0.002, 0.01, 0.02],
+      "generated_representative_source": "scenario1_threshold_landscape/scripts/generate_landscape_data.m；不等于selected_eta_frac全部值"
+    },
+    "inflection_lambda": {
+      "authority": "scenario1_inflection/fig_lambda_sensitivity.py:main",
+      "eta_fraction_linspace": [0.0, 0.05, 700],
+      "c0_linspace": [0.0, 16.0, 900],
+      "beta_linspace": [0.0, 0.5, 800],
+      "q0_linspace": [0.0, 0.45, 2400],
+      "q0_panel_beta": [0.1, 0.12, 0.155]
+    },
+    "inflection_time": {
+      "authority": "scenario1_inflection/fig_scan_t.py:sweeps",
+      "beta": [0.1, 0.155, 0.22], "q0": [0.05, 0.15, 0.3], "c0": [5, 9, 13], "eta_fraction": [0.02, 0.03, 0.05]
+    },
+    "xian_eta": {
+      "authority": "reproducibility/xian.py:run_xian",
+      "eta_fraction": [0.0001, 0.0002, 0.0005, 0.001, 0.0015, 0.002, 0.003, 0.004, 0.005, 0.0075, 0.01],
+      "output": "xian/eta_scan.csv"
+    },
+    "xian_heatmap": {
+      "authorities": ["reproducibility/xian.py:run_xian", "xian_control_comparison/threshold_landscape_analysis/threshold_landscape_analysis.py:REPRESENTATIVE_ETAS/REPRESENTATIVE_C0_VALUES"],
+      "eta_base_geomspace": [50.0, 40000.0, 90],
+      "eta_extra": [100.0, 151.9, 520.0, 1300.0, 3200.0, 6500.0, 15000.0, 26326.0],
+      "eta_extra_note": "151.9在这里仅是历史代表数学阈值，不作为本轮I_peak_T",
+      "c0_base_linspace": [6.0, 13.0, 45],
+      "c0_extra": [6.0, 9.0, 12.8872],
+      "construction": "各轴unique合并，当前98个eta、47个c0",
+      "output": "xian/heatmap.csv"
+    },
+    "population": {
+      "authority": "reproducibility/population.py:run_population",
+      "arc_eta": "geomspace(10,I_peak_T,16)",
+      "beta": [0.1, 0.12, 0.1498, 0.2, 0.25, 0.3],
+      "beta_rule": "固定beta*c0，c0=city_beta*city_c0/beta；固定TDINN参照与绝对I0",
+      "duration_limits": [45.0, 60.0, 90.0, 150.0, null],
+      "representative_N": "[20000,N_star_cum_inf,N_star45,N_star_inf]；每项配dur150/cost/dur45三个fresh阈值",
+      "fixed_eta": 100.0,
+      "fixed_eta_N": "由clear/cum/dur45/cost/dur150五个等值条件分别重新求根",
+      "normalized_initial_diagnostic_N": [10000.0, 20000.0, 100000.0],
+      "normalized_initial_rule": "I0(N)=city_I0*N/city_N，仅用于理论规模不变性诊断",
+      "fixed_absolute_scale_N": [50000.0, 100000.0, 500000.0, 1000000.0, 5000000.0, 13163000.0],
+      "fixed_absolute_scale_theta": 0.002,
+      "inflection_backsubstitution_N": [40000.0, 50000.0, 60000.0],
+      "inflection_backsubstitution_eta": [80.0, 100.0, 150.0],
+      "outputs": ["population/arcs.csv", "population/beta_scan.csv", "population/duration_limits.csv", "population/representative_summary.csv", "population/scale_invariance.csv", "population/fixed_absolute_scale.csv", "population/clear_arc_fixed_normalized_diagnostic.csv", "population/inflection_invariance.csv"]
+    },
+    "c0": {
+      "authority": "reproducibility/c0.py:run_c0",
+      "representatives": "[1.03*c_trigger,post_inflection,c_duration_max,9,city_c0]；post_inflection=1.05*c_inf，若.95*c_inf<1.03*c_trigger则改为c_inf+.05",
+      "continuous": "unique(linspace(trigger*(1+1e-6),4.5,260),linspace(4.5,22,360),inflection*(1+1e-7),duration_max,5 representative c0)；当前625行",
+      "cumulative_curve": "linspace(trigger*1.01,22,48)",
+      "extended": "linspace(near_trigger,30,200)",
+      "phase_boundaries_theta_geomspace": [0.0005, 0.008, 70],
+      "phase_c0_linspace": [3.0, 14.0, 140],
+      "phase_theta_geomspace": [0.0005, 0.008, 120],
+      "beta_domain_c0_linspace": [3.0, 14.0, 220],
+      "beta_domain_beta_linspace": [0.05, 0.3, 220],
+      "beta_domain_rule": "N=20000、theta=.002、绝对I0固定；beta和c0独立扫描，与population beta*c0固定诊断不同",
+      "outputs": ["c0/parameters.json", "c0/scan.csv", "c0/cumulative_curve.csv", "c0/extended_scan.csv", "c0/phase.npz", "c0/beta_existence.npz"]
+    },
+    "routine_figure_envelope": {
+      "authority": "reproducibility/figures.py:run_python_figures/current_reference",
+      "N_rule": "geomspace(fixed_eta_clear_N,fixed_eta_dur150_N,8)",
+      "time_samples": 1400,
+      "time_end": "1.05*max(fixed_eta t_end)",
+      "initial_source": "xian/reference.json:I0_abs",
+      "solver": "reproducibility/xian.py:time_strategy，fresh常规控制轨迹",
+      "outputs": ["figure_inputs/routine_envelope_0.csv .. routine_envelope_7.csv", "figure_inputs/routine_envelope.csv"]
+    }
+  },
+  "derived_result_rules": {
+    "authoritative_initial": "每次xian/fit.json:I0 → xian/reference.json:I0_abs → population与c0及图件reader，不硬编码旧值",
+    "tdinn_reference": "xian/reference.json中四项及累计分项，绑定同轮重新拟合与统一积分；不随反事实N、beta或c0重新拟合",
+    "configuration_snapshot": "xian/reference.json:parameters、c0/parameters.json、joint/results.json:parameters是运行记录，不是下一次默认输入",
+    "time_openloop": "仅隔离的S_th(t)和联合控制的名义PCHIP时间表在完整ODE前计算，不能改成实时状态反馈",
+    "storage": "本轮CSV使用17位浮点往返；NPZ存网格数组；论文通过paper_sync取整，不回写计算"
+  },
+  "provenance_and_delivery": {
+    "source_hashes": ["source_manifest.json", "validation/source_integrity_initial.json", "validation/source_integrity.json"],
+    "environment": "environment.json",
+    "optional_old_new": "paper_anchor_updates.json:historical_inputs/old_sources_sha256/records/old_status",
+    "paper_sync": "manuscript_changes.json:input_sha256/changes/numerical_cells",
+    "manuscript": ["manuscript/staged.tex", "manuscript/staged_supplement.tex"],
+    "build": "document/build_report.json",
+    "evidence_boundary": "本索引是当前源码静态追溯；不是新增数值重算、数学认证或完整重复性通过标识。"
+  }
+}

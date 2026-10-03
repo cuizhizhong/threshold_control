@@ -1,0 +1,412 @@
+{
+  "passed": true,
+  "documents": {
+    "flatten_curve_supplement_cn": {
+      "page_count": 3,
+      "pdf_sha256": "efbbd405b733724dac9a98874fa034839c8cd698825734b8d70bad70cbeb766a",
+      "fonts": [
+        "LMMono10-Regular",
+        "NewTXMI",
+        "NewTXMI5",
+        "NewTXMI7",
+        "SimHei",
+        "SimSun",
+        "TeXGyreTermes-Bold",
+        "TeXGyreTermes-Regular",
+        "TeXGyreTermesX-Regular",
+        "txmiaX",
+        "txsys"
+      ],
+      "outside_page_text": [],
+      "pages": [
+        {
+          "page": 1,
+          "text_sha256": "404199365d7a5fab8c5d8778a67e471140efc73dc4a0926ef52fa80ef5dedf7b",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_supplement_cn\\001.png"
+        },
+        {
+          "page": 2,
+          "text_sha256": "a84e4629a0f6c0296fd08025a82982635fe1a61de00fe807414cdd2390f75c30",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_supplement_cn\\002.png"
+        },
+        {
+          "page": 3,
+          "text_sha256": "5e91ad64a448cd1bc1c027aadcb64b17ee88372b1c6ff04ad4108091e9b54822",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_supplement_cn\\003.png"
+        }
+      ]
+    },
+    "flatten_curve_analysis_cn": {
+      "page_count": 45,
+      "pdf_sha256": "71668521f602efc9c92f80b0b6940708e34c5bf4be168b57eb61bbbf1171458e",
+      "fonts": [
+        "ArialMT",
+        "KaiTi",
+        "LMMono8-Regular",
+        "NewTXMI",
+        "NewTXMI5",
+        "NewTXMI7",
+        "STIXGeneral-Italic",
+        "STIXGeneral-Regular",
+        "SimHei",
+        "SimSun",
+        "TeXGyreTermes-Bold",
+        "TeXGyreTermes-Italic",
+        "TeXGyreTermes-Regular",
+        "TeXGyreTermesX-Regular",
+        "TimesNewRomanPS-BoldMT",
+        "TimesNewRomanPSMT",
+        "esint10",
+        "mwa_cmmi10",
+        "mwa_cmr10",
+        "mwb_cmmi10",
+        "mwb_cmr10",
+        "txexs",
+        "txmiaX",
+        "txsym",
+        "txsys"
+      ],
+      "outside_page_text": [],
+      "pages": [
+        {
+          "page": 1,
+          "text_sha256": "91cc70c100b6bda2fbb17f7535377d26c0f14d338789ebbcb31dfff94e44c0ba",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\001.png"
+        },
+        {
+          "page": 2,
+          "text_sha256": "2c1f4ce7796acee16692f11a2db5daceb0566c3e88c463b4b07ef5dd7d90271e",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\002.png"
+        },
+        {
+          "page": 3,
+          "text_sha256": "fc2d9939f326c5c55b9ed2c4f85069408b310a2e58dabe444a57ee1e692eb457",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\003.png"
+        },
+        {
+          "page": 4,
+          "text_sha256": "f2f91c13897b49f7728193af2d12c6826263dcaa1ba80c62b8e2c1ab161ef979",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\004.png"
+        },
+        {
+          "page": 5,
+          "text_sha256": "f23fd9db6e2fd4c54327b3cdbec68a11c269407b66b9d217808453ea9d13514d",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\005.png"
+        },
+        {
+          "page": 6,
+          "text_sha256": "898249a701fb4aa75e8f8b061d9b1cf739f85bab8b626876a5af9eac3547d3e6",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\006.png"
+        },
+        {
+          "page": 7,
+          "text_sha256": "b6777e10b44fd1f0cf61e5902162b2f78ff67239ddbe419a8b9c4b7c7f983881",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\007.png"
+        },
+        {
+          "page": 8,
+          "text_sha256": "d3858eeca1e2bcb79d2b3fc5e2936d16d07603afe698b48ec32cd5581db70e5f",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\008.png"
+        },
+        {
+          "page": 9,
+          "text_sha256": "6399acbe537847d6e4862ce4a866d04fd43a109f38279695d611f8f9b4596cf8",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\009.png"
+        },
+        {
+          "page": 10,
+          "text_sha256": "c4312b41ae58570ca43b106fde185a95c56db3b33531ba63a7221845b3db3361",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\010.png"
+        },
+        {
+          "page": 11,
+          "text_sha256": "6a5062d8ea7cb728a14fa29303d63ea7874e408195e4137a3ea3785c8c9eba0c",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\011.png"
+        },
+        {
+          "page": 12,
+          "text_sha256": "b332f3d3a0569ade6a1f94dd014b29237bd5f54eca3cd4abe919b9eb54727058",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\012.png"
+        },
+        {
+          "page": 13,
+          "text_sha256": "200bfac4d31eda9ae337a7a88816a001d462c2fa8ed206671834bb2ea04a321c",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\013.png"
+        },
+        {
+          "page": 14,
+          "text_sha256": "dd099691c0fa51910c21cac284406aa4acc4a35f5beabc923dd95218d5257e37",
+          "image_count": 1,
+          "render": "document\\render\\flatten_curve_analysis_cn\\014.png"
+        },
+        {
+          "page": 15,
+          "text_sha256": "c6c9f10f9380b9f4d647d704257501c2112d6239d8f2d1747b677198a6ec4049",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\015.png"
+        },
+        {
+          "page": 16,
+          "text_sha256": "f7b5f66633711255b8c024c61b4f9e7d8a59f5b8a52f177300e93feff5d0820a",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\016.png"
+        },
+        {
+          "page": 17,
+          "text_sha256": "f5c42c191344c09372e063fc39db7a0b70c1e4965c2c6434b18aadd1940b0b91",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\017.png"
+        },
+        {
+          "page": 18,
+          "text_sha256": "d61c06913824b548a7142a13a89ff38ccbf78d83334637c7073b6c49fd7f93e9",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\018.png"
+        },
+        {
+          "page": 19,
+          "text_sha256": "72d3381fd857c0ca93ff43e02ad6bb23be6bb73fad53b185238246566ce26f3f",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\019.png"
+        },
+        {
+          "page": 20,
+          "text_sha256": "22655806f7ac56a6ef40adb07937f67504ab7065223da4fb3096d092978e6052",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\020.png"
+        },
+        {
+          "page": 21,
+          "text_sha256": "67eca43e72b592c2312eec78237812b8e6ae74c0fdd96da377ed3ee9314f7280",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\021.png"
+        },
+        {
+          "page": 22,
+          "text_sha256": "b859d615ebc1c9cd86c157e9434e16d68641edb455a352000cef60b2ad1a0693",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\022.png"
+        },
+        {
+          "page": 23,
+          "text_sha256": "090a1ca45f2d007627f20d03e5f1fc689d51783eef1e7b3aba47cae6d7ab748d",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\023.png"
+        },
+        {
+          "page": 24,
+          "text_sha256": "9cf3c42b115b524cce6f7769137f932010bdf23a6635ab9129a58ac58c6e7e0a",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\024.png"
+        },
+        {
+          "page": 25,
+          "text_sha256": "575585fa3fe190522c53c7a6c41e72bb6a0655f1b27076f3f7ffc48407046544",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\025.png"
+        },
+        {
+          "page": 26,
+          "text_sha256": "078791a2226b0fa8b9f6ddc114c9052772a52494d41df0d5c77325995e31e2e6",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\026.png"
+        },
+        {
+          "page": 27,
+          "text_sha256": "2aaa63760e472be919579775a7c2b1513ab88d34b8449e10a6936534e630d07d",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\027.png"
+        },
+        {
+          "page": 28,
+          "text_sha256": "1563cbdce5a730bb8ffd84e1883c91a83fab76e0c943f1b12c7a2d4baea3480b",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\028.png"
+        },
+        {
+          "page": 29,
+          "text_sha256": "a89e38c2235e03b490c7036ec83c62e9307777efba49716ca9405ee2ed2ee559",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\029.png"
+        },
+        {
+          "page": 30,
+          "text_sha256": "f9bedd9e1a186447cce7d38fadca5ccb2772a265735a8d9bb25a2887bdf6020a",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\030.png"
+        },
+        {
+          "page": 31,
+          "text_sha256": "afef0c9c7d880cd0a10202ff335999c3910ee6ae4a5a0bbb840a7290ac077965",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\031.png"
+        },
+        {
+          "page": 32,
+          "text_sha256": "821bfcfcdd2777e7b5b039f6abb41bfc63db67d674e9320ca2313cc6dced75bd",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\032.png"
+        },
+        {
+          "page": 33,
+          "text_sha256": "351f28488dec3c42bfba8a0a0be4c0cbc8fe5623abc97b7ed5c35fd72b791984",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\033.png"
+        },
+        {
+          "page": 34,
+          "text_sha256": "32b8577451a6d075c5b82596cbf6a163f4f85402bcc91040fe347329d506c0ff",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\034.png"
+        },
+        {
+          "page": 35,
+          "text_sha256": "befb5879eb356b9afc1a03ed26c2bf074dd97d6d887a3dbcf15773ca0de19653",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\035.png"
+        },
+        {
+          "page": 36,
+          "text_sha256": "54f77d498d316d9952bfe2388ce9b8916f00ffd4f1af73e489fbaa01d45de174",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\036.png"
+        },
+        {
+          "page": 37,
+          "text_sha256": "0fd8125d1102c78128350e3d3eeb8130c71c75a8b8adef6f0375e7fa90349df5",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\037.png"
+        },
+        {
+          "page": 38,
+          "text_sha256": "7f841cf40335f7f5c987ebf0212c9cdd8dc4b73cae50b9d9e288729c5ae5d4e1",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\038.png"
+        },
+        {
+          "page": 39,
+          "text_sha256": "5e77ce4774e72bfb334f95bce98e8400e24ccba9183b80144f228b1575b89b86",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\039.png"
+        },
+        {
+          "page": 40,
+          "text_sha256": "792a5871b36864655e3003a47fe56e24a71a0dc7f54060e2f7fc2dfbdea1feac",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\040.png"
+        },
+        {
+          "page": 41,
+          "text_sha256": "96956ccecdea1e0c08f3378d59412db1dc60010d77604ea1662f81f2a8ebb3ca",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\041.png"
+        },
+        {
+          "page": 42,
+          "text_sha256": "9a652d3802f45c7d99eab3ba584af147d500a3f457cbfbfaca6f610385c7894a",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\042.png"
+        },
+        {
+          "page": 43,
+          "text_sha256": "02432e3d26638314d3a752063fd0381ba4758fd7fd8bd2848b9f16001f7d22e3",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\043.png"
+        },
+        {
+          "page": 44,
+          "text_sha256": "9e358696f4408f24bc20a1e8917317002130dca15f1804901bb1e1deed9d8c03",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\044.png"
+        },
+        {
+          "page": 45,
+          "text_sha256": "35a4f232168c6337b771ca0911a8b3779b123067ecec3a963206a5e933a6957b",
+          "image_count": 0,
+          "render": "document\\render\\flatten_curve_analysis_cn\\045.png"
+        }
+      ]
+    }
+  },
+  "logs": {
+    "flatten_curve_supplement_cn": {
+      "fatal": [],
+      "warnings": []
+    },
+    "flatten_curve_analysis_cn": {
+      "fatal": [],
+      "warnings": []
+    }
+  },
+  "biber_warnings": [],
+  "citation_keys": [
+    "Angulo2021",
+    "Avram2022",
+    "Balakrishnan2023",
+    "Balderrama2024",
+    "Charpentier2020",
+    "Chen2021ICUForecast",
+    "Corless1996",
+    "Duque2020",
+    "Ferguson2020Report9",
+    "Ferretti2020",
+    "He2023TDINN",
+    "Hellewell2020",
+    "Kucharski2020",
+    "Miclo2022ICU",
+    "Pollinger2023",
+    "Pung2023Undetected",
+    "Tang2020Transmission",
+    "XianStat2021",
+    "Zhang2026Behavior",
+    "Zhou2024SPCI"
+  ],
+  "bibliography_entries": 21,
+  "missing_citations": [],
+  "printed_bibliography_keys": [
+    "Angulo2021",
+    "Avram2022",
+    "Balakrishnan2023",
+    "Balderrama2024",
+    "Charpentier2020",
+    "Chen2021ICUForecast",
+    "Corless1996",
+    "Duque2020",
+    "Ferguson2020Report9",
+    "Ferretti2020",
+    "He2023TDINN",
+    "Hellewell2020",
+    "Kucharski2020",
+    "Miclo2022ICU",
+    "Pollinger2023",
+    "Pung2023Undetected",
+    "Tang2020Transmission",
+    "XianStat2021",
+    "Zhang2026Behavior",
+    "Zhou2024SPCI"
+  ],
+  "missing_printed_references": [],
+  "bibliography_heading_pages": [
+    44
+  ],
+  "main_bibliography_print_count": 1,
+  "visual_review": "pending_manual_review",
+  "failures": [],
+  "scope": "实际完整编译与纸张边界预检，不是逐页视觉认证。"
+}

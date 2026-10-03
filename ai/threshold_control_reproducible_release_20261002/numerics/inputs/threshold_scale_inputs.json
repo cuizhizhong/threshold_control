@@ -1,0 +1,7 @@
+{
+  "population": "13163000",
+  "beds_per_100k": "4.37",
+  "coefficient": "0.0252",
+  "design_theta": "0.002",
+  "interpretation": "复制当前阈值比例检查程序默认输入；不校准实际临床占用。"
+}

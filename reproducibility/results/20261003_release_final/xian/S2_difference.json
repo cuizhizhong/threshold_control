@@ -1,0 +1,64 @@
+{
+  "legacy_fit": {
+    "S0": 13162999.998993373,
+    "I0": 0.0010066282336470538,
+    "R0_initial": 0.0,
+    "objective": 1036.7614051472922,
+    "raw_rmse": 9.426315720176671,
+    "residual_type": "paper_mse"
+  },
+  "legacy_fit_40_cumulative": 2098.974678071337,
+  "legacy_event_40_cumulative": 2090.135467393404,
+  "unified_at_legacy_I0_40_cumulative": 2099.0503966232623,
+  "unified_refit_40_cumulative": 2098.9746855202184,
+  "unified_S2_rows": [
+    {
+      "type": "observed",
+      "I0": null,
+      "cumulative_40": 2050.0,
+      "community_daily_peak": 60.0,
+      "quarantine_daily_peak": 141.0
+    },
+    {
+      "type": "fitted",
+      "I0": 0.00100659188867187,
+      "cumulative_40": 2098.9746855202184,
+      "community_daily_peak": 53.881779813875625,
+      "quarantine_daily_peak": 115.9334786504046
+    },
+    {
+      "type": "fixed_I0_1",
+      "I0": 1.0,
+      "cumulative_40": 1083553.0431865945,
+      "community_daily_peak": 36873.63712064945,
+      "quarantine_daily_peak": 63966.50133200473
+    }
+  ],
+  "early_tolerance": {
+    "legacy_event_first_crossing_time": 7.413551355967809,
+    "unified_I_at_legacy_first_crossing": 1.0042744469313796,
+    "event_max_relative_I_error": 0.007554779411151791,
+    "fit_solver_max_relative_I_error": 0.0005562986697515981,
+    "legacy_event_initial_atol_over_I0": 0.09934154105502889,
+    "legacy_fit_initial_atol_over_I0": 0.009934154105502888,
+    "event_minus_fit_40_cumulative": -8.839210677933352
+  },
+  "explanation": "旧拟合使用rtol=1e-7/atol=1e-5；旧事件使用1e-8/1e-4。相同初值并不能保证相同数值轨道。新计算统一使用归一化方程、DOP853求解器和分量容差；TDINN控制连续积分，情景一阈值控制按启动前、平台期、解除后三阶段积分。",
+  "reference_tolerance_differences": {
+    "peak_I": 2.6148541110160295e-09,
+    "J": 1.4419754279515473e-10,
+    "clear_time": 6.074429848013096e-11,
+    "cum_total_infections": 3.6109213397139683e-08
+  },
+  "routine_tolerance_differences": {
+    "peak_I": 3.8510188460350037e-07,
+    "J": 0.0,
+    "clear_time": 1.787725523172412e-11,
+    "cum_total_infections": 3.5390257835388184e-08
+  },
+  "threshold_tolerance_differences": {
+    "ode_cost": 1.4210854715202004e-14,
+    "ode_clear_time": 2.6065549718623515e-09,
+    "ode_cumulative_total": 8.047092705965042e-06
+  }
+}

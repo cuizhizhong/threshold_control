@@ -1,0 +1,309 @@
+{
+  "parameters": {
+    "N": 763.0,
+    "S0": 762.0,
+    "I0": 1.0,
+    "beta": 0.155,
+    "gamma": 0.3504,
+    "delta_q": 0.3504,
+    "c0": 10.0,
+    "q0": 0.01526,
+    "eta": 38.15,
+    "wc": 1.0,
+    "wq": 2.0
+  },
+  "Sstar": 708.3469575874326,
+  "Sc": 175.1601700006617,
+  "barS": 145.75170580645158,
+  "t1": 3.1754067956361425,
+  "Send": 81.05874735443786,
+  "post_control_duration": 24.69522007233882,
+  "routine_peak_exact": 300.38012889938136,
+  "routine_peak_time": 6.721158238255722,
+  "quadrature_tolerance": 1e-09,
+  "rows": [
+    {
+      "strategy": "contact_only",
+      "duration": 36.2607706451902,
+      "cost": 11.939018759346496,
+      "t_end": 64.13139751316515,
+      "new_infections_control": 492.23681316890526,
+      "new_Sq_control": 40.94997441786556,
+      "total_infections": 628.643394699547,
+      "initial_c": 2.47280189636505,
+      "initial_q": 0.015260000000000162
+    },
+    {
+      "strategy": "alpha_0.5",
+      "duration": 9.236332802468816,
+      "cost": 2.5461619748831614,
+      "t_end": 37.10695967044378,
+      "new_infections_control": 186.97532483103276,
+      "new_Sq_control": 346.211462755738,
+      "total_infections": 323.3819063616745,
+      "initial_c": 6.236400948182526,
+      "initial_q": 0.6095397073313301
+    },
+    {
+      "strategy": "quarantine_only",
+      "duration": 5.9025558511400265,
+      "cost": 2.2236157029353487,
+      "t_end": 33.773182719114985,
+      "new_infections_control": 149.31778982986657,
+      "new_Sq_control": 383.86899775690426,
+      "total_infections": 285.72437136050837,
+      "initial_c": 10.0,
+      "initial_q": 0.7564933060573481
+    },
+    {
+      "strategy": "minimum_cost",
+      "duration": 7.753597909830377,
+      "cost": 2.1182745584872564,
+      "t_end": 35.62422477780534,
+      "new_infections_control": 170.2267114918209,
+      "new_Sq_control": 362.9600760949499,
+      "total_infections": 306.6332930224627,
+      "initial_c": 10.0,
+      "initial_q": 0.7564933060573481
+    }
+  ],
+  "coarse_result": {
+    "parameters": {
+      "N": 763.0,
+      "S0": 762.0,
+      "I0": 1.0,
+      "beta": 0.155,
+      "gamma": 0.3504,
+      "delta_q": 0.3504,
+      "c0": 10.0,
+      "q0": 0.01526,
+      "eta": 38.15,
+      "wc": 1.0,
+      "wq": 2.0
+    },
+    "Sstar": 708.3469575874326,
+    "Sc": 175.1601700006617,
+    "barS": 145.75170580645158,
+    "t1": 3.17540679563618,
+    "Send": 81.05874735443786,
+    "post_control_duration": 24.69522007233882,
+    "routine_peak_exact": 300.38012889938136,
+    "routine_peak_time": 6.721158238255722,
+    "quadrature_tolerance": 1e-07,
+    "rows": [
+      {
+        "strategy": "contact_only",
+        "duration": 36.2607706451902,
+        "cost": 11.939018759346498,
+        "t_end": 64.1313975131652,
+        "new_infections_control": 492.23681316890526,
+        "new_Sq_control": 40.94997441786556,
+        "total_infections": 628.643394699547,
+        "initial_c": 2.47280189636505,
+        "initial_q": 0.015260000000000162
+      },
+      {
+        "strategy": "alpha_0.5",
+        "duration": 9.236332802468846,
+        "cost": 2.546161974883166,
+        "t_end": 37.10695967044384,
+        "new_infections_control": 186.9753248310331,
+        "new_Sq_control": 346.2114627557377,
+        "total_infections": 323.38190636167485,
+        "initial_c": 6.236400948182526,
+        "initial_q": 0.6095397073313301
+      },
+      {
+        "strategy": "quarantine_only",
+        "duration": 5.9025558511400416,
+        "cost": 2.2236157029353496,
+        "t_end": 33.77318271911504,
+        "new_infections_control": 149.31778982986674,
+        "new_Sq_control": 383.8689977569041,
+        "total_infections": 285.7243713605085,
+        "initial_c": 10.0,
+        "initial_q": 0.7564933060573481
+      },
+      {
+        "strategy": "minimum_cost",
+        "duration": 7.7535979076366655,
+        "cost": 2.118274562547446,
+        "t_end": 35.624224775611665,
+        "new_infections_control": 170.22671146704127,
+        "new_Sq_control": 362.96007611972954,
+        "total_infections": 306.63329299768304,
+        "initial_c": 10.0,
+        "initial_q": 0.7564933060573481
+      }
+    ]
+  },
+  "convergence": [
+    {
+      "strategy": "contact_only",
+      "core_integral_absolute_change": {
+        "duration": 0.0,
+        "cost": 1.7763568394002505e-15,
+        "total_infections": 0.0,
+        "t_end": 4.263256414560601e-14,
+        "new_Sq_control": 0.0
+      },
+      "openloop_absolute_change": {
+        "duration": 7.105427357601002e-15,
+        "cost": 3.5775826745521044e-12,
+        "total_new_infections": 2.0588686311384663e-09,
+        "t_end": 4.611706572177354e-10
+      }
+    },
+    {
+      "strategy": "alpha_0.5",
+      "core_integral_absolute_change": {
+        "duration": 3.019806626980426e-14,
+        "cost": 4.440892098500626e-15,
+        "total_infections": 3.410605131648481e-13,
+        "t_end": 6.394884621840902e-14,
+        "new_Sq_control": 2.8421709430404007e-13
+      },
+      "openloop_absolute_change": {
+        "duration": 4.5850789831547445e-10,
+        "cost": 1.092548274073124e-11,
+        "total_new_infections": 1.3841372492606752e-10,
+        "t_end": 1.8971491044794675e-11
+      }
+    },
+    {
+      "strategy": "quarantine_only",
+      "core_integral_absolute_change": {
+        "duration": 1.509903313490213e-14,
+        "cost": 8.881784197001252e-16,
+        "total_infections": 1.1368683772161603e-13,
+        "t_end": 5.684341886080802e-14,
+        "new_Sq_control": 1.7053025658242404e-13
+      },
+      "openloop_absolute_change": {
+        "duration": 1.8468746532107616e-09,
+        "cost": 1.084909939663703e-11,
+        "total_new_infections": 4.774847184307873e-11,
+        "t_end": 3.4226843581564026e-11
+      }
+    },
+    {
+      "strategy": "minimum_cost",
+      "core_integral_absolute_change": {
+        "duration": 2.1937118788173393e-09,
+        "cost": 4.060189517929302e-09,
+        "total_infections": 2.4779637897154316e-08,
+        "t_end": 2.1936727989668725e-09,
+        "new_Sq_control": 2.4779637897154316e-08
+      },
+      "openloop_absolute_change": {
+        "duration": 9.594804950552316e-10,
+        "cost": 8.97295793222952e-09,
+        "total_new_infections": 2.0465510601752612e-06,
+        "t_end": 2.2137122357435146e-08
+      }
+    }
+  ],
+  "stable_quadrature": {
+    "fine": {
+      "epsabs": 1e-09,
+      "epsrel": 1.0000000000000002e-10,
+      "rows": [
+        {
+          "strategy": "contact_only",
+          "duration": 36.2607706451902,
+          "cost": 11.939018759346496,
+          "quad_duration_error_estimate": 4.0257542460942153e-13,
+          "quad_cost_error_estimate": 3.5861677041375495e-13,
+          "difference_from_frozen_core_duration": 0.0,
+          "difference_from_frozen_core_cost": 0.0
+        },
+        {
+          "strategy": "alpha_0.5",
+          "duration": 9.236332802468814,
+          "cost": 2.5461619748831614,
+          "quad_duration_error_estimate": 2.6480849256379475e-12,
+          "quad_cost_error_estimate": 4.564123500016635e-13,
+          "difference_from_frozen_core_duration": 1.7763568394002505e-15,
+          "difference_from_frozen_core_cost": 0.0
+        },
+        {
+          "strategy": "quarantine_only",
+          "duration": 5.9025558511400265,
+          "cost": 2.2236157029353487,
+          "quad_duration_error_estimate": 1.3383025333644894e-12,
+          "quad_cost_error_estimate": 1.2701555043712119e-13,
+          "difference_from_frozen_core_duration": 0.0,
+          "difference_from_frozen_core_cost": 0.0
+        },
+        {
+          "strategy": "minimum_cost",
+          "duration": 7.753597909830379,
+          "cost": 2.1182745584872564,
+          "quad_duration_error_estimate": 2.7260949053697914e-10,
+          "quad_cost_error_estimate": 9.039624908732885e-10,
+          "difference_from_frozen_core_duration": 1.7763568394002505e-15,
+          "difference_from_frozen_core_cost": 0.0
+        }
+      ],
+      "error_estimate_is_rigorous_bound": false
+    },
+    "coarse": {
+      "epsabs": 1e-07,
+      "epsrel": 1e-08,
+      "rows": [
+        {
+          "strategy": "contact_only",
+          "duration": 36.2607706451902,
+          "cost": 11.939018759346498,
+          "quad_duration_error_estimate": 4.0257542460942153e-13,
+          "quad_cost_error_estimate": 2.1585349472800434e-08,
+          "difference_from_frozen_core_duration": 0.0,
+          "difference_from_frozen_core_cost": 1.7763568394002505e-15
+        },
+        {
+          "strategy": "alpha_0.5",
+          "duration": 9.236332802468844,
+          "cost": 2.546161974883166,
+          "quad_duration_error_estimate": 7.679215109437118e-08,
+          "quad_cost_error_estimate": 1.117227007559895e-08,
+          "difference_from_frozen_core_duration": 2.842170943040401e-14,
+          "difference_from_frozen_core_cost": 4.440892098500626e-15
+        },
+        {
+          "strategy": "quarantine_only",
+          "duration": 5.9025558511400416,
+          "cost": 2.2236157029353496,
+          "quad_duration_error_estimate": 3.839609064281704e-08,
+          "quad_cost_error_estimate": 2.600112501392014e-09,
+          "difference_from_frozen_core_duration": 1.509903313490213e-14,
+          "difference_from_frozen_core_cost": 8.881784197001252e-16
+        },
+        {
+          "strategy": "minimum_cost",
+          "duration": 7.753597907636667,
+          "cost": 2.118274562547446,
+          "quad_duration_error_estimate": 6.294882393120815e-08,
+          "quad_cost_error_estimate": 8.745307802959009e-08,
+          "difference_from_frozen_core_duration": 2.1937101024605e-09,
+          "difference_from_frozen_core_cost": 4.060189517929302e-09
+        }
+      ],
+      "error_estimate_is_rigorous_bound": false
+    }
+  },
+  "four_decimal_manuscript_match": true,
+  "passed": true,
+  "software": {
+    "python": "3.12.8",
+    "numpy": "1.26.4",
+    "scipy": "1.13.1"
+  },
+  "source_hashes": {
+    "core": "cb9e13087629375bca1a95bdf9f46dfbe850959202cf941c4598d7aceef7c117",
+    "input": "5aeafe3fe2ba5809eda90a9fbfd9c722dd9161e9d026e5740dd74f94e183f9d6",
+    "local_runner": "e2e4152ba688a681578affdb88703a019cc1af9b1f63c16ef2655224aa9d87e9"
+  },
+  "warnings": [],
+  "precision_boundary": "binary64 数值及两档收敛/时间开环交叉核对支持论文四位小数；不认证全部尾数、根完整性或一般全局最优。",
+  "capacity_scope": "本次仍是无额外能力约束基准；未执行受限能力或临床医疗占用扩展。"
+}
