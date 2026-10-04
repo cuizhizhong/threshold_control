@@ -1,0 +1,3073 @@
+{
+  "permanent_delete_allowed": false,
+  "root": "E:\\work\\draft",
+  "formal_figures": [
+    "figures/Fig1.pdf",
+    "figures/optimal_control_with_quarantine_panels.pdf",
+    "figures/layout_v5/baseline_q_joint.pdf",
+    "figures/scenario1_heatmaps_c0_eta.pdf",
+    "figures/layout_v5/scenario1_inflection_lambda_sensitivity.pdf",
+    "figures/layout_v5/scenario1_inflection_scan_t.pdf",
+    "figures/layout_v5/c0_sensitivity_selected_eta.pdf",
+    "figures/layout_v5/eta_sensitivity_selected_c0.pdf",
+    "figures/layout_v5/xian_observed_fit.pdf",
+    "figures/layout_v5/xian_strategy_process.pdf",
+    "figures/xian_eta_sensitivity.pdf",
+    "figures/xian_heatmaps.pdf",
+    "figures/fig_dom_combined.pdf",
+    "figures/layout_v5/population_threshold_levers.pdf",
+    "figures/layout_v5/c0_sensitivity_panel.pdf",
+    "figures/layout_v5/c0_phase_stationary.pdf",
+    "figures/layout_v5/fig_panel_B_trajectory_decomposition.pdf",
+    "figures/layout_v5/critical_population_cases.pdf",
+    "figures/c0_sensitivity_scan.pdf",
+    "figures/c0_beta_existence.pdf"
+  ],
+  "created_at": "2026-10-03T15:27:23.7298338+08:00",
+  "head": "436dedd733a30cc033c51c8362ef2ca80c532b82",
+  "files": [
+    {
+      "absolute_path": "E:\\work\\draft\\ai\\flatten_curve_analysis_cn.tex",
+      "git_tracked": false,
+      "group": "ai_duplicates",
+      "reason": "冻结包的完全重复副本",
+      "sha256": "d29693d7f4f84ffbf4f2faff1ee99b36ef22613eabef3afc8560d82b967faa53",
+      "bytes": 141336,
+      "file": "ai/flatten_curve_analysis_cn.tex"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\ai\\flatten_curve_analysis_cn.pdf",
+      "git_tracked": false,
+      "group": "ai_duplicates",
+      "reason": "冻结包的完全重复副本",
+      "sha256": "e0f0da40c949cad9e4576e9ab721e03ce376948a4b491071f0de6e3242e894d3",
+      "bytes": 2969582,
+      "file": "ai/flatten_curve_analysis_cn.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\ai\\threshold_control_reproducible_release_20261002.zip",
+      "git_tracked": false,
+      "group": "ai_duplicates",
+      "reason": "冻结包的完全重复副本",
+      "sha256": "ffc01e3ef31414a9b8680b22677d5925915bc2cd0547d136b5b9db8e6b5b609c",
+      "bytes": 5125387,
+      "file": "ai/threshold_control_reproducible_release_20261002.zip"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\c0_beta_existence.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "1190568b9452e62ede65924a970130f9a166119e741d9c1ef76cad9c33b2dcd2",
+      "bytes": 39039,
+      "file": "figures/c0_beta_existence.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\c0_sensitivity_panel.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "616ba45dc8d20745ee99b38c079104f7315fdd7552140146f309778bcbfc7159",
+      "bytes": 55020,
+      "file": "figures/c0_sensitivity_panel.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\c0_sensitivity_phase.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "03506a6891c5d08b56f76be07b42542240763e4be993035daf69db7149a52561",
+      "bytes": 38624,
+      "file": "figures/c0_sensitivity_phase.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\c0_sensitivity_scan.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "60025fefd45bee1be175405c5ac9f37b9ef8f5aacea1929318abbb21251e1006",
+      "bytes": 63814,
+      "file": "figures/c0_sensitivity_scan.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\c0_sensitivity_selected_eta.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "3a9e0a9e9f684744bc8aa7d224b60fa7f52d7d7df9be61c4bd14fabd89be5584",
+      "bytes": 41196,
+      "file": "figures/c0_sensitivity_selected_eta.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\eta_sensitivity_selected_c0.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "cdf9db149941aa7187b18e41eab396dd40b66a281d7328593cf2e69032261213",
+      "bytes": 68132,
+      "file": "figures/eta_sensitivity_selected_c0.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\fig_dom_combined.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "23ab4c80d358093d615e5fec431c5e6b39feb2a9f2c082d29a25c57d0274ef2e",
+      "bytes": 59029,
+      "file": "figures/fig_dom_combined.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\fig_panel_A_Ncumstar.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "3d8e7356a27b7230aec10b6f2cf48691ccdb54738e9bd2f77f15fd10e4f86f20",
+      "bytes": 51397,
+      "file": "figures/fig_panel_A_Ncumstar.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\fig_panel_A_Nstar45.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "9129fb1bb4da38724388134a9fc3d6783ec44457ed83364126be756b0483573e",
+      "bytes": 51291,
+      "file": "figures/fig_panel_A_Nstar45.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\fig_panel_A_Nstarinf.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "e6da5f10df0e146c9dcad13841c34b29d384dd464d2c99d34f56a90c672e4492",
+      "bytes": 51366,
+      "file": "figures/fig_panel_A_Nstarinf.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\fig_panel_A.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "f3b0c537750200ff54384ac3d73d264e971e865a6664cf647e537a1a90f290bb",
+      "bytes": 51411,
+      "file": "figures/fig_panel_A.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\fig_panel_B_trajectory_decomposition.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "c5fd162f2bd4671a2ee7b7342dcd201fdc932772f726ff2029c00fab71e5b649",
+      "bytes": 47944,
+      "file": "figures/fig_panel_B_trajectory_decomposition.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\fig_panel_B.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "db51160f892b93f5f36f98a746eb52ab7417a43652d2a208b2ec3276a8f384ff",
+      "bytes": 60914,
+      "file": "figures/fig_panel_B.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\Fig1.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "1e7e116b766a19522d60f31e1cb3ca0189dc456482f40998d31fc6c322a69d1e",
+      "bytes": 35790,
+      "file": "figures/Fig1.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\neff_scaling_collapse.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "eca5b538bd4b1545427ab7b65101e3e9c69709460e44a73966857a2999442ee2",
+      "bytes": 43927,
+      "file": "figures/neff_scaling_collapse.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\neff_time_metrics.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "03ff0acd83d77e868e9208f0ad4783d988d07ca72946859eb5c0412d6fbcb838",
+      "bytes": 17822,
+      "file": "figures/neff_time_metrics.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\optimal_control_with_quarantine_panels.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "94640e5fa3173b8922af5e5c588245909943f056b2b2ed56fb0d5ef26b9728fc",
+      "bytes": 98779,
+      "file": "figures/optimal_control_with_quarantine_panels.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\scenario1_heatmaps_c0_eta.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "36579d7ff250f27c56eafe017991c948deb2f0dffec994522117ff3b2c939911",
+      "bytes": 783692,
+      "file": "figures/scenario1_heatmaps_c0_eta.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\scenario1_inflection_diagnose.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "9e44d56b1d54166a18197486d28eac8f994e937fc9d272d9a5ef0063d0dbdb0a",
+      "bytes": 22122,
+      "file": "figures/scenario1_inflection_diagnose.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\scenario1_inflection_lambda_sensitivity.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "b67ce486dd01913bfd20ced1b02bdd9eef666a867a7b84e940bdbb95a3b24e17",
+      "bytes": 24331,
+      "file": "figures/scenario1_inflection_lambda_sensitivity.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\scenario1_inflection_landscape.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "3c4ee3c31764b4c90a8d65a81761c37be61d565d662db8a077a8d605ec0df44c",
+      "bytes": 77091,
+      "file": "figures/scenario1_inflection_landscape.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\scenario1_inflection_scan_t.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "51cf9da5e223d51155ffcef68a5e7e7ff3647e26b7f6868213df7700e5bb195c",
+      "bytes": 25786,
+      "file": "figures/scenario1_inflection_scan_t.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\scenario1_u_time_c0.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "a341bfecf34fd15ff8a4a5309aa12fedd98a3bad92ac81420781f40e6f756271",
+      "bytes": 32854,
+      "file": "figures/scenario1_u_time_c0.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\scenario1_u_time_eta.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "1ee171059cc30e4a856f4c8f9926f40728bb4eea691e8269e4343ad550c7b51b",
+      "bytes": 48160,
+      "file": "figures/scenario1_u_time_eta.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\xian_control_comparison_panels.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "233e403f06b6e4f02d98957438e6ccf1738af3d14003d160429047795a185e75",
+      "bytes": 57097,
+      "file": "figures/xian_control_comparison_panels.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\xian_control_cumulative.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "459cc7e5874e1f6bb7d2aeb1210646e6b9625fa26b932ac7de44ef744d87dae5",
+      "bytes": 51378,
+      "file": "figures/xian_control_cumulative.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\xian_effective_reproduction_number.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "9b51378e9079987f7a746f889b7b625606af5f16407164dba7e9fbb2ff6fbe90",
+      "bytes": 33468,
+      "file": "figures/xian_effective_reproduction_number.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\xian_eta_sensitivity.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "d238531ad24cae785a15dbc1e1393d9dc32fc3cdcee227d7029a28e73048023a",
+      "bytes": 47711,
+      "file": "figures/xian_eta_sensitivity.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\xian_heatmaps.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "948f6f3965657c2c61b9170108451e3a3e81f78bd3c4ec53b261f57e3bfdc77a",
+      "bytes": 563938,
+      "file": "figures/xian_heatmaps.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\figures\\xian_observed_daily_cases.pdf",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "51e714a7331d497de985aff47f7249660d4f40f70a6c175e403bb8e009c788b6",
+      "bytes": 31093,
+      "file": "figures/xian_observed_daily_cases.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\table\\scenario1_c0_summary_table.tex",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "5c87024cd04abef0e5e588715c247909495bc26a9a4f4e07681b695ac5153889",
+      "bytes": 684,
+      "file": "table/scenario1_c0_summary_table.tex"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\table\\scenario1_c0_summary.csv",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "a1e6dad166201709a41bad461762eefbe4ed1c12c9702c16e4453ebe579eee6a",
+      "bytes": 3428,
+      "file": "table/scenario1_c0_summary.csv"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\table\\scenario1_eta_summary_table.tex",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "5d54e943b6d8881de12d6bb57262fbe0159681884915f52b803b23325f52e5dc",
+      "bytes": 575,
+      "file": "table/scenario1_eta_summary_table.tex"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\table\\scenario1_eta_summary.csv",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "1198c58554f26cc9c24ffec135629abe5ae03cfb643e8a53264aefc687c24a3f",
+      "bytes": 1767,
+      "file": "table/scenario1_eta_summary.csv"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\table\\xian_control_comparison_results_table.tex",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "b896c8f6027316e48ff00ffd312ca26f0a77461a44487be13934a7bbc4cd3e6b",
+      "bytes": 465,
+      "file": "table/xian_control_comparison_results_table.tex"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\table\\xian_eta_sensitivity_table.tex",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "44fde66f4fe4c3876bbf0acb62e3d9a41b10a0d4593522964e4e0a951cca30bc",
+      "bytes": 1056,
+      "file": "table/xian_eta_sensitivity_table.tex"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\table\\xian_i0_sensitivity_table.tex",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "b38cf39f086fb02c7f36ff66ba00fa87a8023574879be69281e8440e8cb27c4e",
+      "bytes": 308,
+      "file": "table/xian_i0_sensitivity_table.tex"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\table\\xian_initial_fit_table.tex",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "1bf5fa685d8108305457a270cdb586711e1f11d6448bbbeb4a0f2bf0a886a533",
+      "bytes": 235,
+      "file": "table/xian_initial_fit_table.tex"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\table\\scenario1_c0_summary_table.tex",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "9a0b07b16d77c65141f2086e7bf6a94b6ddffb21d0f6bce3c8349a7f1394b44e",
+      "bytes": 877,
+      "file": "latex/table/scenario1_c0_summary_table.tex"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\table\\scenario1_eta_summary_table.tex",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "237caf071eb020f498e04f0497042807b7510a0faaccd0f86a0d485022675b9f",
+      "bytes": 769,
+      "file": "latex/table/scenario1_eta_summary_table.tex"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\table\\xian_control_comparison_results_table.tex",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "f48c577687a945e5266ef85bae4ee29249f151ebf7f0d8bccec9a0b72828fb8a",
+      "bytes": 720,
+      "file": "latex/table/xian_control_comparison_results_table.tex"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\table\\xian_eta_sensitivity_table.tex",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "ee91de1257835b8e877d2ab6a6b44021964871e6edd1de256fb40c0667d8d1e5",
+      "bytes": 1465,
+      "file": "latex/table/xian_eta_sensitivity_table.tex"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\table\\xian_i0_sensitivity_table.tex",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "28819bd3853bdaab8b0da883fa5bc53beaef32a09572453832333f1cdcb289fa",
+      "bytes": 515,
+      "file": "latex/table/xian_i0_sensitivity_table.tex"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\table\\xian_initial_fit_table.tex",
+      "git_tracked": true,
+      "group": "legacy_figures_tables",
+      "reason": "当前论文及独立复现不读取的旧导出",
+      "sha256": "1152aa135da4cf80397f28b8609d34eb60612576349a8cac02a127188b64573e",
+      "bytes": 394,
+      "file": "latex/table/xian_initial_fit_table.tex"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\c0_sensitivity_panel.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "616ba45dc8d20745ee99b38c079104f7315fdd7552140146f309778bcbfc7159",
+      "bytes": 55020,
+      "file": "latex/figures/c0_sensitivity_panel.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\c0_sensitivity_phase.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "03506a6891c5d08b56f76be07b42542240763e4be993035daf69db7149a52561",
+      "bytes": 38624,
+      "file": "latex/figures/c0_sensitivity_phase.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\c0_sensitivity_selected_eta.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "3a9e0a9e9f684744bc8aa7d224b60fa7f52d7d7df9be61c4bd14fabd89be5584",
+      "bytes": 41196,
+      "file": "latex/figures/c0_sensitivity_selected_eta.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\eta_sensitivity_selected_c0.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "cdf9db149941aa7187b18e41eab396dd40b66a281d7328593cf2e69032261213",
+      "bytes": 68132,
+      "file": "latex/figures/eta_sensitivity_selected_c0.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\fig_panel_A_Ncumstar.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "3d8e7356a27b7230aec10b6f2cf48691ccdb54738e9bd2f77f15fd10e4f86f20",
+      "bytes": 51397,
+      "file": "latex/figures/fig_panel_A_Ncumstar.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\fig_panel_A_Nstar45.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "9129fb1bb4da38724388134a9fc3d6783ec44457ed83364126be756b0483573e",
+      "bytes": 51291,
+      "file": "latex/figures/fig_panel_A_Nstar45.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\fig_panel_A_Nstarinf.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "e6da5f10df0e146c9dcad13841c34b29d384dd464d2c99d34f56a90c672e4492",
+      "bytes": 51366,
+      "file": "latex/figures/fig_panel_A_Nstarinf.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\fig_panel_A.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "f3b0c537750200ff54384ac3d73d264e971e865a6664cf647e537a1a90f290bb",
+      "bytes": 51411,
+      "file": "latex/figures/fig_panel_A.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\fig_panel_B_trajectory_decomposition.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "c5fd162f2bd4671a2ee7b7342dcd201fdc932772f726ff2029c00fab71e5b649",
+      "bytes": 47944,
+      "file": "latex/figures/fig_panel_B_trajectory_decomposition.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\fig_panel_B.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "db51160f892b93f5f36f98a746eb52ab7417a43652d2a208b2ec3276a8f384ff",
+      "bytes": 60914,
+      "file": "latex/figures/fig_panel_B.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\neff_scaling_collapse.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "eca5b538bd4b1545427ab7b65101e3e9c69709460e44a73966857a2999442ee2",
+      "bytes": 43927,
+      "file": "latex/figures/neff_scaling_collapse.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\neff_time_metrics.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "03ff0acd83d77e868e9208f0ad4783d988d07ca72946859eb5c0412d6fbcb838",
+      "bytes": 17822,
+      "file": "latex/figures/neff_time_metrics.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\scenario1_inflection_lambda_sensitivity.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "b67ce486dd01913bfd20ced1b02bdd9eef666a867a7b84e940bdbb95a3b24e17",
+      "bytes": 24331,
+      "file": "latex/figures/scenario1_inflection_lambda_sensitivity.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\scenario1_inflection_landscape.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "3c4ee3c31764b4c90a8d65a81761c37be61d565d662db8a077a8d605ec0df44c",
+      "bytes": 77091,
+      "file": "latex/figures/scenario1_inflection_landscape.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\scenario1_inflection_scan_t.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "51cf9da5e223d51155ffcef68a5e7e7ff3647e26b7f6868213df7700e5bb195c",
+      "bytes": 25786,
+      "file": "latex/figures/scenario1_inflection_scan_t.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\scenario1_u_time_c0.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "a341bfecf34fd15ff8a4a5309aa12fedd98a3bad92ac81420781f40e6f756271",
+      "bytes": 32854,
+      "file": "latex/figures/scenario1_u_time_c0.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\scenario1_u_time_eta.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "1ee171059cc30e4a856f4c8f9926f40728bb4eea691e8269e4343ad550c7b51b",
+      "bytes": 48160,
+      "file": "latex/figures/scenario1_u_time_eta.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\xian_control_comparison_panels.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "233e403f06b6e4f02d98957438e6ccf1738af3d14003d160429047795a185e75",
+      "bytes": 57097,
+      "file": "latex/figures/xian_control_comparison_panels.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\xian_control_cumulative.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "459cc7e5874e1f6bb7d2aeb1210646e6b9625fa26b932ac7de44ef744d87dae5",
+      "bytes": 51378,
+      "file": "latex/figures/xian_control_cumulative.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\xian_effective_reproduction_number.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "9b51378e9079987f7a746f889b7b625606af5f16407164dba7e9fbb2ff6fbe90",
+      "bytes": 33468,
+      "file": "latex/figures/xian_effective_reproduction_number.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\xian_observed_daily_cases.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "51e714a7331d497de985aff47f7249660d4f40f70a6c175e403bb8e009c788b6",
+      "bytes": 31093,
+      "file": "latex/figures/xian_observed_daily_cases.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\layout_v5\\baseline_q_joint.png",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "66d04e94b45adb6c14b1d0263fccd22d930d0965a4a439097daad256188fdd60",
+      "bytes": 121389,
+      "file": "latex/figures/layout_v5/baseline_q_joint.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\layout_v5\\baseline_q_joint.svg",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "736a3d1cc1dae05fc7e0295aa8a594761cec0b295e9a21bade0ee14e6576257c",
+      "bytes": 327472,
+      "file": "latex/figures/layout_v5/baseline_q_joint.svg"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\layout_v5\\c0_phase_stationary.png",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "fb14e2bd80d27f74c8af1b404c41e35413296e74c3ac24c93738b5b0a7b69efa",
+      "bytes": 123320,
+      "file": "latex/figures/layout_v5/c0_phase_stationary.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\layout_v5\\c0_phase_stationary.svg",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "abbc4287fc0ec1d24b973633e7abd68afa30a4008e1d90fb56879c9c7d2e6dc3",
+      "bytes": 28937,
+      "file": "latex/figures/layout_v5/c0_phase_stationary.svg"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\layout_v5\\c0_sensitivity_panel.png",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "237c6d1736c186cd2bb6b8d66b5f5ff698e7afd973a4c9716c07d94a081c5730",
+      "bytes": 142727,
+      "file": "latex/figures/layout_v5/c0_sensitivity_panel.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\layout_v5\\c0_sensitivity_panel.svg",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "4923e813765d2df5be2aa8cc3388a371d1b72f55ab51a1c02a2a508310845d49",
+      "bytes": 46023,
+      "file": "latex/figures/layout_v5/c0_sensitivity_panel.svg"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\layout_v5\\c0_sensitivity_selected_eta.png",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "cfa745d2a9f1fe2cb661ec56d682e371399c73ce992cd026006cbe984ade3d87",
+      "bytes": 141731,
+      "file": "latex/figures/layout_v5/c0_sensitivity_selected_eta.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\layout_v5\\c0_sensitivity_selected_eta.svg",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "b983614e288cfae71f69919947c6d3d2bc6b37b761c2339c48fce928444e10af",
+      "bytes": 373779,
+      "file": "latex/figures/layout_v5/c0_sensitivity_selected_eta.svg"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\layout_v5\\critical_population_cases.png",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "b9c0908ee1f352808e9b533684c67f9548a4995c010318b48904c93337c864e7",
+      "bytes": 393936,
+      "file": "latex/figures/layout_v5/critical_population_cases.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\layout_v5\\critical_population_cases.svg",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "0c574e6be7bf36effdc828a7bd36fe073832dec171279c8e17ea03231a0f3ae0",
+      "bytes": 117997,
+      "file": "latex/figures/layout_v5/critical_population_cases.svg"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\layout_v5\\eta_sensitivity_selected_c0.png",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "fe6fc84b536bf98a2369dea1b3e9dab5a028d449da350fe822c82387eb281678",
+      "bytes": 155770,
+      "file": "latex/figures/layout_v5/eta_sensitivity_selected_c0.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\layout_v5\\eta_sensitivity_selected_c0.svg",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "e5fe192d4a60e56e7b1dc8ae91e4b0624f592534bde8170538592f7ebf35b08f",
+      "bytes": 472190,
+      "file": "latex/figures/layout_v5/eta_sensitivity_selected_c0.svg"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\layout_v5\\fig_panel_B_trajectory_decomposition.png",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "f4bad9e2d31903ee4d7346bdd9a9821e71df54e248bf889ca92804c4b814aad6",
+      "bytes": 218074,
+      "file": "latex/figures/layout_v5/fig_panel_B_trajectory_decomposition.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\layout_v5\\fig_panel_B_trajectory_decomposition.svg",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "07e2c27c6fe35ea7e0efcddd5b8725e2804e61a9298f469f3a0b441e11592901",
+      "bytes": 88662,
+      "file": "latex/figures/layout_v5/fig_panel_B_trajectory_decomposition.svg"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\layout_v5\\population_threshold_levers.png",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "94c7fbc03fd693fd7fe7d18608d65b9773336d256debaddf4da8bd66a40d8d48",
+      "bytes": 293143,
+      "file": "latex/figures/layout_v5/population_threshold_levers.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\layout_v5\\population_threshold_levers.svg",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "39ab57344906fe76e42170a14ac3d4d34daa842838dc1980f863064f84afa462",
+      "bytes": 108009,
+      "file": "latex/figures/layout_v5/population_threshold_levers.svg"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\layout_v5\\scenario1_inflection_lambda_sensitivity.png",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "53157e69b1b8b23b78ca56616a1864ec49e4a87dc16420af795f1398b1d487b3",
+      "bytes": 92517,
+      "file": "latex/figures/layout_v5/scenario1_inflection_lambda_sensitivity.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\layout_v5\\scenario1_inflection_lambda_sensitivity.svg",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "71e73dc15b293c292ffda5f9e73ed16ff3e8e52a2d26e33dc9e32873d2ff51fa",
+      "bytes": 33497,
+      "file": "latex/figures/layout_v5/scenario1_inflection_lambda_sensitivity.svg"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\layout_v5\\scenario1_inflection_scan_t.png",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "48b79c043c0cda40ce546eebc205ca8a254ebb9174fa9e394c514842a92ddfac",
+      "bytes": 142053,
+      "file": "latex/figures/layout_v5/scenario1_inflection_scan_t.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\layout_v5\\scenario1_inflection_scan_t.svg",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "c0d4e05e508151bc4c35c0f4deae15ec7bbf189f9e958ad3c8a53aae6ccac7d4",
+      "bytes": 42048,
+      "file": "latex/figures/layout_v5/scenario1_inflection_scan_t.svg"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\layout_v5\\xian_observed_fit.png",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "4430b9b22b180dfd1b228b0ad255f5c9541ea5f189153b64c8aef8525b8d674f",
+      "bytes": 111393,
+      "file": "latex/figures/layout_v5/xian_observed_fit.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\layout_v5\\xian_observed_fit.svg",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "5645d9c6e1a095045621a9c93b39eaa2fdfcabe16fc35d9afcddd535d6a66cfd",
+      "bytes": 27341,
+      "file": "latex/figures/layout_v5/xian_observed_fit.svg"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\layout_v5\\xian_strategy_process.png",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "333ba4321414ace5dd7dbb2d4543dd2f0f3801bff01b442d5684d3b95e4d65c2",
+      "bytes": 168131,
+      "file": "latex/figures/layout_v5/xian_strategy_process.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\layout_v5\\xian_strategy_process.svg",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "69781a6413cb2074ae19af69b7c510926240fe917b324394b9d93fbeca4c0f89",
+      "bytes": 47425,
+      "file": "latex/figures/layout_v5/xian_strategy_process.svg"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\revision_v4\\baseline_q_joint.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "faef4bbbbd35433ddb24147e78da7204f36a38ba6232537cd30edbb79f1b24bb",
+      "bytes": 37071,
+      "file": "latex/figures/revision_v4/baseline_q_joint.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\revision_v4\\baseline_q_joint.png",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "7047a4248e839de2f06991b9e8e7247fd776bfbeec80c60e00285a08a7e8a6a9",
+      "bytes": 143146,
+      "file": "latex/figures/revision_v4/baseline_q_joint.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\revision_v4\\baseline_q_joint.svg",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "674c6936daddacf904f08dbdc0aed1a4ae6eccf350e96045d25be784042a0d6d",
+      "bytes": 33701,
+      "file": "latex/figures/revision_v4/baseline_q_joint.svg"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\revision_v4\\c0_phase_stationary.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "9024af27a91d1489f9bf4c75cf0c400194b12eedd409dcc63403406e8ca94b7b",
+      "bytes": 35527,
+      "file": "latex/figures/revision_v4/c0_phase_stationary.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\revision_v4\\c0_phase_stationary.png",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "00ad25e1e8a7919d16f3d548253eb1335656587970ad7631a483d62a815aafb1",
+      "bytes": 133625,
+      "file": "latex/figures/revision_v4/c0_phase_stationary.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\revision_v4\\c0_phase_stationary.svg",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "b476d7a70cb1f7f640a662dcf4467129585b375e383b28627a5c4be905f9ed74",
+      "bytes": 25863,
+      "file": "latex/figures/revision_v4/c0_phase_stationary.svg"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\revision_v4\\critical_population_cases.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "98cc99327a0ee4c293bf977a80d64d33e56c5f2d7cce6daa57bddbe811d73af7",
+      "bytes": 47984,
+      "file": "latex/figures/revision_v4/critical_population_cases.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\revision_v4\\critical_population_cases.png",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "d948002e817419389af523ba5085dbb3563551d890beaaf040eebbcb29042b61",
+      "bytes": 301295,
+      "file": "latex/figures/revision_v4/critical_population_cases.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\revision_v4\\critical_population_cases.svg",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "3a30eaf386797792d98c2b01c0d7c640895adec13f86a1e064aeed1c866d80d6",
+      "bytes": 64163,
+      "file": "latex/figures/revision_v4/critical_population_cases.svg"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\revision_v4\\population_threshold_levers.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "8ea2871912591f566a47c759233be9a3517dc3890c0d383af81459a5592dca74",
+      "bytes": 71255,
+      "file": "latex/figures/revision_v4/population_threshold_levers.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\revision_v4\\population_threshold_levers.png",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "5181299fbec7656a259fd0455035adeb5d91dcc6d782f9d666e4a101df9a572e",
+      "bytes": 218540,
+      "file": "latex/figures/revision_v4/population_threshold_levers.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\revision_v4\\population_threshold_levers.svg",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "1e91ca361cfe43fc7f0e2985b5686a8ebc106df4b3f056fead6648722c3f60f9",
+      "bytes": 124866,
+      "file": "latex/figures/revision_v4/population_threshold_levers.svg"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\revision_v4\\xian_observed_fit.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "7a4b72d2b696204deb3daa41922c95378fd2dbd2b5eda82d3be2f8d1f0ce8247",
+      "bytes": 39533,
+      "file": "latex/figures/revision_v4/xian_observed_fit.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\revision_v4\\xian_observed_fit.png",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "03ce363cf718dc95e41729d467f04bd35f8dc18c642f0f667c06866fdb6daf1c",
+      "bytes": 137522,
+      "file": "latex/figures/revision_v4/xian_observed_fit.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\revision_v4\\xian_observed_fit.svg",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "f3967fb0ae308009db52b376164ad978a679e7803dafa1747c5a33ea9b57b3ca",
+      "bytes": 27738,
+      "file": "latex/figures/revision_v4/xian_observed_fit.svg"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\revision_v4\\xian_strategy_process.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "3978d940e9a868042cd96dc502c9907f664b0850db2f86cfff46b6ed39148fa2",
+      "bytes": 43735,
+      "file": "latex/figures/revision_v4/xian_strategy_process.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\revision_v4\\xian_strategy_process.png",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "6537b4c5bce28311e144cc26a52cb2dfa969277c42e79bc6a09d9d442d031efa",
+      "bytes": 181703,
+      "file": "latex/figures/revision_v4/xian_strategy_process.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\revision_v4\\xian_strategy_process.svg",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "7ba14999cac75c6f4aacac2718a44872ff8181fa249e4ce3a92c139edf1750c9",
+      "bytes": 46797,
+      "file": "latex/figures/revision_v4/xian_strategy_process.svg"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\style_restored\\c0_phase_stationary.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "e2729ae9d2f277bea7d11c1b1a3f048ba1b40d6896ae0b3805f553a017938775",
+      "bytes": 40088,
+      "file": "latex/figures/style_restored/c0_phase_stationary.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\style_restored\\c0_phase_stationary.png",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "05d65920e667dd675050e1701bf3f13180914bf4b301c95bd5535f4a10ef05b2",
+      "bytes": 161864,
+      "file": "latex/figures/style_restored/c0_phase_stationary.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\style_restored\\c0_phase_stationary.svg",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "0218bda147e15292a3a483d09d372f7a4739737139a3b690543fbe33944b2f6b",
+      "bytes": 29784,
+      "file": "latex/figures/style_restored/c0_phase_stationary.svg"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\style_restored\\critical_population_cases.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "2fb9eeb2da02dd1feb6d048b13c7aef5ba912e0c6b872d4dfb35b06d29d2b35e",
+      "bytes": 62606,
+      "file": "latex/figures/style_restored/critical_population_cases.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\style_restored\\critical_population_cases.png",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "2123a639ebe36a8d51bb32ecd42e36905bb31224ea04050606a5cdbfd1d017e6",
+      "bytes": 422382,
+      "file": "latex/figures/style_restored/critical_population_cases.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\style_restored\\critical_population_cases.svg",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "36423b22d9db7640c2d9de1ed50dd98f397de8715f0c68433c2ef52ee3d75f14",
+      "bytes": 129998,
+      "file": "latex/figures/style_restored/critical_population_cases.svg"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\style_restored\\population_threshold_levers.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "03644cde4bec578f27b82e0fa40db752eb5f3f4e72979ea7180817dd424ea27b",
+      "bytes": 65216,
+      "file": "latex/figures/style_restored/population_threshold_levers.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\style_restored\\population_threshold_levers.png",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "dd4606080a0c50864a8f9498fe4fee40a8db9eb067c4198813652c1c29ab99f8",
+      "bytes": 291510,
+      "file": "latex/figures/style_restored/population_threshold_levers.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\style_restored\\population_threshold_levers.svg",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "b12c251e0312f41333304ec8c12ff7a877d00bfc146956fa44feacb0607bf4f8",
+      "bytes": 112352,
+      "file": "latex/figures/style_restored/population_threshold_levers.svg"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\style_restored\\xian_observed_fit.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "c9b674ae54754f283ca172d25b75e520cb25da99c744c6d7f2e117a243db7d52",
+      "bytes": 34374,
+      "file": "latex/figures/style_restored/xian_observed_fit.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\style_restored\\xian_observed_fit.png",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "ba437a3dcb55c677cdd7dd2c29c168526c02074703e2027aeab252fb63b2a052",
+      "bytes": 116890,
+      "file": "latex/figures/style_restored/xian_observed_fit.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\style_restored\\xian_observed_fit.svg",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "661f22a2b41e266ffe46515d24017093a5517ff2a39793a57811bcf21d915460",
+      "bytes": 26519,
+      "file": "latex/figures/style_restored/xian_observed_fit.svg"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\style_restored\\xian_strategy_process.pdf",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "0e7e56e8a91638a795f29e0642b52b9692bcabd2c80a0c66958e1ece0e781fc5",
+      "bytes": 53981,
+      "file": "latex/figures/style_restored/xian_strategy_process.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\style_restored\\xian_strategy_process.png",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "67974abce1c432a41d952a3e90fdf90e2d99440229d4d0d6f07b03011aa8f3f7",
+      "bytes": 217050,
+      "file": "latex/figures/style_restored/xian_strategy_process.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\figures\\style_restored\\xian_strategy_process.svg",
+      "git_tracked": true,
+      "group": "unused_formal_exports",
+      "reason": "不属于正式稿引用20PDF的旧导出或预览",
+      "sha256": "c57f0ef81296ce6df23a6ce5aacb18aba70615fe404a1b0e1c0d3621b40311c7",
+      "bytes": 58022,
+      "file": "latex/figures/style_restored/xian_strategy_process.svg"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\ai_release_build_check_20261002\\flatten_curve_analysis_cn.blg",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "2c989fc611aa68b0b1245c4a34bfb997d177e3dea05959e8eeb8ed93ce546a50",
+      "bytes": 1145,
+      "file": "tmp/ai_release_build_check_20261002/flatten_curve_analysis_cn.blg"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\ai_release_build_check_20261002\\flatten_curve_analysis_cn.log",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "8c0ef4560c12fd922eb960fbfa2e9eb33d60f1333d4989090fb29e9a9b4300cc",
+      "bytes": 78436,
+      "file": "tmp/ai_release_build_check_20261002/flatten_curve_analysis_cn.log"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\ai_release_build_check_20261002\\flatten_curve_analysis_cn.pdf",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "4f1a091ac8a5905992a9be3f1a3f3ab6f9ec65da2b1b37f35da2d78aa2c45c8a",
+      "bytes": 2663661,
+      "file": "tmp/ai_release_build_check_20261002/flatten_curve_analysis_cn.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\ai_release_build_check_20261002\\flatten_curve_supplement_cn.log",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "680f2ce71c4cdb0bd0131c4bb9a812deee45dcfaafc0d395c99ef7046ec22035",
+      "bytes": 69843,
+      "file": "tmp/ai_release_build_check_20261002/flatten_curve_supplement_cn.log"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\ai_release_build_check_20261002\\flatten_curve_supplement_cn.pdf",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "54b7f6d2f723193dc0fded885c47e5203e6d219f342303c63f446e03f9b0ec67",
+      "bytes": 69707,
+      "file": "tmp/ai_release_build_check_20261002/flatten_curve_supplement_cn.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\ai_release_build_check_20261002\\stdout.log",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "adc6a53cb671a0efde65cf09d7464cf00ac7f44c170c4b978ba12a7470e2e43b",
+      "bytes": 82064,
+      "file": "tmp/ai_release_build_check_20261002/stdout.log"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\bin\\pymupdf.exe",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "c16c9d00cf347f28a8aceafe40872e0253e8d2123f40fad0420bf42a29956d95",
+      "bytes": 108375,
+      "file": "tmp/figure_qa_deps/bin/pymupdf.exe"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\fitz\\__init__.py",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "399f8de397746c980c547f7c345d2c90d4cb2922cf7e9532c78b31c088951118",
+      "bytes": 589,
+      "file": "tmp/figure_qa_deps/fitz/__init__.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\fitz\\table.py",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "8ab84abc4a59ff83cdfbe4c95ccdaf6eb4ac438415bdee3747d0b2d8a65e2713",
+      "bytes": 85,
+      "file": "tmp/figure_qa_deps/fitz/table.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\fitz\\utils.py",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "4e72ca23d6bad3e263113f4a8fda7b1a5e0ca00be96847031bd64fef2c2fa130",
+      "bytes": 85,
+      "file": "tmp/figure_qa_deps/fitz/utils.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\fitz\\__pycache__\\__init__.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "8300bfb09e8a9380c261cc3bdaa667dbc4d468e14063c493e00e19b8b0eb2049",
+      "bytes": 739,
+      "file": "tmp/figure_qa_deps/fitz/__pycache__/__init__.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\fitz\\__pycache__\\table.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "325ac1da6121e7ed80318f82fe1a91a58d138e53216c03c7a124832ed0c619a0",
+      "bytes": 208,
+      "file": "tmp/figure_qa_deps/fitz/__pycache__/table.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\fitz\\__pycache__\\utils.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "ceb022b58e66ff5bdf6288dbe360ad5ea8c397b853738cff6f58fa5c933fdbd0",
+      "bytes": 208,
+      "file": "tmp/figure_qa_deps/fitz/__pycache__/utils.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\__init__.py",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "e8cdb45ed0afa21f919cec30e69b7b572c3db7bc80d203e4e07e4c7ea2b19cce",
+      "bytes": 924164,
+      "file": "tmp/figure_qa_deps/pymupdf/__init__.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\__main__.py",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "763a97305937d0665a43d4b6920924efb15d8f87795ec2926c09f9da69bfd2cb",
+      "bytes": 41358,
+      "file": "tmp/figure_qa_deps/pymupdf/__main__.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\_apply_pages.py",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "720b52015d70320bb3603c1a724c0741c9b53e87a9943ec96a911ef38b5bd457",
+      "bytes": 7716,
+      "file": "tmp/figure_qa_deps/pymupdf/_apply_pages.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\_build.py",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "6561ced4e8b28638d0ca36a028d4f91d1ac2ca309750930283f125aa0b04cae2",
+      "bytes": 471,
+      "file": "tmp/figure_qa_deps/pymupdf/_build.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\_extra.pyd",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "43292c50f18dafa1d92dec67e076d2340a361a24e510edb6ccfe8de7364b6b10",
+      "bytes": 190976,
+      "file": "tmp/figure_qa_deps/pymupdf/_extra.pyd"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\_mupdf.pyd",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "8b0a0a990523eaecf695ec7f9bb5660047b11948649a7e89369141c03dc589d9",
+      "bytes": 13063168,
+      "file": "tmp/figure_qa_deps/pymupdf/_mupdf.pyd"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\_table_headers.py",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "881a63053ebcb2ce48c87689380774391bbe09eb0996a14b8df7f0b2465e9215",
+      "bytes": 38558,
+      "file": "tmp/figure_qa_deps/pymupdf/_table_headers.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\_table_refine.py",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "37e9f101c3285633a4d62181f008fa36daba1efde30eda1bb7395908aa3af5d2",
+      "bytes": 31792,
+      "file": "tmp/figure_qa_deps/pymupdf/_table_refine.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\_table_spans.py",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "caec10e8e755984e14f3b27463b9e725897d7b98c22e4b447951a9c563b5f949",
+      "bytes": 23067,
+      "file": "tmp/figure_qa_deps/pymupdf/_table_spans.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\_table_union.py",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "efd332e5b513c758425a53c8b8f6b5b99c15bdda7f884818ee62e406d9265592",
+      "bytes": 15322,
+      "file": "tmp/figure_qa_deps/pymupdf/_table_union.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\_wxcolors.py",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "02363faab89d46857e25e7ca88707ca2975d36754a4fa9fd1d15081fc523ac1d",
+      "bytes": 20533,
+      "file": "tmp/figure_qa_deps/pymupdf/_wxcolors.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\extra.py",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "1888affc6f914edef4730c87bcb19849d5f10c9f65334fd329e728565a9980a3",
+      "bytes": 6882,
+      "file": "tmp/figure_qa_deps/pymupdf/extra.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf.py",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "527bb3b4be763143666049efe255092d847a9a13e15a943fef63135bc6653186",
+      "bytes": 2747394,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdfcpp64.dll",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "998184dce298f24a4c2b080a9173594c96c6f78796732bdd8e95ca0e557557cb",
+      "bytes": 26295808,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdfcpp64.dll"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\py.typed",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "file": "tmp/figure_qa_deps/pymupdf/py.typed"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\pymupdf.py",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "4e6040168b78f7ddf96f6ce4b0ddb59e6702a979b55704e62c38b9b430596352",
+      "bytes": 64,
+      "file": "tmp/figure_qa_deps/pymupdf/pymupdf.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\table.py",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "c6523e32da763bd2b84e7b0cb3d221c9938ff1dc06c19a2d0d97d3635999d6ca",
+      "bytes": 109087,
+      "file": "tmp/figure_qa_deps/pymupdf/table.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\utils.py",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "cc172067fe277068a3abdb9c8886efbfacaabc9b261f82ecb686ecd85fb7622d",
+      "bytes": 39718,
+      "file": "tmp/figure_qa_deps/pymupdf/utils.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\classes.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "4dbab31f95a0e12f783137b796a3780836d61d4ce6cdf17c4974532dc7d35149",
+      "bytes": 770545,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/classes.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\classes2.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "068c2655e386e842bd8a2b57211e55fc66cf5ad5c5a6c5281b5ad1152904394c",
+      "bytes": 525997,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/classes2.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\exceptions.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "f8a94473f9470c5866fcbb28451452e7357d1b686ede9488cb80791ec7421512",
+      "bytes": 2197,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/exceptions.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\extra.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "d621e1c26ab9177b8a15800ad2aa8f435426a2de842104196a577c62b2d57722",
+      "bytes": 8513,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/extra.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "3c851e3727717bd651128371da8e5e4276334159cfa59aa4f7a633467bedeb7b",
+      "bytes": 2877,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\functions.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "7a09205f934db773be2438c637441ef5820a742a29a23c3504e14b9213b40620",
+      "bytes": 579432,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/functions.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\html.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "44972ea016ae9ce65cbeea8c647306bc27a9638adcfcb6de9e3fe33997fa503b",
+      "bytes": 2074,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/html.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\internal.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "c4365a086fb77cc3cf08eefb385ff9a3e76b6760d6efa8c2c2b4965599284d33",
+      "bytes": 1391,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/internal.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\memento.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "312a318d0270fb6a7dc4f92fb8f9f95606983c2e648db0730629ef4ad64e7179",
+      "bytes": 17041,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/memento.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\pdf.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "1b31e9a7ef52807a8ce361e52a778e3361644b616e0eb39ee44f9f3c10e646c8",
+      "bytes": 1692,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/pdf.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\ucdn.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "872446ff16664050594bc1e6c2b4a95a35f5c1c9a65565430efa8c286235ca75",
+      "bytes": 14378,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/ucdn.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\archive.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "2eba82c2015535f41de90e94ad7389e8b252f26e7364e7e190b6b18227395061",
+      "bytes": 12458,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/archive.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\band-writer.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "44be4eca94818d624772bec2eea3d9912734a6c631a1f0ece0af379b3d44dfa9",
+      "bytes": 3759,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/band-writer.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\barcode.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "75f0e4ce540f571db2f5c9e2ee897f8d73a4002f42a66f7d8c39978d6e1f2cc1",
+      "bytes": 4245,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/barcode.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\bidi.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "627146b07faf503c9434cdc6a2fa3efa75a036f2fb96d6d2c4e6fd47afa19b37",
+      "bytes": 2530,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/bidi.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\bitmap.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "1a8fad7b399b82630b83a44951c50802f5581c69ba0c62af61fdda3857fba5cd",
+      "bytes": 5350,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/bitmap.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\buffer.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "dd14c15f836831fe8314e908d409bff6cf6506aecf282ad2535a921707070d56",
+      "bytes": 8089,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/buffer.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\color.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "940820d1c64c2ddd63766b188f9b9798a7865e0bf951e13c46396bfa27fd6988",
+      "bytes": 13251,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/color.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\compress.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "ab336a35dad5c56e1cf8b62a70727086081ce11e0082c0c207dc52b80a2ac7f7",
+      "bytes": 5188,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/compress.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\compressed-buffer.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "4cec63441089eac89ea77197b82077682a740625782a555f48980c653ef3f24b",
+      "bytes": 4643,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/compressed-buffer.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\config.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "134195a6dec13aa8e217882cd78b3610c8966f465d393be4bd9a373dfad429b4",
+      "bytes": 8245,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/config.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\context.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "d7fbe6da14ff6abcf00ad56f8626642ce708166e6454074f309786c0fd02c05d",
+      "bytes": 31974,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/context.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\crypt.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "b450f276736931a98595c20ba397f05a742237563e6a5a14113a60b9dcaaa546",
+      "bytes": 6750,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/crypt.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\deskew.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "537342f379f7ac930dfc93a121fe9f3983478f897489a9de9eb78c95625759f5",
+      "bytes": 1442,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/deskew.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\device.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "6b12f488c9b69eee072d64aed9c5fb956ff39e5924117c077a423ada4d3f7bae",
+      "bytes": 25696,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/device.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\display-list.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "c98b57de844757c0c50a38c16b210357e70b99db51156d921891fffa3c6f2e9a",
+      "bytes": 4954,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/display-list.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\document.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "f51abb1e802db10be17b46402732f0ffb50adee2f2b809947399384260ea2d0a",
+      "bytes": 35716,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/document.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\export.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "f93587a7b608eeb8396d83a060c3721b13951942c9dd2465c6d47314b0113d2c",
+      "bytes": 1689,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/export.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\filter.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "173b32b75dac41c6661782e1fc283e55621d9e607571ef2bb71bd830b529731f",
+      "bytes": 8104,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/filter.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\font.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "d581849d2a51dd21b128b2edf37ec96818adbe68dc25fb1400651e278c7a607b",
+      "bytes": 25042,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/font.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\geometry.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "cefc87522783de2dc65ba0c0e50c4718517f477c1816ead818d01d7ad3680c75",
+      "bytes": 24294,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/geometry.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\getopt.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "27ea89de11d5be647d9f5994bfbc68bad50752f6c6bbce7f34c2ef135851e261",
+      "bytes": 4934,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/getopt.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\glyph-cache.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "e45eeb4a37a3f6fc3e3410cb992774cddc29b14ea8923b850f11c1dada74c4c3",
+      "bytes": 3417,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/glyph-cache.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\glyph.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "8d28fe8eca52390351d1cfd58bdaad98758daa483a1b14890bf16ce1a138ecb4",
+      "bytes": 2397,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/glyph.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\hash.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "dabd114f9476b54a75c4368624fda367ed52b8bef510140dee55cf1ca74ef72c",
+      "bytes": 4107,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/hash.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\heap-imp.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "29fd176fa89d50b117b2b56fcd53d3ce20514feb3ec185fe6916e0e5d60a3523",
+      "bytes": 4514,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/heap-imp.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\heap.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "36392e523b8b51d6259c001dcae7a7e0c134af4b2b5fae45411a904ae07c549f",
+      "bytes": 5171,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/heap.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\hyphen.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "8cfdfbfc9fa1c40cbf10faed8b5239940d0177083431a1a8e586793f3717848f",
+      "bytes": 2018,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/hyphen.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\image.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "ec4fc7fb94e3ecbd52354fd4e3a5582194cd9db0078fbcc46713f891c8c4574e",
+      "bytes": 15513,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/image.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\json.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "d399be259e5c589c8beec3b9b41038251f4837c2add27854fe6ba82385df3223",
+      "bytes": 3263,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/json.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\link.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "ccc11438759247393d9dddaf9026920e400d24e346cd8915cc35946a6f766c35",
+      "bytes": 4129,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/link.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\log.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "e319a159d830b81b45a9b7f5d8e5217ca8014f81cb10439d59e66a1e323e0917",
+      "bytes": 1961,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/log.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\options.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "a7c9ea8c302b565e70e29623084a4d81395f370694a0e183d2741f160e616307",
+      "bytes": 6705,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/options.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\outline.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "e85933f83ca4d1a91657169019160165d55a941f4d1b48961ce74e442bcfad34",
+      "bytes": 8148,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/outline.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\output-svg.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "ef60697e748e3e1fc6ce775099f15a86de36946c56335cf58b2f072bbef58919",
+      "bytes": 2947,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/output-svg.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\output.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "24e7b9a0dd4cbc99264cf19f399f6d7f6f1e8a0fd83a49918390ac1a6e415325",
+      "bytes": 13780,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/output.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\path.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "1644bfa7df3549cf8028b3eba7f93d3473f18fa3116bd8190855c56c64a61bc5",
+      "bytes": 14146,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/path.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\pixmap.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "a6cd7aafbd8b1bfae091e080a3b184a161eae449283540750c153703219477ca",
+      "bytes": 16252,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/pixmap.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\pool.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "e690110a2dff0393751f4cacdb3abacaa25124edb7db2c9cc8b5bac19ffd3d47",
+      "bytes": 3302,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/pool.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\separation.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "d8df4cb980c86ba8c3e67e11a4e8cfa962649f4e6f2a496a1839b511241cabdd",
+      "bytes": 4603,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/separation.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\shade.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "74f1e40ab5f10faadaec0d92441ab10d2e1aa09bf4f43e90d9d3557ab3c7f9cb",
+      "bytes": 6211,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/shade.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\store.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "bf3a29039908745131714a84f8602faf8f2b772de23b7532c5cc6296b1545588",
+      "bytes": 14139,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/store.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\story-writer.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "1b7f9e778667b7c7e390f3e142f9cceb788d103861380574aa9eb15fac530d3e",
+      "bytes": 6916,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/story-writer.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\story.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "774d15d23dd1efb428a8a5e6a2f141d584e24c6b6a3eccd1256ac49e1100fdbe",
+      "bytes": 7681,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/story.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\stream.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "c1c60ec456a96746a95a966324e74cbb6746b85a3be80e2217ea57942a8f68df",
+      "bytes": 16683,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/stream.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\string-util.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "62f5f52ddd6242f0f37bf303c20885abbfadb2cf7b197c63a2acbc0942b4d8e6",
+      "bytes": 12673,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/string-util.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\structured-text.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "14f6425c468e8d4be79075ae347dd3907bdecf5971fb630d516e61c7d993b636",
+      "bytes": 44671,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/structured-text.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\system.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "073e469542ba3a84b3fad93bd5fab1464bb792aa82dea6b91558e5e355630be5",
+      "bytes": 15316,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/system.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\text.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "174b56b21d13fe18246427dd68d712b0a81c254fbc17cd48154d023a4c1195c9",
+      "bytes": 6456,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/text.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\track-usage.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "a25792ab5670596a8cb00ca4bc52aac5c4c60470d0a568e643845114bb1d072a",
+      "bytes": 1707,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/track-usage.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\transition.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "07951b7fd6e3fd65a8a9ad3922721d93defcf95460eab474ecfbb16ad7eee7ac",
+      "bytes": 2188,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/transition.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\tree.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "e36e427266db0748fd3c5b6ae12e13c0b9445af2d310c27dda685e5e8116585f",
+      "bytes": 1983,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/tree.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\types.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "3f458b09794660dc954ab76f8e546074b528647a6d13f582937e5892c59ed9fd",
+      "bytes": 1470,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/types.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\util.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "6023a214810ad85d254e41362506b5c0f14ea1ef6f248a503bf012b8b95c1041",
+      "bytes": 12276,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/util.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\version.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "e29279facac2566060ba013550bd6178fefc6c4d0eca49433044489396768502",
+      "bytes": 1200,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/version.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\write-pixmap.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "82218ff6d619fa9d1746aefa952e66845af2d9fddc988cb14c988b92051aab1c",
+      "bytes": 16876,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/write-pixmap.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\writer.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "dab95772c6d1e3bd2a487b67fac36f14a580bef74b729864223d77de7bb7d953",
+      "bytes": 10455,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/writer.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\fitz\\xml.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "d80c67814bf1adfd4f52c6585bf6a1ff6f1112564dc0e177adf2dd0167578436",
+      "bytes": 12937,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz/xml.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\helpers\\mu-office-lib.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "cb1bc9e41f747354eee6caaaf1de8ee1d21924ee3c641bd75a5bb913a6d54811",
+      "bytes": 22192,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/helpers/mu-office-lib.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\helpers\\mu-threads.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "f594589fe460ff4d968c74eda602fa03d806b94f122169be18cd49417e09f210",
+      "bytes": 5774,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/helpers/mu-threads.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\helpers\\pkcs7-openssl.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "8d06f568c3447200bc11a2a17d7e2623313b29cbc010d94affe8cc893a5e961e",
+      "bytes": 2427,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/helpers/pkcs7-openssl.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\pdf\\annot.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "0c0c3d9a22d2d361f2c0812f35ca7acbfffd9239a4dc6336ecc3bd9f9ab0bbed",
+      "bytes": 35759,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/pdf/annot.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\pdf\\clean.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "c989642f135090ee63fce8e8db09152e7fa2d6faa50c72fa73e5d0032eebba16",
+      "bytes": 2872,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/pdf/clean.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\pdf\\cmap.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "ba25bb58f39c235b67125053c4022d3889cd1c8727e6de89a3e6c288920ab7fe",
+      "bytes": 3954,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/pdf/cmap.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\pdf\\crypt.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "e546987708e80e0f65163d4ba773ec3368f6d3a8566a4dc38f192ee5feacbea6",
+      "bytes": 4548,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/pdf/crypt.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\pdf\\document.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "6a17c1f8d0fe2149e609094a20d0665bd2229d55f1fc575a361c1ce4226b23d4",
+      "bytes": 33002,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/pdf/document.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\pdf\\event.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "27fc16c1e10772f553073bb103b73f8cebf5a5fd9c08494ac02b243baf750ea6",
+      "bytes": 4777,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/pdf/event.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\pdf\\font.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "aefff8634d5e035ab3bf0f14a3a9892c3cf72d2eed9dc878779f6b6d0362d7d7",
+      "bytes": 5391,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/pdf/font.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\pdf\\form.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "91969646a2d9cead53f9be1d3e8cd8109023709572e9ef5556aa2cac5a57cdb2",
+      "bytes": 15059,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/pdf/form.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\pdf\\image-rewriter.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "d7999b657f43edcba6e4b8a527fc9301308a6f15b9513bb0f0f3590b1267361e",
+      "bytes": 3565,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/pdf/image-rewriter.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\pdf\\interpret.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "2af5eb6ae564b09fbf4ca82baf7afdbe70c78538be5c695f25874ea8e4c92e0d",
+      "bytes": 20664,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/pdf/interpret.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\pdf\\javascript.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "342addf0d1bfaa23498a270456ef284f52189e9bd726570d8e525b3a840dc2e0",
+      "bytes": 1823,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/pdf/javascript.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\pdf\\name-table.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "3a23207fb4cb723c11d9c324f388cc5bc6df4cc0dff4354022b72e36a98d7f4f",
+      "bytes": 20990,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/pdf/name-table.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\pdf\\object.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "cebc8f81d07380a776c066fa91dce76252dbbabdb9127d8548dd73052463ebc8",
+      "bytes": 20933,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/pdf/object.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\pdf\\page.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "e60801c6f080fef1bffee4aadb11ddc5a9250f40a5a2ea7aab3812d3890aabde",
+      "bytes": 12356,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/pdf/page.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\pdf\\parse.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "9d7d82a04a4eec8ee98b9c7df5c30b1e1ca02d36494ae697e0fe05f77d0a6753",
+      "bytes": 2596,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/pdf/parse.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\pdf\\recolor.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "284afd1764a75be4b7a7ddae9d3291b6526d84a2375e5918f7168e014b871930",
+      "bytes": 1563,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/pdf/recolor.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\pdf\\resource.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "427b22972c0398d5d0b6d7935351179e804504f0b21ed5c1f4e6afb9985ef45d",
+      "bytes": 6902,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/pdf/resource.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\pdf\\xref.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "4d54ed3f01ca989426bb200b78d4ca8cb54ae930d4c6b870abc00871d8ef0585",
+      "bytes": 12131,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/pdf/xref.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\include\\mupdf\\pdf\\zugferd.h",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "99adf5e050ccdfb24576dab245830b8011bc171c339087911344e96cd5d44fcf",
+      "bytes": 1616,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/pdf/zugferd.h"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\lib\\libmuthreads.lib",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "556b5975a7c6d120c1e768a71280aa0a00740aa6be28105edeb661023338a4a9",
+      "bytes": 24968,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/lib/libmuthreads.lib"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\mupdf-devel\\lib\\mupdfcpp64.lib",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "53551847c2eb0f7168a4cd1f61a8113422fbe37d7044446040923b4502253ea5",
+      "bytes": 4032678,
+      "file": "tmp/figure_qa_deps/pymupdf/mupdf-devel/lib/mupdfcpp64.lib"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\__pycache__\\__init__.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "344ca3690368d8480d4e9ba097dd92fbe29f86555d082aa23c430c88352fd3da",
+      "bytes": 1081243,
+      "file": "tmp/figure_qa_deps/pymupdf/__pycache__/__init__.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\__pycache__\\__main__.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "70f580e9ced09c45497c1d44999ec33d94823b15650a2556752bd2c89820f47c",
+      "bytes": 48405,
+      "file": "tmp/figure_qa_deps/pymupdf/__pycache__/__main__.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\__pycache__\\_apply_pages.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "3ac978382ce9dd4c6c560e64870d648cce60e1834bbc1e0de599fb6e303188e0",
+      "bytes": 8680,
+      "file": "tmp/figure_qa_deps/pymupdf/__pycache__/_apply_pages.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\__pycache__\\_build.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "ccb4c357cb7e1927d5daa0e0373cb05ea0f09d78e5671904b8d2554e5e0cd0c8",
+      "bytes": 735,
+      "file": "tmp/figure_qa_deps/pymupdf/__pycache__/_build.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\__pycache__\\_table_headers.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "249803d3f8ccad388fcbd77dcd7a8498079010efade6371193aeaaee6f423ade",
+      "bytes": 54493,
+      "file": "tmp/figure_qa_deps/pymupdf/__pycache__/_table_headers.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\__pycache__\\_table_refine.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "cf33a28bc2f2694ac220f836981f0cf8ac79beb116063ebdf307b6cf513a0251",
+      "bytes": 47985,
+      "file": "tmp/figure_qa_deps/pymupdf/__pycache__/_table_refine.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\__pycache__\\_table_spans.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "9b7c5a271ea9288cb04cbac7be688e06aeeec9f969a1c9846c6a1e05187cb7e3",
+      "bytes": 30750,
+      "file": "tmp/figure_qa_deps/pymupdf/__pycache__/_table_spans.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\__pycache__\\_table_union.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "38a6c3c026a960a7fd60d3c0e511bcef0c073fd74191d270cf7b4733c87d2f30",
+      "bytes": 16855,
+      "file": "tmp/figure_qa_deps/pymupdf/__pycache__/_table_union.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\__pycache__\\_wxcolors.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "c022ff4ae0df3805c8f787d47e26c125051172960df79a9037867a78ec91e544",
+      "bytes": 15691,
+      "file": "tmp/figure_qa_deps/pymupdf/__pycache__/_wxcolors.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\__pycache__\\extra.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "549fcae61e50e2d5ad33059d58095a16ab28c6ac9d2cba7bad52c930faf0cf69",
+      "bytes": 13261,
+      "file": "tmp/figure_qa_deps/pymupdf/__pycache__/extra.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\__pycache__\\mupdf.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "6b7381be44fa4991606d6b2e598776be2e0d05b9f9c20e4257e4e55b6a3ea789",
+      "bytes": 3670605,
+      "file": "tmp/figure_qa_deps/pymupdf/__pycache__/mupdf.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\__pycache__\\pymupdf.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "b619b8fce53784dda72ba9de6ad9f0f479d229b7498cbe450a13857912fc94a4",
+      "bytes": 200,
+      "file": "tmp/figure_qa_deps/pymupdf/__pycache__/pymupdf.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\__pycache__\\table.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "abec5cb484f5a9a63dc34679fcfa9020b0dd7d9c0c4dd2ffccd16e80da2ae88c",
+      "bytes": 121578,
+      "file": "tmp/figure_qa_deps/pymupdf/__pycache__/table.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf\\__pycache__\\utils.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "c7493fe80d5e92a08f82af2055771e5bd93feabd86b915daf9ab6be130d7684a",
+      "bytes": 46347,
+      "file": "tmp/figure_qa_deps/pymupdf/__pycache__/utils.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf-1.28.2.dist-info\\COPYING",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "40e60697600535eabfb5ae05f72829d88cfe8d02dd4792f5a754f6f51dabe55b",
+      "bytes": 64,
+      "file": "tmp/figure_qa_deps/pymupdf-1.28.2.dist-info/COPYING"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf-1.28.2.dist-info\\entry_points.txt",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "f4d707fc25641d5b8b3711354d86dfc17c0295590c70cf3dd133132770b97c30",
+      "bytes": 51,
+      "file": "tmp/figure_qa_deps/pymupdf-1.28.2.dist-info/entry_points.txt"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf-1.28.2.dist-info\\INSTALLER",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+      "bytes": 4,
+      "file": "tmp/figure_qa_deps/pymupdf-1.28.2.dist-info/INSTALLER"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf-1.28.2.dist-info\\METADATA",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "5c1fc460889bd3ff8d213e6c0f29154a8cd3576505f4844d7c3e089fa45eed40",
+      "bytes": 26483,
+      "file": "tmp/figure_qa_deps/pymupdf-1.28.2.dist-info/METADATA"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf-1.28.2.dist-info\\README.md",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "d0d17bed851133430744866941a1707542d1aeb072bbab681deec1e49498663c",
+      "bytes": 25223,
+      "file": "tmp/figure_qa_deps/pymupdf-1.28.2.dist-info/README.md"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf-1.28.2.dist-info\\RECORD",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "047a6d912a7f4a007f75b9e1697ad974c81e17b8bdc2988735cd4059cc5dcb6f",
+      "bytes": 12881,
+      "file": "tmp/figure_qa_deps/pymupdf-1.28.2.dist-info/RECORD"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf-1.28.2.dist-info\\REQUESTED",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "file": "tmp/figure_qa_deps/pymupdf-1.28.2.dist-info/REQUESTED"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\figure_qa_deps\\pymupdf-1.28.2.dist-info\\WHEEL",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "50d3a8365836c950c31389b47166585f10c0b69085073bc27928af534fcae7a1",
+      "bytes": 85,
+      "file": "tmp/figure_qa_deps/pymupdf-1.28.2.dist-info/WHEEL"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\after_p22.png",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "65b67c073688e968288079469fc26e5f550f5c64fff0d2053a4d1a173e29137f",
+      "bytes": 264471,
+      "file": "tmp/table-inline-build/after_p22.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\after_p23.png",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "5cabdb0808f2aa81a5ab0ba959631ff087ba7c5ffca23bd9ad3e04d5c635648f",
+      "bytes": 149040,
+      "file": "tmp/table-inline-build/after_p23.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\after_p27.png",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "6c8848f3b82e10cbe150778f39892c53696a9c232c6c6ace59f08297a66927c7",
+      "bytes": 298872,
+      "file": "tmp/table-inline-build/after_p27.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\after_p28.png",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "57597b971ceeb7e4a09ee472d6b5d657c3cdcc8c26db8c8092501c400db489aa",
+      "bytes": 295022,
+      "file": "tmp/table-inline-build/after_p28.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\after_p30.png",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "958a954820cd843d092d2e1d1df3454640b68429465eb8e281a3250d2ff44ddb",
+      "bytes": 261447,
+      "file": "tmp/table-inline-build/after_p30.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\after.txt",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "a5c26df1ac370d48eddfa1ec8765219dc59b818cae72dc98f42fae631e502634",
+      "bytes": 275452,
+      "file": "tmp/table-inline-build/after.txt"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\before_p22.png",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "4deff9291956cae94ba8782d2efbed94d853c098e84fe6aba14333f1e6940f39",
+      "bytes": 267624,
+      "file": "tmp/table-inline-build/before_p22.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\before_p23.png",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "5ff4bf01e37bb55d5da20ec2cb27f903da3df67d75e614cfcca6768f8f433567",
+      "bytes": 149356,
+      "file": "tmp/table-inline-build/before_p23.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\before_p27.png",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "a4e380ee257f530f59e5dba3288d13ea6fbc27d095780fd70cc4d6f3a84e602e",
+      "bytes": 299277,
+      "file": "tmp/table-inline-build/before_p27.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\before_p28.png",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "bced3ef0708e443032eb2bcf1f17fcf316b7cef87404b69109e9da602be844e6",
+      "bytes": 295353,
+      "file": "tmp/table-inline-build/before_p28.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\before_p30.png",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "425539bd5b0769abad1ab5865d209b79823c917d710524a97cb96a3571d4c841",
+      "bytes": 259793,
+      "file": "tmp/table-inline-build/before_p30.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\before.txt",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "22cf9d97bab0557e03d9e303ecbbb86b08874f26232211f249d749c9c2f74880",
+      "bytes": 275366,
+      "file": "tmp/table-inline-build/before.txt"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\flatten_curve_analysis_cn.aux",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "6b2946414d3e9c902873351f1bf86a0ac84cf868398ef7304973bf6d2a272d3c",
+      "bytes": 56796,
+      "file": "tmp/table-inline-build/flatten_curve_analysis_cn.aux"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\flatten_curve_analysis_cn.bcf",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "9ecb4380a6053dd10cb506063fcc53e40b97c7bcebf0cf4ba0c5dd7db7380c73",
+      "bytes": 109218,
+      "file": "tmp/table-inline-build/flatten_curve_analysis_cn.bcf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\flatten_curve_analysis_cn.log",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "52b9101f822d8485422bbf54cd9add7b5dc5d135daab71c04aa44c6d2507f9e8",
+      "bytes": 86173,
+      "file": "tmp/table-inline-build/flatten_curve_analysis_cn.log"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\flatten_curve_analysis_cn.out",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "4e2d6b7b3e62936b6ccc20ca9ea55096a1e6445fd66c6401be2cfb001b5f932d",
+      "bytes": 5627,
+      "file": "tmp/table-inline-build/flatten_curve_analysis_cn.out"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\flatten_curve_analysis_cn.pdf",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "b9daa508bd5403472b57bf8d616fa125c2a2d5e2cf607bc2a46db28acd77ad38",
+      "bytes": 3076737,
+      "file": "tmp/table-inline-build/flatten_curve_analysis_cn.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\flatten_curve_analysis_cn.run.xml",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "e04e9258de94264306478f63ac128d17af331c334f9af561fcb784f2ae91c9e7",
+      "bytes": 2492,
+      "file": "tmp/table-inline-build/flatten_curve_analysis_cn.run.xml"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\samejob_p22.png",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "65b67c073688e968288079469fc26e5f550f5c64fff0d2053a4d1a173e29137f",
+      "bytes": 264471,
+      "file": "tmp/table-inline-build/samejob_p22.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\samejob_p23.png",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "5cabdb0808f2aa81a5ab0ba959631ff087ba7c5ffca23bd9ad3e04d5c635648f",
+      "bytes": 149040,
+      "file": "tmp/table-inline-build/samejob_p23.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\samejob_p27.png",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "6c8848f3b82e10cbe150778f39892c53696a9c232c6c6ace59f08297a66927c7",
+      "bytes": 298872,
+      "file": "tmp/table-inline-build/samejob_p27.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\samejob_p28.png",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "57597b971ceeb7e4a09ee472d6b5d657c3cdcc8c26db8c8092501c400db489aa",
+      "bytes": 295022,
+      "file": "tmp/table-inline-build/samejob_p28.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\samejob_p30.png",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "958a954820cd843d092d2e1d1df3454640b68429465eb8e281a3250d2ff44ddb",
+      "bytes": 261447,
+      "file": "tmp/table-inline-build/samejob_p30.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\table_inline_check.aux",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "6b2946414d3e9c902873351f1bf86a0ac84cf868398ef7304973bf6d2a272d3c",
+      "bytes": 56796,
+      "file": "tmp/table-inline-build/table_inline_check.aux"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\table_inline_check.bbl",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "58964352b9045c89f9c0049181d19221738a0a6fbf006af01b48312c686b9c7a",
+      "bytes": 5086,
+      "file": "tmp/table-inline-build/table_inline_check.bbl"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\table_inline_check.bcf",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "9ecb4380a6053dd10cb506063fcc53e40b97c7bcebf0cf4ba0c5dd7db7380c73",
+      "bytes": 109218,
+      "file": "tmp/table-inline-build/table_inline_check.bcf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\table_inline_check.blg",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "8d1311d41e5a78f1d58741c0350212d22ea98de3c3836e38f76917c5a31bb819",
+      "bytes": 1264,
+      "file": "tmp/table-inline-build/table_inline_check.blg"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\table_inline_check.log",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "3647032a84cdef83189358828235c575afaa710f2c2ce952c96833a1babf5ce0",
+      "bytes": 86221,
+      "file": "tmp/table-inline-build/table_inline_check.log"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\table_inline_check.out",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "4e2d6b7b3e62936b6ccc20ca9ea55096a1e6445fd66c6401be2cfb001b5f932d",
+      "bytes": 5627,
+      "file": "tmp/table-inline-build/table_inline_check.out"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\table_inline_check.pdf",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "264c48cba3c9978d3278db3b0d4b82f7f6f20e2d64f22cee5f2e977076999afd",
+      "bytes": 3076742,
+      "file": "tmp/table-inline-build/table_inline_check.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\table_inline_check.run.xml",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "32402ee90fe51100bda60bf1542d5f36048620b22fe4378f88f317fd3b32fea2",
+      "bytes": 2443,
+      "file": "tmp/table-inline-build/table_inline_check.run.xml"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\table-inline-build\\table_pages_before_after.png",
+      "git_tracked": false,
+      "group": "old_tmp",
+      "reason": "此前临时检查产物",
+      "sha256": "c4a29bbf6d42fc8aafbcbf40f1dd227d8429aa14bcd77f282e8f92b8acef5911",
+      "bytes": 597097,
+      "file": "tmp/table-inline-build/table_pages_before_after.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\reproducibility\\__pycache__\\bootstrap.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "python_cache",
+      "reason": "可重新生成的字节码缓存",
+      "sha256": "e5743674c5cb529fbda8fb128abf0d819b0f220df421dc1f81a9fe107853be6a",
+      "bytes": 11140,
+      "file": "reproducibility/__pycache__/bootstrap.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\reproducibility\\__pycache__\\build.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "python_cache",
+      "reason": "可重新生成的字节码缓存",
+      "sha256": "fe89e126e7942cfd70a692f51c433ac317eb769a97758cec53679f9b600fcc23",
+      "bytes": 10833,
+      "file": "reproducibility/__pycache__/build.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\reproducibility\\__pycache__\\c0.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "python_cache",
+      "reason": "可重新生成的字节码缓存",
+      "sha256": "a78814263f44dc25ac3e36cc3e49bdcf95e9eb642a17858710bdc18b09d2c2da",
+      "bytes": 17448,
+      "file": "reproducibility/__pycache__/c0.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\reproducibility\\__pycache__\\check_export_probe.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "python_cache",
+      "reason": "可重新生成的字节码缓存",
+      "sha256": "82d1fb33f064816634ac721c35fbfc8b0813465ddd73d6c33feb4d75439d1e52",
+      "bytes": 9632,
+      "file": "reproducibility/__pycache__/check_export_probe.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\reproducibility\\__pycache__\\checks.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "python_cache",
+      "reason": "可重新生成的字节码缓存",
+      "sha256": "a29eaaa6903ff4c3fcc34f9d26a401d53d12623b68d1f73f18bcc1baabdffd81",
+      "bytes": 10678,
+      "file": "reproducibility/__pycache__/checks.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\reproducibility\\__pycache__\\compare_runs.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "python_cache",
+      "reason": "可重新生成的字节码缓存",
+      "sha256": "df8aa4ae9c9ac30793756f70a90a30e329d72494793d1ecb40ca59e12897b85b",
+      "bytes": 25809,
+      "file": "reproducibility/__pycache__/compare_runs.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\reproducibility\\__pycache__\\figures.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "python_cache",
+      "reason": "可重新生成的字节码缓存",
+      "sha256": "1d23df2f1985cc9e49f4b652e4d6465678266f30cd2f8ba7d2105553aa536503",
+      "bytes": 50967,
+      "file": "reproducibility/__pycache__/figures.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\reproducibility\\__pycache__\\finalize_matlab_figures.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "python_cache",
+      "reason": "可重新生成的字节码缓存",
+      "sha256": "999a24713c27c41f57fed6f9a641bd2a123e6327e18ddf2932002c108fb09e5b",
+      "bytes": 12518,
+      "file": "reproducibility/__pycache__/finalize_matlab_figures.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\reproducibility\\__pycache__\\integrity.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "python_cache",
+      "reason": "可重新生成的字节码缓存",
+      "sha256": "c37b26cd4d2b732b30f838ce767bd3ae26101b1c39f6c81d50f3af1bde69fdd5",
+      "bytes": 3982,
+      "file": "reproducibility/__pycache__/integrity.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\reproducibility\\__pycache__\\joint.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "python_cache",
+      "reason": "可重新生成的字节码缓存",
+      "sha256": "571e8c321428193ea4de94d6db12cf83cdebad76e074109956459f507ca5872a",
+      "bytes": 32709,
+      "file": "reproducibility/__pycache__/joint.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\reproducibility\\__pycache__\\paper_sync.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "python_cache",
+      "reason": "可重新生成的字节码缓存",
+      "sha256": "34ee0748c49994927e3d56d0866a0f8ecc40a5a12b444b9e55b5454da2b00dd0",
+      "bytes": 51452,
+      "file": "reproducibility/__pycache__/paper_sync.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\reproducibility\\__pycache__\\plotting_checks.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "python_cache",
+      "reason": "可重新生成的字节码缓存",
+      "sha256": "21b4df47cd0f27fb22837d53c788380122ad88752a6e998b63609a408580eea2",
+      "bytes": 10439,
+      "file": "reproducibility/__pycache__/plotting_checks.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\reproducibility\\__pycache__\\population.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "python_cache",
+      "reason": "可重新生成的字节码缓存",
+      "sha256": "cc961f75d5ab0c985828d43f9eb7fa9338e875c21becbb26980556a34522e474",
+      "bytes": 23551,
+      "file": "reproducibility/__pycache__/population.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\reproducibility\\__pycache__\\prepare_export_probe.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "python_cache",
+      "reason": "可重新生成的字节码缓存",
+      "sha256": "5dd62405b732bae2f13902d8c28677f846aef50edabb0778f301323b59749c7d",
+      "bytes": 4648,
+      "file": "reproducibility/__pycache__/prepare_export_probe.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\reproducibility\\__pycache__\\prepare_matlab_regression.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "python_cache",
+      "reason": "可重新生成的字节码缓存",
+      "sha256": "e1a8d15898a15ef5ee61bd676344c693f0c2bb355780e3e6ecff8ba1f7f2d473",
+      "bytes": 3058,
+      "file": "reproducibility/__pycache__/prepare_matlab_regression.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\reproducibility\\__pycache__\\probe_lossless_heatmap.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "python_cache",
+      "reason": "可重新生成的字节码缓存",
+      "sha256": "1ae207f5129343eeb47d340ef1a44aa4e88b3294f4bd890d3bc1409cf0018382",
+      "bytes": 3201,
+      "file": "reproducibility/__pycache__/probe_lossless_heatmap.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\reproducibility\\__pycache__\\publish_verified.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "python_cache",
+      "reason": "可重新生成的字节码缓存",
+      "sha256": "e1b89cff37edc2c81f81259cd855778ead28d3bbcd461303c28c761699dfd0c1",
+      "bytes": 17154,
+      "file": "reproducibility/__pycache__/publish_verified.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\reproducibility\\__pycache__\\registry.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "python_cache",
+      "reason": "可重新生成的字节码缓存",
+      "sha256": "659c1d88b5529fec91dd9f8216648b11085a4eb3140fe15dc450a6f2b574f878",
+      "bytes": 28290,
+      "file": "reproducibility/__pycache__/registry.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\reproducibility\\__pycache__\\run_all.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "python_cache",
+      "reason": "可重新生成的字节码缓存",
+      "sha256": "ca141b85d3ba7fba02f2e6594b41319bc345af5673dcb3f3edc05d1ccee4461b",
+      "bytes": 7708,
+      "file": "reproducibility/__pycache__/run_all.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\reproducibility\\__pycache__\\theory_trace.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "python_cache",
+      "reason": "可重新生成的字节码缓存",
+      "sha256": "96d5c798fa78cb1de70b5e0131c2f2493c94c1abfc3d20f1646e0935efa60039",
+      "bytes": 3215,
+      "file": "reproducibility/__pycache__/theory_trace.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\reproducibility\\__pycache__\\verify_matlab_regression.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "python_cache",
+      "reason": "可重新生成的字节码缓存",
+      "sha256": "2f055f1c829d4289f8685a7124f14cdf87ed12801e0e918858d64f02ad2d034f",
+      "bytes": 9734,
+      "file": "reproducibility/__pycache__/verify_matlab_regression.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\reproducibility\\__pycache__\\xian.cpython-312.pyc",
+      "git_tracked": false,
+      "group": "python_cache",
+      "reason": "可重新生成的字节码缓存",
+      "sha256": "68fb4a3ccec9aa63731f6d4843736965d68068fb8457a859f8870b0f23a2cf47",
+      "bytes": 58536,
+      "file": "reproducibility/__pycache__/xian.cpython-312.pyc"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\flatten_curve_analysis_cn.aux",
+      "git_tracked": false,
+      "group": "tex_intermediates",
+      "reason": "可由完整编译入口重新生成的中间产物",
+      "sha256": "f71ecb2522bdca1d2e751d99752380be41082f85ada0b13772400437a30d98d9",
+      "bytes": 44026,
+      "file": "latex/flatten_curve_analysis_cn.aux"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\flatten_curve_analysis_cn.bbl",
+      "git_tracked": false,
+      "group": "tex_intermediates",
+      "reason": "可由完整编译入口重新生成的中间产物",
+      "sha256": "69822f02e5c50ae0929b792b23b1baedda744229fd512aa06d5803a3cc5f3988",
+      "bytes": 43497,
+      "file": "latex/flatten_curve_analysis_cn.bbl"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\flatten_curve_analysis_cn.bcf",
+      "git_tracked": false,
+      "group": "tex_intermediates",
+      "reason": "可由完整编译入口重新生成的中间产物",
+      "sha256": "22141ba651388fd1808a6265cc7124e412e97559ceff1bb99175f985d6dd88ea",
+      "bytes": 111284,
+      "file": "latex/flatten_curve_analysis_cn.bcf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\flatten_curve_analysis_cn.blg",
+      "git_tracked": false,
+      "group": "tex_intermediates",
+      "reason": "可由完整编译入口重新生成的中间产物",
+      "sha256": "1cce81e3e47e233304ea486b77070d2ebbb6664da6d3175759d5ef7210814092",
+      "bytes": 1144,
+      "file": "latex/flatten_curve_analysis_cn.blg"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\flatten_curve_analysis_cn.log",
+      "git_tracked": false,
+      "group": "tex_intermediates",
+      "reason": "可由完整编译入口重新生成的中间产物",
+      "sha256": "d6c325c0377ee19edd136dd752f459b781af905362b8203f90fb2afdb95c1c7f",
+      "bytes": 78436,
+      "file": "latex/flatten_curve_analysis_cn.log"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\flatten_curve_analysis_cn.out",
+      "git_tracked": false,
+      "group": "tex_intermediates",
+      "reason": "可由完整编译入口重新生成的中间产物",
+      "sha256": "b20f623d6788414a122da0c1bfbe225fce39910cbe3c521917414307623a5423",
+      "bytes": 7504,
+      "file": "latex/flatten_curve_analysis_cn.out"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\flatten_curve_analysis_cn.run.xml",
+      "git_tracked": false,
+      "group": "tex_intermediates",
+      "reason": "可由完整编译入口重新生成的中间产物",
+      "sha256": "e04e9258de94264306478f63ac128d17af331c334f9af561fcb784f2ae91c9e7",
+      "bytes": 2492,
+      "file": "latex/flatten_curve_analysis_cn.run.xml"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\flatten_curve_analysis_cn.synctex.gz.sum.synctex",
+      "git_tracked": false,
+      "group": "tex_intermediates",
+      "reason": "可由完整编译入口重新生成的中间产物",
+      "sha256": "68b4057b4f2b8706a2f753c26764fc73feb363413f255102a23e7bec45703f0f",
+      "bytes": 1590425,
+      "file": "latex/flatten_curve_analysis_cn.synctex.gz.sum.synctex"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\flatten_curve_supplement_cn.aux",
+      "git_tracked": false,
+      "group": "tex_intermediates",
+      "reason": "可由完整编译入口重新生成的中间产物",
+      "sha256": "1a7659e77278a53c76745cec5e89e52a53343a2bc8f1babe985854df7e51ec44",
+      "bytes": 983,
+      "file": "latex/flatten_curve_supplement_cn.aux"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\flatten_curve_supplement_cn.bcf",
+      "git_tracked": false,
+      "group": "tex_intermediates",
+      "reason": "可由完整编译入口重新生成的中间产物",
+      "sha256": "fc32a404b4ca632dba7831d1c22331ff680f222cbfda1698324f07c14a2dcd2b",
+      "bytes": 108346,
+      "file": "latex/flatten_curve_supplement_cn.bcf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\flatten_curve_supplement_cn.log",
+      "git_tracked": false,
+      "group": "tex_intermediates",
+      "reason": "可由完整编译入口重新生成的中间产物",
+      "sha256": "910dca682be6fc570128bb3bb401f430f83e9bfa196a9de8df34a9be5c231637",
+      "bytes": 69843,
+      "file": "latex/flatten_curve_supplement_cn.log"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\flatten_curve_supplement_cn.out",
+      "git_tracked": false,
+      "group": "tex_intermediates",
+      "reason": "可由完整编译入口重新生成的中间产物",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "file": "latex/flatten_curve_supplement_cn.out"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\latex\\flatten_curve_supplement_cn.run.xml",
+      "git_tracked": false,
+      "group": "tex_intermediates",
+      "reason": "可由完整编译入口重新生成的中间产物",
+      "sha256": "193a902d5fb0facce6bdc48e64ac38121ac57b44c9173935ebca0d0b507f5e40",
+      "bytes": 2506,
+      "file": "latex/flatten_curve_supplement_cn.run.xml"
+    }
+  ],
+  "new_files_auto_included": false,
+  "groups": {
+    "python_cache": 22,
+    "legacy_figures_tables": 44,
+    "old_tmp": 177,
+    "ai_duplicates": 3,
+    "unused_formal_exports": 78,
+    "tex_intermediates": 13
+  },
+  "expected_count": 337
+}

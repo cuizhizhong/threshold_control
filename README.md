@@ -68,8 +68,7 @@ $$
 ├── xian_dom/                      # 有效人口条件比较的求解与原绘图逻辑
 ├── c0_sensitivity/                # 固定阈值比例下的 c0 敏感性实验
 ├── 真实数据/                       # 当前主线使用的西安原始 Excel 数据，请勿直接修改
-├── figures/                       # 原模块及历史图件；正式论文只读取 latex/figures
-├── table/                         # 原模块与历史表格；正式正文及补充表直接保存在 tex 中
+├── ai/                            # 冻结交付来源与独有讨论材料；重复旧稿已回收
 ├── refs/                          # 参考论文、文本摘录和模型示意图
 ├── archive_unused/                # 旧实验、非当前主线数据与可复现输出快照
 └── AGENTS.md                      # 项目研究口径和协作约定
@@ -183,7 +182,8 @@ powershell -NoProfile -ExecutionPolicy Bypass -File latex\build_paper.ps1
 - `真实数据/` 只保留当前主线使用的西安原始输入；其余五个地区的数据已移至
   `archive_unused/inactive_scope/multicity_raw_data/`，分析代码不应直接覆写原始文件。
 - 正式稿只读取 `latex/figures/` 中的 20 幅图；4 张正文表和 3 张补充表直接保存在各自 TeX 中。
-  根 `figures/`、`table/` 保留原模块及历史产物，不作为正式稿的并行编辑入口。
+  未引用的图件副本、根目录旧图表及 `latex/table/` 已移入回收站，不再作为并行编辑入口。
+  `latex/revision_*` 仍含现用绘图源码及历史核查材料，不能当作无用目录删除。
 - 验收通过后，完整精度派生结果汇集到 `reproducibility/results/<运行版本>/`，对应清单、
   环境和验收报告汇集到 `reproducibility/`；这些结果副本不是下一轮计算输入。
 - 各实验模块的过程输出由运行命令重新生成并已加入 `.gitignore`；清理前的输出快照保存在
@@ -191,6 +191,9 @@ powershell -NoProfile -ExecutionPolicy Bypass -File latex\build_paper.ps1
 - 当前不参与论文主线但仍有追溯价值的代码、数据和图片统一放在 `archive_unused/`；
   归档清单和恢复方式见 [`archive_unused/README.md`](archive_unused/README.md)。
 - LaTeX 中间文件、Python 缓存、本机编辑器设置和本机 AI 助手权限配置不纳入版本控制。
+- 本轮保守清理的完整清单、可恢复记录与编译/哈希验收见
+  [`reproducibility/release_reports/cleanup_20261003/`](reproducibility/release_reports/cleanup_20261003/)。
+  原始数据、冻结包、所有复现运行、历史备份和归档材料均保留；本轮不自动提交或推送 Git。
 - 提交前应检查 `git status` 与 `git diff`，避免把无关或含本机信息的文件加入提交。
 
 ## 7. 许可说明

@@ -1,0 +1,1145 @@
+{
+  "count": 190,
+  "files": [
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\source_manifest.json",
+      "bytes": 11062,
+      "sha256": "0b3ad82dc37a1a3baa3c9e01941c0ceabbe97fc29d372016b4f8458985f4ad26",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/source_manifest.json"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\validation\\source_integrity.json",
+      "bytes": 39760,
+      "sha256": "a186f7c17fdb073f27b4569c4231086382cebf88fe2377bd79e6dbf3781f5937",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/validation/source_integrity.json"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\visual_reference\\c0_beta_existence.pdf",
+      "bytes": 39059,
+      "sha256": "f6d9079d284ba7db8d3ca716b20b1b7402c0918cd80c3f539e07363431ce4823",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/visual_reference/c0_beta_existence.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\visual_reference\\c0_sensitivity_scan.pdf",
+      "bytes": 63842,
+      "sha256": "539f4b575464843baa776f31a9ef5de9c897ae277dcfbaa0707c9e92347aa155",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/visual_reference/c0_sensitivity_scan.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\visual_reference\\fig_dom_combined.pdf",
+      "bytes": 58929,
+      "sha256": "429ca55d424d477b4146aa90a0e774b6cd24a534f29d1b3afacfa48c96c31cae",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/visual_reference/fig_dom_combined.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\visual_reference\\Fig1.pdf",
+      "bytes": 39734,
+      "sha256": "d16c241c6065e6a59cc5c3e04f133d3664987076f90acd09b125730b0b8e3766",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/visual_reference/Fig1.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\visual_reference\\optimal_control_with_quarantine_panels.pdf",
+      "bytes": 94548,
+      "sha256": "3dd5541ba7c0338fd72b839239dc385edcb34c11a5cfa4e82e1fde7f100723e2",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/visual_reference/optimal_control_with_quarantine_panels.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\visual_reference\\scenario1_heatmaps_c0_eta.pdf",
+      "bytes": 383803,
+      "sha256": "cc70ea2134a28a08c2fbd9358f908360241ff15f6365149e8c82c46caf8e69ea",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/visual_reference/scenario1_heatmaps_c0_eta.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\visual_reference\\xian_eta_sensitivity.pdf",
+      "bytes": 47710,
+      "sha256": "4a831647bc28c3744c054b3aae5a95275dfbac42bfd8da0a134dc85fc6ec2429",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/visual_reference/xian_eta_sensitivity.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\visual_reference\\xian_heatmaps.pdf",
+      "bytes": 564146,
+      "sha256": "133eb77e23f013d3bb3822999145584a503c99bc1371521b1f6cf147f4862289",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/visual_reference/xian_heatmaps.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\visual_reference\\layout_v5\\baseline_q_joint.pdf",
+      "bytes": 73686,
+      "sha256": "13c05da34b0732491c740f94f9a7f48a52ddf4fef78fdfe3567d64252c354a22",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/visual_reference/layout_v5/baseline_q_joint.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\visual_reference\\layout_v5\\c0_phase_stationary.pdf",
+      "bytes": 39940,
+      "sha256": "61b4226f287e15a8b9e61668b62b1f6820d37d3976738b9f4e6a26ec8f39b7cf",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/visual_reference/layout_v5/c0_phase_stationary.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\visual_reference\\layout_v5\\c0_sensitivity_panel.pdf",
+      "bytes": 49579,
+      "sha256": "89e0aca84876ca1f755b17d403aede3f8100097a86a6b546b6fd4967f959d039",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/visual_reference/layout_v5/c0_sensitivity_panel.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\visual_reference\\layout_v5\\c0_sensitivity_selected_eta.pdf",
+      "bytes": 47171,
+      "sha256": "92f686dde6607ba3df41c2651b2bbb8079ca05c170bf341e2307f55f549f5059",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/visual_reference/layout_v5/c0_sensitivity_selected_eta.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\visual_reference\\layout_v5\\critical_population_cases.pdf",
+      "bytes": 58667,
+      "sha256": "3e3509b16551046e478c6dbe708024655fe00d6cf62edde52782c36cf0b302f9",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/visual_reference/layout_v5/critical_population_cases.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\visual_reference\\layout_v5\\eta_sensitivity_selected_c0.pdf",
+      "bytes": 74320,
+      "sha256": "62f93509f8e99c2eb5277d0bb26ae2c17bac4e5a9d0b2ce23b630d0723af4c2b",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/visual_reference/layout_v5/eta_sensitivity_selected_c0.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\visual_reference\\layout_v5\\fig_panel_B_trajectory_decomposition.pdf",
+      "bytes": 41322,
+      "sha256": "42d5f329f8cd9d086d7e6d9cc8c5c81e6f98756cde9525469eff5ef07529daf8",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/visual_reference/layout_v5/fig_panel_B_trajectory_decomposition.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\visual_reference\\layout_v5\\population_threshold_levers.pdf",
+      "bytes": 63524,
+      "sha256": "29785382d8cce7ba1105617537ca066f2a85dc2dd47afe0161c7f26674bc8900",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/visual_reference/layout_v5/population_threshold_levers.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\visual_reference\\layout_v5\\scenario1_inflection_lambda_sensitivity.pdf",
+      "bytes": 32884,
+      "sha256": "5093f5a38e5c12505346835686a157739822899a13ca3b2093a864d88fd88e2c",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/visual_reference/layout_v5/scenario1_inflection_lambda_sensitivity.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\visual_reference\\layout_v5\\scenario1_inflection_scan_t.pdf",
+      "bytes": 27441,
+      "sha256": "53cc9e5fc6fc6e09cb75387242dfbc132ebfb068b1e69cc81defb9ca98a60d3d",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/visual_reference/layout_v5/scenario1_inflection_scan_t.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\visual_reference\\layout_v5\\xian_observed_fit.pdf",
+      "bytes": 35674,
+      "sha256": "5620f0e6273647aba4124ce9df4df3bd6e77f60e4d14a3e7baf144d883a561a2",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/visual_reference/layout_v5/xian_observed_fit.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\visual_reference\\layout_v5\\xian_strategy_process.pdf",
+      "bytes": 51746,
+      "sha256": "62bd26453791a05ed29a97a374df38d56fa6ec77c1d95d21e19d57f80a555e95",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/visual_reference/layout_v5/xian_strategy_process.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\c0_sensitivity\\README.md",
+      "bytes": 5584,
+      "sha256": "ec07f35f02e30488d8de310ca4e3e6852b61bbc4eb6e84475bcbbcea8d1d39f0",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/c0_sensitivity/README.md"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\c0_sensitivity\\run_c0_sensitivity.py",
+      "bytes": 56339,
+      "sha256": "5218d26957cc36f558f23901f4e27a84a0b06075ac2e42975361ae726ab41d9c",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/c0_sensitivity/run_c0_sensitivity.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\code\\scenario1_parameter_analysis.m",
+      "bytes": 17935,
+      "sha256": "f3bfbea18c34dcde0ec3da21ba11505799a3fb354ad6da39b6dc8836ae808fb5",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/code/scenario1_parameter_analysis.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\code\\scenario1_q_control_with_quarantine_panels.m",
+      "bytes": 13372,
+      "sha256": "390a1b685d8702da1016077ac180058b988deb6fe740cca4db081c161491261b",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/code/scenario1_q_control_with_quarantine_panels.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\latex\\build_paper.ps1",
+      "bytes": 820,
+      "sha256": "7d86ab0cd9de71ddb1b7de33d823406af4a15f937720ca2994a030c5ab499a9e",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/latex/build_paper.ps1"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\latex\\elegantpaper.cls",
+      "bytes": 9971,
+      "sha256": "bf80b5bb9061f11010b4595cd1bc443defe54fb093283ecf864c800371ad4b51",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/latex/elegantpaper.cls"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\latex\\flatten_curve_analysis_cn.tex",
+      "bytes": 143828,
+      "sha256": "81cea26ec419746497bfee305977e72dcbe624c28854f01404f76450604d6f00",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/latex/flatten_curve_analysis_cn.tex"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\latex\\flatten_curve_supplement_cn.tex",
+      "bytes": 6162,
+      "sha256": "dfc08ba8475da5b3a9820eaeb6d46b523d4004d252e1213a466ee62827861d65",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/latex/flatten_curve_supplement_cn.tex"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\latex\\references.bib",
+      "bytes": 8100,
+      "sha256": "14861dff2fbc96f8c95c514c8f57923f86ed7d2b4b5d9019908bfdbaba4c6f8e",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/latex/references.bib"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\latex\\revision_layout_v5\\layout_matlab.m",
+      "bytes": 7114,
+      "sha256": "74ff255128b93d5b5ffae64b9a9c2bbbac0ebcf57ae9c89aeea639efb93b6d0f",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/latex/revision_layout_v5/layout_matlab.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\latex\\revision_layout_v5\\layout_python.py",
+      "bytes": 15506,
+      "sha256": "0aec54ef80740266388202456cf4e47eeed51a1296768113fd386d8ef9723b77",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/latex/revision_layout_v5/layout_python.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\latex\\revision_layout_v5\\README.md",
+      "bytes": 7718,
+      "sha256": "e51d1de12d179235b7642266e341850169ae0ed7cbffc45bf0bb9600526d03c8",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/latex/revision_layout_v5/README.md"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\latex\\revision_style_restore\\README.md",
+      "bytes": 7553,
+      "sha256": "258808b3e84c64dfe5d6a941780e75f466d340f7dd767bea9d538cca0877b916",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/latex/revision_style_restore/README.md"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\latex\\revision_style_restore\\restore_figures.py",
+      "bytes": 19038,
+      "sha256": "98f4b7cb8eacc1c914200425452e6418395eadb496e3372d53bd62c79b907833",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/latex/revision_style_restore/restore_figures.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\latex\\revision_v4\\old_to_new_figures.md",
+      "bytes": 1281,
+      "sha256": "4434021ec7889822d6f961b682fd3dff2f1f97ffb49a0a97c36a78f7762e7d42",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/latex/revision_v4/old_to_new_figures.md"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\latex\\revision_v4\\old_to_new_tables.md",
+      "bytes": 901,
+      "sha256": "6fee57750d50ef3167da4b47f639ec352483bba2dac563149f0e5bef0ab24e1c",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/latex/revision_v4/old_to_new_tables.md"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\latex\\revision_v4\\plot_revisions.py",
+      "bytes": 16168,
+      "sha256": "d6c68e5b8251ada8636c1e2888431225209afee3e343b7ce861ee6309f03e1bc",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/latex/revision_v4/plot_revisions.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\latex\\revision_v4\\README.md",
+      "bytes": 2032,
+      "sha256": "e8790c14c21f10e6726d7d14339b1bfb67acfb513d54baade4346e645576878e",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/latex/revision_v4/README.md"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\latex\\revision_v4\\validation_report.md",
+      "bytes": 6481,
+      "sha256": "5c24c89fcee200520fc6d503600ed2f8c0f6bc245604a584ff4a4c6aa09f786c",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/latex/revision_v4/validation_report.md"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\refs\\SIQR模型示意图_可编辑.pptx",
+      "bytes": 13827,
+      "sha256": "96ed3c3fb8a9104824b851c6e8e6a99753a77e7ea94e58c193821c3f0bc0bb26",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/refs/SIQR模型示意图_可编辑.pptx"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\refs\\SIQR模型示意图_Nature配色_可编辑.pptx",
+      "bytes": 44102,
+      "sha256": "4d7e539d5116926fa7a6212361d1495ce885a7558a7fb16ba17a5bb145debfee",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/refs/SIQR模型示意图_Nature配色_可编辑.pptx"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_inflection\\fig_diagnose.py",
+      "bytes": 2289,
+      "sha256": "3d3f5c244f95648e94d559db7b643034a82a9a4de484eee47ad480f0ff71a00f",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_inflection/fig_diagnose.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_inflection\\fig_lambda_sensitivity.py",
+      "bytes": 5127,
+      "sha256": "8acfe92199ebfbb1591524a7ad43446cac618a5790c3c67f13ce5e6bf1551ee8",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_inflection/fig_lambda_sensitivity.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_inflection\\fig_landscape4.py",
+      "bytes": 4227,
+      "sha256": "cc99624c99d34dbaeaabc4a419cf9bdce333a359687e28fdf4a0c2c0ff65d368",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_inflection/fig_landscape4.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_inflection\\fig_scan_t.py",
+      "bytes": 2647,
+      "sha256": "071903927d878721dbfaa166166350a7164711fa2e239c811188d1bc2fd3170f",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_inflection/fig_scan_t.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_inflection\\inflection_analysis.py",
+      "bytes": 14725,
+      "sha256": "64e190be8a2eb993b1d5c37277cb93cee64e53039a7d4468c43935735ef222c3",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_inflection/inflection_analysis.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_inflection\\README.md",
+      "bytes": 8004,
+      "sha256": "4748066a8c5c037521ee29e903d93f68709df33c3f042c9a33ca0e2c115e908f",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_inflection/README.md"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_inflection\\verify_anchors.py",
+      "bytes": 11322,
+      "sha256": "a9e39aef96cd7a83e22186a7c49eb83cac325fcc76b6bcf9c20f258bb4e011d5",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_inflection/verify_anchors.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\AGENTS.md",
+      "bytes": 10623,
+      "sha256": "d2e74be2ec71ebc325ff4d5015351713bbbe1189f645bcf74a1da5a06071d00c",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/AGENTS.md"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\README.md",
+      "bytes": 5154,
+      "sha256": "d9f18daeaea7949656d4e974db68c379ee2ef53d4dcba1ffcf8911f4ee6c3729",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/README.md"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\run_all.m",
+      "bytes": 1731,
+      "sha256": "30e4b18f1a13a5fb1b45d8195f1f76aac44189d4445499faeb369193b1a21d6c",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/run_all.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\common\\append_row.m",
+      "bytes": 169,
+      "sha256": "ffa54b90099255d11d8351d6259f4ffe8333bee52ad9a3a77bebc36bb1ad8367",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/common/append_row.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\common\\compute_metrics.m",
+      "bytes": 7506,
+      "sha256": "9924953df1ee7a90f9ebf9d519439b7a1f73585b01ca530289a1a70fafaae29c",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/common/compute_metrics.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\common\\compute_trajectory.m",
+      "bytes": 1703,
+      "sha256": "c488fd0c78577267a8aee21e6757085be7581c20412c13d5bdde6d1014fcc939",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/common/compute_trajectory.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\common\\critical_c0_for_eta.m",
+      "bytes": 798,
+      "sha256": "8f9cfaa20a6b0059635523562dcee95b89851f19cbfb032464a941a9c990d5cb",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/common/critical_c0_for_eta.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\common\\ensure_output_dirs.m",
+      "bytes": 299,
+      "sha256": "be8dc672981e79a55d71f43032da5580d5d23e4e9c02df05217d8aba1e4f42b3",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/common/ensure_output_dirs.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\common\\log_line.m",
+      "bytes": 283,
+      "sha256": "28db1f2a3e0cb618289f4053d51ba2aafde8cb9ecb4147d1d9016e5c7a12fc13",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/common/log_line.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\common\\metric_matrix_from_table.m",
+      "bytes": 547,
+      "sha256": "cb04c51c64ce66daaf39343d31501581a15a7c679863181dc3b85d7cbe09b646",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/common/metric_matrix_from_table.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\common\\open_log.m",
+      "bytes": 228,
+      "sha256": "41bea1c6930c1b11fa3b761ddfcc0c7b10a243d1f9b6801a0162d564d5a0946f",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/common/open_log.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\common\\q_control_tau.m",
+      "bytes": 270,
+      "sha256": "f0f9da96c3442dbffaf147ac042c15da208dd5849c5e1d8ddb113d474416eb74",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/common/q_control_tau.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\common\\read_landscape_table.m",
+      "bytes": 380,
+      "sha256": "4009a7dc1f6e1c8465b54743ef5205652238184a4e39d4a8646ed2976b572a84",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/common/read_landscape_table.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\common\\reset_output_dirs.m",
+      "bytes": 725,
+      "sha256": "d98eda1325883da419bf7172aa59b2bf556b9fa0080b9ee5e29bfec468dde31e",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/common/reset_output_dirs.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\common\\save_figure_safe.m",
+      "bytes": 2414,
+      "sha256": "026bd9edf629f073d1f9012c53c9a9a30c852502c7346f96d958b073c7f59cc4",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/common/save_figure_safe.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\common\\scenario1_inflection_point.m",
+      "bytes": 835,
+      "sha256": "1e65eefe6f3c5fd054edbf9af7fb9ac7e80ba1cc0680e527a7b4f681347fd653",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/common/scenario1_inflection_point.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\common\\scenario1_main_plot_style.m",
+      "bytes": 1462,
+      "sha256": "cca603df48d734ddbab8dfba67ff312d124e67c84eaa08a2a7b311bf7afab749",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/common/scenario1_main_plot_style.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\common\\scenario1_params.m",
+      "bytes": 1454,
+      "sha256": "3eaca6a3d0c300b75e12709d725a33ad2af54ce02d61f1ee726a6f0efb19ceb4",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/common/scenario1_params.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\common\\set_graphics_defaults.m",
+      "bytes": 304,
+      "sha256": "74920cf97031d56f34b8ba1f28252665330c26720c19afc9ec5993693d3e5dc3",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/common/set_graphics_defaults.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\common\\table_row_to_struct.m",
+      "bytes": 433,
+      "sha256": "228b690545fefbb92f1a7a318dec50845b48f879cd5a5532dbd3a877fed848a7",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/common/table_row_to_struct.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\common\\write_latex_tables.m",
+      "bytes": 3351,
+      "sha256": "f34aad73932fdf780444cebd4d3a633d68fa5eac32612ef108751ab86c121692",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/common/write_latex_tables.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\scripts\\generate_landscape_data.m",
+      "bytes": 3272,
+      "sha256": "906ef4bff3ab1ef351739f6b0070d2d422cb7b466d875e8ed475e4a6706584a1",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/scripts/generate_landscape_data.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\scripts\\plot_baseline_validation.m",
+      "bytes": 4145,
+      "sha256": "cae9af60b9dc591a71b2830e52b65e3414b39b5fc3d55d3b5676e4f7fbabb98d",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/scripts/plot_baseline_validation.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\scripts\\plot_cumulative_decomposition.m",
+      "bytes": 1524,
+      "sha256": "806b1b4fce239af3f06dd39739308fcc20e121a212139efc34c906c2505c5db5",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/scripts/plot_cumulative_decomposition.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\scripts\\plot_duration_regions.m",
+      "bytes": 1862,
+      "sha256": "e09ddff36192206e064debcb22259ef120723943f1636a13ea79ee7c36bd1662",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/scripts/plot_duration_regions.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\scripts\\plot_heatmaps.m",
+      "bytes": 9270,
+      "sha256": "cbc2aef8d1f64f7f6d1af0a72a1a46cae970e7c8fcc2dd3464c53db1af38827d",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/scripts/plot_heatmaps.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\scripts\\plot_main_q_trajectories.m",
+      "bytes": 4806,
+      "sha256": "35210273e2828249603bacc3b7c1ff9bac85a6c639abda695da5a2ce285a1f36",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/scripts/plot_main_q_trajectories.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\scripts\\plot_representative_trajectories.m",
+      "bytes": 3606,
+      "sha256": "a4327f2b21c2382e19bad8c9a4094516d73049cf84b4a9df5d7125bd5c0ed106",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/scripts/plot_representative_trajectories.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\scripts\\plot_sensitivity_curves.m",
+      "bytes": 5820,
+      "sha256": "e66228db783872b8a57fbf9e8aa626a11d93f93b701fe7bf3aa02655afc64e93",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/scripts/plot_sensitivity_curves.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\scripts\\validate_main_outputs.m",
+      "bytes": 5528,
+      "sha256": "f724ce1610b02e93866d35212ec872af49eb28e326f06a737676a41ed11dd7bf",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/scripts/validate_main_outputs.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\scripts\\write_main_summary_tables.m",
+      "bytes": 2241,
+      "sha256": "ff3252673d2b45c144f76bc69eaf74415429eca0876e6e8ac310ee22a07f7a09",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/scripts/write_main_summary_tables.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\scenario1_threshold_landscape\\scripts\\write_representative_tables.m",
+      "bytes": 614,
+      "sha256": "3cd0517f9d2970cbf6f6bb78daef828139113484a34fc2538310186fd5136f88",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/scenario1_threshold_landscape/scripts/write_representative_tables.m"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\xian_control_comparison\\AGENTS.md",
+      "bytes": 15550,
+      "sha256": "67c6ff76d3e34e93b02bf947a04a8c130962830de8118f1a9875fd77c21555e1",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/xian_control_comparison/AGENTS.md"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\xian_control_comparison\\paper_plot_style.py",
+      "bytes": 5231,
+      "sha256": "4222178eef13063a6edc30c39633a7c984bd9ff55198db4274302ac7bae1d9d1",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/xian_control_comparison/paper_plot_style.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\xian_control_comparison\\xian_control_comparison.py",
+      "bytes": 52234,
+      "sha256": "c029a604c8f7147a24d59e6c0d39a927ff360f0dbb1b7338f23bd86573ff15a2",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/xian_control_comparison/xian_control_comparison.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\xian_control_comparison\\effective_population_sensitivity\\AGENTS.md",
+      "bytes": 11584,
+      "sha256": "b61f0e1bae5d4169b8f148e5bbd5616a86a9dfcb966d4809a3dc2263befa2830",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/xian_control_comparison/effective_population_sensitivity/AGENTS.md"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\xian_control_comparison\\effective_population_sensitivity\\dimensionless_scaling_analysis.py",
+      "bytes": 25851,
+      "sha256": "231c70dcf27bac59e0f19858bd74d32d5667d9ead15f6ad24b072e8aaa9f8f2a",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/xian_control_comparison/effective_population_sensitivity/dimensionless_scaling_analysis.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\xian_control_comparison\\effective_population_sensitivity\\effective_population_sensitivity.py",
+      "bytes": 42594,
+      "sha256": "f6dd0ea1b68372a8c191dde318fed15ca5600575d5d32d65e978af3ab9509a39",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/xian_control_comparison/effective_population_sensitivity/effective_population_sensitivity.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\xian_control_comparison\\effective_population_sensitivity\\inflection_invariance_analysis.py",
+      "bytes": 19908,
+      "sha256": "e16e8f8c4f659a633be0f5748cafb70f057648ab9872a8f8b8663916a18b5cc5",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/xian_control_comparison/effective_population_sensitivity/inflection_invariance_analysis.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\xian_control_comparison\\effective_population_sensitivity\\plot_eta_80_100_150_inflection.py",
+      "bytes": 14003,
+      "sha256": "455159f52a6ebe9bbfcca285b9890082df72608dfe9c7f9b29538c9a037b012a",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/xian_control_comparison/effective_population_sensitivity/plot_eta_80_100_150_inflection.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\xian_control_comparison\\effective_population_sensitivity\\plot_Neff_40000_50000_60000_inflection.py",
+      "bytes": 8806,
+      "sha256": "07a5e5ae3c8e3421f74b3c68e176ce2a42ab623da7e8c8bb686bbe98dac097ec",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/xian_control_comparison/effective_population_sensitivity/plot_Neff_40000_50000_60000_inflection.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\xian_control_comparison\\threshold_landscape_analysis\\AGENTS.md",
+      "bytes": 12053,
+      "sha256": "350283ef5590cafc9a37485340be4ae04bb937d52177eb68fb5546564f6d55eb",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/xian_control_comparison/threshold_landscape_analysis/AGENTS.md"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\xian_control_comparison\\threshold_landscape_analysis\\notes.md",
+      "bytes": 1668,
+      "sha256": "ab47fdb717b6604b38e37c922a6a632cfd1fb0a474daeeae531c5d9308768839",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/xian_control_comparison/threshold_landscape_analysis/notes.md"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\xian_control_comparison\\threshold_landscape_analysis\\threshold_landscape_analysis.py",
+      "bytes": 62370,
+      "sha256": "a342027aed9dfe98fc1eebbb55d7d0811b29342643b02accbc47b8a510d025a2",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/xian_control_comparison/threshold_landscape_analysis/threshold_landscape_analysis.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\xian_dom\\caliber.py",
+      "bytes": 15733,
+      "sha256": "6990a90f74b15f08c7366d586329d1669afe00e219f1e8c27c2c6413289785ec",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/xian_dom/caliber.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\xian_dom\\compute_B.py",
+      "bytes": 3374,
+      "sha256": "560affa8807a78a3f612f434ee99b50cb5543e77e127f95af4fe1c757b8a30a0",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/xian_dom/compute_B.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\xian_dom\\dom_pretty.py",
+      "bytes": 14389,
+      "sha256": "23711a102832d1f020edf77bc1119d1a5c2da477bf64c8453e5fe786cada9322",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/xian_dom/dom_pretty.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\xian_dom\\panels.py",
+      "bytes": 17093,
+      "sha256": "754c00d0512ebe8b25c13832fcaee1d4c27ea435ee137963991ce61ac8eb0a25",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/xian_dom/panels.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\xian_dom\\plot_B_decomp.py",
+      "bytes": 12257,
+      "sha256": "b4044e4e9799abbd4c131f47397ac08fdb476b5e30bdf7d28533efb43cb41f5c",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/xian_dom/plot_B_decomp.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\xian_dom\\plot_B.py",
+      "bytes": 11605,
+      "sha256": "2b04dcf56471e8d4e5511b14bb2510790af8c6c0a485a46397c91fa82bb15909",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/xian_dom/plot_B.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\xian_dom\\README.md",
+      "bytes": 10113,
+      "sha256": "fef35481620544099e3d25ef07c95a12356e03b1ff19f0e1943d320ccadd83bc",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/xian_dom/README.md"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\xian_dom\\resolve_clr.py",
+      "bytes": 3829,
+      "sha256": "7d0f824b233e3bd622d0f988aee4e7dd8d783a0801677b02397438b8200d830c",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/xian_dom/resolve_clr.py"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\bootstrap_smoke\\workspace\\真实数据\\Xianguankong.xlsx",
+      "bytes": 10042,
+      "sha256": "5ea88fcc6041e29e267d30a858c6706e1c791b98f6da79b889fe01326d7b2bbf",
+      "file": "tmp/cleanup_verify_20261003/bootstrap_smoke/workspace/真实数据/Xianguankong.xlsx"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\build_paper.ps1",
+      "bytes": 820,
+      "sha256": "7d86ab0cd9de71ddb1b7de33d823406af4a15f937720ca2994a030c5ab499a9e",
+      "file": "tmp/cleanup_verify_20261003/latex/build_paper.ps1"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\elegantpaper.cls",
+      "bytes": 9971,
+      "sha256": "bf80b5bb9061f11010b4595cd1bc443defe54fb093283ecf864c800371ad4b51",
+      "file": "tmp/cleanup_verify_20261003/latex/elegantpaper.cls"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\flatten_curve_analysis_cn.aux",
+      "bytes": 44026,
+      "sha256": "f71ecb2522bdca1d2e751d99752380be41082f85ada0b13772400437a30d98d9",
+      "file": "tmp/cleanup_verify_20261003/latex/flatten_curve_analysis_cn.aux"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\flatten_curve_analysis_cn.bbl",
+      "bytes": 43497,
+      "sha256": "69822f02e5c50ae0929b792b23b1baedda744229fd512aa06d5803a3cc5f3988",
+      "file": "tmp/cleanup_verify_20261003/latex/flatten_curve_analysis_cn.bbl"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\flatten_curve_analysis_cn.bcf",
+      "bytes": 111284,
+      "sha256": "22141ba651388fd1808a6265cc7124e412e97559ceff1bb99175f985d6dd88ea",
+      "file": "tmp/cleanup_verify_20261003/latex/flatten_curve_analysis_cn.bcf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\flatten_curve_analysis_cn.blg",
+      "bytes": 1144,
+      "sha256": "ab194260f542ba2d02e1f064ab4f1d4a67273ac6582c01362e140482a05d86bb",
+      "file": "tmp/cleanup_verify_20261003/latex/flatten_curve_analysis_cn.blg"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\flatten_curve_analysis_cn.log",
+      "bytes": 78436,
+      "sha256": "8d64bdb84f3c587718d796b469dbbcc788c9b9365c828d17e11407a2816ec255",
+      "file": "tmp/cleanup_verify_20261003/latex/flatten_curve_analysis_cn.log"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\flatten_curve_analysis_cn.out",
+      "bytes": 7504,
+      "sha256": "b20f623d6788414a122da0c1bfbe225fce39910cbe3c521917414307623a5423",
+      "file": "tmp/cleanup_verify_20261003/latex/flatten_curve_analysis_cn.out"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\flatten_curve_analysis_cn.pdf",
+      "bytes": 2277883,
+      "sha256": "bd864fdb25a1b71caabbd67347f888549b02c7050bca6a86a7a71c99ea4dddef",
+      "file": "tmp/cleanup_verify_20261003/latex/flatten_curve_analysis_cn.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\flatten_curve_analysis_cn.run.xml",
+      "bytes": 2492,
+      "sha256": "e04e9258de94264306478f63ac128d17af331c334f9af561fcb784f2ae91c9e7",
+      "file": "tmp/cleanup_verify_20261003/latex/flatten_curve_analysis_cn.run.xml"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\flatten_curve_analysis_cn.tex",
+      "bytes": 143828,
+      "sha256": "81cea26ec419746497bfee305977e72dcbe624c28854f01404f76450604d6f00",
+      "file": "tmp/cleanup_verify_20261003/latex/flatten_curve_analysis_cn.tex"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\flatten_curve_supplement_cn.aux",
+      "bytes": 983,
+      "sha256": "1a7659e77278a53c76745cec5e89e52a53343a2bc8f1babe985854df7e51ec44",
+      "file": "tmp/cleanup_verify_20261003/latex/flatten_curve_supplement_cn.aux"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\flatten_curve_supplement_cn.bcf",
+      "bytes": 108346,
+      "sha256": "fc32a404b4ca632dba7831d1c22331ff680f222cbfda1698324f07c14a2dcd2b",
+      "file": "tmp/cleanup_verify_20261003/latex/flatten_curve_supplement_cn.bcf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\flatten_curve_supplement_cn.log",
+      "bytes": 69843,
+      "sha256": "1b25b47b5fda15df63397e14ff629b11f6a66ae7edfeabe787884c354937c69f",
+      "file": "tmp/cleanup_verify_20261003/latex/flatten_curve_supplement_cn.log"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\flatten_curve_supplement_cn.out",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "file": "tmp/cleanup_verify_20261003/latex/flatten_curve_supplement_cn.out"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\flatten_curve_supplement_cn.pdf",
+      "bytes": 74825,
+      "sha256": "6cd590ae81d6e710870f119a7fb7bbb04d83320eada0a793955f087954fff0c5",
+      "file": "tmp/cleanup_verify_20261003/latex/flatten_curve_supplement_cn.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\flatten_curve_supplement_cn.run.xml",
+      "bytes": 2506,
+      "sha256": "193a902d5fb0facce6bdc48e64ac38121ac57b44c9173935ebca0d0b507f5e40",
+      "file": "tmp/cleanup_verify_20261003/latex/flatten_curve_supplement_cn.run.xml"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\flatten_curve_supplement_cn.tex",
+      "bytes": 6162,
+      "sha256": "dfc08ba8475da5b3a9820eaeb6d46b523d4004d252e1213a466ee62827861d65",
+      "file": "tmp/cleanup_verify_20261003/latex/flatten_curve_supplement_cn.tex"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\references.bib",
+      "bytes": 8100,
+      "sha256": "14861dff2fbc96f8c95c514c8f57923f86ed7d2b4b5d9019908bfdbaba4c6f8e",
+      "file": "tmp/cleanup_verify_20261003/latex/references.bib"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\figures\\c0_beta_existence.pdf",
+      "bytes": 39059,
+      "sha256": "f6d9079d284ba7db8d3ca716b20b1b7402c0918cd80c3f539e07363431ce4823",
+      "file": "tmp/cleanup_verify_20261003/latex/figures/c0_beta_existence.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\figures\\c0_sensitivity_scan.pdf",
+      "bytes": 63842,
+      "sha256": "539f4b575464843baa776f31a9ef5de9c897ae277dcfbaa0707c9e92347aa155",
+      "file": "tmp/cleanup_verify_20261003/latex/figures/c0_sensitivity_scan.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\figures\\fig_dom_combined.pdf",
+      "bytes": 58929,
+      "sha256": "429ca55d424d477b4146aa90a0e774b6cd24a534f29d1b3afacfa48c96c31cae",
+      "file": "tmp/cleanup_verify_20261003/latex/figures/fig_dom_combined.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\figures\\Fig1.pdf",
+      "bytes": 39734,
+      "sha256": "d16c241c6065e6a59cc5c3e04f133d3664987076f90acd09b125730b0b8e3766",
+      "file": "tmp/cleanup_verify_20261003/latex/figures/Fig1.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\figures\\optimal_control_with_quarantine_panels.pdf",
+      "bytes": 94548,
+      "sha256": "3dd5541ba7c0338fd72b839239dc385edcb34c11a5cfa4e82e1fde7f100723e2",
+      "file": "tmp/cleanup_verify_20261003/latex/figures/optimal_control_with_quarantine_panels.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\figures\\scenario1_heatmaps_c0_eta.pdf",
+      "bytes": 383803,
+      "sha256": "cc70ea2134a28a08c2fbd9358f908360241ff15f6365149e8c82c46caf8e69ea",
+      "file": "tmp/cleanup_verify_20261003/latex/figures/scenario1_heatmaps_c0_eta.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\figures\\xian_eta_sensitivity.pdf",
+      "bytes": 47710,
+      "sha256": "4a831647bc28c3744c054b3aae5a95275dfbac42bfd8da0a134dc85fc6ec2429",
+      "file": "tmp/cleanup_verify_20261003/latex/figures/xian_eta_sensitivity.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\figures\\xian_heatmaps.pdf",
+      "bytes": 564146,
+      "sha256": "133eb77e23f013d3bb3822999145584a503c99bc1371521b1f6cf147f4862289",
+      "file": "tmp/cleanup_verify_20261003/latex/figures/xian_heatmaps.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\figures\\layout_v5\\baseline_q_joint.pdf",
+      "bytes": 73686,
+      "sha256": "13c05da34b0732491c740f94f9a7f48a52ddf4fef78fdfe3567d64252c354a22",
+      "file": "tmp/cleanup_verify_20261003/latex/figures/layout_v5/baseline_q_joint.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\figures\\layout_v5\\c0_phase_stationary.pdf",
+      "bytes": 39940,
+      "sha256": "61b4226f287e15a8b9e61668b62b1f6820d37d3976738b9f4e6a26ec8f39b7cf",
+      "file": "tmp/cleanup_verify_20261003/latex/figures/layout_v5/c0_phase_stationary.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\figures\\layout_v5\\c0_sensitivity_panel.pdf",
+      "bytes": 49579,
+      "sha256": "89e0aca84876ca1f755b17d403aede3f8100097a86a6b546b6fd4967f959d039",
+      "file": "tmp/cleanup_verify_20261003/latex/figures/layout_v5/c0_sensitivity_panel.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\figures\\layout_v5\\c0_sensitivity_selected_eta.pdf",
+      "bytes": 47171,
+      "sha256": "92f686dde6607ba3df41c2651b2bbb8079ca05c170bf341e2307f55f549f5059",
+      "file": "tmp/cleanup_verify_20261003/latex/figures/layout_v5/c0_sensitivity_selected_eta.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\figures\\layout_v5\\critical_population_cases.pdf",
+      "bytes": 58667,
+      "sha256": "3e3509b16551046e478c6dbe708024655fe00d6cf62edde52782c36cf0b302f9",
+      "file": "tmp/cleanup_verify_20261003/latex/figures/layout_v5/critical_population_cases.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\figures\\layout_v5\\eta_sensitivity_selected_c0.pdf",
+      "bytes": 74320,
+      "sha256": "62f93509f8e99c2eb5277d0bb26ae2c17bac4e5a9d0b2ce23b630d0723af4c2b",
+      "file": "tmp/cleanup_verify_20261003/latex/figures/layout_v5/eta_sensitivity_selected_c0.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\figures\\layout_v5\\fig_panel_B_trajectory_decomposition.pdf",
+      "bytes": 41322,
+      "sha256": "42d5f329f8cd9d086d7e6d9cc8c5c81e6f98756cde9525469eff5ef07529daf8",
+      "file": "tmp/cleanup_verify_20261003/latex/figures/layout_v5/fig_panel_B_trajectory_decomposition.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\figures\\layout_v5\\population_threshold_levers.pdf",
+      "bytes": 63524,
+      "sha256": "29785382d8cce7ba1105617537ca066f2a85dc2dd47afe0161c7f26674bc8900",
+      "file": "tmp/cleanup_verify_20261003/latex/figures/layout_v5/population_threshold_levers.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\figures\\layout_v5\\scenario1_inflection_lambda_sensitivity.pdf",
+      "bytes": 32884,
+      "sha256": "5093f5a38e5c12505346835686a157739822899a13ca3b2093a864d88fd88e2c",
+      "file": "tmp/cleanup_verify_20261003/latex/figures/layout_v5/scenario1_inflection_lambda_sensitivity.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\figures\\layout_v5\\scenario1_inflection_scan_t.pdf",
+      "bytes": 27441,
+      "sha256": "53cc9e5fc6fc6e09cb75387242dfbc132ebfb068b1e69cc81defb9ca98a60d3d",
+      "file": "tmp/cleanup_verify_20261003/latex/figures/layout_v5/scenario1_inflection_scan_t.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\figures\\layout_v5\\xian_observed_fit.pdf",
+      "bytes": 35674,
+      "sha256": "5620f0e6273647aba4124ce9df4df3bd6e77f60e4d14a3e7baf144d883a561a2",
+      "file": "tmp/cleanup_verify_20261003/latex/figures/layout_v5/xian_observed_fit.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\latex\\figures\\layout_v5\\xian_strategy_process.pdf",
+      "bytes": 51746,
+      "sha256": "62bd26453791a05ed29a97a374df38d56fa6ec77c1d95d21e19d57f80a555e95",
+      "file": "tmp/cleanup_verify_20261003/latex/figures/layout_v5/xian_strategy_process.pdf"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-01.png",
+      "bytes": 165229,
+      "sha256": "36d15f6c87be1266a562613b782b35b8e25ea6ff80cee24e3ab4db24fa602667",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-01.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-02.png",
+      "bytes": 206166,
+      "sha256": "83129e9770e2b983876082394038422e33f95fe3edbc906a1656d50175f302e9",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-02.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-03.png",
+      "bytes": 160693,
+      "sha256": "073db19dc7e599e8f5db32aabf4484395eb1c3f1a378cfa7a707c1252021c27a",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-03.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-04.png",
+      "bytes": 106953,
+      "sha256": "a240e0eb16a5ff38936e9adc2c5823e6c7713962efb747e630a533681ac94372",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-04.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-05.png",
+      "bytes": 142740,
+      "sha256": "0a7347a8211cde6811ae0da8288baf7619158649a1401b612660ef9cfbebf0bd",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-05.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-06.png",
+      "bytes": 100823,
+      "sha256": "134e5308c40627160ae3b392b34d78c83581be5103384749cb3ddcf8e8e04a2b",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-06.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-07.png",
+      "bytes": 99401,
+      "sha256": "7a4a7ce9fdbc592c169639d93ae09abb234793ff1e4c3b11b16b3191e1d2e3e3",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-07.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-08.png",
+      "bytes": 91032,
+      "sha256": "a93f59a8dac201cd96c6f34f81592e449f8b2ff09f53fed00fadd4b13856f10f",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-08.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-09.png",
+      "bytes": 96619,
+      "sha256": "0a94bddd53f3cacb08c1830e9ae509520a79db1f2a0ecb76ac65fdd55fb8842b",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-09.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-10.png",
+      "bytes": 97862,
+      "sha256": "41acb87540a9adb1834db709b9595c8fd036869c5f4deea2324ea5e0fc07c15d",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-10.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-11.png",
+      "bytes": 97770,
+      "sha256": "46cb904c7a387ad8f9e52c18c61e63ab9e917b31085b4938a9ad773790224438",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-11.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-12.png",
+      "bytes": 108431,
+      "sha256": "54f5892fc2b4ef00b327aa85f5e39e91861d3a927d96365e4c312da32d2c4e59",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-12.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-13.png",
+      "bytes": 85196,
+      "sha256": "172e5897f1e95fb0130e9cc56e7227693c5b4a88f33bb09bdf127d82b9ddb42a",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-13.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-14.png",
+      "bytes": 110153,
+      "sha256": "103fdc42f7560995c4932f9eae09a02dbdfdf5f90b10b550105a38633b35f023",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-14.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-15.png",
+      "bytes": 90998,
+      "sha256": "2b771994a488da9694170556ef6d6b1ba85855185eeccddf68513b00612717f2",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-15.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-16.png",
+      "bytes": 68475,
+      "sha256": "6aef7d1199ae13634ee744eae3293d53c33a243d10685c9fe410f935a23c3200",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-16.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-17.png",
+      "bytes": 90224,
+      "sha256": "555db9b9cba8564a06e3ee94ef859b3cc06b89c996f4c7108724c097612381d4",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-17.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-18.png",
+      "bytes": 115482,
+      "sha256": "b52eace18b7e1e753692a45e16d960de5b236c2ef422bac957fd812bbdc94ba6",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-18.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-19.png",
+      "bytes": 109140,
+      "sha256": "93f76f756b859ec2c24dd47be84421ba6727078285bd1c8161df892aed16ceeb",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-19.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-20.png",
+      "bytes": 123718,
+      "sha256": "e5e5c122083fa95e3368ef71cb552dcfb50997e8eb53ea04b61989f62dbe4bed",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-20.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-21.png",
+      "bytes": 118264,
+      "sha256": "91784f92f3c78ce9ce763aeb0f680b71b2b76a83e4e97fcafc70b735a2f5e81a",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-21.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-22.png",
+      "bytes": 121068,
+      "sha256": "e06f451a2c56e87aec12f3631b4fb4a27f68df354083cf5c80fc7f0b3103af8f",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-22.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-23.png",
+      "bytes": 140420,
+      "sha256": "4894ec844c01868de5d5aa902e6c7a5a3db260a23388e45d0cba399bb6498129",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-23.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-24.png",
+      "bytes": 101932,
+      "sha256": "626a08410ac3dc42709016e4d680487346546f48da3b42b9db93976576c0fc7a",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-24.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-25.png",
+      "bytes": 95098,
+      "sha256": "31cab875510bc6d9470d3b3efefb91a7a8833cce05e761d8ef45e2a562bf2a49",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-25.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-26.png",
+      "bytes": 133805,
+      "sha256": "0e3c2710e1c9216224283c1e7c5751c2b83a5e6fb47b2e4015985b8938fa1f1d",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-26.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-27.png",
+      "bytes": 95375,
+      "sha256": "45a918d959f53ae65414d296a58c1fccf5ab26f998720b0e7eb26bbb9ed96e6c",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-27.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-28.png",
+      "bytes": 42329,
+      "sha256": "457686ac50cd6c2af729b04a4a64ee37b58271e8b5c06e9f725db63b1368c86e",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-28.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-29.png",
+      "bytes": 97780,
+      "sha256": "ee3af0e9780c78e271dac3d50fd6fbb9b22f0a450ff4bc648d26751b426be305",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-29.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-30.png",
+      "bytes": 126434,
+      "sha256": "e2c1e9741a26cb89e5d5955cf39f5ed22cbb2e38d4884976e4a6da6ba027fdca",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-30.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-31.png",
+      "bytes": 114608,
+      "sha256": "92c8a8fbd48a6342ce01068f5a926269504f6d694bb17111181612c63132e2e9",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-31.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-32.png",
+      "bytes": 136344,
+      "sha256": "77a8edf616cb2e7607d36281046e16bce8db4125ced5b748f85b3f79c41582c9",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-32.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-33.png",
+      "bytes": 126603,
+      "sha256": "be49be260bf788ca59aed073c21912122457e922089b6bf273a505e4d8e1bede",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-33.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-34.png",
+      "bytes": 117201,
+      "sha256": "e3e114698135d06103b3e4d5eac42a400c12057454279ad1b9f4e9e663cd382c",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-34.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-35.png",
+      "bytes": 66973,
+      "sha256": "8a272abe76e1f75d347de5d6e184ff85bb86bc2961fce65e04c24b68310407f4",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-35.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-36.png",
+      "bytes": 57746,
+      "sha256": "824b1cd48f2aeb11cdec902208776c54193a2667dccad207c734f639d9e8baef",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-36.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-37.png",
+      "bytes": 180373,
+      "sha256": "b56dc25f6e6e5d0d3f0537b715b65c39c88014d0dd630a81bf1c4ccbe97a2413",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-37.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-38.png",
+      "bytes": 160106,
+      "sha256": "abe3b68316c575844ec72a45a9bd940058eb35fca65774ac16179378ea8cfb4f",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-38.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-39.png",
+      "bytes": 38192,
+      "sha256": "252575b2697a8da5300c49cf81164d5281a6f3f2a7b579d087632c832e25ff72",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-39.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-40.png",
+      "bytes": 80016,
+      "sha256": "a77d9b7ad6caecf102740f9d7482a1a843ad1b523855e713bbab60232a8ab69b",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-40.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-41.png",
+      "bytes": 95794,
+      "sha256": "504397fdc3d8a3fa41deff6862b76484e132816e277c5eeeb3ef6d27624e4600",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-41.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-42.png",
+      "bytes": 50860,
+      "sha256": "7faedc0cdf871daa8d9f314565eaf823b9294bd9493177f60cf002a53fc687ba",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-42.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-43.png",
+      "bytes": 90821,
+      "sha256": "6d4711fded2d0d81070237b08eea7b716b3dce9e1f0c3a5d9374f9464ac0c4fc",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-43.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-44.png",
+      "bytes": 117353,
+      "sha256": "05ee37cb22754b86184b23c3e23aab433925b613ee539958a4fe025cb1f705d6",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-44.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_analysis_cn-45.png",
+      "bytes": 98854,
+      "sha256": "f109414835fec3cfa5f92925088782732de1096c3762a2369602ebd57da88b7f",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_analysis_cn-45.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_supplement_cn-1.png",
+      "bytes": 55447,
+      "sha256": "95fdd813c0c151f6f9f81074d4f4714a9c3f033fd3a2019c1282b707a0745332",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_supplement_cn-1.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_supplement_cn-2.png",
+      "bytes": 37881,
+      "sha256": "ff3f7edc740cab14e7e4c36901eb6705e3170b416c3ee53c89f46fbd7ee505f6",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_supplement_cn-2.png"
+    },
+    {
+      "absolute_path": "E:\\work\\draft\\tmp\\cleanup_verify_20261003\\poppler_review\\flatten_curve_supplement_cn-3.png",
+      "bytes": 31860,
+      "sha256": "6bca7a1f26195713aebaf8498beefb55f86c64a26e0e6afcd18eaec8cf19c6bc",
+      "file": "tmp/cleanup_verify_20261003/poppler_review/flatten_curve_supplement_cn-3.png"
+    }
+  ]
+}

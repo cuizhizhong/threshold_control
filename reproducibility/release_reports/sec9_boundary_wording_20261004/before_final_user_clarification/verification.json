@@ -1,0 +1,696 @@
+{
+  "passed": true,
+  "nature_skills_used": false,
+  "full_numerical_rerun": false,
+  "compile_started_by_verifier": false,
+  "scope": "第9节局部文案及已有输出的纯函数回归、保护和编译产物核查，不认证边界渐近证明。",
+  "prose_regression": {
+    "passed": true,
+    "function": "population_comparison_prose",
+    "parameter_names": [
+      "reference",
+      "fit",
+      "critical"
+    ],
+    "keys": [
+      "population_initial_convention",
+      "population_theory_bridge",
+      "population_reference_setup",
+      "population_reference_duration",
+      "population_actual_boundaries",
+      "population_actual_region",
+      "population_actual_upper_bound",
+      "population_extra_region_bridge",
+      "population_figure13_note",
+      "population_cost_upper_bound",
+      "population_cost_boundary_duration",
+      "population_cumulative_condition_bridge",
+      "population_cumulative_arc_bridge",
+      "population_appendix_bridge"
+    ],
+    "deterministic": true,
+    "input_objects_unchanged": true,
+    "previous_eight_publication_prose_exact": true,
+    "localized_sync_entries": 14,
+    "localized_sync_raw_inputs_retained": true,
+    "no_IO_no_prepare_manuscript_no_scientific_import": true,
+    "scientific_modules_imported": [],
+    "source_sha256": "1b6cc6d9394fc8e6f5a2a9175e9b140682e335981e0e76eb632da97f4a40eccd",
+    "prior_source_sha256": "fe13ca5294067bb638c0393c0c3657f9e6b7051191c8fa86c4fd5ee5e37f71ca",
+    "conditional_existing_results_not_a_fresh_scientific_run": true,
+    "input_sha256": {
+      "reproducibility/results/20261003_release_final/xian/reference.json": "b920deaf55f771958433ab27f32ca1606393c9ae7b96d3361aee053af097bc45",
+      "reproducibility/results/20261003_release_final/xian/fit.json": "bdbee6a736f2f620f5e306bc75d71825453689e798dc67c0c45fec65de879693",
+      "reproducibility/results/20261003_release_final/population/critical.json": "565070dac6b74f4b8944daf60ac9df9442e6b724712d26eae6eb0355a457f85f",
+      "reproducibility/results/20261003_release_final/population/diagnostics.json": "387ea3331bfae4f91e9ddcd3f509e27c24b32011c8fd9a586efcda9160f4d942",
+      "reproducibility/results/20261003_release_final/population/fixed_absolute_scale.csv": "4decf6730574ddb542a08f5bd8a14d7099b494e13453fcc003738a3d8c285bde",
+      "reproducibility/results/20261003_release_final/xian/S2_difference.json": "a77a02d2380420cc4f1d407279a6017215735dcf0854427782de5c04cc0f7cf9",
+      "reproducibility/results/20261003_release_final/population/supplementary_anchors.json": "db5df24754c7b3d407493480a22c41d7279ded536af8c3ef03b333c8b8b2311f"
+    }
+  },
+  "static": {
+    "passed": true,
+    "checks": {
+      "outside_section9_and_approved_appendix_intro_exact": true,
+      "appendix_intro_generated_or_unchanged": true,
+      "supplement_source_exact": true,
+      "label_order_exact": true,
+      "numbered_math_count_preserved": true,
+      "numbered_math_allowed_changes_only": true,
+      "all_proofs_exact": true,
+      "all_numbered_theorem_statements_exact": true,
+      "seven_tables_entire_source_exact": true,
+      "twenty_figure_environments_only_caption13_changed": true,
+      "citation_keys_exact": true,
+      "one_main_bibliography_only": true,
+      "capacity_additions_and_prior_sections_exact": true,
+      "eight_audit_separation_texts_exact": true,
+      "existing_pure_helpers_exact": true,
+      "existing_editor_classes_exact": true,
+      "whole_generator_scientific_calls_exact": true,
+      "localized_sync_exactly_reproduces_formal_text": true,
+      "new_prose_matches_manuscript": true,
+      "finite_tests_and_unfavorable_clearance_findings_exact": true
+    },
+    "diff_hunks": [
+      {
+        "kind": "replace",
+        "old_lines": [
+          1531,
+          1531
+        ],
+        "new_lines": [
+          1531,
+          1531
+        ],
+        "old": "数值计算固定绝对初值 $I_0=1.00659\\times10^{-3}$，不随 $N_{\\rm eff}$ 重新拟合，故 $i_0=I_0/N$ 随人口规模改变。第\\ref{sec:scaling-theory}节的规模不变性以固定归一化初值为前提，两者需加以区分。",
+        "new": "数值计算在各人口情景下沿用全市人口下拟合得到的同一个绝对初值 $I_0=1.00659\\times10^{-3}$，并取 $S_0=N-I_0$，故 $i_0=I_0/N$ 与 $s_0=1-i_0$ 随人口规模改变。这是本节采用的情景比较约定；若在不同人口下重新拟合，所得初值未必相同。第\\ref{sec:scaling-theory}节的规模不变性以固定归一化初值为前提，两者需加以区分。"
+      },
+      {
+        "kind": "replace",
+        "old_lines": [
+          1540,
+          1540
+        ],
+        "new_lines": [
+          1540,
+          1540
+        ],
+        "old": "命题\\ref{prop:scaling}已给出固定归一化初值时的规模不变性。以下理论条件仍以这一初值约定为前提；固定绝对 $I_0$ 的应用计算使用各人口下实际求得的指标，不能将近似重合改写为精确相等。",
+        "new": "命题\\ref{prop:scaling}已给出固定归一化初值时的规模不变性。以下理论条件及式\\eqref{eq:dom:Nstar}、\\eqref{eq:dom:Nstar-infty}的商式仍以这一初值约定为前提；固定绝对 $I_0$ 的应用上界在第\\ref{sec:dom:xian}节按实际指标求根定义，不直接由这些商式确定。"
+      },
+      {
+        "kind": "replace",
+        "old_lines": [
+          1632,
+          1633
+        ],
+        "new_lines": [
+          1632,
+          1633
+        ],
+        "old": "取 $\\beta=0.1498,\\gamma=0.2953,c_0=12.8872,q_0=0.3230$，$S_0/N\\approx1$，参照量见表~\\ref{tab:xian_summary}。由式~\\eqref{eq:s1:Imax-no}，$i_{\\max}^{no}\\approx0.1047$。表~\\ref{tab:dom:thresholds} 给出各项条件对应的有效人口界值；在所考察的 $T_{\\max}=45,60,90,150$ 天及不限制时长的设定下，均有 $\\theta_{\\rm bind}<i_{\\max}^{no}$。\n当 $T_{\\max}\\approx103$ 天时，$\\theta_{\\rm dur}=\\theta_{\\rm cost}$；更短的允许时长使时长条件起约束作用，更长的允许时长则由成本条件决定阈值下限。",
+        "new": "取 $\\beta=0.1498,\\gamma=0.2953,c_0=12.8872,q_0=0.3230$，$S_0/N\\approx1$，参照量见表~\\ref{tab:xian_summary}。取全市参考人口 $N_{\\rm ref}=13{,}163{,}000$，由式~\\eqref{eq:s1:Imax-no}计算得 $i_{\\max}^{no}\\approx0.1047$。表~\\ref{tab:dom:thresholds} 给出各项条件对应的有效人口界值；在参考人口下，所考察的 $T_{\\max}=45,60,90,150$ 天及不限制时长的设定均有 $\\theta_{\\rm bind}<i_{\\max}^{no}$。\n在全市参考人口下，当 $T_{\\max}\\approx103$ 天时，$\\theta_{\\rm dur}=\\theta_{\\rm cost}$；更短的允许时长使时长条件起约束作用，更长的允许时长则由成本条件决定阈值下限。"
+      },
+      {
+        "kind": "replace",
+        "old_lines": [
+          1660,
+          1660
+        ],
+        "new_lines": [
+          1660,
+          1660
+        ],
+        "old": "峰值、成本、时长和触发条件在 $(N,\\eta)$ 平面上分别为",
+        "new": "固定绝对初值时，峰值、成本、时长和触发条件在 $(N,\\eta)$ 平面上的边界分别为"
+      },
+      {
+        "kind": "replace",
+        "old_lines": [
+          1665,
+          1673
+        ],
+        "new_lines": [
+          1665,
+          1673
+        ],
+        "old": "  \\text{成本线：}\\ &\n  \\eta=\\theta_{\\rm cost}N\n  &&(\\text{占优侧 }\\eta\\ge\\theta_{\\rm cost}N),\\\\\n  \\text{时长线：}\\ &\n  \\eta=\\theta_{\\rm dur}(T_{\\max})N\n  &&(\\text{占优侧 }\\eta\\ge\\theta_{\\rm dur}(T_{\\max})N),\\\\\n  \\text{触发线：}\\ &\n  \\eta=i_{\\max}^{no}N\n  &&(\\text{可行侧 }\\eta<i_{\\max}^{no}N).",
+        "new": "  \\text{成本边界：}\\ &\n  J(\\eta,N)=J^{\\rm T}\n  &&(\\text{占优侧 }J(\\eta,N)\\le J^{\\rm T}),\\\\\n  \\text{时长边界：}\\ &\n  \\Delta t(\\eta,N)=T_{\\max}\n  &&(\\text{占优侧 }\\Delta t(\\eta,N)\\le T_{\\max}),\\\\\n  \\text{触发边界：}\\ &\n  \\eta=I_{\\max}^{no}(N)\n  &&(\\text{可行侧 }\\eta<I_{\\max}^{no}(N))."
+      },
+      {
+        "kind": "replace",
+        "old_lines": [
+          1675,
+          1675
+        ],
+        "new_lines": [
+          1675,
+          1675
+        ],
+        "old": "占优区域为",
+        "new": "其中 $J(\\eta,N)$、$\\Delta t(\\eta,N)$ 和 $I_{\\max}^{no}(N)$ 均按同一个绝对初值 $I_0$ 与 $S_0=N-I_0$ 计算。比较集合按实际指标定义为"
+      },
+      {
+        "kind": "replace",
+        "old_lines": [
+          1679,
+          1679
+        ],
+        "new_lines": [
+          1679,
+          1679
+        ],
+        "old": "\\bigl\\{",
+        "new": "\\left\\{"
+      },
+      {
+        "kind": "replace",
+        "old_lines": [
+          1681,
+          1684
+        ],
+        "new_lines": [
+          1681,
+          1686
+        ],
+        "old": "\\theta_{\\rm bind}(T_{\\max})N\n\\le\\eta\\le I_{\\rm peak}^{\\rm T},\n\\ \\ i_0N<\\eta<i_{\\max}^{no}N\n\\bigr\\},",
+        "new": "\\begin{array}{l}\nN>I_0,\\quad S_0>S_c,\\quad I_0<\\eta<I_{\\max}^{no}(N),\\\\\n\\eta\\le I_{\\rm peak}^{\\rm T},\\\\\nJ(\\eta,N)\\le J^{\\rm T},\\quad\\Delta t(\\eta,N)\\le T_{\\max}\n\\end{array}\n\\right\\}."
+      },
+      {
+        "kind": "replace",
+        "old_lines": [
+          1686,
+          1687
+        ],
+        "new_lines": [
+          1688,
+          1688
+        ],
+        "old": "比较区域的下界由成本与时长条件共同确定，其人口上限对应交点 $(N^\\ast(T_{\\max}),I_{\\rm peak}^{\\rm T})$。该点仍满足严格触发条件（$152.55$ 小于\n$i_{\\max}^{no}N^\\ast_\\infty\\approx9.6\\times10^{3}$）。",
+        "new": "不另设时长上限时去掉最后的时长条件；人口相容下界仍在后文与该集合取交。峰值线是精确的水平线。图~\\ref{fig:dom}中的成本、时长和触发参考直线采用全市参考人口 $N_{\\rm ref}$ 下的未取整比例；固定绝对初值时，这些比例随 $N$ 改变，图中直线只显示比较区域的近似形状。集合归属和临界点均以实际成本、时长及严格触发条件判断，不以参考直线代替。"
+      },
+      {
+        "kind": "replace",
+        "old_lines": [
+          1689,
+          1689
+        ],
+        "new_lines": [
+          1690,
+          1692
+        ],
+        "old": "图~\\ref{fig:dom}(a) 给出上述比较区域，图~\\ref{fig:dom}(b) 加入累计感染和清零时间条件，对应集合为",
+        "new": "比较区域的阈值下限由实际成本与时长条件共同确定；在本节存在相应内部交点的情形，应用人口上界 $N^\\ast(T_{\\max})$ 取两项指标各自允许的人口上界的较小者，不要求二者同时取等号。这一应用定义不同于第\\ref{sec:dom:theory}节固定归一化初值下的商式。本文上界计算满足 $I_0<I_{\\rm peak}^{\\rm T}<I_{\\max}^{no}(N)$，交点为 $(N^\\ast(T_{\\max}),I_{\\rm peak}^{\\rm T})$；例如，$152.55$ 远小于 $I_{\\max}^{no}(N^\\ast_\\infty)\\approx9.6\\times10^{3}$，严格触发条件未被取等号。\n\n图~\\ref{fig:dom}(a) 近似展示上述比较区域的形状，图~\\ref{fig:dom}(b) 加入累计感染和清零时间条件，对应集合为"
+      },
+      {
+        "kind": "replace",
+        "old_lines": [
+          1703,
+          1703
+        ],
+        "new_lines": [
+          1706,
+          1706
+        ],
+        "old": "\\caption{西安参数下 $(N_{\\rm eff},\\eta)$ 平面的比较区域。(a) 峰值、成本、时长和触发条件；人口下界右侧的浅蓝区域同时满足峰值、成本与触发条件，未另加时长上限；左侧灰色区域因 $N<N_{\\rm floor}$ 被排除。(b) 加入累计感染和清零时间的等值曲线。竖直实线为 $N_{\\rm floor}=1.06\\times10^4$。累计感染边界与成本线交于 $(11813,19.55)$，清零时间等值曲线位于人口下界左侧。圆点和方点对应图\\ref{fig:dom:levers}(a,c)、\\ref{fig:dom:levers}(b,d) 的参数。}",
+        "new": "\\caption{西安参数下 $(N_{\\rm eff},\\eta)$ 平面比较区域的近似展示。(a) 峰值条件及成本、时长和触发参考直线；后三者采用 $N_{\\rm ref}=13{,}163{,}000$ 下的未取整比例。人口下界右侧的浅蓝区域示意峰值、成本与触发条件的交集，未另加时长上限；左侧灰色区域因 $N<N_{\\rm floor}$ 被排除。(b) 加入累计感染和清零时间的等值曲线。竖直实线为 $N_{\\rm floor}=1.06\\times10^4$。计算所得累计感染与成本条件的交点约为 $(11813,19.55)$，清零时间等值曲线位于人口下界左侧。圆点和方点分别示意固定人口改变阈值、固定阈值改变人口的两类比较；轨迹案例的具体参数见图\\ref{fig:dom:levers}(a,c)、\\ref{fig:dom:levers}(b,d)。}"
+      },
+      {
+        "kind": "replace",
+        "old_lines": [
+          1708,
+          1708
+        ],
+        "new_lines": [
+          1711,
+          1715
+        ],
+        "old": "仅考虑峰值和成本时，条件 $\\theta_{\\rm cost}N\\le\\eta\\le I_{\\rm peak}^{\\rm T}$ 与人口下界的交集为",
+        "new": "仅考虑峰值和成本时，在满足 $I_0<I_{\\rm peak}^{\\rm T}<I_{\\max}^{no}(N)$ 的计算范围内，由 $J$ 关于 $\\eta$ 严格递减，峰值水平 $\\eta=I_{\\rm peak}^{\\rm T}$ 处的实际成本决定是否存在满足两项比较条件的阈值。固定绝对初值的应用上界 $N^\\ast_\\infty$ 按\n\\[\nJ\\bigl(I_{\\rm peak}^{\\rm T},N^\\ast_\\infty\\bigr)=J^{\\rm T}\n\\]\n求根确定，不采用常数比例的商式作为精确定义。本文参数下，沿用实际指标求根结果，与人口下界取交得到数值比较范围"
+      },
+      {
+        "kind": "replace",
+        "old_lines": [
+          1711,
+          1711
+        ],
+        "new_lines": [
+          1718,
+          1718
+        ],
+        "old": "  =\\bigl[\\,1.06\\times10^{4},\\ 9.22\\times10^{4}\\,\\bigr],",
+        "new": "  \\approx\\bigl[\\,1.06\\times10^{4},\\ 9.22\\times10^{4}\\,\\bigr],"
+      },
+      {
+        "kind": "replace",
+        "old_lines": [
+          1714,
+          1714
+        ],
+        "new_lines": [
+          1721,
+          1721
+        ],
+        "old": "在此范围内，存在阈值使感染峰值不超过 $152.55$、加权成本不超过 $49.39$。成本边界对应的控制持续时间为 $102.91$ 天；若允许时长小于该值，有效人口上界进一步减小，见表~\\ref{tab:dom:thresholds}。",
+        "new": "在此范围内，存在阈值使感染峰值不超过 $152.55$、加权成本不超过 $49.39$。按全市参考人口计算，成本边界对应的控制持续时间约为 $102.91$ 天；表~\\ref{tab:dom:thresholds}所列更短时长限制进一步缩小有效人口上界。"
+      },
+      {
+        "kind": "replace",
+        "old_lines": [
+          1718,
+          1718
+        ],
+        "new_lines": [
+          1725,
+          1725
+        ],
+        "old": "累计感染与清零时间条件进一步缩小了比较范围。累计感染边界与成本线的交点为 $(11813,19.55)$，相应的人口上限为 $N_{\\rm cum,\\infty}^\\ast\\approx1.18\\times10^4$。与 $N_{\\rm floor}$ 取交后，满足累计感染要求的区间收缩为 $N\\in[1.06\\times10^4,\\,1.18\\times10^4]$，上下端点之比不足 $1.12$。该区间接近人口下界，说明在本节设定下，累计感染条件比仅考虑峰值和成本时更严格。",
+        "new": "累计感染与清零时间条件进一步缩小了比较范围。累计感染与实际成本条件的数值交点约为 $(11813,19.55)$，相应的人口上限为 $N_{\\rm cum,\\infty}^\\ast\\approx1.18\\times10^4$。与 $N_{\\rm floor}$ 取交后，满足累计感染要求的数值比较区间约为 $[1.06\\times10^4,\\,1.18\\times10^4]$，上下端点之比不足 $1.12$。该区间接近人口下界，说明在本节设定下，累计感染条件比仅考虑峰值和成本时更严格。"
+      },
+      {
+        "kind": "replace",
+        "old_lines": [
+          1860,
+          1860
+        ],
+        "new_lines": [
+          1867,
+          1867
+        ],
+        "old": "在 $\\eta\\in[10,152.55]$ 内，累计感染等值曲线 $\\Itcum(\\eta,N)=\\Itcum^{\\rm T}$ 从 $(9511,152.55)$ 延伸至 $(12230,10)$，$\\eta=100$ 时 $N_{\\rm cum}\\approx1.015\\times10^4$。它与成本线的交点为 $(11813,19.55)$，给出 $N_{\\rm cum,\\infty}^\\ast\\approx1.18\\times10^4$，约为 $N^\\ast_\\infty$ 的 $0.13$。现有 $16$ 个计算点及其插值仅显示一次交点，尚不能据此确定一般参数下交点的唯一性。",
+        "new": "在 $\\eta\\in[10,152.55]$ 内，累计感染等值曲线 $\\Itcum(\\eta,N)=\\Itcum^{\\rm T}$ 从 $(9511,152.55)$ 延伸至 $(12230,10)$，$\\eta=100$ 时 $N_{\\rm cum}\\approx1.015\\times10^4$。它与实际成本条件的数值交点约为 $(11813,19.55)$，给出 $N_{\\rm cum,\\infty}^\\ast\\approx1.18\\times10^4$，约为 $N^\\ast_\\infty$ 的 $0.13$。现有 $16$ 个计算点及其插值仅显示一次交点，尚不能据此确定一般参数下交点的唯一性。"
+      },
+      {
+        "kind": "replace",
+        "old_lines": [
+          1963,
+          1963
+        ],
+        "new_lines": [
+          1970,
+          1970
+        ],
+        "old": "本附录给出第\\ref{sec:s1}节仅隔离策略的人口尺度比较条件。固定归一化初值 $s_0,i_0$ 和其余参数，记 $i_{\\max}^{no}=I_{\\max}^{no}/N$。由命题\\ref{prop:threshold-tradeoff}和\\ref{prop:scaling}，$\\Delta t(\\theta)$ 和 $J(\\theta)$ 在 $(i_0,i_{\\max}^{no})$ 上严格递减，右端极限为零，左端极限 $\\Delta t(i_0+)$、$J(i_0+)$ 均有限且为正。",
+        "new": "本附录给出第\\ref{sec:s1}节仅隔离策略的人口尺度比较条件。固定归一化初值 $s_0,i_0$ 和其余参数，记 $i_{\\max}^{no}=I_{\\max}^{no}/N$。由命题\\ref{prop:threshold-tradeoff}和\\ref{prop:scaling}，$\\Delta t(\\theta)$ 和 $J(\\theta)$ 在 $(i_0,i_{\\max}^{no})$ 上严格递减，右端极限为零，左端极限 $\\Delta t(i_0+)$、$J(i_0+)$ 均有限且为正。下述人口上界商式仅用于这一初值约定；固定绝对初值的应用上界按第\\ref{sec:dom:xian}节的实际指标定义。"
+      }
+    ],
+    "numbered_math_count": 97,
+    "numbered_math_changes": [
+      {
+        "index": 88,
+        "labels": [],
+        "allowed": true,
+        "old": "\\begin{align}\n  \\text{峰值线：}\\ &\n  \\eta=I_{\\rm peak}^{\\rm T}\n  &&(\\text{占优侧 }\\eta\\le I_{\\rm peak}^{\\rm T}),\\\\\n  \\text{成本线：}\\ &\n  \\eta=\\theta_{\\rm cost}N\n  &&(\\text{占优侧 }\\eta\\ge\\theta_{\\rm cost}N),\\\\\n  \\text{时长线：}\\ &\n  \\eta=\\theta_{\\rm dur}(T_{\\max})N\n  &&(\\text{占优侧 }\\eta\\ge\\theta_{\\rm dur}(T_{\\max})N),\\\\\n  \\text{触发线：}\\ &\n  \\eta=i_{\\max}^{no}N\n  &&(\\text{可行侧 }\\eta<i_{\\max}^{no}N).\n\\end{align}",
+        "new": "\\begin{align}\n  \\text{峰值线：}\\ &\n  \\eta=I_{\\rm peak}^{\\rm T}\n  &&(\\text{占优侧 }\\eta\\le I_{\\rm peak}^{\\rm T}),\\\\\n  \\text{成本边界：}\\ &\n  J(\\eta,N)=J^{\\rm T}\n  &&(\\text{占优侧 }J(\\eta,N)\\le J^{\\rm T}),\\\\\n  \\text{时长边界：}\\ &\n  \\Delta t(\\eta,N)=T_{\\max}\n  &&(\\text{占优侧 }\\Delta t(\\eta,N)\\le T_{\\max}),\\\\\n  \\text{触发边界：}\\ &\n  \\eta=I_{\\max}^{no}(N)\n  &&(\\text{可行侧 }\\eta<I_{\\max}^{no}(N)).\n\\end{align}"
+      },
+      {
+        "index": 89,
+        "labels": [
+          "eq:dom:main-interval"
+        ],
+        "allowed": true,
+        "old": "\\begin{equation}\n  N_{\\rm eff}\\in\\bigl[\\,N_{\\rm floor},\\,N^\\ast_\\infty\\,\\bigr]\n  =\\bigl[\\,1.06\\times10^{4},\\ 9.22\\times10^{4}\\,\\bigr],\n  \\label{eq:dom:main-interval}\n\\end{equation}",
+        "new": "\\begin{equation}\n  N_{\\rm eff}\\in\\bigl[\\,N_{\\rm floor},\\,N^\\ast_\\infty\\,\\bigr]\n  \\approx\\bigl[\\,1.06\\times10^{4},\\ 9.22\\times10^{4}\\,\\bigr],\n  \\label{eq:dom:main-interval}\n\\end{equation}"
+      }
+    ],
+    "label_count": 184,
+    "prose_present": {
+      "population_initial_convention": true,
+      "population_theory_bridge": true,
+      "population_reference_setup": true,
+      "population_reference_duration": true,
+      "population_actual_boundaries": true,
+      "population_actual_region": true,
+      "population_actual_upper_bound": true,
+      "population_extra_region_bridge": true,
+      "population_figure13_note": true,
+      "population_cost_upper_bound": true,
+      "population_cost_boundary_duration": true,
+      "population_cumulative_condition_bridge": true,
+      "population_cumulative_arc_bridge": true,
+      "population_appendix_bridge": true
+    },
+    "audit_separation_preserved": {
+      "S2_body_resolution": true,
+      "S2_diagnosis_resolved": true,
+      "SI_data_location": true,
+      "S1_source_note": true,
+      "S3_source_note": true,
+      "inflection_backsubstitution": true,
+      "discussion_unified_integration": true,
+      "table4_source_navigation": true
+    },
+    "existing_functions_unchanged": {
+      "_json": true,
+      "_csv": true,
+      "_f": true,
+      "_i": true,
+      "_sci": true,
+      "publication_prose": true
+    },
+    "scientific_findings_protection": {
+      "固定 $\\theta=0.002$，取": {
+        "found_before": true,
+        "retained_exact": true
+      },
+      "在当前数值范围内，成本、时长和累计感染边界": {
+        "found_before": true,
+        "retained_exact": true
+      },
+      "由首次积分，$i_0$ 通过": {
+        "found_before": true,
+        "retained_exact": true
+      }
+    },
+    "figure_issues": [],
+    "approved_appendix_intro": {
+      "located_once": true,
+      "old": [
+        "本附录给出第\\ref{sec:s1}节仅隔离策略的人口尺度比较条件。固定归一化初值 $s_0,i_0$ 和其余参数，记 $i_{\\max}^{no}=I_{\\max}^{no}/N$。由命题\\ref{prop:threshold-tradeoff}和\\ref{prop:scaling}，$\\Delta t(\\theta)$ 和 $J(\\theta)$ 在 $(i_0,i_{\\max}^{no})$ 上严格递减，右端极限为零，左端极限 $\\Delta t(i_0+)$、$J(i_0+)$ 均有限且为正。"
+      ],
+      "new": [
+        "本附录给出第\\ref{sec:s1}节仅隔离策略的人口尺度比较条件。固定归一化初值 $s_0,i_0$ 和其余参数，记 $i_{\\max}^{no}=I_{\\max}^{no}/N$。由命题\\ref{prop:threshold-tradeoff}和\\ref{prop:scaling}，$\\Delta t(\\theta)$ 和 $J(\\theta)$ 在 $(i_0,i_{\\max}^{no})$ 上严格递减，右端极限为零，左端极限 $\\Delta t(i_0+)$、$J(i_0+)$ 均有限且为正。下述人口上界商式仅用于这一初值约定；固定绝对初值的应用上界按第\\ref{sec:dom:xian}节的实际指标定义。"
+      ],
+      "generated_by_pure_helper": true,
+      "numeric_intersection_note": {
+        "old_occurrences": 1,
+        "new_occurrences": 1
+      }
+    }
+  },
+  "protection": {
+    "passed": true,
+    "protected_count": 8175,
+    "unexpected_changes": [],
+    "allowed_changes": [
+      {
+        "file": "latex/flatten_curve_analysis_cn.pdf",
+        "before_sha256": "526b292dabe608fd1266bb0c7cb5ae4b7be3daca039fe1f517e18f01073bf608",
+        "after_sha256": "098392513e8ceb53a0aedb8c18a73c30b454f3104788dc4cf2dba77358d6d543"
+      },
+      {
+        "file": "latex/flatten_curve_analysis_cn.tex",
+        "before_sha256": "5a115f7e7b376b7edbeeb55cbd9f74c114b96bd1f27dc6b7759116a5a2aae90d",
+        "after_sha256": "6faea2d8016bf0c4a7ce445b5a3a5d60b1380057ed7ebf3b43d3cedc7ef24abc"
+      },
+      {
+        "file": "latex/flatten_curve_supplement_cn.pdf",
+        "before_sha256": "2ee48220bfeabdd7218ec952861c205b95a352fea2104a6f308161e603a7e2dd",
+        "after_sha256": "7d2e52b8304ca4243540ff3e6c2b76b21b16f49dceb783deb8b1408eeb0147d4"
+      },
+      {
+        "file": "reproducibility/paper_sync.py",
+        "before_sha256": "fe13ca5294067bb638c0393c0c3657f9e6b7051191c8fa86c4fd5ee5e37f71ca",
+        "after_sha256": "1b6cc6d9394fc8e6f5a2a9175e9b140682e335981e0e76eb632da97f4a40eccd"
+      }
+    ],
+    "formal_figure_count": 20,
+    "formal_figures": [
+      {
+        "file": "latex/figures/c0_beta_existence.pdf",
+        "passed": true
+      },
+      {
+        "file": "latex/figures/c0_sensitivity_scan.pdf",
+        "passed": true
+      },
+      {
+        "file": "latex/figures/Fig1.pdf",
+        "passed": true
+      },
+      {
+        "file": "latex/figures/fig_dom_combined.pdf",
+        "passed": true
+      },
+      {
+        "file": "latex/figures/layout_v5/baseline_q_joint.pdf",
+        "passed": true
+      },
+      {
+        "file": "latex/figures/layout_v5/c0_phase_stationary.pdf",
+        "passed": true
+      },
+      {
+        "file": "latex/figures/layout_v5/c0_sensitivity_panel.pdf",
+        "passed": true
+      },
+      {
+        "file": "latex/figures/layout_v5/c0_sensitivity_selected_eta.pdf",
+        "passed": true
+      },
+      {
+        "file": "latex/figures/layout_v5/critical_population_cases.pdf",
+        "passed": true
+      },
+      {
+        "file": "latex/figures/layout_v5/eta_sensitivity_selected_c0.pdf",
+        "passed": true
+      },
+      {
+        "file": "latex/figures/layout_v5/fig_panel_B_trajectory_decomposition.pdf",
+        "passed": true
+      },
+      {
+        "file": "latex/figures/layout_v5/population_threshold_levers.pdf",
+        "passed": true
+      },
+      {
+        "file": "latex/figures/layout_v5/scenario1_inflection_lambda_sensitivity.pdf",
+        "passed": true
+      },
+      {
+        "file": "latex/figures/layout_v5/scenario1_inflection_scan_t.pdf",
+        "passed": true
+      },
+      {
+        "file": "latex/figures/layout_v5/xian_observed_fit.pdf",
+        "passed": true
+      },
+      {
+        "file": "latex/figures/layout_v5/xian_strategy_process.pdf",
+        "passed": true
+      },
+      {
+        "file": "latex/figures/optimal_control_with_quarantine_panels.pdf",
+        "passed": true
+      },
+      {
+        "file": "latex/figures/scenario1_heatmaps_c0_eta.pdf",
+        "passed": true
+      },
+      {
+        "file": "latex/figures/xian_eta_sensitivity.pdf",
+        "passed": true
+      },
+      {
+        "file": "latex/figures/xian_heatmaps.pdf",
+        "passed": true
+      }
+    ],
+    "git_head_unchanged": true
+  },
+  "compiled": {
+    "passed": true,
+    "actual_numbering": {
+      "flatten_curve_analysis_cn": {
+        "passed": true,
+        "checked_labels": 184,
+        "differences": []
+      },
+      "flatten_curve_supplement_cn": {
+        "passed": true,
+        "checked_labels": 3,
+        "differences": []
+      }
+    },
+    "build_logs": {
+      "flatten_curve_analysis_cn": {
+        "passed": true,
+        "errors": [],
+        "warnings": [],
+        "underfull_boxes_for_manual_review": [
+          "Underfull \\hbox (badness 2376) in paragraph at lines 1725--1726"
+        ],
+        "underfull_not_silently_treated_as_overflow": true,
+        "complete_pdf": true
+      },
+      "flatten_curve_supplement_cn": {
+        "passed": true,
+        "errors": [],
+        "warnings": [],
+        "underfull_boxes_for_manual_review": [],
+        "underfull_not_silently_treated_as_overflow": true,
+        "complete_pdf": true
+      },
+      "biber": {
+        "passed": true,
+        "warnings": []
+      }
+    },
+    "documents": {
+      "flatten_curve_analysis_cn": {
+        "passed": true,
+        "page_count": 47,
+        "sha256": "098392513e8ceb53a0aedb8c18a73c30b454f3104788dc4cf2dba77358d6d543",
+        "outside_page_text": [],
+        "unresolved_placeholders_pages": []
+      },
+      "flatten_curve_supplement_cn": {
+        "passed": true,
+        "page_count": 3,
+        "sha256": "7d2e52b8304ca4243540ff3e6c2b76b21b16f49dceb783deb8b1408eeb0147d4",
+        "outside_page_text": [],
+        "unresolved_placeholders_pages": []
+      }
+    },
+    "bibliography": {
+      "passed": true,
+      "printed_count": 20,
+      "keys": [
+        "Angulo2021",
+        "Avram2022",
+        "Balakrishnan2023",
+        "Balderrama2024",
+        "Charpentier2020",
+        "Chen2021ICUForecast",
+        "Corless1996",
+        "Duque2020",
+        "Ferguson2020Report9",
+        "Ferretti2020",
+        "He2023TDINN",
+        "Hellewell2020",
+        "Kucharski2020",
+        "Miclo2022ICU",
+        "Pollinger2023",
+        "Pung2023Undetected",
+        "Tang2020Transmission",
+        "XianStat2021",
+        "Zhang2026Behavior",
+        "Zhou2024SPCI"
+      ],
+      "heading_pages": [
+        46
+      ]
+    },
+    "main_detail_pages": [
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47
+    ],
+    "page_counts_from_backup": {
+      "flatten_curve_analysis_cn": 46,
+      "flatten_curve_supplement_cn": 3
+    }
+  },
+  "visual_review": {
+    "renderer": "Poppler pdftoppm 120dpi",
+    "all_document_pages_rendered": {
+      "main": [
+        "qa/main-01.png",
+        "qa/main-02.png",
+        "qa/main-03.png",
+        "qa/main-04.png",
+        "qa/main-05.png",
+        "qa/main-06.png",
+        "qa/main-07.png",
+        "qa/main-08.png",
+        "qa/main-09.png",
+        "qa/main-10.png",
+        "qa/main-11.png",
+        "qa/main-12.png",
+        "qa/main-13.png",
+        "qa/main-14.png",
+        "qa/main-15.png",
+        "qa/main-16.png",
+        "qa/main-17.png",
+        "qa/main-18.png",
+        "qa/main-19.png",
+        "qa/main-20.png",
+        "qa/main-21.png",
+        "qa/main-22.png",
+        "qa/main-23.png",
+        "qa/main-24.png",
+        "qa/main-25.png",
+        "qa/main-26.png",
+        "qa/main-27.png",
+        "qa/main-28.png",
+        "qa/main-29.png",
+        "qa/main-30.png",
+        "qa/main-31.png",
+        "qa/main-32.png",
+        "qa/main-33.png",
+        "qa/main-34.png",
+        "qa/main-35.png",
+        "qa/main-36.png",
+        "qa/main-37.png",
+        "qa/main-38.png",
+        "qa/main-39.png",
+        "qa/main-40.png",
+        "qa/main-41.png",
+        "qa/main-42.png",
+        "qa/main-43.png",
+        "qa/main-44.png",
+        "qa/main-45.png",
+        "qa/main-46.png",
+        "qa/main-47.png"
+      ],
+      "supplement": [
+        "qa/supplement-1.png",
+        "qa/supplement-2.png",
+        "qa/supplement-3.png"
+      ]
+    },
+    "overview_montages": [
+      "qa/main_overview_01_08.png",
+      "qa/main_overview_09_16.png",
+      "qa/main_overview_17_24.png",
+      "qa/main_overview_25_32.png",
+      "qa/main_overview_33_40.png",
+      "qa/main_overview_41_47.png",
+      "qa/supplement_overview_01_03.png"
+    ],
+    "main_detail_pages": [
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47
+    ],
+    "supplement_detail_pages": [
+      1,
+      2,
+      3
+    ],
+    "independent_manual_review": "review_completed; see manual_review_agent.json",
+    "root_manual_review": "pending"
+  },
+  "failures": [],
+  "acceptance_status": "automated_pass_manual_pending"
+}

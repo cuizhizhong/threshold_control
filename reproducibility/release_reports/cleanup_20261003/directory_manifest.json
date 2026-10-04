@@ -1,0 +1,31 @@
+{
+  "new_directories_auto_included": false,
+  "directories": [
+    "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/helpers",
+    "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/fitz",
+    "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf/pdf",
+    "tmp/figure_qa_deps/pymupdf/mupdf-devel/include/mupdf",
+    "tmp/figure_qa_deps/pymupdf/mupdf-devel/include",
+    "tmp/figure_qa_deps/pymupdf-1.28.2.dist-info",
+    "tmp/figure_qa_deps/pymupdf/mupdf-devel/lib",
+    "tmp/figure_qa_deps/pymupdf/__pycache__",
+    "tmp/figure_qa_deps/pymupdf/mupdf-devel",
+    "tmp/ai_release_build_check_20261002",
+    "tmp/figure_qa_deps/fitz/__pycache__",
+    "latex/figures/style_restored",
+    "reproducibility/__pycache__",
+    "tmp/figure_qa_deps/pymupdf",
+    "latex/figures/revision_v4",
+    "latex/figures/layout_v5",
+    "tmp/figure_qa_deps/fitz",
+    "tmp/figure_qa_deps/bin",
+    "tmp/table-inline-build",
+    "tmp/figure_qa_deps",
+    "latex/figures",
+    "latex/table",
+    "tmp/pdfs",
+    "figures",
+    "table",
+    "tmp"
+  ]
+}

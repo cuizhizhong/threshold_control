@@ -39,6 +39,207 @@ def _sci(value, places=2):
     return f'{value / 10**exponent:.{places}f}' + r'\times10^{' + str(exponent) + '}'
 
 
+def publication_prose(reference: dict, difference: dict, supplemental: dict) -> dict[str, str]:
+    """由已有结果生成出版文案；不读写文件，也不重新运行科学计算。
+
+    返回值的键对应同步审计锚点。历史容差、初值及差异等原始诊断
+    仍由 prepare_manuscript 的审计记录完整保留，不进入出版表注。
+    """
+    td = next(row for row in reference['strategies'] if row['strategy'] == 'TDINN控制')
+    return {
+        'S2_body_resolution': (
+            r'图\ref{fig:xian:observed-fit}与三策略比较、补充表\ref*{tab:sup:initial}使用统一归一化方程、DOP853 求解器和分量容差。日新增由相邻整数日累计量之差计算；仅隔离控制按常规、平台和退出后三阶段连接。观测窗口的初值比较及 TDINN 基准的容差敏感性见补充表\ref*{tab:sup:initial}；完整数值设置与历史程序对账见随文复现说明。'
+        ),
+        'S2_diagnosis_resolved': (
+            r'\item 注：观测窗口为 2021 年 12 月 9 日至 2022 年 1 月 17 日的 40 个日区间。模型结果采用统一的归一化方程、DOP853 求解器和分量容差；拟合行使用未取整的最小二乘初值，另一模型行固定 $I_0=1$。TDINN 拟合轨迹在 $t=40$ 的总累计为 $'
+            + _f(difference['unified_refit_40_cumulative'], 4)
+            + r'$，在动态清零时刻 $' + _f(td['clear_time'], 4)
+            + r'$ d 为 $' + _f(td['cum_total_infections'], 4)
+            + r'$。容差收紧且最大步长减半后，清零时总累计的变化为 $'
+            + _sci(difference['reference_tolerance_differences']['cum_total_infections'], 2)
+            + r'$ 人；该差异仅对应 TDINN 基准的清零累计量。日新增峰值不等于社区现存感染者峰值。'
+        ),
+        'SI_data_location': (
+            r'本文件列出仅隔离控制的基准参数分析、初值设定比较和西安阈值敏感性。数值设置、未取整结果及历史程序对账见随文复现说明。阈值为给定的社区感染人数上限，表中结果不用于验证实际 ICU 容量。'
+        ),
+        'S1_source_note': (
+            r'\item 注：表中列出基准参数下的结果；首行 $c_0=c_{0,\min}+0.02$，近似数不作重新求解的输入。第一组阈值为 $5\%$；正文多阈值曲线另取 $0.2\%,0.6\%,1\%,2\%$。'
+        ),
+        'S3_source_note': (
+            r'\item 注：数值采用与正文一致的西安参数，按仅隔离控制的解析表达及数值求积计算；$q_{\max}=q_c(t_1)$。$\eta/N$ 为比例而非百分数，0.002对应0.2\%。阈值网格是设计情景范围，并非临床参数的统计置信区间；0.002不是本地ICU安全阈值的估计。累计量计算至各策略的动态清零终点。长时间结果沿用固定参数模型的外推解释，不作为现实预测。'
+        ),
+        'inflection_backsubstitution': (
+            r'固定 $\beta=0.1498$，在 $\eta\in\{80,100,150\}$、$N_{\rm eff}\in\{4,5,6\}\times10^4$ 的九组参数中，将解析拐点时刻回代开环控制，所得隔离率均约为 $0.4119$。该结果为解析公式回代，不是独立 ODE 积分验证。当 $q_0=0.3230$ 时，$\qinf=q_0$ 给出 $\beta_{\max}='
+            + _f(supplemental['beta_max'], 6)
+            + r'$；超过该值后控制区间内不再有内部拐点。'
+        ),
+        'discussion_unified_integration': (
+            '当前联合控制的数值结果限于基准参数下的成本比较，尚未开展西安参数下的系统计算。'
+        ),
+        'table4_source_navigation': (
+            r'\item 注：前四项为近似值。后两行对应本文西安参数、固定绝对初值和 $\eta\in[10,'
+            + _f(td['peak_I'])
+            + r']$ 的数值范围，不表示已证明任意参数下的交点唯一性或全局人口上界。'
+        ),
+    }
+
+
+def population_comparison_prose(reference: dict, fit: dict, critical: dict) -> dict[str, str]:
+    """格式化已验收参数与结果，生成第九节局部文案；不执行 IO 或求解。
+
+    固定归一化初值下的商式与固定绝对初值下的实际指标求根分别说明。
+    图中参考直线只作近似展示，函数不计算或改写任何参考比例和界值。
+    """
+    td = next(row for row in reference['strategies'] if row['strategy'] == 'TDINN控制')
+    parameters = reference['parameters']
+    reference_population = f'{int(parameters["N"]):,}'.replace(',', '{,}')
+    intersection = '(' + _i(critical['N_star_cum_inf']) + ',' + _f(critical['eta_at_cumulative_cost_intersection']) + ')'
+    return {
+        'population_initial_convention': (
+            r'数值计算在各人口情景下沿用全市人口下拟合得到的同一个绝对初值 $I_0='
+            + _f(fit['I0'] * 1e3, 5)
+            + r'\times10^{-3}$，并取 $S_0=N-I_0$，故 $i_0=I_0/N$ 与 $s_0=1-i_0$ 随人口规模改变。这是本节采用的情景比较约定；若在不同人口下重新拟合，所得初值未必相同。第\ref{sec:scaling-theory}节的规模不变性以固定归一化初值为前提，两者需加以区分。'
+        ),
+        'population_theory_bridge': (
+            r'命题\ref{prop:scaling}已给出固定归一化初值时的规模不变性。以下理论条件及式\eqref{eq:dom:Nstar}、\eqref{eq:dom:Nstar-infty}的商式仍以这一初值约定为前提；固定绝对 $I_0$ 的应用上界在第\ref{sec:dom:xian}节按实际指标求根定义，不直接由这些商式确定。'
+        ),
+        'population_reference_setup': (
+            r'取 $\beta=' + _f(parameters['beta'], 4)
+            + r',\gamma=' + _f(parameters['gamma'], 4)
+            + r',c_0=' + _f(parameters['c0'], 4)
+            + r',q_0=' + _f(parameters['q0'], 4)
+            + r'$，$S_0/N\approx1$，参照量见表~\ref{tab:xian_summary}。取全市参考人口 $N_{\rm ref}='
+            + reference_population
+            + r'$，由式~\eqref{eq:s1:Imax-no}计算得 $i_{\max}^{no}\approx'
+            + _f(critical['i_max_no'], 4)
+            + r'$。表~\ref{tab:dom:thresholds} 给出各项条件对应的有效人口界值；在参考人口下，所考察的 $T_{\max}=45,60,90,150$ 天及不限制时长的设定均有 $\theta_{\rm bind}<i_{\max}^{no}$。'
+        ),
+        'population_reference_duration': (
+            r'在全市参考人口下，当 $T_{\max}\approx103$ 天时，$\theta_{\rm dur}=\theta_{\rm cost}$；更短的允许时长使时长条件起约束作用，更长的允许时长则由成本条件决定阈值下限。'
+        ),
+        'population_actual_boundaries': (
+            r'''固定绝对初值时，峰值、成本、时长和触发条件在 $(N,\eta)$ 平面上的边界分别为
+\begin{align}
+  \text{峰值线：}\ &
+  \eta=I_{\rm peak}^{\rm T}
+  &&(\text{占优侧 }\eta\le I_{\rm peak}^{\rm T}),\\
+  \text{成本边界：}\ &
+  J(\eta,N)=J^{\rm T}
+  &&(\text{占优侧 }J(\eta,N)\le J^{\rm T}),\\
+  \text{时长边界：}\ &
+  \Delta t(\eta,N)=T_{\max}
+  &&(\text{占优侧 }\Delta t(\eta,N)\le T_{\max}),\\
+  \text{触发边界：}\ &
+  \eta=I_{\max}^{no}(N)
+  &&(\text{可行侧 }\eta<I_{\max}^{no}(N)).
+\end{align}'''
+        ),
+        'population_actual_region': (
+            r'''其中 $J(\eta,N)$、$\Delta t(\eta,N)$ 和 $I_{\max}^{no}(N)$ 均按同一个绝对初值 $I_0$ 与 $S_0=N-I_0$ 计算，其余模型参数不变；$S_0$ 与 $S_c=\gamma N/[\beta c_0(1-q_0)]$ 均随 $N$ 改变。比较集合按实际指标定义为
+\[
+\mathcal{W}_{\rm pcd}
+=
+\left\{
+(N,\eta):
+\begin{array}{l}
+N>I_0,\quad S_0>S_c,\quad I_0<\eta<I_{\max}^{no}(N),\\
+\eta\le I_{\rm peak}^{\rm T},\\
+J(\eta,N)\le J^{\rm T},\quad\Delta t(\eta,N)\le T_{\max}
+\end{array}
+\right\}.
+\]
+不另设时长上限时去掉最后的时长条件；人口相容下界仍在后文与该集合取交。峰值线是精确的水平线。图~\ref{fig:dom}中的成本、时长和触发参考直线采用全市参考人口 $N_{\rm ref}$ 下的未取整比例；固定绝对初值时，这些比例随 $N$ 改变，图中直线只显示比较区域的近似形状。集合归属和临界点均以实际成本、时长及严格触发条件判断，不以参考直线代替。
+'''
+        ),
+        'population_actual_upper_bound': (
+            r'比较区域的阈值下限由实际成本与时长条件共同确定。仅当两项允许人口集合分别为截止于相应界值的连续区间时，共同上界 $N^\ast(T_{\max})$ 才取两者上界的较小者，不要求二者同时取等号。现有结果保存了数值求根值和代表轨迹，尚未确认整个人口允许集合的区间结构；表~\ref{tab:dom:thresholds}中的人口界值据此作为候选上界，不作一般唯一性或单一区间的断言。这一应用判断不同于第\ref{sec:dom:theory}节固定归一化初值下的商式。所报告的数值交点满足 $I_0<I_{\rm peak}^{\rm T}<I_{\max}^{no}(N)$；例如，$'
+            + _f(td['peak_I'])
+            + r'$ 远小于 $I_{\max}^{no}(N^\ast_\infty)\approx9.6\times10^{3}$，严格触发条件未被取等号。'
+        ),
+        'population_extra_region_bridge': (
+            r'图~\ref{fig:dom}(a) 近似展示上述比较区域的形状，图~\ref{fig:dom}(b) 加入累计感染和清零时间条件，对应集合为'
+        ),
+        'population_figure13_note': (
+            r'\caption{西安参数下 $(N_{\rm eff},\eta)$ 平面比较区域的近似展示。(a) 峰值条件及成本、时长和触发参考直线；后三者采用 $N_{\rm ref}='
+            + reference_population
+            + r'$ 下的未取整比例。人口下界右侧的浅蓝区域示意峰值、成本与触发条件的交集，未另加时长上限；左侧灰色区域因 $N<N_{\rm floor}$ 被排除。(b) 加入累计感染和清零时间的等值曲线。竖直实线为 $N_{\rm floor}=1.06\times10^4$。计算所得累计感染与成本条件的交点约为 $'
+            + intersection
+            + r'$，清零时间等值曲线位于人口下界左侧。圆点和方点分别示意固定人口改变阈值、固定阈值改变人口的两类比较；轨迹案例的具体参数见图\ref{fig:dom:levers}(a,c)、\ref{fig:dom:levers}(b,d)。}'
+        ),
+        'population_cost_upper_bound': (
+            r'''仅考虑峰值和成本时，在满足 $I_0<I_{\rm peak}^{\rm T}<I_{\max}^{no}(N)$ 的计算范围内，由 $J$ 关于 $\eta$ 严格递减，峰值水平 $\eta=I_{\rm peak}^{\rm T}$ 处的实际成本决定是否存在满足两项比较条件的阈值。固定绝对初值时，$N^\ast_\infty$ 是按实际指标等值条件
+\[
+J\bigl(I_{\rm peak}^{\rm T},N^\ast_\infty\bigr)=J^{\rm T}
+\]
+得到的数值求根值，不采用常数比例的商式作为精确定义。它是否构成整个人口允许集合的上界仍须核查，不能仅由一个根确定。沿用本文已有数值结果，与人口相容下界配合，标记候选人口范围
+\begin{equation}
+  \bigl[\,N_{\rm floor},\,N^\ast_\infty\,\bigr]
+  \approx\bigl[\,1.06\times10^{4},\ '''
+            + _sci(critical['N_star_inf'], 2)
+            + r'''\,\bigr],
+  \label{eq:dom:main-interval}
+\end{equation}'''
+        ),
+        'population_cost_boundary_duration': (
+            r'该候选范围内是否存在阈值使感染峰值不超过 $' + _f(td['peak_I'])
+            + r'$、加权成本不超过 $' + _f(td['J'])
+            + r'$，须按实际指标判定，连续允许区间尚待核查。按全市参考人口计算，成本边界对应的控制持续时间约为 $'
+            + _f(critical['duration_at_cost_boundary'])
+            + r'$ 天；表~\ref{tab:dom:thresholds}所列更短时长限制对应更小的数值人口界值。'
+        ),
+        'population_cumulative_condition_bridge': (
+            r'累计感染与清零时间条件进一步缩小了比较范围。累计感染与实际成本条件的数值交点约为 $'
+            + intersection
+            + r'$，相应的人口上限为 $N_{\rm cum,\infty}^\ast\approx1.18\times10^4$。与 $N_{\rm floor}$ 取交后，满足累计感染要求的数值比较区间约为 $[1.06\times10^4,\,1.18\times10^4]$，上下端点之比不足 $1.12$。该区间接近人口下界，说明在本节设定下，累计感染条件比仅考虑峰值和成本时更严格。'
+        ),
+        'population_cumulative_arc_bridge': (
+            '它与实际成本条件的数值交点约为'
+        ),
+        'population_appendix_bridge': (
+            r'本附录给出第\ref{sec:s1}节仅隔离策略的人口尺度比较条件。固定归一化初值 $s_0,i_0$ 和其余参数，记 $i_{\max}^{no}=I_{\max}^{no}/N$。由命题\ref{prop:threshold-tradeoff}和\ref{prop:scaling}，$\Delta t(\theta)$ 和 $J(\theta)$ 在 $(i_0,i_{\max}^{no})$ 上严格递减，右端极限为零，左端极限 $\Delta t(i_0+)$、$J(i_0+)$ 均有限且为正。下述人口上界商式仅用于这一初值约定；固定绝对初值的应用上界按第\ref{sec:dom:xian}节的实际指标定义。'
+        ),
+    }
+
+
+def _sync_population_comparison(edit, reference, fit, critical):
+    """仅同步冻结稿中的既定局部锚点，不从正式稿复制或生成数值。"""
+    prose = population_comparison_prose(reference, fit, critical)
+    source = 'population_comparison_prose + xian/reference.json + xian/fit.json + population/critical.json'
+    line_anchors = {
+        'population_initial_convention': '数值计算固定绝对初值',
+        'population_theory_bridge': r'命题\ref{prop:scaling}已给出固定归一化初值时的规模不变性。',
+        'population_reference_setup': r'取 $\beta=0.1498,\gamma=0.2953,c_0=12.8872,q_0=0.3230$',
+        'population_reference_duration': r'当 $T_{\max}\approx103$ 天时',
+        'population_extra_region_bridge': r'图~\ref{fig:dom}(a) 给出上述比较区域',
+        'population_figure13_note': r'\caption{西安参数下 $(N_{\rm eff},\eta)$ 平面的比较区域。',
+        'population_cost_boundary_duration': '在此范围内，存在阈值使感染峰值不超过',
+        'population_cumulative_condition_bridge': '累计感染与清零时间条件进一步缩小了比较范围。',
+        'population_appendix_bridge': r'本附录给出第\ref{sec:s1}节仅隔离策略的人口尺度比较条件。',
+    }
+    for anchor, starts in line_anchors.items():
+        edit.line('main', starts, prose[anchor], source, anchor,
+                  raw={'fit': fit, 'reference': reference, 'critical': critical})
+    block_anchors = {
+        'population_actual_boundaries': ('峰值、成本、时长和触发条件在 $(N,\\eta)$ 平面上分别为', r'\end{align}'),
+        'population_actual_region': ('占优区域为', r'\]'),
+        'population_actual_upper_bound': ('比较区域的下界由成本与时长条件共同确定', '\n\n'),
+        'population_cost_upper_bound': ('仅考虑峰值和成本时，条件', r'\end{equation}'),
+    }
+    for anchor, (starts, end_marker) in block_anchors.items():
+        text = edit.documents['main']
+        if text.count(starts) != 1:
+            raise ValueError(f'人口比较局部锚点 {anchor} 未唯一定位')
+        start = text.index(starts)
+        end = text.index(end_marker, start)
+        # 段落边界不吞掉空行；数学环境边界则包含闭合命令。
+        if end_marker != '\n\n':
+            end += len(end_marker)
+        edit.replace('main', text[start:end], prose[anchor], source, anchor,
+                     raw={'fit': fit, 'reference': reference, 'critical': critical})
+    edit.replace('main', '它与成本线的交点为', prose['population_cumulative_arc_bridge'],
+                 source, 'population_cumulative_arc_bridge', raw=critical)
+
+
 class _Editor:
     def __init__(self, main, si):
         self.documents = {'main': main, 'supplement': si}
@@ -138,6 +339,7 @@ def prepare_manuscript(root: Path, output_dir: Path):
     metadata = _json(output_dir / 'population/metadata.json')
     pd = _json(output_dir / 'population/diagnostics.json')
     supplemental = _json(output_dir / 'population/supplementary_anchors.json')
+    prose = publication_prose(reference, difference, supplemental)
     beta_summary = _json(output_dir / 'population/beta_summary.json')
     c0params = _json(output_dir / 'c0/parameters.json')
     c0extrema = _json(output_dir / 'c0/extrema.json')
@@ -254,23 +456,18 @@ def prepare_manuscript(root: Path, output_dir: Path):
     for old, key, row in [('18.55', 't1', eta_rows[-1]), ('13.93', 't1', eta_rows[0]),
                            ('16.61', 'Delta_t', eta_rows[-1]), ('1710.66', 'Delta_t', eta_rows[0]), ('2209.55', 't_end', eta_rows[0])]:
         edit.replace('main', '$' + old + '$', '$' + _f(row[key]) + '$', 'xian/eta_scan.csv', f'eta_endpoint:{old}:{key}', raw=float(row[key]))
-    edit.line('main', r'图\ref{fig:xian:observed-fit}使用',
-              r'图\ref{fig:xian:observed-fit}与三策略比较、补充表\ref*{tab:sup:initial}使用统一归一化方程、求解器和容差的轨迹输出。旧拟合与旧事件积分的差异已按统一设置重算核对，其来源和历史数值见该补充表注。',
+    edit.line('main', r'图\ref{fig:xian:observed-fit}使用', prose['S2_body_resolution'],
               'xian/S2_difference.json', 'S2_body_resolution')
-    note = (r'\item 注：观测窗口为 2021 年 12 月 9 日至 2022 年 1 月 17 日的 40 个日区间。本表、主稿和三策略比较采用统一的归一化方程、DOP853 求解器和容差，并重新估计 $I_0$；仅隔离控制按常规、平台和退出后三阶段连接。统一计算在 $t=40$ 的总累计为 $'
-            + _f(difference['unified_refit_40_cumulative'], 4) + r'$，在动态清零时刻 $' + _f(td['clear_time'], 4)
-            + r'$ d 为 $' + _f(td['cum_total_infections'], 4) + r'$。历史拟合与事件积分在相同旧初值下分别给出 $'
-            + _f(difference['legacy_fit_40_cumulative'], 4) + r'$ 和 $' + _f(difference['legacy_event_40_cumulative'], 4)
-            + r'$；统一设置在该旧初值下给出 $' + _f(difference['unified_at_legacy_I0_40_cumulative'], 4)
-            + r'$。差异主要来自旧绝对容差相对于约 $10^{-3}$ 的初始感染量过大；初值重新估计与积分设置改变是两个不同步骤。统一结果再收紧容差后，总累计变化为 $'
-            + _sci(difference['reference_tolerance_differences']['cum_total_infections'], 2)
-            + r'$ 人，本表所列精度不受影响。历史输出仅用于说明差异来源，不再作为当前参照。日新增峰值不等于社区现存感染者峰值。')
-    edit.line('supplement', r'\item 注：观测窗口为', note, 'xian/S2_difference.json + xian/reference.json', 'S2_diagnosis_resolved', raw=difference)
-    edit.line('supplement', '本文件保留原主稿中的',
-              r'本文件列出仅隔离控制的基准参数分析、初值设定比较和西安阈值敏感性。表内数值由本次独立复现输出生成；基准结果位于 \texttt{workspace/scenario1\_threshold\_landscape/current\_run/output\_csv/}，西安结果位于 \texttt{xian/}。阈值为给定的社区感染人数上限，表中结果不用于验证实际 ICU 容量。',
+    edit.line('supplement', r'\item 注：观测窗口为', prose['S2_diagnosis_resolved'],
+              'xian/S2_difference.json + xian/reference.json', 'S2_diagnosis_resolved', raw=difference)
+    edit.line('supplement', '本文件保留原主稿中的', prose['SI_data_location'],
               'fresh-run outputs', 'SI_data_location')
-    edit.replace('supplement', '数值取自基准实验的保存结果', '数值取自本次重新计算的基准实验结果', 'fresh baseline MATLAB outputs', 'S1_source_note')
-    edit.replace('supplement', '数值取自西安阈值敏感性保存结果', '数值取自统一积分设置下重新计算的西安阈值敏感性结果', 'xian/eta_scan.csv', 'S3_source_note')
+    edit.line('supplement', r'\item 注：数值取自基准实验的保存结果', prose['S1_source_note'],
+              'fresh baseline MATLAB outputs', 'S1_source_note')
+    edit.line('supplement', r'\item 注：数值取自西安阈值敏感性保存结果', prose['S3_source_note'],
+              'xian/eta_scan.csv', 'S3_source_note')
+    edit.line('main', r'\item 注：前四项为近似值。', prose['table4_source_navigation'],
+              'population/critical.json + xian/reference.json', 'table4_source_navigation')
 
     # 全市峰值阈值的时长：使用新参照参数作公式回代，不重新拟合。
     from xian import Params, structural
@@ -297,10 +494,7 @@ def prepare_manuscript(root: Path, output_dir: Path):
     edit.replace('main', r'相对极差为 $2.4\times10^{-7}$', '相对极差为 $' + _sci(pd['fixed_absolute_duration_relative_range'], 2) + '$',
                  'population/fixed_absolute_scale.csv', 'six_population_duration_spread', raw=pd['fixed_absolute_duration_relative_range'])
     edit.line('main', r'固定 $\beta=0.1498$，在 $\eta\in',
-              r'固定 $\beta=0.1498$，在 $\eta\in\{80,100,150\}$、$N_{\rm eff}\in\{4,5,6\}\times10^4$ 的九组参数中，将解析拐点时刻回代开环控制，所得隔离率均约为 $0.4119$，与理论值的最大绝对差为 $'
-              + _sci(supplemental['max_inflection_q_error'], 2)
-              + r'$。这只是解析公式的浮点回代核对，不是独立 ODE 误差认证。当 $q_0=0.3230$ 时，$\qinf=q_0$ 给出 $\beta_{\max}='
-              + _f(supplemental['beta_max'], 6) + r'$；超过该值后控制区间内不再有内部拐点。',
+              prose['inflection_backsubstitution'],
               'population/inflection_invariance.csv + population/supplementary_anchors.json', 'inflection_backsubstitution', raw=supplemental['max_inflection_q_error'])
     for old, new, key in [(r'9.17\times10^{4}', _sci(critical['N_star_inf'], 2), 'N_star_inf'),
                           ('5166', _i(critical['N_star_clear_peak']), 'N_star_clear_peak'),
@@ -346,7 +540,9 @@ def prepare_manuscript(root: Path, output_dir: Path):
         narrative.append(text)
     edit.line('main', r'当 $N_{\rm eff}=11763$ 时', ''.join(narrative), 'population/representative_summary.csv', 'appendix_critical_cases_all', raw=cases[1:])
     edit.replace('main', '约 $368$ 天', '约 $' + _i(c0extrema['time_at_near_trigger']) + '$ 天', 'c0/extrema.json:time_at_near_trigger', 'c0_near_trigger_clearance', raw=c0extrema['time_at_near_trigger'])
-    edit.replace('main', '两套既有西安积分设置也仍需统一核对', '既有西安积分设置的差异已按统一归一化方程、求解器和容差重算核对', 'xian/S2_difference.json', 'discussion_unified_integration')
+    edit.replace('main',
+                 '当前联合控制的数值结果限于基准参数下的成本比较，尚未开展西安参数下的系统计算；两套既有西安积分设置也仍需统一核对。',
+                 prose['discussion_unified_integration'], 'xian/S2_difference.json', 'discussion_unified_integration')
     edit.replace('main', r'西安重构在这一终点的状态需要另行检验 $\beta c_0(1-q_0)S/(\gamma N)$。',
                  r'在西安重构的这一终点，若直接恢复常规接触率和隔离率，状态回代给出 $\beta c_0(1-q_0)S/(\gamma N)\approx'
                  + _f(td['post_restore_Re']) + r'>1$，因此不能据 $I=1$ 保证恢复常规后的继续下降。该值只是名义参数下的终点状态核查，不是新的后续反弹轨迹模拟。',
@@ -393,6 +589,7 @@ def prepare_manuscript(root: Path, output_dir: Path):
         token = old if old in paragraph else _f(value,4)
         new = _f(value,4)
         edit.replace('main', paragraph, paragraph.replace(token,new), 'joint/results.csv + openloop_check.json', f'joint:{strategy}.{key}', raw=value)
+    _sync_population_comparison(edit, reference, fit, critical)
     edit.styles()
 
     # 保留原稿结构；供构建步骤核对表号、标签及受保护理论内容。

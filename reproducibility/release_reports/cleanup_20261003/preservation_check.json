@@ -1,0 +1,11 @@
+{
+  "formal_figure_count": 20,
+  "protected_files_checked": 8502,
+  "passed": true,
+  "changed_protected_files": [],
+  "remaining_candidates": [],
+  "formal_figure_difference": [],
+  "recycled_files": 337,
+  "bytes": 91967078.0,
+  "time": "2026-10-03T15:32:44.0325544+08:00"
+}

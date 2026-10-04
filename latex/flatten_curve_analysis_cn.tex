@@ -167,7 +167,7 @@ S_c=\frac{\gamma N}{\beta c_0(1-q_0)}.
 
 命题\ref{prop:model:threshold-rationale}中的最晚启动只相对于首次加强前未被改变的常规轨迹；最早退出只相对于已选定的恒定感染轨迹，不比较不同轨迹的退出时间。等式\eqref{eq:model:balance}表示感染增长恰好为零，既不唯一确定双控制分配，也不等于瞬时或累计成本最小。本文以这一规定过程作为研究对象，并不据此证明它在全部满足 $I\le\eta$ 的控制中最优。实施能力不足、观测误差或响应延迟存在时，可能需要提前干预或预留安全余量。
 
-第\ref{sec:s1}--\ref{sec:s1:shape}节先固定 $c=c_0$，研究仅加强隔离的控制；第\ref{sec:joint}节再允许两种控制同时变化，并增加 $c\ge c_{\min}$、$q\le q_{\rm cap}<1$ 的能力限制。各策略在阈值控制期以外均采用相同的常规控制。第\ref{sec:joint}节的时间、感染和成本最优性均限定于相同进入与退出状态、始终保持 $I=\eta$ 的控制类，不比较提前干预、运行于 $I<\eta$ 或改变退出规则的方案。
+第\ref{sec:s1}--\ref{sec:s1:shape}节先固定 $c=c_0$，建立仅加强隔离的解析基准，并给出额外隔离能力上限下的实施判据；第\ref{sec:joint}节再允许两种控制同时变化，引入最低允许接触率 $c_{\min}$，考察两种能力限制下的可行分配。各策略在阈值控制期以外均采用相同的常规控制。第\ref{sec:joint}节的时间、感染和成本最优性均限定于相同进入与退出状态、始终保持 $I=\eta$ 的控制类，不比较提前干预、运行于 $I<\eta$ 或改变退出规则的方案。
 
 \subsection{常规传播轨迹与触发条件}
 $S,I$ 的方程不依赖其余仓室，因而启动与退出后的传播分析可归结为
@@ -303,7 +303,13 @@ q_0,&t>t_2.
 q_{\max}=1-\frac{\gamma N}{\beta c_0S^*}>q_0,
 \label{eq:s1:qmax}
 \end{equation}
-在 $(t_1,t_2)$ 严格递减，并在 $t_2$ 连续恢复为 $q_0$。若另有能力上限 $q\le q_{\rm cap}<1$，且 $q_{\rm cap}\ge q_0$，则该策略可行当且仅当 $q_{\max}\le q_{\rm cap}$。
+在 $(t_1,t_2)$ 严格递减，并在 $t_2$ 连续恢复为 $q_0$。若另有有效追踪隔离比例的上限 $q_0\le q_{\rm cap}<1$，则上述仅隔离策略可实施，当且仅当
+\[
+q_{\max}\le q_{\rm cap}
+\quad\Longleftrightarrow\quad
+\frac{\beta c_0(1-q_{\rm cap})S^*}{N}\le\gamma.
+\]
+该条件成立时，能力限制不改变上述控制轨迹、持续时间及成本公式。
 \end{corollaryn}
 \begin{proof}
 由于 $q_c(S)$ 关于 $S$ 严格增加，$S^*>S_c$ 给出启动跳跃。沿控制轨迹，
@@ -312,8 +318,10 @@ q_{\max}=1-\frac{\gamma N}{\beta c_0S^*}>q_0,
 \frac{S(t)-\bar S}{S(t)^2}<0.
 \label{eq:s1:qprime}
 \end{equation}
-又 $q_c(S_c)=q_0$，故退出时连续。控制比例的最大值在启动时取得，因此全时段的能力限制等价于检查这一最大值。
+又 $q_c(S_c)=q_0$，故退出时连续。控制比例的最大值在启动时取得，因此全时段的能力限制等价于检查这一最大值；由式\eqref{eq:s1:qmax}整理即得上述等价式。当 $q_{\rm cap}=q_{\max}$ 时，控制只在启动时恰好达到能力上限，随后严格低于上限。
 \end{proof}
+若 $q_{\rm cap}<q_{\max}$，则从规定启动状态出发，即使取 $q=q_{\rm cap}$ 仍有 $\dot I>0$，故不能简单截断原隔离控制函数后继续维持 $I=\eta$。由命题\ref{prop:s1:sensitivity}，其他参数及 $q_{\rm cap}$ 固定时，提高仍处于条件\eqref{eq:model:trigger}内的阈值会降低 $q_{\max}$，从而保持已有的仅隔离可行性；降低阈值则可能使所需最大隔离率超过能力上限。
+
 将解析状态代入隔离率的状态表达，还可写出以启动或退出时刻为参照的时间函数：
 \begin{equation}
 \begin{split}
@@ -863,7 +871,7 @@ q_0^\dagger
 % ===== 06_joint_control =====
 \section{接触率与隔离率的联合阈值控制}
 \label{sec:joint}
-固定接触率时，维持 $I=\eta$ 唯一确定隔离率。现在允许接触率和隔离率同时变化，感染人数不变只约束二者的乘积，因而还需要确定如何分配两种干预。本节先给出全部联合阈值控制及其可行条件，再比较持续时间、累计感染和隔离人数，最后确定给定成本下的类内最优分配。
+固定接触率时，维持 $I=\eta$ 唯一确定隔离率。由推论\ref{cor:s1:qc-structure}，隔离能力不足时，接触削减可能补足实施能力；仅隔离已经可行时，联合控制仍可用于研究不同干预分配的成本。现在允许接触率和隔离率同时变化，感染人数不变只约束二者的乘积，因而还需要确定如何分配两种干预。本节先给出全部联合阈值控制及其可行条件，再比较持续时间、累计感染和隔离人数，最后确定给定成本下的类内最优分配。
 
 以下固定由常规轨迹确定的 $t_1,S^*$ 及阈值 $\eta$，其中 $S^*>S_c$。所比较的控制均从 $(S^*,\eta)$ 出发，在整个控制期保持 $I=\eta$，首次达到 $S=S_c$ 后恢复 $(c_0,q_0)$。控制有界可测，满足 $0<c\le c_0$、$q_0\le q\le1$，状态取绝对连续解；几乎处处相等的控制视为同一控制。这里固定的是进入与退出时的 $(S,I)$，其余仓室在退出时可以不同。控制持续时间 $\Delta t=t_2-t_1$ 随所选策略改变。
 
@@ -933,6 +941,10 @@ $c_{\min}$ 是实施能力限制，与前文用于判断是否触发控制的 $c
 \frac{\beta c_{\min}(1-q_{\rm cap})S^*}{N}\le\gamma.
 \label{eq:joint:feasibility}
 \end{equation}
+利用式\eqref{eq:s1:qmax}，该条件也可写为
+\[
+c_{\min}(1-q_{\rm cap})\le c_0(1-q_{\max}).
+\]
 \end{corollaryn}
 \begin{proof}
 $c_c\ge c_{\min}$ 与式\eqref{eq:joint:contact-range}给出下界；由式\eqref{eq:joint:q}中的 $q_c\le q_{\rm cap}$ 得到上界。在 $S\in[S_c,S^*]$ 上，已有 $c_0S_c/S\le c_0$、$c_0S_c/S\le c_0(1-q_0)S_c/[(1-q_{\rm cap})S]$ 及 $c_{\min}\le c_0$，故只需检验
@@ -941,7 +953,11 @@ c_{\min}\le\frac{c_0(1-q_0)S_c}{(1-q_{\rm cap})S}.
 \]
 其最严格处为 $S=S^*$，即式\eqref{eq:joint:feasibility}。条件成立时取 $c_c=(\underline c+\overline c)/2$，由前一定理得到可行控制；条件不成立时，启动状态附近不存在允许分配。
 \end{proof}
-当仅隔离控制要求的 $q_{\max}$ 超过能力上限时，适当减少接触可以使阈值控制重新可行。若式\eqref{eq:joint:feasibility}仍不成立，则等到 $I=\eta$ 才启动本节控制已不可行；这不排除提前干预改变启动状态的方案。
+由于 $c_{\min}\le c_0$，联合可行条件不强于仅隔离条件；当 $c_{\min}=c_0$ 时，二者相同。具体而言，若 $q_{\rm cap}\ge q_{\max}$，仅隔离与联合控制均可行；允许分配存在自由度时，仍可比较不同分配的持续时间、累计感染和成本。若 $q_{\rm cap}<q_{\max}$ 而式\eqref{eq:joint:feasibility}成立，仅隔离不可行，但接触削减可以补足隔离能力。沿用满足界限的逐点代表约定，由式\eqref{eq:joint:bounds}可知，在
+\[
+\frac{\gamma N}{\beta c_0(1-q_{\rm cap})}<S\le S^*
+\]
+上必须有 $c_c(S)<c_0$，因此接触削减至少在启动后的一段正时间内是必要的；这不要求隔离率也必须高于 $q_0$。当 $S$ 降至上述区间下界及其以下时，仅隔离重新成为允许分配，但不意味着成本最优策略会切回仅隔离。最后，若式\eqref{eq:joint:feasibility}不成立，规定首次触发状态附近不存在允许分配，因而不能等到当前常规轨迹达到 $I=\eta$ 才开始本节控制；提前干预改变启动状态的方案仍需另行分析。Angulo 等\cite{Angulo2021}在 SIR 模型中讨论了能力有限时需要提前启动的情形，但这一结果不直接保证本文 SIQR 模型中的提前干预可行。
 
 由引理\ref{lem:s1:Sstar-sensitivity}，$S^*$ 随 $\eta$ 严格下降。因此，在其余参数及能力界限固定时，只要某一内部阈值能够实施，所有更高且仍会触发控制的阈值也能实施。降低感染上限不仅延长控制时间，还可能使启动时所需干预超过能力限制。
 
@@ -1378,7 +1394,7 @@ $\eta$ & 非隔离感染人数上限 & $0.002N=\num{26326}$ & 代表性设计情
 \end{threeparttable}
 \end{table}
 
-图\ref{fig:xian:observed-fit}与三策略比较、补充表\ref*{tab:sup:initial}使用统一归一化方程、求解器和容差的轨迹输出。旧拟合与旧事件积分的差异已按统一设置重算核对，其来源和历史数值见该补充表注。
+图\ref{fig:xian:observed-fit}与三策略比较、补充表\ref*{tab:sup:initial}使用统一归一化方程、DOP853 求解器和分量容差。日新增由相邻整数日累计量之差计算；仅隔离控制按常规、平台和退出后三阶段连接。观测窗口的初值比较及 TDINN 基准的容差敏感性见补充表\ref*{tab:sup:initial}；完整数值设置与历史程序对账见随文复现说明。
 
 \begin{figure}[htbp]
 \centering
@@ -1512,7 +1528,7 @@ TDINN 控制 & 153 & 2106 & 45.29 & 49.39\\
 $S_c,\bar S,I_{\max}^{no}$ 均随 $N$ 同比例缩放，故 $i_{\max}^{no}$ 不依赖 $N$，
 只依赖 $\beta,\gamma,c_0,q_0,s_0,i_0$。本节记归一化状态 $s=S/N$、$i=I/N$。
 
-数值计算固定绝对初值 $I_0=1.00659\times10^{-3}$，不随 $N_{\rm eff}$ 重新拟合，故 $i_0=I_0/N$ 随人口规模改变。第\ref{sec:scaling-theory}节的规模不变性以固定归一化初值为前提，两者需加以区分。
+数值计算在各人口情景下沿用全市人口下拟合得到的同一个绝对初值 $I_0=1.00659\times10^{-3}$，并取 $S_0=N-I_0$，故 $i_0=I_0/N$ 与 $s_0=1-i_0$ 随人口规模改变。这是本节采用的情景比较约定；若在不同人口下重新拟合，所得初值未必相同。第\ref{sec:scaling-theory}节的规模不变性以固定归一化初值为前提，两者需加以区分。
 
 由首次积分，$i_0$ 通过 $\theta-i_0$ 和 $s_0=1-i_0$ 影响启动点。在 $N\ge N_{\rm floor}$、$\theta\ge\theta_{\rm dur150}$ 时，$i_0/\theta$ 不超过约 $8.3\times10^{-5}$；该比例本身不是控制指标的严格误差上界。本次固定 $\theta=0.002$ 的六个人口规模测试中，$\Delta t$ 和 $J$ 的相对极差分别为 $4.71\times10^{-8}$ 和 $1.17\times10^{-7}$。这些是本次有限参数测试的数值结果，不给出所有初值或人口下统一的误差认证。
 
@@ -1521,7 +1537,7 @@ TDINN 的四个参照量见表~\ref{tab:xian_summary}。社区峰值、累计感
 
 \subsection{仅隔离策略的比较条件}
 \label{sec:dom:theory}
-命题\ref{prop:scaling}已给出固定归一化初值时的规模不变性。以下理论条件仍以这一初值约定为前提；固定绝对 $I_0$ 的应用计算使用各人口下实际求得的指标，不能将近似重合改写为精确相等。
+命题\ref{prop:scaling}已给出固定归一化初值时的规模不变性。以下理论条件及式\eqref{eq:dom:Nstar}、\eqref{eq:dom:Nstar-infty}的商式仍以这一初值约定为前提；固定绝对 $I_0$ 的应用上界在第\ref{sec:dom:xian}节按实际指标求根定义，不直接由这些商式确定。
 
 由命题\ref{prop:threshold-tradeoff}，$\Delta t(\theta)$、$J(\theta)$ 随 $\theta$ 严格递减。给定 $J^{\rm T}>0$ 和 $T_{\max}>0$，在相应值域内定义
 \begin{equation}
@@ -1608,13 +1624,13 @@ t_{\rm end}(\eta,N)=t_{\rm end}^{\rm T}.
 \]
 对数因子在 $\theta\in[5\times10^{-4},8\times10^{-3}]$ 内仅由 $2.20$ 变到 $2.15$，因此在该范围内 $\Delta t$ 近似与 $\theta$ 成反比。
 
-固定 $\beta=0.1498$，在 $\eta\in\{80,100,150\}$、$N_{\rm eff}\in\{4,5,6\}\times10^4$ 的九组参数中，将解析拐点时刻回代开环控制，所得隔离率均约为 $0.4119$，与理论值的最大绝对差为 $2.22\times10^{-16}$。这只是解析公式的浮点回代核对，不是独立 ODE 误差认证。当 $q_0=0.3230$ 时，$\qinf=q_0$ 给出 $\beta_{\max}=0.261448$；超过该值后控制区间内不再有内部拐点。
+固定 $\beta=0.1498$，在 $\eta\in\{80,100,150\}$、$N_{\rm eff}\in\{4,5,6\}\times10^4$ 的九组参数中，将解析拐点时刻回代开环控制，所得隔离率均约为 $0.4119$。该结果为解析公式回代，不是独立 ODE 积分验证。当 $q_0=0.3230$ 时，$\qinf=q_0$ 给出 $\beta_{\max}=0.261448$；超过该值后控制区间内不再有内部拐点。
 
 \subsection{西安参数下满足参照指标的区域}
 \label{sec:dom:xian}
 
-取 $\beta=0.1498,\gamma=0.2953,c_0=12.8872,q_0=0.3230$，$S_0/N\approx1$，参照量见表~\ref{tab:xian_summary}。由式~\eqref{eq:s1:Imax-no}，$i_{\max}^{no}\approx0.1047$。表~\ref{tab:dom:thresholds} 给出各项条件对应的有效人口界值；在所考察的 $T_{\max}=45,60,90,150$ 天及不限制时长的设定下，均有 $\theta_{\rm bind}<i_{\max}^{no}$。
-当 $T_{\max}\approx103$ 天时，$\theta_{\rm dur}=\theta_{\rm cost}$；更短的允许时长使时长条件起约束作用，更长的允许时长则由成本条件决定阈值下限。
+取 $\beta=0.1498,\gamma=0.2953,c_0=12.8872,q_0=0.3230$，$S_0/N\approx1$，参照量见表~\ref{tab:xian_summary}。取全市参考人口 $N_{\rm ref}=13{,}163{,}000$，由式~\eqref{eq:s1:Imax-no}计算得 $i_{\max}^{no}\approx0.1047$。表~\ref{tab:dom:thresholds} 给出各项条件对应的有效人口界值；在参考人口下，所考察的 $T_{\max}=45,60,90,150$ 天及不限制时长的设定均有 $\theta_{\rm bind}<i_{\max}^{no}$。
+在全市参考人口下，当 $T_{\max}\approx103$ 天时，$\theta_{\rm dur}=\theta_{\rm cost}$；更短的允许时长使时长条件起约束作用，更长的允许时长则由成本条件决定阈值下限。
 
 
 \begin{table}[htbp]
@@ -1636,41 +1652,44 @@ t_{\rm end}(\eta,N)=t_{\rm end}^{\rm T}.
 \bottomrule
 \end{tabularx}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：前四项为近似值。后两行对应本文西安参数、固定绝对初值和 $\eta\in[10,152.55]$ 的数值范围，不表示已证明任意参数下的交点唯一性或全局人口上界。全部中间阈值保留在原工程补充数据中。
+\item 注：前四项为近似值。后两行对应本文西安参数、固定绝对初值和 $\eta\in[10,152.55]$ 的数值范围，不表示已证明任意参数下的交点唯一性或全局人口上界。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
-峰值、成本、时长和触发条件在 $(N,\eta)$ 平面上分别为
+固定绝对初值时，峰值、成本、时长和触发条件在 $(N,\eta)$ 平面上的边界分别为
 \begin{align}
   \text{峰值线：}\ &
   \eta=I_{\rm peak}^{\rm T}
   &&(\text{占优侧 }\eta\le I_{\rm peak}^{\rm T}),\\
-  \text{成本线：}\ &
-  \eta=\theta_{\rm cost}N
-  &&(\text{占优侧 }\eta\ge\theta_{\rm cost}N),\\
-  \text{时长线：}\ &
-  \eta=\theta_{\rm dur}(T_{\max})N
-  &&(\text{占优侧 }\eta\ge\theta_{\rm dur}(T_{\max})N),\\
-  \text{触发线：}\ &
-  \eta=i_{\max}^{no}N
-  &&(\text{可行侧 }\eta<i_{\max}^{no}N).
+  \text{成本边界：}\ &
+  J(\eta,N)=J^{\rm T}
+  &&(\text{占优侧 }J(\eta,N)\le J^{\rm T}),\\
+  \text{时长边界：}\ &
+  \Delta t(\eta,N)=T_{\max}
+  &&(\text{占优侧 }\Delta t(\eta,N)\le T_{\max}),\\
+  \text{触发边界：}\ &
+  \eta=I_{\max}^{no}(N)
+  &&(\text{可行侧 }\eta<I_{\max}^{no}(N)).
 \end{align}
-占优区域为
+其中 $J(\eta,N)$、$\Delta t(\eta,N)$ 和 $I_{\max}^{no}(N)$ 均按同一个绝对初值 $I_0$ 与 $S_0=N-I_0$ 计算，其余模型参数不变；$S_0$ 与 $S_c=\gamma N/[\beta c_0(1-q_0)]$ 均随 $N$ 改变。比较集合按实际指标定义为
 \[
 \mathcal{W}_{\rm pcd}
 =
-\bigl\{
+\left\{
 (N,\eta):
-\theta_{\rm bind}(T_{\max})N
-\le\eta\le I_{\rm peak}^{\rm T},
-\ \ i_0N<\eta<i_{\max}^{no}N
-\bigr\},
+\begin{array}{l}
+N>I_0,\quad S_0>S_c,\quad I_0<\eta<I_{\max}^{no}(N),\\
+\eta\le I_{\rm peak}^{\rm T},\\
+J(\eta,N)\le J^{\rm T},\quad\Delta t(\eta,N)\le T_{\max}
+\end{array}
+\right\}.
 \]
-比较区域的下界由成本与时长条件共同确定，其人口上限对应交点 $(N^\ast(T_{\max}),I_{\rm peak}^{\rm T})$。该点仍满足严格触发条件（$152.55$ 小于
-$i_{\max}^{no}N^\ast_\infty\approx9.6\times10^{3}$）。
+不另设时长上限时去掉最后的时长条件；人口相容下界仍在后文与该集合取交。峰值线是精确的水平线。图~\ref{fig:dom}中的成本、时长和触发参考直线采用全市参考人口 $N_{\rm ref}$ 下的未取整比例；固定绝对初值时，这些比例随 $N$ 改变，图中直线只显示比较区域的近似形状。集合归属和临界点均以实际成本、时长及严格触发条件判断，不以参考直线代替。
 
-图~\ref{fig:dom}(a) 给出上述比较区域，图~\ref{fig:dom}(b) 加入累计感染和清零时间条件，对应集合为
+比较区域的阈值下限由实际成本与时长条件共同确定。仅当两项允许人口集合分别为截止于相应界值的连续区间时，共同上界 $N^\ast(T_{\max})$ 才取两者上界的较小者，不要求二者同时取等号。现有结果保存了数值求根值和代表轨迹，尚未确认整个人口允许集合的区间结构；表~\ref{tab:dom:thresholds}中的人口界值据此作为候选上界，不作一般唯一性或单一区间的断言。这一应用判断不同于第\ref{sec:dom:theory}节固定归一化初值下的商式。所报告的数值交点满足 $I_0<I_{\rm peak}^{\rm T}<I_{\max}^{no}(N)$；例如，$152.55$ 远小于 $I_{\max}^{no}(N^\ast_\infty)\approx9.6\times10^{3}$，严格触发条件未被取等号。
+
+图~\ref{fig:dom}(a) 近似展示上述比较区域的形状，图~\ref{fig:dom}(b) 加入累计感染和清零时间条件，对应集合为
 \[
 \mathcal{W}_{\rm cum}=\mathcal{W}_{\rm pcd}\cap\{\Itcum\le \Itcum^{\rm T}\}\cap\{N\ge N_{\rm floor}\},
 \qquad
@@ -1684,22 +1703,26 @@ $\mathcal{W}_{\rm clr}\subset\mathcal{W}_{\rm cum}\subset\mathcal{W}_{\rm pcd}$�
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/fig_dom_combined.pdf}
-\caption{西安参数下 $(N_{\rm eff},\eta)$ 平面的比较区域。(a) 峰值、成本、时长和触发条件；人口下界右侧的浅蓝区域同时满足峰值、成本与触发条件，未另加时长上限；左侧灰色区域因 $N<N_{\rm floor}$ 被排除。(b) 加入累计感染和清零时间的等值曲线。竖直实线为 $N_{\rm floor}=1.06\times10^4$。累计感染边界与成本线交于 $(11813,19.55)$，清零时间等值曲线位于人口下界左侧。圆点和方点对应图\ref{fig:dom:levers}(a,c)、\ref{fig:dom:levers}(b,d) 的参数。}
+\caption{西安参数下 $(N_{\rm eff},\eta)$ 平面比较区域的近似展示。(a) 峰值条件及成本、时长和触发参考直线；后三者采用 $N_{\rm ref}=13{,}163{,}000$ 下的未取整比例。人口下界右侧的浅蓝区域示意峰值、成本与触发条件的交集，未另加时长上限；左侧灰色区域因 $N<N_{\rm floor}$ 被排除。(b) 加入累计感染和清零时间的等值曲线。竖直实线为 $N_{\rm floor}=1.06\times10^4$。计算所得累计感染与成本条件的交点约为 $(11813,19.55)$，清零时间等值曲线位于人口下界左侧。圆点和方点分别示意固定人口改变阈值、固定阈值改变人口的两类比较；轨迹案例的具体参数见图\ref{fig:dom:levers}(a,c)、\ref{fig:dom:levers}(b,d)。}
 \label{fig:dom}
 \end{figure}
 
 
-仅考虑峰值和成本时，条件 $\theta_{\rm cost}N\le\eta\le I_{\rm peak}^{\rm T}$ 与人口下界的交集为
+仅考虑峰值和成本时，在满足 $I_0<I_{\rm peak}^{\rm T}<I_{\max}^{no}(N)$ 的计算范围内，由 $J$ 关于 $\eta$ 严格递减，峰值水平 $\eta=I_{\rm peak}^{\rm T}$ 处的实际成本决定是否存在满足两项比较条件的阈值。固定绝对初值时，$N^\ast_\infty$ 是按实际指标等值条件
+\[
+J\bigl(I_{\rm peak}^{\rm T},N^\ast_\infty\bigr)=J^{\rm T}
+\]
+得到的数值求根值，不采用常数比例的商式作为精确定义。它是否构成整个人口允许集合的上界仍须核查，不能仅由一个根确定。沿用本文已有数值结果，与人口相容下界配合，标记候选人口范围
 \begin{equation}
-  N_{\rm eff}\in\bigl[\,N_{\rm floor},\,N^\ast_\infty\,\bigr]
-  =\bigl[\,1.06\times10^{4},\ 9.22\times10^{4}\,\bigr],
+  \bigl[\,N_{\rm floor},\,N^\ast_\infty\,\bigr]
+  \approx\bigl[\,1.06\times10^{4},\ 9.22\times10^{4}\,\bigr],
   \label{eq:dom:main-interval}
 \end{equation}
-在此范围内，存在阈值使感染峰值不超过 $152.55$、加权成本不超过 $49.39$。成本边界对应的控制持续时间为 $102.91$ 天；若允许时长小于该值，有效人口上界进一步减小，见表~\ref{tab:dom:thresholds}。
+该候选范围内是否存在阈值使感染峰值不超过 $152.55$、加权成本不超过 $49.39$，须按实际指标判定，连续允许区间尚待核查。按全市参考人口计算，成本边界对应的控制持续时间约为 $102.91$ 天；表~\ref{tab:dom:thresholds}所列更短时长限制对应更小的数值人口界值。
 
 在固定乘积 $\beta c_0$ 的参数分析中，区间两端随 $\beta$ 改变，但比值 $N^\ast_\infty/N_{\rm floor}$ 的相对极差仅为 $0.22\%$。因此，在所考察范围内，区间的相对宽度对 $\beta$ 的变化不敏感，具体结果见附录~\ref{app:dom:numerics}。
 
-累计感染与清零时间条件进一步缩小了比较范围。累计感染边界与成本线的交点为 $(11813,19.55)$，相应的人口上限为 $N_{\rm cum,\infty}^\ast\approx1.18\times10^4$。与 $N_{\rm floor}$ 取交后，满足累计感染要求的区间收缩为 $N\in[1.06\times10^4,\,1.18\times10^4]$，上下端点之比不足 $1.12$。该区间接近人口下界，说明在本节设定下，累计感染条件比仅考虑峰值和成本时更严格。
+累计感染与清零时间条件进一步缩小了比较范围。累计感染与实际成本条件的数值交点约为 $(11813,19.55)$，相应的人口上限为 $N_{\rm cum,\infty}^\ast\approx1.18\times10^4$。与 $N_{\rm floor}$ 取交后，满足累计感染要求的数值比较区间约为 $[1.06\times10^4,\,1.18\times10^4]$，上下端点之比不足 $1.12$。该区间接近人口下界，说明在本节设定下，累计感染条件比仅考虑峰值和成本时更严格。
 
 清零时间边界整体位于人口下界左侧，其最大值 $N=5184$ 仍低于 $N_{\rm floor}=1.06\times10^4$。因此，在本节计算范围内，没有同时满足 $N\ge N_{\rm floor}$ 与 $t_{\rm end}\le t_{\rm end}^{\rm T}$ 的有效人口。
 
@@ -1774,7 +1797,7 @@ $\mathcal{W}_{\rm clr}\subset\mathcal{W}_{\rm cum}\subset\mathcal{W}_{\rm pcd}$�
 
 现有西安算例仍采用仅隔离策略。全市人口与 $\eta=0.002N$ 下，其二次加权成本为 $40.77$，低于 TDINN 重构的 $49.39$，但感染峰值、累计感染和动态清零时间均较高。改变有效人口后的区间则是相对于固定全市参照的条件分析，不是更换同一次疫情控制措施的因果估计。加入累计感染条件时范围明显缩小，加入清零时间条件后在所考察范围内与人口相容下界没有交集。这些结果说明成本、感染规模和终止目标需要分别评价。
 
-对于边界明确的校园或厂区，与依赖空间分区和接触限制形成的传播单元，其成本含义也不相同；本稿的 $J$ 没有计入建立和维持分区的成本。$J_c=0$ 仅表示仅隔离策略没有进一步降低模型中的接触率，不表示现实干预没有其他成本。有效人口仍需由接触调查、出行信息或防控单元等外部信息确定。当前联合控制的数值结果限于基准参数下的成本比较，尚未开展西安参数下的系统计算；既有西安积分设置的差异已按统一归一化方程、求解器和容差重算核对。
+对于边界明确的校园或厂区，与依赖空间分区和接触限制形成的传播单元，其成本含义也不相同；本稿的 $J$ 没有计入建立和维持分区的成本。$J_c=0$ 仅表示仅隔离策略没有进一步降低模型中的接触率，不表示现实干预没有其他成本。有效人口仍需由接触调查、出行信息或防控单元等外部信息确定。当前联合控制的数值结果限于基准参数下的成本比较，尚未开展西安参数下的系统计算。
 
 推论\ref{cor:joint:whole-epidemic}与命题\ref{prop:joint:terminal-allocation}说明，时间目标与成本目标的区别在当前模型中可以严格识别。最大允许接触率配合所需隔离，最快达到退出状态；而二次成本的最小化在退出前要求两种干预共同作用。与此同时，命题\ref{prop:exit-infection-lower-bound}表明，到达同一退出状态的目标本身带来累计感染下界，因而成本改进不能被解释为所有疫情指标都改善。
 
@@ -1841,7 +1864,7 @@ $N^\ast_\infty=13.55/9.22/7.03/4.86\times10^4$、$N_{\rm floor}=1.56/1.06/0.81/0
 $\beta N^\ast_\infty$ 与 $\beta N_{\rm floor}$ 各自随 $\beta$ 漂移约 $7.6\%$ 与 $7.8\%$，
 二者的变化幅度接近，但都不严格正比于 $1/\beta$。
 
-在 $\eta\in[10,152.55]$ 内，累计感染等值曲线 $\Itcum(\eta,N)=\Itcum^{\rm T}$ 从 $(9511,152.55)$ 延伸至 $(12230,10)$，$\eta=100$ 时 $N_{\rm cum}\approx1.015\times10^4$。它与成本线的交点为 $(11813,19.55)$，给出 $N_{\rm cum,\infty}^\ast\approx1.18\times10^4$，约为 $N^\ast_\infty$ 的 $0.13$。现有 $16$ 个计算点及其插值仅显示一次交点，尚不能据此确定一般参数下交点的唯一性。
+在 $\eta\in[10,152.55]$ 内，累计感染等值曲线 $\Itcum(\eta,N)=\Itcum^{\rm T}$ 从 $(9511,152.55)$ 延伸至 $(12230,10)$，$\eta=100$ 时 $N_{\rm cum}\approx1.015\times10^4$。它与实际成本条件的数值交点约为 $(11813,19.55)$，给出 $N_{\rm cum,\infty}^\ast\approx1.18\times10^4$，约为 $N^\ast_\infty$ 的 $0.13$。现有 $16$ 个计算点及其插值仅显示一次交点，尚不能据此确定一般参数下交点的唯一性。
 
 $t_{\rm end}=t_{\rm end}^{\rm T}$ 在同一阈值范围内从 $(866.4,\,10)$ 延伸到 $(5184.4,\,152.55)$，
 $\eta=100$ 处 $N_{\rm clr}\approx3.97\times10^{3}$，全段最大值为 $N=5184$。
@@ -1944,7 +1967,7 @@ S_0=rS^*,\qquad
 
 \section{仅隔离策略与给定参照指标的比较条件}
 \label{app:reference-comparison}
-本附录给出第\ref{sec:s1}节仅隔离策略的人口尺度比较条件。固定归一化初值 $s_0,i_0$ 和其余参数，记 $i_{\max}^{no}=I_{\max}^{no}/N$。由命题\ref{prop:threshold-tradeoff}和\ref{prop:scaling}，$\Delta t(\theta)$ 和 $J(\theta)$ 在 $(i_0,i_{\max}^{no})$ 上严格递减，右端极限为零，左端极限 $\Delta t(i_0+)$、$J(i_0+)$ 均有限且为正。
+本附录给出第\ref{sec:s1}节仅隔离策略的人口尺度比较条件。固定归一化初值 $s_0,i_0$ 和其余参数，记 $i_{\max}^{no}=I_{\max}^{no}/N$。由命题\ref{prop:threshold-tradeoff}和\ref{prop:scaling}，$\Delta t(\theta)$ 和 $J(\theta)$ 在 $(i_0,i_{\max}^{no})$ 上严格递减，右端极限为零，左端极限 $\Delta t(i_0+)$、$J(i_0+)$ 均有限且为正。下述人口上界商式仅用于这一初值约定；固定绝对初值的应用上界按第\ref{sec:dom:xian}节的实际指标定义。
 
 给定正的成本参照 $J^{\rm T}$ 和允许时长 $T_{\max}$，沿用正文的阈值记号，作如下端点扩展：
 \begin{equation}

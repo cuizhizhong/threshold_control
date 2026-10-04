@@ -1,0 +1,252 @@
+{
+  "passed": true,
+  "nature_skills_used": false,
+  "full_numerical_rerun": false,
+  "compile_started_by_verifier": false,
+  "scope": "静态内容保护、已有完整编译结果与 PDF 核查；不代替数学证明或全文数值复跑。",
+  "failures": [],
+  "static": {
+    "labels_order_and_set_exact": true,
+    "labels_count": 184,
+    "numbered_math_environment_count": 97,
+    "numbered_math_environments_exact": true,
+    "float_environments_count": 24,
+    "float_environments_exact": true,
+    "float_environment_sha256": [
+      "f97589f598b3733db511935ceafd91f89ce9ea01bc49cff81740555d3397d6c3",
+      "4c3484e4a4785270d73dc3f6d32753dce3b61d2c913fbd7402d60137c35c8d21",
+      "c3c79dd642a7fc17bf005ce0e84b83b804b22d3f22f6172815a3021d7e698000",
+      "bf3433aab9cdc478a538e022dcc7a49e57d54473c35afc64a4934d7192856b8b",
+      "3554b7b9fc0e526ec099233f477b590b7440122fa36640603fce03ad5f0597ea",
+      "b59b46cd310f0bfaa53c28289c7ac9775bfb1a1e970275a9f09d54b963d19df1",
+      "2bdf6859c1494c5ee05dd4b5d67b57a29587ae82293296dead4805fb1e564034",
+      "f03fad1ea4a0903229228b09498e2c9e02556ed987fff6785ba3099895456786",
+      "56537bc8ed1896f4974492375b1a3b73d9904cf556d19da80fea9aa0814489ff",
+      "76bcdcb3d14530547712175ec885ea8d544f59b05230084894787db99aaa6fe3",
+      "d9adfab3a4655119681ab46a656c00201d6ad7a2c5c5115742d78adf85e41681",
+      "3d875475413eb337286b384c890c09725fef82c73395a5e45fe6137c1727a5cb",
+      "dcc6fbdbde70a03e99c214bc7e1e96cbd49de4e4c8cf38fc7e85df9a191a9787",
+      "4ed1cd92d2260813d69e0f306312573d83dee4a0a34fd4c1af1caa8ecbed989f",
+      "b862018797e5fbe13960c38b5c7aaee66983083cdf4041c4d572bfc98034ba01",
+      "5153d197de6349c3ca05fcdf0528b728035aef497693a4042566a91be3185020",
+      "e297c6e3dec90538460b526b9d1538ad8a60cfcce3d7acd97fcee1bbdb3e1f05",
+      "d0f2301c522b607c491c1e8ab666a751064c888cad7e4186873ef9fc0eea3c31",
+      "77a3741f773cd4a1d328c4727200114d9c89ac021763ffa533516297668f9c48",
+      "4323a3f241fa1aa62323ac91719061f1ccfd5203f9c15f2d950163ee95c2ec62",
+      "7fda6495cb53ec73be48d9ad9873f0164d8d4a0d7ba8d116d2e4027ffd1707cc",
+      "5e40ab84f19188fbe72a91e98b234bf28e786babe162fa31b92abf6e84994704",
+      "a737695270cdab01dc91e07214febf67fc34f7e039caf781c4f2e2f5b217d962",
+      "cd4f1880ea39a9f58737e39d0520c4165fbfd615422845ab84804db9632edd96"
+    ],
+    "citation_keys_exact": true,
+    "citation_keys": [
+      "Angulo2021",
+      "Avram2022",
+      "Balakrishnan2023",
+      "Balderrama2024",
+      "Charpentier2020",
+      "Chen2021ICUForecast",
+      "Corless1996",
+      "Duque2020",
+      "Ferguson2020Report9",
+      "Ferretti2020",
+      "He2023TDINN",
+      "Hellewell2020",
+      "Kucharski2020",
+      "Miclo2022ICU",
+      "Pollinger2023",
+      "Pung2023Undetected",
+      "Tang2020Transmission",
+      "XianStat2021",
+      "Zhang2026Behavior",
+      "Zhou2024SPCI"
+    ],
+    "terminal_allocation_proposition_exact": true,
+    "terminal_allocation_proof_exact": true,
+    "main_bibliography_print_count": 1,
+    "supplement_bibliography_print_count": 0,
+    "new_numbered_formula_added": false,
+    "passed": true
+  },
+  "numbering": {
+    "passed": true,
+    "main_labels_checked": 184,
+    "supplement_labels_checked": 3,
+    "parser": "balanced braces; compare first newlabel payload group, ignore page group",
+    "main_changed": [],
+    "supplement_changed": []
+  },
+  "supplement_pdf": {
+    "page_count": 3,
+    "pages": [
+      {
+        "page": 1,
+        "text_exact": true,
+        "text_positions_and_images_exact": true,
+        "drawings_exact": true,
+        "fonts_exact": true,
+        "render_exact_120dpi": true,
+        "before_pixel_sha256": "c61b3ba29fe899edd0d3fff6e4229e1608fa2afeaa3dad612024c53176dbaf1c",
+        "after_pixel_sha256": "c61b3ba29fe899edd0d3fff6e4229e1608fa2afeaa3dad612024c53176dbaf1c"
+      },
+      {
+        "page": 2,
+        "text_exact": true,
+        "text_positions_and_images_exact": true,
+        "drawings_exact": true,
+        "fonts_exact": true,
+        "render_exact_120dpi": true,
+        "before_pixel_sha256": "ebe6320d489e6041c480fb61aba1c6894349f95cab02c89145a27deccfe2a2bf",
+        "after_pixel_sha256": "ebe6320d489e6041c480fb61aba1c6894349f95cab02c89145a27deccfe2a2bf"
+      },
+      {
+        "page": 3,
+        "text_exact": true,
+        "text_positions_and_images_exact": true,
+        "drawings_exact": true,
+        "fonts_exact": true,
+        "render_exact_120dpi": true,
+        "before_pixel_sha256": "97e15cf9a647869a30738bcd1df7664dccd5b98f17cb503c13ccdd027db2fe54",
+        "after_pixel_sha256": "97e15cf9a647869a30738bcd1df7664dccd5b98f17cb503c13ccdd027db2fe54"
+      }
+    ],
+    "content_exact": true,
+    "byte_identical": false,
+    "metadata_only_difference": true,
+    "backup_sha256": "75574db178ed53961b6eff4ba6b5ea41eb48a2fa399f0ffe41ca4d41bfffa8ee",
+    "current_sha256": "34aa0711b92ed1307f249aaac7a44312ab97692bdf37a215dfaf95890dab50d1",
+    "restore_action": "none: main agent may restore unchanged original only after content equivalence"
+  },
+  "protection": {
+    "passed": true,
+    "protected_files_checked": 147,
+    "allowed_edits": [
+      "latex/flatten_curve_analysis_cn.pdf",
+      "latex/flatten_curve_analysis_cn.tex"
+    ],
+    "unexpected_changes": [],
+    "supplement_pdf_metadata_ignored_only_after_exact_content_check": true
+  },
+  "actual_build_logs": {
+    "flatten_curve_analysis_cn": {
+      "completed_pdf": true,
+      "errors": [],
+      "warnings": [],
+      "passed": true
+    },
+    "flatten_curve_supplement_cn": {
+      "completed_pdf": true,
+      "errors": [],
+      "warnings": [],
+      "passed": true
+    },
+    "biber": {
+      "warnings_or_errors": [],
+      "completed_bbl": true,
+      "passed": true
+    }
+  },
+  "main_pdf": {
+    "before_page_count": 45,
+    "actual_page_count": 46,
+    "outside_page_text": [],
+    "current_sha256": "4bd2fe2294aa342b953a5a6e504984fc94bec54a6d886b3ae1aca331845b90c2",
+    "pagination_change_allowed": true
+  },
+  "bibliography": {
+    "passed": true,
+    "printed_count": 20,
+    "printed_keys": [
+      "Angulo2021",
+      "Avram2022",
+      "Balakrishnan2023",
+      "Balderrama2024",
+      "Charpentier2020",
+      "Chen2021ICUForecast",
+      "Corless1996",
+      "Duque2020",
+      "Ferguson2020Report9",
+      "Ferretti2020",
+      "He2023TDINN",
+      "Hellewell2020",
+      "Kucharski2020",
+      "Miclo2022ICU",
+      "Pollinger2023",
+      "Pung2023Undetected",
+      "Tang2020Transmission",
+      "XianStat2021",
+      "Zhang2026Behavior",
+      "Zhou2024SPCI"
+    ],
+    "expected_keys": [
+      "Angulo2021",
+      "Avram2022",
+      "Balakrishnan2023",
+      "Balderrama2024",
+      "Charpentier2020",
+      "Chen2021ICUForecast",
+      "Corless1996",
+      "Duque2020",
+      "Ferguson2020Report9",
+      "Ferretti2020",
+      "He2023TDINN",
+      "Hellewell2020",
+      "Kucharski2020",
+      "Miclo2022ICU",
+      "Pollinger2023",
+      "Pung2023Undetected",
+      "Tang2020Transmission",
+      "XianStat2021",
+      "Zhang2026Behavior",
+      "Zhou2024SPCI"
+    ],
+    "heading_pages": [
+      45
+    ]
+  },
+  "visual_review": {
+    "renderer": "Poppler pdftoppm 120dpi",
+    "document_page_count": 46,
+    "rendered_pages": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      17,
+      18,
+      19,
+      20,
+      21,
+      44,
+      45,
+      46
+    ],
+    "single_page_pngs": [
+      "qa/main_page_03.png",
+      "qa/main_page_04.png",
+      "qa/main_page_05.png",
+      "qa/main_page_06.png",
+      "qa/main_page_07.png",
+      "qa/main_page_08.png",
+      "qa/main_page_09.png",
+      "qa/main_page_17.png",
+      "qa/main_page_18.png",
+      "qa/main_page_19.png",
+      "qa/main_page_20.png",
+      "qa/main_page_21.png",
+      "qa/main_page_44.png",
+      "qa/main_page_45.png",
+      "qa/main_page_46.png"
+    ],
+    "montages": [
+      "qa/montage_01_08.png",
+      "qa/montage_09_15.png"
+    ],
+    "manual_review": "pending_main_agent_review",
+    "independent_agent_review": "pending"
+  },
+  "acceptance_status": "automated_pass_manual_pending"
+}

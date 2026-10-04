@@ -39,6 +39,8 @@ powershell -ExecutionPolicy Bypass -File reproducibility/run_all.ps1
 
 ## 文件分工
 
+投稿正文与工程审计记录的分工见 [数值设置、收敛证据与历史程序对账](manuscript_audit_notes.md)。正文和补充表保留科研结果及必要的精度边界；旧容差、旧初值、历史输出及文件导航集中在该说明，原始验收材料不改写。S2 的清零累计容差差异不等于整张窗口表已逐项收敛。
+
 - `bootstrap.py`：源码/原始输入隔离，环境与来源记录。
 - `configuration.md`、`configuration_index.json`：集中列出固定参数、拟合/派生结果和实际容差的权威来源；索引本身不是新的可编辑运行配置。
 - `xian.py`、`population.py`、`c0.py`：统一数值口径和下游比较。
