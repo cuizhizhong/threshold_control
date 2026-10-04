@@ -1,0 +1,60 @@
+{
+ "baseline": {
+  "s_sw": 2.26536879999122,
+  "checks": {
+   "0.1": {
+    "contact_only_right_derivative_negative": true,
+    "quarantine_only_local_iff_s_ge_ssw_mismatches": 0
+   },
+   "0.5": {
+    "contact_only_right_derivative_negative": true,
+    "quarantine_only_local_iff_s_ge_ssw_mismatches": 0
+   },
+   "1.0": {
+    "contact_only_right_derivative_negative": true,
+    "quarantine_only_local_iff_s_ge_ssw_mismatches": 0
+   },
+   "2.0": {
+    "contact_only_right_derivative_negative": true,
+    "quarantine_only_local_iff_s_ge_ssw_mismatches": 0
+   },
+   "5.0": {
+    "contact_only_right_derivative_negative": true,
+    "quarantine_only_local_iff_s_ge_ssw_mismatches": 0
+   },
+   "20.0": {
+    "contact_only_right_derivative_negative": true,
+    "quarantine_only_local_iff_s_ge_ssw_mismatches": 0
+   }
+  }
+ },
+ "xian": {
+  "s_sw": 2.548250542570811,
+  "checks": {
+   "0.1": {
+    "contact_only_right_derivative_negative": true,
+    "quarantine_only_local_iff_s_ge_ssw_mismatches": 0
+   },
+   "0.5": {
+    "contact_only_right_derivative_negative": true,
+    "quarantine_only_local_iff_s_ge_ssw_mismatches": 0
+   },
+   "1.0": {
+    "contact_only_right_derivative_negative": true,
+    "quarantine_only_local_iff_s_ge_ssw_mismatches": 0
+   },
+   "2.0": {
+    "contact_only_right_derivative_negative": true,
+    "quarantine_only_local_iff_s_ge_ssw_mismatches": 0
+   },
+   "5.0": {
+    "contact_only_right_derivative_negative": true,
+    "quarantine_only_local_iff_s_ge_ssw_mismatches": 0
+   },
+   "20.0": {
+    "contact_only_right_derivative_negative": true,
+    "quarantine_only_local_iff_s_ge_ssw_mismatches": 0
+   }
+  }
+ }
+}
