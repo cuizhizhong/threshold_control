@@ -1,8 +1,10 @@
 # 当前论文的全文复现工程
 
 唯一正式稿为 `../latex/flatten_curve_analysis_cn.tex`，补充材料为同目录
-`flatten_curve_supplement_cn.tex`。`../ai/threshold_control_reproducible_release_20261002/`
+`flatten_curve_supplement_cn.tex`。`../joint_control/threshold_control_reproducible_release_20261002/`
 保持原样；导入前的主稿、PDF、文献、模板和图件保存于 `backups/before_import_20261002/`。
+
+2026-10-04 仅迁移冻结来源目录、同步活动入口与来源索引，不改科学代码逻辑及正式论文。旧验收记录中的 `ai/threshold_control_reproducible_release_20261002/` 映射到上述新目录，历史记录不改写；逐文件对应及本轮入口核查见 [来源整理核查](release_reports/source_relocation_20261004/README.md)。旧科学验收不冒充路径迁移后入口的新一轮科学复跑。
 
 本工程不使用任何 Nature skills，不修改历史实验和原始 Excel。原绘图语句、字体、配色、
 线型、布局、内嵌图和标记继续使用。数值修正必须有计算来源，不能为匹配旧数字而调整模型。

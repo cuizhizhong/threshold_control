@@ -18,7 +18,7 @@ def environments(text):
 
 
 def run(root: Path, output: Path, current: str) -> dict:
-    source=root/'ai/threshold_control_reproducible_release_20261002/latex/flatten_curve_analysis_cn.tex'
+    source=root/'joint_control/threshold_control_reproducible_release_20261002/latex/flatten_curve_analysis_cn.tex'
     original=environments(source.read_text(encoding='utf-8-sig'))
     new=environments(current)
     comparisons=[]

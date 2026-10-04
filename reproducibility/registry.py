@@ -12,7 +12,7 @@ from pathlib import Path
 import re
 
 
-PACKAGE="ai/threshold_control_reproducible_release_20261002"
+PACKAGE="joint_control/threshold_control_reproducible_release_20261002"
 BASELINE={"N":763,"S0":762,"I0":1,"beta":.155,"gamma":.3504,
           "delta_q":.3504,"c0":10,"q0":.01526}
 

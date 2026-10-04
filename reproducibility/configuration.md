@@ -13,7 +13,7 @@
 | 西安拟合、三策略、阈值图谱 | `reproducibility/xian.py:Params/controls/fit_initial/integrate/run_xian`；Excel 读取沿用 `xian_control_comparison/xian_control_comparison.py:load_observed_data` | `<RUN>/xian/fit.json`、`reference.json`、`summary.csv`、`timeseries.csv`、`eta_scan.csv`、`heatmap.csv` |
 | 有效人口比较 | `reproducibility/population.py:run_population/main_critical/theta_root/population_arc` | `<RUN>/population/critical.json`、`metadata.json`、`representative_summary.csv`、`arcs.csv`、`beta_scan.csv`、`supplementary_anchors.json` |
 | 接触率敏感性 | `reproducibility/c0.py:run_c0/boundaries`；原绘图函数仍在 `c0_sensitivity/run_c0_sensitivity.py` | `<RUN>/c0/parameters.json`、`extrema.json`、`scan.csv`、`representative_summary.csv`、`phase.npz`、`beta_existence.npz` |
-| 联合控制 | 冻结包 `ai/threshold_control_reproducible_release_20261002/numerics/inputs/baseline_parameters.json` 的 `parameters`；原核心 `numerics/joint_comparison.py`；实际数值设置见 `reproducibility/joint.py` | `<RUN>/joint/results.json`、`results.csv`、`openloop_check.json`、`root_diagnostics.json`、`trajectories.csv` |
+| 联合控制 | 冻结包 `joint_control/threshold_control_reproducible_release_20261002/numerics/inputs/baseline_parameters.json` 的 `parameters`；原核心 `numerics/joint_comparison.py`；实际数值设置见 `reproducibility/joint.py` | `<RUN>/joint/results.json`、`results.csv`、`openloop_check.json`、`root_diagnostics.json`、`trajectories.csv` |
 
 ## 初值和 TDINN 函数
 

@@ -20,7 +20,7 @@
       "read_only": true
     },
     {
-      "path": "ai/threshold_control_reproducible_release_20261002/numerics/inputs/baseline_parameters.json",
+      "path": "joint_control/threshold_control_reproducible_release_20261002/numerics/inputs/baseline_parameters.json",
       "reader": "reproducibility/joint.py:run",
       "consumed_fields": ["parameters"],
       "descriptive_not_consumed_fields": ["other_initial_states", "quadrature", "full_ode", "endpoints", "units", "cost_definition"],
@@ -85,7 +85,7 @@
     },
     "joint": {
       "class": "fixed",
-      "authority": "ai/threshold_control_reproducible_release_20261002/numerics/inputs/baseline_parameters.json:parameters",
+      "authority": "joint_control/threshold_control_reproducible_release_20261002/numerics/inputs/baseline_parameters.json:parameters",
       "reader": "reproducibility/joint.py:run",
       "values": {"N": 763.0, "S0": 762.0, "I0": 1.0, "beta": 0.155, "gamma": 0.3504, "delta_q": 0.3504, "c0": 10.0, "q0": 0.01526, "eta": 38.15, "wc": 1.0, "wq": 2.0},
       "actual_other_initial_states": {"Sq0": 0, "Iq0": 0, "R0_initial": 0, "cumulative0": 0, "cost0": 0},
@@ -188,7 +188,7 @@
       "platform_difference_samples": 4001
     },
     "joint_integral_and_openloop": {
-      "authorities": ["reproducibility/joint.py:run/_quadrature/_openloop/_scaled_candidates", "ai/threshold_control_reproducible_release_20261002/numerics/joint_comparison.py:compute/stationary_candidates"],
+      "authorities": ["reproducibility/joint.py:run/_quadrature/_openloop/_scaled_candidates", "joint_control/threshold_control_reproducible_release_20261002/numerics/joint_comparison.py:compute/stationary_candidates"],
       "quadrature": {"fine_epsabs": 1e-9, "coarse_epsabs": 1e-7, "epsrel_factor": 0.1, "limit": 500},
       "state_roots_xtol": 1e-11,
       "original_stationary_imaginary_tol": "1e-8*(1+abs(real))",

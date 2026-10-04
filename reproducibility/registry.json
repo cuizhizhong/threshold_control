@@ -6368,7 +6368,7 @@
       "id": "joint_minimum_cost_cost",
       "source": [
         "reproducibility/joint.py",
-        "ai/threshold_control_reproducible_release_20261002/numerics/joint_comparison.py"
+        "joint_control/threshold_control_reproducible_release_20261002/numerics/joint_comparison.py"
       ],
       "params": {
         "N": 763.0,
@@ -6404,7 +6404,7 @@
       "id": "joint_minimum_cost_duration",
       "source": [
         "reproducibility/joint.py",
-        "ai/threshold_control_reproducible_release_20261002/numerics/joint_comparison.py"
+        "joint_control/threshold_control_reproducible_release_20261002/numerics/joint_comparison.py"
       ],
       "params": {
         "N": 763.0,
@@ -6440,7 +6440,7 @@
       "id": "joint_quarantine_only_cost",
       "source": [
         "reproducibility/joint.py",
-        "ai/threshold_control_reproducible_release_20261002/numerics/joint_comparison.py"
+        "joint_control/threshold_control_reproducible_release_20261002/numerics/joint_comparison.py"
       ],
       "params": {
         "N": 763.0,
@@ -6476,7 +6476,7 @@
       "id": "joint_contact_only_cost",
       "source": [
         "reproducibility/joint.py",
-        "ai/threshold_control_reproducible_release_20261002/numerics/joint_comparison.py"
+        "joint_control/threshold_control_reproducible_release_20261002/numerics/joint_comparison.py"
       ],
       "params": {
         "N": 763.0,
@@ -6512,7 +6512,7 @@
       "id": "joint_quarantine_only_duration",
       "source": [
         "reproducibility/joint.py",
-        "ai/threshold_control_reproducible_release_20261002/numerics/joint_comparison.py"
+        "joint_control/threshold_control_reproducible_release_20261002/numerics/joint_comparison.py"
       ],
       "params": {
         "N": 763.0,

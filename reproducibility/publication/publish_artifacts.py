@@ -22,7 +22,7 @@ def check_artifacts(run: Path) -> list[dict]:
     build = read(run / "document/build_report.json")
     registry = read(run / "registry.json")
     initial = read(run / "validation/source_integrity_initial.json")
-    release = ROOT / "ai/threshold_control_reproducible_release_20261002"
+    release = ROOT / "joint_control/threshold_control_reproducible_release_20261002"
     records.append(require_hash(release / "MANIFEST_SHA256.json", initial["frozen_manifest_sha256"]))
     for item in initial["frozen_release"]:
         records.append(require_hash(release / item["file"], item["expected_sha256"]))

@@ -12,8 +12,8 @@
 - `latex/flatten_curve_analysis_cn.pdf`
 - `latex/elegantpaper.cls`
 
-2026-10-02 更新：新稿包含仅隔离基准与联合阈值控制。`ai/threshold_control_reproducible_release_20261002`
-为冻结的版本来源，不修改。`reproducibility/` 管理整稿的独立复现；必须从原始输入重建数据，
+2026-10-02 更新：新稿包含仅隔离基准与联合阈值控制。`joint_control/threshold_control_reproducible_release_20261002`
+为冻结的版本来源，不修改（2026-10-04 从 `ai/` 原样迁移）。`ai/` 留作讨论与计划；联合控制来源及参数归 `joint_control/`。`reproducibility/` 管理整稿的独立复现；必须从原始输入重建数据，
 旧 CSV/NPZ/pickle 只作历史回归参考。用户明确要求不使用 Nature 系列 skills。
 阈值 `theta=0.002` 是设计情景，不是实测 ICU 安全阈值；历史“床位×1/3”等解释不再适用。
 现有子目录中涉及旧图号、旧主稿路径、旧阶段范围的文字均是历史记录；正式图号由当前主稿标签确定。

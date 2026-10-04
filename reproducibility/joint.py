@@ -24,7 +24,7 @@ from scipy.interpolate import PchipInterpolator
 from scipy.optimize import brentq
 
 
-PACKAGE = "ai/threshold_control_reproducible_release_20261002"
+PACKAGE = "joint_control/threshold_control_reproducible_release_20261002"
 Y = Polynomial([0.0, 1.0])
 
 

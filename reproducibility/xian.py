@@ -472,7 +472,7 @@ def write_anchor_updates(output_dir: Path, root: Path):
     pars=new_json('c0/parameters.json')
     for k,v in pars['derived'].items():record('c0_boundaries',k,oldpars.get('derived',{}).get(k),v,'c0/parameters.json',parpath)
     # S2旧值来自冻结补表/表注，不用硬编码数字冒充已读取的历史证据。
-    sipath='ai/threshold_control_reproducible_release_20261002/latex/flatten_curve_supplement_cn.tex'
+    sipath='joint_control/threshold_control_reproducible_release_20261002/latex/flatten_curve_supplement_cn.tex'
     sitext=old_input(sipath,lambda raw:raw.decode('utf-8-sig')) or ''
     s2old={}
     for kind,prefix in [('observed','观测数据'),('fitted','最小二乘拟合'),('fixed_I0_1','固定 $I_0=1$')]:

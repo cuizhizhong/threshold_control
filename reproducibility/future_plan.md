@@ -1,6 +1,6 @@
 # 复现后的后续研究计划
 
-本文件承接冻结包 `ai/threshold_control_reproducible_release_20261002/plans/后续研究计划_最新版.md`，不改动该包。正式稿唯一入口为 `latex/flatten_curve_analysis_cn.tex`；本轮的实际完成状态以 `validation_report.md` 为准。
+本文件承接冻结包 `joint_control/threshold_control_reproducible_release_20261002/plans/后续研究计划_最新版.md`，不改动该包。正式稿唯一入口为 `latex/flatten_curve_analysis_cn.tex`；本轮的实际完成状态以 `validation_report.md` 为准。
 
 ## 本轮与下一阶段的分界
 

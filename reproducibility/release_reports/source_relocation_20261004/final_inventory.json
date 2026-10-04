@@ -1,0 +1,223 @@
+{
+  "source_and_protected_passed": true,
+  "protected_changes": [],
+  "frozen_files": 87,
+  "discussion_missing_since_successful_check": [
+    "ai/boundary_review_20261003.zip",
+    "ai/总览.md"
+  ],
+  "discussion_changed_since_successful_check": [],
+  "new_discussion_files": {
+    "ai/README.md": {
+      "sha256": "567d21a4df5167d095d6977ccef966854062bbdf843a5b287fe323c3b4414f87",
+      "size_bytes": 1342
+    },
+    "ai/后续研究计划_最新版.md": {
+      "sha256": "332c8ec77960be654805787dbdf539db8098228822dae9b107e3984d415d17af",
+      "size_bytes": 4796
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/check_baseline.py": {
+      "sha256": "b02f19a642c05f2222fcb075d24a7bdfaa7f28ad18629a83f09cd2e7b14028a5",
+      "size_bytes": 1122
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/figures/fig_capacity.pdf": {
+      "sha256": "dcfe007fad6a258a67667978396f09d98bffe35e7e9f1a8f3bd046224e298189",
+      "size_bytes": 103774
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/figures/fig_capacity.png": {
+      "sha256": "412893a780a5c0e056fce893cf3efcb347127aaa0b189dfb0eb3d26c58db0abc",
+      "size_bytes": 186082
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/figures/fig_compare_baseline.pdf": {
+      "sha256": "85a1d4f6b4733f53439fd3c4b11c341b08d05c31471a9469137598ce2e005b0c",
+      "size_bytes": 54374
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/figures/fig_compare_baseline.png": {
+      "sha256": "0d93d3b3aca07c15acd9afed02dd6a55a3a2987468360d085a43f4de01246448",
+      "size_bytes": 212446
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/figures/fig_compare_xian.pdf": {
+      "sha256": "6d685b5e1435ce85430abbf53b8f61bcc1a136b09302de6b8bff2d2cd4000957",
+      "size_bytes": 56168
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/figures/fig_compare_xian.png": {
+      "sha256": "53e88d75f948353748f8e440ff16e22b4a096e8b4c3559e3ca9da587ed7d6b76",
+      "size_bytes": 224944
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/figures/fig_frontier_baseline.pdf": {
+      "sha256": "31e11e1ce151d65fc01d1c13bf5fd59c823767924ab454f04441f1fab20befa8",
+      "size_bytes": 35381
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/figures/fig_frontier_baseline.png": {
+      "sha256": "f87835941415bc1b72e4cb49385fe64e7dc8b14b65d440e675a1be4b9a78639b",
+      "size_bytes": 81653
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/figures/fig_frontier_xian.pdf": {
+      "sha256": "642459c16339fdb066821c1045a036a727a19d19d3c36827b0a5a4a1d8d0dc50",
+      "size_bytes": 36207
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/figures/fig_frontier_xian.png": {
+      "sha256": "c02eb48b76ca7712f1dcb6957833962ea0a90cb14e1dd559c1b2f85439e6e95e",
+      "size_bytes": 84557
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/figures/fig_phase_weights.pdf": {
+      "sha256": "aba6720cc357926010ad3331f4088f8ad3a8fb7be63c72df2bcdd7a82b292ace",
+      "size_bytes": 72029
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/figures/fig_phase_weights.png": {
+      "sha256": "82d9e595487f76c360c198dd21e22e5b08ddf6a1cda1594ef89ce27b5de95c0f",
+      "size_bytes": 218049
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/figures/fig_weights.pdf": {
+      "sha256": "6b43cae6edfe3891c34dc241afaad9008e9e13b699abc11ccdb8f85d122181c3",
+      "size_bytes": 34928
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/figures/fig_weights.png": {
+      "sha256": "26bf68788c34b6c62e92038b4e684d722f056d61747fe697008db486745112a0",
+      "size_bytes": 174770
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/joint_numerics.py": {
+      "sha256": "2c8605c6940b368cfb97c8399490ebecdb195da89c9f422d491a9e6440dfc7c0",
+      "size_bytes": 10348
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/phase.py": {
+      "sha256": "954b12596491a4317a7c1fe5d7b5596925f568cbd56a719bc7ec3e3c92f18e61",
+      "size_bytes": 4753
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/README.md": {
+      "sha256": "db76fb10c2b483ab2c731f762937dbc660ffb2b675d6c8cc250fabe000128234",
+      "size_bytes": 7659
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/results/capacity.json": {
+      "sha256": "84802de379d2e130c745ca7ad0008ab1408ef898e904602e24ef9708271846b4",
+      "size_bytes": 1092
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/results/compare_baseline.csv": {
+      "sha256": "ec748a789cb6c7a305886b7df3785501a81bea1cd73512016f5337beb547557d",
+      "size_bytes": 1240
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/results/compare_xian.csv": {
+      "sha256": "120ac449776be829b9432cef8077a05f62c94110df601169a4a8428520ddf041",
+      "size_bytes": 1405
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/results/frontier_baseline.csv": {
+      "sha256": "34c15d42a30bd97ce45ad44557d278a23b4c079c6698fd38c5026b99eecdbbc5",
+      "size_bytes": 18043
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/results/frontier_xian.csv": {
+      "sha256": "2d3706ac7b535baf5e07d0fd247aed6eba81f55672a21377e830ac34bb3b3b76",
+      "size_bytes": 18025
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/results/linear_cost_xian.json": {
+      "sha256": "a2c9d573fbac63e285cb105f6038301d4c49fd9fbbfc407ccbb8a39ad680e347",
+      "size_bytes": 661
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/results/phase_weights.json": {
+      "sha256": "3c93fb2c44cdf1b1743e3050741f8ccf738c8819ed878df49be4f48202a04399",
+      "size_bytes": 1046
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/results/run_log.txt": {
+      "sha256": "07f161320d30ac85f499424f26c6b4cc1bcecb77c6c0c330ae8494e2488d2790",
+      "size_bytes": 6465
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/results/summary.json": {
+      "sha256": "6ddc0ec46b71509080112202e0d342f10170cca37e96e7e7aa8f2deac4854359",
+      "size_bytes": 119676
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/results/weights.json": {
+      "sha256": "ae40739e69c0f921c60e1f8e4fb541a3ee914c65caed82e39e3425700612597b",
+      "size_bytes": 3120
+    },
+    "ai/数值工作汇总_20261004/01_联合控制补充数值/run_all.py": {
+      "sha256": "c893ac732294e80b86bafdb497c2db97c77af955345e644c0707d25aa7474604",
+      "size_bytes": 17116
+    },
+    "ai/数值工作汇总_20261004/02_隔离易感者返回检验/alloc_under_return.py": {
+      "sha256": "5f544b7044b75ad51a5a897c194fb7c0bd7c0d903f3ca7f52fd26c7466c1def2",
+      "size_bytes": 913
+    },
+    "ai/数值工作汇总_20261004/02_隔离易感者返回检验/decomposition_and_limit.py": {
+      "sha256": "afbafca872cb5ba221806287244373f88d90b38fa642a418c7073f6509b824de",
+      "size_bytes": 1911
+    },
+    "ai/数值工作汇总_20261004/02_隔离易感者返回检验/fig_return.py": {
+      "sha256": "16f4271b039d88c216c83824c3f726757adb0aeab4bd52e25e7abb3eea7461db",
+      "size_bytes": 2820
+    },
+    "ai/数值工作汇总_20261004/02_隔离易感者返回检验/figures/sq_return_xian.pdf": {
+      "sha256": "83b83916a9511bbce630c525975d080ba8779db15600f6ca6f098c2a2a1662e6",
+      "size_bytes": 51321
+    },
+    "ai/数值工作汇总_20261004/02_隔离易感者返回检验/figures/sq_return_xian.png": {
+      "sha256": "522a9732170dc6e0adf3c775242bd14885ba93eac939bb4458a3a9a9a231c762",
+      "size_bytes": 255334
+    },
+    "ai/数值工作汇总_20261004/02_隔离易感者返回检验/joint_cost_optimal.py": {
+      "sha256": "c042701a04e987c1d443564b8a93ce9c4f1329823e8b24d260a10093aa7e36be",
+      "size_bytes": 7964
+    },
+    "ai/数值工作汇总_20261004/02_隔离易感者返回检验/README.md": {
+      "sha256": "502d7c10a7bfaa0ca7d9d7d80c2cbd793864e126537f9329ac5236c47136229c",
+      "size_bytes": 3767
+    },
+    "ai/数值工作汇总_20261004/02_隔离易感者返回检验/results/alloc_under_return.json": {
+      "sha256": "31044d47e30e87fc7241f6b8e3e0b2b5d1389e57678c96a905ae96ee35a82948",
+      "size_bytes": 1102
+    },
+    "ai/数值工作汇总_20261004/02_隔离易感者返回检验/results/decomposition_and_limit.json": {
+      "sha256": "100c64d7303f6952cc1725fa43f7a6a97e23668c3a05a4a3fa1c84d3004cee98",
+      "size_bytes": 2558
+    },
+    "ai/数值工作汇总_20261004/02_隔离易感者返回检验/results/decomposition_log.txt": {
+      "sha256": "496252b17709a45ae2357bf683b51b9b5fff4bd723542a02eda44119645c99cf",
+      "size_bytes": 2559
+    },
+    "ai/数值工作汇总_20261004/02_隔离易感者返回检验/results/fig_return_log.txt": {
+      "sha256": "cdfcb10ad345977f44d473977519c1cc63b3fbf44f51c8fb14dd96195c71477a",
+      "size_bytes": 499
+    },
+    "ai/数值工作汇总_20261004/02_隔离易感者返回检验/results/run_return_log.txt": {
+      "sha256": "3d497f88b17755f4b1bfde7957a3c5e71697fcb7d5e419ca54ca12c761c01cda",
+      "size_bytes": 8306
+    },
+    "ai/数值工作汇总_20261004/02_隔离易感者返回检验/results/sq_return_results.json": {
+      "sha256": "529a8d7067b1dd9f1d666e2d679e04816331352d7c1393fbe2f01a42230303f0",
+      "size_bytes": 22829
+    },
+    "ai/数值工作汇总_20261004/02_隔离易感者返回检验/run_return.py": {
+      "sha256": "c344c234d9406dd9a52c680c99c25c0af60bed613af8cc365a835b4db59a6da9",
+      "size_bytes": 1643
+    },
+    "ai/数值工作汇总_20261004/02_隔离易感者返回检验/sq_return.py": {
+      "sha256": "8e91f3928c83d3106c49783ac279e4c0b6c62d975b4dddc31edce29abe29c2d3",
+      "size_bytes": 5541
+    },
+    "ai/数值工作汇总_20261004/03_早期探索脚本/joint_cost_optimal.py": {
+      "sha256": "c042701a04e987c1d443564b8a93ce9c4f1329823e8b24d260a10093aa7e36be",
+      "size_bytes": 7964
+    },
+    "ai/数值工作汇总_20261004/03_早期探索脚本/joint_explore.py": {
+      "sha256": "16e774aafb6fa3479f44fa51b588db19df17b3832582ba5bc1a7de5456a9e110",
+      "size_bytes": 2551
+    },
+    "ai/数值工作汇总_20261004/03_早期探索脚本/lin_vs_quad.py": {
+      "sha256": "5519a7c391bc3da8c6b4f1687e3bdd2b02de10d8310880018a5b21ee70ee0f10",
+      "size_bytes": 1955
+    },
+    "ai/数值工作汇总_20261004/03_早期探索脚本/README.md": {
+      "sha256": "ef6e99886e75ad0a090883404e1cb3d8d8319dc5875fc2edfe318fef4ae906af",
+      "size_bytes": 1011
+    },
+    "ai/数值工作汇总_20261004/03_早期探索脚本/xian_H.py": {
+      "sha256": "04c6faa76f49cc6cd6a3068abc3f2975131940df665c70194d56a15b793ada51",
+      "size_bytes": 3561
+    },
+    "ai/数值工作汇总_20261004/总览.md": {
+      "sha256": "0a691778210a1b1019554c446dd365682b2384ad56bf870fe8a30ed545c6b159",
+      "size_bytes": 6895
+    }
+  },
+  "deleted_files_by_this_task": [],
+  "restored_external_changes": false,
+  "scope": "最终现场盘点；发现成功核查之后的讨论区外部变化，保留现场，不将其冒充本轮删除。"
+}

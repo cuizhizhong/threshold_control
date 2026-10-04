@@ -1,8 +1,8 @@
 # SIQR 模型下接触减少与追踪隔离的阈值控制
 
 当前唯一正式稿件为 `latex/flatten_curve_analysis_cn.tex`，补充表格为同目录
-`flatten_curve_supplement_cn.tex`。2026-10-02 新稿来自 `ai/threshold_control_reproducible_release_20261002`；
-该交付包保持冻结。正式稿包含仅隔离基准和联合控制理论，不再只有情景一。
+`flatten_curve_supplement_cn.tex`。2026-10-02 新稿来自 `joint_control/threshold_control_reproducible_release_20261002`；
+该交付包保持冻结，2026-10-04 从 `ai/` 原样迁移。正式稿包含仅隔离基准和联合控制理论，不再只有情景一。
 
 整稿复现说明和本机验收状态见 [reproducibility/README.md](reproducibility/README.md)。
 复现入口采用独立空输出目录，不调用 Nature skills，不直接清空旧实验目录或覆盖正式图件。
@@ -68,7 +68,8 @@ $$
 ├── xian_dom/                      # 有效人口条件比较的求解与原绘图逻辑
 ├── c0_sensitivity/                # 固定阈值比例下的 c0 敏感性实验
 ├── 真实数据/                       # 当前主线使用的西安原始 Excel 数据，请勿直接修改
-├── ai/                            # 冻结交付来源与独有讨论材料；重复旧稿已回收
+├── joint_control/                 # 联合控制核心、参数及完整冻结来源（内容不改）
+├── ai/                            # AI 讨论、计划与尚未纳入正式链条的外部材料
 ├── refs/                          # 参考论文、文本摘录和模型示意图
 ├── archive_unused/                # 旧实验、非当前主线数据与可复现输出快照
 └── AGENTS.md                      # 项目研究口径和协作约定
@@ -79,6 +80,7 @@ $$
 - 主论文源文件：[`latex/flatten_curve_analysis_cn.tex`](latex/flatten_curve_analysis_cn.tex)
 - 主论文 PDF：[`latex/flatten_curve_analysis_cn.pdf`](latex/flatten_curve_analysis_cn.pdf)
 - 正式复现入口：[`reproducibility/run_all.ps1`](reproducibility/run_all.ps1)
+- 联合控制来源与运行说明：[`joint_control/README.md`](joint_control/README.md)
 - 西安比较主程序：[`xian_control_comparison/xian_control_comparison.py`](xian_control_comparison/xian_control_comparison.py)
 - 情景一完整图谱入口：[`scenario1_threshold_landscape/run_all.m`](scenario1_threshold_landscape/run_all.m)
 - 拐点数值校验：[`scenario1_inflection/verify_anchors.py`](scenario1_inflection/verify_anchors.py)

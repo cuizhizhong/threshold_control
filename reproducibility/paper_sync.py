@@ -13,7 +13,7 @@ from pathlib import Path
 import re
 
 
-RELEASE = Path('ai/threshold_control_reproducible_release_20261002/latex')
+RELEASE = Path('joint_control/threshold_control_reproducible_release_20261002/latex')
 
 
 def _json(path):

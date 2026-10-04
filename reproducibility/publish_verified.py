@@ -94,7 +94,7 @@ def publish(parent: Path) -> dict:
     for relative, expected in initial["static_art_assets"].items():
         if sha(ROOT / relative) != expected:
             raise RuntimeError("验收后可编辑图源变化：" + relative)
-    release = ROOT / "ai/threshold_control_reproducible_release_20261002"
+    release = ROOT / "joint_control/threshold_control_reproducible_release_20261002"
     manifest = read(release / "MANIFEST_SHA256.json")
     if any(sha(release / p) != v["sha256"] for p, v in manifest["files"].items()):
         raise RuntimeError("冻结交付包变化")

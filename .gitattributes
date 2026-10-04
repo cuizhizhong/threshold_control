@@ -1,5 +1,5 @@
 # 冻结包、复现源码和验收文件依赖逐字节 SHA，禁止自动换行转换。
-/ai/threshold_control_reproducible_release_20261002/** -text
+/joint_control/threshold_control_reproducible_release_20261002/** -text
 /reproducibility/** -text
 
 # 正式论文与已验收来源保持相同字节；不会影响 PDF 的二进制识别。

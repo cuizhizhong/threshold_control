@@ -10,7 +10,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-RELEASE = ROOT / 'ai' / 'threshold_control_reproducible_release_20261002'
+RELEASE = ROOT / 'joint_control' / 'threshold_control_reproducible_release_20261002'
 SOURCE_DIRS = ('code', 'scenario1_threshold_landscape', 'scenario1_inflection',
                'xian_control_comparison', 'xian_dom', 'c0_sensitivity',
                'latex/revision_v4', 'latex/revision_style_restore', 'latex/revision_layout_v5')

@@ -31,7 +31,7 @@ __pycache__/
 *.pyc
 
 # 冻结来源须完整保存，否则 MANIFEST_SHA256.json 无法在克隆后校验。
-!ai/threshold_control_reproducible_release_20261002/**
+!joint_control/threshold_control_reproducible_release_20261002/**
 
 # 已汇集的验收日志属于交付证据，不是待清理的临时编译产物。
 !reproducibility/release_reports/**/*.log

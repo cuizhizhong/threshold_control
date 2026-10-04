@@ -6,7 +6,7 @@ from bootstrap import dump, sha
 
 
 def run(root: Path, output: Path) -> dict:
-    release=root/'ai/threshold_control_reproducible_release_20261002'
+    release=root/'joint_control/threshold_control_reproducible_release_20261002'
     manifest=json.loads((release/'MANIFEST_SHA256.json').read_text(encoding='utf-8'))
     frozen=[]
     for rel,expected in manifest['files'].items():

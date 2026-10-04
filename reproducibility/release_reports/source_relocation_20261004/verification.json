@@ -1,0 +1,93 @@
+{
+  "passed": true,
+  "frozen_files": 87,
+  "python_executable": "E:\\work\\draft\\reproducibility\\.venv\\Scripts\\python.exe",
+  "python_version": "3.12.8 | packaged by Anaconda, Inc. | (main, Dec 11 2024, 16:48:34) [MSC v.1929 64 bit (AMD64)]",
+  "frozen_content_unchanged": true,
+  "protected_files": 972,
+  "discussion_files_retained": 16,
+  "deleted_files": [],
+  "path_only_python_changes": [
+    "reproducibility/bootstrap.py",
+    "reproducibility/integrity.py",
+    "reproducibility/joint.py",
+    "reproducibility/paper_sync.py",
+    "reproducibility/registry.py",
+    "reproducibility/theory_trace.py",
+    "reproducibility/xian.py",
+    "reproducibility/publish_verified.py",
+    "reproducibility/publication/publish_artifacts.py"
+  ],
+  "empty_workspace_checks": [
+    {
+      "empty_output_before_run": true,
+      "workspace_created": true,
+      "integrity_passed": true,
+      "registry": {
+        "passed": true,
+        "coverage": {
+          "figures": 20,
+          "main_tables": 4,
+          "supplement_tables": 3,
+          "equation_groups": 91,
+          "theorem_statements": 26,
+          "numeric_statements_located": 651
+        },
+        "artifacts": [
+          "registry.json",
+          "registry.md"
+        ],
+        "unreconciled_numeric_statements": 651,
+        "note": "结构完整；未据此宣称全部数字通过。"
+      },
+      "frozen_theory_source_read_passed": true
+    },
+    {
+      "empty_output_before_run": true,
+      "workspace_created": true,
+      "integrity_passed": true,
+      "registry": {
+        "passed": true,
+        "coverage": {
+          "figures": 20,
+          "main_tables": 4,
+          "supplement_tables": 3,
+          "equation_groups": 91,
+          "theorem_statements": 26,
+          "numeric_statements_located": 651
+        },
+        "artifacts": [
+          "registry.json",
+          "registry.md"
+        ],
+        "unreconciled_numeric_statements": 651,
+        "note": "结构完整；未据此宣称全部数字通过。"
+      },
+      "frozen_theory_source_read_passed": true
+    }
+  ],
+  "joint_core_loaded": true,
+  "joint_parameters": {
+    "N": 763.0,
+    "S0": 762.0,
+    "I0": 1.0,
+    "beta": 0.155,
+    "gamma": 0.3504,
+    "delta_q": 0.3504,
+    "c0": 10.0,
+    "q0": 0.01526,
+    "eta": 38.15,
+    "wc": 1.0,
+    "wq": 2.0
+  },
+  "joint_Sc_loaded": 175.1601700006617,
+  "wording_regression_passed": true,
+  "wording_uses_existing_results": "reproducibility/results/20261003_release_final",
+  "wording_source_main": "joint_control/threshold_control_reproducible_release_20261002/latex/flatten_curve_analysis_cn.tex",
+  "git_attributes_checked": true,
+  "scientific_calculations_rerun": false,
+  "latex_recompiled": false,
+  "formal_manuscript_pdf_and_figures_unchanged": true,
+  "git_commit_or_push": false,
+  "scope": "来源搬迁、版本完整性和入口/文案回归；不是新的全文科学复现或数学证明验收。"
+}
