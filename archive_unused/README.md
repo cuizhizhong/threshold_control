@@ -1,7 +1,9 @@
 # 非当前主线材料归档
 
 本目录保存当前论文主线不再直接使用、但仍有复核或恢复价值的代码、数据、图表和运行快照。
-归档文件不属于活动运行路径；主论文定稿图表仍位于根目录 `figures/` 与 `table/`。
+归档实验不是正式计算入口；部分快照仍供复现程序作历史差异对账，不能删除，也不能用它们代替从原始输入计算。正式主稿为 [flatten_curve_analysis_cn.tex](../latex/flatten_curve_analysis_cn.tex)，20幅正式图件位于 `../latex/figures/`；4张正文表直接维护于主稿，3张补充表在 [补充材料](../latex/flatten_curve_supplement_cn.tex)中。根目录旧 `figures/`、`table/` 已不再是正式输出位置。
+
+当前实验、图号及计算来源见[复现说明](../reproducibility/README.md)和[逐项登记](../reproducibility/registry.json)。本目录内部的 `AGENTS.md`、README及数值记录只说明对应历史实验，不能覆盖当前正式稿的初值、成本、阈值定义和验收规则。
 
 ## 目录说明
 
@@ -15,9 +17,9 @@
 
 `generated_snapshots/duplicates/` 中的文件只是旧位置留下的重复成品，不应作为论文引用源。
 
-## 重新生成活动输出
+## 历史模块独立运行入口
 
-以下命令均从项目根目录运行。生成目录已经加入 `.gitignore`。
+以下命令均从项目根目录运行，供需要恢复或探索对应旧模块时查阅，并非更新正式论文的推荐入口。生成目录已加入 `.gitignore`，但部分脚本会清空或覆盖模块输出；执行前应检查源码、依赖、参数和现有文件，先保护旧结果。本轮没有执行这些命令，也不保证历史入口与当前正式结果一致。
 
 ```powershell
 python -B xian_control_comparison\xian_control_comparison.py
@@ -27,8 +29,7 @@ python -B xian_control_comparison\threshold_landscape_analysis\threshold_landsca
 matlab -batch "run('E:\work\draft\scenario1_threshold_landscape\run_all.m')"
 ```
 
-重新生成的过程输出不会自动覆盖根目录的论文定稿图表。若要更新论文图表，应先核对参数、
-验证结果和文件映射，再明确复制到 `figures/` 或 `table/`。
+正式全文复现应从 `reproducibility/run_all.ps1` 进入独立空输出目录。历史入口的旧复制位置不代表当前正式文件映射；不得据此将旧图或表直接复制入正式工程。更新正式稿须先按当前参数、实际指标、绘图适配关系和完整验收流程核查，再使用受控发布步骤；生成文件不等于已通过科学或视觉验收。
 
 ## 恢复原则
 

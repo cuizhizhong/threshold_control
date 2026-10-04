@@ -2,6 +2,15 @@
 
 本目录用于独立生成 `N=763` 情景一阈值响应图谱，不修改主论文工程，也不覆盖主项目中的 `figures/`、`tables/` 或 `code/` 结果。
 
+## 当前正式稿中的定位
+
+正式主稿为 `../latex/flatten_curve_analysis_cn.tex`。本模块提供仅隔离基准的计算和原绘图逻辑，
+当前对应图 3（`fig:baseline:q-joint`）、图 4（`fig:scenario1_heatmaps_c0_eta`）、
+图 7（`fig:scenario1_summary_c0`）和图 8（`fig:scenario1_summary_eta`）。
+原独立图经 `../latex/revision_layout_v5/` 等既有布局适配后入稿，不应直接复制旧输出覆盖正式图。
+正式复现使用 `../reproducibility/run_all.ps1` 的新建空输出目录流程；映射和来源见
+`../reproducibility/registry.json`。本文档中的 2026-07 历史统计不代表本次新增复跑。
+
 ## 目录结构
 
 ```text
@@ -20,9 +29,11 @@ scenario1_threshold_landscape/
 - 清理前的完整结果快照位于
   `../archive_unused/generated_snapshots/scenario1_threshold_landscape_current_run/`。
 
-## 推荐运行
+## 独立模块运行（会清空当前输出）
 
 从任意位置运行：
+
+以下入口只用于模块实验，不是当前正式稿的完整复现入口。先保存所需旧运行，避免清空后丢失。
 
 ```powershell
 matlab -batch "run('E:\work\draft\scenario1_threshold_landscape\run_all.m')"
@@ -45,7 +56,7 @@ matlab -batch "run('E:\work\draft\scenario1_threshold_landscape\scripts\plot_hea
 - `scripts/generate_landscape_data.m`：只生成 CSV 和诊断。
 - `scripts/validate_main_outputs.m`：检查网格行数、有效指标、诊断码、五组控制时长峰值和拐点恒等式。
 - `scripts/plot_baseline_validation.m`：生成基准验证图和基准表。
-- `scripts/plot_main_q_trajectories.m`：生成主论文图 5/6 候选图，含 `q_inf` 与内部拐点标记。
+- `scripts/plot_main_q_trajectories.m`：生成两个隔离率原图（旧稿图 5/6），当前适配合为图 3，含 `q_inf` 与内部拐点标记。
 - `scripts/plot_sensitivity_curves.m`：生成一维敏感性图；`c0` 图的 `Delta_t`
   面板使用线性纵轴并标出离散峰值；`eta` 图使用四档 `c0` 曲线，其 `q_max`
   面板固定为 `0.45--0.85`。
@@ -67,22 +78,23 @@ c0_list = 2.3:0.1:14;
 
 即 `241 x 118 = 28438` 个参数点。主论文候选的一维曲线使用：
 
-- 固定 `eta/N=5%`，图 5 取 `c0=[4,5,8,10,12]`；
+- 固定 `eta/N=5%`，隔离率原图取 `c0=[4,5,8,10,12]`（当前合图 3 的一个面板）；
 - 固定 `c0=10`，取 `eta/N=[0.2%,0.6%,1%,2%]`；
 - `c0` 敏感性图使用上述四档阈值，其中 `Delta_t` 面板使用线性纵轴；
   `eta` 敏感性图使用 `c0=[5,8,10,12]`、完整阈值网格和对数横轴，其中
   `q_max` 面板固定纵轴范围为 `0.45--0.85`。
 
-上述输出已经完成审图，并于 2026-07-29 正式用于主论文图 5--9：图 5/6 保持同名，
+历史入稿记录：上述输出于 2026-07-29 完成当时的审图，正式用于当时主论文图 5--9：图 5/6 保持同名，
 `c0_sensitivity_selected_eta.pdf` 和 `eta_sensitivity_selected_c0.pdf` 分别以论文既有文件名
 `scenario1_summary_c0.pdf`、`scenario1_summary_eta.pdf` 入稿，四面板景观图保持
 `scenario1_heatmaps_c0_eta.pdf` 文件名。模块仍独立生成结果，不在运行脚本中自动覆盖论文工程。
 
-主论文图按最终入稿物理尺寸导出，避免 LaTeX 再次缩小图中文字。图 5/6 的 PDF 尺寸约为
+当时的独立图按入稿物理尺寸导出，避免 LaTeX 再次缩小图中文字。旧图 5/6 的 PDF 尺寸约为
 `324.9 x 231.5 bp`，图 7/8 约为 `397.1 x 260.4 bp`，图 9 约为
 `451.3 x 330.8 bp`。最终字号规范为：刻度 `8.5 pt`，坐标标签和面板标题 `10 pt`，
 图例 `7.5 pt`，面板编号 `11 pt`，普通注释 `8.5 pt`，热图等值线标签 `8 pt`。
-图 5--8 使用矢量 PDF；图 9 保持 600 dpi image PDF。
+旧图 5--8 使用矢量 PDF；旧图 9 保持 600 dpi image PDF。此处保留旧独立出口规范，
+不要求把当前组合图恢复为旧图号或尺寸；当前正式图件以已认可的布局适配和主稿标签为准。
 
 ## 当前结果
 
@@ -101,7 +113,10 @@ c0_list = 2.3:0.1:14;
 - 五档 `eta/N=0.2%,0.5%,1%,2%,5%` 的离散 `Delta_t` 峰位分别为
   `c0=4.3,4.3,4.4,4.6,5.1`；
 - `scenario1_u_time_c0.pdf`、`scenario1_u_time_eta.pdf`：
-  主论文图 5/6 候选；
+  当时主论文图 5/6 候选（当前合为图 3）；
 - `c0_sensitivity_selected_eta.pdf`、`eta_sensitivity_selected_c0.pdf`：
-  主论文图 7/8 候选；
-- `scenario1_heatmaps_c0_eta.pdf`：主论文图 9 的 2×2 候选。
+  当时主论文图 7/8 候选（当前图 7/8 仍以此为来源并经适配）；
+- `scenario1_heatmaps_c0_eta.pdf`：当时主论文图 9 的 2×2 候选（当前图 4）。
+
+本模块的触发网格未另设 `q_cap<1`。正文已经给出额外能力上限下的仅隔离实施判据
+`q_max<=q_cap`；该条件不应与“常规峰值低于阈值，因而无需加强隔离”混为一谈。

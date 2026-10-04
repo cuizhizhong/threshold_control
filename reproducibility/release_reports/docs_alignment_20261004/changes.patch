@@ -1,0 +1,1205 @@
+diff --git a/AGENTS.md b/AGENTS.md
+index 50b3158..b725538 100644
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -31,10 +31,21 @@
+ 
+ 其中，西安比较的具体执行细则由 `xian_control_comparison/AGENTS.md` 管理；根目录只保留总原则和论文草稿层面的上下文。
+ 
+-若根目录规范与子目录 `AGENTS.md` 对同一问题给出不同细节，以子目录 `AGENTS.md` 为准；根目录只提供总研究口径、术语和编辑原则。
++若根目录规范与子目录 `AGENTS.md` 对模块自身的实验与输出给出不同细节，在这一范围内以子目录细则为准。正式主稿、整稿复现的初值约定、成本定义、控制方式和验收边界以当前正文及 `reproducibility/` 的活动配置和入口为准；旧模块说明不能推翻这些设置。
++
++## 当前研究与验收口径（2026-10-04）
++
++- 正文包含仅隔离解析基准和联合阈值控制。第3.2节已给出有效追踪隔离比例上限 `q_cap` 下的仅隔离可行判据；第6节已给出 `c_min`、`q_cap` 下的联合可行条件与类内分配理论。有限能力的新增算例、权重扫描及西安联合控制的系统数值计算尚未纳入正式验收，不能把理论已给出与算例已复跑混为一谈。
++- `eta` 是外生给定的非隔离感染人数上限。医疗容量与风险比例只用于说明阈值量级，不表示实际 ICU 占用始终等于某个固定系数乘 `I`；`theta=0.002` 仍为设计情景。
++- 联合控制的“类内最优”限定于正文规定的共同启动状态、恒定感染平台和退出目标，不宣称优于所有提前干预或其他退出策略。独立 ODE 核查须输入预先生成的时间开环控制，不能以积分器实时状态反馈代替。
++- 第9节固定绝对初值 `I0`、取 `S0=N-I0`；固定归一化初值下的精确规模不变性不得直接替代这一应用约定。应用比较按实际 `J(eta,N)`、`Delta t(eta,N)` 和严格触发条件判断，图13参考直线仅作近似展示。现有人口求根值是候选界值；连续允许区间和图13案例标记的数据绑定仍待核查，见 `reproducibility/release_reports/sec9_boundary_wording_20261004/README.md`。
++- 当前正式正文47页、补充材料3页。2026-10-03 的45页正文及3页补充材料对应当时的双空目录科学验收；后续局部文案、编译及页面检查不等于重跑科学计算。正文与审计说明的分工见 `reproducibility/manuscript_audit_notes.md`。
++- `ai/` 中第6.4节材料、补丁和预览 PDF 尚未合入正式论文或正式复现链条。材料包中的“正式版”命名不是本项目已发布或已验收的标志。
+ 
+ ## 近期进展与修改记录
+ 
++以下明确日期的记录只描述当时版本，原有页数、图号、数值和结论范围保持原样；当前稿件与执行规则以上述现行口径为准。
++
+ - **2026-08-29 §8 第二轮：审阅意见修订 + 术语/篇幅（已完成并编译通过，54 页，无未定义引用）**：（一）**两处逻辑修订**。①式~\eqref{eq:dom:main-interval} 的端点开闭：命题 8.4 的 (i) 原为严格 $\eta<I_{\rm peak}^{\rm T}$，与主结论的闭区间 $[N_{\rm floor},N^\ast_\infty]$ 冲突；现放松为 $\eta\le I_{\rm peak}^{\rm T}$——本节讲的是「不劣」，(ii)–(v) 本就非严格，放松后五项一律非严格、命题内部自洽，闭区间即正确。连带改到八处（式 `eq:dom:band` 拆掉混合开闭的 `min`、`eq:dom:Nstar` 改 $N\le N^\ast$、推论 8.6 改 $N\le\min\{\cdot\}$、$\mathcal{W}_{\rm pcd}$ 定义、四条线的占优侧、§7 与注记 8.8 的两处转述）；顶点 $(N^\ast,I_{\rm peak}^{\rm T})$ 现**属于**占优集合。**触发条件 $\eta/N<i_{\max}^{no}$ 保持严格**（可行性要求，非「不劣」比较）。②**$J^{\rm T}$ 的 $N$ 依赖**：原写「传播项经 $S/N$ 携带 $N$ 依赖」是错的，且与 §5.1「该泛函的被积函数为归一化控制强度，不含人口规模 $N$」直接矛盾——$J$ 的被积函数只有 $c(t),q(t)$。现改用**纯基准解读**：TDINN 四个参照量都是已发生疫情的固定经验参照，不随 $N_{\rm eff}$ 反事实重算；成本公式新加 `\label{eq:cost:J}` 供 §8 引用，表 10 删掉「是否随 $N_{\rm eff}$ 变」一列（四行全「否」），§8.8「参照量对 $N_{\rm eff}$ 的依赖」整段与 §9 未来工作 (ii) 删除（其余顺移）。（二）**§8.7 两处订正**：「$c_0$ 与 $\theta$ 同为作用于 $q_{\max}$ 与峰值的同向杠杆」符号写反——论文自己已给出 $(q_{\max})_\eta<0$ 与 $(q_{\max})_{c_0}>0$（命题~\ref{prop:s1:sensitivity}），且平台高度在该切片中恒为 $\eta$、不随 $c_0$ 变；改写为「二者都改变控制结构，但作用方向与单调性不同」。$t_{\rm end}$「严格单调递减」降级为数值观察（「数值扫描显示，在本文参数范围内……本文未证明它在一般参数下成立」）。（三）**术语**：标度／尺度不变性 → **规模不变性**（引理 8.1 改名「对人口规模 $N$ 的不变性」，§8/§8.2/§8.5 标题、§7/§9/附录的「尺度结构」同步）；峰值分数／累计分数 → **峰值比例／累计比例**；「只经 $\theta$ 进入」→**「只与 $\theta$ 有关」**（14 处）；接触率通道 → **接触率 $c_0$ 的敏感性分析**（§8.7 与附录标题）；绝对尺度 → 绝对规模。全文「尺度」只剩「全市尺度／时间尺度」两种用法。（四）**新增附录 B「$\beta$ 稳健性与两条弧线边界的数值细节」**（原附录 B/C 顺移为 C/D，图 28/29 顺移为 29/30），把 β 扫描与两条弧的端点、逐点取值、16 点唯一性论证移入；正文只留结论（区间宽度对 β 稳健、纳入累计收缩到 $[1.06,1.18]\times10^4$、清零占优区为空集）。§8 正文 8715→8349 字（为改写前 9373 字的 89%）。**逐数字对账：无数字丢失，仅新增 $i_{\max}^{no}N^\ast_\infty\approx9.6\times10^3$ 一处（顶点归属的核算）。**（五）**§8 开头三处措辞**：①节引言末句由「不是把某一策略『搬到』不同规模的人群上……本就处于同一量纲」改为正面陈述（说清 $I_{\rm peak}^{\rm T}$ 与 $\eta$ 各是什么、都是社区感染者的绝对人数、改变 $N_{\rm eff}$ 意味着重解反事实轨迹）；②§8.1 初值设定去掉「两条臂／播种／种子」等借喻（§8.8 两处同源用词一并改为「两种策略」「同一组初值」），把主要理由（初始感染人数是疫情本身的属性、与假设的池大小无关）提到明面，并把原来七个字的「其绝对时刻也无法与……TDINN 参照对齐」展开为具体所指——图 21／22 把阈值控制轨迹与固定的 TDINN 轨迹画在同一时间轴上，初始条件不同则横轴时刻无从对照；③**修正一处表述不准确**：原写「$i_0$ 与 $\theta$ 只以组合 $(\theta-i_0)$ 出现，故……相对量级恰为 $i_0/\theta$」，但本文取 $S_0=N-I_0$ 即 $s_0=1-i_0$（`xian_dom/caliber.py:78`），$i_0$ 经 $s_0$ 再进入一次（该通道扰动 $(\gamma-B_2)i_0/B_1\approx-0.19\,i_0$，约为主通道的五分之一），且各指标传递时各带 $O(1)$ 弹性，故改为「主要以差 $(\theta-i_0)$ 进入……相对误差为 $O(i_0/\theta)$」，与全文其余四处的 $O(i_0/\theta)$ 一致。本轮不增删任何数字。（六）**收回过量的 `\paragraph`**：上一步把 §8 的行内小标题由 3 个加到 21 个（而 §1–§7 各为 0、§9 为 6），等于把连续论证切成了带标签的清单——与本次改写要消除的「罗列感」同源。现收到 6 个，只保留 §8.8 的小结与五条局限（与 §9 的用法对齐）；§8.1（2）、§8.2（1）、§8.5（3）、§8.6（5）、§8.7（4）共 15 处改为连续行文，逐处补了过渡句而非简单删标题（如「第一组实验取同比例阈值……」「以上只用了峰值与成本两项。再纳入……区间还会进一步收窄」「四个时间量中，只有清零时刻在整个扫描区间上保持单调」）。附录 B 的 4 个保留——那里本就是并列的数据条目。本步不动任何数字，53 页。
+ 
+ **写作约定（后续沿用）**：行内小标题只用于真正并列、可逐条对照的条目（局限、并列实验、附录数据块）；论证主线一律连续行文，靠过渡句推进，不加标题。
+@@ -49,12 +60,12 @@
+ 
+ 本项目研究 SIQR 模型下的疫情控制问题。当前新稿包含仅隔离基准及接触率—隔离率联合分配，
+ 不再以“只研究情景一”概括整稿。约束是社区感染人数阈值，医疗容量的比例解释须注明假设，
+-不能当作已由真实 ICU 占用标定。旧情景二、三及能力受限、回流、延迟扩展仍不在本次复现范围。
++不能当作已由真实 ICU 占用标定。能力界限的理论分析已在正文中给出；有限能力新增数值算例、旧情景二、三及回流、延迟扩展尚未纳入正式复现验收。
+ 
+ 总体写作逻辑应保持为：
+ 
+-1. 从模型设定和医疗阈值约束出发；
+-2. 分情景推导控制启动时间、维持期控制律、状态轨迹和控制解除条件；
++1. 从模型设定和外生感染人数上限出发，说明医疗资源比例情景的适用范围；
++2. 建立仅隔离解析基准，再推导联合阈值控制的表示、可行性与类内最优分配；
+ 3. 通过参数敏感性分析观察控制律、控制时长、清零时间和累计感染规模如何随参数变化；
+ 4. 通过数值模拟检验理论控制律是否符合推导结果；
+ 5. 再与 TDINN 控制、阈值控制、常规控制等参照策略进行比较；
+@@ -97,6 +108,9 @@
+ 统一使用以下控制策略名称：
+ 
+ - `情景一阈值控制`：情景一中固定 `c(t)=c0`，通过调节 `q(t)` 维持阈值约束的控制；
++- `仅隔离阈值控制`：上述策略在当前正文中的名称；历史模块的“情景一”名称和代码标识符保留；
++- `仅减少接触`：固定常规隔离比例 `q0`，通过削减接触率维持同一感染阈值的单控制端点；
++- `联合阈值控制`：在正文规定的共同启动状态、感染平台与退出目标下，允许接触率和隔离率共同调整的控制；
+ - `TDINN控制`：来自 He--Tang--Xiao (2023) 论文学习得到的控制函数；
+ - `常规控制`：反事实基准，满足 `c(t)=c0` 且 `q(t)=q0`。
+ 
+@@ -110,7 +124,7 @@
+ 
+ 仓室和数据符号：
+ 
+-- `I(t)`：社区感染者；
++- `I(t)`：非隔离感染者（社区感染者）；
+ - `I_new(t)`：新增社区感染者；
+ - `I_q(t)`：隔离感染者；
+ - `I_{q_{new}}(t)`：新增隔离感染者；
+@@ -221,26 +235,27 @@ J_q=\int_0^T \frac{(q(t)-q_0)_+}{1-q_0}\,dt.
+ 
+ ## 常用命令
+ 
+-从项目根目录重新生成西安输出：
++从项目根目录运行正式整稿复现；默认新建隔离输出目录并独立运行两次，不自动覆盖正式论文：
+ 
+ ```powershell
+-python -B xian_control_comparison\xian_control_comparison.py
++powershell -NoProfile -ExecutionPolicy Bypass -File reproducibility\run_all.ps1
+ ```
+ 
+-在西安比较目录下编译西安比较文档：
++从项目根目录运行历史西安模块（可能覆盖该模块自身的旧输出，不能替代正式入口）：
+ 
+ ```powershell
+-xelatex -interaction=nonstopmode xian_control_comparison.tex
+-xelatex -interaction=nonstopmode xian_control_comparison.tex
++python -B xian_control_comparison\xian_control_comparison.py
+ ```
+ 
++旧独立西安文档 `xian_control_comparison.tex` 曾使用内嵌 `thebibliography` 并编译两遍；当前活动目录不含该文件，这只是历史构建说明，不是现行编译入口。
++
+ 从项目根目录编译正式主论文及补充材料：
+ 
+ ```powershell
+ powershell -NoProfile -ExecutionPolicy Bypass -File latex\build_paper.ps1
+ ```
+ 
+-正式入口先编译补充材料两遍，生成跨文档标签，再执行主稿 xelatex→biber→xelatex→xelatex。主论文有 live citations（`references.bib` + `\printbibliography`），跳过 biber 会使 `\cite` 无法解析（显示 `[?]`）。改图、表、引用、标签或公式编号后使用完整入口；干净目录不得省略补充材料步骤。（历史西安比较文档 `xian_control_comparison.tex` 用内嵌 `thebibliography`，不需要 biber，仍是两遍。用 PowerShell 跑 xelatex，不要用 Git Bash——后者会触发 `fwrite: Invalid argument`。）
++正式入口先编译补充材料两遍，生成跨文档标签，再执行主稿 xelatex→biber→xelatex→xelatex。主论文有 live citations（`references.bib` + `\printbibliography`），跳过 biber 会使 `\cite` 无法解析（显示 `[?]`）。改图、表、引用、标签或公式编号后使用完整入口；干净目录不得省略补充材料步骤。用 PowerShell 跑 xelatex，不要用 Git Bash——后者曾触发 `fwrite: Invalid argument`。
+ 
+ ## 编辑规则
+ 
+diff --git a/README.md b/README.md
+index 580b5ed..27ba9ac 100644
+--- a/README.md
++++ b/README.md
+@@ -10,6 +10,8 @@
+ 旧版本与导入前备份保留，不作为并行维护的正式主稿。
+ 2026-10-03 已完成本研究版本的双空目录复现和正式工程重编译：20 幅图、4 张正文表、3 张补充表及已列明关键数值通过；正文 45 页、补充材料 3 页。结果与证据边界见 [验收报告](reproducibility/validation_report.md)，未取整结果集中在 `reproducibility/results/20261003_release_final/`。这不是一般证明或真实医疗阈值认证。
+ 
++当前正式正文47页、补充材料3页，沿用上述科学结果。后续能力限制衔接、论文与审计记录分流及第9节边界表述的局部订正已完成文案与编译检查，最新记录见 [第9节订正核查](reproducibility/release_reports/sec9_boundary_wording_20261004/README.md)；这些工作没有重新拟合、积分、求根或扫描，不构成新一轮全文科学复算。`ai/` 中第6.4节材料、补丁和预览 PDF 尚未合入正式稿或正式复现链条。
++
+ 本项目研究带接触追踪与隔离机制的 SIQR 型传染病动力学模型，分析社区感染阈值约束
+ $I(t)\leq \eta$ 下的仅隔离基准及接触率—隔离率联合分配。当前工作包括控制律推导、
+ 参数敏感性、数值验证、西安数据重构和与 TDINN控制、常规控制的条件性比较。
+@@ -23,13 +25,13 @@ $I(t)\leq \eta$ 下的仅隔离基准及接触率—隔离率联合分配。当
+ 模型包含以下状态变量：
+ 
+ - $S(t)$：社区易感者；
+-- $I(t)$：社区感染者；
++- $I(t)$：非隔离感染者（社区感染者）；
+ - $S_q(t)$：隔离易感者；
+ - $I_q(t)$：隔离感染者；
+ - $R(t)$：移出者。
+ 
+ 接触率 $c(t)$ 和隔离率 $q(t)$ 是控制变量。仅隔离解析基准采用情景一：固定
+-$c(t)=c_0$，在系统首次达到医疗容量阈值 $I(t)=\eta$ 后提高隔离率，使平台期满足
++$c(t)=c_0$，在系统首次达到外生给定的感染人数上限 $I(t)=\eta$ 后提高隔离率，使平台期满足
+ $I(t)\equiv\eta$。控制律为
+ 
+ $$
+@@ -39,6 +41,8 @@ $$
+ 其中 $S_{\mathrm{th}}(t)$ 是根据理论启动点 $S^*$ 和启动时间 $t_1$ 得到的时间轨迹。
+ 数值实现保持该控制为关于时间的开环函数，而不是依赖积分器当前状态 $S(t)$ 的反馈控制。
+ 
++正文已给出仅隔离能力上限与联合能力界限下的可行条件；联合控制在相同启动状态和退出目标下允许接触率与隔离率共同调整，成本最优结论限定于这一控制类。有限能力新增算例和西安联合控制的系统数值计算尚未纳入正式复现验收，不与现有理论或外部材料中的供应方结果混为一谈。
++
+ 控制过程分为三个阶段：
+ 
+ 1. 在常规控制 $(c_0,q_0)$ 下运行，直到 $I(t)$ 首次达到 $\eta$；
+@@ -88,7 +92,7 @@ $$
+ 
+ 以下原模块入口保留供历史实验核对，并非当前整稿复现入口；部分会覆盖自身旧输出，
+ 不要用它们替代独立输出目录中的正式流程。
+-进入带有独立 `AGENTS.md` 的子目录工作时，应同时遵守根目录与子目录规范；若细节冲突，以子目录规范为准。
++进入带有独立 `AGENTS.md` 的子目录工作时，应同时遵守根目录与子目录规范。子目录细则优先处理自身实验；不能以历史设置推翻当前正式稿及 `reproducibility/` 的初值、成本、控制方式或验收要求。
+ 
+ ## 3. 环境与依赖
+ 
+@@ -120,6 +124,14 @@ LaTeX 宏包和相应中英文字体。主稿使用 `biblatex` 管理参考文
+ 
+ 以下命令均从项目根目录执行。
+ 
++### 正式整稿复现（独立空输出目录）
++
++```powershell
++powershell -NoProfile -ExecutionPolicy Bypass -File reproducibility\run_all.ps1
++```
++
++默认创建新的运行目录并独立运行两次。科学结果对账、文案核查及实际页面检查完成后才能另行发布；入口不自动覆盖正式稿。冻结底稿的完整文案生成尚未认证能恢复全部最新人工修订，不能将其输出直接覆盖当前正文。
++
+ ### 历史西安控制策略比较（可能覆盖旧输出）
+ 
+ ```powershell
+@@ -173,7 +185,11 @@ powershell -NoProfile -ExecutionPolicy Bypass -File latex\build_paper.ps1
+ 
+ 当前论文处理模型设定、常规阶段首次积分、仅隔离闭式控制律、拐点结构、成本和参数敏感性、
+ 联合控制表示及候选比较、数值验证、西安数据应用、规模不变性与有效人口条件比较。比较 TDINN控制、情景一阈值控制和
+-常规控制时，结论均依赖于参数范围、有效人口、医疗容量阈值、成本权重和采用的效果指标。
++常规控制时，结论均依赖于参数范围、有效人口、外生感染人数上限、成本权重和采用的效果指标。
++
++第9节的应用情景固定全市拟合得到的同一个绝对初值 $I_0$，取 $S_0=N-I_0$；固定归一化初值下的精确规模不变性是另一个理论前提。应用集合归属以实际成本、时长及严格触发条件判断，图13采用参考人口 $N_{\rm ref}=13{,}163{,}000$ 下的比例直线作近似展示。现有人口求根值只作候选界值，连续允许区间与图13案例标记的数据绑定仍待核查，不能由参考直线或单个数值根认证整个允许区域。
++
++论文保留当前结果、必要的数值精度证据和科学局限；旧新程序对账、旧容差及历史初值放在 [复现审计说明](reproducibility/manuscript_audit_notes.md)。S2 的 TDINN 清零累计加严容差差异不等于整张补充表已经逐项收敛。
+ 
+ 在当前设定下，数值结果可用于识别峰值、成本、控制时长和累计感染之间的权衡；纳入总累计感染或
+ 清零时间后，占优区域可能明显收缩。因此，本项目保留探索性结果和失败边界，不用低阈值或特定参数下的
+diff --git a/ai/README.md b/ai/README.md
+index 815ef9b..f3f9985 100644
+--- a/ai/README.md
++++ b/ai/README.md
+@@ -16,5 +16,8 @@
+ - [阈值定义讨论总结](阈值定义_讨论总结与修改说明.md)及[来源摘录](阈值定义重点摘录.pdf)：历史讨论依据；页码和版本说明以原记录为准。
+ - [第9节边界核查材料](boundary_review_20261003/README.md)：外部诊断、推导与建议。当前正式稿只做了精确条件与参考直线的局部订正，不因上传而新增渐近展开；不要直接将历史补丁应用到当前主稿。
+ - [数值工作汇总](数值工作汇总_20261004/总览.md)：联合控制补充计算、隔离易感者返回检验和早期探索脚本；解包目录保留可直接阅读的源码、数据和图件。本次上传以当前目录实际内容为准。
++- [第6.4节修订包说明](数值工作汇总_20261004/第6.4节正式版_20261004/说明.md)及[局部预览](数值工作汇总_20261004/第6.4节正式版_20261004/预览_第6.4节_p22-27.pdf)：目录名中的“正式版”是交付方的命名，不表示已合入当前论文。包内补丁基于旧提交，新增证明、数值、4幅图和1张表仍待核对；编译与计算记录属于交付方记录，不是本机正式验收。不得直接用包内完整 TEX 覆盖当前主稿，也不得以其图表编号替换正式导航。
+ 
+ 要判断当前论文实际内容，先读[正式主稿](../latex/flatten_curve_analysis_cn.tex)、[复现说明](../reproducibility/README.md)和对应验收记录，再对照这里的讨论材料。不得将外部报告中的数值或建议自动视为已合入正式稿。
++
++当前正式版本为正文47页、补充材料3页，依据[第9节局部订正验收](../reproducibility/release_reports/sec9_boundary_wording_20261004/README.md)定位。该记录是文案、编译和页面检查，不是新一轮科学复算；历史材料中的旧页数和结论保留其原版本含义。
+diff --git a/archive_unused/README.md b/archive_unused/README.md
+index 2842975..8fee492 100644
+--- a/archive_unused/README.md
++++ b/archive_unused/README.md
+@@ -1,7 +1,9 @@
+ # 非当前主线材料归档
+ 
+ 本目录保存当前论文主线不再直接使用、但仍有复核或恢复价值的代码、数据、图表和运行快照。
+-归档文件不属于活动运行路径；主论文定稿图表仍位于根目录 `figures/` 与 `table/`。
++归档实验不是正式计算入口；部分快照仍供复现程序作历史差异对账，不能删除，也不能用它们代替从原始输入计算。正式主稿为 [flatten_curve_analysis_cn.tex](../latex/flatten_curve_analysis_cn.tex)，20幅正式图件位于 `../latex/figures/`；4张正文表直接维护于主稿，3张补充表在 [补充材料](../latex/flatten_curve_supplement_cn.tex)中。根目录旧 `figures/`、`table/` 已不再是正式输出位置。
++
++当前实验、图号及计算来源见[复现说明](../reproducibility/README.md)和[逐项登记](../reproducibility/registry.json)。本目录内部的 `AGENTS.md`、README及数值记录只说明对应历史实验，不能覆盖当前正式稿的初值、成本、阈值定义和验收规则。
+ 
+ ## 目录说明
+ 
+@@ -15,9 +17,9 @@
+ 
+ `generated_snapshots/duplicates/` 中的文件只是旧位置留下的重复成品，不应作为论文引用源。
+ 
+-## 重新生成活动输出
++## 历史模块独立运行入口
+ 
+-以下命令均从项目根目录运行。生成目录已经加入 `.gitignore`。
++以下命令均从项目根目录运行，供需要恢复或探索对应旧模块时查阅，并非更新正式论文的推荐入口。生成目录已加入 `.gitignore`，但部分脚本会清空或覆盖模块输出；执行前应检查源码、依赖、参数和现有文件，先保护旧结果。本轮没有执行这些命令，也不保证历史入口与当前正式结果一致。
+ 
+ ```powershell
+ python -B xian_control_comparison\xian_control_comparison.py
+@@ -27,8 +29,7 @@ python -B xian_control_comparison\threshold_landscape_analysis\threshold_landsca
+ matlab -batch "run('E:\work\draft\scenario1_threshold_landscape\run_all.m')"
+ ```
+ 
+-重新生成的过程输出不会自动覆盖根目录的论文定稿图表。若要更新论文图表，应先核对参数、
+-验证结果和文件映射，再明确复制到 `figures/` 或 `table/`。
++正式全文复现应从 `reproducibility/run_all.ps1` 进入独立空输出目录。历史入口的旧复制位置不代表当前正式文件映射；不得据此将旧图或表直接复制入正式工程。更新正式稿须先按当前参数、实际指标、绘图适配关系和完整验收流程核查，再使用受控发布步骤；生成文件不等于已通过科学或视觉验收。
+ 
+ ## 恢复原则
+ 
+diff --git a/c0_sensitivity/README.md b/c0_sensitivity/README.md
+index 9ea85b3..b747f2f 100644
+--- a/c0_sensitivity/README.md
++++ b/c0_sensitivity/README.md
+@@ -3,18 +3,36 @@
+ 运行 `run_c0_sensitivity.py` 后，过程数据和图片写入 `outputs/`。该目录不纳入版本控制；
+ 清理前的输出快照保存在 `../archive_unused/generated_snapshots/c0_sensitivity_outputs/`。
+ 
+-## 实验口径
++## 当前正式稿中的定位与口径
++
++正式主稿为 `../latex/flatten_curve_analysis_cn.tex`。当前关联为第 9.6 节及附录：
++图 15（`fig:c0-panel`）、图 16（`fig:c0-phase`）、附录图 19（`fig:c0-scan`）
++和图 20（`fig:c0-beta-existence`），来源与入稿适配见 `../reproducibility/registry.json`。
++正式复现由 `../reproducibility/c0.py` 使用统一积分设置重建结果，再由现用绘图层保留原样式；
++全文入口为 `../reproducibility/run_all.ps1`，输出必须是新建空目录。
++
++主实验固定 `N_eff=20000`、`theta=0.002`（`eta=40`），沿用全市人口下一次拟合的同一个
++未取整绝对 `I0`，正文显示为 `1.00659e-3`，并取 `S0=N-I0`，不随 `c0` 重新拟合。
++在 `N_eff=20000` 下重拟合仅作为敏感性诊断，不替换主实验初值。原模块 `main()` 已采用固定
++全市初值的约定，但其历史常量和旧文案不等于当前正式复现输入；当前输入来自本轮输出
++`xian/reference.json`，诊断和完整精度结果见 `c0/parameters.json`、`c0/diagnostics.json`。
++
++本轮只整理文档，未执行这些脚本、未改算法或正式图件，也未生成新的数值验收。
++下文旧拟合记录、表格和误差保留为历史对照，不能当作当前稿逐项复跑结果。
++
++## 历史实验与初值诊断记录
+ 
+ - 固定参数：`N_eff=20000`、`beta=0.1498`、`gamma=0.2953`、`q0=0.323`。
+ - 固定阈值比例：`theta=eta/N=0.002`，所以共同平台为 `eta=40.00` 人。
+-- 在 `N_eff=20000` 下按现稿的四序列最小二乘口径只拟合一次初值，得到
+-  `I0=0.00100662823352`；所有 c0 情景共同使用该初值，不随 c0 重新拟合。
+-- 作为复现检查，同一程序在全市人口下得到 `I0=0.00100659186644`、
++- 早期记录在 `N_eff=20000` 下按当时的四序列最小二乘口径拟合一次初值，得到
++  `I0=0.00100662823352`；所有 c0 情景共同使用该初值，不随 c0 重新拟合。当前主实验已采用
++  上文的全市绝对初值约定，该旧记录不再定义当前输入。
++- 作为当时的拟合对照，同一程序在全市人口下得到 `I0=0.00100659186644`、
+   目标函数 `1036.761462098`，附件记录值分别为
+   `0.00100662823352`、`1036.76140515`。
+-- 不画 TDINN，也不画公共无控制轨迹；图中只比较阈值控制自身。
++- 不画 TDINN，也不画公共常规控制轨迹；图中只比较阈值控制自身。
+ 
+-## 三个结构位置
++## 三个结构位置（历史数值锚点）
+ 
+ - 阈值首次可达边界：`c0_trigger=3.33372463`。低于该值时无需启动阈值控制。
+ - 内部拐点出现边界：`c0_inf=3.54308966`。在触发边界与此边界之间，
+@@ -25,7 +43,7 @@
+ 隔离率拐点高度在所有存在内部拐点的情景中均为
+ `q_inf=0.411903081628`，与 c0 无关。
+ 
+-## 五个代表情景
++## 五个代表情景（历史指标记录）
+ 
+ | c0 | t1 (d) | Delta t (d) | t2 (d) | q_max | t_inf / lambda | clear time (d) | total cumulative |
+ |---:|---:|---:|---:|---:|:---:|---:|---:|
+@@ -35,13 +53,13 @@
+ | 9 | 17.18 | 98.00 | 115.19 | 0.7782 | 98.26 / 0.827 | 194.92 | 3536.62 |
+ | 12.887 | 10.48 | 85.07 | 95.55 | 0.8454 | 83.73 / 0.861 | 162.95 | 3608.57 |
+ 
+-## 直接读图结论
++## 历史算例的读图说明
+ 
+ 1. c0 增大时，阈值平台高度始终等于 eta，变化的是到达平台的速度、平台长度和所需隔离强度。
+ 2. t1 严格提前，q_max 严格增大；c0=3.43、3.59
+    分居拐点出现边界两侧，展示触发边界到控制时长极大点之间的近临界过渡。
+-3. Delta t 在整个可行域上不是单调量：从触发边界的 0 上升，在 c0≈6.61 达到约 103.18 天，
+-   随后随 c0 增大而下降；基准情景展示这一回落阶段。
++3. Delta t 不是全域单调量：从触发边界的 0 上升，历史扫描在 c0≈6.61 得到约 103.18 天的数值极大值，
++   随后在所考察范围内下降；基准情景展示这一回落阶段。不据该扫描宣称一般参数下极大值唯一。
+ 4. c0=3.43 虽能触发阈值控制，但 q_max<q_inf，因此 q_c(t) 全程凸、无内部拐点。
+    c0=3.59、6.61、9.00、12.89 均超过约 3.5431，存在唯一内部拐点。
+ 5. 内部拐点存在时，q_inf 不变，但 lambda 随 c0 增大而增大：
+@@ -50,11 +68,16 @@
+ 7. 总累计感染按各情景自身的清零时刻 I(t)=1 截止，定义为
+    I_tcum=I_cum+Iq_cum；累计仓室从 0 开始，不重复计入共同的初始感染 I0。
+ 
+-## 数值校验
++## 历史数值校验（本轮未复跑）
+ 
+ - 五个开环平台的最大绝对平台误差（换算为人数）为 `0.000e+00`。
+-- 对存在拐点的三条曲线，用均匀时间网格二阶差分独立定位：
+-  最大时刻误差 `3.973e-03` 天，最大高度误差 `3.011e-05`。
++- 表内实际有四条曲线存在内部拐点，旧文案的“三条”计数不正确；原生成器中的对应文字
++  尚未在本轮修改。旧记录采用均匀时间网格二阶差分定位，报告最大时刻误差
++  `3.973e-03` 天、最大高度误差 `3.011e-05`，此处保留数值而不新增误差认证。
++
++原脚本确实对理论时间开环控制另作 ODE 积分以检查平台误差，不是仅从解析平台常数读出零误差；
++但上述旧记录不自动认证当前所有输出。正式验收应读取已有 `c0/diagnostics.json` 中的
++`trajectory_checks` 和基准加严容差记录，并注明后者检查的具体情景，不推广为全扫描收敛证明。
+ 
+ ## 文件
+ 
+@@ -65,17 +88,22 @@
+ - `c0_sensitivity_main_linear.png/.pdf`：仅将主图 I(t) 纵轴改为线性坐标的对照版。
+ - `c0_sensitivity_main_linear_cumulative.png/.pdf`：线性主图；用清零时总累计感染柱状图替代相对时间 inset。
+ 
+-## 到论文图的映射（复制到 ../figures/ 时务必按此对应）
++## 当前正式图的原图来源与适配
+ 
+-主图有三个变体，**正文图 23 用的是 `main_linear_cumulative`**（线性纵轴 + 总累计感染柱图 inset），
++主图有三个变体，**当前正文图 15（旧稿图 23）的原图来源是 `main_linear_cumulative`**（线性纵轴 + 总累计感染柱图 inset），
+ 不是 `main`（对数纵轴 + 相对时间 inset）。三者版式相近，容易复制错。
+ 
+-| 本目录输出 | ../figures/ 目标名 | 正文 |
++| 原模块输出 | 正式图件名称（位于 `../latex/figures/`） | 当前主稿 |
+ |---|---|---|
+-| `outputs/c0_sensitivity_main_linear_cumulative.pdf` | `c0_sensitivity_panel.pdf` | 图 23（`fig:c0-panel`） |
+-| `outputs/c0_sensitivity_phase.pdf` | `c0_sensitivity_phase.pdf` | 图 24（`fig:c0-phase`） |
+-| `outputs/c0_sensitivity_scan.pdf` | `c0_sensitivity_scan.pdf` | 附录（`fig:c0-scan`） |
+-| `outputs/c0_beta_existence.pdf` | `c0_beta_existence.pdf` | 附录（`fig:c0-beta-existence`） |
++| `outputs/c0_sensitivity_main_linear_cumulative.pdf` | `layout_v5/c0_sensitivity_panel.pdf` | 图 15（`fig:c0-panel`） |
++| `outputs/c0_sensitivity_phase.pdf` | `layout_v5/c0_phase_stationary.pdf` | 图 16（`fig:c0-phase`） |
++| `outputs/c0_sensitivity_scan.pdf` | `c0_sensitivity_scan.pdf` | 附录图 19（`fig:c0-scan`） |
++| `outputs/c0_beta_existence.pdf` | `c0_beta_existence.pdf` | 附录图 20（`fig:c0-beta-existence`） |
++
++表格列出来源关系，不是建议把旧输出直接复制入稿。旧根 `../figures/` 已不存在，
++当前正式绘图层会绑定新数据并沿用已认可的样式与布局；仅复制原模块图不能保证实现该适配。
++原脚本还会生成 `outputs/README.md`，其中仍可能含旧初值说明和图号；它不覆盖本文件，
++也不能当作正式稿的最新导航。生成器文案同步留为后续维护事项，本轮不改科学计算代码。
+ 
+ `c0_sensitivity_main.pdf` 与 `c0_sensitivity_main_linear.pdf` 仅作对照，不进论文。
+ - `c0_sensitivity_scan.png/.pdf`：c0 连续扫描的八指标图，上排 t1、Δt、tail、t_end
+diff --git a/joint_control/README.md b/joint_control/README.md
+index 8015ff6..3b03d68 100644
+--- a/joint_control/README.md
++++ b/joint_control/README.md
+@@ -10,7 +10,9 @@
+ - 同包 `latex/`：导入时的冻结论文、补充材料与图件来源，不是需要并行修改的正式稿。文案同步、理论来源及 S2 历史对账仍需读取它们，因此保留完整包，不能只留下数值程序。
+ - 同包 `plans/`：冻结来源携带的后续研究计划，包含尚未完成的内容，保持原样。
+ 
+-当前唯一正式稿仍为 `../latex/flatten_curve_analysis_cn.tex`，实际复现与开环核查入口在 `../reproducibility/`。不重新拟合、不修改模型和已认可图表，也不将 `ai/` 中的探索性结果自动并入正式稿。
++当前唯一正式稿仍为 `../latex/flatten_curve_analysis_cn.tex`，实际复现与开环核查入口在 `../reproducibility/`。目录迁移没有重新拟合或修改模型、已认可图表；正常全文复现仍从原始 Excel 重建拟合结果，不受这次迁移范围限制。`ai/` 中的探索性结果不自动并入正式稿。
++
++正文已包含 `c_min`、`q_cap` 的能力约束理论，当前正式数值链条只验收了无额外能力限制的联合控制基准。有限能力新增算例、权重扫描及西安联合控制的系统数值计算尚未纳入正式验收。`ai/` 中第6.4节材料包虽有“正式版”名称、补丁和预览 PDF，仍是待审材料，不是本目录核心或已发布论文的一部分。
+ 
+ ## 运行
+ 
+diff --git a/reproducibility/README.md b/reproducibility/README.md
+index 4acc666..8c10e89 100644
+--- a/reproducibility/README.md
++++ b/reproducibility/README.md
+@@ -6,6 +6,8 @@
+ 
+ 2026-10-04 仅迁移冻结来源目录、同步活动入口与来源索引，不改科学代码逻辑及正式论文。旧验收记录中的 `ai/threshold_control_reproducible_release_20261002/` 映射到上述新目录，历史记录不改写；逐文件对应及本轮入口核查见 [来源整理核查](release_reports/source_relocation_20261004/README.md)。旧科学验收不冒充路径迁移后入口的新一轮科学复跑。
+ 
++当前正式正文47页、补充材料3页。科学结果沿用 `20261003_release_final`；后续局部文案及编译验收见 [第9节订正核查](release_reports/sec9_boundary_wording_20261004/README.md)，不能将当前页数倒写进旧45+3页科学验收记录。`ai/` 的第6.4节补丁、代码候选和预览 PDF 尚未纳入正式稿或正式链条。
++
+ 本工程不使用任何 Nature skills，不修改历史实验和原始 Excel。原绘图语句、字体、配色、
+ 线型、布局、内嵌图和标记继续使用。数值修正必须有计算来源，不能为匹配旧数字而调整模型。
+ 
+@@ -36,8 +38,9 @@ powershell -ExecutionPolicy Bypass -File reproducibility/run_all.ps1
+ 审查后才发布。失败返回非零，失败状态与部分输出保留，不生成虚假的“完成”报告。
+ 
+ 正文同步以冻结交付包为底稿，而不是反读正式稿后猜测替换。发布后可以再次复跑同一研究版本；
+-若以后直接修改正式 TeX 的实质内容，需要同时版本化底稿与同步规则，否则这些新编辑不会
+-自动进入下一次复现输出。入口不自动覆盖正式文件，因此不会默默丢失手工修改。
++冻结包本身不可改写。后续正式 TeX 的实质编辑须通过受控同步规则或另立版本来源追溯；
++未接入的编辑不会自动进入下一次输出。能力限制、审计分流及第9节文案只完成了指定片段的隔离回归，
++尚未认证完整生成器能从冻结稿恢复当前全部人工修订。入口不自动覆盖正式文件，不得直接用生成稿替换当前正文。
+ 
+ ## 文件分工
+ 
+@@ -53,7 +56,7 @@ powershell -ExecutionPolicy Bypass -File reproducibility/run_all.ps1
+ - `paper_sync.py`：有明确计算来源的正文/表格同步及旧新值记录。
+ - `build.py`、`compare_runs.py`：完整编译、PDF渲染和两次独立复现比较。
+ - `matlab_fixed_graphics.m`、`matlab_export_deterministic.m`、`finalize_matlab_figures.py`：独立场景导出、机械锚点锁定与新鲜输出封装，不改科学计算；图 2 保持原感染人数刻度，图 4 按原虚线节距用 600 dpi 无损图像型 PDF 输出。原脚本/历史图件不覆盖，具体边界见验收报告。
+-- `publication/publish_artifacts.py`：人工页面核查后回核实际 PDF/TeX/20图件和来源哈希、重新严格对比，再调用 `publish_verified.py`；正式目录重编译和48页渲染对照通过后记录发布。发布工具单独留源码摘要，不改变科学运行版本。
++- `publication/publish_artifacts.py`：人工页面核查后回核实际 PDF/TeX/20图件和来源哈希、重新严格对比，再调用 `publish_verified.py`；正式目录重编译和全部页面的渲染对照通过后记录发布，按该版本实际页数核查。发布工具单独留源码摘要，不改变科学运行版本。
+ - `publication/collect_results.py`：正式发布通过后，将本轮未取整 CSV/JSON/NPZ、两轮环境和检查报告集中复制到 `results/<运行版本>/` 和 `release_reports/<运行版本>/`，并保存根索引。汇集副本不是下一轮计算输入，不覆盖既有汇集目录。
+ 
+ ## 验收边界
+@@ -64,7 +67,9 @@ powershell -ExecutionPolicy Bypass -File reproducibility/run_all.ps1
+ 17位CSV用于浮点往返，不表示全部尾数均已认证。
+ 
+ 理论部分保留公式、定理和证明来源；数值测试不能代替独立数学证明审查。
+-能力受限、权重变化、真实ICU占用、回流、延迟和效率前沿仍是后续研究，不在此处伪装成已完成。
++正文已给出仅隔离与联合能力界限的理论判据；有限能力新增算例、权重扫描和西安联合控制的系统数值计算尚未纳入正式复现验收，不能将外部材料中的结果视为正式链条已通过。真实ICU占用、回流、延迟和效率前沿尚未纳入当前模型与正式验收，不能伪装成已完成。
++
++第9节应用采用固定绝对初值 `I0`、`S0=N-I0`，集合成员按实际 `J`、`Delta t` 和严格触发条件判断；固定归一化初值的精确理论、参考人口下的近似直线及应用求根值必须区分。现有求根值仅作候选界值，连续人口允许区间和图13案例标记绑定仍未认证。待办依据和已有输出范围见 [第9节订正核查](release_reports/sec9_boundary_wording_20261004/README.md) 第4–5部分，文案回归不能替代这一科学核查。
+ 
+ 最终验收状态见 `validation_report.md`；后续扩展见 `future_plan.md`。若验收报告尚未生成
+ 或存在未通过项，不能称全文复现完成。
+diff --git a/scenario1_inflection/README.md b/scenario1_inflection/README.md
+index 336a8f3..839bb37 100644
+--- a/scenario1_inflection/README.md
++++ b/scenario1_inflection/README.md
+@@ -2,6 +2,18 @@
+ 
+ 本目录承载主论文情景一阈值控制隔离律 $q_c(t)$ 拐点分析的计算代码与四张配图，并记录对论文的改动。
+ 
++## 当前正式稿中的定位
++
++正式主稿为 `../latex/flatten_curve_analysis_cn.tex`，当前拐点分析位于第 5 节
++（`sec:s1:shape`），正式图为图 5（`fig:s1:lambda-sensitivity`）和图 6
++（`fig:s1:inflection-scan`）。四张原配图中只有这两类当前进入正式稿；其余是历史分析来源，
++并不因保留源码而重新入稿。当前来源映射见 `../reproducibility/registry.json`，
++全文复现入口为 `../reproducibility/run_all.ps1`，使用新建空输出目录。
++
++以下日期化修改记录、旧章节号、旧主稿路径、53 页编译记录及数值锚点均保留为历史追溯，
++不代表当前稿的页数、结构或本轮新增验收。当前正式主稿与补充材料为 47 页和 3 页。
++原脚本输出和绘图逻辑未在本轮改写，正式图仍由已有复现适配层生成。
++
+ - **2026-07-21 第一轮**：补齐拐点位置/两端消失/曲率幅度三块，统一记号 $\qinf$。
+ - **2026-07-21 第二轮（定稿）**：引入相对位置 $\lambda$、重写「参数方向」、加参数分工表、修正 §4.4 误导措辞、三张图改期刊风。
+ - **2026-08-02 第三轮**：把四参数方向由数值扫描提升为解析偏导；新增启动点引理、相对位置命题和控制时长推论；加入 $q_0$ 驻点检测、解析差分校验及 $\lambda$ 四面板图。
+@@ -26,6 +38,11 @@
+ **图风格**：蓝色顺序色、serif（Times New Roman）+ `mathtext=stix`、英文轴标签、无子图标题、`frameon=False` 图例、去顶/右边框、输出 PDF。图注写死参数值，不用「基准」字样。
+ 
+ **运行**（从项目根目录执行，Python 环境 `thesis`）：
++
++下列是原模块入口。绘图脚本实际写入根 `../figures/`，该旧目录在清理后已不存在，
++部分原脚本不自行创建它；不能将这些命令当作已修好的正式出图入口。需独立运行时应先确认
++旧输出目录及覆盖目标，且不要直接复制结果覆盖 `../latex/figures/`。正式流程在隔离工作区
++准备输出并执行现用绘图适配，不依赖根目录现有旧图件。
+ ```powershell
+ conda run --no-capture-output -n thesis python -B scenario1_inflection\verify_anchors.py
+ conda run --no-capture-output -n thesis python -B scenario1_inflection\fig_lambda_sensitivity.py
+@@ -34,7 +51,7 @@ conda run --no-capture-output -n thesis python -B scenario1_inflection\fig_lands
+ 
+ ---
+ 
+-## 2. 数值锚点（`verify_anchors.py` 全部通过）
++## 2. 历史数值锚点（当时 `verify_anchors.py` 全部通过）
+ 
+ $N=763,\ S_0=762,\ I_0=1,\ \gamma=0.3504,\ \beta=0.155,\ c_0=10,\ q_0=0.01526,\ \eta=0.05N$：
+ ```
+@@ -79,7 +96,7 @@ $\eta/N$ 由 0.05 降到 0.005 时 $\Delta t$ 5.9→60.7 天、弦偏差 4.44%
+ 
+ ---
+ 
+-## 3. 论文改动（`../paper_elegantpaper_relayout/flatten_curve_analysis_cn.tex`）
++## 3. 历史论文改动（当时主稿为 `../paper_elegantpaper_relayout/flatten_curve_analysis_cn.tex`）
+ 
+ **第一轮**：导言区 `\newcommand{\qinf}{q_{\mathrm{inf}}}`；定理加 `\label{thm:s1:inflection}`；`t_{inf}`→`t_{\mathrm{inf}}`；§4.2 末命名 $\qinf$ 并给存在等价式 `eq:s1:inflection-exist`；新增 §4.3、§4.4；§6 加诊断图；§8.2 $q^\star\to\qinf$、认领 $\beta_{\max}=0.261448$。
+ 
+@@ -102,7 +119,9 @@ $\eta/N$ 由 0.05 降到 0.005 时 $\Delta t$ 5.9→60.7 天、弦偏差 4.44%
+ 
+ ---
+ 
+-## 4. 遗留项
++## 4. 历史遗留项
++
++以下按当时记录保留；当前章节和图件位置以开头的正式标签导航为准，不据旧清单自动重构正文。
+ 
+ 1. §4 小节编号：新增两小节后，Ṡ与$t_2$、清零时间、总累计分别为 §4.5/4.6/4.7（正文全用 `\ref`）。
+ 2. 第四轮删图后不再被论文引用的 `neff_inflection_beta.pdf` 已移至
+diff --git a/scenario1_threshold_landscape/AGENTS.md b/scenario1_threshold_landscape/AGENTS.md
+index 44d2782..77c7d5a 100644
+--- a/scenario1_threshold_landscape/AGENTS.md
++++ b/scenario1_threshold_landscape/AGENTS.md
+@@ -4,6 +4,14 @@
+ 
+ 本目录是 `N=763` 情景一阈值控制的独立数值实验模块，用于生成“阈值响应图谱”。本实验只研究情景一：
+ 
++当前正式主稿为 `../latex/flatten_curve_analysis_cn.tex`。本模块是仅隔离基准的计算与原绘图来源，
++不代表全文只研究情景一；全文另有接触率—隔离率联合控制。正式复现由
++`../reproducibility/run_all.ps1` 在新建空输出目录中组织，图件适配与入稿对应关系见
++`../reproducibility/registry.json`；不要用本模块旧输出直接覆盖正式图件。
++当前关联为图 3（`fig:baseline:q-joint`）、图 4（`fig:scenario1_heatmaps_c0_eta`）、
++图 7（`fig:scenario1_summary_c0`）和图 8（`fig:scenario1_summary_eta`）。
++下文的 2026-07-28 统计及旧独立图形尺寸属于历史检查，不等于本次重新验收。
++
+ `current_run/` 是运行时输出目录，已加入 `.gitignore`。清理前的完整快照位于
+ `archive_unused/generated_snapshots/scenario1_threshold_landscape_current_run/`；活动目录只跟踪源码、验证脚本和说明文件。
+ 
+@@ -53,7 +61,7 @@ c0_response_eta_frac = main_eta_frac_values;
+ - `current_run/figures/`：17 张 PDF；
+ - `current_run/tables/`：4 个 LaTeX 表格。
+ 
+-## 目录结构与入口
++## 目录结构与模块历史入口
+ 
+ 当前目录结构采用“源码、共享函数、当前结果、历史归档”分离：
+ 
+@@ -64,21 +72,20 @@ scenario1_threshold_landscape/
+ ├── run_all.m
+ ├── common/
+ ├── scripts/
+-├── current_run/
+-│   ├── output_csv/
+-│   ├── figures/
+-│   ├── tables/
+-│   └── logs/
+-└── archive_runs/
++└── current_run/                  # 运行时创建，不纳入版本控制
++    ├── output_csv/
++    ├── figures/
++    ├── tables/
++    └── logs/
+ ```
+ 
+-推荐入口：
++以下是独立模块入口，不是正式论文的一键复现入口；执行会清空模块当前输出，须先另存需保留的运行结果：
+ 
+ ```powershell
+ matlab -batch "run('E:\work\draft\scenario1_threshold_landscape\run_all.m')"
+ ```
+ 
+-`run_all.m` 会先调用 `common/reset_output_dirs.m` 清空 `current_run/` 的 `output_csv/`、`figures/`、`tables/`、`logs/`（避免上一轮过期文件残留），再运行 `scripts/generate_landscape_data.m` 和各绘图/表格脚本，生成本轮完整结果。`common/scenario1_params.m` 现在只负责返回参数和固定输出路径，不再做运行状态记录或自动归档；`mode` 参数保留只为向后兼容，会被忽略。如需保留某一轮结果，请在重跑前手动复制 `current_run/`。`archive_runs/` 中的历史结果保留，但不再由脚本自动写入。
++`run_all.m` 会先调用 `common/reset_output_dirs.m` 清空 `current_run/` 的 `output_csv/`、`figures/`、`tables/`、`logs/`（避免上一轮过期文件残留），再运行 `scripts/generate_landscape_data.m` 和各绘图/表格脚本，生成本轮完整结果。`common/scenario1_params.m` 现在只负责返回参数和固定输出路径，不再做运行状态记录或自动归档；`mode` 参数保留只为向后兼容，会被忽略。如需保留某一轮结果，请在重跑前手动复制 `current_run/`。原 `archive_runs/` 不再是现存活动目录；已保留的快照位于项目根 `archive_unused/`，不要修改其中的历史结果。
+ 
+ 注意：`reset_output_dirs` 只应由 `run_all.m` 在整轮开始时调用；单独重跑某个 `scripts/plot_*.m` 时不要清空目录，否则会误删其他输出。
+ 
+@@ -87,7 +94,7 @@ matlab -batch "run('E:\work\draft\scenario1_threshold_landscape\run_all.m')"
+ - `scripts/generate_landscape_data.m`：只生成 CSV 和诊断，不画图。
+ - `scripts/validate_main_outputs.m`：在绘图前强制检查 28438 行网格、有效指标、诊断码、五组 `Delta_t` 峰值与拐点恒等式。
+ - `scripts/plot_baseline_validation.m`：生成两个基准验证图和 `baseline_validation_table.tex`；当前基准图同时画常规控制虚线、阈值控制曲线、`t1/t2` 竖线和 `eta/S_c/q0` 参考线。
+-- `scripts/plot_main_q_trajectories.m`：生成主论文图 5/6 候选图；画平台期开环 `q_c(t)`、公共 `q0/q_inf` 参考线、切入/解除标记和内部拐点。
++- `scripts/plot_main_q_trajectories.m`：生成隔离率轨迹的两个独立原图（旧稿图 5/6）；当前经正式布局适配合为图 3（`fig:baseline:q-joint`）。画平台期开环 `q_c(t)`、公共 `q0/q_inf` 参考线、切入/解除标记和内部拐点。
+ - `scripts/plot_sensitivity_curves.m`：生成四档 `c0` 下的对数阈值响应图和四档阈值下的 `c0` 响应图；`c0` 图的 `Delta_t` 面板使用线性纵轴并标出离散峰值，`eta` 图的 `q_max` 面板固定为 `0.45--0.85`。
+ - `scripts/plot_heatmaps.m`：生成六张单指标热图与 `t1/Delta_t/t_end/I_t_cum` 的 2×2 主论文候选图；解析可行边界以下留白。
+ - `scripts/plot_duration_regions.m`：按 `Delta_t` 划分控制时长区域。
+@@ -103,7 +110,7 @@ matlab -batch "run('E:\work\draft\scenario1_threshold_landscape\run_all.m')"
+ - `q_control_tau.m`：平台期时间开环控制；
+ - `critical_c0_for_eta.m`：解析求取给定 `eta` 的可行下界 `c0_min`；
+ - `scenario1_inflection_point.m`：判断内部拐点并返回 `q_inf/t_inf`；
+-- `scenario1_main_plot_style.m`：主论文图 5--9 的 Times/蓝色梯度/红色强调点样式，以及按论文最终宽度定义的物理尺寸；
++- `scenario1_main_plot_style.m`：旧稿图 5--9 独立出口的 Times/蓝色梯度/红色强调点样式及物理尺寸；当前正式图 3、4、7、8 还经过既有布局适配；
+ - `save_figure_safe.m`：矢量 PDF 保存、指定最终 MediaBox 尺寸与 PNG fallback；
+ - `scenario1_params.m`：参数与固定输出路径（不再做归档/状态记录）。
+ 
+@@ -115,10 +122,11 @@ matlab -batch "run('E:\work\draft\scenario1_threshold_landscape\run_all.m')"
+ - `append_row.m`：按下标把标量 struct 追加进 struct 数组。
+ 
+ 主论文候选图共用 `scenario1_main_plot_style.m`；其他探索性图仍可保留各脚本内的局部 `style_axes`。
+-主论文图的最终字号固定为：刻度 `8.5 pt`，坐标标签与标题 `10 pt`，图例 `7.5 pt`，
+-面板编号 `11 pt`，普通注释 `8.5 pt`，热图等值线标签 `8 pt`。图 5/6、图 7/8、
+-图 9 的目标 PDF 宽度分别为 `324.9 bp`、`397.1 bp`、`451.3 bp`；导出后应确认
+-LaTeX 插入缩放比例处于 `0.98--1.02`。
++旧独立出口的字号规范为：刻度 `8.5 pt`，坐标标签与标题 `10 pt`，图例 `7.5 pt`，
++面板编号 `11 pt`，普通注释 `8.5 pt`，热图等值线标签 `8 pt`。旧图 5/6、图 7/8、
++图 9 的目标 PDF 宽度分别为 `324.9 bp`、`397.1 bp`、`451.3 bp`，当时要求
++LaTeX 插入缩放比例处于 `0.98--1.02`。这些历史尺寸不替代当前正式组合图的已认可版式；
++当前图件由正式复现绘图层适配，不因文档整理重新调整字号、颜色或布局。
+ 
+ ## 当前图形输出与格式
+ 
+@@ -180,7 +188,7 @@ trajectories_eta_selected_c0_10.pdf
+ - `q_max <= 1`；
+ - `q_c(t2) ≈ q0`。
+ 
+-本实验不把 `q_max=0.8` 或 `q_max=0.9` 当作可行性边界；这些值只作为热图读数或执行压力参考。理论不可行边界仍以 `q_max > 1` 等诊断为准。
++本模块没有配置额外的 `q_cap<1`，因此 `q_max=0.8` 或 `q_max=0.9` 在本模块中只作为热图读数或执行压力参考。网格首先检查严格触发条件；常规峰值达不到阈值时是无需启动加强隔离，不是隔离能力不足。若明确增加能力上限，实施判据为 `q_max<=q_cap`（且 `q0<=q_cap<1`），见正文 `cor:s1:qc-structure`；不能把本模块原来的 `q_max<=1` 检查当作已验证该额外约束。
+ 
+ ## 维护规则
+ 
+@@ -188,7 +196,7 @@ trajectories_eta_selected_c0_10.pdf
+ - 修改参数网格、输出数量、图形格式后，同步更新本文件和 `README.md`。
+ - 不要把 `scripts/plot_heatmaps.m` 的高分辨率 image PDF 导出改回复杂矢量导出，除非用户明确要求。
+ - 不要把 `q_c(t)` 改成依赖数值积分实时 `S(t)` 的反馈控制；情景一控制律应保持为理论时间开环控制。
+-- 不要删除 `archive_runs/` 中的历史结果，除非用户明确要求清理归档。
++- 不要删除 `../archive_unused/` 中的历史结果，除非用户明确要求清理归档；旧记录中的 `archive_runs/` 不应当作当前活动目录。
+ - 单独重画图时优先运行对应 `scripts/plot_*.m`，不要重新生成数据，除非参数或指标公式确实改变。
+ - 若运行 MATLAB 后出现退出阶段 Java 报错或超时，但日志与输出文件已经完整，先检查 `current_run/logs/` 和输出数量，不要直接判定数值实验失败。
+ 
+diff --git a/scenario1_threshold_landscape/README.md b/scenario1_threshold_landscape/README.md
+index b2b1933..9575485 100644
+--- a/scenario1_threshold_landscape/README.md
++++ b/scenario1_threshold_landscape/README.md
+@@ -2,6 +2,15 @@
+ 
+ 本目录用于独立生成 `N=763` 情景一阈值响应图谱，不修改主论文工程，也不覆盖主项目中的 `figures/`、`tables/` 或 `code/` 结果。
+ 
++## 当前正式稿中的定位
++
++正式主稿为 `../latex/flatten_curve_analysis_cn.tex`。本模块提供仅隔离基准的计算和原绘图逻辑，
++当前对应图 3（`fig:baseline:q-joint`）、图 4（`fig:scenario1_heatmaps_c0_eta`）、
++图 7（`fig:scenario1_summary_c0`）和图 8（`fig:scenario1_summary_eta`）。
++原独立图经 `../latex/revision_layout_v5/` 等既有布局适配后入稿，不应直接复制旧输出覆盖正式图。
++正式复现使用 `../reproducibility/run_all.ps1` 的新建空输出目录流程；映射和来源见
++`../reproducibility/registry.json`。本文档中的 2026-07 历史统计不代表本次新增复跑。
++
+ ## 目录结构
+ 
+ ```text
+@@ -20,10 +29,12 @@ scenario1_threshold_landscape/
+ - 清理前的完整结果快照位于
+   `../archive_unused/generated_snapshots/scenario1_threshold_landscape_current_run/`。
+ 
+-## 推荐运行
++## 独立模块运行（会清空当前输出）
+ 
+ 从任意位置运行：
+ 
++以下入口只用于模块实验，不是当前正式稿的完整复现入口。先保存所需旧运行，避免清空后丢失。
++
+ ```powershell
+ matlab -batch "run('E:\work\draft\scenario1_threshold_landscape\run_all.m')"
+ ```
+@@ -45,7 +56,7 @@ matlab -batch "run('E:\work\draft\scenario1_threshold_landscape\scripts\plot_hea
+ - `scripts/generate_landscape_data.m`：只生成 CSV 和诊断。
+ - `scripts/validate_main_outputs.m`：检查网格行数、有效指标、诊断码、五组控制时长峰值和拐点恒等式。
+ - `scripts/plot_baseline_validation.m`：生成基准验证图和基准表。
+-- `scripts/plot_main_q_trajectories.m`：生成主论文图 5/6 候选图，含 `q_inf` 与内部拐点标记。
++- `scripts/plot_main_q_trajectories.m`：生成两个隔离率原图（旧稿图 5/6），当前适配合为图 3，含 `q_inf` 与内部拐点标记。
+ - `scripts/plot_sensitivity_curves.m`：生成一维敏感性图；`c0` 图的 `Delta_t`
+   面板使用线性纵轴并标出离散峰值；`eta` 图使用四档 `c0` 曲线，其 `q_max`
+   面板固定为 `0.45--0.85`。
+@@ -67,22 +78,23 @@ c0_list = 2.3:0.1:14;
+ 
+ 即 `241 x 118 = 28438` 个参数点。主论文候选的一维曲线使用：
+ 
+-- 固定 `eta/N=5%`，图 5 取 `c0=[4,5,8,10,12]`；
++- 固定 `eta/N=5%`，隔离率原图取 `c0=[4,5,8,10,12]`（当前合图 3 的一个面板）；
+ - 固定 `c0=10`，取 `eta/N=[0.2%,0.6%,1%,2%]`；
+ - `c0` 敏感性图使用上述四档阈值，其中 `Delta_t` 面板使用线性纵轴；
+   `eta` 敏感性图使用 `c0=[5,8,10,12]`、完整阈值网格和对数横轴，其中
+   `q_max` 面板固定纵轴范围为 `0.45--0.85`。
+ 
+-上述输出已经完成审图，并于 2026-07-29 正式用于主论文图 5--9：图 5/6 保持同名，
++历史入稿记录：上述输出于 2026-07-29 完成当时的审图，正式用于当时主论文图 5--9：图 5/6 保持同名，
+ `c0_sensitivity_selected_eta.pdf` 和 `eta_sensitivity_selected_c0.pdf` 分别以论文既有文件名
+ `scenario1_summary_c0.pdf`、`scenario1_summary_eta.pdf` 入稿，四面板景观图保持
+ `scenario1_heatmaps_c0_eta.pdf` 文件名。模块仍独立生成结果，不在运行脚本中自动覆盖论文工程。
+ 
+-主论文图按最终入稿物理尺寸导出，避免 LaTeX 再次缩小图中文字。图 5/6 的 PDF 尺寸约为
++当时的独立图按入稿物理尺寸导出，避免 LaTeX 再次缩小图中文字。旧图 5/6 的 PDF 尺寸约为
+ `324.9 x 231.5 bp`，图 7/8 约为 `397.1 x 260.4 bp`，图 9 约为
+ `451.3 x 330.8 bp`。最终字号规范为：刻度 `8.5 pt`，坐标标签和面板标题 `10 pt`，
+ 图例 `7.5 pt`，面板编号 `11 pt`，普通注释 `8.5 pt`，热图等值线标签 `8 pt`。
+-图 5--8 使用矢量 PDF；图 9 保持 600 dpi image PDF。
++旧图 5--8 使用矢量 PDF；旧图 9 保持 600 dpi image PDF。此处保留旧独立出口规范，
++不要求把当前组合图恢复为旧图号或尺寸；当前正式图件以已认可的布局适配和主稿标签为准。
+ 
+ ## 当前结果
+ 
+@@ -101,7 +113,10 @@ c0_list = 2.3:0.1:14;
+ - 五档 `eta/N=0.2%,0.5%,1%,2%,5%` 的离散 `Delta_t` 峰位分别为
+   `c0=4.3,4.3,4.4,4.6,5.1`；
+ - `scenario1_u_time_c0.pdf`、`scenario1_u_time_eta.pdf`：
+-  主论文图 5/6 候选；
++  当时主论文图 5/6 候选（当前合为图 3）；
+ - `c0_sensitivity_selected_eta.pdf`、`eta_sensitivity_selected_c0.pdf`：
+-  主论文图 7/8 候选；
+-- `scenario1_heatmaps_c0_eta.pdf`：主论文图 9 的 2×2 候选。
++  当时主论文图 7/8 候选（当前图 7/8 仍以此为来源并经适配）；
++- `scenario1_heatmaps_c0_eta.pdf`：当时主论文图 9 的 2×2 候选（当前图 4）。
++
++本模块的触发网格未另设 `q_cap<1`。正文已经给出额外能力上限下的仅隔离实施判据
++`q_max<=q_cap`；该条件不应与“常规峰值低于阈值，因而无需加强隔离”混为一谈。
+diff --git a/xian_control_comparison/AGENTS.md b/xian_control_comparison/AGENTS.md
+index c2ff0dc..8e2ec1b 100644
+--- a/xian_control_comparison/AGENTS.md
++++ b/xian_control_comparison/AGENTS.md
+@@ -1,8 +1,10 @@
+-# AGENTS.md - 西安控制比较下一阶段协作规范
++# AGENTS.md - 西安控制比较原模块与正式复现的协作规范
+ 
+ > 目录变更（2026-07，论文整合）：`fit_method_comparison/`、`tdinn_q_only_comparison/`、`low_eta_analysis/` 已归档至仓库根目录 `archive_unused/`；参考资料（He\_Tang PDF/txt、pptx 等）移至根目录 `refs/`。本文件中出现的这些名称应理解为其归档后位置。当前 `xian_control_comparison/` 下仅保留 `effective_population_sensitivity/` 与 `threshold_landscape_analysis/` 两个有效子模块。
+ 
+-> 输出管理（2026-09）：本目录和两个有效子模块的 CSV、PDF、PNG 与生成表格均视为可复现过程输出，运行时在原路径生成但不纳入版本控制。清理前快照位于根目录 `archive_unused/generated_snapshots/`；论文采用的定稿副本仍位于根目录 `figures/` 与 `table/`。
++> 输出管理：本目录和两个子模块的 CSV、PDF、PNG 与生成表格是本地实验输出，不等同于当前正式稿采用的结果。清理前快照位于根目录 `archive_unused/generated_snapshots/`。正式稿为 `latex/flatten_curve_analysis_cn.tex`，补充材料为 `latex/flatten_curve_supplement_cn.tex`；定稿图件位于 `latex/figures/`，具体文件由正式稿标签和 `reproducibility/registry.json` 追溯，正文与补充表直接保存在对应 TEX 中。根目录旧 `figures/`、`table/` 不再是正式入口。
++
++> 2026-10-04 现行口径：正式西安计算由 `reproducibility/xian.py` 从原始 Excel 重建，数值积分统一使用归一化方程、DOP853 和分量容差；TDINN 轨迹连续积分，仅隔离控制按三阶段连接。原模块仍提供 TDINN 函数、模型及原绘图逻辑，并保留旧数值方案供诊断；不要直接运行旧总入口覆盖正式图件。本文已包含联合阈值控制；其来源与参数在 `joint_control/`，正式适配入口为 `reproducibility/joint.py`，不属于本目录仅隔离扫描的实现范围。
+ 
+ ## 用途
+ 
+@@ -12,7 +14,7 @@
+ - `情景一阈值控制`：由本文情景一理论推导得到的阈值控制；
+ - `常规控制`：反事实基准，满足 `c(t)=c0` 且 `q(t)=q0`。
+ 
+-本文件是西安控制比较问题的局部上下文记忆。处理本文件夹内容时，应同时遵守项目根目录 `AGENTS.md` 和本文件；若涉及西安比较的具体口径，以本文件为准。
++本文件是西安控制比较原模块的局部上下文记忆。处理本目录时同时遵守项目根目录 `AGENTS.md`。本文件的历史实验细则仅用于解释相应历史输出，不得覆盖正式稿、正式复现设置、原始数据及冻结来源的保护规则。
+ 
+ 当前阶段不是正式写论文结论，而是继续做理论分析、数值实验和图像比较。不要急于证明某个控制策略一定更好，应先把不同参数、不同成本函数和不同控制设定下的数值现象计算清楚。
+ 
+@@ -21,7 +23,7 @@
+ 主要源文件：
+ 
+ - `xian_control_comparison.py`
+-- `xian_control_comparison.tex`
++- `xian_control_comparison.tex`：历史独立报告的原文件名，当前目录未保留该源文件；不是现存正式编译入口。
+ 
+ 主要生成结果：
+ 
+@@ -131,7 +133,7 @@
+ \eta = 0.002N = 26326.
+ ```
+ 
+-这个阈值应理解为由医疗容量换算得到的“社区感染者阈值”，不是 ICU 床位数本身。
++这个阈值是代表性设计情景中的社区感染人数上限，不是西安实际 ICU 安全阈值的估计，也不是文献名义容量换算值的保守取整。它定义仅隔离阈值策略的感染上限，不要求 TDINN 与常规轨迹也维持该阈值；不能把控制结果解释为实际 ICU 容量已获验证。
+ 
+ 该值继续作为已有主基准保留，但下一阶段不再把它作为唯一展示重点。除非用户明确要求，不要用探索性阈值覆盖主基准结果。
+ 
+@@ -151,13 +153,13 @@
+ \eta = B_{\rm ICU}.
+ ```
+ 
+-更合理的换算方式是：
++若使用医疗容量的比例参考情景，应区分名义床位与扣除其他病种占用、预留余量后的可用容量。例如：
+ 
+ ```tex
+-\eta_I = \frac{B_{\rm ICU}}{p_{\rm ICU}},
++\eta = \frac{C}{\rho_{\mathrm{ICU}}},
+ ```
+ 
+-其中 `B_ICU` 是 ICU 容量，`p_ICU` 是感染者转为 ICU 需求的比例。
++其中 `C` 是所选情景中的可用 ICU 容量，`rho_ICU` 是单位社区感染人数对应的参考床位需求系数，不直接等于某个感染者最终进入 ICU 的概率。该比例需要来源和移植假设，不能替代重症进展、入院延迟和床位周转模型；隔离感染者的医疗需求同样不能忽略。
+ 
+ 因此，520 或 1300 这类 ICU 床位数不能直接作为 `I(t)` 的最终现实阈值解释。
+ 
+@@ -207,16 +209,16 @@ q_c(t)=1-\frac{\gamma N}{\beta c_0 S_{\rm th}(t)}.
+ - 主导影响来自 `1/eta`；
+ - 控制时长和清零时间可能急剧增加。
+ 
+-典型结果：
++原模块历史设置下的典型结果（不是当前正式稿结果的新一轮验收）：
+ 
+ - `eta=26326`：`t1≈16.90`，控制时长约 `85.07` 天，清零约 `258.11` 天；
+ - `eta=100`：`t1≈11.38`，控制时长约 `22523.29` 天，清零约 `23748.32` 天。
+ 
+ 因此，降低阈值虽然能提前启动，但可能明显延长平台期。当前阶段不要直接把这种结果判定为“不合理”，而应把它作为低阈值长期控制或常态化控制的一种数值现象，继续结合成本函数和持续时间进行比较。
+ 
+-## 下一阶段分析路线
++## 历史分析路线与当前模块范围
+ 
+-下一阶段优先继续分析单阈值控制，不主动推进双阈值控制，除非用户明确要求。
++以下路线保留早期研究安排，不作为当前完成状态或整稿研究范围的判断。二次成本、二维扫描和联合阈值控制已经纳入当前正式稿；本目录仍保持原三策略及仅隔离扫描的模块职责。双阈值、反馈等新扩展须由用户另行授权，不能混入既有复现。
+ 
+ 建议顺序：
+ 
+@@ -226,7 +228,7 @@ q_c(t)=1-\frac{\gamma N}{\beta c_0 S_{\rm th}(t)}.
+ 4. 引入二次加权控制成本；
+ 5. 做成本权重敏感性；
+ 6. 做 `(eta,c0)` 二维敏感性；
+-7. 根据单阈值控制的局限，再考虑是否进入情景三，即同时控制 `c(t)` 和 `q(t)`。
++7. 历史路线原将同时控制 `c(t)` 和 `q(t)` 列为后续方向；当前正文已在联合阈值控制部分分析，不再称为尚未开展的“情景三”。
+ 
+ 当前阶段不要为了得出结论而挑选参数。优先展示完整现象，再讨论可能解释。
+ 
+@@ -370,17 +372,17 @@ J.
+ 
+ 注意：如果改变 `c0`，TDINN 的 `c(t)` 来自文献固定函数，不能简单逐点跟着改变。因此 `c0` 敏感性优先解释情景一阈值控制自身，不急于逐点和 TDINN 控制比较。
+ 
+-如果发现某些 `c0` 区域内单独调节 `q(t)` 无法得到满意控制，再自然引出情景三，即同时控制 `c(t)` 和 `q(t)`。
++仅隔离能力不足可作为接触削减的动机，但当前联合控制已是正文的一部分。实施新能力受限算例仍须另行设定参数并核查，不得把未设额外能力上限的旧扫描直接标成受限结果。
+ 
+-## 建议新建分析模块
++## 既有分析模块分工
+ 
+-建议新建目录：
++以下目录已经存在：
+ 
+ ```text
+ threshold_landscape_analysis/
+ ```
+ 
+-建议包含：
++本地实验包含：
+ 
+ - `eta_landscape`：单阈值全范围扫描；
+ - `cost_weight_analysis`：固定权重二次加权总成本分析；
+@@ -398,7 +400,7 @@ threshold_landscape_analysis/
+ 
+ ## 图像约定
+ 
+-主图 2：
++历史“图 2 风格”面板模板（不是当前正式稿图 2）：
+ 
+ - `xian_control_comparison_panels.pdf`
+ - 前两行使用对数纵轴；
+@@ -411,7 +413,7 @@ threshold_landscape_analysis/
+ - `xian_control_comparison_panels_symlog.*`
+ - `xian_control_comparison_panels_eta100.*`
+ 
+-除非用户明确要求，不要把对比用图替换进论文正文。
++除非用户明确要求，不要把对比用图替换进论文正文。当前正式稿西安图使用 `fig:xian:observed-fit`、`fig:xian:strategy-process`、`fig:xian_eta_sens`、`fig:xian_heatmaps` 等标签；最终合图布局以主稿和正式适配层为准，不由本节历史模板重新定义。
+ 
+ 对 `eta=100` 图像，可以为可读性截断主轴横坐标。该截断只影响显示范围，不影响模型模拟和表格数值。
+ 
+@@ -421,33 +423,38 @@ threshold_landscape_analysis/
+ 
+ - `../真实数据/Xianguankong.xlsx`
+ 
+-当前拟合口径：
++正式拟合口径（旧脚本的原数值方案只用于来源和诊断）：
+ 
+-- 使用人口规模 SIQR 模型，而不是归一化模型；
++- 模型变量表示人数，实际正式积分使用同一 SIQR 模型的归一化十状态、DOP853 和分量绝对容差；
+ - 固定 `N=13,163,000`；
+ - 固定 He--Tang--Xiao Table 1 中的 `beta`、`gamma`、`delta_q`；
+ - 固定 `R(0)=0`；
+ - 只拟合 `I0`；
+ - 令 `S0=N-I0`。
+ 
++拟合使用社区/隔离日新增及累计四项均方误差之和，日新增由相邻整数日累计量之差计算。正式下游人口和接触率计算读取同一次全市拟合的未取整绝对 `I0_abs`，不逐人口重新拟合，也不改用旧硬编码初值；归一化初值实验另作诊断。TDINN 的峰值、成本、累计感染和清零参照固定为本次全市重构结果，人口反事实不重算这些参照。
++
++旧 `xian_control_comparison.py` 采用人数状态和旧绝对容差，不能将其直接运行结果称为统一 DOP853 结果。MATLAB、拐点求积和联合控制候选比较另有各自设置；上述统一积分口径不意味着全文共用一个求解器或容差。
++
+ 拟合得到很小的 `I0` 是正常现象。应解释为模型校准种子，而不是现实中的整数病例数。
+ 
+ ## 常用命令
+ 
+-从项目根目录重新生成西安输出：
++从项目根目录重建本目录历史方案的本地实验输出（不是正式复现或发布入口）：
+ 
+ ```powershell
+ python -B xian_control_comparison\xian_control_comparison.py
+ ```
+ 
+-在本文件夹下编译西安比较文档：
++完整正式复现入口为 `reproducibility/run_all.ps1`，使用隔离输出目录并按验收记录判断，不自动发布。原脚本会刷新本目录输出，除非用户要求，不随意执行。
++
++从项目根目录编译正式主稿及补充材料：
+ 
+ ```powershell
+-xelatex -interaction=nonstopmode xian_control_comparison.tex
+-xelatex -interaction=nonstopmode xian_control_comparison.tex
++powershell -NoProfile -ExecutionPolicy Bypass -File latex\build_paper.ps1
+ ```
+ 
+-修改图、表、引用、标签或公式编号后，LaTeX 应编译两遍。
++正式入口先编译补充材料两遍，再执行主稿 XeLaTeX → Biber → XeLaTeX → XeLaTeX。旧独立报告曾使用两遍 XeLaTeX，但其源文件当前不在本目录，不能把旧命令作为现存入口。
+ 
+ ## 暂不主动推进的方向
+ 
+@@ -463,7 +470,7 @@ xelatex -interaction=nonstopmode xian_control_comparison.tex
+ 
+ 其中：
+ 
+-- `eta_cap` 表示医疗容量上限；
++- `eta_cap` 表示给定的社区感染人数上限，不无条件等同于实际医疗容量；
+ - `eta_warn` 表示提前启动控制的预警线。
+ 
+ 这个方向可用于回应“基准阈值启动较晚”的问题，同时避免直接降低容量阈值导致平台期过长。
+diff --git a/xian_control_comparison/effective_population_sensitivity/AGENTS.md b/xian_control_comparison/effective_population_sensitivity/AGENTS.md
+index 8e02f19..9bba302 100644
+--- a/xian_control_comparison/effective_population_sensitivity/AGENTS.md
++++ b/xian_control_comparison/effective_population_sensitivity/AGENTS.md
+@@ -10,6 +10,8 @@
+ 
+ 本实验的核心问题是：若把 SIQR 模型中的人口规模从全市人口解释为有效混合人口 \(N_{\rm eff}\)，则固定绝对阈值和同比例阈值下的启动时间、平台控制时长和清零时间如何变化。
+ 
++2026-10-04 现行分工：正式人口比较由 `reproducibility/population.py` 读取同次全市拟合的未取整 `I0_abs` 及固定 TDINN 参照，按统一数值设置生成结果。本目录保留旧实验、结构诊断及原绘图逻辑；其硬编码旧初值、旧积分设置和历史数值不直接作为当前稿件的正式复现结果。本文件的局部细则不得覆盖根目录的正式科学设置及冻结、历史输出、原始输入保护规则。
++
+ ## 模型口径
+ 
+ 感染项仍写为
+@@ -24,7 +26,7 @@
+ \beta,\quad \gamma,\quad \delta_q,\quad c_{\rm TDINN}(t),\quad q_{\rm TDINN}(t).
+ ```
+ 
+-只重新拟合初始种子 \(I_0\)，并令
++正式应用沿用全市人口下拟合的同一个绝对 \(I_0\)，不逐人口重新拟合，并令
+ 
+ ```tex
+ S_0=N_{\rm eff}-I_0,\qquad R(0)=0.
+@@ -32,6 +34,10 @@ S_0=N_{\rm eff}-I_0,\qquad R(0)=0.
+ 
+ 该设定是条件性敏感性分析，不表示已经重新估计了完整传播参数，也不能直接推出真实传播网络规模。
+ 
++固定绝对初值是情景比较约定，不声称拟合初值天然与人口无关。本目录现有指标代码也使用固定绝对初值，但仍保留旧硬编码值；逐人口重拟合只写入独立诊断记录。正式实验必须从同次运行 `xian/reference.json` 读取未取整初值，不能改用旧常数。正式西安积分及下游相应完整轨迹使用归一化 DOP853 和分量容差，解析指标与结构求积保留各自设置；本目录旧脚本不因此自动成为新数值方案，不能概括为所有实验共用同一容差。
++
++TDINN 峰值、成本、累计感染和清零参照固定为全市重构结果，不因反事实 `N_eff` 改变而重新拟合或重算。`eta=0.002N_eff` 是设计情景，不是当地 ICU 安全阈值的估计。
++
+ ## 主要文件
+ 
+ 源文件：
+@@ -43,8 +49,8 @@ S_0=N_{\rm eff}-I_0,\qquad R(0)=0.
+ - `effective_population_summary.csv`：每个 \((N_{\rm eff},\eta)\) 情景的阈值控制指标；
+ - `effective_population_fit_summary.csv`：每个 \(N_{\rm eff}\) 下重新拟合得到的 \(I_0\) 和拟合误差；
+ - `effective_population_summary_table.tex`：LaTeX 表格；
+-- `effective_population_sensitivity_note.tex`：中文 LaTeX 实验笔记；
+-- `effective_population_sensitivity_note.pdf`：已编译的实验笔记；
++- `effective_population_sensitivity_note.tex`：旧入口可生成的中文实验笔记，不是正式主稿；
++- `effective_population_sensitivity_note.pdf`：相应可编译产物名；是否已有文件及编译通过须实际核查；
+ - `figures/effective_population_time_metrics.*`：\(t_1,\Delta t,T_{\rm clear}\) 随 \(N_{\rm eff}\) 的变化；
+ - `figures/effective_population_cost_metrics.*`：累计感染和控制成本指标；
+ - `figures/effective_population_eta_fraction.*`：不同阈值口径下的 \(\eta/N_{\rm eff}\)。
+@@ -60,7 +66,7 @@ S_0=N_{\rm eff}-I_0,\qquad R(0)=0.
+ - `plot_Neff_40000_50000_60000_inflection.py`：固定 `eta=100`，比较 `N_eff=40,000,50,000,60,000`；
+ - `representative_panels/*inflection*.{pdf,png,csv}`：对应轨迹图、绘图时间序列和拐点汇总。
+ 
+-无量纲标度验证：
++归一化规模关系诊断：
+ 
+ - `dimensionless_scaling_analysis.py`：区分固定无量纲初值的精确结构实验与逐个 `N_eff` 重拟合 `I0` 的数据实验；
+ - `dimensionless_scaling_exact_summary.csv`：组一，固定 `(s0,i0,rho)` 只变 `N_eff` 的指标；
+@@ -102,9 +108,9 @@ N_{\rm eff}\in
+ 
+ ## 已得到的主要数值现象
+ 
+-当前输出中全部 18 个实验点均为 `status=ok`。
++以下保留相应旧实验输出的数值记录，不代表本轮新复跑或正式稿的统一设置验收。原记录中全部 18 个实验点均为 `status=ok`。
+ 
+-重新拟合的 \(I_0\) 在不同 \(N_{\rm eff}\) 下变化不大，例如：
++单独留档的逐人口重拟合诊断中，\(I_0\) 在不同 \(N_{\rm eff}\) 下的例值为：
+ 
+ ```text
+ N_eff=50,000:     I0≈0.001309
+@@ -133,7 +139,7 @@ N_eff=13,163,000, eta=26326=0.002N_eff:
+ Delta t≈85.07
+ ```
+ 
+-这个结果说明，在当前参数和拟合口径下，低阈值长期平台主要与 \(\eta/N_{\rm eff}\) 很小有关，而不是仅由阈值控制公式本身造成。
++这些旧实验数值说明，在指定参数范围内，低阈值长期平台主要与 \(\eta/N_{\rm eff}\) 很小有关。逐人口重拟合诊断与固定绝对初值指标是不同计算，不能从本节旧例值推出固定归一化初值下的精确规模不变性。
+ 
+ 平台期隔离率曲线的凹凸拐点满足：
+ 
+@@ -176,7 +182,7 @@ S_c<2\bar S
+ q_0<q^*=1-\frac{1}{2(1-\beta)}.
+ ```
+ 
+-也就是说，拐点存在等价于常规隔离率低于拐点高度本身。西安参数下
++这里只将左端条件等价改写为常规隔离率低于拐点高度；完整内部拐点条件仍须同时满足 `S_c<2*Sbar<S_star`，不能遗漏右端。西安参数下
+ `q0=0.323 < q*≈0.4119`；等价地，给定 `q0` 时要求 `beta < 0.2614`。
+ 右端不等式 `2*Sbar < S_star` 在当前参数下不起约束作用
+ （`2*Sbar/N_eff≈0.260`，`S_star/N_eff≈0.989`）。
+@@ -194,7 +200,7 @@ q_0<q^*=1-\frac{1}{2(1-\beta)}.
+ 因此这两组扫描是结构性实验，只验证控制律的恒等式和存在边界，不是参数估计，
+ 也不重新拟合日报数据。
+ 
+-## 无量纲标度的条件
++## 规模不变性及其初值条件
+ 
+ 令 `s=S/N_eff`、`i=I/N_eff`、`rho=eta/N_eff`。传播参数和控制函数固定时，
+ `N_eff` 不显含于 `(s,i)` 方程，但严格轨迹折叠还要求无量纲初值 `(s0,i0)` 固定。
+@@ -203,6 +209,7 @@ q_0<q^*=1-\frac{1}{2(1-\beta)}.
+ 
+ - 精确结构实验：固定 `(s0,i0,rho)`，此时 `t1`、`Delta t`、`t2`、`q_c(t)`、`J` 和固定分数终止时间是数值不变量；
+ - 数据重拟合实验：每个 `N_eff` 重新拟合绝对 `I0`，所以 `i0=I0/N_eff` 改变，`t1` 不会严格不变；
++- 固定绝对初值的应用实验：共同使用全市拟合 `I0`，取 `s0=1-I0/N_eff`、`i0=I0/N_eff`，归一化初值仍随人口改变，只能按已有有限测试说明近似关系；
+ - 动态清零 `I<=1` 等价于 `i<=1/N_eff`，因此 `T_clear` 额外依赖 `N_eff`；
+ - `I_tcum=N_eff*h(rho)` 只在固定无量纲终点或共同时间下严格成立。使用 `I<=1` 终止时，累计感染分数也有终止地板造成的小量修正。
+ 
+@@ -226,9 +233,10 @@ q_0<q^*=1-\frac{1}{2(1-\beta)}.
+ 
+ ## 写作口径
+ 
+-描述本实验时应使用条件性表述，例如：
++描述本目录实验时须注明是固定绝对初值应用、固定归一化初值结构检验，还是逐人口重拟合诊断。例如：
+ 
+-- “在固定 \(\beta,\gamma,\delta_q,c(t),q(t)\) 并重新拟合 \(I_0\) 的条件下，数值结果显示……”
++- “在固定传播参数与全市拟合的绝对 \(I_0\)、令 \(S_0=N_{\rm eff}-I_0\) 的条件下，指定人口范围的数值结果显示……”
++- “逐人口重新拟合 \(I_0\) 的诊断记录显示……”（仅指独立诊断，不指正式人口比较）
+ - “当 \(\eta/N_{\rm eff}\) 保持不变时，\(\Delta t\) 基本保持同量级。”
+ - “当 \(\eta\) 固定而 \(N_{\rm eff}\) 降低时，\(\eta/N_{\rm eff}\) 增大，平台控制时长缩短。”
+ 
+@@ -248,8 +256,7 @@ q_0<q^*=1-\frac{1}{2(1-\beta)}.
+ python -B xian_control_comparison\effective_population_sensitivity\effective_population_sensitivity.py
+ ```
+ 
+-该命令会依次重建基础扫描、无量纲标度实验（含组二 `rho` 扫描）、两组局部拐点分析、
+-`beta` 与 `q0` 不变量扫描，以及 LaTeX 笔记源文件。
++该旧入口会重建本地扫描、结构及重拟合诊断、两组局部拐点分析、`beta` 与 `q0` 扫描和笔记源文件，会刷新本目录输出，不是当前论文完整复现入口。正式从头复现见 `reproducibility/run_all.ps1`；正式主稿与补充材料编译见 `latex/build_paper.ps1`。本地旧笔记不得直接替换正式稿。
+ 
+ 编译 LaTeX 笔记：
+ 
+@@ -263,5 +270,5 @@ xelatex -interaction=nonstopmode effective_population_sensitivity_note.tex
+ 
+ - 不要覆盖西安主基准结果；
+ - 不要把本目录结果写成最终政策结论；
+-- 若新增 \(N_{\rm eff}\) 点，应重新拟合 \(I_0\)，并记录 `I0_fit`、`fit_objective` 和 `fit_raw_rmse`；
++- 若新增正式人口比较点，保持同次全市拟合的未取整绝对 \(I_0\)，不逐人口重拟合；另做重拟合诊断时记录 `I0_fit`、`fit_objective`、`fit_raw_rmse`，并与正式指标分开保存；
+ - 若修改图、表或 LaTeX 笔记，需重新运行脚本并编译笔记两遍。
+diff --git a/xian_control_comparison/threshold_landscape_analysis/AGENTS.md b/xian_control_comparison/threshold_landscape_analysis/AGENTS.md
+index 0b0d8a4..7b15d4e 100644
+--- a/xian_control_comparison/threshold_landscape_analysis/AGENTS.md
++++ b/xian_control_comparison/threshold_landscape_analysis/AGENTS.md
+@@ -2,13 +2,15 @@
+ 
+ ## 用途
+ 
+-本目录保存西安 SIQR 模型下 `情景一阈值控制` 的单阈值响应图谱实验。当前阶段只做理论量、数值轨迹、成本指标和可行性状态的整理，不写论文最终结论，也不把阶段性结果解释为某一策略已经优于另一策略。
++本目录保存西安 SIQR 模型下 `情景一阈值控制` 的原单阈值响应图谱与绘图逻辑。该局部模块不实现正文已经包含的联合阈值控制，也不把阶段性扫描解释为某一策略已经优于另一策略。
++
++2026-10-04 正式口径：西安及其下游主实验由 `reproducibility/xian.py` 等隔离入口统一计算，使用归一化方程、DOP853 和分量容差；本目录原脚本使用旧模块及其历史数值方案，不能直接作为现有正式稿结果的验收。本文件中的网格数字和案例数值是相应本地实验记录，不是本轮新复跑。全市只拟合一次未取整绝对 `I0`，正式人口比较固定该值并取 `S0=N-I0`。TDINN 参照固定为同次全市重构结果，阈值 `eta=0.002N` 是设计情景而非实际 ICU 安全阈值。
+ 
+ 本目录只跟踪源码、规范和 `notes.md`。各输出目录由主程序重新生成并已加入 `.gitignore`；
+ 清理前的二维图谱快照位于
+ `archive_unused/generated_snapshots/xian_threshold_landscape_eta_c0/`。
+ 
+-处理本目录内容时，应同时遵守项目根目录 `AGENTS.md` 和 `xian_control_comparison/AGENTS.md`。若涉及本目录已经生成的图谱、表格和报告，以本文件的实验口径为准。
++处理本目录时，同时遵守根目录及 `xian_control_comparison/AGENTS.md`。本文件的细则用于解释本地历史图谱和报告，不得覆盖正式稿、正式复现设置、原始数据或冻结来源的保护规则。正式图表按主稿标签及 `reproducibility/registry.json` 追溯，不从历史输出直接替换定稿。
+ 
+ ## 控制律与基本口径
+ 
+@@ -32,8 +34,8 @@ q_c(t)=1-\frac{\gamma N}{\beta c_0 S_{\rm th}(t)}.
+ 
+ - `threshold_landscape_analysis.py`：生成本目录全部扫描、代表面板、热图、成本表和简短 notes。
+ - `notes.md`：记录状态字段、控制时长字段和变 `c0` 图的基本口径。
+-- `elegantnote_report/xian_threshold_landscape_note.tex`：当前阶段的 ElegantNote 研究笔记源码。
+-- `elegantnote_report/xian_threshold_landscape_note.pdf`：由上述源码编译得到的 PDF 报告。
++- `elegantnote_report/xian_threshold_landscape_note.tex`：历史研究笔记产物名，当前目录未保留该 TEX，不是现存正式稿入口。
++- `elegantnote_report/xian_threshold_landscape_note.pdf`：相应历史报告产物名；恢复旧报告时须另外核对来源与编译条件，不能仅据文件名认定现存可编译。
+ 
+ 运行入口为：
+ 
+@@ -41,7 +43,7 @@ q_c(t)=1-\frac{\gamma N}{\beta c_0 S_{\rm th}(t)}.
+ python -B xian_control_comparison\threshold_landscape_analysis\threshold_landscape_analysis.py
+ ```
+ 
+-该命令会刷新本目录下的图、CSV 和 LaTeX 表格。除非用户明确要求，不要随意重跑并覆盖已有输出。
++该旧入口会刷新本目录下的图、CSV、LaTeX 表格及 `notes.md`，不直接生成当前正式论文。除非用户明确要求，不随意重跑；正式从头复现见 `reproducibility/run_all.ps1`，主稿与补充材料编译见 `latex/build_paper.ps1`。
+ 
+ ## 输出目录与实验内容
+ 
+@@ -71,7 +73,7 @@ CSV 中清零终止时刻字段为 `clear_time`，但图表和 LaTeX 表头中
+ 
+ ### `representative_eta_panels/`
+ 
+-该目录保存基准 `c0=12.8872` 下代表阈值的图 2 风格面板。代表阈值为：
++该目录保存基准 `c0=12.8872` 下代表阈值的历史“图 2 风格”面板；这里不是当前正式稿图 2。代表阈值为：
+ 
+ ```tex
+ 100,\ 520,\ 1300,\ 3200,\ 6500,\ 15000,\ 26326.
+@@ -149,7 +151,7 @@ c_0\in[6,13],\qquad \eta\in[50,40000].
+ 
+ ### `representative_c0_panels/`
+ 
+-该目录保存代表 `eta` 和代表 `c0` 的图 2 风格面板。参数组合为：
++该目录保存代表 `eta` 和代表 `c0` 的历史面板模板。参数组合为：
+ 
+ ```tex
+ \eta\in\{100,1300,26326\},\qquad
+@@ -207,7 +209,7 @@ c_0\in\{14,18,20\},\qquad
+ - `threshold_not_reached`：常规控制轨道未达到给定阈值；
+ - `not_cleared`：在设定时间上限内未达到 `I(t)<=1`。
+ 
+-`q_out_of_bounds` 不是让扫描停止的错误，而是可行性诊断。理论量仍可保存，但截断后的 ODE 轨迹不再严格等同于原始理论开环控制。正常图谱解释应优先使用 `status=ok` 的结果。
++`q_out_of_bounds` 是本地探索扫描的诊断状态。理论量仍可保存，但截断后的 ODE 轨迹不再严格等同于原始理论开环控制，不能据此认定原阈值策略满足额外能力限制。正常图谱解释优先使用 `status=ok`；正式入口任一阶段未通过验收时返回非零，不把诊断轨迹当作通过结果。
+ 
+ ## 后续协作规则
+ 
+@@ -215,6 +217,6 @@ c_0\in\{14,18,20\},\qquad
+ - 不要修改 `archive_unused/low_eta_analysis/` 历史结果，除非用户明确要求。
+ - 继续保持 `TDINN控制`、`情景一阈值控制`、`常规控制` 三个名称，不引入其他旧称或临时称呼。
+ - 变 `c0` 分析中，`TDINN控制` 不随 `c0` 重新拟合，只作为固定参照；`情景一阈值控制` 和 `常规控制` 使用当前 `c0`。
+-- 对 `eta>1300` 的图 2 风格面板，inset 的规则是只展示 TDINN 蓝线和真实数据点，不展示红色阈值控制线和 `eta` 水平线；主图仍保留三类策略和阈值线。
++- 对本目录 `eta>1300` 的历史面板模板，inset 只展示 TDINN 蓝线和真实数据点，不展示红色阈值控制线和 `eta` 水平线；主图仍保留三类策略和阈值线。该规则不重新定义正式合图，正式图例、布局和保留元素由主稿及绘图适配层确定。
+ - 当前阶段不主动推进双阈值或反馈控制。若后续进入双阈值控制，应另建模块或清晰后缀，不要混入本目录的单阈值图谱。
+ - 写作时先描述指标和参数依赖，再给条件性解释；不要把低阈值长期平台直接写成“不合理”，也不要把总成本 `J` 的阶段性结果写成最终优劣排序。
+diff --git a/xian_dom/README.md b/xian_dom/README.md
+index c9ff817..c049183 100644
+--- a/xian_dom/README.md
++++ b/xian_dom/README.md
+@@ -1,6 +1,44 @@
+-# xian_dom — §8 有效人口占优分析：绘图与求解脚本
++# xian_dom — 有效人口比较的原求解与绘图模块
+ 
+-产出主论文 `paper_elegantpaper_relayout/flatten_curve_analysis_cn.tex` §8.7 的三张占优图及
++## 当前正式稿与复现入口
++
++正式主稿为 `../latex/flatten_curve_analysis_cn.tex`，当前比较理论与应用在第 9 节
++（`sec:dominance`）。本模块保留原计算和绘图逻辑；正式复现通过
++`../reproducibility/population.py` 重建数据，再由 `../reproducibility/figures.py` 绑定到原样式。
++全文运行使用 `../reproducibility/run_all.ps1` 的新建空输出目录，不依赖旧 CSV、pickle 或硬编码
++TDINN 数字来替代科学计算。正式主稿不能被冻结模板或旧模块输出直接覆盖。
++
++| 当前正式图 | 标签 | 本模块原图来源 |
++|---|---|---|
++| 图 13 | `fig:dom` | 比较区域原图 `fig_dom_combined.pdf` |
++| 图 14 | `fig:dom:levers` | 原 Panel A、B 经现用左右合图适配 |
++| 附录图 17 | `fig:panel_N_decomp` | 原 `plot_B_decomp.py` 轨迹分解 |
++| 附录图 18 | `fig:dom:critical-cases` | 原 Panel A 三个人口临界案例经现用组合适配 |
++
++当前正式来源映射以 `../reproducibility/registry.json` 和主稿标签为准，不依赖旧图号。
++
++## 当前比较口径
++
++各人口情景沿用全市人口下一次拟合的同一个绝对初值，显示为
++`I0≈1.00659e-3`，并取 `S0=N-I0`；这是情景比较约定，不声称重新拟合的初值天然与人口无关。
++TDINN 是固定经验参照，不随反事实人口重新拟合或重算。当前显示值为社区峰值 `152.55` 人、
++总累计新增感染 `2105.63` 人、动态清零时间 `45.29` d、二次加权成本 `J=49.39` d；计算使用
++正式复现输出 `xian/reference.json` 的未取整参数和指标，不以这些显示值或下文历史常量作输入。
++
++固定归一化初值的理论给出精确规模关系；固定绝对初值时，第 9.5 节的应用条件按实际
++`J(eta,N)<=J_T`、`Delta_t(eta,N)<=T_max`、`eta<=I_peak_T` 和严格触发条件判断。
++图 13 的成本、时长和触发参考直线采用 `N_ref=13,163,000` 下的未取整比例，阴影和标记只用于
++近似展示。约 103 天的条件转换时长和 `i_max_no≈0.1047` 均限定为参考人口下的结果。
++现有数值求根记录给出候选人口界值，不额外宣称一般唯一性或允许人口集合必为单一区间；
++图 13 部分标记与后续案例的数据绑定仍有待核查，不能用“直线近似”替代该项核对。
++
++## 历史脚本与旧稿导航
++
++以下保留原入口、图号、配色和旧数值作为追溯；它们不是当前正式稿的最新参数、章节或科学验收。
++旧主稿目录及根 `figures/` 已不存在。原脚本仍可能写旧目录、读旧缓存或采用旧硬编码常量，
++本轮仅整理文档，没有修复这些入口；不得运行后直接覆盖正式工程。
++
++当时产出主论文 `paper_elegantpaper_relayout/flatten_curve_analysis_cn.tex` §8.7 的三张占优图及
+ Panel A 的三个附录案例：
+ 
+ - 图 20 `fig_dom_combined.pdf`：$(N_{\rm eff},\eta)$ 平面占优区域，(a) 直线族（强度量）/ (b) 弧线族（广延量）；
+@@ -9,12 +47,14 @@ Panel A 的三个附录案例：
+ - Panel A 另按 $N_{\rm eff}=10^4,\,2\times10^4,\,40377,\,91727$ 生成四个带后缀文件；
+   N2e4 文件另以 `fig_panel_A.pdf` 作正文兼容别名，其余三张进入附录。
+ 
+-## 口径（重要）
++## 历史口径记录（已由上文当前口径替代）
+ 
+ TDINN 是**固定的现实参照**：已发生的现实结局，用固定的四个数
+ （$I_{\rm peak}^{\rm T}=151.90$、$J^{\rm T}=49.35$、$I_{t\rm cum}^{\rm T}=2096.76$、$t_{\rm end}^{\rm T}=45.27$ d），
+-不随 $N_{\rm eff}$ 重算。情景一阈值控制与常规控制是反事实，逐 $N_{\rm eff}$ 重解（各自重拟合 $I_0$）。
+-强度量（峰值、$J$、$\Delta t$）边界是直线；广延量（累计、清零时刻）带绝对尺度、边界是弧线。
++不随 $N_{\rm eff}$ 重算。早期说明曾把逐 $N_{\rm eff}$ 重解写成“各自重拟合 $I_0$”，
++后来统一为固定绝对初值，见下方历史锚点和上文当前口径；重解轨迹不等于重新拟合初值。
++旧“强度量／广延量”和“边界是直线”的概括仅属于旧稿表述；当前活动说明使用具体指标，
++并区分固定归一化初值的精确理论与固定绝对初值的参考展示。
+ 
+ ## 文件
+ 
+@@ -27,7 +67,7 @@ TDINN 是**固定的现实参照**：已发生的现实结局，用固定的四
+ | `resolve_clr.py` | 清零弧（$t_{\rm end}^{\rm T}=45.27$ d 口径）逐点求根 |
+ | `arc_clr_45.27.csv` | 清零弧 28 点数据 |
+ 
+-## 运行环境与运行方法
++## 原独立入口的环境与运行方法（非正式复现入口）
+ 
+ - conda env `thesis`（numpy / scipy / matplotlib / openpyxl）。
+ - 三个求解器模块目录（`xian_control_comparison/` 及其下 `threshold_landscape_analysis/`、
+@@ -35,8 +75,8 @@ TDINN 是**固定的现实参照**：已发生的现实结局，用固定的四
+ - 真实数据 `真实数据/Xianguankong.xlsx` 在仓库根，`xian_control_comparison.py` 按相对路径自动解析，无需配置。
+ - numpy 2.x：`panels.py` / `compute_B.py` 顶部已内置 `np.trapz = np.trapezoid` shim。
+ 
+-因为不再依赖环境变量，**任何终端（PowerShell / Git Bash / cmd）或 VS Code 的“运行”按钮都能直接跑**
+-（VS Code 里把解释器选成 `thesis` 环境即可）。依次运行四个脚本重出三张图：
++原入口按脚本位置加入求解器搜索路径，但这不保证清理后的缓存、目标目录与旧科学常量符合当前稿。
++以下命令按在 `xian_dom/` 中运行记录，执行前须确认输入、输出和覆盖范围；并非本轮运行保证：
+ 
+ ```bash
+ python dom_pretty.py     # 图 20（自包含，只需 numpy/matplotlib）
+@@ -46,22 +86,26 @@ python plot_B.py         # 图 22 Panel B（读缓存，秒出）
+ ```
+ 
+ 用 conda 环境时在每行前加 `conda run -n thesis`。顺序上 `compute_B.py` 要在 `plot_B.py` 之前；
+-`dom_pretty.py`、`panels.py` 各自独立。也可一键运行本目录的 **`run_all.ps1`**（PowerShell：设好环境后自动跑完四步并把图复制到 `../figures/`）。
++`dom_pretty.py`、`panels.py` 各自独立。原 **`run_all.ps1`** 会运行这些步骤及轨迹分解，
++然后按旧路径复制到 `../figures/`；该目录已不存在，脚本本轮未修复，不能作为当前正式稿更新入口。
++`panelB.pkl` 是旧运行时产物，模块根当前未保留该文件；正式复现会在隔离工作区生成新数据，
++不要求恢复旧缓存来替代从头计算。
+ 
+ `resolve_clr.py` 是一次性求解器（把清零弧重算到 $t_{\rm end}^{\rm T}=45.27$ d，输出 `clr_4527.json`），平时不用跑；其结果即 `arc_clr_45.27.csv`、也已写入 `dom_pretty.py` 的弧线数组。
+ 
+-## 图去向与尺寸约束
++## 历史图去向与尺寸约束
+ 
+-- 四脚本把图写到 `xian_dom/dominance_panels/`；定稿时把正文图与 Panel A 附录图复制到 `../figures/`
+-  （主论文 graphicspath 经 `../figures/` 解析）。`run_all.ps1` 已包含全部生成与复制步骤。
++- 原脚本把图写到 `xian_dom/dominance_panels/`；旧稿曾复制到 `../figures/`。
++  当前正式图在 `../latex/figures/`，主稿不再通过旧根目录读取；现用复现适配层负责组图与输出，
++  不应把旧脚本复制步骤描述为已更新正式图。
+ - 各图按 tight bbox 宽度 = **451.28 bp**（= 主论文 `\textwidth`，A4 减左右各 1 in）渲染，
+   使 `\includegraphics[width=\textwidth]` 缩放为 1.0×。改 `figsize` 后**必须用 `pdfinfo` 复量**
+   （因 `bbox_inches="tight"`，成图尺寸 ≠ `figsize`）。当前值：`dom_pretty` `(6.288, 2.925)`、
+   `panels`/`plot_B` `(6.151, 5.459)`、`plot_B_decomp` `(6.151, 4.0)`。
+ 
+-## 图 23：图 22 的轨迹分解（`plot_B_decomp.py`）
++## 旧图 23：旧图 22 的轨迹分解（`plot_B_decomp.py`）
+ 
+-正文图 23 `fig:panel_N_decomp`，紧接图 22 收在 §8.6。目的是把图 22 里被压成灰色包络的常规控制
++当时正文图 23 `fig:panel_N_decomp`，紧接图 22 收在 §8.6；当前为附录图 17。目的是把旧图 22 里被压成灰色包络的常规控制
+ 与五条重合的阈值平台按 $N_{\rm eff}$ 拆开。`GridSpec(2,4)`：(a)--(d) 四格各对应一个
+ $N_{\rm eff}$，画该 $N$ 的阈值控制（实线）、同 $N$ 的常规控制（虚线）与固定 TDINN（黑实线）；
+ (e) 跨两列只画四条常规控制，(f) 跨两列只画四条阈值控制 + 唯一一条 TDINN。
+@@ -93,8 +137,9 @@ $N_{\rm eff}$，画该 $N$ 的阈值控制（实线）、同 $N$ 的常规控制
+   两个 Panel 的 $I(t)$ 与 $q_c(t)$ 均按 $t_{\rm clear}$ 从长到短叠绘，使后画的短清零
+   轨迹在共同平台或 $q_0$ 重合段上优先可见；图例仍按原有语义顺序排列，不随 painter order 改变。
+   Panel A 的 $I(t)$ 平台以同色实心圆标出 $q_c(t)$ 拐点时刻的投影 $(t_{\rm inf},\eta)$；
+-  该点不是 $I(t)$ 自身拐点。四案例的绝对 $t_{\rm inf}$ 随逐 $N$ 重拟合的 $t_1$ 平移，
+-  但平台内相对位置 $\lambda\approx0.861$ 与各边界的 $t_2-t_{\rm inf}$ 保持不变。
++  该点不是 $I(t)$ 自身拐点。旧说明曾把绝对 $t_{\rm inf}$ 的平移归于“逐 $N$ 重拟合”，
++  当前已固定绝对初值，启动时间仍随人口情景变化；$\lambda\approx0.861$ 的近似一致也不应
++  表述为固定绝对初值下严格不变。
+   图 21、22 的 $I_{\rm peak}^{\rm T}$ 参照统一为红色虚线
+   `color="#a50518f4", lw=1.4, ls="--", alpha=0.8`；routine 轨迹统一为灰色虚线
+   `color="#8a8a8a", lw=1.4, ls="--", alpha=0.9`。Panel B 的灰色包络填色与上下边界
+@@ -114,7 +159,7 @@ $N_{\rm eff}$，画该 $N$ 的阈值控制（实线）、同 $N$ 的常规控制
+   横轴以 $10^3$ 人为单位。柱值由总累计感染的三段解析式结合缓存中的
+   $q_c(t_1^+)$、$t_2$ 和控制后 $I(t)$ 尾段恢复，不修改 `panelB.pkl`。
+ 
+-## 数值锚点（对账用）
++## 历史数值锚点（旧参照下的回归对账）
+ 
+ 以下数值均属全节单一口径 **固定绝对初值 $I_0=1.00663\times10^{-3}$ 人**（跨 $N_{\rm eff}$ 不重拟合，
+ $i_0=I_0/N$，见 `caliber.py` 的 `I0_ABS`）；换口径后清零弧会整体移动（旧固定 $i_0$ 口径下最大值仅 2439）。
+@@ -124,4 +169,6 @@ $N_{\rm cum}(100)=10105$（`dom_pretty` 弧线性插值；`caliber` 直接求根
+ $N^\ast(45\text{d})=40377$、$N^\ast_\infty=91727$、
+ cum 弧穿成本线 $(11762,19.48)$（显示用 PCHIP 弧与成本线的交点；对同一 16 点作线性插值则得 11764）、
+ clr 弧端点 $(865.86,10)$ 与 $(5165.70,151.90)$、
+-常规控制带 $N$ 区间 $[3970,87944]$。重跑后若与此不符，先查环境差异，勿擅改论文正文数值。
++常规控制带 $N$ 区间 $[3970,87944]$。这些值保留为历史来源，不是当前正式边界输入。
++若当前输出与其不同，应先核查参照量、绝对初值、积分设置及绘图插值的版本差异，
++不能一概归为环境问题，也不能只修改论文数字；正式结果及旧新差异以已有复现审计材料为准。

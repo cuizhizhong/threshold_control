@@ -2,6 +2,18 @@
 
 本目录承载主论文情景一阈值控制隔离律 $q_c(t)$ 拐点分析的计算代码与四张配图，并记录对论文的改动。
 
+## 当前正式稿中的定位
+
+正式主稿为 `../latex/flatten_curve_analysis_cn.tex`，当前拐点分析位于第 5 节
+（`sec:s1:shape`），正式图为图 5（`fig:s1:lambda-sensitivity`）和图 6
+（`fig:s1:inflection-scan`）。四张原配图中只有这两类当前进入正式稿；其余是历史分析来源，
+并不因保留源码而重新入稿。当前来源映射见 `../reproducibility/registry.json`，
+全文复现入口为 `../reproducibility/run_all.ps1`，使用新建空输出目录。
+
+以下日期化修改记录、旧章节号、旧主稿路径、53 页编译记录及数值锚点均保留为历史追溯，
+不代表当前稿的页数、结构或本轮新增验收。当前正式主稿与补充材料为 47 页和 3 页。
+原脚本输出和绘图逻辑未在本轮改写，正式图仍由已有复现适配层生成。
+
 - **2026-07-21 第一轮**：补齐拐点位置/两端消失/曲率幅度三块，统一记号 $\qinf$。
 - **2026-07-21 第二轮（定稿）**：引入相对位置 $\lambda$、重写「参数方向」、加参数分工表、修正 §4.4 误导措辞、三张图改期刊风。
 - **2026-08-02 第三轮**：把四参数方向由数值扫描提升为解析偏导；新增启动点引理、相对位置命题和控制时长推论；加入 $q_0$ 驻点检测、解析差分校验及 $\lambda$ 四面板图。
@@ -26,6 +38,11 @@
 **图风格**：蓝色顺序色、serif（Times New Roman）+ `mathtext=stix`、英文轴标签、无子图标题、`frameon=False` 图例、去顶/右边框、输出 PDF。图注写死参数值，不用「基准」字样。
 
 **运行**（从项目根目录执行，Python 环境 `thesis`）：
+
+下列是原模块入口。绘图脚本实际写入根 `../figures/`，该旧目录在清理后已不存在，
+部分原脚本不自行创建它；不能将这些命令当作已修好的正式出图入口。需独立运行时应先确认
+旧输出目录及覆盖目标，且不要直接复制结果覆盖 `../latex/figures/`。正式流程在隔离工作区
+准备输出并执行现用绘图适配，不依赖根目录现有旧图件。
 ```powershell
 conda run --no-capture-output -n thesis python -B scenario1_inflection\verify_anchors.py
 conda run --no-capture-output -n thesis python -B scenario1_inflection\fig_lambda_sensitivity.py
@@ -34,7 +51,7 @@ conda run --no-capture-output -n thesis python -B scenario1_inflection\fig_lands
 
 ---
 
-## 2. 数值锚点（`verify_anchors.py` 全部通过）
+## 2. 历史数值锚点（当时 `verify_anchors.py` 全部通过）
 
 $N=763,\ S_0=762,\ I_0=1,\ \gamma=0.3504,\ \beta=0.155,\ c_0=10,\ q_0=0.01526,\ \eta=0.05N$：
 ```
@@ -79,7 +96,7 @@ $\eta/N$ 由 0.05 降到 0.005 时 $\Delta t$ 5.9→60.7 天、弦偏差 4.44%�
 
 ---
 
-## 3. 论文改动（`../paper_elegantpaper_relayout/flatten_curve_analysis_cn.tex`）
+## 3. 历史论文改动（当时主稿为 `../paper_elegantpaper_relayout/flatten_curve_analysis_cn.tex`）
 
 **第一轮**：导言区 `\newcommand{\qinf}{q_{\mathrm{inf}}}`；定理加 `\label{thm:s1:inflection}`；`t_{inf}`→`t_{\mathrm{inf}}`；§4.2 末命名 $\qinf$ 并给存在等价式 `eq:s1:inflection-exist`；新增 §4.3、§4.4；§6 加诊断图；§8.2 $q^\star\to\qinf$、认领 $\beta_{\max}=0.261448$。
 
@@ -102,7 +119,9 @@ $\eta/N$ 由 0.05 降到 0.005 时 $\Delta t$ 5.9→60.7 天、弦偏差 4.44%�
 
 ---
 
-## 4. 遗留项
+## 4. 历史遗留项
+
+以下按当时记录保留；当前章节和图件位置以开头的正式标签导航为准，不据旧清单自动重构正文。
 
 1. §4 小节编号：新增两小节后，Ṡ与$t_2$、清零时间、总累计分别为 §4.5/4.6/4.7（正文全用 `\ref`）。
 2. 第四轮删图后不再被论文引用的 `neff_inflection_beta.pdf` 已移至

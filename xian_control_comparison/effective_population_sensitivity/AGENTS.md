@@ -10,6 +10,8 @@
 
 本实验的核心问题是：若把 SIQR 模型中的人口规模从全市人口解释为有效混合人口 \(N_{\rm eff}\)，则固定绝对阈值和同比例阈值下的启动时间、平台控制时长和清零时间如何变化。
 
+2026-10-04 现行分工：正式人口比较由 `reproducibility/population.py` 读取同次全市拟合的未取整 `I0_abs` 及固定 TDINN 参照，按统一数值设置生成结果。本目录保留旧实验、结构诊断及原绘图逻辑；其硬编码旧初值、旧积分设置和历史数值不直接作为当前稿件的正式复现结果。本文件的局部细则不得覆盖根目录的正式科学设置及冻结、历史输出、原始输入保护规则。
+
 ## 模型口径
 
 感染项仍写为
@@ -24,13 +26,17 @@
 \beta,\quad \gamma,\quad \delta_q,\quad c_{\rm TDINN}(t),\quad q_{\rm TDINN}(t).
 ```
 
-只重新拟合初始种子 \(I_0\)，并令
+正式应用沿用全市人口下拟合的同一个绝对 \(I_0\)，不逐人口重新拟合，并令
 
 ```tex
 S_0=N_{\rm eff}-I_0,\qquad R(0)=0.
 ```
 
 该设定是条件性敏感性分析，不表示已经重新估计了完整传播参数，也不能直接推出真实传播网络规模。
+
+固定绝对初值是情景比较约定，不声称拟合初值天然与人口无关。本目录现有指标代码也使用固定绝对初值，但仍保留旧硬编码值；逐人口重拟合只写入独立诊断记录。正式实验必须从同次运行 `xian/reference.json` 读取未取整初值，不能改用旧常数。正式西安积分及下游相应完整轨迹使用归一化 DOP853 和分量容差，解析指标与结构求积保留各自设置；本目录旧脚本不因此自动成为新数值方案，不能概括为所有实验共用同一容差。
+
+TDINN 峰值、成本、累计感染和清零参照固定为全市重构结果，不因反事实 `N_eff` 改变而重新拟合或重算。`eta=0.002N_eff` 是设计情景，不是当地 ICU 安全阈值的估计。
 
 ## 主要文件
 
@@ -43,8 +49,8 @@ S_0=N_{\rm eff}-I_0,\qquad R(0)=0.
 - `effective_population_summary.csv`：每个 \((N_{\rm eff},\eta)\) 情景的阈值控制指标；
 - `effective_population_fit_summary.csv`：每个 \(N_{\rm eff}\) 下重新拟合得到的 \(I_0\) 和拟合误差；
 - `effective_population_summary_table.tex`：LaTeX 表格；
-- `effective_population_sensitivity_note.tex`：中文 LaTeX 实验笔记；
-- `effective_population_sensitivity_note.pdf`：已编译的实验笔记；
+- `effective_population_sensitivity_note.tex`：旧入口可生成的中文实验笔记，不是正式主稿；
+- `effective_population_sensitivity_note.pdf`：相应可编译产物名；是否已有文件及编译通过须实际核查；
 - `figures/effective_population_time_metrics.*`：\(t_1,\Delta t,T_{\rm clear}\) 随 \(N_{\rm eff}\) 的变化；
 - `figures/effective_population_cost_metrics.*`：累计感染和控制成本指标；
 - `figures/effective_population_eta_fraction.*`：不同阈值口径下的 \(\eta/N_{\rm eff}\)。
@@ -60,7 +66,7 @@ S_0=N_{\rm eff}-I_0,\qquad R(0)=0.
 - `plot_Neff_40000_50000_60000_inflection.py`：固定 `eta=100`，比较 `N_eff=40,000,50,000,60,000`；
 - `representative_panels/*inflection*.{pdf,png,csv}`：对应轨迹图、绘图时间序列和拐点汇总。
 
-无量纲标度验证：
+归一化规模关系诊断：
 
 - `dimensionless_scaling_analysis.py`：区分固定无量纲初值的精确结构实验与逐个 `N_eff` 重拟合 `I0` 的数据实验；
 - `dimensionless_scaling_exact_summary.csv`：组一，固定 `(s0,i0,rho)` 只变 `N_eff` 的指标；
@@ -102,9 +108,9 @@ N_{\rm eff}\in
 
 ## 已得到的主要数值现象
 
-当前输出中全部 18 个实验点均为 `status=ok`。
+以下保留相应旧实验输出的数值记录，不代表本轮新复跑或正式稿的统一设置验收。原记录中全部 18 个实验点均为 `status=ok`。
 
-重新拟合的 \(I_0\) 在不同 \(N_{\rm eff}\) 下变化不大，例如：
+单独留档的逐人口重拟合诊断中，\(I_0\) 在不同 \(N_{\rm eff}\) 下的例值为：
 
 ```text
 N_eff=50,000:     I0≈0.001309
@@ -133,7 +139,7 @@ N_eff=13,163,000, eta=26326=0.002N_eff:
 Delta t≈85.07
 ```
 
-这个结果说明，在当前参数和拟合口径下，低阈值长期平台主要与 \(\eta/N_{\rm eff}\) 很小有关，而不是仅由阈值控制公式本身造成。
+这些旧实验数值说明，在指定参数范围内，低阈值长期平台主要与 \(\eta/N_{\rm eff}\) 很小有关。逐人口重拟合诊断与固定绝对初值指标是不同计算，不能从本节旧例值推出固定归一化初值下的精确规模不变性。
 
 平台期隔离率曲线的凹凸拐点满足：
 
@@ -176,7 +182,7 @@ S_c<2\bar S
 q_0<q^*=1-\frac{1}{2(1-\beta)}.
 ```
 
-也就是说，拐点存在等价于常规隔离率低于拐点高度本身。西安参数下
+这里只将左端条件等价改写为常规隔离率低于拐点高度；完整内部拐点条件仍须同时满足 `S_c<2*Sbar<S_star`，不能遗漏右端。西安参数下
 `q0=0.323 < q*≈0.4119`；等价地，给定 `q0` 时要求 `beta < 0.2614`。
 右端不等式 `2*Sbar < S_star` 在当前参数下不起约束作用
 （`2*Sbar/N_eff≈0.260`，`S_star/N_eff≈0.989`）。
@@ -194,7 +200,7 @@ q_0<q^*=1-\frac{1}{2(1-\beta)}.
 因此这两组扫描是结构性实验，只验证控制律的恒等式和存在边界，不是参数估计，
 也不重新拟合日报数据。
 
-## 无量纲标度的条件
+## 规模不变性及其初值条件
 
 令 `s=S/N_eff`、`i=I/N_eff`、`rho=eta/N_eff`。传播参数和控制函数固定时，
 `N_eff` 不显含于 `(s,i)` 方程，但严格轨迹折叠还要求无量纲初值 `(s0,i0)` 固定。
@@ -203,6 +209,7 @@ q_0<q^*=1-\frac{1}{2(1-\beta)}.
 
 - 精确结构实验：固定 `(s0,i0,rho)`，此时 `t1`、`Delta t`、`t2`、`q_c(t)`、`J` 和固定分数终止时间是数值不变量；
 - 数据重拟合实验：每个 `N_eff` 重新拟合绝对 `I0`，所以 `i0=I0/N_eff` 改变，`t1` 不会严格不变；
+- 固定绝对初值的应用实验：共同使用全市拟合 `I0`，取 `s0=1-I0/N_eff`、`i0=I0/N_eff`，归一化初值仍随人口改变，只能按已有有限测试说明近似关系；
 - 动态清零 `I<=1` 等价于 `i<=1/N_eff`，因此 `T_clear` 额外依赖 `N_eff`；
 - `I_tcum=N_eff*h(rho)` 只在固定无量纲终点或共同时间下严格成立。使用 `I<=1` 终止时，累计感染分数也有终止地板造成的小量修正。
 
@@ -226,9 +233,10 @@ q_0<q^*=1-\frac{1}{2(1-\beta)}.
 
 ## 写作口径
 
-描述本实验时应使用条件性表述，例如：
+描述本目录实验时须注明是固定绝对初值应用、固定归一化初值结构检验，还是逐人口重拟合诊断。例如：
 
-- “在固定 \(\beta,\gamma,\delta_q,c(t),q(t)\) 并重新拟合 \(I_0\) 的条件下，数值结果显示……”
+- “在固定传播参数与全市拟合的绝对 \(I_0\)、令 \(S_0=N_{\rm eff}-I_0\) 的条件下，指定人口范围的数值结果显示……”
+- “逐人口重新拟合 \(I_0\) 的诊断记录显示……”（仅指独立诊断，不指正式人口比较）
 - “当 \(\eta/N_{\rm eff}\) 保持不变时，\(\Delta t\) 基本保持同量级。”
 - “当 \(\eta\) 固定而 \(N_{\rm eff}\) 降低时，\(\eta/N_{\rm eff}\) 增大，平台控制时长缩短。”
 
@@ -248,8 +256,7 @@ q_0<q^*=1-\frac{1}{2(1-\beta)}.
 python -B xian_control_comparison\effective_population_sensitivity\effective_population_sensitivity.py
 ```
 
-该命令会依次重建基础扫描、无量纲标度实验（含组二 `rho` 扫描）、两组局部拐点分析、
-`beta` 与 `q0` 不变量扫描，以及 LaTeX 笔记源文件。
+该旧入口会重建本地扫描、结构及重拟合诊断、两组局部拐点分析、`beta` 与 `q0` 扫描和笔记源文件，会刷新本目录输出，不是当前论文完整复现入口。正式从头复现见 `reproducibility/run_all.ps1`；正式主稿与补充材料编译见 `latex/build_paper.ps1`。本地旧笔记不得直接替换正式稿。
 
 编译 LaTeX 笔记：
 
@@ -263,5 +270,5 @@ xelatex -interaction=nonstopmode effective_population_sensitivity_note.tex
 
 - 不要覆盖西安主基准结果；
 - 不要把本目录结果写成最终政策结论；
-- 若新增 \(N_{\rm eff}\) 点，应重新拟合 \(I_0\)，并记录 `I0_fit`、`fit_objective` 和 `fit_raw_rmse`；
+- 若新增正式人口比较点，保持同次全市拟合的未取整绝对 \(I_0\)，不逐人口重拟合；另做重拟合诊断时记录 `I0_fit`、`fit_objective`、`fit_raw_rmse`，并与正式指标分开保存；
 - 若修改图、表或 LaTeX 笔记，需重新运行脚本并编译笔记两遍。
