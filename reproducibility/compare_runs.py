@@ -147,7 +147,10 @@ def compare_figure(first_pdf: Path, second_pdf: Path, relative_name: str,
 
 def _json_errors(a,b,first,second,prefix=''):
     if isinstance(a,dict) and isinstance(b,dict):
-        ignore={'elapsed_seconds','runtime','provenance'}
+        ignore={'elapsed_seconds','runtime','provenance','created_at','created_utc','generated_at'}
+        # 只豁免新增模块输入清单顶层的创建时间，不放宽任何科学量或同名嵌套字段。
+        if not prefix and a.get('schema') == b.get('schema') == 'joint-extra-v2':
+            ignore.add('created')
         ak=set(a)-ignore;bk=set(b)-ignore
         if ak!=bk:return [prefix+' keys']
         return [error for key in sorted(ak) for error in _json_errors(a[key],b[key],first,second,prefix+'/'+key)]
@@ -173,13 +176,33 @@ def _numbers(obj, prefix=''):
         yield prefix,float(obj)
 
 def compare(first: Path, second: Path, report_path: Path) -> dict:
+    first,second=Path(first).resolve(),Path(second).resolve()
     cases=[]; failures=[]
+    identity_check={'passed':False}
+    if first==second:
+        failures.append('the same directory cannot be two independent runs')
+    try:
+        from run_selection import _inspect
+        identities=[_inspect(run)[1] for run in (first,second)]
+        identity_check={'passed':first!=second and identities[0]==identities[1],
+                        'manuscript_versions':[item.get('manuscript_version') for item in identities],
+                        'scientific_scopes':[item.get('scientific_scope') for item in identities]}
+        if not identity_check['passed']:
+            failures.append('different source, manuscript version, scope, or scientific input identity')
+    except (OSError,ValueError,KeyError,RuntimeError) as exc:
+        identity_check={'passed':False,'error':str(exc)}
+        failures.append('run identity check failed')
     for folder in (first,second):
         path=folder/'run_report.json'
         if not path.is_file() or not json.loads(path.read_text(encoding='utf-8')).get('passed'):
             failures.append('incomplete run '+str(folder))
-    for stage in ('xian','population','c0','joint',
-                  'workspace/scenario1_threshold_landscape/current_run/output_csv'):
+    partial=(first/'joint_extra').is_dir() and not (first/'xian').is_dir()
+    if partial != ((second/'joint_extra').is_dir() and not (second/'xian').is_dir()):
+        failures.append('different scientific scope')
+    stages=(('joint_extra',) if partial else
+            ('xian','population','c0','joint','workspace/scenario1_threshold_landscape/current_run/output_csv')+
+            (('joint_extra',) if (first/'joint_extra').is_dir() or (second/'joint_extra').is_dir() else ()))
+    for stage in stages:
         if not (first/stage).is_dir() or not (second/stage).is_dir():
             failures.append('missing stage '+stage);continue
         aset={a.relative_to(first) for a in (first/stage).rglob('*') if a.is_file() and a.suffix in {'.csv','.json','.npz'}}
@@ -212,7 +235,9 @@ def compare(first: Path, second: Path, report_path: Path) -> dict:
                             fields+=aa[key].size
                             if aa[key].shape!=bb[key].shape or aa[key].dtype!=bb[key].dtype:
                                 errors.append(key+' shape/dtype')
-                            elif not np.allclose(aa[key],bb[key],rtol=1e-10,atol=1e-9,equal_nan=True):errors.append(key)
+                            elif np.issubdtype(aa[key].dtype,np.number):
+                                if not np.allclose(aa[key],bb[key],rtol=1e-10,atol=1e-9,equal_nan=True):errors.append(key)
+                            elif not np.array_equal(aa[key],bb[key]):errors.append(key)
             cases.append({'file':str(rel).replace('\\','/'),'numeric_fields':fields,'passed':not errors,'different_fields':errors[:10]})
             if errors:failures.append(str(rel))
     plots=[]
@@ -228,9 +253,13 @@ def compare(first: Path, second: Path, report_path: Path) -> dict:
         check=compare_figure(a,b,a.relative_to(first/'figures').as_posix(),baseline_data_equal=baseline_data_equal)
         plots.append(check)
         if not check['passed']:failures.append('render '+a.name)
-    if len(plots)!=20:failures.append(f'figure count {len(plots)} != 20')
-    for name in ('manuscript_changes.json','validation/independent_checks.json',
-                 'validation/baseline_science.json'):
+    from manuscript_version import expected_figures
+    expected={Path(item['image']) for item in expected_figures(Path(__file__).resolve().parents[1])}
+    if aset!=expected:failures.append('figure set does not match approved manuscript labels/assets')
+    checks=(('manuscript_changes.json','joint_extra/validation.json') if partial else
+            ('manuscript_changes.json','validation/independent_checks.json','validation/baseline_science.json')+
+            (('joint_extra/validation.json',) if 'joint_extra' in stages else ()))
+    for name in checks:
         a=first/name;b=second/name
         if not a.is_file() or not b.is_file():
             failures.append('missing validation '+name);continue
@@ -239,6 +268,37 @@ def compare(first: Path, second: Path, report_path: Path) -> dict:
         cases.append({'file':name,'numeric_fields':len(dict(_numbers(aa))),'passed':not errors,'different_fields':errors[:10]})
         if errors:failures.append(name)
     report={'passed':not failures,'numeric_files':cases,'figure_render_checks':plots,
+            'run_names':[first.name,second.name],'run_identity_check':identity_check,
             'numerical_tolerance':{'relative':1e-10,'absolute':1e-9},'failures':failures,
-            'pdf_metadata_ignored':True,'visual_review_required':True}
+            'pdf_metadata_ignored':True,'visual_review_required':True,
+            'new_scientific_stages':list(stages),
+            'inherited_old_science':partial,
+            'scope':'本轮新增联合科学双跑及同版本文案/图件比较；旧图继承时不表示重新生成或整稿科学复跑。' if partial else '完整当前科学阶段双跑。'}
+    from run_selection import SELECTION_FILE, load_selection
+    selection_path=first.parent/SELECTION_FILE
+    if first.parent==second.parent and selection_path.is_file():
+        from bootstrap import ROOT, sha
+        selection=load_selection(first.parent,ROOT)
+        if [item['name'] for item in selection['runs']] != [first.name,second.name]:
+            report['passed']=False
+            report['failures'].append('comparison pair does not match the explicit accepted selection')
+        report['accepted_runs_manifest_sha256']=sha(selection_path)
     dump(report_path,report);return report
+
+
+if __name__=='__main__':
+    import argparse
+    from bootstrap import ROOT, sha
+    from run_selection import selected_directories, SELECTION_FILE
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--run-directory',type=Path,required=True)
+    parser.add_argument('--report',type=Path,help='默认为该总目录首次生成的repeatability.json')
+    args=parser.parse_args()
+    parent=args.run_directory.resolve()
+    first,second=selected_directories(parent,ROOT)
+    destination=args.report.resolve() if args.report else parent/'repeatability.json'
+    if destination.exists():parser.error('比较记录已存在，不覆盖；另指定 --report。')
+    result=compare(first,second,destination)
+    result['accepted_runs_manifest_sha256']=sha(parent/SELECTION_FILE)
+    dump(destination,result)
+    raise SystemExit(0 if result['passed'] else 1)

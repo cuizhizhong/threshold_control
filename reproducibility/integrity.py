@@ -17,6 +17,10 @@ def run(root: Path, output: Path) -> dict:
     runner={str(p.relative_to(root)).replace('\\','/'):sha(p)
             for p in (root/'reproducibility').iterdir()
             if p.is_file() and p.suffix in {'.py','.m','.ps1','.txt'}}
+    for relative in ('reproducibility/joint_extra','reproducibility/manuscript_versions','reproducibility/tests'):
+        runner.update({p.relative_to(root).as_posix():sha(p) for p in (root/relative).rglob('*')
+                       if p.is_file() and '__pycache__' not in p.parts and
+                       p.suffix.lower() in {'.py','.json','.md','.tex'}})
     assets={str(p.relative_to(root)).replace('\\','/'):sha(p)
             for p in (root/'reproducibility/assets').rglob('*') if p.is_file()}
     original={'真实数据/Xianguankong.xlsx':sha(root/'真实数据/Xianguankong.xlsx')}

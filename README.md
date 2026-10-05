@@ -10,7 +10,7 @@
 旧版本与导入前备份保留，不作为并行维护的正式主稿。
 2026-10-03 已完成本研究版本的双空目录复现和正式工程重编译：20 幅图、4 张正文表、3 张补充表及已列明关键数值通过；正文 45 页、补充材料 3 页。结果与证据边界见 [验收报告](reproducibility/validation_report.md)，未取整结果集中在 `reproducibility/results/20261003_release_final/`。这不是一般证明或真实医疗阈值认证。
 
-当前正式正文47页、补充材料3页，沿用上述科学结果。后续能力限制衔接、论文与审计记录分流及第9节边界表述的局部订正已完成文案与编译检查，最新记录见 [第9节订正核查](reproducibility/release_reports/sec9_boundary_wording_20261004/README.md)；这些工作没有重新拟合、积分、求根或扫描，不构成新一轮全文科学复算。`ai/` 中第6.4节材料、补丁和预览 PDF 尚未合入正式稿或正式复现链条。
+2026-10-04 联合整合稿已实际完整编译为正文51页、补充材料3页，含24幅图、5张正文表及3张补充表；新增页面已实际预检。整合前47+3页及此前能力限制衔接、审计分流和第9节订正记录保持原样，见 [第9节订正核查](reproducibility/release_reports/sec9_boundary_wording_20261004/README.md)。新增联合模块第三批 `run_5/run_6` 已各自实际完成 A–D 科学检查：同条件四策略、两个能力代表点、有限权重网格和有限乘子支持点。旧科学结果和旧20幅图按锁定身份继承，本轮没有重新拟合西安、重做人口扫描或旧MATLAB图。前两批失败与诊断保留，双跑比较、分阶段正式工作副本及发布状态分别见本轮验收记录，不以单轮科学通过冒充完整交付。
 
 本项目研究带接触追踪与隔离机制的 SIQR 型传染病动力学模型，分析社区感染阈值约束
 $I(t)\leq \eta$ 下的仅隔离基准及接触率—隔离率联合分配。当前工作包括控制律推导、
@@ -41,7 +41,7 @@ $$
 其中 $S_{\mathrm{th}}(t)$ 是根据理论启动点 $S^*$ 和启动时间 $t_1$ 得到的时间轨迹。
 数值实现保持该控制为关于时间的开环函数，而不是依赖积分器当前状态 $S(t)$ 的反馈控制。
 
-正文已给出仅隔离能力上限与联合能力界限下的可行条件；联合控制在相同启动状态和退出目标下允许接触率与隔离率共同调整，成本最优结论限定于这一控制类。有限能力新增算例和西安联合控制的系统数值计算尚未纳入正式复现验收，不与现有理论或外部材料中的供应方结果混为一谈。
+正文给出仅隔离与联合能力界限下的可行条件；联合控制在相同启动状态、恒定感染平台和退出目标下共同调整接触率与隔离率，成本最优结论限定于这一控制类。新增基准/西安四策略、有限能力、权重与乘子数值以 `reproducibility/joint_extra/` 的本机逐任务记录为准；有限扫描不证明全参数分类、完整可达时长或一般最优控制。
 
 控制过程分为三个阶段：
 
@@ -73,7 +73,7 @@ $$
 ├── c0_sensitivity/                # 固定阈值比例下的 c0 敏感性实验
 ├── 真实数据/                       # 当前主线使用的西安原始 Excel 数据，请勿直接修改
 ├── joint_control/                 # 联合控制核心、参数及完整冻结来源（内容不改）
-├── ai/                            # AI 讨论、计划与尚未纳入正式链条的外部材料
+├── ai/                            # AI 讨论、计划和候选来源；不是活动运行依赖
 ├── refs/                          # 参考论文、文本摘录和模型示意图
 ├── archive_unused/                # 旧实验、非当前主线数据与可复现输出快照
 └── AGENTS.md                      # 项目研究口径和协作约定
@@ -85,6 +85,7 @@ $$
 - 主论文 PDF：[`latex/flatten_curve_analysis_cn.pdf`](latex/flatten_curve_analysis_cn.pdf)
 - 正式复现入口：[`reproducibility/run_all.ps1`](reproducibility/run_all.ps1)
 - 联合控制来源与运行说明：[`joint_control/README.md`](joint_control/README.md)
+- 新增联合计算与核查：[`reproducibility/joint_extra/README.md`](reproducibility/joint_extra/README.md)
 - 西安比较主程序：[`xian_control_comparison/xian_control_comparison.py`](xian_control_comparison/xian_control_comparison.py)
 - 情景一完整图谱入口：[`scenario1_threshold_landscape/run_all.m`](scenario1_threshold_landscape/run_all.m)
 - 拐点数值校验：[`scenario1_inflection/verify_anchors.py`](scenario1_inflection/verify_anchors.py)
@@ -130,7 +131,7 @@ LaTeX 宏包和相应中英文字体。主稿使用 `biblatex` 管理参考文�
 powershell -NoProfile -ExecutionPolicy Bypass -File reproducibility\run_all.ps1
 ```
 
-默认创建新的运行目录并独立运行两次。科学结果对账、文案核查及实际页面检查完成后才能另行发布；入口不自动覆盖正式稿。冻结底稿的完整文案生成尚未认证能恢复全部最新人工修订，不能将其输出直接覆盖当前正文。
+默认创建新的运行目录并独立运行两次，使用同轮上游；入口不自动覆盖正式稿。新增联合内容的局部模式为 `-Scope joint-extra`，明确继承指定已验收旧参照和旧图，不调用MATLAB或重新拟合。整合版由批准的 `manuscript_versions/current.json` 生成，不从冻结整稿或AI整稿覆盖最新人工修订；未批准稿源时拒绝回退。分阶段后处理、实际运行选择及发布流程见 [复现说明](reproducibility/README.md)，失败旧编号不改写成成功运行。
 
 ### 历史西安控制策略比较（可能覆盖旧输出）
 
@@ -187,7 +188,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File latex\build_paper.ps1
 联合控制表示及候选比较、数值验证、西安数据应用、规模不变性与有效人口条件比较。比较 TDINN控制、情景一阈值控制和
 常规控制时，结论均依赖于参数范围、有效人口、外生感染人数上限、成本权重和采用的效果指标。
 
-第9节的应用情景固定全市拟合得到的同一个绝对初值 $I_0$，取 $S_0=N-I_0$；固定归一化初值下的精确规模不变性是另一个理论前提。应用集合归属以实际成本、时长及严格触发条件判断，图13采用参考人口 $N_{\rm ref}=13{,}163{,}000$ 下的比例直线作近似展示。现有人口求根值只作候选界值，连续允许区间与图13案例标记的数据绑定仍待核查，不能由参考直线或单个数值根认证整个允许区域。
+第9节的应用情景固定全市拟合得到的同一个绝对初值 $I_0$，取 $S_0=N-I_0$；固定归一化初值下的精确规模不变性是另一个理论前提。应用集合归属以实际成本、时长及严格触发条件判断；`fig:dom`（整合前图13）采用参考人口 $N_{\rm ref}=13{,}163{,}000$ 下的比例直线作近似展示。人口求根值仍是候选界值，连续允许区间和案例标记绑定待核查，不由参考直线或单个数值根认证整个区域。
 
 论文保留当前结果、必要的数值精度证据和科学局限；旧新程序对账、旧容差及历史初值放在 [复现审计说明](reproducibility/manuscript_audit_notes.md)。S2 的 TDINN 清零累计加严容差差异不等于整张补充表已经逐项收敛。
 
@@ -199,7 +200,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File latex\build_paper.ps1
 
 - `真实数据/` 只保留当前主线使用的西安原始输入；其余五个地区的数据已移至
   `archive_unused/inactive_scope/multicity_raw_data/`，分析代码不应直接覆写原始文件。
-- 正式稿只读取 `latex/figures/` 中的 20 幅图；4 张正文表和 3 张补充表直接保存在各自 TeX 中。
+- 正式稿只读取 `latex/figures/` 中实际引用的图；新增联合图在 `joint_v2/`，原20图保持不变。全部表格直接保存在各自 TeX 中；数量与编号按当前标签及批准稿源清单，不硬编码旧20图/4+3表。
   未引用的图件副本、根目录旧图表及 `latex/table/` 已移入回收站，不再作为并行编辑入口。
   `latex/revision_*` 仍含现用绘图源码及历史核查材料，不能当作无用目录删除。
 - 验收通过后，完整精度派生结果汇集到 `reproducibility/results/<运行版本>/`，对应清单、

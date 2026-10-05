@@ -1,0 +1,681 @@
+{
+  "passed": true,
+  "environments": [
+    {
+      "kind": "proposition",
+      "labels": [
+        "prop:model:positive"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 90,
+      "staged_line": 90,
+      "source_sha256": "316c84ef26dadaf7699cf7ead9c1b5d4354d6d838c6f5764322f997cd9e2879a",
+      "staged_sha256": "316c84ef26dadaf7699cf7ead9c1b5d4354d6d838c6f5764322f997cd9e2879a",
+      "text_identical": true
+    },
+    {
+      "kind": "proof",
+      "labels": [],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 94,
+      "staged_line": 94,
+      "source_sha256": "3e805c07e9a1149c5942140aa6e9ee6500c902c528524a6e4f95ba47a021be48",
+      "staged_sha256": "3e805c07e9a1149c5942140aa6e9ee6500c902c528524a6e4f95ba47a021be48",
+      "text_identical": true
+    },
+    {
+      "kind": "proposition",
+      "labels": [
+        "prop:model:threshold-rationale"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 137,
+      "staged_line": 137,
+      "source_sha256": "9e9ef866b0dd3960e20927f22018bab9aaf382e344a87495731f27a63b6bc9a9",
+      "staged_sha256": "9e9ef866b0dd3960e20927f22018bab9aaf382e344a87495731f27a63b6bc9a9",
+      "text_identical": true
+    },
+    {
+      "kind": "proof",
+      "labels": [],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 151,
+      "staged_line": 151,
+      "source_sha256": "e618563c39f8b94541e483b0c4fc61771509d151af7a3c9d98fbfefefbc048a7",
+      "staged_sha256": "e618563c39f8b94541e483b0c4fc61771509d151af7a3c9d98fbfefefbc048a7",
+      "text_identical": true
+    },
+    {
+      "kind": "theorem",
+      "labels": [
+        "thm:s1:start",
+        "thm:s1:trigger",
+        "eq:s1:lambert-argument",
+        "eq:s1:Sstar-lambert",
+        "eq:s1:t1"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 225,
+      "staged_line": 225,
+      "source_sha256": "0f9bcf31330623388333c64f348a2dbd5b623799245965ad73a2858863988759",
+      "staged_sha256": "0f9bcf31330623388333c64f348a2dbd5b623799245965ad73a2858863988759",
+      "text_identical": true
+    },
+    {
+      "kind": "proof",
+      "labels": [],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 245,
+      "staged_line": 245,
+      "source_sha256": "b3fd759922c3f227021f9e02f6db020fa429558b8a091631803ccd012c047eef",
+      "staged_sha256": "b3fd759922c3f227021f9e02f6db020fa429558b8a091631803ccd012c047eef",
+      "text_identical": true
+    },
+    {
+      "kind": "theorem",
+      "labels": [
+        "thm:s1:qc-structure",
+        "thm:s1:platform",
+        "eq:s1:q-control",
+        "eq:s1:S-analytic",
+        "eq:s1:t2",
+        "eq:s1:q-piecewise"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 262,
+      "staged_line": 262,
+      "source_sha256": "469c69653d58f1c5d86f405ef794943a29b05e98ccea7073b53429af0e4c4cf6",
+      "staged_sha256": "469c69653d58f1c5d86f405ef794943a29b05e98ccea7073b53429af0e4c4cf6",
+      "text_identical": true
+    },
+    {
+      "kind": "proof",
+      "labels": [],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 289,
+      "staged_line": 289,
+      "source_sha256": "390b8d1147b09e8eb4017b41b150449557f5357ae733146f6801847884446213",
+      "staged_sha256": "390b8d1147b09e8eb4017b41b150449557f5357ae733146f6801847884446213",
+      "text_identical": true
+    },
+    {
+      "kind": "corollaryn",
+      "labels": [
+        "cor:s1:qc-structure",
+        "eq:s1:qmax"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 299,
+      "staged_line": 299,
+      "source_sha256": "7664016094aded3e092374d34f37fc93c8927b44b91b49582df2d3351e7dec4b",
+      "staged_sha256": "7664016094aded3e092374d34f37fc93c8927b44b91b49582df2d3351e7dec4b",
+      "text_identical": true
+    },
+    {
+      "kind": "proof",
+      "labels": [
+        "eq:s1:qprime"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 314,
+      "staged_line": 314,
+      "source_sha256": "98b3f53eed61d545afede201b458f6542c42e74890294d7403b1de5e9c296d14",
+      "staged_sha256": "98b3f53eed61d545afede201b458f6542c42e74890294d7403b1de5e9c296d14",
+      "text_identical": true
+    },
+    {
+      "kind": "theorem",
+      "labels": [
+        "thm:s1:tend",
+        "thm:s1:post",
+        "eq:s1:Sinfty",
+        "eq:s1:Send",
+        "eq:s1:tend"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 349,
+      "staged_line": 349,
+      "source_sha256": "98bc1b9dee027ed172e77efd27f64223249570efe6045ac0561f7872265e9180",
+      "staged_sha256": "98bc1b9dee027ed172e77efd27f64223249570efe6045ac0561f7872265e9180",
+      "text_identical": true
+    },
+    {
+      "kind": "proof",
+      "labels": [
+        "eq:s1:post-orbit"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 368,
+      "staged_line": 368,
+      "source_sha256": "daaa919c0dc526557241df1951fd36a9df9be41a016682e3d75bcf05af1adf66",
+      "staged_sha256": "daaa919c0dc526557241df1951fd36a9df9be41a016682e3d75bcf05af1adf66",
+      "text_identical": true
+    },
+    {
+      "kind": "theorem",
+      "labels": [
+        "thm:s1:Itcum",
+        "eq:s1:cumulative"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 391,
+      "staged_line": 391,
+      "source_sha256": "4c7062619a3995fa2c379fa35c156e0898c7875dc1f1fd4857c0de26f5cd1429",
+      "staged_sha256": "4c7062619a3995fa2c379fa35c156e0898c7875dc1f1fd4857c0de26f5cd1429",
+      "text_identical": true
+    },
+    {
+      "kind": "proof",
+      "labels": [],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 403,
+      "staged_line": 403,
+      "source_sha256": "e4cfeda60ef54ef33241e96dbe352a40854b62d293bd29e6a6bd8135a3bf6258",
+      "staged_sha256": "e4cfeda60ef54ef33241e96dbe352a40854b62d293bd29e6a6bd8135a3bf6258",
+      "text_identical": true
+    },
+    {
+      "kind": "lemma",
+      "labels": [
+        "lem:s1:Sstar-sensitivity",
+        "eq:s1:Sstar-signs"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 450,
+      "staged_line": 450,
+      "source_sha256": "fd79c45da458d465d6d64298424be1031303d89ad23e0c0aaf6a62241c89a6b3",
+      "staged_sha256": "fd79c45da458d465d6d64298424be1031303d89ad23e0c0aaf6a62241c89a6b3",
+      "text_identical": true
+    },
+    {
+      "kind": "proof",
+      "labels": [
+        "eq:s1:Sstar-eta-sign",
+        "eq:s1:Sstar-beta-sign",
+        "eq:s1:Sstar-q0-sign"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 461,
+      "staged_line": 461,
+      "source_sha256": "82e8496b75fb48004447dadaf32df692eb95110eebdb0909471dda2407621943",
+      "staged_sha256": "82e8496b75fb48004447dadaf32df692eb95110eebdb0909471dda2407621943",
+      "text_identical": true
+    },
+    {
+      "kind": "proposition",
+      "labels": [
+        "prop:threshold-tradeoff",
+        "prop:s1:sensitivity",
+        "eq:threshold-tradeoff"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 506,
+      "staged_line": 506,
+      "source_sha256": "0eaa731b7ab3ecca5136cb4332e8a865e22f7ba2732105d85ce63ecc6fef44d1",
+      "staged_sha256": "0eaa731b7ab3ecca5136cb4332e8a865e22f7ba2732105d85ce63ecc6fef44d1",
+      "text_identical": true
+    },
+    {
+      "kind": "proof",
+      "labels": [
+        "eq:cost:state",
+        "eq:cumulative-eta"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 519,
+      "staged_line": 519,
+      "source_sha256": "c50cb3bc57745ad44de42d004a1e982a11c4e486da65076422d045c8d742ae89",
+      "staged_sha256": "c50cb3bc57745ad44de42d004a1e982a11c4e486da65076422d045c8d742ae89",
+      "text_identical": true
+    },
+    {
+      "kind": "proposition",
+      "labels": [
+        "prop:contact-effects",
+        "cor:s1:duration-sensitivity",
+        "eq:duration-c0"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 581,
+      "staged_line": 581,
+      "source_sha256": "3989fa7ca596c4826ff49fd120acba3b135d8e01fc167f6f2c55b97fb22a0f17",
+      "staged_sha256": "3989fa7ca596c4826ff49fd120acba3b135d8e01fc167f6f2c55b97fb22a0f17",
+      "text_identical": true
+    },
+    {
+      "kind": "proof",
+      "labels": [],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 601,
+      "staged_line": 601,
+      "source_sha256": "3d7174006df3c354524ef18e80f54c72e95b3614ff2f06eb8830ac6ad3df0fcd",
+      "staged_sha256": "3d7174006df3c354524ef18e80f54c72e95b3614ff2f06eb8830ac6ad3df0fcd",
+      "text_identical": true
+    },
+    {
+      "kind": "proposition",
+      "labels": [
+        "prop:scaling"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 645,
+      "staged_line": 645,
+      "source_sha256": "04688b3353429bf232b0428bf3efc569b390bca7143239d942b2d5b6fa5cfc0a",
+      "staged_sha256": "04688b3353429bf232b0428bf3efc569b390bca7143239d942b2d5b6fa5cfc0a",
+      "text_identical": true
+    },
+    {
+      "kind": "proof",
+      "labels": [
+        "eq:dom:Jtheta"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 649,
+      "staged_line": 649,
+      "source_sha256": "8fdef197ea89af6ddbec26bf784fd6375c170cfe4a69645d8e5d94ab5719da2f",
+      "staged_sha256": "8fdef197ea89af6ddbec26bf784fd6375c170cfe4a69645d8e5d94ab5719da2f",
+      "text_identical": true
+    },
+    {
+      "kind": "theorem",
+      "labels": [
+        "thm:s1:inflection",
+        "eq:s1:inflection-condition",
+        "eq:s1:inflection-values"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 710,
+      "staged_line": 710,
+      "source_sha256": "6e129945a92f9a62656f2bf37e89b3d871e795d51363741a0d346630dcec5337",
+      "staged_sha256": "6e129945a92f9a62656f2bf37e89b3d871e795d51363741a0d346630dcec5337",
+      "text_identical": true
+    },
+    {
+      "kind": "proof",
+      "labels": [
+        "eq:s1:qsecond"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 727,
+      "staged_line": 727,
+      "source_sha256": "2e3dd760780fd08aa69e4497c2d719555e8cad124c2df717ae1f0bf0b3f273bf",
+      "staged_sha256": "2e3dd760780fd08aa69e4497c2d719555e8cad124c2df717ae1f0bf0b3f273bf",
+      "text_identical": true
+    },
+    {
+      "kind": "proposition",
+      "labels": [
+        "prop:s1:lambda-sensitivity",
+        "eq:s1:lambda-q0-stationary"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 757,
+      "staged_line": 757,
+      "source_sha256": "974ce8f68f16324943d6278fa4603d9717b0dcbfe6e1fe2d72da119a68209da8",
+      "staged_sha256": "974ce8f68f16324943d6278fa4603d9717b0dcbfe6e1fe2d72da119a68209da8",
+      "text_identical": true
+    },
+    {
+      "kind": "proof",
+      "labels": [
+        "eq:lambda-q0-sign"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 773,
+      "staged_line": 773,
+      "source_sha256": "9fc38ba4214456c5094b09eea73888a6cab343066a396d874a967d8b17ef8936",
+      "staged_sha256": "9fc38ba4214456c5094b09eea73888a6cab343066a396d874a967d8b17ef8936",
+      "text_identical": true
+    },
+    {
+      "kind": "theorem",
+      "labels": [
+        "thm:joint:representation",
+        "eq:joint:contact-range",
+        "eq:joint:q",
+        "eq:joint:time",
+        "eq:joint:duration"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 880,
+      "staged_line": 880,
+      "source_sha256": "84b6a178336d20011d0830d15876ee1c1b1f82dcdeda2ca91e79aad18136c106",
+      "staged_sha256": "84b6a178336d20011d0830d15876ee1c1b1f82dcdeda2ca91e79aad18136c106",
+      "text_identical": true
+    },
+    {
+      "kind": "proof",
+      "labels": [
+        "eq:joint:balance",
+        "eq:joint:Sdot"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 902,
+      "staged_line": 902,
+      "source_sha256": "8d002d1336c173a55f42a1db2474927cbb3a19e47dc342b12fe9fd8b2dbe3072",
+      "staged_sha256": "8d002d1336c173a55f42a1db2474927cbb3a19e47dc342b12fe9fd8b2dbe3072",
+      "text_identical": true
+    },
+    {
+      "kind": "corollaryn",
+      "labels": [
+        "cor:joint:feasibility",
+        "eq:joint:feasibility"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 937,
+      "staged_line": 937,
+      "source_sha256": "db6f7acb7966c8823091fe318579c5db211cf85d4747b8b53ea51b0aa2bfed33",
+      "staged_sha256": "db6f7acb7966c8823091fe318579c5db211cf85d4747b8b53ea51b0aa2bfed33",
+      "text_identical": true
+    },
+    {
+      "kind": "proof",
+      "labels": [],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 949,
+      "staged_line": 949,
+      "source_sha256": "619b4c1acd08ebb36995787d888448e2981bc978a088f8327474db4ec43e50d7",
+      "staged_sha256": "619b4c1acd08ebb36995787d888448e2981bc978a088f8327474db4ec43e50d7",
+      "text_identical": true
+    },
+    {
+      "kind": "theorem",
+      "labels": [
+        "thm:joint:explicit",
+        "eq:joint:explicit-S",
+        "eq:joint:explicit-duration",
+        "eq:joint:explicit-zero"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 972,
+      "staged_line": 972,
+      "source_sha256": "fce9931f35cc13a15de8be1a1e689a12a61f63c78f2f4aa33669f0c8ea2b8d05",
+      "staged_sha256": "fce9931f35cc13a15de8be1a1e689a12a61f63c78f2f4aa33669f0c8ea2b8d05",
+      "text_identical": true
+    },
+    {
+      "kind": "proof",
+      "labels": [],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 996,
+      "staged_line": 996,
+      "source_sha256": "150537708eda0cb4337bfa41d5b48190978f57918e22e01799e1848d40a8fd87",
+      "staged_sha256": "150537708eda0cb4337bfa41d5b48190978f57918e22e01799e1848d40a8fd87",
+      "text_identical": true
+    },
+    {
+      "kind": "corollaryn",
+      "labels": [
+        "cor:joint:allocation-range",
+        "eq:joint:allocation-range"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 1012,
+      "staged_line": 1012,
+      "source_sha256": "931e69f19579adf6eca5c134c18dc39dce75f337b1ee9633745c4136e49a8a5a",
+      "staged_sha256": "931e69f19579adf6eca5c134c18dc39dce75f337b1ee9633745c4136e49a8a5a",
+      "text_identical": true
+    },
+    {
+      "kind": "proof",
+      "labels": [],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 1023,
+      "staged_line": 1023,
+      "source_sha256": "31130400bac242836c7f322db7d8b27b894bfde365064cb5c9f80029e14259a3",
+      "staged_sha256": "31130400bac242836c7f322db7d8b27b894bfde365064cb5c9f80029e14259a3",
+      "text_identical": true
+    },
+    {
+      "kind": "theorem",
+      "labels": [
+        "thm:joint:comparison",
+        "eq:joint:duration-bounds",
+        "eq:joint:cumulative",
+        "eq:joint:quarantine"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 1032,
+      "staged_line": 1032,
+      "source_sha256": "4a0d67356cdbbf682c997d0363720529f12deabdb72c751067c44f3feb7f88b1",
+      "staged_sha256": "4a0d67356cdbbf682c997d0363720529f12deabdb72c751067c44f3feb7f88b1",
+      "text_identical": true
+    },
+    {
+      "kind": "proof",
+      "labels": [],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 1055,
+      "staged_line": 1055,
+      "source_sha256": "5a3c3557a4f90d63e7463a5bc7e9afa7a6083a77e7819277f458bc4e1ec4c551",
+      "staged_sha256": "5a3c3557a4f90d63e7463a5bc7e9afa7a6083a77e7819277f458bc4e1ec4c551",
+      "text_identical": true
+    },
+    {
+      "kind": "corollaryn",
+      "labels": [
+        "cor:joint:capped-comparison",
+        "eq:joint:capped-duration"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 1078,
+      "staged_line": 1078,
+      "source_sha256": "ea132e6760fa7cec5390846a96d9517f0e7f1c936a3521be398aa8ef008e6c85",
+      "staged_sha256": "ea132e6760fa7cec5390846a96d9517f0e7f1c936a3521be398aa8ef008e6c85",
+      "text_identical": true
+    },
+    {
+      "kind": "proof",
+      "labels": [],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 1087,
+      "staged_line": 1087,
+      "source_sha256": "5a03b9727379945fa73783f23b7299065d63d16f5b9af3dfb6537447e995436a",
+      "staged_sha256": "5a03b9727379945fa73783f23b7299065d63d16f5b9af3dfb6537447e995436a",
+      "text_identical": true
+    },
+    {
+      "kind": "corollaryn",
+      "labels": [
+        "cor:joint:whole-epidemic",
+        "eq:joint:whole-time",
+        "eq:joint:whole-cumulative"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 1092,
+      "staged_line": 1092,
+      "source_sha256": "40b16ff52b51d371373235ddcc00c8bc6760b68f79ba4c3c6147a5d150a7019e",
+      "staged_sha256": "40b16ff52b51d371373235ddcc00c8bc6760b68f79ba4c3c6147a5d150a7019e",
+      "text_identical": true
+    },
+    {
+      "kind": "proof",
+      "labels": [],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 1104,
+      "staged_line": 1104,
+      "source_sha256": "f21aa19d816980825fc4e9e27d40370323aeaaf5252bc381b9e063534602ed5c",
+      "staged_sha256": "f21aa19d816980825fc4e9e27d40370323aeaaf5252bc381b9e063534602ed5c",
+      "text_identical": true
+    },
+    {
+      "kind": "proposition",
+      "labels": [
+        "prop:exit-infection-lower-bound",
+        "eq:exit-infection-lower-bound",
+        "eq:exit-infection-capped"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 1114,
+      "staged_line": 1114,
+      "source_sha256": "f26714621c201fd5e6f30ff217616ad88f4fede1715ce2e5b7ed1475b6f18f81",
+      "staged_sha256": "f26714621c201fd5e6f30ff217616ad88f4fede1715ce2e5b7ed1475b6f18f81",
+      "text_identical": true
+    },
+    {
+      "kind": "proof",
+      "labels": [],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 1128,
+      "staged_line": 1128,
+      "source_sha256": "a1077a5f8ef3c14f82563846fe49aec3ee3d26efbc8039d368ce558809aed91e",
+      "staged_sha256": "a1077a5f8ef3c14f82563846fe49aec3ee3d26efbc8039d368ce558809aed91e",
+      "text_identical": true
+    },
+    {
+      "kind": "theorem",
+      "labels": [
+        "thm:joint:cost-minimum",
+        "eq:joint:minimum-cost",
+        "eq:joint:stationary"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 1156,
+      "staged_line": 1156,
+      "source_sha256": "79dfa8ac955d66a4d06df7ae32480c47df39049891b693b63140c4a77163cd66",
+      "staged_sha256": "79dfa8ac955d66a4d06df7ae32480c47df39049891b693b63140c4a77163cd66",
+      "text_identical": true
+    },
+    {
+      "kind": "proof",
+      "labels": [],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 1178,
+      "staged_line": 1178,
+      "source_sha256": "62bed5556bc6178e5631623e0f979524346d8c734ae1c39592da485ea92b0d74",
+      "staged_sha256": "62bed5556bc6178e5631623e0f979524346d8c734ae1c39592da485ea92b0d74",
+      "text_identical": true
+    },
+    {
+      "kind": "proposition",
+      "labels": [
+        "prop:joint:minimum-threshold"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 1219,
+      "staged_line": 1219,
+      "source_sha256": "12e82c59fb939721897e5032e114d1873fdf404d77673d21937e86a7bf1d4641",
+      "staged_sha256": "12e82c59fb939721897e5032e114d1873fdf404d77673d21937e86a7bf1d4641",
+      "text_identical": true
+    },
+    {
+      "kind": "proof",
+      "labels": [
+        "eq:joint:mincost-eta"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 1225,
+      "staged_line": 1225,
+      "source_sha256": "f22b82def2ce50a8108facbd3e80c4b7392504d72107908cfdff2f139806de9e",
+      "staged_sha256": "f22b82def2ce50a8108facbd3e80c4b7392504d72107908cfdff2f139806de9e",
+      "text_identical": true
+    },
+    {
+      "kind": "proposition",
+      "labels": [
+        "prop:joint:terminal-allocation",
+        "eq:joint:terminal-interior",
+        "eq:joint:terminal-ratio"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 1244,
+      "staged_line": 1244,
+      "source_sha256": "b9bff2955d90158d3a599980f96554f5f351984688c264d6019622fd47acd886",
+      "staged_sha256": "b9bff2955d90158d3a599980f96554f5f351984688c264d6019622fd47acd886",
+      "text_identical": true
+    },
+    {
+      "kind": "proof",
+      "labels": [],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 1264,
+      "staged_line": 1264,
+      "source_sha256": "ad037a44207d8f38f33f6a084830c7e6c71218855b0aa749825c649ca2553104",
+      "staged_sha256": "ad037a44207d8f38f33f6a084830c7e6c71218855b0aa749825c649ca2553104",
+      "text_identical": true
+    },
+    {
+      "kind": "proposition",
+      "labels": [
+        "prop:joint:global-structure"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 1291,
+      "staged_line": 1291,
+      "source_sha256": "70149349e9dfab13b8275af0789e8a319c3fd1438abecb44df94b43a30b8ba2a",
+      "staged_sha256": "70149349e9dfab13b8275af0789e8a319c3fd1438abecb44df94b43a30b8ba2a",
+      "text_identical": true
+    },
+    {
+      "kind": "proof",
+      "labels": [],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 1297,
+      "staged_line": 1297,
+      "source_sha256": "8ec21c799af0e661648c5f085280ee13987c4f35a32096bb42e74a882557fa67",
+      "staged_sha256": "8ec21c799af0e661648c5f085280ee13987c4f35a32096bb42e74a882557fa67",
+      "text_identical": true
+    },
+    {
+      "kind": "remarkn",
+      "labels": [
+        "rem:joint:duration-constraint"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 1317,
+      "staged_line": 1317,
+      "source_sha256": "fa230c0cc44a069405fefa7f0a2be9e20d7933a821827247ac6667aef6e9d918",
+      "staged_sha256": "fa230c0cc44a069405fefa7f0a2be9e20d7933a821827247ac6667aef6e9d918",
+      "text_identical": true
+    },
+    {
+      "kind": "proposition",
+      "labels": [
+        "prop:dom:floor",
+        "eq:dom:Nfloor"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 1721,
+      "staged_line": 1721,
+      "source_sha256": "f7bc94fdcf732b7b6728d33d93bc0800d55f903382c814ff734e03fd4390ba75",
+      "staged_sha256": "f7bc94fdcf732b7b6728d33d93bc0800d55f903382c814ff734e03fd4390ba75",
+      "text_identical": true
+    },
+    {
+      "kind": "proof",
+      "labels": [],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 1730,
+      "staged_line": 1730,
+      "source_sha256": "9d1e3896f9a017d9ec30282d74d1345b6661d44fb950206275a2a71eafe41e76",
+      "staged_sha256": "9d1e3896f9a017d9ec30282d74d1345b6661d44fb950206275a2a71eafe41e76",
+      "text_identical": true
+    },
+    {
+      "kind": "proposition",
+      "labels": [
+        "prop:reference-population"
+      ],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 2145,
+      "staged_line": 2145,
+      "source_sha256": "fbfaa5a6a39af5da658f627bc2f30b7ba6fd82b8ae4fc3ae408a7b83bd8e06c8",
+      "staged_sha256": "fbfaa5a6a39af5da658f627bc2f30b7ba6fd82b8ae4fc3ae408a7b83bd8e06c8",
+      "text_identical": true
+    },
+    {
+      "kind": "proof",
+      "labels": [],
+      "source": "reproducibility/manuscript_versions/20261004_joint_integration/flatten_curve_analysis_cn.tex",
+      "source_line": 2149,
+      "staged_line": 2149,
+      "source_sha256": "241a7ff5a9a00655aa760e6cb72f2772cb723a498aa0e7fc41ac43e53d210f43",
+      "staged_sha256": "241a7ff5a9a00655aa760e6cb72f2772cb723a498aa0e7fc41ac43e53d210f43",
+      "text_identical": true
+    }
+  ],
+  "approved_manuscript_version": "20261004_joint_integration",
+  "mathematical_proof_certification": false,
+  "scope": "与明确批准版本逐环境核对，新增命题须先经局部审阅纳入受控来源；文本保护不宣称独立证明认证。数值同步不得改写证明。"
+}

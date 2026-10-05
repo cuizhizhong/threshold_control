@@ -1,0 +1,23 @@
+test_bad_inputs (__main__.CandidateTests.test_bad_inputs) ... ok
+test_beta_one_is_probability_endpoint (__main__.CandidateTests.test_beta_one_is_probability_endpoint) ... ok
+test_capacity_edges (__main__.CandidateTests.test_capacity_edges) ... ok
+test_capacity_equality_two_cases_openloop (__main__.CandidateTests.test_capacity_equality_two_cases_openloop) ... ok
+test_coordinate_cross_check (__main__.CandidateTests.test_coordinate_cross_check) ... ok
+test_default_j_and_time_small_grid (__main__.CandidateTests.test_default_j_and_time_small_grid) ... ok
+test_explicit_endpoint_and_alpha (__main__.CandidateTests.test_explicit_endpoint_and_alpha) ... ok
+test_gauss_orders_default_and_kappa_jump (__main__.CandidateTests.test_gauss_orders_default_and_kappa_jump) ... ok
+test_inputs_and_defaults (__main__.CandidateTests.test_inputs_and_defaults) ... ok
+test_json_missing_is_null (__main__.CandidateTests.test_json_missing_is_null) ... ok
+test_kappa_changes_stationary_equation (__main__.CandidateTests.test_kappa_changes_stationary_equation) ... ok
+test_kappa_jump_is_time_segmented (__main__.CandidateTests.test_kappa_jump_is_time_segmented) ... ok
+test_near_exit_independent_share (__main__.CandidateTests.test_near_exit_independent_share) ... ok
+test_openloop_and_peak_baseline (__main__.CandidateTests.test_openloop_and_peak_baseline) ... ok
+test_phase_switch_refinement_sample (__main__.CandidateTests.test_phase_switch_refinement_sample) ... ok
+test_previous_D_fraction_failure_at_exact_switch (__main__.CandidateTests.test_previous_D_fraction_failure_at_exact_switch) ... ok
+test_xian_capacity_minimum_quadrature_and_openloop (__main__.CandidateTests.test_xian_capacity_minimum_quadrature_and_openloop) ... ok
+test_xian_contact_analytic_clock_regression (__main__.CandidateTests.test_xian_contact_analytic_clock_regression) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 26.270s
+
+OK

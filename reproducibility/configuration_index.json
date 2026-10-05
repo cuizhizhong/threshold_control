@@ -8,7 +8,8 @@
     "fixed": "模型参数、给定TDINN函数系数、成本权重、设计阈值/扫描规则、原始观测",
     "fitted": "本轮全市I0和20k诊断I0",
     "derived": "S0、TDINN经验参照、切换时刻、人口边界、极值、名义时间开环表",
-    "optional_historical_comparison": "仅old→new说明；缺失旧值为null/unknown，不影响新科学结果"
+    "optional_historical_comparison": "仅old→new说明；缺失旧值为null/unknown，不影响新科学结果",
+    "accepted_reference_for_joint_extra": "新增联合算例按明确任务约定继承已验收全市I0及参照，记录文件哈希；不是新拟合或整稿复跑"
   },
   "raw_inputs": [
     {
@@ -92,6 +93,23 @@
       "profiles": ["contact_only", "alpha_0.5", "quarantine_only", "minimum_cost"],
       "capability_constraints": "仅基本可行区间；未增加c_min或q_cap限制",
       "outputs": ["joint/results.json:parameters", "joint/results.csv", "joint/openloop_check.json"]
+    },
+    "joint_extra": {
+      "class": "fixed_and_accepted_reference",
+      "authority": ["joint_control/threshold_control_reproducible_release_20261002/numerics/inputs/baseline_parameters.json:parameters", "reproducibility/results/20261003_release_final/xian/reference.json"],
+      "reader": "reproducibility/joint_extra/run.py:run",
+      "acceptance_authority": "reproducibility/joint_extra/acceptance.json",
+      "accepted_science_version": "joint-extra-20261004-v4-geometry-branch-repair",
+      "profiles": ["contact_only", "alpha_0.5", "quarantine_only", "minimum_cost"],
+      "default_weights": {"wc": 1.0, "wq": 2.0},
+      "capacity_points": {"baseline": {"c_min_over_c0": 0.5, "q_cap": 0.6}, "xian": {"c_min_over_c0": 0.5, "q_cap": 0.75}},
+      "plot_viewport_post_exit_days": 1.0,
+      "r_range": [0.1, 20.0],
+      "representative_r": [0.5, 1.0, 2.0, 5.0],
+      "counting": "全过程累计新增感染到下降I=1；不加I0；控制期新增Sq=Sq(t2)-Sq(t1)；max(I+Iq)仅在[0,t_end]上",
+      "input_lock": "每轮joint_extra/input_manifest.json；完整上游模式使用同轮xian/reference.json，局部模式继承指定已验收版本",
+      "outputs": ["joint_extra/compare_baseline.csv", "joint_extra/compare_xian.csv", "joint_extra/capacity.json", "joint_extra/phase_baseline.npz", "joint_extra/phase_xian.npz", "joint_extra/frontier_baseline.csv", "joint_extra/candidate_checks_D_checkpoint.json", "joint_extra/validation.json", "joint_extra/convergence.json"],
+      "scope": "A-D为有限算例/扫描及数值门槛，不认证候选根完备性、完整效率前沿或一般唯一性"
     },
     "cost_and_counting": {
       "authorities": ["reproducibility/xian.py:rhs/structural", "scenario1_threshold_landscape/common/compute_metrics.m", "reproducibility/joint.py:_openloop"],
@@ -205,6 +223,16 @@
       "per_phase_trace_samples": 301,
       "outputs": ["joint/results.json", "joint/root_diagnostics.json", "joint/openloop_check.json"]
     },
+    "joint_extra_integral_and_openloop": {
+      "authorities": ["reproducibility/joint_extra/core.py", "reproducibility/joint_extra/run.py", "reproducibility/joint_extra/validation.py", "reproducibility/joint_extra/acceptance.json"],
+      "version": "joint-extra-20261004-v4-geometry-branch-repair",
+      "locked_configuration": "本项只索引；逐项完整设置及门槛由acceptance.json与运行input_manifest记录",
+      "quadrature": {"gauss_orders": [4, 8, 16], "method": "显式逐PCHIP区间及能力折点求积", "estimate_rigorous": false},
+      "nominal": {"fine_rtol": 5e-14, "fine_atol": 1e-16, "tight_rtol": 2.3e-14, "tight_atol": 2e-17, "step_divisor": 1000, "analytic_endpoints": true, "explicit_capacity_kinks": true},
+      "full_ode": {"method": "DOP853，12状态归一化仓室及计数/成本", "fine_rtol": 2e-12, "fine_max_step": 0.2, "tight_rtol": 2e-13, "tight_atol_multiplier": 0.1, "tight_max_step": 0.1, "atol_source": "acceptance.json:ode.fine_atol"},
+      "settings": {"state_nodes": 8001, "refined_state_nodes": 16001, "frontier_state_nodes": 4001, "frontier_refined_state_nodes": 8001, "phase_state_nodes": 1201, "phase_weight_nodes": 161, "independent_grid_nodes": 4001, "phase_capacity_nodes": 600},
+      "evidence": "run_5/run_6分别实际A-D通过；前两批失败原样保留；后续共同版本双跑比较和出版验收另记"
+    },
     "independent_checks": {
       "authorities": ["reproducibility/figures.py:verify_baseline_ode", "reproducibility/checks.py:trajectory/run"],
       "baseline_ode_levels": [{"rtol": 1e-9, "atol": 1e-10}, {"rtol": 2e-11, "atol": 2e-12}],
@@ -314,15 +342,17 @@
   "derived_result_rules": {
     "authoritative_initial": "每次xian/fit.json:I0 → xian/reference.json:I0_abs → population与c0及图件reader，不硬编码旧值",
     "tdinn_reference": "xian/reference.json中四项及累计分项，绑定同轮重新拟合与统一积分；不随反事实N、beta或c0重新拟合",
-    "configuration_snapshot": "xian/reference.json:parameters、c0/parameters.json、joint/results.json:parameters是运行记录，不是下一次默认输入",
+    "configuration_snapshot": "原整稿入口的reference/parameters仍为同轮派生记录；新增joint_extra局部入口按批准任务将锁定的20261003全市reference作为明确继承输入，不隐式回退",
     "time_openloop": "仅隔离的S_th(t)和联合控制的名义PCHIP时间表在完整ODE前计算，不能改成实时状态反馈",
     "storage": "本轮CSV使用17位浮点往返；NPZ存网格数组；论文通过paper_sync取整，不回写计算"
   },
   "provenance_and_delivery": {
-    "source_hashes": ["source_manifest.json", "validation/source_integrity_initial.json", "validation/source_integrity.json"],
+    "source_hashes": ["source_manifest.json", "validation/source_integrity_initial.json", "validation/source_integrity.json", "joint_extra/input_manifest.json:calculation_source_hashes", "postprocessing_manifest.json"],
+    "postprocessing": "postprocess_joint_extra.py首次承接本运行已完成joint_extra；科学期hash来自原input_manifest，出版完整源码在后处理开始时另行锁定；不重算，不覆盖，不改科学文件",
+    "accepted_run_selection": "accepted_runs.json明确选择两个不同且机器验收通过的实际运行；锁定报告哈希、共同源码/稿源/输入；compare/publish/collection不默认采用失败旧编号",
     "environment": "environment.json",
     "optional_old_new": "paper_anchor_updates.json:historical_inputs/old_sources_sha256/records/old_status",
-    "paper_sync": "manuscript_changes.json:input_sha256/changes/numerical_cells",
+    "paper_sync": "活动版本由manuscript_versions/current.json和对应manifest锁定；manuscript_changes.json区分继承旧科学证据与本轮新增片段；完整生成禁止回退人工修订",
     "manuscript": ["manuscript/staged.tex", "manuscript/staged_supplement.tex"],
     "build": "document/build_report.json",
     "evidence_boundary": "本索引是当前源码静态追溯；不是新增数值重算、数学认证或完整重复性通过标识。"

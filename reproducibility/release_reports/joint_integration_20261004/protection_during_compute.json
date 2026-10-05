@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "failures": [],
+  "protected_file_count": 595,
+  "original_figure_count": 20,
+  "original_table_count": 7,
+  "original_math_blocks": {
+    "equation": {
+      "before": 90,
+      "after": 91,
+      "original_blocks_preserved": true
+    },
+    "align": {
+      "before": 7,
+      "after": 7,
+      "original_blocks_preserved": true
+    },
+    "proof": {
+      "before": 26,
+      "after": 27,
+      "original_blocks_preserved": true
+    }
+  },
+  "section9_unchanged": true,
+  "scientific_rerun": false
+}

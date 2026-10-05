@@ -9,6 +9,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from bootstrap import ROOT, dump, sha
 from compare_runs import compare
 from publish_verified import publish, read
+from manuscript_version import expected_figures, report_directory
+from run_selection import selected_directories, SELECTION_FILE
 
 
 def require_hash(path: Path, expected: str) -> dict:
@@ -32,8 +34,20 @@ def check_artifacts(run: Path) -> list[dict]:
         records.append(require_hash(run / "document/latex" / Path(item["source"]).name, item["sha256"]))
     for name in ("references.bib", "elegantpaper.cls"):
         records.append(require_hash(run / "document/latex" / name, initial["source_input_hashes"]["latex/" + name]))
+    ledger = run/'postprocessing_manifest.json'
+    if ledger.is_file():
+        snapshot = read(ledger)['calculation_phase']['scientific_results_sha256']
+        science = run/'joint_extra'
+        if set(snapshot) != {p.name for p in science.iterdir() if p.is_file()} or any(not p.is_file() or p.is_symlink() for p in science.iterdir()):
+            raise RuntimeError('后处理之后科学输出文件集合发生变化。')
+        for name, expected_hash in snapshot.items():
+            target=(science/name).resolve()
+            if target.parent != science.resolve():
+                raise RuntimeError('后处理科学清单路径异常。')
+            records.append(require_hash(target, expected_hash))
     generated = read(run / "validation/figure_generation.json")
-    if not generated.get("passed") or len(generated["figures"]) != 20:
+    expected=expected_figures(ROOT,(run/'document/latex/flatten_curve_analysis_cn.tex').read_text(encoding='utf-8-sig'))
+    if not generated.get("passed") or len(generated["figures"]) != len(expected):
         raise RuntimeError("图件生成记录不完整")
     seen = set()
     for item in generated["figures"]:
@@ -52,8 +66,8 @@ def check_artifacts(run: Path) -> list[dict]:
 def scientific_artifacts(run: Path) -> list[dict]:
     """发布时绑定未取整结果；汇集阶段不能接受事后变化的 CSV/JSON/NPZ。"""
     files = []
-    for module in ("xian", "population", "c0", "joint", "figure_inputs"):
-        files += [p for p in (run / module).iterdir()
+    for module in ("xian", "population", "c0", "joint", "figure_inputs", "joint_extra"):
+        files += [p for p in (run / module).rglob('*')
                   if p.is_file() and p.suffix in {".csv", ".json", ".npz"}]
     files += list((run / "workspace/scenario1_threshold_landscape/current_run/output_csv").glob("*.csv"))
     return [{"file": p.relative_to(run).as_posix(), "sha256": sha(p)} for p in sorted(files)]
@@ -63,9 +77,16 @@ def main(parent: Path, check_only: bool) -> None:
     parent = parent.resolve()
     if not parent.is_relative_to(ROOT / "reproducibility/runs"):
         raise RuntimeError("发布目录越界")
-    if not read(parent / "repeatability.json").get("passed"):
+    report_dir = report_directory(ROOT,parent)
+    if (report_dir/'publication_manifest.json').exists():
+        # 拒绝发生在任何记录写入和 try/publish 之前，不能把既有成功清单改写成失败。
+        raise RuntimeError('该运行已有发布记录，保持历史记录原样：'+str(report_dir))
+    repeat=read(parent / "repeatability.json")
+    if not repeat.get("passed"):
         raise RuntimeError("原双跑记录未通过，拒绝发布")
-    first, second = parent / "run_1", parent / "run_2"
+    first, second = selected_directories(parent)
+    if repeat.get('run_names') != [first.name,second.name] or repeat.get('run_identity_check',{}).get('passed') is not True:
+        raise RuntimeError('重复性记录不是当前显式选择的同身份两轮。')
     versions = [read(run / "validation/source_integrity_initial.json") for run in (first, second)]
     for key in ("runner_source_hashes", "static_art_assets", "raw_inputs", "source_input_hashes", "frozen_manifest_sha256"):
         if versions[0][key] != versions[1][key]:
@@ -89,15 +110,16 @@ def main(parent: Path, check_only: bool) -> None:
                       ("flatten_curve_supplement_cn", "supplement_contact_pages_viewed")):
         if set(review[key]) != set(range(1, build["documents"][stem]["page_count"] + 1)):
             raise RuntimeError("人工整篇页面核查覆盖不完整")
-    report_dir = ROOT / "reproducibility/release_reports"
-    report_dir.mkdir(exist_ok=True)
+    report_dir.mkdir(parents=True,exist_ok=True)
     comparison = compare(first, second, report_dir / "repeatability_publication_preflight.json")
     if not comparison["passed"]:
         raise RuntimeError("发布前严格重比较未通过")
-    science = {"run_1": scientific_artifacts(first), "run_2": scientific_artifacts(second)}
+    science = {run.name: scientific_artifacts(run) for run in (first,second)}
     dump(report_dir / "artifact_preflight.json", {
         "passed": True, "files": records, "publication_helper_sha256": sha(Path(__file__)),
         "scientific_artifacts": science,
+        "accepted_run_names":[first.name,second.name],
+        "accepted_runs_manifest_sha256":sha(parent/SELECTION_FILE),
         "scientific_runner_changed": False, "manual_pdf_identity_verified": True,
         "all_pages_reviewed": True, "strict_comparison_repeated": True,
         "scope": "发布前实际产物身份核查；独立于科学双跑，不能替代数值和证明审查。"})

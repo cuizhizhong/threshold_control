@@ -325,7 +325,7 @@ class _Editor:
                 self.replace(document, old, new, 'approved-local-table-style', f'table-style-{index}')
 
 
-def prepare_manuscript(root: Path, output_dir: Path):
+def _prepare_legacy_manuscript(root: Path, output_dir: Path):
     root, output_dir = Path(root), Path(output_dir)
     frozen = root / RELEASE
     main = (frozen / 'flatten_curve_analysis_cn.tex').read_text(encoding='utf-8-sig')
@@ -631,3 +631,87 @@ def prepare_manuscript(root: Path, output_dir: Path):
     (destination/'staged_supplement.tex').write_text(edit.documents['supplement'],encoding='utf-8')
     (output_dir/'manuscript_changes.json').write_text(json.dumps(report,ensure_ascii=False,indent=2,allow_nan=False)+'\n',encoding='utf-8')
     return edit.documents['main'], edit.documents['supplement'], report
+
+
+def prepare_manuscript(root: Path, output_dir: Path, *, scientific_reference: Path | None = None,
+                       joint_extra_directory: Path | None = None):
+    """按受控版本生成；旧版本入口保留，但存在活动版本时绝不回退冻结稿。"""
+    from manuscript_version import load_version, version_texts, inventory
+    root, output_dir = Path(root).resolve(), Path(output_dir).resolve()
+    version = load_version(root)
+    if version is None:
+        if scientific_reference is not None or joint_extra_directory is not None:
+            raise RuntimeError('局部联合整合必须先建立受控稿源，不能回退冻结稿')
+        current = root/'latex/flatten_curve_analysis_cn.tex'
+        if current.is_file() and '% BEGIN JOINT_EXTRA:' in current.read_text(encoding='utf-8-sig'):
+            raise RuntimeError('当前主稿已经含新增联合片段，缺少受控版本时不能回退冻结稿')
+        return _prepare_legacy_manuscript(root, output_dir)
+    main, supplement = version_texts(version)
+    extra = Path(joint_extra_directory).resolve() if joint_extra_directory else output_dir / 'joint_extra'
+    if not extra.is_dir():
+        raise FileNotFoundError('新版稿件缺少本轮联合数值：' + str(extra))
+    validation = _json(extra / 'validation.json')
+    if not all(validation.get('tasks',{}).get(task,{}).get('passed') is True for task in version['approved_tasks']):
+        raise RuntimeError('受控稿源所含任务未逐项通过，不发布未核实的图及结论')
+    reference_dir = Path(scientific_reference).resolve() if scientific_reference is not None else output_dir
+    inherited = reference_dir != output_dir
+    if inherited and reference_dir != (root / version['inherited_science_reference']).resolve():
+        raise RuntimeError('继承的旧科学输出不属于受控稿源指定版本')
+    source_records = {}
+    for name in ['xian/reference.json', 'xian/fit.json', 'population/critical.json',
+                 'c0/extrema.json', 'joint/results.json']:
+        path = reference_dir / name
+        if not path.is_file():
+            raise FileNotFoundError('继承/同轮科学依据缺失：' + str(path))
+        source_records[name] = hashlib.sha256(path.read_bytes()).hexdigest()
+    # 旧指标未在本轮重算时只继承记录；完整上游复跑不得悄悄改变仍保留的旧正文。
+    old_science = root / version['inherited_science_reference']
+    science_checks = []
+    if not inherited:
+        from compare_runs import _numbers
+        import math
+        for name in source_records:
+            prior = dict(_numbers(_json(old_science / name)))
+            fresh = dict(_numbers(_json(reference_dir / name)))
+            missing = sorted(set(prior) - set(fresh))
+            different = [key for key in prior.keys() & fresh.keys()
+                         if not math.isclose(prior[key], fresh[key], rel_tol=1e-10, abs_tol=1e-9)]
+            science_checks.append({'file': name, 'passed': not missing and not different,
+                                   'missing_numeric_fields': missing, 'different_numeric_fields': different})
+        if not all(item['passed'] for item in science_checks):
+            raise RuntimeError('新上游与批准旧正文的科学依据不同，须另行成组订正，不静默保留旧数字')
+    from joint_extra.manuscript import build_publication_fragments
+    fragments = build_publication_fragments(extra)
+    changes = []
+    for key, fragment in fragments.items():
+        begin, end = '% BEGIN JOINT_EXTRA:' + key, '% END JOINT_EXTRA:' + key
+        if main.count(begin) != 1 or main.count(end) != 1:
+            raise ValueError('出版片段锚点须唯一：' + key)
+        start, finish = main.index(begin) + len(begin), main.index(end)
+        if finish <= start:
+            raise ValueError('出版片段边界次序错误：' + key)
+        original = main[start:finish]
+        replacement = '\n' + fragment.strip() + '\n'
+        main = main[:start] + replacement + main[finish:]
+        changes.append({'anchor': key, 'document': 'main', 'changed': original != replacement,
+                        'old': original, 'new': replacement, 'source': 'joint_extra.manuscript + current joint_extra outputs'})
+    if inventory(main) != version['inventory']['main'] or inventory(supplement) != version['inventory']['supplement']:
+        raise RuntimeError('文案生成改变了批准的标签、图件路径或表格结构')
+    destination = output_dir / 'manuscript'
+    destination.mkdir(parents=True, exist_ok=True)
+    (destination / 'staged.tex').write_text(main, encoding='utf-8')
+    (destination / 'staged_supplement.tex').write_text(supplement, encoding='utf-8')
+    report = {'schema': 'manuscript-sync-v2', 'passed': True, 'manuscript_version': version['version'],
+              'source_main': str(version['_directory'] / version['documents']['main']['file']),
+              'source_supplement': str(version['_directory'] / version['documents']['supplement']['file']),
+              'source_sha256': {role: item['sha256'] for role, item in version['documents'].items()},
+              'changes': changes, 'numerical_cells': [],
+              'table_counts': {role: len(version['inventory'][role]['tables']) for role in ['main', 'supplement']},
+              'inherited_science': {'used': inherited, 'directory': str(reference_dir), 'sha256': source_records,
+                                    'new_scientific_rerun': not inherited, 'same_version_numeric_checks': science_checks},
+              'joint_extra_directory': str(extra), 'approved_tasks': version['approved_tasks'],
+              'validation_overall_passed': validation.get('passed') is True,
+              'approved_task_checks': {task:validation['tasks'][task] for task in version['approved_tasks']},
+              'evidence_boundary': '新片段来自本轮联合计算；其余正文/旧图/旧科学结果继承批准版本，不将文案回归称整稿科学复跑。'}
+    (output_dir / 'manuscript_changes.json').write_text(json.dumps(report, ensure_ascii=False, indent=2, allow_nan=False) + '\n', encoding='utf-8')
+    return main, supplement, report

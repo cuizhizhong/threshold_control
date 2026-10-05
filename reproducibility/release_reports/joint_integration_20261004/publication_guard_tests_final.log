@@ -1,0 +1,31 @@
+test_acceptance_record_changed_rejected (test_joint_postprocess.PostprocessGuardTests.test_acceptance_record_changed_rejected) ... ok
+test_calculation_code_changed_rejected (test_joint_postprocess.PostprocessGuardTests.test_calculation_code_changed_rejected) ... ok
+test_creation_time_exception_is_schema_and_top_level_only (test_joint_postprocess.PostprocessGuardTests.test_creation_time_exception_is_schema_and_top_level_only) ... ok
+test_existing_postprocess_output_rejected (test_joint_postprocess.PostprocessGuardTests.test_existing_postprocess_output_rejected) ... ok
+test_input_changed_rejected (test_joint_postprocess.PostprocessGuardTests.test_input_changed_rejected) ... ok
+test_missing_artifact_rejected (test_joint_postprocess.PostprocessGuardTests.test_missing_artifact_rejected) ... ok
+test_partial_D_failure_allowed_without_science_mutation (test_joint_postprocess.PostprocessGuardTests.test_partial_D_failure_allowed_without_science_mutation) ... ok
+test_repeated_publication_cannot_overwrite_success_record (test_joint_postprocess.PostprocessGuardTests.test_repeated_publication_cannot_overwrite_success_record) ... ok
+test_running_or_failed_approved_task_rejected (test_joint_postprocess.PostprocessGuardTests.test_running_or_failed_approved_task_rejected) ... ok
+test_duplicate_labels_rejected (test_manuscript_version.VersionGuardTests.test_duplicate_labels_rejected) ... ok
+test_missing_same_run_reference_has_no_fallback (test_manuscript_version.VersionGuardTests.test_missing_same_run_reference_has_no_fallback) ... ok
+test_new_local_manuscript_cannot_fallback_without_version (test_manuscript_version.VersionGuardTests.test_new_local_manuscript_cannot_fallback_without_version) ... ok
+test_no_version_fallback_is_explicit (test_manuscript_version.VersionGuardTests.test_no_version_fallback_is_explicit) ... ok
+test_old_asset_and_sec9_changes_rejected (test_manuscript_version.VersionGuardTests.test_old_asset_and_sec9_changes_rejected) ... ok
+test_partial_publication_preserves_failed_D_record (test_manuscript_version.VersionGuardTests.test_partial_publication_preserves_failed_D_record) ... ok
+test_reference_tamper_rejected (test_manuscript_version.VersionGuardTests.test_reference_tamper_rejected) ... ok
+test_source_tamper_rejected (test_manuscript_version.VersionGuardTests.test_source_tamper_rejected) ... ok
+test_version_and_asset_identity (test_manuscript_version.VersionGuardTests.test_version_and_asset_identity) ... ok
+test_different_parameters_rejected (test_run_selection.RunSelectionTests.test_different_parameters_rejected) ... ok
+test_different_source_identity_rejected (test_run_selection.RunSelectionTests.test_different_source_identity_rejected) ... ok
+test_duplicate_or_out_of_scope_run_rejected (test_run_selection.RunSelectionTests.test_duplicate_or_out_of_scope_run_rejected) ... ok
+test_failed_old_run_cannot_be_selected (test_run_selection.RunSelectionTests.test_failed_old_run_cannot_be_selected) ... ok
+test_missing_selection_has_no_implicit_old_run_fallback (test_run_selection.RunSelectionTests.test_missing_selection_has_no_implicit_old_run_fallback) ... ok
+test_report_changed_after_selection_rejected (test_run_selection.RunSelectionTests.test_report_changed_after_selection_rejected) ... ok
+test_selection_is_one_shot_and_does_not_copy_results (test_run_selection.RunSelectionTests.test_selection_is_one_shot_and_does_not_copy_results) ... ok
+test_true_run_names_selected_and_failed_old_runs_unchanged (test_run_selection.RunSelectionTests.test_true_run_names_selected_and_failed_old_runs_unchanged) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.849s
+
+OK

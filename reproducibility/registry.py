@@ -20,7 +20,11 @@ BASELINE={"N":763,"S0":762,"I0":1,"beta":.155,"gamma":.3504,
 RUNTIME=["reproducibility/run_all.py","reproducibility/run_all.ps1",
          "reproducibility/joint.py","reproducibility/xian.py",
          "reproducibility/population.py","reproducibility/c0.py",
-         "reproducibility/figures.py","reproducibility/matlab_stage.m"]
+         "reproducibility/figures.py","reproducibility/matlab_stage.m",
+         "reproducibility/joint_extra/run.py","reproducibility/joint_extra/core.py",
+         "reproducibility/joint_extra/figures.py","reproducibility/joint_extra/manuscript.py",
+         "reproducibility/manuscript_version.py","reproducibility/postprocess_joint_extra.py",
+         "reproducibility/run_selection.py"]
 FIGURE_SOURCES={
  "fig:model_schematic":("schematic",["reproducibility/assets/SIQR模型示意图_复现修正版.pptx",
      "reproducibility/assets/model_s_to_sq.svg","reproducibility/assets/model_gamma.svg",
@@ -45,6 +49,10 @@ FIGURE_SOURCES={
  "fig:dom:critical-cases":("population",["xian_dom/panels.py","latex/revision_style_restore/restore_figures.py"],{"cases":"由新参照求三类临界有效人口"}),
  "fig:c0-scan":("c0",["c0_sensitivity/run_c0_sensitivity.py"],{"N_eff":20000,"theta":.002}),
  "fig:c0-beta-existence":("c0",["c0_sensitivity/run_c0_sensitivity.py"],{"theta":.002,"q0":.323,"varied":["c0","beta"]}),
+ "fig:joint:compare":("joint_extra",["reproducibility/joint_extra/core.py","reproducibility/joint_extra/run.py","reproducibility/joint_extra/figures.py"],{"task":"A"}),
+ "fig:joint:capacity":("joint_extra",["reproducibility/joint_extra/core.py","reproducibility/joint_extra/run.py","reproducibility/joint_extra/figures.py"],{"task":"B"}),
+ "fig:joint:phase":("joint_extra",["reproducibility/joint_extra/core.py","reproducibility/joint_extra/run.py","reproducibility/joint_extra/figures.py"],{"task":"C"}),
+ "fig:joint:frontier":("joint_extra",["reproducibility/joint_extra/core.py","reproducibility/joint_extra/run.py","reproducibility/joint_extra/figures.py"],{"task":"D"}),
 }
 TABLE_SOURCES={
  "tab:sensitivity":("theory",["scenario1_inflection/inflection_analysis.py","scenario1_inflection/verify_anchors.py"],["命题公式推导符号","数值偏导仅作交叉核对"]),
@@ -54,6 +62,7 @@ TABLE_SOURCES={
  "tab:sup:baseline":("baseline",["scenario1_threshold_landscape/common/compute_metrics.m"],["workspace/scenario1_threshold_landscape/current_run/output_csv/landscape_summary.csv"]),
  "tab:sup:initial":("xian",["真实数据/Xianguankong.xlsx","reproducibility/xian.py"],["xian/S2_difference.json","xian/fit.json","固定 I0=1 的40天窗口结果需另外逐项核对"]),
  "tab:sup:eta":("xian",["reproducibility/xian.py"],["xian/eta_scan.csv"]),
+ "tab:joint:compare":("joint_extra",["reproducibility/joint_extra/core.py","reproducibility/joint_extra/run.py","reproducibility/joint_extra/manuscript.py"],["joint_extra/compare_baseline.csv","joint_extra/compare_xian.csv","joint_extra/validation.json"]),
 }
 NUMBER=re.compile(r"(?<![A-Za-z])[-+]?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?")
 
@@ -113,13 +122,17 @@ def _source_record(root: Path,source: str):
     return {"path":source,"exists":path.is_file(),"sha256":_sha(path)}
 
 
-def _diagnostic(output: Path,family: str):
+def _diagnostic(output: Path,family: str,approved_tasks=None):
     if family in ["baseline","inflection"]:
         data=_load(output/"validation/baseline_science.json")
         return bool(data and data.get("status")=="pass"),"validation/baseline_science.json"
     if family in ["xian","population","c0"]:
         data=_load(output/family/"diagnostics.json")
         return bool(data and data.get("passed")),family+"/diagnostics.json"
+    if family=="joint_extra":
+        data=_load(output/"joint_extra/validation.json")
+        tasks=approved_tasks or ['A','B','C','D']
+        return bool(data and all(data.get('tasks',{}).get(task,{}).get('passed') is True for task in tasks)),"joint_extra/validation.json"
     return False,None
 
 
@@ -141,6 +154,9 @@ def _numeric_inventory(text: str,doc: str):
 
 def build_registry(root: Path,output_dir: Path) -> dict:
     root,output=Path(root).resolve(),Path(output_dir).resolve()
+    from manuscript_version import load_version
+    version=load_version(root)
+    diagnostic_for=lambda family:_diagnostic(output,family,version['approved_tasks'] if version else None)
     output.mkdir(parents=True,exist_ok=True)
     # 核查真正构建的输入；仅在没有本轮稿件时回退到正式稿或冻结稿。
     built=output/"document/latex/flatten_curve_analysis_cn.tex"
@@ -160,7 +176,23 @@ def build_registry(root: Path,output_dir: Path) -> dict:
     sync=_load(output/"manuscript_changes.json") or {}
     cell_checks=sync.get("numerical_cells",[])
     figure_report=_load(output/"validation/figure_generation.json") or {}
-    generated={r["number"]:r for r in figure_report.get("figures",[])}
+    # 编号会随插图顺移，证据只按标签/相对资产路径绑定。
+    generated={}
+    for item in figure_report.get("figures",[]):
+        if item.get('label'):
+            generated[item['label']]=item
+        file=item.get('file') or item.get('path')
+        if file:
+            path=Path(file)
+            try:
+                relative=path.resolve().relative_to((output/'figures').resolve()).as_posix()
+            except ValueError:
+                relative=path.as_posix().removeprefix('figures/')
+            generated[relative]=item
+    new_figures=_load(output/'joint_extra/figure_manifest.json') or {}
+    for item in new_figures.get('figures',[]):
+        if item.get('label'):
+            generated[item['label']]=item
     figures=[];tables=[];equations=[];theory=[];numeric=[];sections=[]
     for role,path in documents:
         text=path.read_text(encoding="utf-8-sig")
@@ -179,24 +211,31 @@ def build_registry(root: Path,output_dir: Path) -> dict:
                 if kind=="figure":
                     family,sources,params=FIGURE_SOURCES.get(primary,("unmapped",[],{}))
                     image=re.findall(r"\\includegraphics(?:\[[^]]*\])?\{([^}]+)\}",block[2])
-                    has_asset=bool(number in generated and not figure_report.get("historical_pickle_replay_used",True))
-                    science_pass,diagnostic=_diagnostic(output,family)
+                    asset=generated.get(primary) or (generated.get(image[0].removeprefix('figures/')) if image else None)
+                    inherited=bool(asset and (asset.get('inherited') or asset.get('status')=='inherited'))
+                    has_asset=bool(asset and (family=='joint_extra' or inherited or not figure_report.get("historical_pickle_replay_used",True)))
+                    science_pass,diagnostic=diagnostic_for(family)
                     if family=="schematic": science_pass=has_asset
-                    local=has_asset and science_pass
+                    local=has_asset and science_pass and not inherited
                     params={**BASELINE,**params} if family in ["baseline","inflection"] else params
                     extra={"image":image,"numeric_source_diagnostic":diagnostic,
-                           "local_asset_regenerated":has_asset,
+                           "local_asset_regenerated":has_asset and not inherited,
+                           "inherited_asset":inherited,
                            "scalar_anchors_status":"需与 numeric_statements/专门对账逐项对应",
                            "final_page_visual_review":"不由图件生成自动认证"}
                     artifacts=["figures/"+image[0].removeprefix("figures/")] if image else []
                 else:
                     family,sources,artifacts=TABLE_SOURCES.get(primary,("unmapped",[],[]))
+                    inherited=bool(sync.get('inherited_science',{}).get('used') and family not in {'joint_extra','theory','unmapped'})
                     # 有模块通过不意味着表中每个单元已与新值对账。
                     local=False;params={"caption":caption}
                     extra={"numeric_cells":[{"row":row.strip(),"tokens":NUMBER.findall(row)}
                         for row in block[2].splitlines() if "&" in row and NUMBER.search(row)],
                         "cell_reconciliation_status":"pending_individual_checks"}
-                    diagnostic_pass,diagnostic=_diagnostic(output,family)
+                    if inherited:
+                        extra.update(inherited_asset=True,cell_reconciliation_status='inherited_approved_table',
+                                     reconciliation_scope='表体继承批准稿源；本轮不新计算旧表或宣称新增逐项收敛。')
+                    diagnostic_pass,diagnostic=diagnostic_for(family)
                     extra.update({"local_numeric_source_available":diagnostic_pass,
                                   "numeric_source_diagnostic":diagnostic})
                     matched=[c for c in cell_checks if c.get("label")==primary and
@@ -208,6 +247,14 @@ def build_registry(root: Path,output_dir: Path) -> dict:
                                       "cell_reconciliation_status":"fresh_cells_checked" if checked else "cell_check_failed",
                                       "reconciliation_scope":"列示来源绑定的数值单元；表头、定义及理论依据单独静态保留。"})
                         artifacts.append("manuscript_changes.json")
+                    if primary=='tab:joint:compare':
+                        fragments=[change for change in sync.get('changes',[]) if change.get('anchor')=='comparison']
+                        exact=bool(len(fragments)==1 and block.group(0) in fragments[0]['new'])
+                        local=diagnostic_pass and exact
+                        extra.update(publication_fragment_exact=exact,
+                                     cell_reconciliation_status='generated_from_current_csv' if local else 'pending',
+                                     reconciliation_scope='新表由同轮两组四策略CSV的纯文案函数生成；验证记录与最终表体匹配。')
+                        artifacts.append('manuscript_changes.json')
                     artifacts=[x for x in artifacts if not x.startswith(("命题","数值","固定"))]
                 target.append({"id":("fig" if kind=="figure" else "table")+str(number),
                     "number":number,"document_role":role,"label":primary,"aliases":labels,
@@ -218,9 +265,9 @@ def build_registry(root: Path,output_dir: Path) -> dict:
                         "python_template":"reproducibility/.venv/Scripts/python.exe -B reproducibility/run_all.py --output <NEW_EMPTY_OUTPUT> --matlab <MATLAB_FROM_PATH> --repeats 2",
                         "actual_output":str(output),"stage":family,
                         "precondition":"NEW_EMPTY_OUTPUT 必须尚不存在；运行时读取 PATH 中 MATLAB 的完整路径。"},
-                    "artifacts":artifacts,"status":"static" if family=="theory" else _status(local),
+                    "artifacts":artifacts,"status":"static" if family=="theory" else 'inherited' if inherited else _status(local),
                     "evidence":{"static_located":True,"supplier_asset_present":True,
-                        "local_module_executed":bool(_diagnostic(output,family)[0]),
+                        "local_module_executed":bool(diagnostic_for(family)[0]),
                         "local_asset_and_numeric_source_reproduced":local},
                     "passed":True if local else None,**extra})
         for block in _blocks(text,r"equation\*?|align\*?|gather\*?|multline\*?"):
@@ -271,15 +318,22 @@ def build_registry(root: Path,output_dir: Path) -> dict:
               "supplement_tables":sum(x["document_role"]=="supplement" for x in tables),
               "equation_groups":len(equations),"theorem_statements":len(theory),
               "numeric_statements_located":len(numeric)}
-    structure_passed=(coverage["figures"]==20 and coverage["main_tables"]==4
-                      and coverage["supplement_tables"]==3 and all(x["family"]!="unmapped" for x in figures+tables))
+    if version:
+        expected_figures=version['inventory']['main']['figures']
+        structure_passed=([{'label':x['label'],'aliases':x['aliases'],'image':x['image'][0].removeprefix('figures/')} for x in figures]==expected_figures
+                          and [x['label'] for x in tables if x['document_role']=='main']==[x['label'] for x in version['inventory']['main']['tables']]
+                          and [x['label'] for x in tables if x['document_role']=='supplement']==[x['label'] for x in version['inventory']['supplement']['tables']])
+    else:
+        structure_passed=(coverage["figures"]==20 and coverage["main_tables"]==4 and coverage["supplement_tables"]==3)
+    structure_passed=structure_passed and all(x['family']!='unmapped' for x in figures+tables)
     registry={"documents":[{"role":r,"source":_relative(p,root),"sha256":_sha(p),
                             "formal_target":"latex/"+("flatten_curve_analysis_cn.tex" if r=="main" else "flatten_curve_supplement_cn.tex")} for r,p in documents],
-        "coverage":coverage,"structure_passed":structure_passed,
+        "coverage":coverage,"structure_passed":structure_passed,"manuscript_version":version['version'] if version else 'frozen_20261002',
         "runtime_dependencies":RUNTIME,"sections":sections,"figures":figures,"tables":tables,
         "equations":equations,"theory_and_proof":theory,"key_numerical_checks":anchor_checks,
         "numeric_statements":numeric,
         "status_definition":{"static":"本轮定位/代码审阅","supplier":"供应方提供工程或记录，未当成本机实测",
+            "inherited":"继承明确既有验收资产及哈希；本轮没有重算该旧图",
             "local":"本机已执行但尚未完成本项对账","reproduced":"本项已有明确本机复现证据"},
         "passed":structure_passed,
         "passed_scope":"仅结构覆盖完整；并不表示所有数值锚点、图表单元或数学证明通过。"}

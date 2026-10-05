@@ -12,6 +12,8 @@ import subprocess
 import pymupdf
 
 from bootstrap import ROOT, dump, sha
+from manuscript_version import expected_figures, report_directory
+from run_selection import selected_directories, SELECTION_FILE
 
 
 def read(path: Path) -> dict:
@@ -61,8 +63,13 @@ def publish(parent: Path) -> dict:
     parent = parent.resolve()
     if not parent.is_relative_to(ROOT / "reproducibility/runs"):
         raise RuntimeError("只允许发布本工程隔离运行目录内的结果")
-    first, second = parent / "run_1", parent / "run_2"
+    publication=report_directory(ROOT,parent)
+    if (publication/'publication_manifest.json').exists():
+        raise RuntimeError('该运行已有发布记录，不覆盖：'+str(publication))
+    first, second = selected_directories(parent)
     repeat = read(parent / "repeatability.json")
+    if repeat.get('run_names') != [first.name,second.name] or repeat.get('run_identity_check',{}).get('passed') is not True:
+        raise RuntimeError('重复性记录不是当前显式选择的同身份两轮。')
     reports = [read(p / "run_report.json") for p in (first, second)]
     if not repeat.get("passed") or not all(r.get("passed") for r in reports):
         raise RuntimeError("双空目录复现尚未通过，拒绝发布")
@@ -107,8 +114,9 @@ def publish(parent: Path) -> dict:
             raise RuntimeError("两轮正文源文件不一致：" + name)
     sources = [(first / "document/latex" / name, ROOT / "latex" / name) for name in names]
     figures = sorted((first / "figures").rglob("*.pdf"))
-    if len(figures) != 20:
-        raise RuntimeError("发布图件必须恰为 20 幅")
+    expected={Path(item['image']) for item in expected_figures(ROOT,(first/'document/latex/flatten_curve_analysis_cn.tex').read_text(encoding='utf-8-sig'))}
+    if {p.relative_to(first/'figures') for p in figures} != expected:
+        raise RuntimeError("发布图件须与批准稿源的标签/资产清单一致")
     sources += [(p, ROOT / "latex/figures" / p.relative_to(first / "figures")) for p in figures]
     for source, target in sources:
         if not source.is_file() or not target.resolve().is_relative_to(ROOT / "latex"):
@@ -135,8 +143,8 @@ def publish(parent: Path) -> dict:
                         "action": "unchanged" if unchanged else ("metadata_only_reused" if metadata_reuse else "updated")})
 
     # 用正式目录的工程入口真实编译，而不是仅复制已编译 PDF。
-    publication = ROOT / "reproducibility/release_reports"
-    publication.mkdir(exist_ok=True)
+    publication = report_directory(ROOT,parent)
+    publication.mkdir(parents=True,exist_ok=True)
     with (publication / "formal_build_stdout.log").open("w", encoding="utf-8") as log:
         subprocess.run(["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File",
                         str(ROOT / "latex/build_paper.ps1")], cwd=ROOT,
@@ -170,6 +178,10 @@ def publish(parent: Path) -> dict:
     for item in records:
         item["final_sha256"] = sha(ROOT / item["file"])
     result = {"passed": True, "formal_files_published": True, "run_directory": str(parent),
+              "accepted_run_names":[first.name,second.name],
+              "accepted_runs_manifest_sha256":sha(parent/SELECTION_FILE),
+              "scientific_scope":reports[0].get('scientific_scope','all'),
+              "inherited_old_science":reports[0].get('inherited_old_science',False),
               "backup": str(backup), "files": records, "documents": documents,
               "formal_compile": "SI XeLaTeX x2; main XeLaTeX -> Biber -> XeLaTeX x2",
               "logs": logs, "biber_warnings": biber_warnings,
@@ -189,7 +201,7 @@ if __name__ == "__main__":
         outcome = publish(args.run_directory)
         print(json.dumps({"passed": outcome["passed"], "formal_files_published": True}, ensure_ascii=False))
     except Exception as error:
-        dump(ROOT / "reproducibility/release_reports/publication_failure.json",
+        dump(report_directory(ROOT,args.run_directory) / ('publication_failure_'+datetime.now().strftime('%Y%m%d_%H%M%S')+'.json'),
              {"passed": False, "error": str(error), "run_directory": str(args.run_directory),
               "time": datetime.now().isoformat(timespec="seconds"),
               "note": "检查备份及正式文件状态；本记录不标记发布完成。"})

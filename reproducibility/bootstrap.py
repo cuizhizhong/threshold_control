@@ -28,12 +28,19 @@ def dump(path: Path, obj) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(obj, ensure_ascii=False, indent=2, allow_nan=False)+'\n', encoding='utf-8')
 
-def prepare_workspace(output_dir: Path, root: Path = ROOT) -> Path:
+def prepare_workspace(output_dir: Path, root: Path = ROOT, *, precomputed_science: Path | None = None) -> Path:
     output_dir = output_dir.resolve()
     if output_dir == root.resolve() or output_dir == (root/'latex').resolve():
         raise ValueError('输出根不得是工作区或正式论文目录。')
-    if output_dir.exists() and any(output_dir.iterdir()):
-        raise FileExistsError(f'必须使用空输出目录，不覆盖旧结果：{output_dir}')
+    if precomputed_science is None:
+        if output_dir.exists() and any(output_dir.iterdir()):
+            raise FileExistsError(f'必须使用空输出目录，不覆盖旧结果：{output_dir}')
+    else:
+        science = Path(precomputed_science).resolve()
+        if science != output_dir/'joint_extra' or not science.is_dir():
+            raise ValueError('后处理只能承接本运行根下已经完成的 joint_extra。')
+        if set(output_dir.iterdir()) != {science}:
+            raise FileExistsError('后处理必须首次承接，运行根只能含 joint_extra；不覆盖既有后处理产物。')
     workspace = output_dir/'workspace'
     if workspace.exists():
         raise FileExistsError(f'必须使用空输出目录：{workspace}')
@@ -68,6 +75,20 @@ def prepare_workspace(output_dir: Path, root: Path = ROOT) -> Path:
                 'latex/elegantpaper.cls','latex/references.bib','latex/build_paper.ps1'):
         src=root/rel; dst=workspace/rel
         dst.parent.mkdir(parents=True,exist_ok=True); shutil.copy2(src,dst); manifest[rel]=sha(src)
+    # 新活动模块及批准稿源纳入隔离源码清单；不复制任何历史派生数值。
+    for rel in ('reproducibility/joint_extra', 'reproducibility/manuscript_versions', 'reproducibility/tests'):
+        for src in (root/rel).rglob('*'):
+            if not src.is_file() or '__pycache__' in src.parts or src.suffix.lower() not in {'.py','.json','.md','.tex'}:
+                continue
+            dst=workspace/src.relative_to(root)
+            dst.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(src,dst)
+            manifest[src.relative_to(root).as_posix()]=sha(src)
+    for rel in ('reproducibility/joint_integration_audit.py','reproducibility/manuscript_version.py',
+                'reproducibility/postprocess_joint_extra.py','reproducibility/run_selection.py'):
+        src=root/rel
+        if src.is_file():
+            dst=workspace/rel;dst.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(src,dst)
+            manifest[rel]=sha(src)
     # 机械兼容适配仅作用于运行区副本，原绘图语句/历史脚本保持原样。
     for rel in ('latex/revision_layout_v5/layout_python.py',
                 'latex/revision_style_restore/restore_figures.py',
@@ -87,7 +108,10 @@ def prepare_workspace(output_dir: Path, root: Path = ROOT) -> Path:
     dst.write_text(txt.replace(old,new),encoding='utf-8')
     adaptations.append({'file':str(dst.relative_to(workspace)),'change':'读取本次新计算图谱，而非历史快照'})
     dump(output_dir/'source_manifest.json',{'source_files':manifest,'adaptations':adaptations,
-         'historical_numerical_caches_copied':False,'visual_reference_only':str(refdir)})
+         'historical_numerical_caches_copied':False,'visual_reference_only':str(refdir),
+         'snapshot_phase':'after_completed_joint_extra' if precomputed_science is not None else 'before_scientific_calculation',
+         'scope':'后处理开始时锁定出版/文案及工作副本源码；不冒充科学计算开始前的完整源码快照。'
+                 if precomputed_science is not None else '空目录科学运行前的工作副本源码快照。'})
     return workspace
 
 def environment(output_dir: Path) -> dict:

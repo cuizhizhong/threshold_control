@@ -1,0 +1,437 @@
+{
+  "passed": true,
+  "numeric_files": [
+    {
+      "file": "joint_extra/acceptance.json",
+      "numeric_fields": 86,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/alpha_family_baseline.csv",
+      "numeric_fields": 205,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/candidate_checks.json",
+      "numeric_fields": 0,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/candidate_checks_A.json",
+      "numeric_fields": 3790,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/candidate_checks_B.json",
+      "numeric_fields": 4403,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/candidate_checks_C.json",
+      "numeric_fields": 16412,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/candidate_checks_D.json",
+      "numeric_fields": 164436,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/candidate_checks_D_checkpoint.json",
+      "numeric_fields": 160651,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/capacity.json",
+      "numeric_fields": 212,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/capacity_baseline.npz",
+      "numeric_fields": 363012,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/capacity_equality_traj_baseline.csv",
+      "numeric_fields": 118560,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/capacity_equality_traj_xian.csv",
+      "numeric_fields": 139488,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/capacity_traj_baseline.csv",
+      "numeric_fields": 118496,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/capacity_traj_xian.csv",
+      "numeric_fields": 138592,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/capacity_xian.npz",
+      "numeric_fields": 363056,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/compare_baseline.csv",
+      "numeric_fields": 200,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/compare_xian.csv",
+      "numeric_fields": 200,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/convergence.json",
+      "numeric_fields": 0,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/derived_summary.json",
+      "numeric_fields": 2488,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/frontier_baseline.csv",
+      "numeric_fields": 2790,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/frontier_baseline_checkpoint.csv",
+      "numeric_fields": 2529,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/input_manifest.json",
+      "numeric_fields": 607,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/phase.json",
+      "numeric_fields": 1684,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/phase_baseline.npz",
+      "numeric_fields": 1548733,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/phase_xian.npz",
+      "numeric_fields": 1548733,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/TDINN_external_reference.json",
+      "numeric_fields": 4,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/trajectories_baseline.csv",
+      "numeric_fields": 264432,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/trajectories_xian.csv",
+      "numeric_fields": 355584,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/validation.json",
+      "numeric_fields": 28392,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "manuscript_changes.json",
+      "numeric_fields": 28394,
+      "passed": true,
+      "different_fields": []
+    },
+    {
+      "file": "joint_extra/validation.json",
+      "numeric_fields": 28392,
+      "passed": true,
+      "different_fields": []
+    }
+  ],
+  "figure_render_checks": [
+    {
+      "file": "c0_beta_existence.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "c0_sensitivity_scan.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "Fig1.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "fig_dom_combined.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "joint_v2/joint_capacity.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "joint_v2/joint_compare_baseline.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "joint_v2/joint_frontier_baseline.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "joint_v2/joint_phase_weights.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "layout_v5/baseline_q_joint.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "layout_v5/c0_phase_stationary.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "layout_v5/c0_sensitivity_panel.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "layout_v5/c0_sensitivity_selected_eta.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "layout_v5/critical_population_cases.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "layout_v5/eta_sensitivity_selected_c0.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "layout_v5/fig_panel_B_trajectory_decomposition.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "layout_v5/population_threshold_levers.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "layout_v5/scenario1_inflection_lambda_sensitivity.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "layout_v5/scenario1_inflection_scan_t.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "layout_v5/xian_observed_fit.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "layout_v5/xian_strategy_process.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "optimal_control_with_quarantine_panels.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "scenario1_heatmaps_c0_eta.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "xian_eta_sensitivity.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    },
+    {
+      "file": "xian_heatmaps.pdf",
+      "passed": true,
+      "pixel_equal": true,
+      "render_dpi": 120,
+      "maximum_channel_difference": 0,
+      "changed_channel_count": 0,
+      "changed_channel_fraction": 0.0
+    }
+  ],
+  "run_names": [
+    "run_5",
+    "run_6"
+  ],
+  "run_identity_check": {
+    "passed": true,
+    "manuscript_versions": [
+      "20261004_joint_integration",
+      "20261004_joint_integration"
+    ],
+    "scientific_scopes": [
+      "joint-extra",
+      "joint-extra"
+    ]
+  },
+  "numerical_tolerance": {
+    "relative": 1e-10,
+    "absolute": 1e-09
+  },
+  "failures": [],
+  "pdf_metadata_ignored": true,
+  "visual_review_required": true,
+  "new_scientific_stages": [
+    "joint_extra"
+  ],
+  "inherited_old_science": true,
+  "scope": "本轮新增联合科学双跑及同版本文案/图件比较；旧图继承时不表示重新生成或整稿科学复跑。",
+  "accepted_runs_manifest_sha256": "58fda5b8f878aa558f9560df64913c903291f3f70f6a07ea5101d1e94904afee"
+}

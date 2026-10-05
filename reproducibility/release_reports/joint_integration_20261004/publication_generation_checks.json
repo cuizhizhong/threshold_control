@@ -1,0 +1,72 @@
+{
+  "scope": "已完成科学运行的严格后处理、文案保护回归与实际编译/数值重复性检查；不代表人工页面审阅或正式发布",
+  "controlled_version": "20261004_joint_integration",
+  "approved_tasks": ["A", "B", "C", "D"],
+  "textwidth_bp": 451.275616438,
+  "selected_runs": ["run_5", "run_6"],
+  "source_freeze": {
+    "origin": "当前本地正式主稿与补充材料；不读取AI整稿覆盖",
+    "main_figures": 24,
+    "main_tables": 5,
+    "supplement_tables": 3,
+    "inherited_old_figure_hashes": 20,
+    "previous_labels_and_asset_mapping_preserved": true,
+    "sec9_original_utf8_segment_including_line_endings_preserved": true,
+    "manifest_sha256": "a8a49821a1c793edfeec1deca3eee4563c702b38a4afb8ffd144e32ae66dab87"
+  },
+  "postprocess": {
+    "both_check_only_exit_code": 0,
+    "both_postprocess_exit_code": 0,
+    "calculation_source_hashes_match_original_input_manifest": true,
+    "input_and_acceptance_identity_match": true,
+    "scientific_output_hashes_unchanged": true,
+    "science_recomputed": false,
+    "full_source_snapshot_phase": "after_completed_joint_extra",
+    "both_runner_sources_raw_inputs_static_assets_source_inputs_and_frozen_manifest_equal": true
+  },
+  "publication_text_regression": {
+    "both_staged_main_equal_controlled_current_source": true,
+    "both_staged_supplement_equal_controlled_current_source": true,
+    "both_inventory_equal_approved_inventory": true,
+    "both_sec9_equal_preintegration_backup": true,
+    "all_old_equation_align_and_proof_blocks_retained": true,
+    "all_six_pure_fragments_equal_writer_normalized_insertions": true,
+    "initial_diagnostic_assertion": "首次手工诊断直接比较片段尾部，忽略writer按约定添加的一个换行而报false；静态查明后按fragment.strip()+换行重查全部通过。源稿、计算及writer均未修改。"
+  },
+  "build": {
+    "executed": "补充材料XeLaTeX两遍；正文XeLaTeX→Biber→XeLaTeX→XeLaTeX",
+    "both_working_copies_passed": true,
+    "main_pages": 51,
+    "supplement_pages": 3,
+    "main_printbibliography_count": 1,
+    "printed_bibliography_keys": 20,
+    "bibliography_heading_pages": [50],
+    "missing_citations": [],
+    "missing_printed_references": [],
+    "fatal_or_overflow_warnings": [],
+    "existing_warning": "Underfull hbox badness 2376，第9节既有段落，两个工作副本均在1871--1872行",
+    "manual_page_review": "交主代理在同一正式工作副本审阅；本文件不标记通过"
+  },
+  "explicit_selection": {
+    "no_results_copied_or_renumbered": true,
+    "old_failed_runs_retained": ["run_1", "run_2", "run_3", "run_4"],
+    "accepted_runs_manifest_sha256": "58fda5b8f878aa558f9560df64913c903291f3f70f6a07ea5101d1e94904afee"
+  },
+  "repeatability": {
+    "actual_compare_exit_code": 0,
+    "passed": true,
+    "numeric_files_and_validation_records": 31,
+    "numeric_fields": 5404561,
+    "relative_tolerance": 1e-10,
+    "absolute_tolerance": 1e-9,
+    "figure_render_checks": 24,
+    "render_dpi": 120,
+    "all_24_pixel_equal": true,
+    "new_science_stages": ["joint_extra"],
+    "old_science_and_20_figures_inherited_not_rerun": true,
+    "failures": [],
+    "report_sha256": "4bf4d024c130aa7d5e62e4a0c0a37dba90330d75d2107aa4764322764abf7b1b"
+  },
+  "formal_publication_performed_by_this_check": false,
+  "git_writes": false
+}

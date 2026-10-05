@@ -4,7 +4,7 @@
 
 ## 哪些是输入，哪些必须重新计算
 
-固定输入包括原始日报 Excel、模型参数、TDINN 函数的已给定系数、成本权重、设计阈值和扫描规则。拟合的 `I0`、`S0=N-I0`、TDINN 峰值/成本/累计/清零时间、人口临界值、扫描极值和控制切换时刻均是派生结果。后者必须从同一次运行的未取整输出读取，不能把旧稿中的小数、图例数字或旧 `full_city_I0_reference` 常数改作正式计算输入。
+固定输入包括原始日报 Excel、模型参数、TDINN 函数的已给定系数、成本权重、设计阈值和扫描规则。拟合的 `I0`、`S0=N-I0`、TDINN 峰值/成本/累计/清零时间、人口临界值、扫描极值和控制切换时刻均是派生结果。整稿从头复现时，后者必须从同一次运行的未取整输出读取，不能把旧稿中的小数、图例数字或旧 `full_city_I0_reference` 常数改作正式计算输入。新增联合模块的局部模式例外：按本轮明确任务约定读取锁定的 `results/20261003_release_final/xian/reference.json`，记录其 SHA-256 并注明科学证据继承；这不构成新的西安拟合或整稿复跑。
 
 | 计算部分 | 实际权威来源 | 本轮参数及未取整结果 |
 |---|---|---|
@@ -14,6 +14,7 @@
 | 有效人口比较 | `reproducibility/population.py:run_population/main_critical/theta_root/population_arc` | `<RUN>/population/critical.json`、`metadata.json`、`representative_summary.csv`、`arcs.csv`、`beta_scan.csv`、`supplementary_anchors.json` |
 | 接触率敏感性 | `reproducibility/c0.py:run_c0/boundaries`；原绘图函数仍在 `c0_sensitivity/run_c0_sensitivity.py` | `<RUN>/c0/parameters.json`、`extrema.json`、`scan.csv`、`representative_summary.csv`、`phase.npz`、`beta_existence.npz` |
 | 联合控制 | 冻结包 `joint_control/threshold_control_reproducible_release_20261002/numerics/inputs/baseline_parameters.json` 的 `parameters`；原核心 `numerics/joint_comparison.py`；实际数值设置见 `reproducibility/joint.py` | `<RUN>/joint/results.json`、`results.csv`、`openloop_check.json`、`root_diagnostics.json`、`trajectories.csv` |
+| 新增联合分配、能力、权重及成本—时长 | `reproducibility/joint_extra/core.py`、`run.py`；基准参数仍读取冻结JSON，西安局部模式明确继承已验收reference，完整模式读取同轮reference | `<RUN>/joint_extra/input_manifest.json`、`compare_*.csv`、`capacity.json`、`phase_*.npz`、`frontier_baseline.csv`、`validation.json`、`convergence.json`；失败项保留状态 |
 
 ## 初值和 TDINN 函数
 
@@ -42,4 +43,20 @@ MATLAB 指标积分、MATLAB 单图 `ode45`、Python 拐点启动时间、联合
 
 `paper_anchor_updates.json` 的历史旧值对照是可选 provenance。旧输入缺失时仍保留新字段，旧值标记为未知，不影响科学阶段通过判据；不能把这份对照的历史文件哈希误称为全部科学输入。`manuscript_changes.json` 记录有来源绑定的取整与替换，论文表格/图注的取整数不是下游计算输入。
 
-修改研究设定需先定位并更新对应权威源码，保持同一组模型参数在调用链和独立核查中一致，再从新的空目录重新运行。冻结包和原始数据不修改；另设情景时应另建明确的参数入口及版本，不直接改冻结 JSON。当前索引仅做静态追溯，本次编写未重算、未新增数学或临床验证，也不代表完整双跑及人工版面验收已完成。
+修改研究设定需先定位并更新对应权威源码，保持同一组模型参数在调用链和独立核查中一致，再从新的空目录重新运行。冻结包和原始数据不修改；另设情景时应另建明确的参数入口及版本，不直接改冻结 JSON。当前索引仅做来源追溯，不是计算程序。2026-10-04 新增联合模块第三批 `run_5/run_6` 已分别完成 A–D 科学计算并通过逐任务门槛；该事实来自实际输出，不能由索引本身推得。整稿旧科学结果继承、重复性比较、文案编译与人工页面核查分别记录，数值通过不代表一般数学证明或临床验证。
+
+## 新增联合模块与受控稿源
+
+新增模块采用相同二次成本、共同触发/退出条件和完整候选判据，不新增线性综合成本或回流模型。其锁定配置、分支比较、独立预定时间开环及加严结果分别写入本轮输出，不以旧候选CSV替代计算。旧单项 `J_c`、`J_q` 仍是线性强度参考量。
+
+本轮通过版本为 `joint-extra-20261004-v4-geometry-branch-repair`，实际权威设置是 `joint_extra/acceptance.json`，不是冻结包中描述性容差。名义时钟在能力几何折点处分段，积分在 PCHIP 区间及能力折点上按 Gauss 4/8/16 阶比较；根残差、独立网格、完整时间开环仓室 ODE、守恒/恒等式及加严差异均有逐项结果。前两批失败保留原算法、输入身份和诊断，不能用通过版本重标旧运行。有限网格与浮点候选检查不认证驻点完备性或一般最优解唯一性。
+
+能力图的代表点为基准 `(c_min/c0,q_cap)=(0.5,0.6)` 与西安 `(0.5,0.75)`；控制轨迹视窗延长退出后1日仅为绘图配置，实际累计和清零指标仍使用各自的终点。任务C是有限权重/状态网格，任务D是有限310个乘子支持点及代表约束时长，不宣称已经刻画所有允许时长的完整前沿。理论上允许时长的可行性与某个时长在有限乘子扫描中未匹配，属于不同判断。
+
+`run_all.ps1 -Scope joint-extra` 只计算本轮新增联合内容，旧图按批准哈希继承，既有西安拟合/人口结果继承 `20261003_release_final` 并明确记录身份。默认 `-Scope all` 仍计算同轮上游；新版稿源要求上游数值与所继承科学版本一致，若改变不能静默保留旧正文。两个模式的证据边界不可混用。
+
+活动稿源由 `manuscript_versions/current.json` 及版本目录的 `manifest.json` 锁定，内容来自本轮本地整合稿；原冻结包不改。`paper_sync` 仅在唯一的 `JOINT_EXTRA` 标识块生成新增出版文案，标签/图路径/表结构与批准清单一致，证明与版本源逐块比对。实际打印宽度记录在版本清单，不写死旧图宽度。文案回归、实际编译和科学双跑分别记录。
+
+分阶段执行时，科学计算期的 `joint_extra/input_manifest.json` 先记录 `core.py/run.py/validation.py/acceptance.json` 及指定输入的 SHA-256。`postprocess_joint_extra.py` 首次承接同一运行后，才生成完整出版源码快照及 `postprocessing_manifest.json`；快照的 `snapshot_phase=after_completed_joint_extra` 不代表科学运行前已记录全工程哈希。后处理不改变科学文件，不读取别轮新结果，也不执行新的科学计算。公开 `run_all` 的空目录模式仍在计算前记录完整工作副本，两种时序需明确区分。
+
+两个通过机器验收的实际运行由 `run_selection.py` 明确写入一次性的 `accepted_runs.json`。检查共同源码哈希、批准稿源、模型完整输入及验收配置均相同，再按实际所选目录完成重复性比较、发布与汇集；不假定最早的两个编号已经通过。选择记录本身不证明数值重复性或人工页面审阅通过，失败运行的编号、输出和诊断保留不动。

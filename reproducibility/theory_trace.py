@@ -18,7 +18,10 @@ def environments(text):
 
 
 def run(root: Path, output: Path, current: str) -> dict:
-    source=root/'joint_control/threshold_control_reproducible_release_20261002/latex/flatten_curve_analysis_cn.tex'
+    from manuscript_version import load_version
+    version = load_version(root)
+    source=(version['_directory']/version['documents']['main']['file'] if version else
+            root/'joint_control/threshold_control_reproducible_release_20261002/latex/flatten_curve_analysis_cn.tex')
     original=environments(source.read_text(encoding='utf-8-sig'))
     new=environments(current)
     comparisons=[]
@@ -30,8 +33,9 @@ def run(root: Path, output: Path, current: str) -> dict:
                 'source_sha256':before['sha256'],'staged_sha256':after['sha256'],
                 'text_identical':before['body']==after['body']})
     report={'passed':all(r['text_identical'] for r in comparisons),'environments':comparisons,
+            'approved_manuscript_version':version['version'] if version else 'frozen_20261002',
             'mathematical_proof_certification':False,
-            'scope':'编号环境及证明的来源/文本保护；不宣称已独立证明所有命题。数值同步仅在计算叙述、图表与非证明段落中。'}
+            'scope':'与明确批准版本逐环境核对，新增命题须先经局部审阅纳入受控来源；文本保护不宣称独立证明认证。数值同步不得改写证明。'}
     dump(output/'validation/theory_trace.json',report)
     if not report['passed']:raise RuntimeError('数学命题或证明发生改写，请查看 theory_trace.json')
     return report

@@ -9,6 +9,10 @@ reproducibility/dev_*/
 reproducibility/integration_failure_probe_*/
 reproducibility/historical_optional_probe_*/
 
+# 本地交付工程副本和大型ZIP不入库；包装源码与摘要收据仍可提交。
+reproducibility/deliverables/joint_integration_20261004/
+reproducibility/deliverables/*.zip
+
 # LaTeX 编译中间产物（可由源文件重新生成，不纳入版本控制）
 *.aux
 *.log
