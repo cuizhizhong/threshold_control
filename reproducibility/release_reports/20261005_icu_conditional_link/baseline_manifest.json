@@ -1,0 +1,22 @@
+{
+  "base_commit": "894fd49c99cc52fbaf8e2992c08457ff456c4749",
+  "baseline_version": "20261005_sec7_v2_refinement",
+  "baseline_manifest_sha256": "698468cc87221832b1337c2e07a17f5687e4629f5d8564c43d910d125afac342",
+  "scope": "当前工作稿和活动入口的本轮修改前备份；不等于Git HEAD文件，先前未提交修改已保留。",
+  "backup_directory": "before",
+  "files": [
+    {"file":"AGENTS.md","bytes":24607,"sha256":"2cdd9b2dc97dee3cda436375ae37d2cf55ec1ba1b9256695a6378f29e3c524a1"},
+    {"file":"latex/build_paper.ps1","bytes":820,"sha256":"7d86ab0cd9de71ddb1b7de33d823406af4a15f937720ca2994a030c5ab499a9e"},
+    {"file":"latex/elegantpaper.cls","bytes":9971,"sha256":"bf80b5bb9061f11010b4595cd1bc443defe54fb093283ecf864c800371ad4b51"},
+    {"file":"latex/flatten_curve_analysis_cn.pdf","bytes":2505461,"sha256":"6529ca5dcb7143b63b0d285f1702327e5333869fd0429b244818125a409eee69"},
+    {"file":"latex/flatten_curve_analysis_cn.tex","bytes":167443,"sha256":"c92ae0f1462cac20cb0860662298d5d7ae34e826bac829062d7c0c216fbeade2"},
+    {"file":"latex/flatten_curve_supplement_cn.pdf","bytes":65350,"sha256":"209c6bd34e511c31d62075055d89e9fab8622c5545958c2cb2f85cd3ec971112"},
+    {"file":"latex/flatten_curve_supplement_cn.tex","bytes":5691,"sha256":"08aca470b33eeb4cb15164b65e4d7de5a7bdb316a0daaa1964852ee55ef0db04"},
+    {"file":"latex/references.bib","bytes":8100,"sha256":"14861dff2fbc96f8c95c514c8f57923f86ed7d2b4b5d9019908bfdbaba4c6f8e"},
+    {"file":"reproducibility/build.py","bytes":6797,"sha256":"29fbf1c3da29fef0e96c365767975bde0fd009783515287a3953c5ff6f3568e7"},
+    {"file":"reproducibility/manuscript_version.py","bytes":17621,"sha256":"09e336ffad198a53aa929d0d4e2d6c0fd285f0a12d0456835fbe6461240e965f"},
+    {"file":"reproducibility/paper_sync.py","bytes":61114,"sha256":"527d500276d73002ea3ec702699d5af9d49fd2d13a8c9c548343a7a4ec8a29f3"},
+    {"file":"reproducibility/manuscript_versions/current.json","bytes":140,"sha256":"b6d1e740d3a47a58a9acd8f4e39e457aabe03ffb2d897b07e3df4284868b39ae"}
+  ],
+  "backup_reconstruction_note": "并行接口修改早于备份复制完成。仅对备份中的build.py和manuscript_version.py逆向移除本轮接口补丁，恢复为上述修改前SHA；工作文件未回滚，其他既有未提交改动未撤销。"
+}

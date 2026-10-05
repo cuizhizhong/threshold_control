@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "checks": {
+    "immutable_files_unchanged": true,
+    "only_approved_figure_changed": true,
+    "main_inventory_equal": true,
+    "supplement_inventory_equal": true,
+    "proofs_equal": true,
+    "numbered_equations_equal": true,
+    "citations_equal": true,
+    "sec9_equal": true,
+    "acceptance_unchanged": true
+  },
+  "changed_protected_files": [],
+  "changed_formal_figures": [
+    "joint_v2/joint_frontier_baseline.pdf"
+  ],
+  "source_directory": "E:\\work\\draft\\latex",
+  "main_sha256": "c92ae0f1462cac20cb0860662298d5d7ae34e826bac829062d7c0c216fbeade2",
+  "supplement_sha256": "08aca470b33eeb4cb15164b65e4d7de5a7bdb316a0daaa1964852ee55ef0db04"
+}

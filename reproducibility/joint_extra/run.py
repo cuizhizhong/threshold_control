@@ -32,7 +32,21 @@ else:
 
 STRATEGIES = ["contact_only", "alpha_0.5", "quarantine_only", "minimum_cost"]
 CAPACITY_POINTS = {"baseline": {"u_max": .5, "q_cap": .6}, "xian": {"u_max": .5, "q_cap": .75}}
-KAPPA = np.unique(np.r_[-np.logspace(2, -4, 70), 0., np.logspace(-4, 2, 70), np.linspace(-1.5, .2, 171)])
+ORIGINAL_KAPPA = np.unique(np.r_[-np.logspace(2, -4, 70), 0., np.logspace(-4, 2, 70), np.linspace(-1.5, .2, 171)])
+KAPPA_REFINEMENT = np.array([k / 500 for k in range(-300, -99)], dtype=float)
+KAPPA_DUPLICATE_TOLERANCE = 1e-12
+
+
+def refined_kappa_grid():
+    """保留旧浮点值，仅加入与全部已保留值相差超过容差的新点。"""
+    retained = list(ORIGINAL_KAPPA)
+    for candidate in KAPPA_REFINEMENT:
+        if all(abs(candidate - old) > KAPPA_DUPLICATE_TOLERANCE for old in retained):
+            retained.append(float(candidate))
+    return np.array(sorted(retained), dtype=float)
+
+
+KAPPA = refined_kappa_grid()
 R_GRID = np.logspace(-1, np.log10(20.), core.ACCEPTANCE["settings"]["phase_weight_nodes"])
 
 
@@ -413,7 +427,17 @@ def run(output_dir, root=core.ROOT, baseline_path=None, xian_reference=None, tas
                 "acceptance": core.ACCEPTANCE, "calculation_source_hashes": source_hashes,
                 "software": {"python": platform.python_version(), "numpy": np.__version__, "scipy": scipy.__version__},
                 "tasks_requested": tasks, "settings": {"capacity_points": CAPACITY_POINTS, "r_grid": R_GRID,
-                                                        "kappa_grid": KAPPA, "weights": [1., 2.]},
+                                                        "kappa_grid": KAPPA, "weights": [1., 2.],
+                                                        "kappa_grid_construction": {
+                                                            "original_grid": ORIGINAL_KAPPA,
+                                                            "refinement_grid": KAPPA_REFINEMENT,
+                                                            "original_count": len(ORIGINAL_KAPPA),
+                                                            "refinement_count": len(KAPPA_REFINEMENT),
+                                                            "final_count": len(KAPPA),
+                                                            "refinement_interval": [-.6, -.2],
+                                                            "refinement_step": .002,
+                                                            "duplicate_absolute_tolerance": KAPPA_DUPLICATE_TOLERANCE,
+                                                            "retention_rule": "按绝对差去除近重复，优先保留原310点的完整浮点值"}},
                 "publication": {"textwidth_bp": textwidth_bp, "source": "调用者本轮同版本TeX实测；不作为科学参数"},
                 "xian_input_scope": "继承指定已验收reference完整拟合初值与TDINN参照；本轮不fit、不重新积分TDINN"}
     write_json(out/"input_manifest.json", manifest)

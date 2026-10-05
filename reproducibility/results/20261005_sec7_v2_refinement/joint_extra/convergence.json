@@ -1,0 +1,9 @@
+{
+  "scope": "各任务候选检查JSON内的state/time/convergence字段",
+  "tasks": {
+    "A": "candidate_checks_A.json",
+    "B": "candidate_checks_B.json",
+    "C": "candidate_checks_C.json",
+    "D": "candidate_checks_D.json"
+  }
+}

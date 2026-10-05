@@ -1,0 +1,125 @@
+{
+  "status": "review_completed",
+  "main_pdf_sha256": "913871273eb0c0bdb47bba204681d6aa2a3a2d9a6f159c020ceef89716dfd61c",
+  "supplement_pdf_sha256": "9166eb3489bc74412608f64e55938936a7a91ab0970407e954e7f94ac8eeeb69",
+  "main_page_count": 51,
+  "supplement_page_count": 3,
+  "review_method": "逐页将已有120dpi或Poppler PNG通过view_image提供给模型，实际查看页面；同时只读提取PDF文字定位第10节及计算两份PDF的SHA-256。没有修改论文源码或图件。",
+  "findings_by_page": [
+    {
+      "page": 26,
+      "document": "main",
+      "blocking_issue": false,
+      "observation": "图7、8及其图注完整，面板号、坐标、曲线和图例未出现裁切或重叠；第7.2节的前邻页分页正常。"
+    },
+    {
+      "page": 27,
+      "document": "main",
+      "blocking_issue": false,
+      "observation": "第7.2节新增控制分段、局部与全局比较说明、几乎处处限定及峰值对象说明均完整可读，公式与正文均未越界。"
+    },
+    {
+      "page": 28,
+      "document": "main",
+      "blocking_issue": false,
+      "observation": "表2与图9同页，图9不再单独占一张大留白浮动页；四面板、原图例及完整图注均可读。表2六列及两组单位说明对齐，J列保持四位小数。"
+    },
+    {
+      "page": 29,
+      "document": "main",
+      "blocking_issue": false,
+      "observation": "第7.3节能力轨迹、1.94d和0.26d分段说明、成本相对量及同一S下控制一致的限定显示完整。图10三面板与图注无明显重叠；7.4标题及开头正文未形成孤立标题。"
+    },
+    {
+      "page": 30,
+      "document": "main",
+      "blocking_issue": false,
+      "observation": "第7.4节有限网格转折说明及图11色条、边界、默认r=2参照均清楚。第7.5节显示470个乘子解、充分条件、符号精确时长端点及实际二次成本夹界，段落和数学符号未裁切。"
+    },
+    {
+      "page": 31,
+      "document": "main",
+      "blocking_issue": false,
+      "observation": "图12保留原色彩、对数横轴及负乘子短虚线，加密后曲线连接完整，图例与端点圆点无遮挡；图注已删除不存在的采样断线说明，仍保留未计算时长限定。第8节及其小节、方程排版正常。"
+    },
+    {
+      "page": 32,
+      "document": "main",
+      "blocking_issue": false,
+      "observation": "修改区域后的相邻页表3参数、数据说明、跨文档表S2引用与第8.3节均显示完整，无新增版面越界。"
+    },
+    {
+      "page": 33,
+      "document": "main",
+      "blocking_issue": false,
+      "observation": "表4的J列以49.3894、40.7686、0.0000四位小数显示，成本列宽与数字对齐正常；其他列、表注、图13和控制公式均未裁切。"
+    },
+    {
+      "page": 34,
+      "document": "main",
+      "blocking_issue": false,
+      "observation": "表4之后相邻页图14的五面板、图例、坐标及完整图注可读，未发现浮动重叠或异常裁切。"
+    },
+    {
+      "page": 35,
+      "document": "main",
+      "blocking_issue": false,
+      "observation": "第8节继承结果及联合比较数值说明显示完整，图15与图注可读；成本段落引用和后续敏感性小节衔接正常。"
+    },
+    {
+      "page": 39,
+      "document": "main",
+      "blocking_issue": false,
+      "observation": "第9.5节表5、四条实际指标边界、比较集合及参考直线限定完整显示，未见公式越界或引用占位；这里只检查显示，没有复核数学结论。"
+    },
+    {
+      "page": 42,
+      "document": "main",
+      "blocking_issue": false,
+      "observation": "第10节前邻页的图19、内嵌图、图注及第9.7节显示完整，无新增浮动体重叠。"
+    },
+    {
+      "page": 43,
+      "document": "main",
+      "blocking_issue": false,
+      "observation": "第10节实际从本页开始，新增w_c=1,w_q=2的西安二次成本限定可读，前方图20、图例及图注未越界。"
+    },
+    {
+      "page": 44,
+      "document": "main",
+      "blocking_issue": false,
+      "observation": "第10节相邻页中模型局限、终止条件和结论段落分页正常，数学符号和文献引用均显示。"
+    },
+    {
+      "page": 50,
+      "document": "main",
+      "blocking_issue": false,
+      "observation": "附录公式、证明末尾及唯一正文参考文献标题正常，参考文献[1]–[5]清楚显示，没有与页脚重叠。"
+    },
+    {
+      "page": 51,
+      "document": "main",
+      "blocking_issue": false,
+      "observation": "参考文献[6]–[20]完整显示，中英文条目、DOI及长URL均正常换行，无裁切或引用占位。"
+    },
+    {
+      "page": 1,
+      "document": "supplement",
+      "blocking_issue": false,
+      "observation": "补充材料标题、表S1和表注完整，J列原有四位小数对齐正常；既有作者XXX占位保留，非本轮新增，投稿前仍需填写正式作者信息。"
+    },
+    {
+      "page": 2,
+      "document": "supplement",
+      "blocking_issue": false,
+      "observation": "表S2三行对照及精度范围表注完整可读，长注释未越界，保留原有专页布局。"
+    },
+    {
+      "page": 3,
+      "document": "supplement",
+      "blocking_issue": false,
+      "observation": "表S3全部11行及表注完整，J列四位小数统一显示且列宽足够，其他指标列对齐正常。"
+    }
+  ],
+  "scope": "独立细页视觉检查范围为主稿26–35、39、42–44、50–51和补充材料1–3，实际查看19页；不声称已逐页审阅全部51页，不认证理论证明、数值正确性、一般参数结论或科学复算。全文概览及其余页面由主审记录另行承载。未修复既有图17标记绑定等科学待办。"
+}

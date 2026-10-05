@@ -1,0 +1,286 @@
+{
+  "passed": true,
+  "records": [
+    {
+      "run": "run_1",
+      "file": "compare_baseline.csv",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_1",
+      "file": "compare_xian.csv",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_1",
+      "file": "trajectories_baseline.csv",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_1",
+      "file": "trajectories_xian.csv",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_1",
+      "file": "capacity.json",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_1",
+      "file": "capacity_baseline.npz",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_1",
+      "file": "capacity_xian.npz",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_1",
+      "file": "capacity_traj_baseline.csv",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_1",
+      "file": "capacity_traj_xian.csv",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_1",
+      "file": "phase.json",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_1",
+      "file": "phase_baseline.npz",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_1",
+      "file": "phase_xian.npz",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_1",
+      "file": "candidate_checks_A.json",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_1",
+      "file": "candidate_checks_B.json",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_1",
+      "file": "candidate_checks_C.json",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_1",
+      "file": "alpha_family_baseline.csv",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_1",
+      "file": "TDINN_external_reference.json",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_1",
+      "file": "frontier_baseline.csv:original_points",
+      "passed": true,
+      "old_count": 310,
+      "new_count": 470,
+      "errors": [],
+      "old_gaps": 9,
+      "new_gaps": 0,
+      "connection_fields_recomputed_not_regression_targets": true
+    },
+    {
+      "run": "run_1",
+      "file": "candidate_checks_D.json:original_points_and_time_representatives",
+      "passed": true,
+      "old_scan_count": 310,
+      "new_scan_count": 470,
+      "errors": []
+    },
+    {
+      "run": "run_2",
+      "file": "compare_baseline.csv",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_2",
+      "file": "compare_xian.csv",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_2",
+      "file": "trajectories_baseline.csv",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_2",
+      "file": "trajectories_xian.csv",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_2",
+      "file": "capacity.json",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_2",
+      "file": "capacity_baseline.npz",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_2",
+      "file": "capacity_xian.npz",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_2",
+      "file": "capacity_traj_baseline.csv",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_2",
+      "file": "capacity_traj_xian.csv",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_2",
+      "file": "phase.json",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_2",
+      "file": "phase_baseline.npz",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_2",
+      "file": "phase_xian.npz",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_2",
+      "file": "candidate_checks_A.json",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_2",
+      "file": "candidate_checks_B.json",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_2",
+      "file": "candidate_checks_C.json",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_2",
+      "file": "alpha_family_baseline.csv",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_2",
+      "file": "TDINN_external_reference.json",
+      "passed": true,
+      "exact_bytes_equal": true,
+      "errors": []
+    },
+    {
+      "run": "run_2",
+      "file": "frontier_baseline.csv:original_points",
+      "passed": true,
+      "old_count": 310,
+      "new_count": 470,
+      "errors": [],
+      "old_gaps": 9,
+      "new_gaps": 0,
+      "connection_fields_recomputed_not_regression_targets": true
+    },
+    {
+      "run": "run_2",
+      "file": "candidate_checks_D.json:original_points_and_time_representatives",
+      "passed": true,
+      "old_scan_count": 310,
+      "new_scan_count": 470,
+      "errors": []
+    }
+  ],
+  "numeric_tolerance": {
+    "relative": 1e-10,
+    "absolute": 1e-09
+  },
+  "scope": "本轮独立 A-D 计算与指定旧验收逐项回归；不重新计算旧上游或证明一般前沿。"
+}

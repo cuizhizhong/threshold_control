@@ -2,6 +2,10 @@
 /joint_control/threshold_control_reproducible_release_20261002/** -text
 /reproducibility/** -text
 
+# 已验收讨论来源包由逐字节SHA追溯，克隆时不得转换换行。
+/ai/icu_conditional_link_codex_20261005/** -text
+/ai/第7节文字修改_20261005_v2/** -text
+
 # 正式论文与已验收来源保持相同字节；不会影响 PDF 的二进制识别。
 /latex/flatten_curve_analysis_cn.tex -text
 /latex/flatten_curve_supplement_cn.tex -text

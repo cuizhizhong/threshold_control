@@ -68,6 +68,11 @@ reproducibility/.venv/Scripts/python.exe -B reproducibility/compare_runs.py --ru
 
 ## 文件分工
 
+第7节 v2 的局部文案与乘子加密核查另存于
+[2026-10-05 核查记录](release_reports/20261005_sec7_v2_refinement/README.md)。
+新稿源版本为 `20261005_sec7_v2_refinement`；只有经显式批准的活动指针决定实际版本。
+470点的新科学计算、继承的上游证据、文案回归和完整编译分别验收，旧报告不改写。
+
 投稿正文与工程审计记录的分工见 [数值设置、收敛证据与历史程序对账](manuscript_audit_notes.md)。正文和补充表保留科研结果及必要的精度边界；旧容差、旧初值、历史输出及文件导航集中在该说明，原始验收材料不改写。S2 的清零累计容差差异不等于整张窗口表已逐项收敛。
 
 - `bootstrap.py`：源码/原始输入隔离，环境与来源记录。

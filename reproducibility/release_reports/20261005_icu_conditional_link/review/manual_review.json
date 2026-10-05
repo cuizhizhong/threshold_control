@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "failures": [],
+  "reviewer": "root",
+  "main_pdf_sha256": "fa3408f918a5a99e8f4627bb0578cd48b0bb9ac312ba62a1303cde6409bca4bf",
+  "supplement_pdf_sha256": "24ca55475edc47bca551512aed08e7d9dc43c02f77eb2978febd6c89d86ade93",
+  "main_contact_pages_viewed": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52],
+  "supplement_contact_pages_viewed": [1,2,3],
+  "detail_pages_viewed": {
+    "main": [1,2,3,4,5,6,7,13,14,15,32,33,34,35,44,45,46,47,50,51,52],
+    "supplement": [1,2,3]
+  },
+  "scientific_calculation_reexecuted": false,
+  "methods": [
+    "实际查看正文52页和补充材料3页的全部联系表概览。",
+    "Poppler 160 dpi细看正文第1、2、3、5、14、33、45、46、51、52页。",
+    "独立页图细看相邻页第4、6、7、13、15、32、34、35、44、47、50页和补充材料全部3页。"
+  ],
+  "findings": [
+    "新增无编号remark完整落在正文第5页，流量、卷积和容量界公式无越界、裁切或重叠。",
+    "D0包括初始时刻以前全部已感染者的未来需求；固定本病可用容量C与Dinit的一次扣减解释可读。",
+    "第33页西安说明末句自然续至第34页，原公式(8.3)及表3、表4完整。",
+    "讨论、结论及相邻附录页衔接正常；能力判据、第7节v2、第9节和原图均保持原内容。",
+    "Baas条目在第51页显示为[3]；第51至52页共21条参考文献可读，无未解析引用或缺字。",
+    "原作者XXX占位符和原浮动页留白不是本轮修改；没有据此调整图件或无关版式。"
+  ],
+  "independent_review": {
+    "reviewer": "icu_merge_protection_implementation",
+    "actual_main_pages_viewed": [5,33,45,46,51,52],
+    "blocking_findings": [],
+    "scope": "只读实际页图复核；未重新编译或科学复算。"
+  }
+}

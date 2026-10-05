@@ -32,6 +32,47 @@ def _integrated_figures(output: Path, version: dict, *, inherited: bool) -> dict
     directory=output/'figures'
     directory.mkdir(exist_ok=True)
     records=[]
+    if inherited and 'generated_figure_labels' in version:
+        selected=version['generated_figure_labels']
+        figures=version['inventory']['main']['figures']
+        available={item['label']:item for item in figures}
+        known={'fig:joint:compare','fig:joint:capacity','fig:joint:phase','fig:joint:frontier'}
+        if not selected or len(set(selected))!=len(selected) or not set(selected)<=known or not set(selected)<=set(available):
+            raise ValueError('逐图生成批准标签非法、重复或不在正式清单。')
+        retained=[]
+        for item in figures:
+            if item['label'] in selected:
+                continue
+            source=ROOT/'latex/figures'/item['image']
+            expected=version['inherited_figure_sha256'].get(item['image'])
+            if expected is None or not source.is_file() or sha(source)!=expected:
+                raise RuntimeError('原图继承身份未锁定或改变：'+item['image'])
+            retained.append((item,source,expected))
+        # 空目录只生成批准图，随后复制原图；不能先重画后标成继承。
+        target=directory/'joint_v2'
+        subprocess.run([sys.executable,'-B',str(ROOT/'reproducibility/joint_extra/figures.py'),
+                        '--res',str(output/'joint_extra'),'--out',str(target),
+                        '--textwidth-bp',str(version['textwidth_bp']),
+                        '--labels',*selected],check=True)
+        manifest=json.loads((target/'figure_manifest.json').read_text(encoding='utf-8'))
+        if {item['label'] for item in manifest['figures']}!=set(selected) or len(manifest['figures'])!=len(selected):
+            raise RuntimeError('生成图件清单与批准标签不一致。')
+        records.extend(manifest['figures'])
+        for item,source,expected in retained:
+            destination=directory/item['image']
+            destination.parent.mkdir(parents=True,exist_ok=True)
+            shutil.copy2(source,destination)
+            if sha(destination)!=expected:
+                raise RuntimeError('继承图件复制后哈希改变：'+item['image'])
+            records.append({'label':item['label'],'file':str(destination),'file_sha256':expected,
+                            'inherited':True,'status':'inherited','original_source':str(source)})
+        report={'passed':True,'status':'generated_and_inherited','figures':records,
+                'figure_count':len(records),'historical_pickle_replay_used':False,
+                'old_figures_regenerated':False,'new_figures_regenerated':True,
+                'generated_figure_labels':selected,'inherited_figure_count':len(retained),
+                'scope':'只生成批准标签；其余正式图按批准SHA逐件继承，不重画。'}
+        dump(output/'validation/figure_generation.json',report)
+        return report
     if inherited:
         for item in version['inventory']['main']['figures']:
             if item['label'].startswith('fig:joint:'):

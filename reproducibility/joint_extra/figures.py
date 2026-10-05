@@ -291,19 +291,31 @@ def main():
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--textwidth-bp", type=float, required=True,
                         help="当前模板实际正文宽度（bp）；从编译或模板测得，不沿用旧固定数值。")
+    parser.add_argument("--labels", nargs="+", choices=("fig:joint:compare", "fig:joint:capacity",
+                         "fig:joint:phase", "fig:joint:frontier"),
+                        help="可选：仅绘制批准的图标签；省略时保留原有全部联合图行为。")
     args = parser.parse_args()
     if args.textwidth_bp <= 0 or args.textwidth_bp > 1000:
         raise ValueError("正文宽度无效。")
     validation = require_accepted(args.res)
+    selected=set(args.labels) if args.labels is not None else None
+    if args.labels is not None and len(selected)!=len(args.labels):
+        raise ValueError("图标签筛选不得重复。")
+    if selected is not None and "fig:joint:frontier" in selected and not is_passed(validation.get("tasks", {}).get("D", {}).get("passed")):
+        raise RuntimeError("批准的图12缺少通过的任务D，不得静默跳过。")
     if args.out.exists() and any(args.out.iterdir()):
         raise FileExistsError("图件输出目录必须为空，不能覆盖历史或正式图件。")
     args.out.mkdir(parents=True, exist_ok=True)
     manifest = read_json(args.res / "input_manifest.json")
     width = args.textwidth_bp / 72
-    made = fig_compare(args.res, args.out, manifest, width)
-    made += fig_capacity(args.res, args.out, manifest, width)
-    made += fig_phase(args.res, args.out, width)
-    if is_passed(validation.get("tasks", {}).get("D", {}).get("passed")):
+    made=[]
+    if selected is None or "fig:joint:compare" in selected:
+        made+=fig_compare(args.res, args.out, manifest, width)
+    if selected is None or "fig:joint:capacity" in selected:
+        made+=fig_capacity(args.res, args.out, manifest, width)
+    if selected is None or "fig:joint:phase" in selected:
+        made+=fig_phase(args.res, args.out, width)
+    if (selected is None or "fig:joint:frontier" in selected) and is_passed(validation.get("tasks", {}).get("D", {}).get("passed")):
         made += fig_duration(args.res, args.out, width)
     sources = [path for path in args.res.iterdir() if path.suffix in {".json", ".csv", ".npz"}]
     labels = {"joint_compare_baseline": "fig:joint:compare", "joint_capacity": "fig:joint:capacity",

@@ -84,7 +84,9 @@ def prepare_workspace(output_dir: Path, root: Path = ROOT, *, precomputed_scienc
             dst.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(src,dst)
             manifest[src.relative_to(root).as_posix()]=sha(src)
     for rel in ('reproducibility/joint_integration_audit.py','reproducibility/manuscript_version.py',
-                'reproducibility/postprocess_joint_extra.py','reproducibility/run_selection.py'):
+                'reproducibility/postprocess_joint_extra.py','reproducibility/run_selection.py',
+                'reproducibility/sec7_v2_refinement_audit.py','reproducibility/paper_sync.py',
+                'reproducibility/run_all.py'):
         src=root/rel
         if src.is_file():
             dst=workspace/rel;dst.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(src,dst)

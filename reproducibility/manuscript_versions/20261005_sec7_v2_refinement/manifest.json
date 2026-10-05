@@ -1,0 +1,587 @@
+{
+  "schema": "controlled-manuscript-v1",
+  "version": "20261005_sec7_v2_refinement",
+  "documents": {
+    "main": {
+      "file": "flatten_curve_analysis_cn.tex",
+      "sha256": "c92ae0f1462cac20cb0860662298d5d7ae34e826bac829062d7c0c216fbeade2",
+      "origin": "reproducibility/dev_sec7_v2_stage/latex/flatten_curve_analysis_cn.tex"
+    },
+    "supplement": {
+      "file": "flatten_curve_supplement_cn.tex",
+      "sha256": "08aca470b33eeb4cb15164b65e4d7de5a7bdb316a0daaa1964852ee55ef0db04",
+      "origin": "reproducibility/dev_sec7_v2_stage/latex/flatten_curve_supplement_cn.tex"
+    }
+  },
+  "inventory": {
+    "main": {
+      "figures": [
+        {
+          "label": "fig:model_schematic",
+          "aliases": [
+            "fig:model_schematic"
+          ],
+          "image": "Fig1.pdf"
+        },
+        {
+          "label": "fig:scenario1:single-sim",
+          "aliases": [
+            "fig:scenario1:single-sim"
+          ],
+          "image": "optimal_control_with_quarantine_panels.pdf"
+        },
+        {
+          "label": "fig:baseline:q-joint",
+          "aliases": [
+            "fig:baseline:q-joint"
+          ],
+          "image": "layout_v5/baseline_q_joint.pdf"
+        },
+        {
+          "label": "fig:scenario1_heatmaps_c0_eta",
+          "aliases": [
+            "fig:scenario1_heatmaps_c0_eta"
+          ],
+          "image": "scenario1_heatmaps_c0_eta.pdf"
+        },
+        {
+          "label": "fig:s1:lambda-sensitivity",
+          "aliases": [
+            "fig:s1:lambda-sensitivity"
+          ],
+          "image": "layout_v5/scenario1_inflection_lambda_sensitivity.pdf"
+        },
+        {
+          "label": "fig:s1:inflection-scan",
+          "aliases": [
+            "fig:s1:inflection-scan"
+          ],
+          "image": "layout_v5/scenario1_inflection_scan_t.pdf"
+        },
+        {
+          "label": "fig:scenario1_summary_c0",
+          "aliases": [
+            "fig:scenario1_summary_c0"
+          ],
+          "image": "layout_v5/c0_sensitivity_selected_eta.pdf"
+        },
+        {
+          "label": "fig:scenario1_summary_eta",
+          "aliases": [
+            "fig:scenario1_summary_eta"
+          ],
+          "image": "layout_v5/eta_sensitivity_selected_c0.pdf"
+        },
+        {
+          "label": "fig:joint:compare",
+          "aliases": [
+            "fig:joint:compare"
+          ],
+          "image": "joint_v2/joint_compare_baseline.pdf"
+        },
+        {
+          "label": "fig:joint:capacity",
+          "aliases": [
+            "fig:joint:capacity"
+          ],
+          "image": "joint_v2/joint_capacity.pdf"
+        },
+        {
+          "label": "fig:joint:phase",
+          "aliases": [
+            "fig:joint:phase"
+          ],
+          "image": "joint_v2/joint_phase_weights.pdf"
+        },
+        {
+          "label": "fig:joint:frontier",
+          "aliases": [
+            "fig:joint:frontier"
+          ],
+          "image": "joint_v2/joint_frontier_baseline.pdf"
+        },
+        {
+          "label": "fig:xian:observed-fit",
+          "aliases": [
+            "fig:xian:observed-fit"
+          ],
+          "image": "layout_v5/xian_observed_fit.pdf"
+        },
+        {
+          "label": "fig:xian:strategy-process",
+          "aliases": [
+            "fig:xian:strategy-process"
+          ],
+          "image": "layout_v5/xian_strategy_process.pdf"
+        },
+        {
+          "label": "fig:xian_eta_sens",
+          "aliases": [
+            "fig:xian_eta_sens"
+          ],
+          "image": "xian_eta_sensitivity.pdf"
+        },
+        {
+          "label": "fig:xian_heatmaps",
+          "aliases": [
+            "fig:xian_heatmaps"
+          ],
+          "image": "xian_heatmaps.pdf"
+        },
+        {
+          "label": "fig:dom",
+          "aliases": [
+            "fig:dom"
+          ],
+          "image": "fig_dom_combined.pdf"
+        },
+        {
+          "label": "fig:dom:levers",
+          "aliases": [
+            "fig:dom:levers"
+          ],
+          "image": "layout_v5/population_threshold_levers.pdf"
+        },
+        {
+          "label": "fig:c0-panel",
+          "aliases": [
+            "fig:c0-panel"
+          ],
+          "image": "layout_v5/c0_sensitivity_panel.pdf"
+        },
+        {
+          "label": "fig:c0-phase",
+          "aliases": [
+            "fig:c0-phase"
+          ],
+          "image": "layout_v5/c0_phase_stationary.pdf"
+        },
+        {
+          "label": "fig:panel_N_decomp",
+          "aliases": [
+            "fig:panel_N_decomp"
+          ],
+          "image": "layout_v5/fig_panel_B_trajectory_decomposition.pdf"
+        },
+        {
+          "label": "fig:dom:critical-cases",
+          "aliases": [
+            "fig:dom:critical-cases"
+          ],
+          "image": "layout_v5/critical_population_cases.pdf"
+        },
+        {
+          "label": "fig:c0-scan",
+          "aliases": [
+            "fig:c0-scan"
+          ],
+          "image": "c0_sensitivity_scan.pdf"
+        },
+        {
+          "label": "fig:c0-beta-existence",
+          "aliases": [
+            "fig:c0-beta-existence"
+          ],
+          "image": "c0_beta_existence.pdf"
+        }
+      ],
+      "tables": [
+        {
+          "label": "tab:sensitivity",
+          "aliases": [
+            "tab:sensitivity",
+            "tab:s1:lambda-sensitivity",
+            "tab:s1:inflection-roles"
+          ]
+        },
+        {
+          "label": "tab:joint:compare",
+          "aliases": [
+            "tab:joint:compare"
+          ]
+        },
+        {
+          "label": "tab:xian_initial_fit",
+          "aliases": [
+            "tab:xian_initial_fit"
+          ]
+        },
+        {
+          "label": "tab:xian_summary",
+          "aliases": [
+            "tab:xian_summary"
+          ]
+        },
+        {
+          "label": "tab:dom:thresholds",
+          "aliases": [
+            "tab:dom:thresholds"
+          ]
+        }
+      ],
+      "labels": [
+        "sec:introduction",
+        "sec:model",
+        "eq:model:full",
+        "fig:model_schematic",
+        "prop:model:positive",
+        "sec:model:strategy",
+        "eq:model:plateau-requirement",
+        "eq:model:balance",
+        "eq:model:Sc",
+        "prop:model:threshold-rationale",
+        "eq:model:reduced-si",
+        "eq:model:beta12-general",
+        "eq:model:beta12-baseline",
+        "eq:model:first-integral",
+        "eq:model:routine-orbit",
+        "eq:s1:Imax-no",
+        "eq:model:trigger",
+        "sec:s1",
+        "thm:s1:start",
+        "thm:s1:trigger",
+        "eq:s1:lambert-argument",
+        "eq:s1:Sstar-lambert",
+        "eq:s1:t1",
+        "eq:s1:barS",
+        "thm:s1:qc-structure",
+        "thm:s1:platform",
+        "eq:s1:q-control",
+        "eq:s1:S-analytic",
+        "eq:s1:t2",
+        "eq:s1:q-piecewise",
+        "cor:s1:qc-structure",
+        "eq:s1:qmax",
+        "eq:s1:qprime",
+        "eq:s1:q-time-explicit",
+        "fig:scenario1:single-sim",
+        "thm:s1:tend",
+        "thm:s1:post",
+        "eq:s1:Sinfty",
+        "eq:s1:Send",
+        "eq:s1:tend",
+        "eq:s1:post-orbit",
+        "thm:s1:Itcum",
+        "eq:s1:cumulative",
+        "eq:count-identities",
+        "sec:cost",
+        "eq:cost:linear",
+        "eq:cost:J",
+        "lem:s1:Sstar-sensitivity",
+        "eq:s1:Sstar-signs",
+        "eq:s1:Sstar-eta-sign",
+        "eq:s1:Sstar-beta-sign",
+        "eq:s1:Sstar-q0-sign",
+        "prop:threshold-tradeoff",
+        "prop:s1:sensitivity",
+        "eq:threshold-tradeoff",
+        "eq:cost:state",
+        "eq:cumulative-eta",
+        "eq:s1:Imax-no-c0-derivative",
+        "eq:s1:c0-min-def",
+        "prop:contact-effects",
+        "cor:s1:duration-sensitivity",
+        "eq:duration-c0",
+        "eq:duration-c0-equivalent",
+        "sec:scaling-theory",
+        "prop:scaling",
+        "eq:dom:Jtheta",
+        "eq:small-threshold",
+        "fig:baseline:q-joint",
+        "fig:scenario1_heatmaps_c0_eta",
+        "sec:s1:shape",
+        "thm:s1:inflection",
+        "eq:s1:inflection-condition",
+        "eq:s1:inflection-values",
+        "eq:s1:qsecond",
+        "eq:s1:lambda",
+        "eq:s1:seg-high",
+        "sec:s1:inflection-position",
+        "prop:s1:lambda-sensitivity",
+        "eq:s1:lambda-q0-stationary",
+        "eq:lambda-q0-sign",
+        "tab:sensitivity",
+        "tab:s1:lambda-sensitivity",
+        "tab:s1:inflection-roles",
+        "fig:s1:lambda-sensitivity",
+        "fig:s1:inflection-scan",
+        "sec:joint",
+        "thm:joint:representation",
+        "eq:joint:contact-range",
+        "eq:joint:q",
+        "eq:joint:time",
+        "eq:joint:duration",
+        "eq:joint:balance",
+        "eq:joint:Sdot",
+        "eq:joint:bounds",
+        "cor:joint:feasibility",
+        "eq:joint:feasibility",
+        "eq:joint:explicit-c",
+        "eq:joint:explicit-q",
+        "thm:joint:explicit",
+        "eq:joint:explicit-S",
+        "eq:joint:explicit-duration",
+        "eq:joint:explicit-zero",
+        "cor:joint:allocation-range",
+        "eq:joint:allocation-range",
+        "thm:joint:comparison",
+        "eq:joint:duration-bounds",
+        "eq:joint:cumulative",
+        "eq:joint:quarantine",
+        "cor:joint:capped-comparison",
+        "eq:joint:capped-duration",
+        "cor:joint:whole-epidemic",
+        "eq:joint:whole-time",
+        "eq:joint:whole-cumulative",
+        "prop:exit-infection-lower-bound",
+        "eq:exit-infection-lower-bound",
+        "eq:exit-infection-capped",
+        "sec:joint:cost",
+        "eq:joint:cost",
+        "eq:joint:cost-integrand",
+        "thm:joint:cost-minimum",
+        "eq:joint:minimum-cost",
+        "eq:joint:stationary",
+        "eq:joint:quartic",
+        "eq:joint:contact-cost",
+        "prop:joint:minimum-threshold",
+        "eq:joint:mincost-eta",
+        "prop:joint:terminal-allocation",
+        "eq:joint:terminal-interior",
+        "eq:joint:terminal-ratio",
+        "eq:joint:ssw",
+        "prop:joint:global-structure",
+        "rem:joint:duration-constraint",
+        "sec:num",
+        "sec:numerics",
+        "fig:scenario1_summary_c0",
+        "fig:scenario1_summary_eta",
+        "sec:joint:compare-numerics",
+        "tab:joint:compare",
+        "fig:joint:compare",
+        "sec:joint:capacity-numerics",
+        "fig:joint:capacity",
+        "sec:joint:weights-numerics",
+        "fig:joint:phase",
+        "sec:joint:duration-numerics",
+        "fig:joint:frontier",
+        "sec:xian",
+        "tab:xian_initial_fit",
+        "fig:xian:observed-fit",
+        "sec:xian:threshold-scale",
+        "fig:xian:strategy-process",
+        "tab:xian_summary",
+        "fig:xian_eta_sens",
+        "fig:xian_heatmaps",
+        "sec:dominance",
+        "sec:dom:setup",
+        "eq:dom:ratios",
+        "sec:dom:theory",
+        "eq:dom:thetadefs",
+        "eq:dom:theta-bind",
+        "eq:dom:band",
+        "eq:dom:Nstar",
+        "eq:dom:Nstar-infty",
+        "sec:dom:region",
+        "prop:dom:floor",
+        "eq:dom:Nfloor",
+        "sec:dom:extra",
+        "eq:dom:cumarc",
+        "eq:dom:clrarc",
+        "sec:scaling",
+        "sec:dom:xian",
+        "tab:dom:thresholds",
+        "fig:dom",
+        "eq:dom:main-interval",
+        "fig:dom:levers",
+        "sec:dom:c0",
+        "fig:c0-panel",
+        "fig:c0-phase",
+        "sec:dom:limits",
+        "sec:discussion",
+        "app:panel_eta_N",
+        "fig:panel_N_decomp",
+        "fig:dom:critical-cases",
+        "app:dom:numerics",
+        "app:c0_scan",
+        "fig:c0-scan",
+        "app:c0_beta",
+        "fig:c0-beta-existence",
+        "app:cost",
+        "eq:cost:closed-linear",
+        "eq:cost:closed",
+        "app:lambda",
+        "app:reference-comparison",
+        "eq:reference-cost-threshold",
+        "eq:reference-duration-threshold",
+        "eq:reference-feasible-set",
+        "prop:reference-population"
+      ]
+    },
+    "supplement": {
+      "figures": [],
+      "tables": [
+        {
+          "label": "tab:sup:baseline",
+          "aliases": [
+            "tab:sup:baseline"
+          ]
+        },
+        {
+          "label": "tab:sup:initial",
+          "aliases": [
+            "tab:sup:initial"
+          ]
+        },
+        {
+          "label": "tab:sup:eta",
+          "aliases": [
+            "tab:sup:eta"
+          ]
+        }
+      ],
+      "labels": [
+        "tab:sup:baseline",
+        "tab:sup:initial",
+        "tab:sup:eta"
+      ]
+    }
+  },
+  "approved_tasks": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "textwidth_bp": 451.27561643835617,
+  "inherited_science_reference": "reproducibility/results/20261003_release_final",
+  "inherited_science_sha256": {
+    "reproducibility/results/20261003_release_final/baseline/c0_sensitivity_selected_eta.csv": "f6bf18954217385bc9631ba2c28fcff7f14df81b82436741c53d3faf3cbc4c9c",
+    "reproducibility/results/20261003_release_final/baseline/diagnostics.csv": "93019f3d898e578c08f0efcf5a151a88f0ab41bbba46a38355fcc58323b60d1a",
+    "reproducibility/results/20261003_release_final/baseline/eta_sensitivity_c0_10.csv": "364694faa4198b46e657d884d67907814fe391aba921a997af3d77103801b388",
+    "reproducibility/results/20261003_release_final/baseline/landscape_summary.csv": "ba26060cae0f4b14cc0ff8aa655795ee7313e7a46d5ea6246c4f28841e2919d9",
+    "reproducibility/results/20261003_release_final/baseline/main_c0_summary.csv": "1c11a6f665e1f6fcc13bdf624f66b6bdaeff9b5c28584b34e3cf09a7affb4399",
+    "reproducibility/results/20261003_release_final/baseline/main_eta_summary.csv": "5fbb8fd4077dcec26b55d37df88e42231b43e45e47a898bdfab4dd2b9aafcfa9",
+    "reproducibility/results/20261003_release_final/baseline/peak_validation.csv": "2828a8911640bd43629abd8fb5462139deb2e7df2ca5727521f0d40b71247366",
+    "reproducibility/results/20261003_release_final/baseline/representative_cases.csv": "a3509f135c45d1664c4381550043413ea6018885bde6c7423cc7dbc5fc6485c4",
+    "reproducibility/results/20261003_release_final/c0/beta_existence.npz": "2cc4db7135248f1dee0f0d1df22feab0036e222d95e112fc69c13422a070f459",
+    "reproducibility/results/20261003_release_final/c0/cumulative_curve.csv": "c94ed6dffe3a878fc4067b4ed4e25459149125a625afe11df4e1efe9f24a2137",
+    "reproducibility/results/20261003_release_final/c0/diagnostics.json": "beac9febc5aa364a4f89354aa578069737e25a61ab23f38d2b71f6fe5346eb91",
+    "reproducibility/results/20261003_release_final/c0/extended_scan.csv": "7101f14fdad860201a88b3249f0bea31e4414b09e646b7853188841c7b667578",
+    "reproducibility/results/20261003_release_final/c0/extrema.json": "0cacf72b36364d0e4c0d30a2f692fdc1b203658b7bafae00debbc86ad3836425",
+    "reproducibility/results/20261003_release_final/c0/parameters.json": "b428f2795b56f3e656ac811301bb22ed577bfa4828267be7153df4ca5f708625",
+    "reproducibility/results/20261003_release_final/c0/phase.npz": "9681df9473c2fbffd5f798816551ca6137052d12146580b44bd0c57e2e243fda",
+    "reproducibility/results/20261003_release_final/c0/representative_summary.csv": "4e054fbbbef349d33ee5d22baf9f05aa4ff072c264e7921625319500ff9b1f51",
+    "reproducibility/results/20261003_release_final/c0/scan.csv": "4af627044727d749a6f62943da295e4a597a9f307c456b91c798b54ade54c1b2",
+    "reproducibility/results/20261003_release_final/c0/timeseries.csv": "494c369cdc91f3906e7136e63758f2ec492fb1c911f2d50e27e507d1647b58c0",
+    "reproducibility/results/20261003_release_final/figure_inputs/reference_envelope.json": "e296abde56edd7fdc3a7b72b4d0754ea7c9274def4bca8a780ea771f4eafbe72",
+    "reproducibility/results/20261003_release_final/figure_inputs/routine_envelope.csv": "39dc03ce0143e6daae8c65b9a178cd46b45bf0a75893f80f1d78dab1288219d0",
+    "reproducibility/results/20261003_release_final/figure_inputs/routine_envelope_0.csv": "8e9ce75099ed07156e60865b67f6ff361bfbb9f7dc0f56ae638fc9705c8c297f",
+    "reproducibility/results/20261003_release_final/figure_inputs/routine_envelope_1.csv": "264b361f0ebbfe8e45372e1e9e62dfa31331c5464fcd20561dc834bb323ddc93",
+    "reproducibility/results/20261003_release_final/figure_inputs/routine_envelope_2.csv": "199376ff0587df5d21e4bf4cf0941348f9f8b706b0f5718b3d300dad50bca8cc",
+    "reproducibility/results/20261003_release_final/figure_inputs/routine_envelope_3.csv": "de00a3caae9cc70d29a8689a1d1fae004520a5b070957ee8cfcb52c18721b1e6",
+    "reproducibility/results/20261003_release_final/figure_inputs/routine_envelope_4.csv": "0a42c464a4f5dfde1221832766f665a0ed158b77f27d1f6818c3b099e5f63a9c",
+    "reproducibility/results/20261003_release_final/figure_inputs/routine_envelope_5.csv": "2ae88082a161bb67ae17e5a71106810d0ce1d83979d8a77ae12ba4ce87284690",
+    "reproducibility/results/20261003_release_final/figure_inputs/routine_envelope_6.csv": "83f32eab59194028c4321c21724c3f9a391fe3753079d26992652b28e40082ad",
+    "reproducibility/results/20261003_release_final/figure_inputs/routine_envelope_7.csv": "c4eda0b2c1687bf742fa2ee88d51a95e3b1f6a743357da9822bc861763883ffc",
+    "reproducibility/results/20261003_release_final/joint/openloop_check.json": "760648bda0b91cff88898da17c8666e666377dcde30d40ca4fd62252c6d88ba5",
+    "reproducibility/results/20261003_release_final/joint/results.csv": "d17cdea7bcbfb12910e51f0328d38f9ec888962a73c33cfb7eba34cb35300c73",
+    "reproducibility/results/20261003_release_final/joint/results.json": "7792d4de8aa7527a74cdc7f0a637a32dc0a91252745f131481b57d6b22dfcd6f",
+    "reproducibility/results/20261003_release_final/joint/root_diagnostics.json": "a71f62204eb720094026b29f963514a72bb8f79bfa05ac93f8cfcf241677733c",
+    "reproducibility/results/20261003_release_final/joint/trajectories.csv": "b05df95e80dfec7c2f94639dfb27e07588440d8afb91c78ef5948d7043186b9c",
+    "reproducibility/results/20261003_release_final/population/arcs.csv": "cea7723f04e1df5cdd5271c1ccd9a52d1d6642c2cce048112f5b616d2459b0fd",
+    "reproducibility/results/20261003_release_final/population/beta_scan.csv": "b6c0d4b2694bb0789e3fee08ad6277ea5c5abb88c70603a301e7f80ad760f6c6",
+    "reproducibility/results/20261003_release_final/population/beta_summary.json": "0f1a991b358ac90cfe9f68ad423cab0943c32c1d3bfdfa9d0f75bff380f220d2",
+    "reproducibility/results/20261003_release_final/population/clear_arc_fixed_normalized_diagnostic.csv": "ff5134b840a3e88546fc146516bd489b46c39e02058479e2a6231db51f1afefa",
+    "reproducibility/results/20261003_release_final/population/critical.json": "565070dac6b74f4b8944daf60ac9df9442e6b724712d26eae6eb0355a457f85f",
+    "reproducibility/results/20261003_release_final/population/diagnostics.json": "387ea3331bfae4f91e9ddcd3f509e27c24b32011c8fd9a586efcda9160f4d942",
+    "reproducibility/results/20261003_release_final/population/dominance_case0_0.csv": "132851fba72dc5a535d85ba114164626d5b764a079419db444dc379b5bd39845",
+    "reproducibility/results/20261003_release_final/population/dominance_case0_0_routine.csv": "701232169d5e9b02f6d3464b476c82e4e5772ecfaad1b0d2efc1827913e57e63",
+    "reproducibility/results/20261003_release_final/population/dominance_case0_1.csv": "a6b318d9ae98388ea8a83fb8ea09228972ce135d4d54f25122903ccbad8b3fa2",
+    "reproducibility/results/20261003_release_final/population/dominance_case0_1_routine.csv": "701232169d5e9b02f6d3464b476c82e4e5772ecfaad1b0d2efc1827913e57e63",
+    "reproducibility/results/20261003_release_final/population/dominance_case0_2.csv": "036ea8a72e8068eceb5e2400369dd771163537c01f29621e4e79aec445ff6395",
+    "reproducibility/results/20261003_release_final/population/dominance_case0_2_routine.csv": "701232169d5e9b02f6d3464b476c82e4e5772ecfaad1b0d2efc1827913e57e63",
+    "reproducibility/results/20261003_release_final/population/dominance_case1_0.csv": "fed1ed53a65be2c6a42d7ee22046053491359dfaadad2d11bead15b94e1e5f43",
+    "reproducibility/results/20261003_release_final/population/dominance_case1_0_routine.csv": "ac471e9f7f272d967cffb32b50efdd3c157e934e26715e697eabc60464c9d749",
+    "reproducibility/results/20261003_release_final/population/dominance_case1_1.csv": "3d9330521920c5f4f0085c912d0e3fdc8e0aecbfa17b6147bf3820bc6634bc0e",
+    "reproducibility/results/20261003_release_final/population/dominance_case1_1_routine.csv": "ac471e9f7f272d967cffb32b50efdd3c157e934e26715e697eabc60464c9d749",
+    "reproducibility/results/20261003_release_final/population/dominance_case1_2.csv": "5156ee9f51e7364589766a1af64ee3a57ecff575ba7d94c0aac946fb425fd020",
+    "reproducibility/results/20261003_release_final/population/dominance_case1_2_routine.csv": "ac471e9f7f272d967cffb32b50efdd3c157e934e26715e697eabc60464c9d749",
+    "reproducibility/results/20261003_release_final/population/dominance_case2_0.csv": "50ec07ff91906887226ae231a9ddefffc6ec9f3c6772af5e64e2b9ced5ee4480",
+    "reproducibility/results/20261003_release_final/population/dominance_case2_0_routine.csv": "c8c22c35cae33927906c489de0d343ec9be43cc7a3a7fcd09c5e0692f334cb32",
+    "reproducibility/results/20261003_release_final/population/dominance_case2_1.csv": "c2b3341b36798def7d35315e6149e38aac544ef9c225acd66bcc5eaea0ddcb53",
+    "reproducibility/results/20261003_release_final/population/dominance_case2_1_routine.csv": "c8c22c35cae33927906c489de0d343ec9be43cc7a3a7fcd09c5e0692f334cb32",
+    "reproducibility/results/20261003_release_final/population/dominance_case2_2.csv": "6b785cff90c5a4d93759a416522ba912dae4d0cede59fd3d4855ba4af51a909c",
+    "reproducibility/results/20261003_release_final/population/dominance_case2_2_routine.csv": "c8c22c35cae33927906c489de0d343ec9be43cc7a3a7fcd09c5e0692f334cb32",
+    "reproducibility/results/20261003_release_final/population/dominance_case3_0.csv": "6d2998cb3ddba720e0b9eeb841dcf3c1c2a7cc4870884c203749391af5b9fef8",
+    "reproducibility/results/20261003_release_final/population/dominance_case3_0_routine.csv": "1088d09cf8506f95fcd952ed7580dbe177c90dd3a2225fb679667a95314e2fc7",
+    "reproducibility/results/20261003_release_final/population/dominance_case3_1.csv": "03673650f33555a077be4b72cb4d6acaff2a56b32f24793f03f6db374cecd989",
+    "reproducibility/results/20261003_release_final/population/dominance_case3_1_routine.csv": "1088d09cf8506f95fcd952ed7580dbe177c90dd3a2225fb679667a95314e2fc7",
+    "reproducibility/results/20261003_release_final/population/dominance_case3_2.csv": "300b8eabdbca4574d7198072eed224465a233a9ed6532926caddbcd44c660b22",
+    "reproducibility/results/20261003_release_final/population/dominance_case3_2_routine.csv": "1088d09cf8506f95fcd952ed7580dbe177c90dd3a2225fb679667a95314e2fc7",
+    "reproducibility/results/20261003_release_final/population/dominance_fixed_eta0.csv": "3268657c8386faf72515cf55542d6695aaab5ccfff59d598bf1c86e1c72ca911",
+    "reproducibility/results/20261003_release_final/population/dominance_fixed_eta0_routine.csv": "177ab8f3911cd48aa81f6a1bff1406580a131e16e111807f2751e4175cf40620",
+    "reproducibility/results/20261003_release_final/population/dominance_fixed_eta1.csv": "356137e12ab99c2267314a76e5eb8fda38b47356a33fd57b4392ec626e1f784b",
+    "reproducibility/results/20261003_release_final/population/dominance_fixed_eta1_routine.csv": "484b7c747e4b4b697897870a2858922b26917b7df63f02ea8df922d276e243fd",
+    "reproducibility/results/20261003_release_final/population/dominance_fixed_eta2.csv": "bc328670f067ea1601a822dff83319036b366f6e548b71a6ca8548848d14b831",
+    "reproducibility/results/20261003_release_final/population/dominance_fixed_eta2_routine.csv": "ddff3e294202323727a32df21a67c78185c8da232bf2ce38c43b824bbe54a036",
+    "reproducibility/results/20261003_release_final/population/dominance_fixed_eta3.csv": "fa9cc851b2de5b022a964bda739be2a6df1017dc491d38afe092306948b463b6",
+    "reproducibility/results/20261003_release_final/population/dominance_fixed_eta3_routine.csv": "967104888a40b1b508eed444a1ffdc100f9170282bfdce48010e43d4e27128c3",
+    "reproducibility/results/20261003_release_final/population/dominance_fixed_eta4.csv": "963af961f31c219d762b99d59bc59169d1c22e48237f98ae53b0cdfcb37d5b09",
+    "reproducibility/results/20261003_release_final/population/dominance_fixed_eta4_routine.csv": "5c068230f01f0f6f03db569f95beeec9f62a6fbfba0afb17324cc0a5a77cd3d7",
+    "reproducibility/results/20261003_release_final/population/duration_limits.csv": "6fe07b0ddf8fdd9a757fe68d5062cd71ad277f6dd8bf0e448acb6fad4622ea77",
+    "reproducibility/results/20261003_release_final/population/fixed_absolute_scale.csv": "4decf6730574ddb542a08f5bd8a14d7099b494e13453fcc003738a3d8c285bde",
+    "reproducibility/results/20261003_release_final/population/inflection_invariance.csv": "ade654d0037e0de745873772f003521e848248359508fc0d02ed88cf58eeae81",
+    "reproducibility/results/20261003_release_final/population/metadata.json": "8052dd32eaa9c01f205cfe5c34ab5a4dd5ab44f8a48b6d1ffa7af46b53fa76ce",
+    "reproducibility/results/20261003_release_final/population/representative_summary.csv": "226be79a3ec71912e27fd71de80a2e60b6578a4b024ef20129413e0c63734b44",
+    "reproducibility/results/20261003_release_final/population/scale_invariance.csv": "95d91ef0854585637fc5ca883f64ada96ffa83a5887d6ccd611286a6e864e43b",
+    "reproducibility/results/20261003_release_final/population/supplementary_anchors.json": "db5df24754c7b3d407493480a22c41d7279ded536af8c3ef03b333c8b8b2311f",
+    "reproducibility/results/20261003_release_final/xian/diagnostics.json": "a203b8f0ea6f8452f7c9e0b0fd1e8457404ad00e6baaacd05a42d1bcc30ce717",
+    "reproducibility/results/20261003_release_final/xian/early_tolerance.csv": "163b409b83836815da5360f8eb749d08376d7c6193e98e7c1e2eced676afbd96",
+    "reproducibility/results/20261003_release_final/xian/eta_scan.csv": "092073fa5644a0152c42ab74c92dfe2ed89771e0378cf47f58c208082334441e",
+    "reproducibility/results/20261003_release_final/xian/fit.json": "bdbee6a736f2f620f5e306bc75d71825453689e798dc67c0c45fec65de879693",
+    "reproducibility/results/20261003_release_final/xian/heatmap.csv": "431ea0cb1b56a3387fe12ffaddd4a25ccff0df0f8a4acda56d1aa6ac27b4d2eb",
+    "reproducibility/results/20261003_release_final/xian/observed.csv": "c634b0b4f637c71bbeaa91328adeba464aa74b18db0db26ae8a00489b79ce43a",
+    "reproducibility/results/20261003_release_final/xian/reference.json": "b920deaf55f771958433ab27f32ca1606393c9ae7b96d3361aee053af097bc45",
+    "reproducibility/results/20261003_release_final/xian/S2_difference.json": "a77a02d2380420cc4f1d407279a6017215735dcf0854427782de5c04cc0f7cf9",
+    "reproducibility/results/20261003_release_final/xian/S2_window.csv": "ad0b002912fbcc67505406b6e3e6289ca8e4c5d2b581cfc614b7c3cf1af2cde3",
+    "reproducibility/results/20261003_release_final/xian/summary.csv": "6f4a7c5c053ce1c9bdd1a0cf2786b0559aca971148a6896c630b6aa367ee212f",
+    "reproducibility/results/20261003_release_final/xian/timeseries.csv": "29014ddcba1d811e8f0cd8b164f7ed008bd143f1392e81fc4368bd52cd909bbe"
+  },
+  "inherited_figure_sha256": {
+    "Fig1.pdf": "d16c241c6065e6a59cc5c3e04f133d3664987076f90acd09b125730b0b8e3766",
+    "optimal_control_with_quarantine_panels.pdf": "3dd5541ba7c0338fd72b839239dc385edcb34c11a5cfa4e82e1fde7f100723e2",
+    "layout_v5/baseline_q_joint.pdf": "13c05da34b0732491c740f94f9a7f48a52ddf4fef78fdfe3567d64252c354a22",
+    "scenario1_heatmaps_c0_eta.pdf": "cc70ea2134a28a08c2fbd9358f908360241ff15f6365149e8c82c46caf8e69ea",
+    "layout_v5/scenario1_inflection_lambda_sensitivity.pdf": "5093f5a38e5c12505346835686a157739822899a13ca3b2093a864d88fd88e2c",
+    "layout_v5/scenario1_inflection_scan_t.pdf": "53cc9e5fc6fc6e09cb75387242dfbc132ebfb068b1e69cc81defb9ca98a60d3d",
+    "layout_v5/c0_sensitivity_selected_eta.pdf": "92f686dde6607ba3df41c2651b2bbb8079ca05c170bf341e2307f55f549f5059",
+    "layout_v5/eta_sensitivity_selected_c0.pdf": "62f93509f8e99c2eb5277d0bb26ae2c17bac4e5a9d0b2ce23b630d0723af4c2b",
+    "joint_v2/joint_compare_baseline.pdf": "bc3fa1431867f868a7477aa7e424b09b077d8772bad1c943875d970f4aa6f21b",
+    "joint_v2/joint_capacity.pdf": "9c3f8eda49ed21a84db06a37acadf581d7a0cfc5341b5831fbaa82697b57dde1",
+    "joint_v2/joint_phase_weights.pdf": "0b83fa270e77169e7fc1b263fe3c41faa2353ed061e3056fdd19e61693156b98",
+    "layout_v5/xian_observed_fit.pdf": "5620f0e6273647aba4124ce9df4df3bd6e77f60e4d14a3e7baf144d883a561a2",
+    "layout_v5/xian_strategy_process.pdf": "62bd26453791a05ed29a97a374df38d56fa6ec77c1d95d21e19d57f80a555e95",
+    "xian_eta_sensitivity.pdf": "4a831647bc28c3744c054b3aae5a95275dfbac42bfd8da0a134dc85fc6ec2429",
+    "xian_heatmaps.pdf": "133eb77e23f013d3bb3822999145584a503c99bc1371521b1f6cf147f4862289",
+    "fig_dom_combined.pdf": "429ca55d424d477b4146aa90a0e774b6cd24a534f29d1b3afacfa48c96c31cae",
+    "layout_v5/population_threshold_levers.pdf": "29785382d8cce7ba1105617537ca066f2a85dc2dd47afe0161c7f26674bc8900",
+    "layout_v5/c0_sensitivity_panel.pdf": "89e0aca84876ca1f755b17d403aede3f8100097a86a6b546b6fd4967f959d039",
+    "layout_v5/c0_phase_stationary.pdf": "61b4226f287e15a8b9e61668b62b1f6820d37d3976738b9f4e6a26ec8f39b7cf",
+    "layout_v5/fig_panel_B_trajectory_decomposition.pdf": "42d5f329f8cd9d086d7e6d9cc8c5c81e6f98756cde9525469eff5ef07529daf8",
+    "layout_v5/critical_population_cases.pdf": "3e3509b16551046e478c6dbe708024655fe00d6cf62edde52782c36cf0b302f9",
+    "c0_sensitivity_scan.pdf": "539f4b575464843baa776f31a9ef5de9c897ae277dcfbaa0707c9e92347aa155",
+    "c0_beta_existence.pdf": "f6d9079d284ba7db8d3ca716b20b1b7402c0918cd80c3f539e07363431ce4823"
+  },
+  "protected_previous_revision": {
+    "baseline_main_sha256": "d261be7c5b51b27e2e57126927e2fe956200b3baaf3941e5a64c71be66f25eba",
+    "sec9_sha256": "33b0fadae6a60e8e26737daaca911499dd7c8e45c4a35e6300642dfdcc651870",
+    "sec9_byte_preserved": true
+  },
+  "provenance": "本轮本地正式稿的受控快照，不从 AI 候选整稿替换；原冻结包不改。",
+  "evidence_boundary": "版本与来源锁定不是新的科学验收或证明认证。",
+  "generated_figure_labels": [
+    "fig:joint:frontier"
+  ],
+  "publication_cost_digits": 4
+}

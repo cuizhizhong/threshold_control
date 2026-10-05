@@ -76,6 +76,15 @@ v4不改变v3的网格、求积阶数、ODE精度档或任何验收门槛，新�
 
 ## 输出
 
+2026-10-05 的第7节 v2 核查在原310个乘子值之外，加密
+`[-0.6,-0.2]`（步长0.002）。原浮点值优先保留，新点按绝对差
+`1e-12` 去除近重复，共470点；完整两套网格及构造规则写入
+`input_manifest.json.settings.kappa_grid_construction`。这不改变求解器或验收门槛。
+新的受控稿源可按 `generated_figure_labels` 只生成图12，其余23幅图按批准哈希
+继承，不把继承图称为本轮重新绘制。科学双跑、原310点回归、文案测试、编译和
+页面检查的实际状态分别记录于
+`reproducibility/release_reports/20261005_sec7_v2_refinement/`，不能由网格点数推断通过。
+
 `input_manifest.json` 保存完整输入、派生量、软件和计算源码哈希；
 `compare_*.csv` 保留 state/time 独立字段及四策略未取整指标，
 `trajectories_*.csv` 保存分段实际状态及固定时间控制；

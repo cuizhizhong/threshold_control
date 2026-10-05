@@ -1,0 +1,14 @@
+{
+  "schema": "controlled-manuscript-activation-v1",
+  "approval_id": "20261005T123209983368Z_1fbe2acc178b496394b30f6ba7bcb73f",
+  "approval_reason": "本轮批准的ICU条件性联系已通过保护核查、继承科学身份、双文案回归、完整编译和实际全页/重点页审阅；没有科学重算。",
+  "previous_pointer_sha256": "b6d1e740d3a47a58a9acd8f4e39e457aabe03ffb2d897b07e3df4284868b39ae",
+  "previous_pointer_backup": "reproducibility/manuscript_versions/approvals/20261005T123209983368Z_1fbe2acc178b496394b30f6ba7bcb73f.previous.json",
+  "selection": {
+    "version": "20261005_icu_conditional_link",
+    "manifest_sha256": "acb3631674ccbf9cf1227725076630399d842f8f0fcbfea16eb849a0ab7217c3"
+  },
+  "status": "activated",
+  "evidence_boundary": "稿源批准不代表新增科学或排版验收。",
+  "current_pointer_sha256": "37c8dfe3bc23392563da68da749bd0e47e14ec352ca6418eab0bf032ffadf021"
+}

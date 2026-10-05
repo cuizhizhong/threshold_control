@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "not_activated": true,
+  "old_pointer_sha256": "be484e70f1bbd90aa56ffab7c806f2d6fce134f36b9cbc8f94e38c5aab455986",
+  "new_manifest_sha256": "698468cc87221832b1337c2e07a17f5687e4629f5d8564c43d910d125afac342",
+  "version": "20261005_sec7_v2_refinement",
+  "stage_protection_report": "protection_stage_final.json",
+  "scientific_regression_report": "scientific_regression.json",
+  "font_measurement_log": "measure_textwidth_stdout.log"
+}

@@ -1,0 +1,37 @@
+{
+  "repository": "cuizhizhong/threshold_control",
+  "commit": "894fd49c99cc52fbaf8e2992c08457ff456c4749",
+  "read_method": "GitHub connector fetch_file/fetch",
+  "files": {
+    "latex/flatten_curve_analysis_cn.tex": {
+      "reported_git_blob_sha": "6888e77128dcf456fa37b7b4e748a1221f283abe",
+      "read_scope": "abstract and introduction; medical definition; joint numerical sections; Xian threshold; discussion and conclusion"
+    },
+    "latex/references.bib": {
+      "reported_git_blob_sha": "b454fd381ecc83b1b9b2c7d4c2a374cc2091e623",
+      "new_baas_key_found": false
+    },
+    "latex/elegantpaper.cls": {
+      "reported_git_blob_sha": "35b542b29cf77cf7e8d32350bd384fe04d036a1e",
+      "remark_environment": "unnumbered"
+    },
+    "reproducibility/paper_sync.py": {
+      "reported_git_blob_sha": "7fd0236d195e38c2f034e04e2642c1c1ac465c5b",
+      "read_scope": "publication_prose and opening of population_comparison_prose"
+    },
+    "AGENTS.md": {
+      "read_scope": "current research/verification rules and manuscript version notes"
+    },
+    "manuscript_versions/current.json": {
+      "read_status": "remote returned 404; local Codex must resolve actual activity source"
+    }
+  },
+  "external_reference": {
+    "title": "Real-time forecasting of COVID-19 bed occupancy in wards and Intensive Care Units",
+    "doi": "10.1007/s10729-021-09553-5",
+    "publisher": "Springer Nature",
+    "viewed": "2026-10-05",
+    "relevant_location": "Section 2, equations (3)-(4); conceptual support only, not the new SIQR theorem"
+  },
+  "byte_provenance_note": "Original old-text anchors are transcriptions of returned UTF-8 text with LF normalization. Their hashes are bundle hashes, not full remote source hashes."
+}

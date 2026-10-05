@@ -1,0 +1,71 @@
+{
+  "tested_at": "2026-10-05",
+  "scope": "synthetic excerpt fixture and fragment-level static checks only; NOT a full manuscript test",
+  "tests": [
+    {
+      "name": "all unique anchors on synthetic UTF-8 BOM/CRLF fixture",
+      "passed": true,
+      "stdout": "已生成独立候选：/tmp/tmp99nyyn9o/good/flatten_curve_analysis_cn.candidate.tex\n源文件未改；未合并bib、未批准活动版本、未编译全文。\n"
+    },
+    {
+      "name": "missing anchor stops without candidate",
+      "passed": true,
+      "stdout": "stopped: non-unique or missing anchors; no candidate created\n"
+    },
+    {
+      "name": "duplicate anchor stops",
+      "passed": true,
+      "stdout": "stopped: non-unique or missing anchors; no candidate created\n"
+    },
+    {
+      "name": "existing output directory is not overwritten",
+      "passed": true,
+      "stdout": "",
+      "stderr": "停止：输出目录已存在。请提供一个全新的目录，避免覆盖先前工作。\n"
+    }
+  ],
+  "fragment_checks": [
+    {
+      "id": "00_abstract_opening",
+      "protected_environments_identical": true,
+      "label_sequence_identical": true
+    },
+    {
+      "id": "01_introduction_control_object",
+      "protected_environments_identical": true,
+      "label_sequence_identical": true
+    },
+    {
+      "id": "02_section22_medical_link",
+      "protected_environments_identical": true,
+      "label_sequence_identical": true
+    },
+    {
+      "id": "03_section22_strategy_bridge",
+      "protected_environments_identical": true,
+      "label_sequence_identical": true
+    },
+    {
+      "id": "04_xian_threshold_interpretation",
+      "protected_environments_identical": true,
+      "label_sequence_identical": true
+    },
+    {
+      "id": "05_discussion_capacity",
+      "protected_environments_identical": true,
+      "label_sequence_identical": true
+    },
+    {
+      "id": "06_discussion_future_mapping",
+      "protected_environments_identical": true,
+      "label_sequence_identical": true
+    },
+    {
+      "id": "07_conclusion_opening",
+      "protected_environments_identical": true,
+      "label_sequence_identical": true
+    }
+  ],
+  "clinical_or_epidemic_simulation_run": false,
+  "actual_repository_edited": false
+}

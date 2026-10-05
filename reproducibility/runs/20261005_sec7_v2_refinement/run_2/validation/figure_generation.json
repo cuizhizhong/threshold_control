@@ -1,0 +1,204 @@
+{
+  "passed": true,
+  "status": "generated_and_inherited",
+  "figures": [
+    {
+      "label": "fig:joint:frontier",
+      "file": "E:\\work\\draft\\reproducibility\\runs\\20261005_sec7_v2_refinement\\run_2\\figures\\joint_v2\\joint_frontier_baseline.pdf",
+      "file_sha256": "8eb58ebb9d08c32c62226275dedbfa18691521e7d3b1d517d60afb96b2ec5130"
+    },
+    {
+      "label": "fig:model_schematic",
+      "file": "E:\\work\\draft\\reproducibility\\runs\\20261005_sec7_v2_refinement\\run_2\\figures\\Fig1.pdf",
+      "file_sha256": "d16c241c6065e6a59cc5c3e04f133d3664987076f90acd09b125730b0b8e3766",
+      "inherited": true,
+      "status": "inherited",
+      "original_source": "E:\\work\\draft\\latex\\figures\\Fig1.pdf"
+    },
+    {
+      "label": "fig:scenario1:single-sim",
+      "file": "E:\\work\\draft\\reproducibility\\runs\\20261005_sec7_v2_refinement\\run_2\\figures\\optimal_control_with_quarantine_panels.pdf",
+      "file_sha256": "3dd5541ba7c0338fd72b839239dc385edcb34c11a5cfa4e82e1fde7f100723e2",
+      "inherited": true,
+      "status": "inherited",
+      "original_source": "E:\\work\\draft\\latex\\figures\\optimal_control_with_quarantine_panels.pdf"
+    },
+    {
+      "label": "fig:baseline:q-joint",
+      "file": "E:\\work\\draft\\reproducibility\\runs\\20261005_sec7_v2_refinement\\run_2\\figures\\layout_v5\\baseline_q_joint.pdf",
+      "file_sha256": "13c05da34b0732491c740f94f9a7f48a52ddf4fef78fdfe3567d64252c354a22",
+      "inherited": true,
+      "status": "inherited",
+      "original_source": "E:\\work\\draft\\latex\\figures\\layout_v5\\baseline_q_joint.pdf"
+    },
+    {
+      "label": "fig:scenario1_heatmaps_c0_eta",
+      "file": "E:\\work\\draft\\reproducibility\\runs\\20261005_sec7_v2_refinement\\run_2\\figures\\scenario1_heatmaps_c0_eta.pdf",
+      "file_sha256": "cc70ea2134a28a08c2fbd9358f908360241ff15f6365149e8c82c46caf8e69ea",
+      "inherited": true,
+      "status": "inherited",
+      "original_source": "E:\\work\\draft\\latex\\figures\\scenario1_heatmaps_c0_eta.pdf"
+    },
+    {
+      "label": "fig:s1:lambda-sensitivity",
+      "file": "E:\\work\\draft\\reproducibility\\runs\\20261005_sec7_v2_refinement\\run_2\\figures\\layout_v5\\scenario1_inflection_lambda_sensitivity.pdf",
+      "file_sha256": "5093f5a38e5c12505346835686a157739822899a13ca3b2093a864d88fd88e2c",
+      "inherited": true,
+      "status": "inherited",
+      "original_source": "E:\\work\\draft\\latex\\figures\\layout_v5\\scenario1_inflection_lambda_sensitivity.pdf"
+    },
+    {
+      "label": "fig:s1:inflection-scan",
+      "file": "E:\\work\\draft\\reproducibility\\runs\\20261005_sec7_v2_refinement\\run_2\\figures\\layout_v5\\scenario1_inflection_scan_t.pdf",
+      "file_sha256": "53cc9e5fc6fc6e09cb75387242dfbc132ebfb068b1e69cc81defb9ca98a60d3d",
+      "inherited": true,
+      "status": "inherited",
+      "original_source": "E:\\work\\draft\\latex\\figures\\layout_v5\\scenario1_inflection_scan_t.pdf"
+    },
+    {
+      "label": "fig:scenario1_summary_c0",
+      "file": "E:\\work\\draft\\reproducibility\\runs\\20261005_sec7_v2_refinement\\run_2\\figures\\layout_v5\\c0_sensitivity_selected_eta.pdf",
+      "file_sha256": "92f686dde6607ba3df41c2651b2bbb8079ca05c170bf341e2307f55f549f5059",
+      "inherited": true,
+      "status": "inherited",
+      "original_source": "E:\\work\\draft\\latex\\figures\\layout_v5\\c0_sensitivity_selected_eta.pdf"
+    },
+    {
+      "label": "fig:scenario1_summary_eta",
+      "file": "E:\\work\\draft\\reproducibility\\runs\\20261005_sec7_v2_refinement\\run_2\\figures\\layout_v5\\eta_sensitivity_selected_c0.pdf",
+      "file_sha256": "62f93509f8e99c2eb5277d0bb26ae2c17bac4e5a9d0b2ce23b630d0723af4c2b",
+      "inherited": true,
+      "status": "inherited",
+      "original_source": "E:\\work\\draft\\latex\\figures\\layout_v5\\eta_sensitivity_selected_c0.pdf"
+    },
+    {
+      "label": "fig:joint:compare",
+      "file": "E:\\work\\draft\\reproducibility\\runs\\20261005_sec7_v2_refinement\\run_2\\figures\\joint_v2\\joint_compare_baseline.pdf",
+      "file_sha256": "bc3fa1431867f868a7477aa7e424b09b077d8772bad1c943875d970f4aa6f21b",
+      "inherited": true,
+      "status": "inherited",
+      "original_source": "E:\\work\\draft\\latex\\figures\\joint_v2\\joint_compare_baseline.pdf"
+    },
+    {
+      "label": "fig:joint:capacity",
+      "file": "E:\\work\\draft\\reproducibility\\runs\\20261005_sec7_v2_refinement\\run_2\\figures\\joint_v2\\joint_capacity.pdf",
+      "file_sha256": "9c3f8eda49ed21a84db06a37acadf581d7a0cfc5341b5831fbaa82697b57dde1",
+      "inherited": true,
+      "status": "inherited",
+      "original_source": "E:\\work\\draft\\latex\\figures\\joint_v2\\joint_capacity.pdf"
+    },
+    {
+      "label": "fig:joint:phase",
+      "file": "E:\\work\\draft\\reproducibility\\runs\\20261005_sec7_v2_refinement\\run_2\\figures\\joint_v2\\joint_phase_weights.pdf",
+      "file_sha256": "0b83fa270e77169e7fc1b263fe3c41faa2353ed061e3056fdd19e61693156b98",
+      "inherited": true,
+      "status": "inherited",
+      "original_source": "E:\\work\\draft\\latex\\figures\\joint_v2\\joint_phase_weights.pdf"
+    },
+    {
+      "label": "fig:xian:observed-fit",
+      "file": "E:\\work\\draft\\reproducibility\\runs\\20261005_sec7_v2_refinement\\run_2\\figures\\layout_v5\\xian_observed_fit.pdf",
+      "file_sha256": "5620f0e6273647aba4124ce9df4df3bd6e77f60e4d14a3e7baf144d883a561a2",
+      "inherited": true,
+      "status": "inherited",
+      "original_source": "E:\\work\\draft\\latex\\figures\\layout_v5\\xian_observed_fit.pdf"
+    },
+    {
+      "label": "fig:xian:strategy-process",
+      "file": "E:\\work\\draft\\reproducibility\\runs\\20261005_sec7_v2_refinement\\run_2\\figures\\layout_v5\\xian_strategy_process.pdf",
+      "file_sha256": "62bd26453791a05ed29a97a374df38d56fa6ec77c1d95d21e19d57f80a555e95",
+      "inherited": true,
+      "status": "inherited",
+      "original_source": "E:\\work\\draft\\latex\\figures\\layout_v5\\xian_strategy_process.pdf"
+    },
+    {
+      "label": "fig:xian_eta_sens",
+      "file": "E:\\work\\draft\\reproducibility\\runs\\20261005_sec7_v2_refinement\\run_2\\figures\\xian_eta_sensitivity.pdf",
+      "file_sha256": "4a831647bc28c3744c054b3aae5a95275dfbac42bfd8da0a134dc85fc6ec2429",
+      "inherited": true,
+      "status": "inherited",
+      "original_source": "E:\\work\\draft\\latex\\figures\\xian_eta_sensitivity.pdf"
+    },
+    {
+      "label": "fig:xian_heatmaps",
+      "file": "E:\\work\\draft\\reproducibility\\runs\\20261005_sec7_v2_refinement\\run_2\\figures\\xian_heatmaps.pdf",
+      "file_sha256": "133eb77e23f013d3bb3822999145584a503c99bc1371521b1f6cf147f4862289",
+      "inherited": true,
+      "status": "inherited",
+      "original_source": "E:\\work\\draft\\latex\\figures\\xian_heatmaps.pdf"
+    },
+    {
+      "label": "fig:dom",
+      "file": "E:\\work\\draft\\reproducibility\\runs\\20261005_sec7_v2_refinement\\run_2\\figures\\fig_dom_combined.pdf",
+      "file_sha256": "429ca55d424d477b4146aa90a0e774b6cd24a534f29d1b3afacfa48c96c31cae",
+      "inherited": true,
+      "status": "inherited",
+      "original_source": "E:\\work\\draft\\latex\\figures\\fig_dom_combined.pdf"
+    },
+    {
+      "label": "fig:dom:levers",
+      "file": "E:\\work\\draft\\reproducibility\\runs\\20261005_sec7_v2_refinement\\run_2\\figures\\layout_v5\\population_threshold_levers.pdf",
+      "file_sha256": "29785382d8cce7ba1105617537ca066f2a85dc2dd47afe0161c7f26674bc8900",
+      "inherited": true,
+      "status": "inherited",
+      "original_source": "E:\\work\\draft\\latex\\figures\\layout_v5\\population_threshold_levers.pdf"
+    },
+    {
+      "label": "fig:c0-panel",
+      "file": "E:\\work\\draft\\reproducibility\\runs\\20261005_sec7_v2_refinement\\run_2\\figures\\layout_v5\\c0_sensitivity_panel.pdf",
+      "file_sha256": "89e0aca84876ca1f755b17d403aede3f8100097a86a6b546b6fd4967f959d039",
+      "inherited": true,
+      "status": "inherited",
+      "original_source": "E:\\work\\draft\\latex\\figures\\layout_v5\\c0_sensitivity_panel.pdf"
+    },
+    {
+      "label": "fig:c0-phase",
+      "file": "E:\\work\\draft\\reproducibility\\runs\\20261005_sec7_v2_refinement\\run_2\\figures\\layout_v5\\c0_phase_stationary.pdf",
+      "file_sha256": "61b4226f287e15a8b9e61668b62b1f6820d37d3976738b9f4e6a26ec8f39b7cf",
+      "inherited": true,
+      "status": "inherited",
+      "original_source": "E:\\work\\draft\\latex\\figures\\layout_v5\\c0_phase_stationary.pdf"
+    },
+    {
+      "label": "fig:panel_N_decomp",
+      "file": "E:\\work\\draft\\reproducibility\\runs\\20261005_sec7_v2_refinement\\run_2\\figures\\layout_v5\\fig_panel_B_trajectory_decomposition.pdf",
+      "file_sha256": "42d5f329f8cd9d086d7e6d9cc8c5c81e6f98756cde9525469eff5ef07529daf8",
+      "inherited": true,
+      "status": "inherited",
+      "original_source": "E:\\work\\draft\\latex\\figures\\layout_v5\\fig_panel_B_trajectory_decomposition.pdf"
+    },
+    {
+      "label": "fig:dom:critical-cases",
+      "file": "E:\\work\\draft\\reproducibility\\runs\\20261005_sec7_v2_refinement\\run_2\\figures\\layout_v5\\critical_population_cases.pdf",
+      "file_sha256": "3e3509b16551046e478c6dbe708024655fe00d6cf62edde52782c36cf0b302f9",
+      "inherited": true,
+      "status": "inherited",
+      "original_source": "E:\\work\\draft\\latex\\figures\\layout_v5\\critical_population_cases.pdf"
+    },
+    {
+      "label": "fig:c0-scan",
+      "file": "E:\\work\\draft\\reproducibility\\runs\\20261005_sec7_v2_refinement\\run_2\\figures\\c0_sensitivity_scan.pdf",
+      "file_sha256": "539f4b575464843baa776f31a9ef5de9c897ae277dcfbaa0707c9e92347aa155",
+      "inherited": true,
+      "status": "inherited",
+      "original_source": "E:\\work\\draft\\latex\\figures\\c0_sensitivity_scan.pdf"
+    },
+    {
+      "label": "fig:c0-beta-existence",
+      "file": "E:\\work\\draft\\reproducibility\\runs\\20261005_sec7_v2_refinement\\run_2\\figures\\c0_beta_existence.pdf",
+      "file_sha256": "f6d9079d284ba7db8d3ca716b20b1b7402c0918cd80c3f539e07363431ce4823",
+      "inherited": true,
+      "status": "inherited",
+      "original_source": "E:\\work\\draft\\latex\\figures\\c0_beta_existence.pdf"
+    }
+  ],
+  "figure_count": 24,
+  "historical_pickle_replay_used": false,
+  "old_figures_regenerated": false,
+  "new_figures_regenerated": true,
+  "generated_figure_labels": [
+    "fig:joint:frontier"
+  ],
+  "inherited_figure_count": 23,
+  "scope": "只生成批准标签；其余正式图按批准SHA逐件继承，不重画。"
+}
