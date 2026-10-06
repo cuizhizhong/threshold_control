@@ -1,12 +1,10 @@
-% ===== 06_joint_control =====
 \section{联合阈值控制的可行性与指标权衡}
 \label{sec:joint}
-固定接触率时，维持 $I=\eta$ 唯一确定隔离比例。由推论\ref{cor:s1:qc-structure}，隔离能力不足时，接触削减可能补足实施能力；仅隔离控制已经可行时，联合控制仍可用于研究不同干预分配的成本。现在允许接触率和隔离比例同时变化，感染人数不变只约束二者的乘积，因而还需要确定如何分配两种干预。本节先给出全部联合阈值控制及其可行条件，再比较控制时长、累计新增感染和隔离人数，最后确定给定成本下的类内最小成本分配。
+维持 $I=\eta$ 只约束接触率与未被隔离比例的乘积，允许两种干预有不同分配。将这些分配用易感者状态参数化后，能力限制确定允许区间，控制时长则联系累计新增感染与新增隔离易感者人数。
 
-% TODO（阶段4c）：原章首的成本路线图已独立至第5章，留待改写。
 \subsection{状态参数化与能力条件}
-控制约定和能力界限见第\ref{sec:model:control-class}节。
-由于阈值控制期内 $S$ 严格下降，可以用 $S$ 代替时间描述控制。沿用前文 $q_c(S)$ 的记法，分别以 $c_c(S),q_c(S)$ 表示接触率和隔离比例的状态表达；它们对应的时间函数为 $c(t)=c_c(S(t))$、$q(t)=q_c(S(t))$。仅隔离控制就是 $c_c(S)\equiv c_0$ 的特例。
+阈值控制期内 $S$ 严格下降，因而可以用 $S$ 参数化全部允许分配。沿用第\ref{sec:model:control-class}节的可测控制约定，以下对应均在几乎处处相等意义下成立。
+记接触率和隔离比例的状态表达为 $c_c(S),q_c(S)$，对应的时间函数为 $c(t)=c_c(S(t))$、$q(t)=q_c(S(t))$。仅隔离控制对应 $c_c(S)\equiv c_0$。
 \begin{theorem}
 \label{thm:joint:representation}
 规定的联合阈值控制与满足
@@ -31,7 +29,7 @@ t-t_1&=\frac{N}{\eta}\int_{S(t)}^{S^*}
 \end{theorem}
 证明见附录\ref{sec:proof:representation}。
 
-这一表示只需选择接触率 $c_c(S)$，隔离比例和控制时长随后确定。由此，两个时间函数之间的约束化为接触率状态函数的取值范围。
+选择 $c_c(S)$ 后，隔离比例、时间轨迹和控制时长随之确定。第\ref{sec:model:control-class}节的能力限制进一步将接触率约束为式\eqref{eq:joint:bounds}的区间。
 
 \begin{corollaryn}
 \label{cor:joint:feasibility}
@@ -52,22 +50,24 @@ c_{\min}\le\frac{c_0(1-q_0)S_c}{(1-q_{\rm cap})S}.
 \]
 其最严格处为 $S=S^*$，即式\eqref{eq:joint:feasibility}。条件成立时取 $c_c=(\underline c+\overline c)/2$，由前一定理得到可行控制；条件不成立时，启动状态附近不存在允许分配。
 \end{proof}
-由于 $c_{\min}\le c_0$，联合可行条件不强于仅隔离控制的条件；当 $c_{\min}=c_0$ 时，二者相同。具体而言，若 $q_{\rm cap}\ge q_{\max}$，仅隔离控制与联合控制均可行；允许分配存在自由度时，仍可比较不同分配的控制时长、累计新增感染和成本。若 $q_{\rm cap}<q_{\max}$ 而式\eqref{eq:joint:feasibility}成立，仅隔离控制不可行，但接触削减可以补足隔离能力。沿用满足界限的逐点代表约定，由式\eqref{eq:joint:bounds}可知，在
+由于 $c_{\min}\le c_0$，联合可行条件不强于仅隔离控制的条件，两者在 $c_{\min}=c_0$ 时相同。若 $q_{\rm cap}\ge q_{\max}$，两类控制均可行。若 $q_{\rm cap}<q_{\max}$ 而式\eqref{eq:joint:feasibility}成立，则接触减少补足仅隔离控制所缺的能力。后一情形下，沿用满足界限的逐点代表，由式\eqref{eq:joint:bounds}可知，在
 \[
 \frac{\gamma N}{\beta c_0(1-q_{\rm cap})}<S\le S^*
 \]
-上必须有 $c_c(S)<c_0$，因此接触削减至少在启动后的一段正时间内是必要的；这不要求隔离比例也必须高于 $q_0$。当 $S$ 降至上述区间下界及其以下时，仅隔离控制重新成为允许分配，但不意味着成本最优策略会切回仅隔离控制。最后，若式\eqref{eq:joint:feasibility}不成立，规定首次触发状态附近不存在允许分配，因而不能等到当前常规轨迹达到 $I=\eta$ 才开始本节控制；提前干预改变启动状态的方案仍需另行分析。Angulo 等\cite{Angulo2021}在 SIR 模型中讨论了能力有限时需要提前启动的情形，但这一结果不直接保证本文 SIQR 模型中的提前干预可行。
+上必须有 $c_c(S)<c_0$。接触减少至少在启动后的一段正时间内是必要的，这不要求隔离比例也必须高于 $q_0$。当 $S$ 降至上述区间下界及其以下时，仅隔离控制重新成为允许分配，是否采用它还取决于成本等目标。
 
-由引理\ref{lem:s1:Sstar-sensitivity}，$S^*$ 随 $\eta$ 严格下降。因此，在其余参数及能力界限固定时，只要某一内部阈值能够实施，所有更高且仍会触发控制的阈值也能实施。降低感染上限不仅延长控制时长，还可能使启动时所需干预超过能力限制。
+若式\eqref{eq:joint:feasibility}不成立，首次触发状态附近不存在允许分配，按当前常规轨迹等到 $I=\eta$ 才启动的方案不可行。提前干预会改变启动状态，其可行性需另行分析。Angulo 等\cite{Angulo2021}在 SIR 模型中讨论了能力有限时需要提前启动的情形，但这一结果不直接保证本文 SIQR 模型中的提前干预可行。
+
+由引理\ref{lem:s1:Sstar-sensitivity}，$S^*$ 随 $\eta$ 严格下降。因此，其余参数和能力界限固定时，某一内部阈值可行即保证所有更高且仍触发控制的阈值可行。降低感染上限还可能使启动时所需干预超过能力限制。
 
 \subsection{显式策略族}
-一般的 $c_c(S)$ 由积分确定时间轨迹，未必能以初等函数反演。取分配参数 $\alpha\in[0,1]$，构造
+常数分配参数 $\alpha\in[0,1]$ 给出一个显式子族，连续连接两种单控制。取
 \begin{align}
 c_c(S;\alpha)&=c_0\left[\alpha+(1-\alpha)\frac{S_c}{S}\right],\label{eq:joint:explicit-c}\\
 q_c(S;\alpha)&=1-\frac{(1-q_0)S_c}{S_c+\alpha(S-S_c)}.
 \label{eq:joint:explicit-q}
 \end{align}
-$\alpha$ 仅表示干预分配；原记号 $\theta=\eta/N$ 仍表示阈值比例，$\lambda$ 仍表示拐点相对位置。式\eqref{eq:joint:explicit-c}满足\eqref{eq:joint:contact-range}，所以它给出全部联合阈值控制中的一个显式子族。
+式\eqref{eq:joint:explicit-c}满足\eqref{eq:joint:contact-range}。这里 $\alpha$ 表示干预分配，$\theta=\eta/N$ 和 $\lambda$ 分别保留阈值比例与拐点相对位置的含义。
 \begin{theorem}
 \label{thm:joint:explicit}
 固定 $0<\alpha\le1$ 时，式\eqref{eq:joint:explicit-c}--\eqref{eq:joint:explicit-q}对应的阈值控制期状态为
@@ -124,10 +124,10 @@ S(t)=S^*-\frac{c_0\eta}{N}(S_c-\bar S)(t-t_1),\qquad
 $c_{\min}S^*\le c_0(1-q_0)S_c/(1-q_{\rm cap})$。
 这正是式\eqref{eq:joint:feasibility}，故该区间与完整控制类同时非空。
 \end{proof}
-这一子族用于给出可计算的控制和两种单控制之间的连续分配，不代表全部联合控制，也不声称它是唯一可以显式求解的选择。下面的比较与成本最小化均返回全部允许的 $c_c(S)$。
+显式子族与完整控制类具有相同的非空条件。以下指标比较及第\ref{sec:joint:cost}节的成本最小化均考察全部允许的 $c_c(S)$。
 
 \subsection{控制时长、累计新增感染与隔离人数}
-在相同易感者状态上，较大的 $c_c(S)$ 对应较快的 $S$ 下降。因此，当进入与退出状态固定时，控制时长可直接由式\eqref{eq:joint:duration}比较。
+固定进入与退出的二维状态 $(S^*,\eta)$ 和 $(S_c,\eta)$ 后，较大的 $c_c(S)$ 使 $S$ 下降更快。控制时长由式\eqref{eq:joint:duration}比较，控制期累计新增感染与新增隔离易感者人数则由以下恒等式联系。
 \begin{theorem}
 \label{thm:joint:comparison}
 若两个允许控制的状态函数满足 $c_c^{(1)}(S)\ge c_c^{(2)}(S)$ 几乎处处成立，则
@@ -171,9 +171,9 @@ S^*-S_c=\Itcum(t_2)-\Itcum(t_1)+S_q(t_2)-S_q(t_1),
 \]
 代入前式得到式\eqref{eq:joint:quarantine}。
 \end{proof}
-无额外能力限制时，仅隔离控制达到阈值控制类内最短的控制时长；$0<\beta<1$ 时，它也达到最少的阈值控制期累计新增感染，但同时产生最多的新增隔离易感者。这源于未感染者隔离加快了社区易感者的减少，并非说明增加接触本身有利于控制疫情。上述隔离人数也不等于隔离人天数。
+无额外能力限制时，仅隔离控制使控制时长最短，并在 $0<\beta<1$ 时使阈值控制期累计新增感染最少、新增隔离易感者人数最多。其机制是未感染者隔离加快社区易感者的减少，这里计量的隔离人数不同于隔离人天。
 
-加入能力限制后，两种单控制可能不再可行。应改在实际允许范围内比较，而不能继续把不可实施的控制作为可达到的界限。
+加入能力限制后，两种单控制可能不再可行，可达到的时长端点由实际允许区间 $[\underline c(S),\overline c(S)]$ 确定。
 \begin{corollaryn}
 \label{cor:joint:capped-comparison}
 若式\eqref{eq:joint:feasibility}成立，则
@@ -187,7 +187,7 @@ S^*-S_c=\Itcum(t_2)-\Itcum(t_1)+S_q(t_2)-S_q(t_1),
 在式\eqref{eq:joint:duration}中用 $\underline c\le c_c\le\overline c$ 比较即可。两个边界函数连续且满足限制，因而确实对应可行控制。感染量结论由式\eqref{eq:joint:cumulative}得到。
 \end{proof}
 
-阈值控制期的排序还能用于比较全过程，但必须保留共同的启动规则和退出状态。
+全过程比较采用相同完整初值、共同的首次触发规则与二维退出状态 $(S_c,\eta)$。启动前和退出后均采用常规控制时，前后两段的共同贡献可从指标差中消去。
 \begin{corollaryn}
 \label{cor:joint:whole-epidemic}
 设两种允许策略在启动前及退出后均采用 $(c_0,q_0)$，并从同一初始状态首次到达同一阈值 $\eta>1$。则
@@ -204,13 +204,13 @@ t_{\rm end}^{(1)}-t_{\rm end}^{(2)}
 控制前两条轨迹相同，故 $t_1,S^*$ 相同。退出时的二维状态均为 $(S_c,\eta)$，由常规系统解的唯一性，退出后的 $S,I$ 轨迹只相差时间平移。因此，两种策略从退出到 $I=1$ 所需的时间相同，退出后的新增感染积分也相同。分别消去两策略共同的前后两段，再用式\eqref{eq:joint:cumulative}，得到所列等式。其余仓室在退出时可以不同，故这里不推断隔离感染者或医疗占用也具有相同轨迹。
 \end{proof}
 
-在给定能力限制下，每一个处于
+若式\eqref{eq:joint:feasibility}成立，每一个处于
 $[\Delta t[\overline c],\Delta t[\underline c]]$ 内的控制时长都可实现。事实上，取
-$c_c(S)=(1-x)\underline c(S)+x\overline c(S)$、$x\in[0,1]$，式\eqref{eq:joint:duration}连续地连接两端；若两界并非几乎处处相等，则该控制时长随 $x$ 严格下降。结合推论\ref{cor:joint:whole-epidemic}可知，在固定阈值下，只对控制时长、清零时间和累计新增感染施加上限时，存在可行策略当且仅当最快控制 $\overline c$ 满足这些上限。再加入成本上限则不能仅用这一判据，因为最短控制时长与最小成本对应的控制未必相同。
+$c_c(S)=(1-x)\underline c(S)+x\overline c(S)$、$x\in[0,1]$，式\eqref{eq:joint:duration}连续地连接两端；若两界并非几乎处处相等，则该控制时长随 $x$ 严格下降。结合推论\ref{cor:joint:whole-epidemic}，在同一完整初值、阈值 $\eta>1$ 和前后常规控制下，若只对控制时长、清零时间和累计新增感染施加上限，则存在可行策略当且仅当最快控制 $\overline c$ 满足这些上限。成本上限须另行检验，因为最短控制时长与最小成本对应的控制未必相同。
 
 
 \subsection{常规退出要求产生的感染下界}
-规定退出状态还带来一个不依赖具体分配的感染下界。
+在模型\eqref{eq:model:full}中，易感者的减少由感染与未感染者隔离共同造成。规定在有限时刻达到 $S=S_c$，会对累计新增感染产生不依赖具体分配的下界。
 \begin{proposition}
 \label{prop:exit-infection-lower-bound}
 对于模型\eqref{eq:model:full}，若 $0\le q(t)\le1$、$c(t)\ge0$，且某一有限时刻 $T$ 满足 $S(T)=S_c<S_0$，则
@@ -234,5 +234,5 @@ $c_c(S)=(1-x)\underline c(S)+x\overline c(S)$、$x\in[0,1]$，式\eqref{eq:joint
 $-\dot S\ge0$，且比例系数分别不小于 $\beta$ 和
 $\beta/[\beta+(1-\beta)q_{\rm cap}]$。在 $[0,T]$ 上积分即得两式。
 \end{proof}
-这一必要条件不保证下界总能达到，也不比较采用其他退出规则的方案。它表明，较低感染峰值、较少累计新增感染与规定退出状态可能不相容，不能仅通过重新分配两种干预消除这一限制。
+这些界适用于本模型中要求有限时刻达到 $S_c$ 的控制任务，下界能否达到还取决于控制与能力约束。较低感染峰值、较少累计新增感染与这一退出要求可能不相容，仅重新分配两种干预不能消除该限制。
 
