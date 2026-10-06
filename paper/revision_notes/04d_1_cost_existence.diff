@@ -1,0 +1,16 @@
+diff --git a/paper/sections/05_quadratic_cost.tex b/paper/sections/05_quadratic_cost.tex
+index 7046ecc..c55ce84 100644
+--- a/paper/sections/05_quadratic_cost.tex
++++ b/paper/sections/05_quadratic_cost.tex
+@@ -4 +4 @@
+-控制时长最短的控制未必使式\eqref{eq:cost:J}最小，因为接触减少与追踪隔离的强度代价不同。由式\eqref{eq:joint:q}和状态时间变换，成本可直接写成接触率状态函数的积分：
++二次成本最小化同时考虑干预强度与控制时长，可由逐状态最小化的可测选择实现。控制时长最短的分配未必使式\eqref{eq:cost:J}最小，因为接触减少与追踪隔离的强度代价不同。由式\eqref{eq:joint:q}和式\eqref{eq:joint:time}的时间变换，成本写为接触率状态函数的积分：
+@@ -17 +17 @@ f(S,c)=
+-这里的 $c$ 是固定状态 $S$ 上待比较的接触率取值。分母来自易感者变化速度，因而要比较的是每减少一名社区易感者所对应的成本，不是仅使瞬时控制强度最小。
++这里的 $c$ 是固定状态 $S$ 上待比较的接触率取值。式\eqref{eq:joint:Sdot}给出的易感者下降速度含有分母中的因子 $cS-c_0\bar S$。因此，$\frac{N}{\eta}f(S,c)$ 表示单位社区易感者减少量对应的成本，同时计入干预强度和相应的时间消耗。
+@@ -19 +19 @@ f(S,c)=
+-有能力限制时使用式\eqref{eq:joint:bounds}的上下界；无额外限制时取 $\underline c(S)=c_0S_c/S$、$\overline c(S)=c_0$。以下假定允许区间非空，且不增加总时长、调整次数或控制变化率等约束。
++有能力限制时使用式\eqref{eq:joint:bounds}的上下界，无额外限制时取 $\underline c(S)=c_0S_c/S$、$\overline c(S)=c_0$。以下分别在 $\mathcal A(\eta;c_{\min},q_{\rm cap})$ 或 $\mathcal A(\eta)$ 中最小化成本，假定整段允许区间非空，且不增加总时长、调整次数或控制变化率等约束。
+@@ -42 +42 @@ f(S,c)=
+-证明见附录\ref{sec:proof:cost-minimum}。
++证明见附录\ref{sec:proof:cost-minimum}。逐状态最小值由连续性和紧区间保证，可测选择通过定理\ref{thm:joint:representation}转为允许的时间控制，因而这一积分下界可达到。

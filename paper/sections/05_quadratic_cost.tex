@@ -1,7 +1,7 @@
 \section{二次成本下的最优分配}
 \label{sec:joint:cost}
 \subsection{状态积分与最小值存在性}
-控制时长最短的控制未必使式\eqref{eq:cost:J}最小，因为接触减少与追踪隔离的强度代价不同。由式\eqref{eq:joint:q}和状态时间变换，成本可直接写成接触率状态函数的积分：
+二次成本最小化同时考虑干预强度与控制时长，可由逐状态最小化的可测选择实现。控制时长最短的分配未必使式\eqref{eq:cost:J}最小，因为接触减少与追踪隔离的强度代价不同。由式\eqref{eq:joint:q}和式\eqref{eq:joint:time}的时间变换，成本写为接触率状态函数的积分：
 \begin{equation}
 J[c_c]=\frac{N}{\eta}\int_{S_c}^{S^*}f(S,c_c(S))\,dS,
 \label{eq:joint:cost}
@@ -14,9 +14,9 @@ f(S,c)=
 \label{eq:joint:cost-integrand}
 \end{equation}
 式\eqref{eq:joint:cost-integrand}采用默认权重 $1,2$。讨论一般正权重时，将分子中两项的系数分别替换为 $w_c,w_q$，并沿用 $f$ 的记号。
-这里的 $c$ 是固定状态 $S$ 上待比较的接触率取值。分母来自易感者变化速度，因而要比较的是每减少一名社区易感者所对应的成本，不是仅使瞬时控制强度最小。
+这里的 $c$ 是固定状态 $S$ 上待比较的接触率取值。式\eqref{eq:joint:Sdot}给出的易感者下降速度含有分母中的因子 $cS-c_0\bar S$。因此，$\frac{N}{\eta}f(S,c)$ 表示单位社区易感者减少量对应的成本，同时计入干预强度和相应的时间消耗。
 
-有能力限制时使用式\eqref{eq:joint:bounds}的上下界；无额外限制时取 $\underline c(S)=c_0S_c/S$、$\overline c(S)=c_0$。以下假定允许区间非空，且不增加总时长、调整次数或控制变化率等约束。
+有能力限制时使用式\eqref{eq:joint:bounds}的上下界，无额外限制时取 $\underline c(S)=c_0S_c/S$、$\overline c(S)=c_0$。以下分别在 $\mathcal A(\eta;c_{\min},q_{\rm cap})$ 或 $\mathcal A(\eta)$ 中最小化成本，假定整段允许区间非空，且不增加总时长、调整次数或控制变化率等约束。
 \begin{theorem}
 \label{thm:joint:cost-minimum}
 在规定的全部有界可测阈值控制中，二次成本最小值可达到，且
@@ -39,7 +39,7 @@ f(S,c)=
 \end{equation}
 的全部实根处的 $f$ 值。该方程为五次多项式方程，故候选点至多七个；重复端点与重根只计一次。$S=S_c$ 时允许区间退化为 $c=c_0$，无需求根。
 \end{theorem}
-证明见附录\ref{sec:proof:cost-minimum}。
+证明见附录\ref{sec:proof:cost-minimum}。逐状态最小值由连续性和紧区间保证，可测选择通过定理\ref{thm:joint:representation}转为允许的时间控制，因而这一积分下界可达到。
 \subsection{有限候选判据及阈值、能力的影响}
 逐状态有限候选判据见定理\ref{thm:joint:cost-minimum}，两种单控制的成本表达见附录\ref{app:cost}。
 $\beta=1$ 时 $\bar S=0$，约去非零因子 $c$ 后，驻点条件简化为
