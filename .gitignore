@@ -72,3 +72,6 @@ xian_control_comparison/effective_population_sensitivity/*.csv
 xian_control_comparison/effective_population_sensitivity/*_note.tex
 xian_control_comparison/effective_population_sensitivity/*_note.pdf
 xian_control_comparison/effective_population_sensitivity/*_table.tex
+
+# 论文编译产物（PDF 不入库）
+paper/*.pdf
