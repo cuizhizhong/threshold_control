@@ -1,0 +1,13 @@
+diff --git a/paper/sections/05_quadratic_cost.tex b/paper/sections/05_quadratic_cost.tex
+index fba8a62..84faffd 100644
+--- a/paper/sections/05_quadratic_cost.tex
++++ b/paper/sections/05_quadratic_cost.tex
+@@ -121 +121 @@ S_{\rm sw}=\frac{3S_c+\sqrt{9S_c^2-8S_c\bar S}}{2}.
+-控制时长限制可以在取得匹配的乘子解时处理，但这不是一般跨状态约束的无条件解法。
++若逐状态最小化 $J+\kappa\Delta t$ 所得控制的时长与给定值 $T$ 匹配，则该控制可给出相应时长约束下的最小成本分配。
+@@ -128 +128 @@ f(S,c)+\frac{\kappa}{cS-c_0\bar S},
+-即对 $J+\kappa\Delta t$ 逐状态最小化，定理\ref{thm:joint:cost-minimum}的存在性论证仍成立。记所得允许控制为 $c_\kappa$，若 $\Delta t[c_\kappa]=T$，则 $\kappa\ge0$ 时它在约束 $\Delta t\le T$ 下使 $J$ 最小，$\kappa\le0$ 时它在约束 $\Delta t\ge T$ 下使 $J$ 最小；对于等式约束 $\Delta t=T$，任意符号的 $\kappa$ 均给出这一充分条件。事实上，对满足相应约束的任一允许控制 $c_c$，有
++即对 $J+\kappa\Delta t$ 逐状态最小化，定理\ref{thm:joint:cost-minimum}的存在性论证仍成立。记所得允许控制为 $c_\kappa$，并假设 $\Delta t[c_\kappa]=T$。当 $\kappa\ge0$ 时，它在时长上限约束 $\Delta t\le T$ 下使 $J$ 最小。当 $\kappa\le0$ 时，它在时长下限约束 $\Delta t\ge T$ 下使 $J$ 最小。对于等式约束 $\Delta t=T$，任意符号的 $\kappa$ 均给出这一充分条件。对满足相应约束的任一允许控制 $c_c$，有
+@@ -132 +132 @@ J[c_c]\ge J[c_\kappa]+\kappa\bigl(\Delta t[c_\kappa]-\Delta t[c_c]\bigr)\ge J[c_
+-在 $0<\beta<1$ 时，由式\eqref{eq:joint:quarantine}，时长下限 $\Delta t\ge T$ 等价于阈值控制期新增隔离易感者人数不超过 $(1-\beta)[S^*-S_c-\gamma\eta T]$。上述充分条件不要求可达集凸，但不保证每个允许时长都有匹配的 $\kappa$，也不直接解决控制变化率或其他累计预算约束。
++在 $0<\beta<1$ 时，由式\eqref{eq:joint:quarantine}，时长下限 $\Delta t\ge T$ 等价于阈值控制期新增隔离易感者人数不超过 $(1-\beta)[S^*-S_c-\gamma\eta T]$。上述充分条件不要求可达集凸，但不保证每个允许时长都有匹配的 $\kappa$。控制变化率或其他累计预算约束仍须另行处理。
