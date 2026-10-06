@@ -18,7 +18,7 @@
 \bottomrule
 \end{tabular*}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：观测窗口为 2021 年 12 月 9 日至 2022 年 1 月 17 日的 40 个日区间。模型结果采用统一的归一化方程、DOP853 求解器和分量容差；拟合行使用未取整的最小二乘初值，另一模型行固定 $I_0=1$。TDINN 拟合轨迹在 $t=40$ 的总累计为 $2098.9747$，在动态清零时刻 $45.2874$ d 为 $2105.6330$。容差收紧且最大步长减半后，清零时总累计的变化为 $3.61\times10^{-8}$ 人；该差异仅对应 TDINN 基准的清零累计量。日新增峰值不等于社区现存感染者峰值。
+\item 注：观测窗口为 2021 年 12 月 9 日至 2022 年 1 月 17 日的 40 个日区间。模型结果采用统一的归一化方程、DOP853 求解器和分量容差；拟合行使用未取整的最小二乘初值，另一模型行固定 $I_0=1$。TDINN 拟合轨迹在 $t=40$ 的总累计为 $2098.9747$，在清零时间 $45.2874$ d 为 $2105.6330$。容差收紧且最大步长减半后，清零时总累计的变化为 $3.61\times10^{-8}$ 人；该差异仅对应 TDINN 基准的清零累计量。日新增峰值不等于社区现存感染者峰值。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -32,7 +32,7 @@
 \label{tab:sup:eta}
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}S[table-format=1.4]S[table-format=1.4]S[table-format=4.2]S[table-format=4.2]S[table-format=3.4]S[table-format=7.0]@{}}
 \toprule
-{$\eta/N$} & {$q_{\max}$} & {$\Delta t$（d）} & {$t_{\rm end}$（d）} & {$J$（d）} & {总累计感染（人）}\\
+{$\eta/N$} & {$q_{\max}$} & {$\Delta t$（d）} & {$t_{\rm end}$（d）} & {$J$（d）} & {\shortstack{总累计新增感染\\（人）}}\\
 \midrule
 0.0001 & 0.8470 & 1710.66 & 2209.55 & 826.4066 & 2155649\\
 0.0002 & 0.8469 & 855.09 & 1243.15 & 412.9141 & 2182123\\
@@ -48,7 +48,7 @@
 \bottomrule
 \end{tabular*}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：数值采用与正文一致的西安参数，按仅隔离控制的解析表达及数值求积计算；$q_{\max}=q_c(t_1)$。$\eta/N$ 为比例而非百分数，0.002对应0.2\%。阈值网格用于比较不同设计情景。累计量计算至各策略的动态清零终点。长时间结果沿用固定参数模型的外推解释，不作为现实预测。
+\item 注：数值采用与正文一致的西安参数，按仅隔离控制的解析表达及数值求积计算；$q_{\max}=q_c(t_1)$。$\eta/N$ 为比例而非百分数，0.002对应0.2\%。阈值网格用于比较不同设计情景。累计量计算至各策略的社区清零终点。长时间结果沿用固定参数模型的外推解释，不作为现实预测。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -58,17 +58,17 @@
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{xian_eta_sensitivity.pdf}
-    \caption{西安参数下控制指标随 $\eta/N$ 的变化。(a) 启动隔离率；(b) 加权成本；(c) 累计感染；(d) 控制持续时间与动态清零时间。水平线为 TDINN 参照值。(d) 中 TDINN 的控制时长和清零时间均为 $45.29$ d，前者为干预持续时间，后者为从共同时间原点起算的终点，数值相同并不表示两个定义相同。}
+    \caption{西安参数下控制指标随 $\eta/N$ 的变化。(a) 启动隔离比例；(b) 加权成本；(c) 累计新增感染；(d) 控制时长与清零时间。水平线为 TDINN 参照值。(d) 中 TDINN 的控制时长和清零时间均为 $45.29$ d，前者为干预持续时间，后者为从共同时间原点起算的终点，数值相同并不表示两个定义相同。}
     \label{fig:xian_eta_sens}
 \end{figure}
 
 \FloatBarrier
 \subsection{接触率 \texorpdfstring{$c_0$}{c0} 与阈值 \texorpdfstring{$\eta$}{eta} 的联合变化}
-图~\ref{fig:xian_heatmaps} 给出 $(\eta,c_0)$ 平面上的控制持续时间、清零时间、累计感染和成本。两条参照线分别为设计情景 $\eta=0.002N=26326$ 和 TDINN 峰值 $\eta=I_{\rm peak}^{\rm T}=152.55$。
+图~\ref{fig:xian_heatmaps} 给出 $(\eta,c_0)$ 平面上的控制时长、清零时间、累计新增感染和成本。两条参照线分别为设计情景 $\eta=0.002N=26326$ 和 TDINN 峰值 $\eta=I_{\rm peak}^{\rm T}=152.55$。
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{xian_heatmaps.pdf}
-    \caption{西安参数下 $(\eta,c_0)$ 平面上的控制指标。(a) 控制持续时间；(b) 动态清零时间；(c) 累计感染；(d) 加权成本。竖直参照线分别表示 TDINN 社区感染峰值 $\eta=152.55$ 和设计阈值 $\eta=26326$，等值线表示各指标的水平。}
+    \caption{西安参数下 $(\eta,c_0)$ 平面上的控制指标。(a) 控制时长；(b) 清零时间；(c) 累计新增感染；(d) 加权成本。竖直参照线分别表示 TDINN 社区感染峰值 $\eta=152.55$ 和设计阈值 $\eta=26326$，等值线表示各指标的水平。}
     \label{fig:xian_heatmaps}
 \end{figure}
 

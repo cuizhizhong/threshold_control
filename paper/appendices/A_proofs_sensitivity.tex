@@ -106,7 +106,7 @@ J=\frac{2N}{c_0\eta}\int_{S_c}^{S^*}\frac{(1-S_c/S)^2}{S-\bar S}\,dS.
 \end{equation}
 被积函数不含 $\eta$ 且在区间内部为正，系数 $1/\eta$ 和上限 $S^*$ 均随 $\eta$ 减小，故两个成本严格下降。两积分的初等表达列于附录\ref{app:cost}。
 
-为分析累计感染，退出后 $I=1$ 的条件对 $\eta$ 求导得
+为分析累计新增感染，退出后 $I=1$ 的条件对 $\eta$ 求导得
 \[
 \frac{\partial S_{\rm end}}{\partial\eta}
 =-\frac1{\rho_1(1/S_{\rm end}-1/S_c)}<0.
@@ -239,7 +239,7 @@ n'(c)(cS-c_0\bar S)-S n(c)
 -\frac{w_q}{S}\left(1-\frac{S_c}{S}\right)
 \bigl(S^2-3S_cS+2S_c\bar S\bigr).
 \]
-括号内二次式的较小根小于 $S_c$，较大根为 $S_{\rm sw}$，从而在 $S>S_{\rm sw}$ 时导数为负，在 $S_c<S<S_{\rm sw}$ 时导数为正。结合端点处的单侧比较，得到所述局部性质。由定理\ref{thm:joint:cost-minimum}，类内最优控制几乎处处取逐状态最小点；它不取左端点，在后一状态区间也不取右端点，故得到内部分配结论。
+括号内二次式的较小根小于 $S_c$，较大根为 $S_{\rm sw}$，从而在 $S>S_{\rm sw}$ 时导数为负，在 $S_c<S<S_{\rm sw}$ 时导数为正。结合端点处的单侧比较，得到所述局部性质。由定理\ref{thm:joint:cost-minimum}，类内最小成本分配几乎处处取逐状态最小点；它不取左端点，在后一状态区间也不取右端点，故得到内部分配结论。
 \end{proof}
 \subsection{参数敏感性汇总}
 \begin{table}[htbp]
@@ -254,7 +254,7 @@ n'(c)(cS-c_0\bar S)-S n(c)
 分析量 & $\beta$ & $q_0$ & $c_0$ & $\eta$ & 依据\\
 \midrule
 启动状态 $S^*$ & $>0$ & $<0$ & $>0$ & $<0$ & 引理\ref{lem:s1:Sstar-sensitivity}\\
-控制持续时间 $\Delta t$ & $>0$ & $<0$ & 不定 & $<0$ & 命题\ref{prop:threshold-tradeoff}、\ref{prop:contact-effects}\\
+控制时长 $\Delta t$ & $>0$ & $<0$ & 不定 & $<0$ & 命题\ref{prop:threshold-tradeoff}、\ref{prop:contact-effects}\\
 拐点处隔离比例 $\qinf$ & $<0$ & $=0$ & $=0$ & $=0$ & 定理\ref{thm:s1:inflection}\\
 拐点相对位置 $\lambda$ & $>0$ & 不定 & $>0$ & $<0$ & 命题\ref{prop:s1:lambda-sensitivity}\\
 \bottomrule
