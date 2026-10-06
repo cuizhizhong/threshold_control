@@ -1,6 +1,0 @@
-q_only 0.0 tctrl=85.1 inf/N=0.181 Sqpk/N=0.649 IIqpk/eta=4.73 sqin/N=0.65
-q_only 0.07142857142857142 tctrl=425.3 inf/N=0.794 Sqpk/N=0.172 IIqpk/eta=4.84 sqin/N=2.89
-optimal 0.0 tctrl=108.8 inf/N=0.193 Sqpk/N=0.638 IIqpk/eta=4.73 sqin/N=0.64
-optimal 0.07142857142857142 tctrl=484.6 inf/N=0.794 Sqpk/N=0.172 IIqpk/eta=4.84 sqin/N=2.70
-c_only 0.0 tctrl=308.8 inf/N=0.293 Sqpk/N=0.537 IIqpk/eta=1.46 sqin/N=0.54
-c_only 0.07142857142857142 tctrl=857.2 inf/N=0.794 Sqpk/N=0.022 IIqpk/eta=1.46 sqin/N=1.46

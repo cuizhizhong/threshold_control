@@ -1,9 +1,0 @@
-{
-  "passed": false,
-  "phase": "final audit before active-pointer generation",
-  "error": "KeyError: '_manifest_sha256'",
-  "cause": "最终清单脚本误用了不存在的内部键；改为实际读取受控manifest文件哈希。",
-  "scientific_calculation_reexecuted": false,
-  "formal_files_or_pointer_changed_by_failed_audit": false,
-  "resolution": "修正只涉及本轮报告脚本，随后重新执行完整最终核查；原失败记录保留。"
-}

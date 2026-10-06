@@ -1,8 +1,0 @@
-{
- "joint_compare_baseline.pdf": "278e0edb4f732ee6fa7fe4286a3858c2ff816fb75cbcc8b8b4755cf4f735c6b5",
- "joint_frontier_baseline.pdf": "496d24a7740b4c13424b25ba3d81c76b9f6d4c73b29a12f5e8076eae18b4ce55",
- "joint_capacity.pdf": "cc7b18f9d3687881e80d2dd9170487555a1acd816446912c3e865d97fc140e78",
- "joint_phase_weights.pdf": "3aa4857b6b260edd56cec1f0ce9a493ecedb108224c87b2077cca5c155c9c9d1",
- "figures.py": "7a42c65221ae84c323adb138cc2206d9c910d5243e5570e084ee7f0f697ab342",
- "results_manifest": "574024ebbc8e41a21270b9c98ddc564db275956b76f036ad230d5150a493c3f6"
-}
