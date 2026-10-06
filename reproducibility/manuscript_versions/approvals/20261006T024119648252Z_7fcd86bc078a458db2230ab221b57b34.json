@@ -1,0 +1,25 @@
+{
+  "schema": "controlled-manuscript-activation-v1",
+  "approval_id": "20261006T024119648252Z_7fcd86bc078a458db2230ab221b57b34",
+  "approval_reason": "用户批准新版正文及补充材料迁移；保护核查、双文案回归、真实图件完整编译及页面检查通过，无科学重算。",
+  "previous_pointer_sha256": "37c8dfe3bc23392563da68da749bd0e47e14ec352ca6418eab0bf032ffadf021",
+  "previous_pointer_backup": "reproducibility/manuscript_versions/approvals/20261006T024119648252Z_7fcd86bc078a458db2230ab221b57b34.previous.json",
+  "selection": {
+    "version": "20261006_threshold_exogenous",
+    "manifest_sha256": "7678d1e649a96664d48a83dbfdd2e3e581153d9b9e9c26a306e6c566d9b6abaf"
+  },
+  "status": "activated",
+  "evidence_boundary": "稿源批准不代表新增科学或排版验收。",
+  "approved_sec9_transition": {
+    "schema": "approved-sec9-introduction-transition-v1",
+    "parent_version": "20261005_icu_conditional_link",
+    "version": "20261006_threshold_exogenous",
+    "baseline_main_sha256": "977f5d2138587ba7329cb27c2f72d6a678de0044f4c81d8bf5871cf5bea6f03b",
+    "candidate_main_sha256": "cfd174f05f7a0f3a92a12097eadee50b7712e066f34c8e15d6102f85f299343c",
+    "sec9_before_sha256": "33b0fadae6a60e8e26737daaca911499dd7c8e45c4a35e6300642dfdcc651870",
+    "sec9_after_sha256": "c2606f63e594b8ad072eceace2f0c049da82aaf29bef627dd4d64f8fc46deafa",
+    "introduction_before_sha256": "e156cd0d434f06853abd23f975445d2b1820f1c84c12ac5cdcfdb2f79509586e",
+    "introduction_after_sha256": "cd10d221e7bfb536f02458d1aa42c4a77dabf96950e78e4e8ea761d21d2df5ad"
+  },
+  "current_pointer_sha256": "6d3b8c0e95a7592eb5ef125d4983681e6c3a979f52884f18a9cdb3b5dfa46621"
+}

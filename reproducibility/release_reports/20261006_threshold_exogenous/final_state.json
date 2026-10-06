@@ -1,0 +1,130 @@
+{
+  "passed": true,
+  "version": "20261006_threshold_exogenous",
+  "manifest_sha256": "7678d1e649a96664d48a83dbfdd2e3e581153d9b9e9c26a306e6c566d9b6abaf",
+  "baseline_commit": "b338cc5d861354590f8a4d38894dd82507536bbb",
+  "baseline_archive_sha256": "9b31c2ef18ae89ab300beadcc7c54f99a3ed5a3af6e22192719007ce6085768f",
+  "formal_files_sha256": {
+    "flatten_curve_analysis_cn.tex": "cfd174f05f7a0f3a92a12097eadee50b7712e066f34c8e15d6102f85f299343c",
+    "flatten_curve_supplement_cn.tex": "b048368f95155b5cea425e3acdeed75f0a110bb11ac0fea12709c29e15216ab5",
+    "references.bib": "def94793ffc84d460932ac6eb5965bfe0d90c2d1102a6d5410e4f921e778ca33",
+    "elegantpaper.cls": "bf80b5bb9061f11010b4595cd1bc443defe54fb093283ecf864c800371ad4b51",
+    "build_paper.ps1": "0d34b4bc811642577eea11d826de866c119f761bafee4a0bd5f383abcd49907d",
+    "flatten_curve_analysis_cn.pdf": "a7d390fc733373c5efe89eda23dd2906a82577b4cb866a402968ef74167ca3a4",
+    "flatten_curve_supplement_cn.pdf": "c91c038171d3145794fb04d3a2b86661ee22b93a6b537fe5161787138086e224"
+  },
+  "documents": {
+    "flatten_curve_supplement_cn": {
+      "page_count": 5,
+      "final_pdf_sha256": "c91c038171d3145794fb04d3a2b86661ee22b93a6b537fe5161787138086e224",
+      "reviewed_pdf_sha256": "6d5494d9a8402b96316a3acfc351632a750b82e5e0f14350eee5d6d710bcd9c6",
+      "formal_render_and_text_identical": true,
+      "printed_references": 5
+    },
+    "flatten_curve_analysis_cn": {
+      "page_count": 51,
+      "final_pdf_sha256": "a7d390fc733373c5efe89eda23dd2906a82577b4cb866a402968ef74167ca3a4",
+      "reviewed_pdf_sha256": "5e9e94bebba68caca5e93204ac6df5c1523498ea52df3a02150c8b0fd78528f3",
+      "formal_render_and_text_identical": true,
+      "printed_references": 17
+    }
+  },
+  "protected_files_checked": 367,
+  "protected_files_sha256_unchanged": true,
+  "scientific_calculation_reexecuted": false,
+  "default_active_pointer_regression_passed": true,
+  "document_interface_tests": {
+    "passed": true,
+    "count": 131,
+    "log_sha256": "3108ba416b9358ed45689f6733146e978b7b2ba5e7661bb879ffd292b8aaaa60"
+  },
+  "implementation_files": [
+    {
+      "source": "AGENTS.md",
+      "file": "reproducibility/release_reports/20261006_threshold_exogenous/implementation_source/AGENTS.md",
+      "sha256": "c0aad68bee1331eab90e639d62b7dd9a374e9ed15bbdd876d0187e47c6dbdebc"
+    },
+    {
+      "source": "README.md",
+      "file": "reproducibility/release_reports/20261006_threshold_exogenous/implementation_source/README.md",
+      "sha256": "f7ea4c4841548279298d49dd74ff6711edef318f3087d61678add01ba272aa91"
+    },
+    {
+      "source": "reproducibility/README.md",
+      "file": "reproducibility/release_reports/20261006_threshold_exogenous/implementation_source/reproducibility/README.md",
+      "sha256": "3dc7a5332ec1909a3cd7e3d5d448c80f6ce6ab825801c48d4c4337c3b728c571"
+    },
+    {
+      "source": "reproducibility/bootstrap.py",
+      "file": "reproducibility/release_reports/20261006_threshold_exogenous/implementation_source/reproducibility/bootstrap.py",
+      "sha256": "0ee36d5e2fba39eeee2ccdb6b8cbd420efddbdb4e10abd6a9fe1b92006496f1e"
+    },
+    {
+      "source": "reproducibility/build.py",
+      "file": "reproducibility/release_reports/20261006_threshold_exogenous/implementation_source/reproducibility/build.py",
+      "sha256": "6ed0e34c209f65b3541bf479cc07acccedb0ddbdf93ad810b6c05a4fbde9b1de"
+    },
+    {
+      "source": "reproducibility/manuscript_version.py",
+      "file": "reproducibility/release_reports/20261006_threshold_exogenous/implementation_source/reproducibility/manuscript_version.py",
+      "sha256": "cacde03529a4d752c18e6a15932f2b10620d16dfcfe5fa216639cef005a09dd7"
+    },
+    {
+      "source": "reproducibility/run_all.py",
+      "file": "reproducibility/release_reports/20261006_threshold_exogenous/implementation_source/reproducibility/run_all.py",
+      "sha256": "1017b85b2ccfd649d713ea912650609a5b831b69b1dc9f4b64c3688467aa84f3"
+    },
+    {
+      "source": "reproducibility/postprocess_joint_extra.py",
+      "file": "reproducibility/release_reports/20261006_threshold_exogenous/implementation_source/reproducibility/postprocess_joint_extra.py",
+      "sha256": "8531392a214d8f4a21c7f41d864020f7ce3f4bd475effaacde5cec5698565559"
+    },
+    {
+      "source": "reproducibility/threshold_revision.py",
+      "file": "reproducibility/release_reports/20261006_threshold_exogenous/implementation_source/reproducibility/threshold_revision.py",
+      "sha256": "12b534cb8040489817fc155e3ace46a32132334cf10ecede2e1c39a1685a9517"
+    },
+    {
+      "source": "reproducibility/threshold_revision_text.py",
+      "file": "reproducibility/release_reports/20261006_threshold_exogenous/implementation_source/reproducibility/threshold_revision_text.py",
+      "sha256": "f3444f58488b48b6b61dc858ca2ac554554bcb455eafd1beb049141d1018db51"
+    },
+    {
+      "source": "reproducibility/tests/test_bootstrap_version_assets.py",
+      "file": "reproducibility/release_reports/20261006_threshold_exogenous/implementation_source/reproducibility/tests/test_bootstrap_version_assets.py",
+      "sha256": "af39fb6e5d4bc9c0fbfe4147f9d7b866daec50aa5acdb290bb891e5a83ad2c6b"
+    },
+    {
+      "source": "reproducibility/tests/test_build_bibliography.py",
+      "file": "reproducibility/release_reports/20261006_threshold_exogenous/implementation_source/reproducibility/tests/test_build_bibliography.py",
+      "sha256": "2e7ac08583712e41f31d06fc6b03e907148b298263df6508052162cd97fd3b13"
+    },
+    {
+      "source": "reproducibility/tests/test_manuscript_version.py",
+      "file": "reproducibility/release_reports/20261006_threshold_exogenous/implementation_source/reproducibility/tests/test_manuscript_version.py",
+      "sha256": "0cb58ec819859bff43c80dd871de4a95dc3515f568813cabe934c921a9b35883"
+    },
+    {
+      "source": "reproducibility/tests/test_threshold_revision.py",
+      "file": "reproducibility/release_reports/20261006_threshold_exogenous/implementation_source/reproducibility/tests/test_threshold_revision.py",
+      "sha256": "44114cf6037ed5ce71e9a345b9079222a8fe8ffd6ef0dedf267658e1530b3e5a"
+    },
+    {
+      "source": "reproducibility/tests/test_threshold_revision_text.py",
+      "file": "reproducibility/release_reports/20261006_threshold_exogenous/implementation_source/reproducibility/tests/test_threshold_revision_text.py",
+      "sha256": "8454280cb98383e4a4f2b572a02107c1781e6547deb4724872d847aa52a214dd"
+    }
+  ],
+  "implementation_diff_sha256": "cbab28587ac9aa7e4cc9d266b457fba4a1afe06b6a063913dcb1154f59964275",
+  "page_review_sha256": "7c13769980666431799d300fec87c0eceba9c3cb0a9c958231a4a0c987781129",
+  "publication_sha256": "880b56c3e117dadc12e30ba3f38f4919ffcb2ffe1c3b890007b2f820c425cfc0",
+  "git_writes": false,
+  "clinical_calibration": false,
+  "unexecuted": [
+    "A–D重新计算",
+    "西安重新拟合及TDINN积分",
+    "旧MATLAB实验",
+    "临床校准",
+    "图中案例标记绑定与连续人口允许区间核查"
+  ]
+}

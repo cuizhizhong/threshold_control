@@ -1,0 +1,75 @@
+{
+  "tests": [
+    {
+      "command": [
+        "xelatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "flatten_curve_supplement_cn.tex"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "biber",
+        "flatten_curve_supplement_cn"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "xelatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "flatten_curve_supplement_cn.tex"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "xelatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "flatten_curve_supplement_cn.tex"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "xelatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "flatten_curve_analysis_cn.tex"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "biber",
+        "flatten_curve_analysis_cn"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "xelatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "flatten_curve_analysis_cn.tex"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "xelatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "flatten_curve_analysis_cn.tex"
+      ],
+      "returncode": 0
+    }
+  ],
+  "main_mode": "graphicx demo; syntax and references only; not full graphical typesetting verification",
+  "supplement_mode": "full typesetting with actual sources and bibliography",
+  "scientific_simulations_run": false
+}
