@@ -1,9 +1,6 @@
 % ===== 09_population =====
-\section{规模不变性与不同有效人口下的策略比较}
-\label{sec:dominance}
-
-西安此次疫情的有效混合人口 $N_{\rm eff}$ 未知。本节沿用第~\ref{sec:xian}~节的参数，改变 $N_{\rm eff}$，考察阈值控制满足 TDINN 峰值、成本及时间参照值的参数范围。TDINN 参照固定在全市人口下的拟合结果，阈值控制和常规控制则在各个人口假设下分别计算。本节仍将感染阈值作为设计参数。
-
+\section{参照指标与有效人口比较}
+\label{sec:sup:population}
 \subsection{设定与比较基准}
 \label{sec:dom:setup}
 
@@ -17,8 +14,7 @@
 $S_c,\bar S,I_{\max}^{no}$ 均随 $N$ 同比例缩放，故 $i_{\max}^{no}$ 不依赖 $N$，
 只依赖 $\beta,\gamma,c_0,q_0,s_0,i_0$。本节记归一化状态 $s=S/N$、$i=I/N$。
 
-数值计算在各人口情景下沿用全市人口下拟合得到的同一个绝对初值 $I_0=1.00659\times10^{-3}$，并取 $S_0=N-I_0$，故 $i_0=I_0/N$ 与 $s_0=1-i_0$ 随人口规模改变。这是本节采用的情景比较约定；若在不同人口下重新拟合，所得初值未必相同。第\ref{sec:scaling-theory}节的规模不变性以固定归一化初值为前提，两者需加以区分。
-
+初值约定及人口必要下界见正文第\ref{sec:dominance}节。
 由首次积分，$i_0$ 通过 $\theta-i_0$ 和 $s_0=1-i_0$ 影响启动点。在 $N\ge N_{\rm floor}$、$\theta\ge\theta_{\rm dur150}$ 时，$i_0/\theta$ 不超过约 $8.3\times10^{-5}$；该比例本身不是控制指标的严格误差上界。本次固定 $\theta=0.002$ 的六个人口规模测试中，$\Delta t$ 和 $J$ 的相对极差分别为 $4.71\times10^{-8}$ 和 $1.17\times10^{-7}$。这些是本次有限参数测试的数值结果，不给出所有初值或人口下统一的误差认证。
 
 TDINN 的四个参照量见表~\ref{tab:xian_summary}。社区峰值、累计感染和清零时间由拟合轨迹重构，成本则由拟合控制函数按 $w_c=1,w_q=2$ 积分得到；这些量均不随本节的 $N_{\rm eff}$ 改变。
@@ -40,7 +36,7 @@ J(\theta_{\rm cost})=J^{\rm T},\qquad
 =\max\{\theta_{\rm cost},\theta_{\rm dur}(T_{\max})\}.
 \label{eq:dom:theta-bind}
 \end{equation}
-当某项限制对全部内部触发阈值都成立时，相应阈值延拓为 $i_0$；完整定义见附录\ref{app:reference-comparison}。于是同时满足峰值 $\eta\le I^{\rm T}_{\rm peak}$、成本 $J\le J^{\rm T}$ 和时长 $\Delta t\le T_{\max}$ 的阈值比例集合为
+当某项限制对全部内部触发阈值都成立时，相应阈值延拓为 $i_0$；完整定义见第\ref{app:reference-comparison}节。于是同时满足峰值 $\eta\le I^{\rm T}_{\rm peak}$、成本 $J\le J^{\rm T}$ 和时长 $\Delta t\le T_{\max}$ 的阈值比例集合为
 \begin{equation}
 (i_0,i_{\max}^{no})\cap
 \left[\theta_{\rm bind}(T_{\max}),\frac{I^{\rm T}_{\rm peak}}N\right].
@@ -58,34 +54,7 @@ N^*_{\infty}=\frac{I^{\rm T}_{\rm peak}}{\theta_{\rm cost}}.
 \end{equation}
 这些条件只比较明确列出的指标，不表示候选控制在其他指标上也较低。
 
-\subsection{人口相容条件与附加指标}
-\label{sec:dom:region}
-对于所采用的西安重构轨迹，累计社区感染和累计隔离感染还给出一个人口相容的必要条件。
-\begin{proposition}
-\label{prop:dom:floor}
-在 $S_q(0)=0$ 的无回流模型中，能够容纳给定重构轨迹的有效人口须满足
-\begin{equation}
-N_{\rm eff}\ge N_{\rm floor}:=
- I_{\rm cum}^{\rm T}+\frac{I_{q_{\rm cum}}^{\rm T}}{\beta}.
-\label{eq:dom:Nfloor}
-\end{equation}
-\end{proposition}
-\begin{proof}
-由式\eqref{eq:count-identities}，隔离易感者人数为
-$S_q(T)=(1-\beta)I_{q_{\rm cum}}(T)/\beta$。易感者流出的三部分为社区感染、隔离感染和未感染者隔离，故
-\[
-S_0-S(T)=I_{\rm cum}(T)+I_{q_{\rm cum}}(T)+S_q(T)
-=I_{\rm cum}(T)+\frac{I_{q_{\rm cum}}(T)}\beta.
-\]
-再用 $S_0\le N_{\rm eff}$ 即得。
-\end{proof}
-当前参照量给出
-\[
-N_{\rm floor}=607.96+\frac{1497.67}{0.1498}
-=1.0606\times10^4\approx1.06\times10^4.
-\]
-仅计累计感染时参照总数为 $2105.63$；计入隔离未感染者后，下界约为该值的 $5.04$ 倍。接近 $N_{\rm floor}$ 意味着大部分初始易感者离开 $S$ 仓室，而不是全部人都被感染。该下界不估计真实有效人口，也不能证明候选人口能够重现全市拟合。
-
+\subsection{附加指标与规模关系}
 \label{sec:dom:extra}
 进一步加入累计感染和社区动态清零时间条件时，分别计算
 \begin{equation}
@@ -98,7 +67,7 @@ t_{\rm end}(\eta,N)=t_{\rm end}^{\rm T}.
 \end{equation}
 这些等值条件不只依赖 $\eta/N$，因为清零终点为绝对人数 $I=1$。它们与式\eqref{eq:dom:band}及人口下界共同限定比较范围。固定归一化初值和固定 $\theta$ 时，累计感染与清零时间关于 $N$ 的单调性见命题\ref{prop:reference-population}；该结果不直接确定固定绝对初值、固定 $\eta$ 的等值线形状。
 
-沿用原记号，以 $N^*_{\rm cum}(T_{\max})$ 表示相应参数计算中累计感染等值线与起约束作用的阈值条件的交点，以 $N_{\rm clr}(\eta)$ 表示清零等值线在固定 $\eta$ 时对应的人口。若交点有多个，则须保留全部交点并逐段判断；以下单条边界及界值均指当前数值范围中的结果。记 $N^*_{\rm cum,\infty}$ 为不另设控制时长上限的对应值。附录\ref{app:dom:numerics}保留计算点和适用范围说明。
+沿用原记号，以 $N^*_{\rm cum}(T_{\max})$ 表示相应参数计算中累计感染等值线与起约束作用的阈值条件的交点，以 $N_{\rm clr}(\eta)$ 表示清零等值线在固定 $\eta$ 时对应的人口。若交点有多个，则须保留全部交点并逐段判断；以下单条边界及界值均指当前数值范围中的结果。记 $N^*_{\rm cum,\infty}$ 为不另设控制时长上限的对应值。第\ref{app:dom:numerics}节保留计算点和适用范围说明。
 
 
 \subsection{规模关系的数值说明}
@@ -209,7 +178,7 @@ J\bigl(I_{\rm peak}^{\rm T},N^\ast_\infty\bigr)=J^{\rm T}
 \end{equation}
 该候选范围内是否存在阈值使感染峰值不超过 $152.55$、加权成本不超过 $49.39$，须按实际指标判定，连续允许区间尚待核查。按全市参考人口计算，成本边界对应的控制持续时间约为 $102.91$ 天；表~\ref{tab:dom:thresholds}所列更短时长限制对应更小的数值人口界值。
 
-在固定乘积 $\beta c_0$ 的参数分析中，区间两端随 $\beta$ 改变，但比值 $N^\ast_\infty/N_{\rm floor}$ 的相对极差仅为 $0.22\%$。因此，在所考察范围内，区间的相对宽度对 $\beta$ 的变化不敏感，具体结果见附录~\ref{app:dom:numerics}。
+在固定乘积 $\beta c_0$ 的参数分析中，区间两端随 $\beta$ 改变，但比值 $N^\ast_\infty/N_{\rm floor}$ 的相对极差仅为 $0.22\%$。因此，在所考察范围内，区间的相对宽度对 $\beta$ 的变化不敏感，具体结果见第\ref{app:dom:numerics}节。
 
 累计感染与清零时间条件进一步缩小了比较范围。累计感染与实际成本条件的数值交点约为 $(11813,19.55)$，相应的人口上限为 $N_{\rm cum,\infty}^\ast\approx1.18\times10^4$。与 $N_{\rm floor}$ 取交后，满足累计感染要求的数值比较区间约为 $[1.06\times10^4,\,1.18\times10^4]$，上下端点之比不足 $1.12$。该区间接近人口下界，说明在本节设定下，累计感染条件比仅考虑峰值和成本时更严格。
 
@@ -217,7 +186,7 @@ J\bigl(I_{\rm peak}^{\rm T},N^\ast_\infty\bigr)=J^{\rm T}
 
 图~\ref{fig:dom:levers}(a,c) 固定 $N_{\rm eff}=2\times10^4$，比较三个阈值。各阈值均低于 TDINN 峰值参照，但累计感染均高于 TDINN。这与 $N_{\rm eff}>N_{\rm cum,\infty}^\ast$ 一致，说明峰值条件与累计感染条件并不等价。
 
-图~\ref{fig:dom:levers}(b,d) 固定 $\eta=100$。随 $N_{\rm eff}$ 增大，感染人数维持的阈值保持不变，持续时间增加；在本节参数范围内，$\Delta t\approx0.170N/\eta$。附录图~\ref{fig:panel_N_decomp} 中，人口从 $3973$ 增至 $60424$ 时，常规控制的感染峰值由 $416$ 增至 $6324$，清零时间由 $38.5$ 天增至 $50.9$ 天；阈值控制的控制持续时间由 $6.3$ 天增至 $102.9$ 天，清零时间由 $45.3$ 天增至 $201.7$ 天。较低的固定感染峰值因此可能伴随明显延长的疫情持续时间。
+图~\ref{fig:dom:levers}(b,d) 固定 $\eta=100$。随 $N_{\rm eff}$ 增大，感染人数维持的阈值保持不变，持续时间增加；在本节参数范围内，$\Delta t\approx0.170N/\eta$。图~\ref{fig:panel_N_decomp} 中，人口从 $3973$ 增至 $60424$ 时，常规控制的感染峰值由 $416$ 增至 $6324$，清零时间由 $38.5$ 天增至 $50.9$ 天；阈值控制的控制持续时间由 $6.3$ 天增至 $102.9$ 天，清零时间由 $45.3$ 天增至 $201.7$ 天。较低的固定感染峰值因此可能伴随明显延长的疫情持续时间。
 
 五个人口规模对应的总累计感染依次约为 $946,2106,5016,10792,15410$，可与固定 TDINN 参照 $2105.63$ 比较。前两个人口规模低于 $N_{\rm floor}$，不属于施加人口相容下界后的比较区域。
 
@@ -233,44 +202,113 @@ J\bigl(I_{\rm peak}^{\rm T},N^\ast_\infty\bigr)=J^{\rm T}
 
 例如，$N=5\times10^4$、$\eta=100$ 时，$J=40.77$、$\Delta t=85.07$ 天，满足峰值、成本及 $T_{\max}=150$ 天的要求；但累计感染约为 $9.03\times10^3$、清零时间约为 $176$ 天，均超过 TDINN 参照值。
 
-\subsection{常规接触率的敏感性分析}
-\label{sec:dom:c0}
-
-固定西安传播参数 $\beta,\gamma,q_0$、$N_{\rm eff}=2\times10^4$、$\theta=0.002$（即 $\eta=40$）和绝对初值 $I_0=1.00659\times10^{-3}$，考察 $c_0$ 的影响。这里的 $c_0$ 是给定的常规接触水平，不作为额外控制量。
-
-图~\ref{fig:c0-panel} 中，各控制轨迹的感染阈值相同。增大 $c_0$ 会使启动时间提前、最大隔离率升高，与命题~\ref{prop:contact-effects} 一致。$c_0=3.43$ 时，$q_{\max}=0.383<\qinf=0.4119$，无内部拐点；$c_0=3.59$ 时，$q_{\max}=0.423$，内部拐点出现。存在拐点的各条轨迹均满足 $\qinf=0.4119$。
-
+\subsection{不同有效人口下的轨迹分解与临界案例}
+\label{app:panel_eta_N}
+固定 $\eta=100$ 时的分人口轨迹见图\ref{fig:panel_N_decomp}。
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=112mm]{figures/layout_v5/c0_sensitivity_panel.pdf}
-\caption{固定 $N_{\rm eff}=2\times10^4$、$\theta=0.002$，不同 $c_0$ 下的 (a) 感染人数和 (b) 隔离率，横轴 $t$ 的单位为天。内嵌图为累计感染。$c_0=3.43$ 接近触发边界且无内部拐点；$c_0\approx6.61$ 对应控制持续时间的极大值，$c_0=12.8872$ 为基准接触率。存在内部拐点的曲线均满足 $\qinf=0.4119$。空心圆为隔离率拐点，实心圆表示该时刻在感染曲线水平段上的位置，短竖线为动态清零时刻。}
-\label{fig:c0-panel}
+\includegraphics[width=\textwidth]{figures/layout_v5/fig_panel_B_trajectory_decomposition.pdf}
+\caption{固定 $\eta=100$ 时不同有效人口下的感染轨迹。(a)--(d) 分别对应 $N_{\rm eff}=3973,10151,26584,60424$，各包含阈值控制、常规控制和固定 TDINN 参照；(e) 比较四个人口规模下的常规控制；(f) 比较阈值控制与 TDINN。横轴 $t$ 的单位为天。}
+\label{fig:panel_N_decomp}
 \end{figure}
-
-
-图~\ref{fig:c0-scan} 中，控制持续时间随 $c_0$ 先增加后减小，在 $c_0\approx6.61$ 时达到约 $103.2$ 天；成本和累计感染的极大值分别位于 $c_0\approx18.12$ 和 $13.88$，对应 $J\approx42.80$ 和 $\Itcum\approx3610$。三个极大值并不重合。
-
-动态清零时间在所考察范围内随 $c_0$ 增大而减小，从 $c_0=3.43$ 时约 $367$ 天降至 $c_0=30$ 时约 $102$ 天。虽然控制持续时间在部分区间增加，但启动时间和退出后的下降时间缩短，使总时间减小。因此，控制持续时间不能单独决定清零时间。
-
-图~\ref{fig:c0-phase} 给出 $(\theta,c_0)$ 平面上的触发边界、内部拐点边界和控制持续时间驻点曲线。三者分别对应控制是否启动、隔离率是否存在内部拐点以及控制持续时间的变化方向。
-
-
-\begin{figure}[htbp]
+三类临界有效人口下的阈值比较见图\ref{fig:dom:critical-cases}。
+\clearpage
+\begin{figure}[H]
 \centering
-\includegraphics[width=120mm]{figures/layout_v5/c0_phase_stationary.pdf}
-\caption{$(\theta,c_0)$ 平面上的触发边界、内部拐点边界 $s^*=2\bar s$ 和控制持续时间驻点曲线 $\partial\Delta t/\partial c_0=0$。灰色等值线表示控制持续时间，水平点线为 $\theta=0.002$。}
-\label{fig:c0-phase}
+\includegraphics[width=\textwidth]{figures/layout_v5/critical_population_cases.pdf}
+\caption{三类临界有效人口下的阈值比较。三行依次为 $N_{\rm eff}=11813,40553,92174$；左列为社区感染者人数（对数纵轴），右列为隔离率，横轴 $t$ 的单位为天。(a) 中的图例适用于三行：蓝色轨迹对应 $150$ d 时长、成本和 $45$ d 时长条件，黑实线为固定 TDINN 参照，灰虚线为同人口常规控制，红虚线为 TDINN 感染峰值。空心圆标记隔离率拐点，水平段上的实心点为该时刻在感染曲线上的投影而非感染曲线的拐点，短竖线为清零时刻。内嵌柱图给出清零时的总累计感染，虚线为 TDINN 参照 $2105.63$。}
+\label{fig:dom:critical-cases}
 \end{figure}
 
+本小节采用三个阈值比例：
+\[
+\theta_{\rm dur150}=1.137\times10^{-3},\qquad
+\theta_{\rm cost}=1.655\times10^{-3},\qquad
+\theta_{\rm dur45}=3.762\times10^{-3}.
+\]
+初值仍取固定绝对值 $I_0$，不同 $N_{\rm eff}$ 下不重新拟合。三个人口规模分别对应累计感染、45天控制持续时间和成本条件的临界值，结果见图\ref{fig:dom:critical-cases}。各参数组中，拐点相对位置约为 $\lambda=0.861$，绝对时刻随启动时间改变。
 
-\subsection{初值影响与比较条件的适用范围}
-\label{sec:dom:limits}
+当 $N_{\rm eff}=11813$ 时，三个阈值为 $13.432,19.550,44.435$，清零时间分别约为 $227.6,175.5,107.1$ d；成本条件下累计感染约为 TDINN 参照 $2105.63$，另外两个阈值的结果分别低于和高于该参照。当 $N_{\rm eff}=40553$ 时，三个阈值为 $46.113,67.115,152.546$，最后一个约等于 TDINN 峰值。当 $N_{\rm eff}=92174$ 时，三个阈值为 $104.810,152.546,346.725$，分别低于、约等于和高于 TDINN 峰值。
 
-上述人口比较沿用全市数据拟合的传播参数与初值。接近 $N_{\rm floor}$ 时，$S/N$ 对 $1$ 的偏离增大，此时沿用在 $S/N\approx1$ 条件下估计的参数需要谨慎。实际干预也可能改变人群混合范围，因而阈值控制与 TDINN 未必对应相同的有效人口。
-
-在当前数值范围内，成本、时长和累计感染边界对初值变化较不敏感，清零时间则更敏感。由 $t_1\approx r^{-1}\ln(\theta/i_0)$，其中 $r=\beta c_0(1-q_0)-\gamma=1.012\,\mathrm{d}^{-1}$，$i_0$ 每变化十倍，启动时间约变化 $2.28$ 天。若改用固定归一化初值 $i_0=7.65\times10^{-11}$，清零边界对应的最大人口由 $5184$ 变为 $2449$。两者均低于 $N_{\rm floor}=1.06\times10^4$，故在这两种设定下，加入清零条件后的比较区域均为空。
 
 
 \FloatBarrier
+\subsection{传播概率的影响与比较边界的数值结果}
+\label{app:dom:numerics}
 
+本小节给出传播概率变化及累计感染、清零时间比较边界的补充结果。
+
+固定乘积 $\beta c_0=1.9305$，在 $\beta\in[0.10,0.30]$ 内，人口区间两端随 $\beta$ 改变，但端点比值变化较小：
+$N^\ast_\infty/N_{\rm floor}\in[8.675,\,8.694]$，极差 $0.22\%$（$\beta=0.10/0.1498/0.20/0.30$ 处
+$N^\ast_\infty=13.55/9.22/7.03/4.86\times10^4$、$N_{\rm floor}=1.56/1.06/0.81/0.56\times10^4$）。
+这一结果并非精确比例关系：
+$\beta N^\ast_\infty$ 与 $\beta N_{\rm floor}$ 各自随 $\beta$ 漂移约 $7.6\%$ 与 $7.8\%$，
+二者的变化幅度接近，但都不严格正比于 $1/\beta$。
+
+在 $\eta\in[10,152.55]$ 内，累计感染等值曲线 $\Itcum(\eta,N)=\Itcum^{\rm T}$ 从 $(9511,152.55)$ 延伸至 $(12230,10)$，$\eta=100$ 时 $N_{\rm cum}\approx1.015\times10^4$。它与实际成本条件的数值交点约为 $(11813,19.55)$，给出 $N_{\rm cum,\infty}^\ast\approx1.18\times10^4$，约为 $N^\ast_\infty$ 的 $0.13$。现有 $16$ 个计算点及其插值仅显示一次交点，尚不能据此确定一般参数下交点的唯一性。
+
+$t_{\rm end}=t_{\rm end}^{\rm T}$ 在同一阈值范围内从 $(866.4,\,10)$ 延伸到 $(5184.4,\,152.55)$，
+$\eta=100$ 处 $N_{\rm clr}\approx3.97\times10^{3}$，全段最大值为 $N=5184$。
+
+本小节的累计感染均计算至各策略的动态清零时刻，包含退出后的感染过程。
+
+\FloatBarrier
+
+\subsection{仅隔离策略与给定参照指标的比较条件}
+\label{app:reference-comparison}
+本小节给出正文第\ref{sec:s1}节仅隔离策略的人口尺度比较条件。固定归一化初值 $s_0,i_0$ 和其余参数，记 $i_{\max}^{no}=I_{\max}^{no}/N$。由命题\ref{prop:threshold-tradeoff}和\ref{prop:scaling}，$\Delta t(\theta)$ 和 $J(\theta)$ 在 $(i_0,i_{\max}^{no})$ 上严格递减，右端极限为零，左端极限 $\Delta t(i_0+)$、$J(i_0+)$ 均有限且为正。下述人口上界商式仅用于这一初值约定；固定绝对初值的应用上界按第\ref{sec:dom:xian}节的实际指标定义。
+
+给定正的成本参照 $J^{\rm T}$ 和允许时长 $T_{\max}$，沿用正文的阈值记号，作如下端点扩展：
+\begin{equation}
+\theta_{\rm cost}=\begin{cases}
+J(\theta)=J^{\rm T}\text{ 的唯一根},&0<J^{\rm T}<J(i_0+),\\
+i_0,&J^{\rm T}\ge J(i_0+),
+\end{cases}
+\label{eq:reference-cost-threshold}
+\end{equation}
+\begin{equation}
+\theta_{\rm dur}(T_{\max})=\begin{cases}
+\Delta t(\theta)=T_{\max}\text{ 的唯一根},&0<T_{\max}<\Delta t(i_0+),\\
+i_0,&T_{\max}\ge\Delta t(i_0+)\text{ 或不限制时长}.
+\end{cases}
+\label{eq:reference-duration-threshold}
+\end{equation}
+端点值 $i_0$ 表示相应比较条件对全部内部触发阈值成立，不表示将 $\theta=i_0$ 纳入内部触发。令 $\theta_{\rm bind}=\max\{\theta_{\rm cost},\theta_{\rm dur}(T_{\max})\}$。给定峰值参照 $I^{\rm T}_{\rm peak}>0$，则同时满足峰值、成本与时长条件的阈值比例集合恰为
+\begin{equation}
+(i_0,i_{\max}^{no})\cap
+\left[\theta_{\rm bind},\frac{I^{\rm T}_{\rm peak}}{N}\right].
+\label{eq:reference-feasible-set}
+\end{equation}
+这一结论由 $J,\Delta t$ 的单调性和 $\eta=\theta N$ 直接得到。上述定义保证 $\theta_{\rm bind}<i_{\max}^{no}$。当 $\theta_{\rm bind}>i_0$ 时，集合非空等价于 $N\le I^{\rm T}_{\rm peak}/\theta_{\rm bind}$；当 $\theta_{\rm bind}=i_0$ 时，条件改为严格不等式 $N<I^{\rm T}_{\rm peak}/i_0$。固定正 $i_0$ 时，$T_{\max}\to\infty$ 对应 $\theta_{\rm dur}\to i_0$，不是零。
+
+\begin{proposition}
+\label{prop:reference-population}
+固定 $s_0,i_0,\theta$ 和模型参数，且 $i_0<\theta<i_{\max}^{no}$。在 $N\theta>1$ 的范围内，仅隔离策略的动态清零时间和计算至该终点的累计新增感染均随 $N$ 严格增加。
+\end{proposition}
+\begin{proof}
+归一化轨迹及启动、控制持续时间与 $N$ 无关。退出后 $i(t)$ 从 $\theta$ 严格下降至零，终点为 $i=1/N$。增大 $N$ 使终点更低，故清零时间严格增加。
+
+记 $s_{\rm end}=S_{\rm end}/N$。归一化的退出后首次积分为
+\[
+\frac1N=\theta+\frac{\beta_2^0}{\beta_1^0}(s_c-s_{\rm end})
++\frac{\rho_1}{N}\ln\frac{s_{\rm end}}{s_c},
+\]
+其中 $\rho_1/N$ 与 $\beta_2^0/\beta_1^0$ 均不随 $N$ 改变。于是
+\[
+\frac{\partial s_{\rm end}}{\partial N}
+=-\frac1{N^2(\rho_1/N)(1/s_{\rm end}-1/s_c)}<0.
+\]
+将式\eqref{eq:s1:cumulative}除以 $N$ 后，只有 $s_{\rm end}$ 含 $N$，因而
+\[
+\frac{\partial\Itcum}{\partial N}
+=\frac{\Itcum}{N}
+-\frac{N\beta}{\beta+q_0(1-\beta)}\frac{\partial s_{\rm end}}{\partial N}>0.\qedhere
+\]
+\end{proof}
+该命题针对固定 $\theta$、固定归一化初值的人口变化，不能直接用于固定绝对 $\eta$ 或固定绝对 $I_0$ 的比较。累计感染与清零等值线的存在和交点唯一性，应按实际采用的初值及参数变化方向分别说明。
+
+若还要求候选人口容纳给定参照轨迹，则由式\eqref{eq:count-identities}有必要条件 $N\ge I^{\rm T}_{\rm cum}+I^{\rm T}_{q_{\rm cum}}/\beta$。这一下界不是有效人口的估计，也不保证候选人口能重现参照数据。上述条件描述给定指标下的条件性比较，不构成不同传播人口之间的因果政策比较。
+
+
+\FloatBarrier

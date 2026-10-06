@@ -1,0 +1,136 @@
+\section{二次成本下的最优分配}
+\label{sec:joint:cost}
+\subsection{状态积分与最小值存在性}
+持续时间最短的控制未必使式\eqref{eq:cost:J}最小，因为接触减少与追踪隔离的强度代价不同。由式\eqref{eq:joint:q}和状态时间变换，成本可直接写成接触率状态函数的积分：
+\begin{equation}
+J[c_c]=\frac{N}{\eta}\int_{S_c}^{S^*}f(S,c_c(S))\,dS,
+\label{eq:joint:cost}
+\end{equation}
+其中
+\begin{equation}
+f(S,c)=
+\frac{(1-c/c_0)^2+2\left(1-\dfrac{c_0S_c}{cS}\right)^2}
+{cS-c_0\bar S}.
+\label{eq:joint:cost-integrand}
+\end{equation}
+这里的 $c$ 是固定状态 $S$ 上待比较的接触率取值。分母来自易感者变化速度，因而要比较的是每减少一名社区易感者所对应的成本，不是仅使瞬时控制强度最小。
+
+有能力限制时使用式\eqref{eq:joint:bounds}的上下界；无额外限制时取 $\underline c(S)=c_0S_c/S$、$\overline c(S)=c_0$。以下假定允许区间非空，且不增加总时长、调整次数或控制变化率等约束。
+\begin{theorem}
+\label{thm:joint:cost-minimum}
+在规定的全部有界可测阈值控制中，二次成本最小值可达到，且
+\begin{equation}
+\min_{c_c}J[c_c]
+=\frac{N}{\eta}\int_{S_c}^{S^*}
+\min_{\underline c(S)\le c\le\overline c(S)}f(S,c)\,dS.
+\label{eq:joint:minimum-cost}
+\end{equation}
+允许函数 $c_c^*(S)$ 达到该值，当且仅当它几乎处处属于相应的一维最小化解集。对于每个 $S>S_c$，只需比较 $\underline c(S),\overline c(S)$ 与区间内满足
+\begin{equation}
+\begin{split}
+0={}&\frac{c^3}{c_0^2}(c-c_0)
+\left(c+c_0-\frac{2c_0\bar S}{S}\right)\\
+&+2\left(c-\frac{c_0S_c}{S}\right)
+\left(-c^2+\frac{3c_0S_c}{S}c-
+\frac{2c_0^2\bar S S_c}{S^2}\right)
+\end{split}
+\label{eq:joint:stationary}
+\end{equation}
+的全部实根处的 $f$ 值。该方程为五次多项式方程，故候选点至多七个；重复端点与重根只计一次。$S=S_c$ 时允许区间退化为 $c=c_0$，无需求根。
+\end{theorem}
+证明见附录\ref{sec:proof:cost-minimum}。
+\subsection{有限候选判据及阈值、能力的影响}
+逐状态有限候选判据见定理\ref{thm:joint:cost-minimum}，两种单控制的成本表达见附录\ref{app:cost}。
+$\beta=1$ 时 $\bar S=0$，约去非零因子 $c$ 后，驻点条件简化为
+\begin{equation}
+\frac{c^4}{c_0^2}-3c^2+\frac{8c_0S_c}{S}c
+-6\left(\frac{c_0S_c}{S}\right)^2=0.
+\label{eq:joint:quartic}
+\end{equation}
+一般五次判据不提供最优控制的初等时间表达，也不保证最小化选择唯一或连续。其作用是给出完整的有限候选判据。
+
+同一状态上的最优分配不显含 $\eta$，这一点还能确定感染阈值对类内最小成本的影响。
+\begin{proposition}
+\label{prop:joint:minimum-threshold}
+固定 $N,S_0,I_0,\beta,\gamma,c_0,q_0$ 及能力界限。在控制被触发且满足式\eqref{eq:joint:feasibility}的阈值范围内，记 $J_{\min}(\eta)$ 为式\eqref{eq:joint:minimum-cost}的最小值，则 $J_{\min}$ 随 $\eta$ 严格下降。对于任意两个可行阈值，可以选择类内最优控制，使其在共同经过的易感者状态上采用相同的 $c_c^*(S),q_c^*(S)$。
+
+固定阈值时，降低 $c_{\min}$ 或提高 $q_{\rm cap}$ 不会增大类内最小成本。
+\end{proposition}
+\begin{proof}
+在本证明中记
+$m(S)=\min_{\underline c(S)\le c\le\overline c(S)}f(S,c)$。
+被积函数及允许界限均不含 $\eta$，且 $m$ 连续。对于 $S>S_c$，两项强度不可能同时为零，故 $m(S)>0$。因此
+\[
+J_{\min}(\eta)=\frac{N}{\eta}\int_{S_c}^{S^*(\eta)}m(S)\,dS.
+\]
+由 $\partial S^*/\partial\eta<0$，在可行区间内部有
+\begin{equation}
+\frac{dJ_{\min}}{d\eta}
+=-\frac{J_{\min}}{\eta}
++\frac{N}{\eta}m(S^*)\frac{\partial S^*}{\partial\eta}<0.
+\label{eq:joint:mincost-eta}
+\end{equation}
+端点处的严格比较也可直接由两个积分的上下限和正系数得到。将较低阈值下的逐状态最小化选择限制到较高阈值所经过的区间，仍在每个状态达到同一 $m(S)$，故产生兼容的最优控制。最后，扩大任一实施能力使每个状态的允许区间包含原区间，其最小被积函数值不增，积分后即得最后的结论。
+\end{proof}
+提高阈值时，最优状态函数可以保持不变，但时间参数化与开始采用控制的状态仍会改变。上述成本结论也不意味着全过程感染人数随之减少。
+
+\subsection{退出附近的混合分配与端点局部性质}
+二次成本还能够说明，为什么仅隔离控制虽达到最短时间，却一般不是成本最小的分配。
+\begin{proposition}
+\label{prop:joint:terminal-allocation}
+采用式\eqref{eq:cost:J}的权重 $1,2$。无额外能力限制时，任一逐状态最小化选择在充分接近退出状态的 $S>S_c$ 上满足
+\begin{equation}
+\frac{c_0S_c}{S}<c_c^*(S)<c_0,
+\qquad q_0<q_c^*(S)<1,
+\label{eq:joint:terminal-interior}
+\end{equation}
+即两种干预均严格强于常规水平。而且
+\begin{equation}
+\begin{aligned}
+\lim_{S\downarrow S_c}
+\frac{(c_0-c_c^*(S))/c_0}{1-S_c/S}&=\frac23,\\
+\lim_{S\downarrow S_c}
+\frac{(q_c^*(S)-q_0)/(1-q_0)}{1-S_c/S}&=\frac13.
+\end{aligned}
+\label{eq:joint:terminal-ratio}
+\end{equation}
+因此，类内最小成本严格小于仅减少接触和仅加强隔离两种策略各自的成本。加入满足 $c_{\min}<c_0$、$q_{\rm cap}>q_0$ 的固定能力限制后，式\eqref{eq:joint:terminal-interior}--\eqref{eq:joint:terminal-ratio}仍成立；与某一种单控制的严格成本比较仅在该单控制整段可行时使用。
+\end{proposition}
+证明见附录\ref{sec:proof:terminal-allocation}。
+该结论只刻画退出前的最优分配，不证明整个控制期的最小化选择唯一、连续或单调。若将二次权重改为 $w_c,w_q>0$，同一证明把式\eqref{eq:joint:terminal-ratio}中的 $2/3,1/3$ 分别替换为 $w_q/(w_c+w_q),w_c/(w_c+w_q)$。这比较的是两种归一化强度，不是接触率与隔离人数的直接比例。
+
+上述逐状态分配利用了成本中没有控制导数或跨状态的积分限制。若另行限定控制调整速度或隔离人天等跨状态预算，不同状态处的选择会受到共同限制，不能直接沿用式\eqref{eq:joint:minimum-cost}。若改变隔离费用的计入方式，则需重新检查成本是否仍能写成逐状态分离的积分。下面分别说明无额外能力限制时的端点局部性质，以及取得匹配乘子解时对控制时长限制的处理。
+
+命题\ref{prop:joint:terminal-allocation}只刻画退出附近的分配。对于整个控制期，定义状态阈值
+\begin{equation}
+S_{\rm sw}=\frac{3S_c+\sqrt{9S_c^2-8S_c\bar S}}{2}.
+\label{eq:joint:ssw}
+\end{equation}
+由 $0\le\bar S<S_c$，有 $2S_c<S_{\rm sw}\le3S_c$。这一阈值只用于以下端点的局部判据，不是一般权重下全局分配的切换位置。
+\begin{proposition}
+\label{prop:joint:global-structure}
+设 $w_c,w_q>0$，且无额外能力限制。对每个 $S\in(S_c,S^*]$，仅减少接触的取值 $c=c_0S_c/S$ 不是 $f(S,\cdot)$ 在允许区间 $[c_0S_c/S,c_0]$ 上的局部最小点。仅隔离的取值 $c=c_0$ 在 $S>S_{\rm sw}$ 时是相对于该区间的严格局部最小点，在 $S<S_{\rm sw}$ 时不是局部最小点。
+
+因此，任一类内最小成本控制在几乎所有 $S\in(S_c,S^*]$ 上满足 $q_c^*(S)>q_0$；在 $S_c<S<\min\{S_{\rm sw},S^*\}$ 上还满足 $c_0S_c/S<c_c^*(S)<c_0$，即两种措施同时强于常规水平。
+\end{proposition}
+证明见附录\ref{sec:proof:endpoint-properties}。
+当 $S=S_{\rm sw}$ 时上述一阶导数为零，此处不作局部分类。$S>S_{\rm sw}$ 时，右端点是否达到全局最小仍取决于权重及其他候选值，不能仅由这一局部判据确定。
+
+\subsection{时长约束下的乘子充分条件}
+控制持续时间限制可以在取得匹配的乘子解时处理，但这不是一般跨状态约束的无条件解法。
+\begin{remarkn}
+\label{rem:joint:duration-constraint}
+固定同一允许控制类。对 $\kappa\in\mathbb R$，将 $f(S,c)$ 换为
+\[
+f(S,c)+\frac{\kappa}{cS-c_0\bar S},
+\]
+即对 $J+\kappa\Delta t$ 逐状态最小化，定理\ref{thm:joint:cost-minimum}的存在性论证仍成立。记所得允许控制为 $c_\kappa$，若 $\Delta t[c_\kappa]=T$，则 $\kappa\ge0$ 时它在约束 $\Delta t\le T$ 下使 $J$ 最小，$\kappa\le0$ 时它在约束 $\Delta t\ge T$ 下使 $J$ 最小；对于等式约束 $\Delta t=T$，任意符号的 $\kappa$ 均给出这一充分条件。事实上，对满足相应约束的任一允许控制 $c_c$，有
+\[
+J[c_c]\ge J[c_\kappa]+\kappa\bigl(\Delta t[c_\kappa]-\Delta t[c_c]\bigr)\ge J[c_\kappa].
+\]
+在 $0<\beta<1$ 时，由式\eqref{eq:joint:quarantine}，时长下限 $\Delta t\ge T$ 等价于控制期新增隔离易感者人数不超过 $(1-\beta)[S^*-S_c-\gamma\eta T]$。上述充分条件不要求可达集凸，但不保证每个允许时长都有匹配的 $\kappa$，也不直接解决控制变化率或其他累计预算约束。
+\end{remarkn}
+
+
+\FloatBarrier
+

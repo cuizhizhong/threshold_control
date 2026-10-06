@@ -1,20 +1,33 @@
 %!TEX program = xelatex
+\RequirePackage{xr-hyper}
 \documentclass[lang=cn,a4paper,newtx]{elegantpaper}
 \title{阈值控制策略分析：补充材料}
 \author{XXX \and XXX}
 \institute{School of Mathematics and Statistics, Shaanxi Normal University}
 \date{}
-\usepackage{amsmath,amssymb,array,tabularx,makecell,threeparttable,siunitx,xurl}
+\usepackage{amsmath,amssymb,array,tabularx,makecell,threeparttable,siunitx,xurl,graphicx,float,placeins,multirow,needspace,xr-hyper}
+\externaldocument{flatten_curve_analysis_cn}
+\graphicspath{{./}{figures/}{table/}}
+\numberwithin{equation}{section}
+\theoremstyle{plain}
+\newtheorem{corollaryn}[theorem]{推论}
+\newtheorem{remarkn}[theorem]{注记}
+\allowdisplaybreaks[3]
+\newcommand{\qinf}{q_{\mathrm{inf}}}
+\newcommand{\Itcum}{I_{t_{\mathrm{cum}}}}
 \renewcommand{\arraystretch}{1.25}
 \emergencystretch=2em
 \addbibresource{references.bib}
 \renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thesection}{S\arabic{section}}
 \begin{document}
 \maketitle
 本文件列出基准参数分析、初值设定比较及西安阈值敏感性结果，并补充社区感染上限与医疗需求的联系和阈值取值的参考依据。数值设置、未取整结果及历史程序对账见随文复现说明。
-\input{supplement_sections/numerical_tables}
-\renewcommand{\thesection}{S\arabic{section}}
-\input{supplement_sections/medical_link}
-\input{supplement_sections/threshold_scale}
+\input{supplement_sections/S1_baseline}
+\input{supplement_sections/S2_inflection}
+\input{supplement_sections/S3_xian}
+\input{supplement_sections/S4_population}
+\input{supplement_sections/S5_contact}
 \printbibliography[title={参考文献}]
 \end{document}

@@ -1,6 +1,7 @@
 % ===== theory_appendices =====
-\section{仅隔离控制的成本积分}
+\section{成本积分与单控制闭式表达}
 \label{app:cost}
+\subsection{仅隔离控制的成本积分}
 式\eqref{eq:cost:state}可直接积分，不必另设原函数记号。当 $\bar S>0$ 时，结果为
 \begin{equation}
 J_q=\frac{N}{c_0\eta}\left[
@@ -35,4 +36,14 @@ J&=\frac{2N}{c_0\eta}\left[\ln\frac{S^*}{S_c}+\frac{2S_c}{S^*}
 -\frac{S_c^2}{2(S^*)^2}-\frac32\right].
 \end{align}
 这些表达与积分式相同；当 $\bar S$ 很小或 $S^*$ 接近 $S_c$ 时，可使用原积分式避免接近量相减所带来的浮点误差。
+
+\subsection{仅减少接触及显式族的成本参照}
+显式族可作为成本比较的参照。仅减少接触时，
+\begin{equation}
+J=\frac{N}{c_0\eta(S_c-\bar S)}
+\left[S^*-\frac{S_c^2}{S^*}-2S_c\ln\frac{S^*}{S_c}\right],
+\label{eq:joint:contact-cost}
+\end{equation}
+仅加强隔离时恢复式\eqref{eq:cost:state}。全部允许控制中的最小成本不高于式\eqref{eq:joint:allocation-range}内任一显式策略的成本，但显式族未必包含类内最优解，不能以该子族中的最小值替代式\eqref{eq:joint:minimum-cost}。
+
 
