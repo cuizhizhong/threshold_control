@@ -1,0 +1,38 @@
+% ===== theory_appendices =====
+\section{仅隔离控制的成本积分}
+\label{app:cost}
+式\eqref{eq:cost:state}可直接积分，不必另设原函数记号。当 $\bar S>0$ 时，结果为
+\begin{equation}
+J_q=\frac{N}{c_0\eta}\left[
+\frac{S_c}{\bar S}\ln\frac{S^*}{S_c}
++\left(1-\frac{S_c}{\bar S}\right)\ln\frac{S^*-\bar S}{S_c-\bar S}\right],
+\label{eq:cost:closed-linear}
+\end{equation}
+\begin{equation}
+\begin{split}
+J=\frac{2N}{c_0\eta}\bigg[&
+\frac{S_c(2\bar S-S_c)}{\bar S^2}\ln\frac{S^*}{S_c}
++\frac{S_c^2}{\bar S}\left(\frac1{S^*}-\frac1{S_c}\right)\\
+&+\left(1-\frac{S_c}{\bar S}\right)^2
+\ln\frac{S^*-\bar S}{S_c-\bar S}\bigg].
+\end{split}
+\label{eq:cost:closed}
+\end{equation}
+这两式可由下列部分分式展开逐项积分得到：
+\begin{align*}
+\frac{1-S_c/S}{S-\bar S}
+&=\frac{S_c/\bar S}{S}
+ +\frac{1-S_c/\bar S}{S-\bar S},\\
+\frac{(1-S_c/S)^2}{S-\bar S}
+&=\frac{S_c(2\bar S-S_c)}{\bar S^2S}
+-\frac{S_c^2}{\bar S S^2}
++\frac{(1-S_c/\bar S)^2}{S-\bar S}.
+\end{align*}
+在 $\beta=1$、$\bar S=0$ 时，直接展开式\eqref{eq:cost:state}的被积函数，得
+\begin{align}
+J_q&=\frac{N}{c_0\eta}\left[\ln\frac{S^*}{S_c}+\frac{S_c}{S^*}-1\right],\\
+J&=\frac{2N}{c_0\eta}\left[\ln\frac{S^*}{S_c}+\frac{2S_c}{S^*}
+-\frac{S_c^2}{2(S^*)^2}-\frac32\right].
+\end{align}
+这些表达与积分式相同；当 $\bar S$ 很小或 $S^*$ 接近 $S_c$ 时，可使用原积分式避免接近量相减所带来的浮点误差。
+

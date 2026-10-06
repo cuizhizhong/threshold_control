@@ -1,0 +1,57 @@
+\section{仅隔离策略与给定参照指标的比较条件}
+\label{app:reference-comparison}
+本附录给出第\ref{sec:s1}节仅隔离策略的人口尺度比较条件。固定归一化初值 $s_0,i_0$ 和其余参数，记 $i_{\max}^{no}=I_{\max}^{no}/N$。由命题\ref{prop:threshold-tradeoff}和\ref{prop:scaling}，$\Delta t(\theta)$ 和 $J(\theta)$ 在 $(i_0,i_{\max}^{no})$ 上严格递减，右端极限为零，左端极限 $\Delta t(i_0+)$、$J(i_0+)$ 均有限且为正。下述人口上界商式仅用于这一初值约定；固定绝对初值的应用上界按第\ref{sec:dom:xian}节的实际指标定义。
+
+给定正的成本参照 $J^{\rm T}$ 和允许时长 $T_{\max}$，沿用正文的阈值记号，作如下端点扩展：
+\begin{equation}
+\theta_{\rm cost}=\begin{cases}
+J(\theta)=J^{\rm T}\text{ 的唯一根},&0<J^{\rm T}<J(i_0+),\\
+i_0,&J^{\rm T}\ge J(i_0+),
+\end{cases}
+\label{eq:reference-cost-threshold}
+\end{equation}
+\begin{equation}
+\theta_{\rm dur}(T_{\max})=\begin{cases}
+\Delta t(\theta)=T_{\max}\text{ 的唯一根},&0<T_{\max}<\Delta t(i_0+),\\
+i_0,&T_{\max}\ge\Delta t(i_0+)\text{ 或不限制时长}.
+\end{cases}
+\label{eq:reference-duration-threshold}
+\end{equation}
+端点值 $i_0$ 表示相应比较条件对全部内部触发阈值成立，不表示将 $\theta=i_0$ 纳入内部触发。令 $\theta_{\rm bind}=\max\{\theta_{\rm cost},\theta_{\rm dur}(T_{\max})\}$。给定峰值参照 $I^{\rm T}_{\rm peak}>0$，则同时满足峰值、成本与时长条件的阈值比例集合恰为
+\begin{equation}
+(i_0,i_{\max}^{no})\cap
+\left[\theta_{\rm bind},\frac{I^{\rm T}_{\rm peak}}{N}\right].
+\label{eq:reference-feasible-set}
+\end{equation}
+这一结论由 $J,\Delta t$ 的单调性和 $\eta=\theta N$ 直接得到。上述定义保证 $\theta_{\rm bind}<i_{\max}^{no}$。当 $\theta_{\rm bind}>i_0$ 时，集合非空等价于 $N\le I^{\rm T}_{\rm peak}/\theta_{\rm bind}$；当 $\theta_{\rm bind}=i_0$ 时，条件改为严格不等式 $N<I^{\rm T}_{\rm peak}/i_0$。固定正 $i_0$ 时，$T_{\max}\to\infty$ 对应 $\theta_{\rm dur}\to i_0$，不是零。
+
+\begin{proposition}
+\label{prop:reference-population}
+固定 $s_0,i_0,\theta$ 和模型参数，且 $i_0<\theta<i_{\max}^{no}$。在 $N\theta>1$ 的范围内，仅隔离策略的动态清零时间和计算至该终点的累计新增感染均随 $N$ 严格增加。
+\end{proposition}
+\begin{proof}
+归一化轨迹及启动、控制持续时间与 $N$ 无关。退出后 $i(t)$ 从 $\theta$ 严格下降至零，终点为 $i=1/N$。增大 $N$ 使终点更低，故清零时间严格增加。
+
+记 $s_{\rm end}=S_{\rm end}/N$。归一化的退出后首次积分为
+\[
+\frac1N=\theta+\frac{\beta_2^0}{\beta_1^0}(s_c-s_{\rm end})
++\frac{\rho_1}{N}\ln\frac{s_{\rm end}}{s_c},
+\]
+其中 $\rho_1/N$ 与 $\beta_2^0/\beta_1^0$ 均不随 $N$ 改变。于是
+\[
+\frac{\partial s_{\rm end}}{\partial N}
+=-\frac1{N^2(\rho_1/N)(1/s_{\rm end}-1/s_c)}<0.
+\]
+将式\eqref{eq:s1:cumulative}除以 $N$ 后，只有 $s_{\rm end}$ 含 $N$，因而
+\[
+\frac{\partial\Itcum}{\partial N}
+=\frac{\Itcum}{N}
+-\frac{N\beta}{\beta+q_0(1-\beta)}\frac{\partial s_{\rm end}}{\partial N}>0.\qedhere
+\]
+\end{proof}
+该命题针对固定 $\theta$、固定归一化初值的人口变化，不能直接用于固定绝对 $\eta$ 或固定绝对 $I_0$ 的比较。累计感染与清零等值线的存在和交点唯一性，应按实际采用的初值及参数变化方向分别说明。
+
+若还要求候选人口容纳给定参照轨迹，则由式\eqref{eq:count-identities}有必要条件 $N\ge I^{\rm T}_{\rm cum}+I^{\rm T}_{q_{\rm cum}}/\beta$。这一下界不是有效人口的估计，也不保证候选人口能重现参照数据。上述条件描述给定指标下的条件性比较，不构成不同传播人口之间的因果政策比较。
+
+
+\FloatBarrier

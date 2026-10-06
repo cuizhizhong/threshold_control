@@ -1,0 +1,208 @@
+% ===== 03_single_control =====
+\section{隔离率阈值控制的解析结果}
+\label{sec:s1}
+固定接触率后，恒定感染要求消除了控制分配的自由度。先确定控制启动时的状态，再将所需隔离比例代回易感者方程，便可求得整个阈值控制期。退出后的传播沿常规轨迹继续，因此控制结束时间与社区动态清零时间仍需分别计算。
+
+\subsection{控制启动点与启动时间}
+在条件\eqref{eq:model:trigger}下，常规轨迹先后两次经过 $I=\eta$，分别位于感染人数增加和减少的阶段。本文使用第一次交点。
+\begin{theorem}
+\label{thm:s1:start}\label{thm:s1:trigger}
+设条件\eqref{eq:model:trigger}成立，并令
+\begin{equation}
+z_\eta=-\frac{1}{S_c}\exp\!\left[-\frac{C_0-\eta}{\rho_1}\right]
+=-\frac{S_0}{S_c}\exp\!\left[-\frac{S_0}{S_c}+\frac{\eta-I_0}{\rho_1}\right].
+\label{eq:s1:lambert-argument}
+\end{equation}
+则 $z_\eta\in(-e^{-1},0)$，唯一的启动状态及相应时间为
+\begin{equation}
+S^*=-S_cW_{-1}(z_\eta),\qquad S_c<S^*<S_0,
+\label{eq:s1:Sstar-lambert}
+\end{equation}
+\begin{equation}
+t_1=\frac{1}{\beta_1^0}\int_{S^*}^{S_0}
+\frac{dS}{S[I_0+\frac{\beta_2^0}{\beta_1^0}(S_0-S)+\rho_1\ln(S/S_0)]}>0.
+\label{eq:s1:t1}
+\end{equation}
+这里 $W_{-1}$ 为 Lambert $W$ 函数的下实分支。
+\end{theorem}
+\begin{proof}
+将 $I=\eta$ 代入式\eqref{eq:model:first-integral}，得
+$(-S/S_c)e^{-S/S_c}=z_\eta$。又由峰值公式，
+\[
+z_\eta=-e^{-1}\exp\!\left[-\frac{I_{\max}^{no}-\eta}{\rho_1}\right]\in(-e^{-1},0).
+\]
+在此区间，$W_0(z)\in(-1,0)$、$W_{-1}(z)<-1$\cite{Corless1996}。前者给出的状态小于 $S_c$，对应感染人数下降后的交点。由于式\eqref{eq:model:routine-orbit}在 $S\in(S_c,S_0)$ 上关于 $S$ 严格递减，且端点感染人数分别为 $I_{\max}^{no}$ 与 $I_0$，该区间恰有一个交点，须取 $W_{-1}$。沿常规易感者方程分离变量即得式\eqref{eq:s1:t1}；积分区间上 $I(S)\ge I_0>0$，所以 $t_1$ 有限。
+\end{proof}
+若 $\eta=I_0$，可取 $t_1=0,S^*=S_0$；若 $\eta=I_{\max}^{no}$，两交点合并为 $S_c$，加强控制的持续时间为零。若 $\eta<I_0$，初始状态已不满足感染上限。这些情形与式\eqref{eq:model:trigger}下的内部触发分别处理。
+
+\subsection{隔离控制函数、状态轨迹与退出}
+启动时有 $S^*>S_c$，常规隔离比例不足以阻止感染人数增加。为保持 $I=\eta$，需立即提高隔离比例，并随易感者减少而调整。记
+\begin{equation}
+\bar S=\frac{(1-\beta)\gamma N}{\beta c_0},\qquad
+\frac{\bar S}{S_c}=(1-\beta)(1-q_0)<1.
+\label{eq:s1:barS}
+\end{equation}
+\begin{theorem}
+\label{thm:s1:qc-structure}\label{thm:s1:platform}
+在条件\eqref{eq:model:trigger}下，固定 $c(t)=c_0$。阈值控制期内保持 $I(t)=\eta$ 所需的隔离比例唯一为
+\begin{equation}
+q_c(S)=1-\frac{\gamma N}{\beta c_0S},\qquad S_c\le S\le S^*.
+\label{eq:s1:q-control}
+\end{equation}
+相应的状态轨迹和控制持续时间为
+\begin{equation}
+S(t)=\bar S+(S^*-\bar S)e^{-c_0\eta(t-t_1)/N},\qquad I(t)=\eta,
+\label{eq:s1:S-analytic}
+\end{equation}
+\begin{equation}
+\Delta t=t_2-t_1=\frac{N}{c_0\eta}\ln\frac{S^*-\bar S}{S_c-\bar S}.
+\label{eq:s1:t2}
+\end{equation}
+以式\eqref{eq:s1:S-analytic}代入式\eqref{eq:s1:q-control}定义 $q_c(t)$，则完整控制为
+\begin{equation}
+c(t)=c_0,\qquad q(t)=\begin{cases}
+q_0,&t<t_1,\\
+q_c(t),&t_1\le t\le t_2,\\
+q_0,&t>t_2.
+\end{cases}
+\label{eq:s1:q-piecewise}
+\end{equation}
+它满足 $I(t)\le\eta$ 对所有 $t\ge0$ 成立。
+\end{theorem}
+\begin{proof}
+由 $I=\eta>0$ 和 $\dot I=0$，式\eqref{eq:model:balance}唯一解出式\eqref{eq:s1:q-control}。代入 $S$ 方程得
+\[
+\dot S=-\frac{c_0\eta}{N}(S-\bar S),\qquad S(t_1)=S^*,
+\]
+故有式\eqref{eq:s1:S-analytic}。由 $S^*>S_c>\bar S$，轨迹严格下降并在式\eqref{eq:s1:t2}给出的有限时间首次到达 $S_c$。该区间上 $q_c(S_c)=q_0$、$q_0\le q_c(S)<1$，控制满足界限。
+
+反过来，将如此得到的时间函数 $q_c(t)$ 代回原方程，式\eqref{eq:s1:S-analytic}与 $I=\eta$ 满足前两个方程及启动初值，其余仓室由线性方程或积分确定。由命题\ref{prop:model:positive}的解唯一性，该控制确实实现恒定感染，而不只是形式上满足 $\dot I=0$。启动前 $I<\eta$；退出后 $S<S_c$，故 $\dot I<0$，全程不超过阈值。
+\end{proof}
+
+\begin{corollaryn}
+\label{cor:s1:qc-structure}
+上述控制在 $t_1$ 从 $q_0$ 跳升至
+\begin{equation}
+q_{\max}=1-\frac{\gamma N}{\beta c_0S^*}>q_0,
+\label{eq:s1:qmax}
+\end{equation}
+在 $(t_1,t_2)$ 严格递减，并在 $t_2$ 连续恢复为 $q_0$。若另有有效追踪隔离比例的上限 $q_0\le q_{\rm cap}<1$，则上述仅隔离策略可实施，当且仅当
+\[
+q_{\max}\le q_{\rm cap}
+\quad\Longleftrightarrow\quad
+\frac{\beta c_0(1-q_{\rm cap})S^*}{N}\le\gamma.
+\]
+该条件成立时，能力限制不改变上述控制轨迹、持续时间及成本公式。
+\end{corollaryn}
+\begin{proof}
+由于 $q_c(S)$ 关于 $S$ 严格增加，$S^*>S_c$ 给出启动跳跃。沿控制轨迹，
+\begin{equation}
+\frac{dq_c(t)}{dt}=-\frac{\gamma\eta}{\beta}
+\frac{S(t)-\bar S}{S(t)^2}<0.
+\label{eq:s1:qprime}
+\end{equation}
+又 $q_c(S_c)=q_0$，故退出时连续。控制比例的最大值在启动时取得，因此全时段的能力限制等价于检查这一最大值；由式\eqref{eq:s1:qmax}整理即得上述等价式。当 $q_{\rm cap}=q_{\max}$ 时，控制只在启动时恰好达到能力上限，随后严格低于上限。
+\end{proof}
+若 $q_{\rm cap}<q_{\max}$，则从规定启动状态出发，即使取 $q=q_{\rm cap}$ 仍有 $\dot I>0$，故不能简单截断原隔离控制函数后继续维持 $I=\eta$。由命题\ref{prop:s1:sensitivity}，其他参数及 $q_{\rm cap}$ 固定时，提高仍处于条件\eqref{eq:model:trigger}内的阈值会降低 $q_{\max}$，从而保持已有的仅隔离可行性；降低阈值则可能使所需最大隔离率超过能力上限。
+
+将解析状态代入隔离率的状态表达，还可写出以启动或退出时刻为参照的时间函数：
+\begin{equation}
+\begin{split}
+q_c(t)
+&=1-\frac{1}{\left[\dfrac{\beta c_0S^*}{\gamma N}+\beta-1\right]
+ e^{-c_0\eta(t-t_1)/N}+1-\beta}\\
+&=1-\frac{1}{\left[\dfrac{q_0}{1-q_0}+\beta\right]
+ e^{c_0\eta(t_2-t)/N}+1-\beta}.
+\end{split}
+\label{eq:s1:q-time-explicit}
+\end{equation}
+这两种表达与式\eqref{eq:s1:q-control}等价。它们确定名义模型中的预定控制函数，不意味着感染人数偏离阈值后会自动回到阈值。
+
+图\ref{fig:scenario1:single-sim}展示了上述三阶段过程。在图注所列参数下，控制于 $t_1\approx3.1754$ d 启动，此时 $S^*\approx708.3470$，隔离率由 $q_0$ 跳升至 $q_{\max}\approx0.7565$；随后感染人数保持在 $\eta=38.15$，直至 $S$ 降至 $S_c\approx175.1602$，并于 $t_2\approx9.0780$ d 恢复常规隔离率。对应的控制持续时间约为 $5.9026$ d，而常规控制的感染峰值约为 $300.4$，出现在 $6.7$ d 附近。基准数值积分中控制区间上的最大阈值偏差为 $1.07\times10^{-7}$，支持数值轨迹与解析结果的一致性。
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{figures/optimal_control_with_quarantine_panels.pdf}
+\caption{仅隔离阈值控制与常规控制的时间轨迹。参数为 $N=763$、$S_0=762$、$I_0=1$、$S_q(0)=I_q(0)=R(0)=0$、$\beta=0.155$、$c_0=10\ \mathrm d^{-1}$、$q_0=0.01526$、$\gamma=\delta_q=0.3504\ \mathrm d^{-1}$、$\eta=0.05N=38.15$。此处的阈值比例用于说明解析结果，不作具体 ICU 容量换算。阈值控制在 $[t_1,t_2]$ 内维持 $I=\eta$，$q_c$ 从启动最大值下降至 $q_0$；$c(t)$ 始终为 $c_0$。横轴为自初始时刻起的天数。}
+\label{fig:scenario1:single-sim}
+\end{figure}
+
+
+\subsection{退出后的传播与社区动态清零}
+在控制结束时仍有 $I(t_2)=\eta$，所以 $t_2$ 并非感染过程的终点。沿用文献\cite{Zhou2024SPCI}的操作性判据，本文以非隔离感染者在下降阶段达到 $1$ 的时刻定义社区动态清零时间。该判据不要求隔离感染者同时归零，也不表示确定性模型在有限时间严格灭绝。
+\begin{theorem}
+\label{thm:s1:tend}\label{thm:s1:post}
+从 $(S_c,\eta)$ 恢复常规控制后，$S(t)$ 和 $I(t)$ 对 $t>t_2$ 均严格递减，且
+\begin{equation}
+I(t)\to0,\qquad
+S(t)\to S_\infty=-S_cW_0\!\left(-e^{-1-\eta/\rho_1}\right)\in(0,S_c).
+\label{eq:s1:Sinfty}
+\end{equation}
+若 $\eta>1$，则唯一的 $t_{\rm end}>t_2$ 满足 $I(t_{\rm end})=1$、$I'(t_{\rm end})<0$。记 $S_{\rm end}=S(t_{\rm end})$，有
+\begin{equation}
+S_{\rm end}=-S_cW_0\!\left(-e^{-1-(\eta-1)/\rho_1}\right),
+\label{eq:s1:Send}
+\end{equation}
+\begin{equation}
+t_{\rm end}=t_2+\frac{1}{\beta_1^0}\int_{S_{\rm end}}^{S_c}
+\frac{dS}{S[\eta+\frac{\beta_2^0}{\beta_1^0}(S_c-S)+\rho_1\ln(S/S_c)]}.
+\label{eq:s1:tend}
+\end{equation}
+\end{theorem}
+\begin{proof}
+由正性，恢复常规后 $\dot S<0$，故所有 $t>t_2$ 均有 $S<S_c$ 和 $\dot I<0$。任取 $t_a>t_2$，令 $\varepsilon=\gamma-\beta_2^0S(t_a)>0$，则
+\[
+I(t)\le I(t_a)e^{-\varepsilon(t-t_a)},\qquad t\ge t_a.
+\]
+因此 $I\to0$、$\int_{t_a}^{\infty}I(t)dt<\infty$。将其代入 $S$ 的指数表示，得到严格正的下界，故 $S_\infty\in(0,S_c)$。$I$ 从 $\eta$ 严格下降至零，因而 $\eta>1$ 时存在唯一有限的 $t_{\rm end}$。
+
+退出后的首次积分为
+\begin{equation}
+I(t)=\eta+\frac{\beta_2^0}{\beta_1^0}(S_c-S(t))+\rho_1\ln\frac{S(t)}{S_c}.
+\label{eq:s1:post-orbit}
+\end{equation}
+分别令 $I=1$ 和 $I=0$，并使用 $0<S<S_c$ 选择 $W_0$ 分支，得到式\eqref{eq:s1:Send}和\eqref{eq:s1:Sinfty}。最后沿常规易感者方程积分即得式\eqref{eq:s1:tend}。
+\end{proof}
+若 $\eta=1$，则 $I(t_2)=1$ 但 $I'(t_2)=0$；若 $\eta<1$，退出后始终 $I<1$，均不属于上述终点定义。由于 $\delta_q>0$ 且隔离感染仓室的输入趋于零，另有 $I_q(t)\to0$；$S_q,R$ 单调有界，因此也存在极限。
+
+\subsection{累计新增感染}
+感染上限限制的是同时存在的非隔离感染者，而不是全过程的新增感染。定义
+\[
+I_{\rm cum}(T)=\int_0^T\frac{\beta c(1-q)}{N}SI\,dt,\qquad
+I_{q_{\rm cum}}(T)=\int_0^T\frac{\beta cq}{N}SI\,dt,
+\]
+并记 $\Itcum(T)=I_{\rm cum}(T)+I_{q_{\rm cum}}(T)$。这些量只统计初始时刻以后的新感染，不包含 $I_0,I_q(0)$。不写终点时，$\Itcum$ 表示计算至 $t_{\rm end}$ 的累计新增感染。
+\begin{theorem}
+\label{thm:s1:Itcum}
+在前述仅隔离控制下，若 $\eta>1$，则
+\begin{equation}
+\begin{split}
+\Itcum={}&\frac{\beta}{\beta+q_0(1-\beta)}(S_0-S^*+S_c-S_{\rm end})\\
+&+\beta\left[S^*-S_c+\bar S\ln\frac{S^*-\bar S}{S_c-\bar S}\right].
+\end{split}
+\label{eq:s1:cumulative}
+\end{equation}
+将 $S_{\rm end}$ 替换为 $S_\infty$，即得到计算至无限时刻的累计新增感染。
+\end{theorem}
+\begin{proof}
+前后常规阶段均有
+\[
+\frac{\beta c_0SI}{N}=\frac{\beta}{\beta+q_0(1-\beta)}(-\dot S),
+\]
+所以两段积分分别由 $S_0-S^*$、$S_c-S_{\rm end}$ 给出。阈值控制期内使用 $dt=-N\,dS/[c_0\eta(S-\bar S)]$，得到
+\[
+\int_{t_1}^{t_2}\frac{\beta c_0S\eta}{N}\,dt
+=\beta\int_{S_c}^{S^*}\frac{S}{S-\bar S}\,dS
+=\beta\left[S^*-S_c+\bar S\ln\frac{S^*-\bar S}{S_c-\bar S}\right].
+\]
+三段相加即得结论；无穷时刻的表达由极限得到。
+\end{proof}
+从式\eqref{eq:model:full}还可得到两个便于检查计数的一致性关系：
+\begin{equation}
+I_{\rm cum}(T)=I(T)-I_0+\gamma\int_0^T I(t)dt,
+\qquad
+S_q(T)-S_q(0)=\frac{1-\beta}{\beta}I_{q_{\rm cum}}(T).
+\label{eq:count-identities}
+\end{equation}
+第二式也说明，无回流模型中的社区易感者减少不等于累计感染。
+
+
