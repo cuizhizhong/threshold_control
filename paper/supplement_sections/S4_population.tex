@@ -14,7 +14,7 @@
 $S_c,\bar S,I_{\max}^{no}$ 均随 $N$ 同比例缩放，故 $i_{\max}^{no}$ 不依赖 $N$，
 只依赖 $\beta,\gamma,c_0,q_0,s_0,i_0$。本节记归一化状态 $s=S/N$、$i=I/N$。
 
-数值情景取 $N=N_{\rm eff}$、$S_0=N-I_0$，其余初始仓室为零，$I_0$ 固定为全市拟合的未取整值，不重新拟合。人口必要下界 $N_{\rm floor}$ 见正文命题\ref{prop:dom:floor}。由首次积分，$i_0$ 通过 $\theta-i_0$ 和 $s_0=1-i_0$ 影响启动点。在 $N\ge N_{\rm floor}$、$\theta\ge\theta_{\rm dur150}$ 时，$i_0/\theta$ 不超过约 $8.3\times10^{-5}$；该比例本身不是控制指标的严格误差上界。
+数值情景取 $N=N_{\rm eff}$、$S_0=N-I_0$，其余初始仓室为零，$I_0$ 固定为第\ref{sec:sup:xian:settings}节所述全市拟合的未取整值，不重新拟合。人口必要下界 $N_{\rm floor}$ 见正文命题\ref{prop:dom:floor}。由首次积分，$i_0$ 通过 $\theta-i_0$ 和 $s_0=1-i_0$ 影响启动点。在 $N\ge N_{\rm floor}$、$\theta\ge\theta_{\rm dur150}$ 时，$i_0/\theta$ 不超过约 $8.3\times10^{-5}$；该比例本身不是控制指标的严格误差上界。
 
 TDINN 的四个参照量固定为全市人口下的重构结果（表\ref{tab:xian_summary}），其二次成本采用 $w_c=1,w_q=2$。仅隔离控制的累计新增感染统计至自身的清零终点，$J$ 只计阈值控制期的二次成本。$\Delta t$ 为控制时长，$t_{\rm end}$ 为从共同时间原点起算的清零时间。
 
@@ -215,8 +215,7 @@ J\bigl(I_{\rm peak}^{\rm T},N^\ast_\infty\bigr)=J^{\rm T}
 \label{fig:panel_N_decomp}
 \end{figure}
 三类临界有效人口下的阈值比较见图\ref{fig:dom:critical-cases}。
-\clearpage
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/layout_v5/critical_population_cases.pdf}
 \caption{三类临界有效人口下的阈值比较。三行依次为 $N_{\rm eff}=11813,40553,92174$；左列为社区感染者人数（对数纵轴），右列为隔离比例，横轴 $t$ 的单位为天。(a) 中的图例适用于三行：蓝色轨迹对应 $150$ d 时长、成本和 $45$ d 时长条件，黑实线为固定 TDINN 参照，灰虚线为同人口常规控制，红虚线为 TDINN 感染峰值。空心圆标记隔离比例拐点，水平段上的实心点为该时刻在感染曲线上的投影而非感染曲线的拐点，短竖线为清零时间。内嵌柱图给出清零时的总累计新增感染，虚线为 TDINN 参照 $2105.63$。}

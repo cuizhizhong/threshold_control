@@ -2,6 +2,7 @@
 \label{sec:appendix:proofs}
 \subsection{启动与退出条件的证明}
 \label{sec:proof:threshold-rationale}
+本小节证明命题\ref{prop:model:threshold-rationale}。
 \begin{proof}
 常规轨迹在首次到达时满足
 \[
@@ -21,6 +22,7 @@
 
 \subsection{退出后动态的证明}
 \label{sec:proof:post-dynamics}
+本小节证明定理\ref{thm:s1:tend}。
 \begin{proof}
 由正性，恢复常规后 $\dot S<0$，故所有 $t>t_2$ 均有 $S<S_c$ 和 $\dot I<0$。任取 $t_a>t_2$，令 $\varepsilon=\gamma-\beta_2^0S(t_a)>0$，则
 \[
@@ -38,6 +40,7 @@ I(t)=\eta+\frac{\beta_2^0}{\beta_1^0}(S_c-S(t))+\rho_1\ln\frac{S(t)}{S_c}.
 
 \subsection{启动状态参数导数的证明}
 \label{sec:proof:start-sensitivity}
+本小节证明引理\ref{lem:s1:Sstar-sensitivity}。
 \begin{proof}
 令
 \[
@@ -83,6 +86,7 @@ $\partial S^*/\partial p=-(\partial F/\partial p)/(\partial F/\partial S)$ 即�
 
 \subsection{阈值权衡的证明}
 \label{sec:proof:threshold-tradeoff}
+本小节证明命题\ref{prop:threshold-tradeoff}。
 \begin{proof}
 由式\eqref{eq:s1:t1}及 $I(S^*)=\eta$，
 \[
@@ -123,6 +127,7 @@ J=\frac{2N}{c_0\eta}\int_{S_c}^{S^*}\frac{(1-S_c/S)^2}{S-\bar S}\,dS.
 
 \subsection{常规接触率影响的证明}
 \label{sec:proof:contact-effects}
+本小节证明命题\ref{prop:contact-effects}。
 \begin{proof}
 写 $I(S;c_0)=I_0+\frac{\beta_2^0}{\beta_1^0}(S_0-S)+\rho_1\ln(S/S_0)$。在 $S<S_0$ 时，
 \[
@@ -154,6 +159,7 @@ $\Delta t$ 在内部为正且连续，两端趋零，因此在内部达到正的
 
 \subsection{联合控制状态表示的证明}
 \label{sec:proof:representation}
+本小节证明定理\ref{thm:joint:representation}。
 \begin{proof}
 在 $I=\eta>0$ 上，感染者方程给出
 \begin{equation}
@@ -178,6 +184,7 @@ c(t)(1-q(t))S(t)=\frac{\gamma N}{\beta}
 
 \subsection{最小成本存在性与有限候选判据的证明}
 \label{sec:proof:cost-minimum}
+本小节证明定理\ref{thm:joint:cost-minimum}。
 \begin{proof}
 式\eqref{eq:joint:cost}的分母满足
 $c_c(S)S-c_0\bar S\ge c_0(S_c-\bar S)>0$，所以 $f$ 在允许区域上连续有限。每个状态上的允许区间紧且非空，故最小值存在。任意允许控制的成本均不小于式\eqref{eq:joint:minimum-cost}右侧。
@@ -204,6 +211,7 @@ $c^3(cS-c_0\bar S)^2/S$，便得到式\eqref{eq:joint:stationary}右侧。该多
 
 \subsection{退出附近混合分配的证明}
 \label{sec:proof:terminal-allocation}
+本小节证明命题\ref{prop:joint:terminal-allocation}。
 \begin{proof}
 在本证明中令 $z=1-S_c/S$，并将允许接触率写为
 $c=c_0(1-zx)$、$0\le x\le1$。于是
@@ -224,6 +232,7 @@ $c=c_0(1-zx)$、$0\le x\le1$。于是
 
 \subsection{端点局部性质的证明}
 \label{sec:proof:endpoint-properties}
+本小节证明命题\ref{prop:joint:global-structure}。
 \begin{proof}
 在本证明中记 $n(c)=w_c(1-c/c_0)^2+w_q(1-c_0S_c/(cS))^2$。$f$ 关于 $c$ 的导数与
 \[
@@ -241,8 +250,9 @@ n'(c)(cS-c_0\bar S)-S n(c)
 \]
 括号内二次式的较小根小于 $S_c$，较大根为 $S_{\rm sw}$，从而在 $S>S_{\rm sw}$ 时导数为负，在 $S_c<S<S_{\rm sw}$ 时导数为正。结合端点处的单侧比较，得到所述局部性质。由定理\ref{thm:joint:cost-minimum}，类内最小成本分配几乎处处取逐状态最小点；它不取左端点，在后一状态区间也不取右端点，故得到内部分配结论。
 \end{proof}
+\Needspace{12\baselineskip}
 \subsection{参数敏感性汇总}
-\begin{table}[htbp]
+\begin{table}[H]
 \centering\small
 \setlength{\tabcolsep}{3.5pt}
 \renewcommand{\arraystretch}{1.25}

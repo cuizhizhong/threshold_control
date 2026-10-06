@@ -1,6 +1,11 @@
+\Needspace{12\baselineskip}
 \section{西安重构、阈值扫描和医疗联系}
 \label{sec:sup:xian}
 \subsection{初值比较与阈值扫描}
+\label{sec:sup:xian:settings}
+本节沿用正文表\ref{tab:xian_initial_fit}的西安参数：$N=13{,}163{,}000,\beta=0.1498,\gamma=0.2953\ \mathrm d^{-1},\delta_q=0.3531\ \mathrm d^{-1},c_0=12.8872\ \mathrm d^{-1},q_0=0.3230$。拟合初值显示为 $I_0\approx1.00659\times10^{-3}$，计算使用未取整值；$S_0=N-I_0$，其余初始仓室为零。表\ref{tab:sup:initial}另列固定 $I_0=1$ 的对照。
+
+观测窗口的模型结果使用归一化方程、DOP853 求解器及分量容差，日新增由相邻整数日累计量之差计算。阈值扫描采用仅隔离控制的解析状态关系，以 \texttt{brentq} 求启动和清零状态，以 \texttt{quad} 计算时间与成本。两类结果的统计终点分别见表\ref{tab:sup:initial}、\ref{tab:sup:eta}的表注。
 \begin{table}[htbp]
 \centering\small
 \setlength{\tabcolsep}{3.5pt}
@@ -10,7 +15,7 @@
 \label{tab:sup:initial}
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lS[table-format=1.6]S[table-format=7.0]S[table-format=5.2]S[table-format=5.2]@{}}
 \toprule
-数据或初值设定 & {$I_0$（人）} & {\shortstack{累计病例\\（40 d）}} & {\shortstack{社区日新增峰值\\（例）}} & {\shortstack{隔离日新增峰值\\（例）}}\\
+数据或初值设定 & {$I_0$（人）} & {\shortstack{40日累计新增病例\\（例）}} & {\shortstack{社区日新增峰值\\（例）}} & {\shortstack{隔离日新增峰值\\（例）}}\\
 \midrule
 观测数据 & {---} & 2050 & 60 & 141\\
 最小二乘拟合 & 0.001007 & 2099 & 53.88 & 115.93\\
@@ -22,7 +27,7 @@
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
-\clearpage
+\FloatBarrier
 \begin{table}[htbp]
 \centering\small
 \setlength{\tabcolsep}{3.5pt}
@@ -48,17 +53,17 @@
 \bottomrule
 \end{tabular*}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：数值采用与正文一致的西安参数，按仅隔离控制的解析表达及数值求积计算；$q_{\max}=q_c(t_1)$。$\eta/N$ 为比例而非百分数，0.002对应0.2\%。阈值网格用于比较不同设计情景。累计量计算至各策略的社区清零终点。长时间结果沿用固定参数模型的外推解释，不作为现实预测。
+\item 注：数值采用本节给定的西安参数与未取整初值，按仅隔离控制的解析表达及数值求积计算；$q_{\max}=q_c(t_1)$。$\eta/N$ 为比例而非百分数，0.002对应0.2\%。阈值网格用于比较不同设计情景。累计新增感染不包含初始感染者，计算至各阈值情景的社区清零终点。长时间结果沿用固定参数模型的外推解释，不作为现实预测。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
-\clearpage
-取 $\eta/N\in\{0.0001,0.0002,0.0005,0.001,0.0015,0.002,0.003,0.004,0.005,0.0075,0.01\}$，结果见表~\ref*{tab:sup:eta} 和图~\ref{fig:xian_eta_sens}。这些取值覆盖代表性阈值及其两侧的范围，用于比较不同设计情景。在这一范围内，有
+\FloatBarrier
+取 $\eta/N\in\{0.0001,0.0002,0.0005,0.001,0.0015,0.002,0.003,0.004,0.005,0.0075,0.01\}$，结果见表~\ref*{tab:sup:eta} 和图~\ref{fig:xian_eta_sens}。这些取值覆盖代表性阈值及其两侧的范围，用于比较不同设计情景。
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{xian_eta_sensitivity.pdf}
-    \caption{西安参数下控制指标随 $\eta/N$ 的变化。(a) 启动隔离比例；(b) 加权成本；(c) 累计新增感染；(d) 控制时长与清零时间。水平线为 TDINN 参照值。(d) 中 TDINN 的控制时长和清零时间均为 $45.29$ d，前者为干预持续时间，后者为从共同时间原点起算的终点，数值相同并不表示两个定义相同。}
+    \caption{西安参数下仅隔离控制的指标随 $\eta/N$ 的变化。(a) 启动隔离比例；(b) 加权成本；(c) 累计新增感染；(d) 控制时长与清零时间。水平线为 TDINN 参照值。(d) 中 TDINN 的控制时长和清零时间均为 $45.29$ d，前者为干预持续时间，后者为从共同时间原点起算的终点，数值相同并不表示两个定义相同。}
     \label{fig:xian_eta_sens}
 \end{figure}
 
@@ -68,7 +73,7 @@
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{xian_heatmaps.pdf}
-    \caption{西安参数下 $(\eta,c_0)$ 平面上的控制指标。(a) 控制时长；(b) 清零时间；(c) 累计新增感染；(d) 加权成本。竖直参照线分别表示 TDINN 社区感染峰值 $\eta=152.55$ 和设计阈值 $\eta=26326$，等值线表示各指标的水平。}
+    \caption{西安参数下仅隔离控制在 $(\eta,c_0)$ 平面上的指标。(a) 控制时长；(b) 清零时间；(c) 累计新增感染；(d) 加权成本。竖直参照线分别表示 TDINN 社区感染峰值 $\eta=152.55$ 和设计阈值 $\eta=26326$，等值线表示各指标的水平。}
     \label{fig:xian_heatmaps}
 \end{figure}
 

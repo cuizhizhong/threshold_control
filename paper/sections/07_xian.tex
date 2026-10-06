@@ -43,6 +43,13 @@ TDINN 重构与仅隔离控制对应不同的控制任务。前者同时降低�
 
 图\ref{fig:xian:strategy-process}给出三类策略下的感染、总累计新增感染、有效再生数与控制轨迹，主要指标列于表\ref{tab:xian_summary}。
 
+在本节全市人口和设计阈值下，仅隔离控制的二次成本约为 $40.77$ d，低于 TDINN 的 $49.39$ d。其总累计新增感染约为 $2.38\times10^6$ 人，清零时间约为 $258.1$ d，感染峰值、累计新增感染和清零时间均高于 TDINN 重构（表\ref{tab:xian_summary}）。后续人口情景所用的 TDINN 参照精度见表注。
+
+有效再生数为 $R_e(t)=\beta c(t)(1-q(t))S(t)/(\gamma N)$。常规控制下 $R_e(0)\approx4.43$，感染人数初期快速增长。TDINN 同时降低接触率并提高隔离比例，使 $R_e$ 较快降至 $1$ 以下。仅隔离控制则在阈值控制期保持 $R_e=1$，待 $S$ 下降至 $S_c$ 后恢复常规隔离比例，感染人数才开始下降。维持阈值直至规定退出状态延长了感染过程，即使二次成本较低，累计新增感染仍较高。
+
+\begingroup
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\textfraction}{0.1}
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=135mm]{figures/layout_v5/xian_strategy_process.pdf}
@@ -67,16 +74,14 @@ TDINN 控制 & 153 & 2106 & 45.29 & 49.3894\\
 \bottomrule
 \end{tabular*}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：$\eta=0.002N$ 为设计情景；各策略沿用原文规定的社区清零终点；人数四舍五入至整数。用于后续比较的 TDINN 参照为峰值152.55、总累计2105.63、清零时间45.29 d、$J=49.39$。$J$ 为二次加权积分，不由线性指标 $J_c,J_q$ 直接加总。阈值策略的启动、解除与控制时长分别为 $16.90$、$101.97$、$85.07$ d。
+\item 注：$\eta=0.002N$ 为设计情景；各策略采用同一完整初值，分别在 $I$ 上升后再次下降至 $1$ 时终止；累计新增感染不含初始感染者。TDINN 的 $J$ 从初始时刻计至清零，仅隔离控制的 $J$ 只计阈值控制期；人数四舍五入至整数。用于后续比较的 TDINN 参照为峰值152.55、总累计2105.63、清零时间45.29 d、$J=49.39$。$J$ 为二次加权积分，不由线性指标 $J_c,J_q$ 直接加总。阈值策略的启动、解除与控制时长分别为 $16.90$、$101.97$、$85.07$ d。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
 
-在本节全市人口和设计阈值下，仅隔离控制的二次成本约为 $40.77$ d，低于 TDINN 的 $49.39$ d。其总累计新增感染约为 $2.38\times10^6$ 人，清零时间约为 $258.1$ d，感染峰值、累计新增感染和清零时间均高于 TDINN 重构（表\ref{tab:xian_summary}）。后续人口情景所用的 TDINN 参照精度见表注。
-
-有效再生数为 $R_e(t)=\beta c(t)(1-q(t))S(t)/(\gamma N)$。常规控制下 $R_e(0)\approx4.43$，感染人数初期快速增长。TDINN 同时降低接触率并提高隔离比例，使 $R_e$ 较快降至 $1$ 以下。仅隔离控制则在阈值控制期保持 $R_e=1$，待 $S$ 下降至 $S_c$ 后恢复常规隔离比例，感染人数才开始下降。维持阈值直至规定退出状态延长了感染过程，即使二次成本较低，累计新增感染仍较高。
-
+\FloatBarrier
+\endgroup
 \subsection{低阈值与常规退出要求的代价}
 \label{sec:xian:threshold-scale}
 在西安全市人口及拟合传播参数下，降低社区感染上限会延长仅隔离控制的阈值控制期。规定在 $S=S_c$ 退出还使累计新增感染受到一个与具体分配无关的下界。沿用表\ref{tab:xian_initial_fit}的完整初值，代表性设计阈值为

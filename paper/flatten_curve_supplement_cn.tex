@@ -17,13 +17,23 @@
 \newcommand{\Itcum}{I_{t_{\mathrm{cum}}}}
 \renewcommand{\arraystretch}{1.25}
 \emergencystretch=2em
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.8}
 \addbibresource{references.bib}
 \renewcommand{\thetable}{S\arabic{table}}
 \renewcommand{\thefigure}{S\arabic{figure}}
 \renewcommand{\thesection}{S\arabic{section}}
 \begin{document}
 \maketitle
-本文件列出基准参数分析、初值设定比较及西安阈值敏感性结果，并补充社区感染上限与医疗需求的联系和阈值取值的参考依据。数值设置、未取整结果及历史程序对账见随文复现说明。
+本补充材料依次给出基准参数扫描与归一化极限、拐点辅助敏感性、西安重构与医疗联系、有效人口比较，以及常规接触率和传播概率扩展。各部分与正文的解析结果及数值比较对应。
+
+记 $I$ 为社区非隔离现存感染人数，$\eta$ 为其上限，$\theta=\eta/N$ 为阈值比例。$S^*$、$S_c$ 分别为启动和退出时的易感者人数；归一化变量为 $s=S/N$、$i=I/N$，并记 $s_0=S_0/N$、$i_0=I_0/N$、$s^*=S^*/N$、$s_c=S_c/N$、$\bar s=\bar S/N$。模型与启动、退出条件见正文第\ref{sec:model}、\ref{sec:model:strategy}节。
+
+时间以天为单位，$\Delta t=t_2-t_1$ 为阈值控制时长，$t_{\rm end}$ 为社区感染人数上升后再下降至 $I=1$ 的清零时刻。阈值策略的总累计新增感染 $\Itcum$ 不含初始感染者，未另行注明时统计至各自的清零终点。$J$ 采用正文式\eqref{eq:cost:J}的二次成本，默认 $w_c=1,w_q=2$，只计阈值控制期；TDINN 的成本及观测窗口统计另在对应比较处说明。
+
+各模块的求解器、容差设置和未取整结果来源见仓库文件\nolinkurl{reproducibility/manuscript_audit_notes.md}，数值结果保存在\nolinkurl{reproducibility/results/20261003_release_final/}。
 \input{supplement_sections/S1_baseline}
 \input{supplement_sections/S2_inflection}
 \input{supplement_sections/S3_xian}

@@ -1,9 +1,9 @@
 \section{常规接触率和传播概率扩展}
 \label{sec:sup:contact-scan}
-\subsection{常规接触率的敏感性分析}
+\subsection{常规接触率对控制轨迹的影响}
 \label{sec:dom:c0}
 
-固定西安传播参数 $\beta,\gamma,q_0$、$N_{\rm eff}=2\times10^4$、$\theta=0.002$（即 $\eta=40$）和绝对初值 $I_0=1.00659\times10^{-3}$，考察 $c_0$ 的影响。这里的 $c_0$ 是给定的常规接触水平，不作为额外控制量。
+固定西安传播参数 $\beta,\gamma,q_0$、$N_{\rm eff}=2\times10^4$、$\theta=0.002$（即 $\eta=40$）和绝对初值 $I_0=1.00659\times10^{-3}$，考察 $c_0$ 的影响。取 $S_0=N_{\rm eff}-I_0$，其余初始仓室为零；其余西安参数见第\ref{sec:sup:xian:settings}节。仅隔离控制的指标采用解析表达与数值求积，累计量及时间终点沿用本文件开头的约定。这里的 $c_0$ 是给定的常规接触水平，不作为额外控制量。
 
 图~\ref{fig:c0-panel} 中，各控制轨迹的感染阈值相同。增大 $c_0$ 会使启动时间提前、最大隔离比例升高，与命题~\ref{prop:contact-effects} 一致。$c_0=3.43$ 时，$q_{\max}=0.383<\qinf=0.4119$，无内部拐点；$c_0=3.59$ 时，$q_{\max}=0.423$，内部拐点出现。存在拐点的各条轨迹均满足 $\qinf=0.4119$。
 
@@ -31,7 +31,8 @@
 \end{figure}
 
 
-\subsection{常规接触率的敏感性分析}
+\FloatBarrier
+\subsection{各指标随常规接触率的变化}
 \label{app:c0_scan}
 
 固定 $N_{\rm eff}=2\times10^4$、$\theta=0.002$，图~\ref{fig:c0-scan} 给出各项指标随 $c_0$ 的变化。控制时长、成本与累计新增感染均存在数值极大值，其余时间指标在所考察范围内递减。
@@ -44,6 +45,7 @@
 \end{figure}
 
 
+\FloatBarrier
 \subsection{接触率与传播概率对拐点存在性的影响}
 \label{app:c0_beta}
 

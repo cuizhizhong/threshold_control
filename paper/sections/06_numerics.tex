@@ -14,18 +14,18 @@
 \label{tab:xian_initial_fit}
 \begin{tabularx}{\linewidth}{@{}l>{\raggedright\arraybackslash}p{0.25\linewidth}>{\raggedright\arraybackslash}p{0.22\linewidth}>{\raggedright\arraybackslash}X@{}}
 \toprule
-符号 & 含义 & 取值或定义 & 来源或确定方式\\
+符号 & 含义（单位） & 取值或定义 & 来源或确定方式\\
 \midrule
-$N$ & 总人口 & \num{13163000} & 统计资料\cite{XianStat2021}\\
+$N$ & 总人口（人） & \num{13163000} & 统计资料\cite{XianStat2021}\\
 $\beta$ & 传播概率 & 0.1498 & 文献\cite{He2023TDINN}\\
-$\gamma$ & 非隔离感染者移出率 & 0.2953 & 文献\cite{He2023TDINN}\\
-$\delta_q$ & 隔离感染者移出率 & 0.3531 & 文献\cite{He2023TDINN}\\
-$c_0$ & 常规接触率 & 12.8872 & 所采用控制函数在初始时刻的值\\
+$\gamma$ & 非隔离感染者移出率（$\mathrm d^{-1}$） & 0.2953 & 文献\cite{He2023TDINN}\\
+$\delta_q$ & 隔离感染者移出率（$\mathrm d^{-1}$） & 0.3531 & 文献\cite{He2023TDINN}\\
+$c_0$ & 常规接触率（$\mathrm d^{-1}$） & 12.8872 & 所采用控制函数在初始时刻的值\\
 $q_0$ & 常规隔离比例 & 0.3230 & 所采用控制函数在初始时刻的值\\
-$I_0$ & 初始感染人数 & $\approx1.00659\times10^{-3}$ & 固定其余量后以最小二乘估计\\
-$S_0$ & 初始易感人数 & $N-I_0$ & 总人口关系\\
-$R(0)$ & 初始康复人数 & $0$ & 本文设定\\
-$\eta$ & 非隔离感染人数上限 & $0.002N=\num{26326}$ & 代表性设计情景，见第\ref{sec:xian:threshold-scale}节\\
+$I_0$ & 初始感染人数（人） & $\approx1.00659\times10^{-3}$ & 固定其余量后以最小二乘估计\\
+$S_0$ & 初始易感人数（人） & $N-I_0$ & 总人口关系\\
+$R(0)$ & 初始康复人数（人） & $0$ & 本文设定\\
+$\eta$ & 非隔离感染人数上限（人） & $0.002N=\num{26326}$ & 代表性设计情景，见第\ref{sec:xian:threshold-scale}节\\
 \bottomrule
 \end{tabularx}
 \begin{tablenotes}[flushleft]\footnotesize
@@ -61,7 +61,7 @@ c_{0,\min}(0.05N)\approx3.327.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/layout_v5/c0_sensitivity_selected_eta.pdf}
-\caption{不同阈值比例下各指标随 $c_0$ 的变化。固定 $N=763,S_0=762,I_0=1,\beta=0.155,\gamma=0.3504\ \mathrm d^{-1},q_0=0.01526$，$\eta/N=0.2\%,0.6\%,1\%,2\%$，红色圆点表示 $\Delta t$ 的数值极大值。}
+\caption{不同阈值比例下各指标随 $c_0$ 的变化。固定 $N=763,S_0=762,I_0=1,\beta=0.155,\gamma=0.3504\ \mathrm d^{-1},q_0=0.01526$，$\eta/N=0.2\%,0.6\%,1\%,2\%$，红色圆点表示 $\Delta t$ 的数值极大值。(a) 启动时间；(b) 控制时长；(c) 清零时间；(d) 最大隔离比例；(e) 二次成本；(f) 总累计新增感染。时间和成本的单位为天，累计新增感染的单位为人，$c_0$ 的单位为 $\mathrm d^{-1}$。}
 \label{fig:scenario1_summary_c0}
 \end{figure}
 
@@ -69,7 +69,7 @@ c_{0,\min}(0.05N)\approx3.327.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/layout_v5/eta_sensitivity_selected_c0.pdf}
-\caption{不同常规接触率下各指标随 $\eta/N$ 的变化。固定 $N=763,S_0=762,I_0=1,\beta=0.155,\gamma=0.3504\ \mathrm d^{-1},q_0=0.01526$，$c_0=5,8,10,12$。}
+\caption{不同常规接触率下各指标随 $\eta/N$ 的变化。固定 $N=763,S_0=762,I_0=1,\beta=0.155,\gamma=0.3504\ \mathrm d^{-1},q_0=0.01526$，$c_0=5,8,10,12$。(a) 启动时间；(b) 控制时长；(c) 清零时间；(d) 最大隔离比例；(e) 二次成本；(f) 总累计新增感染。时间和成本的单位为天，累计新增感染的单位为人，$c_0$ 的单位为 $\mathrm d^{-1}$。}
 \label{fig:scenario1_summary_eta}
 \end{figure}
 
@@ -125,7 +125,7 @@ c_{0,\min}(0.05N)\approx3.327.
 \label{tab:joint:compare}
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}Xccccc@{}}
 \toprule
-分配 & \shortstack{控制时长\\$\Delta t$（d）} & \shortstack{清零时间\\$t_{\rm end}$（d）} & \shortstack{总累计\\新增感染} & \shortstack{阈值控制期新增\\隔离易感者} & $J$（d）\\
+分配 & \shortstack{控制时长\\$\Delta t$（d）} & \shortstack{清零时间\\$t_{\rm end}$（d）} & \shortstack{总累计\\新增感染} & \shortstack{阈值控制期\\新增隔离易感者} & $J$（d）\\
 \midrule
 \multicolumn{6}{@{}l}{基准参数：$N=763$，$\eta=0.05N$；新增人数单位为人}\\
 仅减少接触 & 36.26 & 64.13 & 628.6 & 40.9 & 11.9390\\
@@ -141,7 +141,7 @@ c_{0,\min}(0.05N)\approx3.327.
 \bottomrule
 \end{tabularx}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：每组沿用同一完整初值、首次上升至 $I=\eta$ 的启动规则和 $S=S_c$ 的退出目标，各自恢复常规后在 $I$ 下降至 $1$ 时终止。累计新增感染不包含初始感染者；新增隔离易感者只统计阈值控制期。$J$ 为式\eqref{eq:cost:J}的二次成本，不由线性 $J_c,J_q$ 加总。西安参数及未取整初值见第\ref{sec:xian}节；表内单位和显示精度按行组区分。
+\item 注：每组沿用同一完整初值、首次上升至 $I=\eta$ 的启动规则和 $S=S_c$ 的退出目标，各自恢复常规后在 $I$ 下降至 $1$ 时终止。累计新增感染不包含初始感染者；新增隔离易感者只统计阈值控制期。$J$ 为式\eqref{eq:cost:J}的二次成本，不由线性 $J_c,J_q$ 加总。西安参数及未取整初值见表\ref{tab:xian_initial_fit}和第\ref{sec:xian}节；表内单位和显示精度按行组区分。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
