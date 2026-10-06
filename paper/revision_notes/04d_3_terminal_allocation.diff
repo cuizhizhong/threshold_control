@@ -1,0 +1,33 @@
+diff --git a/paper/revision_notes/limitations_pool.md b/paper/revision_notes/limitations_pool.md
+index 1f87332..73dc974 100644
+--- a/paper/revision_notes/limitations_pool.md
++++ b/paper/revision_notes/limitations_pool.md
+@@ -7,0 +8,6 @@
++
++## 04d-3：跨状态预算与成本计入方式
++
++- 来源：任务4d-3起点 `paper/sections/05_quadratic_cost.tex`，命题 `prop:joint:terminal-allocation` 后的重复讨论；迁移依据为 D-05 的 M1274 安排。
++- 原文：“上述逐状态分配利用了成本中没有控制导数或跨状态的积分限制。若另行限定控制调整速度或隔离人天等跨状态预算，不同状态处的选择会受到共同限制，不能直接沿用式\eqref{eq:joint:minimum-cost}。若改变隔离费用的计入方式，则需重新检查成本是否仍能写成逐状态分离的积分。”
++- 处理：第5.1节已保留无总时长、调整次数或控制变化率等额外约束的假设，第2.4节保留成本不含隔离人天的口径；第5.4节的匹配乘子充分条件及适用边界原样保留。重复影响说明移入本池，留4g讨论，不改写讨论章，不新增预算约束的解法。
+diff --git a/paper/sections/05_quadratic_cost.tex b/paper/sections/05_quadratic_cost.tex
+index ae70055..fba8a62 100644
+--- a/paper/sections/05_quadratic_cost.tex
++++ b/paper/sections/05_quadratic_cost.tex
+@@ -79 +79 @@ J_{\min}(\eta)=\frac{N}{\eta}\int_{S_c}^{S^*(\eta)}m(S)\,dS.
+-二次成本还能够说明，为什么仅隔离控制虽达到最短控制时长，却一般不是最小成本分配。
++无额外能力限制时，二次成本最小的分配在退出附近同时使用接触减少与追踪隔离。两种措施的归一化强度具有确定的一阶渐近比例。
+@@ -101 +101 @@ J_{\min}(\eta)=\frac{N}{\eta}\int_{S_c}^{S^*(\eta)}m(S)\,dS.
+-该结论只刻画退出前的最优分配，不证明整个阈值控制期的最小化选择唯一、连续或单调。若将二次权重改为 $w_c,w_q>0$，同一证明把式\eqref{eq:joint:terminal-ratio}中的 $2/3,1/3$ 分别替换为 $w_q/(w_c+w_q),w_c/(w_c+w_q)$。这比较的是两种归一化强度，不是接触率与隔离人数的直接比例。
++式\eqref{eq:joint:terminal-ratio}比较的是接触减少比例 $(c_0-c_c^*)/c_0$ 与超出常规水平的归一化隔离强度 $(q_c^*-q_0)/(1-q_0)$ 相对于 $1-S_c/S$ 的一阶份额。若将二次权重改为 $w_c,w_q>0$，同一证明把其中的 $2/3,1/3$ 分别替换为 $w_q/(w_c+w_q),w_c/(w_c+w_q)$。
+@@ -103 +103 @@ J_{\min}(\eta)=\frac{N}{\eta}\int_{S_c}^{S^*(\eta)}m(S)\,dS.
+-上述逐状态分配利用了成本中没有控制导数或跨状态的积分限制。若另行限定控制调整速度或隔离人天等跨状态预算，不同状态处的选择会受到共同限制，不能直接沿用式\eqref{eq:joint:minimum-cost}。若改变隔离费用的计入方式，则需重新检查成本是否仍能写成逐状态分离的积分。下面分别说明无额外能力限制时的端点局部性质，以及取得匹配乘子解时对控制时长限制的处理。
++严格成本改进来自退出前一段正长度状态区间内混合分配对两种单控制的逐状态改进。有固定能力限制且 $c_{\min}<c_0$、$q_{\rm cap}>q_0$ 时，退出附近的允许区间仍为 $[c_0S_c/S,c_0]$，但与单控制的严格比较仍要求该单控制整段可行。
+@@ -105 +105 @@ J_{\min}(\eta)=\frac{N}{\eta}\int_{S_c}^{S^*(\eta)}m(S)\,dS.
+-命题\ref{prop:joint:terminal-allocation}只刻画退出附近的分配。对于整个阈值控制期，定义状态阈值
++上述渐近结论适用于任一逐状态最小化选择，不保证整个阈值控制期的选择唯一、连续或单调。无额外能力限制时，两个单控制端点的局部性质由以下状态阈值刻画：
+@@ -110 +110 @@ S_{\rm sw}=\frac{3S_c+\sqrt{9S_c^2-8S_c\bar S}}{2}.
+-由 $0\le\bar S<S_c$，有 $2S_c<S_{\rm sw}\le3S_c$。这一阈值只用于以下端点的局部判据，不是一般权重下全局分配的切换位置。
++由 $0\le\bar S<S_c$，有 $2S_c<S_{\rm sw}\le3S_c$。$S_{\rm sw}$ 确定仅隔离控制端点的一阶导数符号变化，全局最小值仍由全部候选的成本比较确定。
+@@ -118 +118 @@ S_{\rm sw}=\frac{3S_c+\sqrt{9S_c^2-8S_c\bar S}}{2}.
+-当 $S=S_{\rm sw}$ 时上述一阶导数为零，此处不作局部分类。$S>S_{\rm sw}$ 时，右端点是否达到全局最小仍取决于权重及其他候选值，不能仅由这一局部判据确定。
++当 $S=S_{\rm sw}$ 时上述一阶导数为零，此处不作局部分类。$S>S_{\rm sw}$ 时，仅隔离控制端点的严格局部最小性质仍须与其他候选的成本比较结合，才能确定它是否达到全局最小。
