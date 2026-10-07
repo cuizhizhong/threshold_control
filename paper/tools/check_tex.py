@@ -8,6 +8,8 @@
       --bib paper/references.bib --out paper/revision_notes/check_report.md
 
   --old / --new 各给一组文件（主稿与补充材料）；文件中的 \\input / \\include 会被递归展开。
+  每个来源也可以写成“版本:路径”，直接读 git 中的旧版本，例如
+      --old pre-rewrite-20261007:paper/flatten_curve_analysis_cn.tex pre-rewrite-20261007:paper/flatten_curve_supplement_cn.tex
   可选：--hedge 统计限定性词语；--stats 统计各节汉字数。
 
 检查内容：
@@ -61,8 +63,48 @@ def expand(path: Path, seen: set[Path] | None = None) -> str:
     return re.sub(r"\\(input|include)\{([^}]*)\}", repl, text)
 
 
+def _git_show(rev: str, path: str):
+    import subprocess
+    r = subprocess.run(["git", "show", f"{rev}:{path}"], capture_output=True)
+    return r.stdout.decode("utf-8-sig") if r.returncode == 0 else None
+
+
+def _expand_git(rev: str, path: str, seen: set) -> str:
+    import posixpath
+    if path in seen:
+        return ""
+    seen.add(path)
+    text = _git_show(rev, path)
+    if text is None:
+        raise SystemExit(f"git 中找不到 {rev}:{path}")
+    text = "\n".join(re.sub(r"(?<!\\)%.*", "", ln) for ln in text.splitlines())
+    base = posixpath.dirname(path)
+
+    def repl(m):
+        cand = posixpath.normpath(posixpath.join(base, m.group(2).strip()))
+        for c in (cand, cand + ".tex"):
+            if _git_show(rev, c) is not None:
+                return _expand_git(rev, c, seen)
+        return m.group(0)
+
+    return re.sub(r"\\(input|include)\{([^}]*)\}", repl, text)
+
+
+def expand_spec(spec: str) -> str:
+    """读入一个稿件来源：磁盘上的 tex 文件，或“版本:路径”形式的 git 版本
+    （例如 pre-rewrite-20261007:paper/sections/06_numerics.tex，路径相对仓库根目录，须在仓库根目录运行）。
+    两种情况都会递归展开 \\input / \\include。"""
+    p = Path(spec)
+    if p.is_file():
+        return expand(p)
+    if ":" in spec:
+        rev, path = spec.split(":", 1)
+        return _expand_git(rev, path.replace("\\", "/"), set())
+    raise SystemExit(f"找不到文件：{spec}")
+
+
 def load(paths: list[str]) -> list[tuple[str, str]]:
-    return [(p, expand(Path(p))) for p in paths]
+    return [(p, expand_spec(p)) for p in paths]
 
 
 def body(text: str) -> str:
