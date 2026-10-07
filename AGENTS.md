@@ -46,7 +46,7 @@
 | C1 解析基准 | 仅隔离控制的启动状态（Lambert $W$）、控制函数、控制时长、退出后的动态与累计新增感染；阈值的取舍 | `thm:s1:start`、`thm:s1:platform`、`thm:s1:tend`、`thm:s1:Itcum`、`prop:threshold-tradeoff` |
 | C2 状态参数化 | 全部联合控制与 $c_c(S)$ 一一对应；能力约束下整段可行的充要条件 | `thm:joint:representation`、`cor:joint:feasibility` |
 | C3 同序关系 | 固定起止状态时，控制期累计新增感染与控制时长同序、新增隔离易感者反序 | `thm:joint:comparison`、`cor:joint:capped-comparison`、`cor:joint:whole-epidemic` |
-| C4 最优分配 | 二次成本最小值的存在与逐状态判据；随阈值严格下降；退出附近必须混合使用 | `thm:joint:cost-minimum`、`prop:joint:minimum-threshold`、`prop:joint:terminal-allocation`、`prop:joint:global-structure`、`rem:joint:duration-constraint` |
+| C4 最优分配的结构 | 最小成本由逐状态判据完整确定；最优分配从不单独减少接触，易感者降到与权重无关的状态 $S_{\rm sw}$ 以下后总是同时使用两种措施，退出时两者强度之比趋于成本权重的反比；前段仅隔离控制是局部最优，数值上默认权重下也是全局最优，呈“先仅隔离、后两者并用”的结构；最小成本随阈值严格下降 | `thm:joint:cost-minimum`、`prop:joint:global-structure`、`prop:joint:terminal-allocation`、`prop:joint:minimum-threshold`、`rem:joint:duration-constraint` |
 | C5 退出下界 | 在 $S=S_c$ 退出导致累计新增感染不小于 $\beta(S_0-S_c)$；西安全市参数下约 $1.53\times10^6$ | `prop:exit-infection-lower-bound` |
 
 ## 4 写作规范
