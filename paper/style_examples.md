@@ -1,4 +1,4 @@
-# 重写示例（段落级）
+# 重写示例
 
 原文均取自 2026-10-07 的稿件（标签 `pre-rewrite-20261007`）。这些示例示范的是**重写**：先决定这一节要让读者记住什么，再决定哪些内容留在正文、哪些移到表格/图注/方法小节/补充材料、哪些删去，最后重新组织段落。不是在原句上换词、删限定语或断句。
 
@@ -107,6 +107,62 @@
 > 命题没有涉及清零时间：它还包含退出后的下降过程，需由式\eqref{eq:s1:tend}单独判断。
 
 **做了什么**：第一句复述命题，删去；只留命题之外的新信息。定理后的文字只做三件事之一：说明含义或机制、指出命题没有覆盖的情形、引出下一个结果。
+
+---
+
+## 示例 G　章节标题：从“内容清单”到期刊目录
+
+**原文的问题**：标题把本节的全部对象列出来（“启动、控制轨迹与退出”“有限候选判据及阈值、能力的影响”），或带着口径和限定（“数值验证与同条件控制比较”“有效人口的条件性解释”“参数、指标口径与数值方法”）。读者在目录里看不出每一节讲什么问题，而且很难译成自然的英文标题。
+
+**初稿**（供 R1 参考，最终方案由 R1 提出、作者确认；只改显示文字，标签不变）：
+
+| 现标题 | 建议 | 英文 |
+|---|---|---|
+| 2 模型、阈值控制与评价指标 | 2 模型与问题 | Model and problem formulation |
+| 2.1 模型与基本假设 | SIQR 模型 | The SIQR model |
+| 2.2 常规轨迹、首次触发与退出状态 | 常规控制下的动态 | Dynamics under baseline control |
+| 2.3 阈值控制类及能力受限子类 | 阈值控制 | Threshold control |
+| 2.4 时间、累计人数与干预成本 | 评价指标 | Performance measures |
+| 3 仅隔离控制的解析基准 | 3 仅隔离控制 | Quarantine-only control |
+| 3.1 启动、控制轨迹与退出 | 控制轨迹 | The controlled trajectory |
+| 3.2 退出后的动态与累计新增感染 | 退出后的动态 | Dynamics after exit |
+| 3.3 阈值与常规接触率的影响 | 参数的影响 | Dependence on parameters |
+| 3.4 隔离比例的时间形态 | 隔离比例的拐点 | Inflection of the quarantine fraction |
+| 4 联合阈值控制的可行性与指标权衡 | 4 联合控制：可行性与权衡 | Joint control: feasibility and trade-offs |
+| 4.1 状态参数化与能力条件 | 状态参数化 | State parametrization |
+| 4.2 显式策略族 | 一个显式策略族（或并入 4.1） | An explicit family |
+| 4.3 控制时长、累计新增感染与隔离人数 | 时长、感染与隔离 | Duration, infections and quarantine |
+| 4.4 常规退出要求产生的感染下界 | 退出带来的感染下界 | A lower bound imposed by exit |
+| 5 二次成本下的最优分配 | 5 最小成本分配 | Minimum-cost allocation |
+| 5.1 状态积分与最小值存在性 | 存在性 | Existence |
+| 5.2 有限候选判据及阈值、能力的影响 | 逐状态判据 | A pointwise criterion |
+| 5.3 退出附近的混合分配与端点局部性质 | 退出附近的分配 | Allocation near exit |
+| 5.4 时长约束下的乘子充分条件 | 时长约束 | A constraint on duration |
+| 6 数值验证与同条件控制比较 | 6 数值结果 | Numerical results |
+| 6.1 参数、指标口径与数值方法 | 参数与方法 | Parameters and methods |
+| 6.2 仅隔离控制基准及参数权衡 | 仅隔离控制 | Quarantine-only control |
+| 6.3 两组参数下的四种分配 | 四种分配的比较 | Four allocations compared |
+| 6.4 能力限制下的可行性与受限分配 | 能力限制 | Capacity limits |
+| 6.5 成本权重与分配结构 | 成本权重 | Cost weights |
+| 6.6 成本—控制时长关系 | 成本与时长（或与 6.5 合并为“成本权重与控制时长”） | Cost versus duration |
+| 7 西安参数下的情景比较与退出代价 | 7 西安疫情案例 | Application to the Xi'an outbreak |
+| 7.1 数据、重构参数与初值 | 数据与参数 | Data and parameters |
+| 7.2 外部参照 | 与 TDINN 重构的比较 | Comparison with the TDINN reconstruction |
+| 7.3 低阈值与常规退出要求的代价 | 低阈值与退出的代价 | The cost of low thresholds and exit |
+| 7.4 有效人口的条件性解释 | 有效人口 | Effective population size |
+| 8 讨论与结论 | 8 讨论（结论是否单列为第 9 章由作者定） | Discussion |
+| 8.1 主要发现与相关研究 | 结果的意义；与已有工作的关系（可分两节） | Interpretation; Relation to previous work |
+| 8.2 适用范围 | 局限与展望 | Limitations and outlook |
+| 8.3 结论 | 结论 | Conclusions |
+| 附录 A 补充证明与参数敏感性汇总 | 附录 A 证明 | Proofs |
+| 附录 B 成本积分与单控制闭式表达 | 附录 B 成本积分 | Cost integrals |
+
+**做了什么**：
+- 标题只说“这一节讲什么”，不列全部对象，也不预告结论。
+- 删去“同条件”“口径”“条件性”“基准”等限定和审计用语；限定由正文和定义承担。
+- 小节不重复章标题中的词（第 5 章下不再写“二次成本”“最小值”），同一章内结构平行（第 6 章各小节都是名词短语）。
+- 第 3 章与 6.2 节同名“仅隔离控制”：一个讲理论，一个讲数值，放在各自章下并不冲突；若作者觉得重复，6.2 节可改为“阈值与接触率的影响”。
+- 附录小节可直接用“定理 3.1 的证明”这类标准写法；若在标题中用 `\ref`，需配合 `\texorpdfstring` 以免书签出错，或直接写成描述性标题（如“启动状态的证明”）。
 
 ---
 
