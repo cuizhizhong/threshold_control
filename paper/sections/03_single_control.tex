@@ -155,7 +155,7 @@ S(t_{\rm inf})=2\bar S,\quad
 $\lambda$ 越大，下降最快的时刻在控制期内越靠后，其参数敏感性见补充材料第~\ref{sec:sup:inflection}~节。条件\eqref{eq:s1:inflection-condition}不成立时没有内部拐点：$q_c(t)$ 在整个控制期内严格凹（$2\bar S\le S_c$）或严格凸（$2\bar S\ge S^*$）。
 
 \subsection{清零时间与累计感染}
-退出后 $S<S_c$，常规控制下的有效再生数小于 $1$，$I$ 从 $\eta$ 开始下降，不再反弹。退出后的轨迹仍满足常规控制下的首次积分，剩余易感者人数可由 Lambert $W$ 函数写出，清零时间可化为一维积分。
+退出后 $S<S_c$，常规控制下的有效再生数小于 $1$，$I$ 从 $\eta$ 开始下降，不再反弹。由常规控制下的首次积分，剩余易感者人数可由 Lambert $W$ 函数写出，清零时间可化为一维积分。
 \begin{theorem}
 \label{thm:s1:tend}\label{thm:s1:post}
 从 $(S_c,\eta)$ 恢复常规控制后，$S(t)$ 和 $I(t)$ 对 $t>t_2$ 均严格递减，且
@@ -217,7 +217,7 @@ t_{\rm end}=t_2+\frac{1}{\beta_1^0}\int_{S_{\rm end}}^{S_c}
 \label{eq:s1:Sstar-signs}
 \end{equation}
 \end{lemma}
-证明见附录\ref{sec:proof:start-sensitivity}。提高阈值有两个作用：启动推迟，$S^*$ 减小；阈值控制期内 $S$ 的下降速率 $c_0\eta(S-\bar S)/N$ 增大。两者都减轻干预负担，代价是社区中维持更多的感染者。
+证明见附录\ref{sec:proof:start-sensitivity}。提高阈值使 $S^*$ 减小，也使阈值控制期内 $S$ 的下降速率 $c_0\eta(S-\bar S)/N$ 增大，两者都减轻干预负担；代价是社区中始终维持更多的感染者。
 \begin{proposition}
 \label{prop:threshold-tradeoff}\label{prop:s1:sensitivity}
 对于仅隔离控制，在触发区间内有
@@ -266,7 +266,7 @@ I_{\max}^{no}\bigl(c_{0,\min}(\eta)\bigr)=\eta,
 \end{equation}
 确定，其符号不能统一为正或负。固定 $I_0<\eta<I_0+\beta_2^0S_0/\beta_1^0$ 时，$\Delta t$ 在 $c_0\in(c_{0,\min},\infty)$ 内至少有一个极大值。
 \end{proposition}
-证明见附录\ref{sec:proof:contact-effects}。接触率越高，启动越早，$S^*$ 与 $q_{\max}$ 越大，控制期要消耗的易感者 $S^*-S_c$ 越多；但阈值控制期内 $S$ 也下降得越快，两种作用方向相反，控制时长因而可增可减。
+证明见附录\ref{sec:proof:contact-effects}。接触率越高，$S^*$ 越大、$S_c$ 越小，控制期要消耗的易感者 $S^*-S_c$ 越多，但 $S$ 也下降得越快，两种作用方向相反，控制时长因而可增可减。
 
 人口规模的影响取决于初值和阈值如何随 $N$ 缩放。记 $s=S/N$、$i=I/N$，下面固定归一化初值 $s_0,i_0$；低阈值下的渐近行为与完整参数扫描见补充材料第~\ref{sec:sup:baseline-scan}~节。
 \begin{proposition}
@@ -293,4 +293,4 @@ J=\frac{2}{c_0\theta}\int_{s_c}^{s^*}
 \end{equation}
 其中只含归一化状态和固定参数。代入控制表达可得其余结论。无限时间的终点为 $i\to0$，同样不含 $N$；有限的终点 $I=1$ 却对应 $i=1/N$，因而保留绝对人口尺度。
 \end{proof}
-以上结果都固定 $c=c_0$，阈值的选择是在干预负担与累计新增感染之间取舍（命题~\ref{prop:threshold-tradeoff}）。两种措施同时可调时，式\eqref{eq:model:balance}只约束乘积 $c(1-q)$；下一章研究由此产生的控制组合，以及不同目标下的最优控制。
+本章固定 $c=c_0$，干预负担只能通过阈值调节：阈值越高，所需隔离越少、控制期越短，但累计新增感染越多（命题~\ref{prop:threshold-tradeoff}）。接触率也可以调整时，同一阈值下维持 $I=\eta$ 只要求 $c(1-q)$ 满足式\eqref{eq:model:balance}，接触减少得少，隔离就要多，反之亦然。下一章固定阈值比较这些控制组合，找出使控制时长、累计新增感染或新增隔离易感者人数最小的组合。
