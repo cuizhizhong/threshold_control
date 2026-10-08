@@ -1,147 +1,104 @@
 % ===== 07_numerics =====
-\section{数值验证与同条件控制比较}
+\section{数值结果}
 \label{sec:num}
 \label{sec:numerics}
-\subsection{参数、指标口径与数值方法}
+\subsection{参数与方法}
 \label{sec:num:methods}
-本章在两组参数下比较相同启动与退出要求的阈值分配，分别评价控制时长、累计新增感染和二次成本。基准参数及完整初值见图\ref{fig:scenario1:single-sim}，西安参数见表\ref{tab:xian_initial_fit}，其数据与初值重构来源在第\ref{sec:xian}节说明。
+数值计算采用两组参数（表~\ref{tab:xian_initial_fit}）。基准参数是一个小人口算例，用来演示解析结果；西安参数取自统计资料与文献，初值由观测数据拟合（第~\ref{sec:xian}~节）。所有控制都属于 $\mathcal A(\eta)$，并计算至清零时间；统计约定见第~\ref{sec:cost}~节，成本权重取默认值。
 \begin{table}[htbp]
 \centering\small
 \setlength{\tabcolsep}{3.5pt}
 \renewcommand{\arraystretch}{1.25}
 \begin{threeparttable}
-\caption{西安算例的参数与初始条件}
+\caption{两组算例的参数与初始条件}
 \label{tab:xian_initial_fit}
-\begin{tabularx}{\linewidth}{@{}l>{\raggedright\arraybackslash}p{0.25\linewidth}>{\raggedright\arraybackslash}p{0.22\linewidth}>{\raggedright\arraybackslash}X@{}}
+\begin{tabularx}{\linewidth}{@{}l>{\raggedright\arraybackslash}p{0.25\linewidth}ll>{\raggedright\arraybackslash}X@{}}
 \toprule
-符号 & 含义（单位） & 取值或定义 & 来源或确定方式\\
+符号 & 含义（单位） & 基准 & 西安 & 西安取值的来源\\
 \midrule
-$N$ & 总人口（人） & \num{13163000} & 统计资料\cite{XianStat2021}\\
-$\beta$ & 传播概率 & 0.1498 & 文献\cite{He2023TDINN}\\
-$\gamma$ & 非隔离感染者移出率（$\mathrm d^{-1}$） & 0.2953 & 文献\cite{He2023TDINN}\\
-$\delta_q$ & 隔离感染者移出率（$\mathrm d^{-1}$） & 0.3531 & 文献\cite{He2023TDINN}\\
-$c_0$ & 常规接触率（$\mathrm d^{-1}$） & 12.8872 & 所采用控制函数在初始时刻的值\\
-$q_0$ & 常规隔离比例 & 0.3230 & 所采用控制函数在初始时刻的值\\
-$I_0$ & 初始感染人数（人） & $\approx1.00659\times10^{-3}$ & 固定其余量后以最小二乘估计\\
-$S_0$ & 初始易感人数（人） & $N-I_0$ & 总人口关系\\
-$R(0)$ & 初始康复人数（人） & $0$ & 本文设定\\
-$\eta$ & 非隔离感染人数上限（人） & $0.002N=\num{26326}$ & 代表性设计情景，见第\ref{sec:xian:threshold-scale}节\\
+$N$ & 总人口（人） & 763 & \num{13163000} & 统计资料\cite{XianStat2021}\\
+$\beta$ & 传播概率 & 0.155 & 0.1498 & 文献\cite{He2023TDINN}\\
+$\gamma$ & 非隔离感染者移出率（$\mathrm d^{-1}$） & 0.3504 & 0.2953 & 文献\cite{He2023TDINN}\\
+$\delta_q$ & 隔离感染者移出率（$\mathrm d^{-1}$） & 0.3504 & 0.3531 & 文献\cite{He2023TDINN}\\
+$c_0$ & 常规接触率（$\mathrm d^{-1}$） & 10 & 12.8872 & 控制函数\cite{He2023TDINN}在初始时刻的值\\
+$q_0$ & 常规隔离比例 & 0.01526 & 0.3230 & 同上\\
+$I_0$ & 初始感染人数（人） & 1 & $\approx1.00659\times10^{-3}$ & 最小二乘拟合（第~\ref{sec:xian}~节）\\
+$S_0$ & 初始易感人数（人） & 762 & $N-I_0$ & 总人口关系\\
+$S_q(0),I_q(0),R(0)$ & 其余初始仓室（人） & 0 & 0 & 本文设定\\
+$\eta$ & 阈值（人） & $0.05N=38.15$ & $0.002N=\num{26326}$ & 设计情景（第~\ref{sec:xian:threshold-scale}~节）\\
 \bottomrule
 \end{tabularx}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：$c_0,\gamma,\delta_q$ 的时间单位为 $\mathrm d^{-1}$。仅 $I_0$ 为本文固定其他量后的初值估计；$S_0$ 不作独立估计。计算使用未取整的拟合结果；$\eta$ 为给定的设计阈值。
+\item 注：基准参数为算例设定。西安参数中只有 $I_0$ 由拟合得到，计算使用其未取整值。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
-时间从共同初始时刻起算，以天为单位。各阈值分配在 $I$ 首次上升至 $\eta$ 时启动，到达 $S=S_c$ 后恢复常规控制，并在 $I$ 下降至 $1$ 时终止。总累计新增感染统计至各自的 $t_{\rm end}$，不包含初始感染者；新增隔离易感者人数与 $J$ 只统计阈值控制期。人数和成本的单位见表\ref{tab:joint:compare}，西安计算采用未取整的拟合初值，其余初始仓室为零。
+表与图中的指标由解析式和状态积分计算：仅隔离控制用第~\ref{sec:s1}~节的闭式表达与数值求积，四种控制用式\eqref{eq:joint:duration}、\eqref{eq:joint:cost}的状态积分，成本最优控制按定理~\ref{thm:joint:cost-minimum}逐状态选出。完整仓室方程的数值积分只用于核对：输入的控制是按模型轨迹预先算出的时间函数，积分中不按实时状态纠偏。基准轨迹（图~\ref{fig:scenario1:single-sim}）用 \texttt{ode45} 分三段积分，四种控制与西安算例用 DOP853 求解归一化方程。在基准轨迹与西安的仅隔离控制中，阈值控制期内 $I$ 偏离 $\eta$ 的最大值分别约为 $1.07\times10^{-7}$ 人与 $1.35\times10^{-6}$ 人。日新增病例取相邻整数日累计量之差，积分容差的影响见补充表~\ref*{tab:sup:initial}。第~\ref{sec:joint:capacity-numerics}、\ref{sec:joint:weights-numerics}~节只在有限个代表点、网格点和乘子点上计算。
 
-仅隔离控制的指标由第\ref{sec:s1}节的解析表达与数值求积计算，参数扫描的代表性结果见补充表\ref*{tab:sup:baseline}。两组四策略的指标由状态积分得到，最小成本分配按第\ref{sec:joint:cost}节的有限候选判据逐状态选取。完整仓室方程的数值积分用于验证预先生成的时间开环控制：仅隔离控制由解析 $S(t)$ 确定 $q_c(t)$，联合分配由状态积分确定时间函数，积分中均不随实时状态纠偏。解析公式回代与这一 ODE 验证分别报告。
-
-图\ref{fig:scenario1:single-sim}的基准轨迹采用 \texttt{ode45}，按常规、阈值控制期和退出后三阶段积分。两组四策略的完整仓室验证采用归一化方程、DOP853 求解器和分量绝对容差。西安观测重构图\ref{fig:xian:observed-fit}、外部三策略比较及补充表\ref*{tab:sup:initial}也使用 DOP853，其积分与容差设置另行记录。日新增由相邻整数日累计量之差计算。观测窗口的初值比较及 TDINN 基准的容差敏感性见补充表\ref*{tab:sup:initial}，各模块的完整数值设置见随文复现说明。
-\subsection{仅隔离控制基准及参数权衡}
-仅隔离控制在保持常规接触率的同时维持社区感染上限，代价是启动时提高隔离比例，并在易感者减少后逐步放松。图\ref{fig:scenario1:single-sim}的基准控制于 $t_1\approx3.175$ d 启动，隔离比例跳升至 $q_{\max}\approx0.7565$。控制于 $t_2\approx9.078$ d 退出，控制时长约为 $5.903$ d。
-
-常规控制的感染峰值约为 $300.4$ 人，出现在 $6.7$ d 附近。仅隔离控制在阈值控制期维持 $I=\eta=38.15$，直至 $S=S_c$ 后恢复 $q_0$。基准 ODE 积分在控制期内的最大阈值偏差为 $1.07\times10^{-7}$ 人，支持预定开环控制的数值轨迹与解析结果一致。
+\subsection{阈值与接触率}
+图~\ref{fig:scenario1:single-sim}给出基准参数下仅隔离控制的三阶段轨迹。常规控制下社区感染者的峰值约为 $300.4$ 人，远高于阈值 $\eta=38.15$。仅隔离控制在 $t_1\approx3.175$ d 感染者首次达到阈值时启动，隔离比例跳升至 $q_{\max}\approx0.7565$，此后随易感者减少而下降，约 $5.903$ d 后回到 $q_0$。
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.7\textwidth]{figures/optimal_control_with_quarantine_panels.pdf}
-\caption{仅隔离控制与常规控制的时间轨迹。参数为 $N=763$、$S_0=762$、$I_0=1$、$S_q(0)=I_q(0)=R(0)=0$、$\beta=0.155$、$c_0=10\ \mathrm d^{-1}$、$q_0=0.01526$、$\gamma=\delta_q=0.3504\ \mathrm d^{-1}$、$\eta=0.05N=38.15$。此处的阈值比例用于说明解析结果，不作具体 ICU 容量换算。阈值控制在 $[t_1,t_2]$ 内维持 $I=\eta$，$q_c$ 从启动最大值下降至 $q_0$；$c(t)$ 始终为 $c_0$。横轴为自初始时刻起的天数。}
+\caption{基准参数下仅隔离控制与常规控制的时间轨迹（参数见表~\ref{tab:xian_initial_fit}）。阈值控制期 $[t_1,t_2]$ 内 $I\equiv\eta$。}
 \label{fig:scenario1:single-sim}
 \end{figure}
 
-
-改变 $c_0$ 对应改变常规接触水平，每条仅隔离轨迹仍保持 $c(t)\equiv c_0$。当 $\eta=0.05N$ 时，控制触发边界为
-\[
-c_{0,\min}(0.05N)\approx3.327.
-\]
-以下只比较满足式\eqref{eq:model:trigger}的参数。补充表\ref*{tab:sup:baseline}分别列出固定阈值与固定常规接触率的结果，完整控制轨迹见图\ref{fig:baseline:q-joint}。
-
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth]{figures/layout_v5/c0_sensitivity_selected_eta.pdf}
-\caption{不同阈值比例下各指标随 $c_0$ 的变化。固定 $N=763,S_0=762,I_0=1,\beta=0.155,\gamma=0.3504\ \mathrm d^{-1},q_0=0.01526$，$\eta/N=0.2\%,0.6\%,1\%,2\%$，红色圆点表示 $\Delta t$ 的数值极大值。(a) 启动时间；(b) 控制时长；(c) 清零时间；(d) 最大隔离比例；(e) 二次成本；(f) 总累计新增感染。时间和成本的单位为天，累计新增感染的单位为人，$c_0$ 的单位为 $\mathrm d^{-1}$。}
-\label{fig:scenario1_summary_c0}
-\end{figure}
-
-
+阈值决定了干预负担与感染规模之间的取舍（命题~\ref{prop:threshold-tradeoff}）。阈值越低，阈值控制期内易感者下降越慢（$\dot S=-(c_0\eta/N)(S-\bar S)$），维持 $I=\eta$ 直到 $S=S_c$ 所需的时间越长，社区中维持的感染者则越少。基准参数下，$\eta/N$ 从 $0.2\%$ 提高到 $2\%$ 时，控制时长由 $152.1$ d 缩短至 $15.04$ d，总累计新增感染由 $173.0$ 人增至 $233.8$ 人，二次成本随之下降；命题没有涉及的清零时间在这组数值中也缩短（图~\ref{fig:scenario1_summary_eta}，补充表~\ref*{tab:sup:baseline}）。
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/layout_v5/eta_sensitivity_selected_c0.pdf}
-\caption{不同常规接触率下各指标随 $\eta/N$ 的变化。固定 $N=763,S_0=762,I_0=1,\beta=0.155,\gamma=0.3504\ \mathrm d^{-1},q_0=0.01526$，$c_0=5,8,10,12$。(a) 启动时间；(b) 控制时长；(c) 清零时间；(d) 最大隔离比例；(e) 二次成本；(f) 总累计新增感染。时间和成本的单位为天，累计新增感染的单位为人，$c_0$ 的单位为 $\mathrm d^{-1}$。}
+\caption{基准参数下各指标随阈值比例 $\eta/N$ 的变化，$c_0=5,8,10,12\ \mathrm d^{-1}$，其余参数见表~\ref{tab:xian_initial_fit}。(a) 启动时间；(b) 控制时长；(c) 清零时间；(d) 最大隔离比例；(e) 二次成本；(f) 总累计新增感染。时间与成本以天计，累计新增感染以人计。}
 \label{fig:scenario1_summary_eta}
 \end{figure}
 
-
-%\clearpage
-
-图\ref{fig:baseline:q-joint}(a)中，$c_0=4$ 时 $q_{\max}=0.3413<\qinf\approx0.4083$，不存在内部拐点，其余所列常规接触率均满足定理\ref{thm:s1:inflection}的唯一内部拐点条件。图\ref{fig:baseline:q-joint}(b)中，改变阈值后的拐点对应同一隔离比例，但启动时间和控制时长不同。
-
-表\ref*{tab:sup:baseline}和图\ref{fig:scenario1_summary_c0}显示，增大 $c_0$ 会使控制启动提前，提高 $S^*$ 与 $q_{\max}$，而控制时长在所考察范围内先增加后减小。固定 $\eta/N=5\%$ 时，数值极大值位于 $c_0\approx5.1$，时长约为 $7.579$ d。启动时易感者更多会延长维持阈值所需的过程，较大的接触率则加快 $S$ 的下降，两者共同决定控制时长，符合命题\ref{prop:contact-effects}的导数判据。图中的极大值位置随阈值改变，属于所考察参数范围的数值结果。
-
-提高阈值会推迟启动、降低 $q_{\max}$ 并缩短控制时长，同时降低二次成本、增加累计新增感染，与命题\ref{prop:threshold-tradeoff}一致。补充表\ref*{tab:sup:baseline}中固定 $c_0=10$ 的一组可说明这一取舍。
-
-当 $\eta/N$ 从 $0.2\%$ 增至 $2\%$ 时，控制时长由 $152.1$ d 缩短至 $15.04$ d。
-
-二次成本由 $60.80$ d 降至 $5.889$ d，总累计新增感染由 $173.0$ 人增至 $233.8$ 人。
-
-这组数值中的清零时间也随阈值提高而缩短，其变化同时包含退出后的下降过程。图\ref{fig:scenario1_summary_eta}与补充图\ref{fig:scenario1_heatmaps_c0_eta}展示了上述指标的参数依赖。触发边界 $c_{0,\min}(\eta)$ 随阈值升高，其下方的常规感染峰值低于阈值，无需启动仅隔离控制。
+常规接触率对控制时长的影响不是单调的（命题~\ref{prop:contact-effects}，图~\ref{fig:scenario1_summary_c0}）。$c_0$ 越大，常规轨迹越早触及阈值，$S^*$ 与 $q_{\max}$ 越高；控制时长则受两种相反作用：要消耗的易感者更多，易感者也下降得更快。在所考察的范围内，控制时长随 $c_0$ 先增后减，基准阈值下在 $c_0\approx5.1$ 处取得数值极大值约 $7.579$ d。$c_0$ 不超过触发边界 $c_{0,\min}(\eta)$（式\eqref{eq:s1:c0-min-def}）时无需启动控制；该边界随阈值升高，基准阈值下约为 $3.327$。相应的隔离比例轨迹与二维扫描见补充图~\ref{fig:baseline:q-joint}、\ref{fig:scenario1_heatmaps_c0_eta}。
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/layout_v5/c0_sensitivity_selected_eta.pdf}
+\caption{基准参数下各指标随常规接触率 $c_0$ 的变化，$\eta/N=0.2\%,0.6\%,1\%,2\%$，其余参数见表~\ref{tab:xian_initial_fit}；红色圆点为 $\Delta t$ 的数值极大值。面板与单位同图~\ref{fig:scenario1_summary_eta}，$c_0$ 以 $\mathrm d^{-1}$ 计。}
+\label{fig:scenario1_summary_c0}
+\end{figure}
 
 \FloatBarrier
-\subsection{两组参数下的四种分配}
+\subsection{四种控制的比较}
 \label{sec:joint:compare-numerics}
-在相同启动与退出要求下，最低二次成本与最短控制时长对应不同分配。无额外能力限制且 $0<\beta<1$ 时，仅隔离控制最快且累计新增感染最少；最小成本分配通过同时使用两种措施降低 $J$，代价是控制时长和累计新增感染增加。
+成本最低的控制不是最快的控制。表~\ref{tab:joint:compare}比较不考虑能力约束时的四种控制。与最快的仅隔离控制相比，成本最优控制在基准参数下使 $J$ 降低约 $4.7\%$，控制时长与总累计新增感染分别增加约 $31.4\%$ 与 $7.3\%$；西安参数下相应为 $6.7\%$、$27.9\%$ 与 $6.6\%$。
 
-表\ref{tab:joint:compare}比较仅减少接触、显式族 $\alpha=0.5$、仅隔离控制和最小成本分配。每组采用同一完整初值、阈值、首次触发规则与 $S=S_c$ 的退出目标，均无额外能力限制且取 $w_c=1,w_q=2$。基准参数沿用图\ref{fig:scenario1:single-sim}，西安参数及未取整初值沿用表\ref{tab:xian_initial_fit}；指标统计范围见第\ref{sec:num:methods}节及表注。
+表中感染与隔离的差别都由控制时长决定。两组参数下，控制时长从长到短依次为仅减少接触、$\alpha=0.5$、成本最优控制与仅隔离控制；由定理~\ref{thm:joint:comparison}(iii)，阈值控制期累计新增感染按这一顺序减少，新增隔离易感者人数按这一顺序增加。推论~\ref{cor:joint:whole-epidemic}把感染的排序延伸到清零时间，表中的清零时间与总累计新增感染也按同一顺序排列。成本最优控制因而居于两种单控制之间（第~\ref{sec:joint:cost}~节末）。
 
-基准参数下，相对仅隔离控制，最小成本分配的 $J$ 降低约 $4.7\%$，控制时长增加约 $31.4\%$，总累计新增感染增加约 $7.3\%$。
+两组参数的成本最优控制都先仅隔离、后两者并用。启动状态 $S^*/S_c\approx4.044$ 与 $4.378$ 都高于 $S_{\rm sw}/S_c\approx2.265$ 与 $2.548$。命题~\ref{prop:joint:global-structure}只保证 $S>S_{\rm sw}$ 时仅隔离控制是局部最优；在默认权重下比较全部候选，它在这一段也是全局最优，并在 $S_{\rm sw}$ 处连续切换到两者并用。前段较短，基准与西安参数下分别约 $1.61$ d 与 $25.46$ d。两种控制在 $S\ge S_{\rm sw}$ 上相同，$J$ 与 $\Delta t$ 的差别全部来自 $S<S_{\rm sw}$ 一段：成本最优控制在这里取 $c_c(S)<c_0$，$S$ 下降变慢，控制期延长；接触减少分担了维持 $I=\eta$ 所需的干预，隔离强度降低，二次成本因而下降。
 
-西安参数下，相应变化为成本降低约 $6.7\%$、控制时长增加约 $27.9\%$、总累计新增感染增加约 $6.6\%$。
-
-在共同起止二维状态下，两种分配的控制时长差决定了阈值控制期的感染和隔离人数差。由式\eqref{eq:joint:cumulative}--\eqref{eq:joint:quarantine}，$0<\beta<1$ 时，时长增加使控制期累计新增感染增加、新增隔离易感者减少。推论\ref{cor:joint:whole-epidemic}将感染排序延伸至同一完整初值下各自的清零终点，表中的全过程结果与之相符。
-
-两组参数的最小成本分配均先仅隔离，后同时使用两种措施。基准和西安的启动状态分别为 $S^*/S_c\approx4.044$ 和 $4.378$，均高于对应的 $S_{\rm sw}/S_c\approx2.265$ 和 $2.548$。
-
-命题\ref{prop:joint:global-structure}保证最小成本可测控制在 $S_c<S<S_{\rm sw}$ 上几乎处处同时使用两种措施，而 $S>S_{\rm sw}$ 时仅隔离控制是局部最小点。对默认权重比较全部候选后，两组数值结果在 $S>S_{\rm sw}$ 上均选取仅隔离控制作为全局最小点，并在 $S=S_{\rm sw}$ 处连续切换。退出时两种控制回到常规水平，权重的影响见第\ref{sec:joint:weights-numerics}节。
-
-基准参数下，前段仅隔离约持续 $1.61$ d，完成阈值控制期 $S$ 总下降的 $58\%$，后段接触率最大降低约 $19.8\%$。
-
-西安参数下，相应为 $25.46$ d、$54\%$ 和 $28.2\%$。
-
-仅隔离控制与最小成本分配在 $S\ge S_{\rm sw}$ 一段相同，二者 $J$ 与 $\Delta t$ 的差别均来自 $S_c<S<S_{\rm sw}$。在这一段，最小成本分配取 $c_c(S)<c_0$，由 $\dot S=-(\eta/N)[c_c(S)S-c_0\bar S]$，$S$ 的下降较慢，控制时长延长。接触减少分担了维持 $I=\eta$ 所需的干预，隔离强度降低，使本组权重下的二次成本减小。
-
-感染人数上限约束 $I$，$I+I_q$ 的峰值另行统计。在各自 $[0,t_{\rm end}]$ 上，基准参数下仅隔离控制、最小成本分配与仅减少接触的 $\max(I+I_q)/\eta$ 分别约为 $1.92$、$1.89$ 和 $1.02$。仅隔离控制的峰值出现在两种分配分开之后，最小成本分配的峰值略低。
-
-西安参数下，相应峰值比分别为 $4.73$、$4.73$ 和 $1.46$。前两种分配均在启动后约 $7.62$ d 达峰，此时仍处于相同的 $S>S_{\rm sw}$ 一段，故峰值相同。这些比值对应现存感染人数，医疗或 ICU 占用还需另行建立联系；图\ref{fig:joint:compare}(c)的水平线 $1$ 仅作归一化参照。
+追踪隔离越强，现存感染人数 $I+I_q$ 越高：$I$ 维持在 $\eta$，被追踪的感染者则不断进入 $I_q$。基准参数下，$\max(I+I_q)/\eta$ 在仅隔离控制、成本最优控制与仅减少接触下分别约为 $1.92$、$1.89$ 与 $1.02$（表~\ref{tab:joint:compare}，图~\ref{fig:joint:compare}(c)）。基准参数下峰值出现在后段，成本最优控制的隔离较弱，峰值略低；西安参数下峰值出现在启动后约 $7.62$ d，仍在两者相同的前段，峰值也相同。
 
 \begingroup
 \begin{table}[htbp]
 \centering\small
-\setlength{\tabcolsep}{3.5pt}
+\setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.25}
 \begin{threeparttable}
-\caption{相同阈值与启动、退出要求下四种分配的结果（$w_c=1,w_q=2$）}
+\caption{不考虑能力约束时四种控制的比较（$w_c=1,w_q=2$）}
 \label{tab:joint:compare}
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}Xccccc@{}}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}Xcccccc@{}}
 \toprule
-分配 & \shortstack{控制时长\\$\Delta t$（d）} & \shortstack{清零时间\\$t_{\rm end}$（d）} & \shortstack{总累计\\新增感染} & \shortstack{阈值控制期\\新增隔离易感者} & $J$（d）\\
+控制 & \shortstack{控制时长\\$\Delta t$（d）} & \shortstack{清零时间\\$t_{\rm end}$（d）} & \shortstack{总累计\\新增感染} & \shortstack{阈值控制期\\新增隔离易感者} & $J$（d） & \shortstack{现存感染峰值\\$\max(I+I_q)/\eta$}\\
 \midrule
-\multicolumn{6}{@{}l}{基准参数：$N=763$，$\eta=0.05N$；新增人数单位为人}\\
-仅减少接触 & 36.26 & 64.13 & 628.6 & 40.9 & 11.9390\\
-显式族 $\alpha=0.5$ & 9.24 & 37.11 & 323.4 & 346.2 & 2.5462\\
-仅隔离控制 & 5.90 & 33.77 & 285.7 & 383.9 & 2.2236\\
-最小成本分配 & 7.75 & 35.62 & 306.6 & 363.0 & 2.1183\\
+\multicolumn{7}{@{}l}{基准参数：$N=763$，$\eta=0.05N$；新增人数单位为人}\\
+仅减少接触 & 36.26 & 64.13 & 628.6 & 40.9 & 11.9390 & 1.02\\
+显式族 $\alpha=0.5$ & 9.24 & 37.11 & 323.4 & 346.2 & 2.5462 & 1.64\\
+仅隔离控制 & 5.90 & 33.77 & 285.7 & 383.9 & 2.2236 & 1.92\\
+成本最优控制 & 7.75 & 35.62 & 306.6 & 363.0 & 2.1183 & 1.89\\
 \midrule
-\multicolumn{6}{@{}l}{西安参数：$\eta=0.002N$；新增人数单位为 $10^6$ 人}\\
-仅减少接触 & 308.79 & 481.83 & 3.8566 & 6.5004 & 109.3648\\
-显式族 $\alpha=0.5$ & 124.57 & 297.60 & 2.6390 & 7.7180 & 44.5286\\
-仅隔离控制 & 85.07 & 258.10 & 2.3779 & 7.9791 & 40.7686\\
-最小成本分配 & 108.81 & 281.84 & 2.5348 & 7.8222 & 38.0209\\
+\multicolumn{7}{@{}l}{西安参数：$\eta=0.002N$；新增人数单位为 $10^6$ 人}\\
+仅减少接触 & 308.79 & 481.83 & 3.8566 & 6.5004 & 109.3648 & 1.46\\
+显式族 $\alpha=0.5$ & 124.57 & 297.60 & 2.6390 & 7.7180 & 44.5286 & 3.20\\
+仅隔离控制 & 85.07 & 258.10 & 2.3779 & 7.9791 & 40.7686 & 4.73\\
+成本最优控制 & 108.81 & 281.84 & 2.5348 & 7.8222 & 38.0209 & 4.73\\
 \bottomrule
 \end{tabularx}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：每组沿用同一完整初值、首次上升至 $I=\eta$ 的启动规则和 $S=S_c$ 的退出目标，各自恢复常规后在 $I$ 下降至 $1$ 时终止。累计新增感染不包含初始感染者；新增隔离易感者只统计阈值控制期。$J$ 为式\eqref{eq:cost:J}的二次成本，不由线性 $J_c,J_q$ 加总。西安参数及未取整初值见表\ref{tab:xian_initial_fit}和第\ref{sec:xian}节；表内单位和显示精度按行组区分。
+\item 注：每组的四种控制采用同一完整初值（表~\ref{tab:xian_initial_fit}），在 $I$ 首次升至 $\eta$ 时启动、于 $S=S_c$ 退出，恢复常规控制后在 $I$ 降至 $1$ 时终止；总累计新增感染与现存感染峰值都计至该终点。$J$ 见式\eqref{eq:cost:J}。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -150,78 +107,71 @@ c_{0,\min}(0.05N)\approx3.327.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/joint_v2/joint_compare_baseline.pdf}
-\caption{基准参数下相同启动与退出要求的四种分配（$N=763$，$\eta=0.05N$，$w_c=1,w_q=2$）。(a) 接触率；(b) 隔离比例；(c) 现存感染人数与阈值之比 $(I+I_q)/\eta$；(d) 社区易感者比例。各轨迹画至自身的清零时间，横轴 $t$ 为自共同初始时刻起的天数。控制跳变按分段数据绘制；(c) 的水平 $1$ 为归一化参照，不是本文对总感染现患人数的约束。}
+\caption{基准参数下不考虑能力约束时四种控制的时间轨迹（$w_c=1,w_q=2$）。(a) 接触率；(b) 隔离比例；(c) 现存感染人数与阈值之比 $(I+I_q)/\eta$；(d) 社区易感者比例。各轨迹画至自身的清零时间，$t$ 以天计。}
 \label{fig:joint:compare}
 \end{figure}
 
 \FloatBarrier
-\subsection{能力限制下的可行性与受限分配}
+\subsection{能力约束}
 \label{sec:joint:capacity-numerics}
 \def\jointcapacitypostexitdays{1}
-能力限制通过式\eqref{eq:joint:bounds}确定允许区间，二次成本再从该区间的端点与内部驻点中选择最小值。图\ref{fig:joint:capacity}将能力平面分成至少一种单控制可行、两种单控制均不可行但联合可行、规定触发状态下不可行三个区域。
+能力约束把能力平面分成三个区域（图~\ref{fig:joint:capacity}(a)(b)）：至少一种单控制可行，只有联合控制可行，以及阈值策略不可行。仅隔离控制可行当且仅当 $q_{\rm cap}\ge q_{\max}$（推论~\ref{cor:s1:qc-structure}），仅减少接触可行当且仅当 $c_{\min}\le c_0S_c/S^*$（第~\ref{sec:joint}~节）。两者都不成立时，联合控制是否可行由推论~\ref{cor:joint:feasibility}判断。
 
-仅隔离控制可行要求 $q_{\rm cap}\ge q_{\max}$，仅减少接触可行要求 $c_{\min}\le c_0S_c/S^*$。二者均不成立时，由式\eqref{eq:joint:feasibility}判断联合可行性，边界等号归入可行侧。灰色区域对应在 $I$ 首次达到 $\eta$ 时启动、在 $S=S_c$ 退出的阈值控制不可行。
+两个代表能力组合都落在只有联合控制可行的区域，能力约束使最小成本与控制时长都增加。基准代表点上，仅隔离控制需要 $q_{\max}\approx0.756$，仅减少接触需要把接触率降低约 $75.3\%$，都超出能力；西安代表点也是如此。这时最快与最慢的控制 $\overline c(S)$、$\underline c(S)$（推论~\ref{cor:joint:capped-comparison}）都不是单控制。能力约束下的成本最优控制在基准参数下 $J\approx 2.361$ d、$\Delta t\approx 8.34$ d，在西安参数下 $J\approx 41.62$ d、$\Delta t\approx 116.8$ d，都高于表~\ref{tab:joint:compare}中的值，与命题~\ref{prop:joint:minimum-threshold}一致。
 
-基准参数代表点取 $c_{\min}/c_0=0.5$、$q_{\rm cap}=0.6$。仅隔离控制需要 $q_{\max}\approx0.756$，仅减少接触需要把接触率降低约 $75.3\%$，两者均超出能力限制，而联合控制可行。
-
-西安代表点取 $c_{\min}/c_0=0.5$、$q_{\rm cap}=0.75$，也属于需联合控制的区域。
-
-两组代表点的受限最小成本与控制时长均高于无额外能力限制时的结果。基准参数下，$J\approx 2.361$ d、$\Delta t\approx 8.34$ d。西安参数下，$J\approx 41.62$ d、$\Delta t\approx 116.8$ d。可行集缩小使最小成本不减，与命题\ref{prop:joint:minimum-threshold}一致，时长增加的机制可由代表轨迹解释。
-
-图\ref{fig:joint:capacity}(c)中，启动后约 $1.94$ d 内隔离比例停在能力上限，接触率同时降低，降幅由启动时的约 $39.1\%$ 随 $S$ 下降而减小。$S$ 降至 $(1-q_0)S_c/(1-q_{\rm cap})\approx2.462S_c$ 时，仅隔离控制重新可行，接触率回到 $c_0$。随后约 $0.26$ d 为仅隔离控制段，$S<S_{\rm sw}$ 后两种措施同时使用直至退出。
-
-在该基准代表点的 $S\le(1-q_0)S_c/(1-q_{\rm cap})$ 一段，无额外限制时的逐状态最小点满足两项能力限制，也是受限问题的逐状态最小点。数值结果显示两者在同一 $S$ 处取相同的 $c_c(S)$、$q_c(S)$，但受限分配到达该状态的时刻较晚，$I_q$、$S_q$ 等状态也不同。由于 $J$ 与 $\Delta t$ 都是关于 $S$ 的积分，二者的增加均来自启动后受能力限制的前一段。西安代表点具有相同结构，隔离比例停在上限约 $30.38$ d。
-
-受限类内可达到的最短、最长控制时长分别由 $\overline c(S)$、$\underline c(S)$ 给出，见推论\ref{cor:joint:capped-comparison}。在上述两组代表能力组合下，这两个实际端点均不同于两种单控制。
-
+增加的成本与时长全部来自能力约束起作用的前一段。图~\ref{fig:joint:capacity}(c)中，启动后约 $1.94$ d 内隔离比例停在上限，接触率同时降低。$S$ 降到 $(1-q_0)S_c/(1-q_{\rm cap})$ 以下后，仅隔离控制重新可行（第~\ref{sec:joint}~节）；在该代表点上，不考虑能力约束的成本最优控制此后也满足两项能力约束，能力约束下的控制便在同一 $S$ 上与它取相同的 $c_c(S)$、$q_c(S)$，只是到达得更晚。$J$ 与 $\Delta t$ 都是对 $S$ 的积分，增量因而只来自此前的一段。西安代表点的结构相同，隔离比例停在上限约 $30.38$ d。
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/joint_v2/joint_capacity.pdf}
-\caption{能力限制下的可行区域与代表轨迹。(a) 基准参数；(b) 西安参数。横轴为最大接触减少比例 $1-c_{\min}/c_0$，纵轴为隔离比例上限 $q_{\rm cap}$；灰色、浅红色、浅蓝色分别表示规定触发状态下不可行、需联合控制、至少一种单控制可行，边界归入可行侧。红点为代表能力组合。(c) 基准代表点的受限最小成本分配，绘至名义退出后\jointcapacitypostexitdays{}天，横轴 $t$ 的单位为天。}
+\caption{能力约束下的可行区域与代表轨迹。(a) 基准参数；(b) 西安参数。横轴为最大接触减少比例 $1-c_{\min}/c_0$，纵轴为隔离比例上限 $q_{\rm cap}$；灰色、浅红色、浅蓝色分别表示阈值策略不可行、只有联合控制可行、至少一种单控制可行，边界归入可行侧。红点为代表能力组合：基准 $c_{\min}/c_0=0.5$、$q_{\rm cap}=0.6$，西安 $c_{\min}/c_0=0.5$、$q_{\rm cap}=0.75$。(c) 基准代表点上能力约束下的成本最优控制，画至退出后\jointcapacitypostexitdays{}天，$t$ 以天计。}
 \label{fig:joint:capacity}
 \end{figure}
 
 \FloatBarrier
-\subsection{成本权重与分配结构}
+\subsection{成本权重与时长}
 \label{sec:joint:weights-numerics}
-已有权重网格显示，增大隔离成本的相对权重会改变两种措施的分配及切换结构。固定 $w_c=1$，图\ref{fig:joint:phase}在无额外能力限制下考察 $r=w_q/w_c\in[0.1,20]$ 上 $161$ 个对数等距取值。其余参数及状态固定时，权重对逐状态最小点的影响仅通过比值 $r$。
+“先仅隔离、后两者并用”的结构在隔离的相对权重不大时保持不变。固定 $w_c=1$（最优选择只通过 $r=w_q/w_c$ 依赖权重），图~\ref{fig:joint:phase}在 $r\in[0.1,20]$ 的 $161$ 个对数等距网格点上给出不考虑能力约束时的成本最优控制，颜色 $y$ 是接触率降幅占仅减少接触时降幅的比例。在所算网格中，基准参数直到 $r\approx3.13$、西安参数直到 $r\approx2.65$，切换都发生在 $S_{\rm sw}$ 处且控制连续。默认的 $r=2$ 不是网格点，第~\ref{sec:joint:compare-numerics}~节单独计算的结构相同。
 
-颜色 $y=(1-c_c^*/c_0)/(1-S_c/S)$ 表示接触减少相对于仅减少接触端点的比例，$y=0$ 为仅隔离控制，$y=1$ 为仅减少接触，隔离强度不是 $1-y$。全局切换点由端点与内部驻点的成本比较确定，命题\ref{prop:joint:global-structure}中的 $S_{\rm sw}$ 刻画仅隔离端点的局部性质。
-
-在已计算的网格中，基准参数直到 $r\approx3.13$、西安参数直到 $r\approx2.65$，全局切换点均与 $S_{\rm sw}$ 重合且分配连续：$S>S_{\rm sw}$ 时取仅隔离控制，$S<S_{\rm sw}$ 时两种措施同时使用。默认 $r=2$ 不属于该网格，第\ref{sec:joint:compare-numerics}节单独完成的候选比较同样给出 $S=S_{\rm sw}$ 处的连续切换。
-
-从相邻网格点 $r\approx3.24$（基准）和 $r\approx2.74$（西安）起，仅隔离控制段在 $S$ 降至 $S_{\rm sw}$ 之前结束。此时仅隔离端点仍是局部最小点，但内部的另一局部最小点成本更低。在其后的网格点上，切换点随 $r$ 增大移向启动状态，接触率在切换处由 $c_0$ 跳到内部值。
-
-出现仅隔离控制段的最大网格点为 $r\approx13.00$（基准）和 $7.41$（西安）。从相邻网格点 $r\approx13.44$ 和 $7.66$ 起，整个阈值控制期不再出现仅隔离控制段。相邻网格点显示了上述两处结构变化，但未进一步确定连续权重下的精确转折位置或证明其唯一性。
-
-靠近退出时，各 $r$ 下的 $y$ 趋于 $r/(1+r)$，与命题\ref{prop:joint:terminal-allocation}一致。改变 $r$ 同时改变成本标准，不同权重下的 $J$ 不直接比较。
-
+切换随隔离权重增大而提前并出现跳变，最终仅隔离段消失（表~\ref{tab:joint:weight-transitions}）。这时仅隔离控制仍是局部最优，但另一个内部局部最优的成本更低，接触率在切换处由 $c_0$ 跳到内部值，且 $r$ 越大切换越早。出现仅隔离段的最大网格点在基准与西安参数下分别为 $r\approx13.00$ 与 $7.41$，更大的 $r$ 下整个阈值控制期都两者并用。连续权重下这两处转折的确切位置尚未确定。退出时 $y$ 对所有 $r$ 都趋于 $r/(1+r)$，即两种强度之比趋于权重的反比（命题~\ref{prop:joint:terminal-allocation}）。
+\begin{table}[htbp]
+\centering\small
+\renewcommand{\arraystretch}{1.2}
+\begin{threeparttable}
+\caption{权重网格上成本最优控制的结构转折}
+\label{tab:joint:weight-transitions}
+\begin{tabular*}{0.62\linewidth}{@{\extracolsep{\fill}}lcc@{}}
+\toprule
+网格点 & 基准 & 西安\\
+\midrule
+在 $S_{\rm sw}$ 处连续切换的最大 $r$ & 3.13 & 2.65\\
+切换提前并跳变的最小 $r$ & 3.24 & 2.74\\
+出现仅隔离段的最大 $r$ & 13.00 & 7.41\\
+不出现仅隔离段的最小 $r$ & 13.44 & 7.66\\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]\footnotesize
+\item 注：$w_c=1$，$r=w_q/w_c$，不考虑能力约束；第 1、2 行与第 3、4 行各为相邻网格点。
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/joint_v2/joint_phase_weights.pdf}
-\caption{固定 $w_c=1$、改变 $r=w_q/w_c$ 时的类内最小成本分配。(a) 基准参数；(b) 西安参数。颜色为 $y=(1-c_c^*/c_0)/(1-S_c/S)$，$y=0$ 为仅隔离控制，$y=1$ 为仅减少接触。竖直线位于局部阈值 $S_{\rm sw}/S_c$，其实线段与红色曲线为数值比较得到的全局切换边界，红色曲线处接触率跳变；水平点线为默认 $r=2$。随时间推进，$S$ 从右向左减小。}
+\caption{固定 $w_c=1$、改变 $r=w_q/w_c$ 时不考虑能力约束的成本最优控制。(a) 基准参数；(b) 西安参数。颜色为 $y=(1-c_c^*/c_0)/(1-S_c/S)$，$y=0$ 为仅隔离控制，$y=1$ 为仅减少接触。竖直线位于 $S_{\rm sw}/S_c$，其实线段与红色曲线为数值比较得到的全局切换边界，红色曲线处接触率跳变；水平点线为默认 $r=2$。随时间推进，$S$ 从右向左减小。}
 \label{fig:joint:phase}
 \end{figure}
 
-\FloatBarrier
-\subsection{成本—控制时长关系}
 \label{sec:joint:duration-numerics}
-基准参数下，已求得的乘子点显示最小成本附近 $J$ 对控制时长不敏感。图\ref{fig:joint:frontier}给出 $470$ 个经数值检验的 $J+\kappa\Delta t$ 最小化解，每个解报告实际 $\Delta t$ 与原二次成本 $J$。由注记\ref{rem:joint:duration-constraint}，取得时长匹配的乘子解 $c_\kappa$ 时，它在约束 $\Delta t=\Delta t[c_\kappa]$ 下实现类内最小成本。两种单控制之间的每个时长都可由允许控制实现，但计算点之间的时长未逐一取得匹配乘子，这些时长上的最小成本未由此确定。
+成本在最小值附近对控制时长不敏感。图~\ref{fig:joint:frontier}给出基准参数下 $470$ 个 $J+\kappa\Delta t$ 的最小化解。由注记~\ref{rem:joint:duration-constraint}，每个解都是自身时长下的约束最优：$\kappa\ge0$ 对应时长上限，$\kappa<0$ 对应时长下限，即新增隔离易感者人数上限。时长上限低于成本最优控制的时长时，仅隔离控制仍满足上限，所以最小成本至多升到其成本 $J[c_0]\approx1.05J_{\min}$，$J_{\min}$ 为不考虑时长约束的最小成本。延长控制期时，成本不超过 $1.10J_{\min}$ 的计算点最长约 $11.09$ d，而仅减少接触的 $36.26$ d 对应约 $5.64J_{\min}$。
 
-若要求 $\Delta t\le T$ 且 $\Delta t[c_0]\le T\le\Delta t[c_c^*]$，仅隔离控制满足该限制。因此，最低成本的下界为无额外时长限制的 $J_{\min}=J[c_c^*]$，上界为仅隔离控制的实际成本 $J[c_0]$。两个时长端点约为 $5.90$ 和 $7.75$ d，$J[c_0]\approx1.05J_{\min}$ 为显示近似。$\kappa\ge0$ 的计算点均落在上述实际成本范围内，匹配时长的解同时使相应时长上限约束下的成本最小。
-
-$\kappa<0$ 一侧，满足 $J\le1.10J_{\min}$ 的计算点中最大时长约为 $11.09$ d，下一个计算点在 $11.40$ d，其成本约为 $1.12J_{\min}$。这一相邻点比较未确定精确的临界时长。
-
-仅减少接触端点的时长为 $36.26$ d，成本约为 $5.64J_{\min}$。
-
-匹配时长的负乘子解使相应时长下限约束下的成本最小。在 $0<\beta<1$ 时，由式\eqref{eq:joint:quarantine}，这一约束等价于阈值控制期新增隔离易感者人数上限。相对于无时长限制的最小成本点，负乘子解的 $J$ 与 $\Delta t$ 均更大，因而整条连线不构成同时最小化二者的效率前沿。显式 $\alpha$ 族在同一允许控制类中作为对照。
-
+计算点之间的时长没有逐一匹配乘子，那里的最小成本与成本超过 $1.10J_{\min}$ 的确切时长都未确定。$\kappa<0$ 的解的 $J$ 与 $\Delta t$ 都大于不考虑时长约束的成本最优控制，所以图中的连线不是同时最小化二者的效率前沿。
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.6\textwidth]{figures/joint_v2/joint_frontier_baseline.pdf}
-\caption{基准参数下二次成本与控制时长的关系。红色曲线连接已检验的 $J+\kappa\Delta t$ 最小化解，实线与短虚线分别对应 $\kappa\ge0$ 和 $\kappa<0$；连线不表示中间时长已有匹配乘子。浅蓝虚线为显式 $\alpha$ 族，圆点为两种单控制与无时长限制的最小成本分配。横轴为对数坐标，$\Delta t$ 与 $J$ 的单位均为天。}
+\caption{基准参数下二次成本与控制时长的关系。红色曲线连接 $J+\kappa\Delta t$ 的最小化解，实线与短虚线分别对应 $\kappa\ge0$ 和 $\kappa<0$；浅蓝虚线为显式 $\alpha$ 族，圆点为两种单控制与不考虑时长约束的成本最优控制。横轴为对数坐标，$\Delta t$ 与 $J$ 以天计。}
 \label{fig:joint:frontier}
 \end{figure}
 
-\FloatBarrier
+下一章回到西安疫情：由观测数据重构初值，把仅隔离控制与文献\cite{He2023TDINN}重构的控制比较，并看低阈值和在群体免疫阈值退出的代价。
 
+\FloatBarrier
