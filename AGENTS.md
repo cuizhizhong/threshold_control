@@ -37,17 +37,23 @@
 
 ## 3 论文主线与贡献
 
-**主线**：在同一社区非隔离感染人数上限 $I\le\eta$ 下，接触减少与追踪隔离可以有不同分配。在相同的进入与退出状态之间，控制期累计新增感染和新增隔离易感者人数都是控制时长的线性函数（式 `eq:joint:cumulative`、`eq:joint:quarantine`），而控制时长由社区易感者的消耗速度决定。因此这些指标不能同时最优：由于被追踪的接触者中有未感染者，最快的分配感染最少，但隔离的未感染者最多；二次成本最低的分配在两者之间折中。规定在 $S=S_c$ 退出还给累计感染设定了与分配无关的下界。ICU 容量是选取 $\eta$ 的动机，$\eta$ 在文中是外生参数。
+**主线**（作者确定，见 `paper/revision_notes/R1_framing.md` 第 2 节）：
+
+1. 优化的非药物干预措施对控制疫情、使医疗需求不超出医疗资源承载能力至关重要。
+2. 在容量约束下的多种最优控制问题中，最优策略的核心都是“沿容量运行”：感染人数达到容量水平后保持不变，并随易感者减少逐步放松干预。
+3. 这些研究把干预表示为单一的传播率，无法区分减少接触与追踪隔离；而追踪隔离会把未感染的接触者也移出社区。
+4. 本文在含追踪隔离与接触控制的 SIQR 模型中，研究这一阈值策略下的最优控制，即两种干预应如何组合。
+5. 不同目标对应不同的最优控制：控制时长与累计感染最小时应仅加强隔离，未感染者隔离负担最小时应仅减少接触，二次干预成本最小时控制后期两者并用；在群体免疫阈值退出可避免反弹，但使累计感染存在下界。
 
 **贡献与短名**（全文用短名或定理号引用，完整条件只在定理陈述中写）：
 
 | 短名 | 内容 | 标签 |
 |---|---|---|
-| C1 解析基准 | 仅隔离控制的启动状态（Lambert $W$）、控制函数、控制时长、退出后的动态与累计新增感染；阈值的取舍 | `thm:s1:start`、`thm:s1:platform`、`thm:s1:tend`、`thm:s1:Itcum`、`prop:threshold-tradeoff` |
-| C2 状态参数化 | 全部联合控制与 $c_c(S)$ 一一对应；能力约束下整段可行的充要条件 | `thm:joint:representation`、`cor:joint:feasibility` |
-| C3 同序关系 | 固定起止状态时，控制期累计新增感染与控制时长同序、新增隔离易感者反序 | `thm:joint:comparison`、`cor:joint:capped-comparison`、`cor:joint:whole-epidemic` |
-| C4 最优分配的结构 | 最小成本由逐状态判据完整确定；最优分配从不单独减少接触，易感者降到与权重无关的状态 $S_{\rm sw}$ 以下后总是同时使用两种措施，退出时两者强度之比趋于成本权重的反比；前段仅隔离控制是局部最优，数值上默认权重下也是全局最优，呈“先仅隔离、后两者并用”的结构；最小成本随阈值严格下降 | `thm:joint:cost-minimum`、`prop:joint:global-structure`、`prop:joint:terminal-allocation`、`prop:joint:minimum-threshold`、`rem:joint:duration-constraint` |
-| C5 退出下界 | 在 $S=S_c$ 退出导致累计新增感染不小于 $\beta(S_0-S_c)$；西安全市参数下约 $1.53\times10^6$ | `prop:exit-infection-lower-bound` |
+| C1 解析解 | 仅隔离控制的启动状态（Lambert $W$）、控制函数、控制时长、退出后的动态与累计新增感染；阈值的取舍 | `thm:s1:start`、`thm:s1:platform`、`thm:s1:tend`、`thm:s1:Itcum`、`prop:threshold-tradeoff` |
+| C2 可行性 | 全部控制与 $c_c(S)$ 一一对应；能力约束下整段可行的充要条件 | `thm:joint:representation`、`cor:joint:feasibility` |
+| C3 不同目标的最优控制 | 控制期累计新增感染与新增隔离易感者人数都由控制时长唯一确定（同序与反序）；以控制时长或累计感染为目标的最优控制是 $\overline c(S)$，$q_{\rm cap}\ge q_{\max}$ 时即仅隔离控制；以未感染者隔离负担为目标的最优控制是 $\underline c(S)$，$c_{\min}\le c_0S_c/S^*$ 时即仅减少接触 | `thm:joint:comparison`、`cor:joint:capped-comparison`（及其后两条新增陈述）、`cor:joint:whole-epidemic` |
+| C4 成本最优控制 | 最小成本由逐状态判据完整确定；成本最优控制从不单独减少接触，易感者降到与权重无关的状态 $S_{\rm sw}$ 以下后总是同时使用两种措施，退出时两者强度之比趋于成本权重的反比；前段仅隔离控制是局部最优，数值上默认权重下也是全局最优，呈“先仅隔离、后两者并用”的结构；最小成本随阈值严格下降 | `thm:joint:cost-minimum`、`prop:joint:global-structure`、`prop:joint:terminal-allocation`、`prop:joint:minimum-threshold`、`rem:joint:duration-constraint` |
+| C5 退出下界 | 在群体免疫阈值 $S_c$ 退出可避免反弹，但导致累计新增感染不小于 $\beta(S_0-S_c)$；西安全市参数下约 $1.53\times10^6$ | `prop:exit-infection-lower-bound`（反弹一节依据 `thm:s1:tend`） |
 
 ## 4 写作规范
 
@@ -94,9 +100,10 @@ R1 可以调整此表，作者确认后以 `R1_storyline.md` 为准。
 
 | 内容 | 唯一位置 | 其他位置 |
 |---|---|---|
-| 控制类 $\mathcal A(\eta)$：首次触发、维持 $I=\eta$、在 $S=S_c$ 退出、有界可测 | 2.3 节定义 | 写“$\mathcal A(\eta)$ 中”或不写；不再解释“类内”“规定控制类” |
+| 阈值策略的全部控制 $\mathcal A(\eta)$：首次触发、维持 $I=\eta$、在 $S=S_c$ 退出、有界可测 | 2.3 节定义 | 写“$\mathcal A(\eta)$ 中”或不写；不再解释“类内”“规定控制类” |
 | 隔离易感者不回流 | 2.1 节模型假设 | 讨论“局限”一句 |
-| $\eta$ 是外生设计参数，ICU 是动机；约束的是 $I$ 而不是 $I+I_q$ | 2.1 或 2.3 节一段 | 补充材料医疗联系一节；其他位置（含图注）不写 |
+| 阈值 $\eta$ 的来由（用词的边界）：“与医疗资源承载能力相适应”是选取 $\eta$ 的依据，不是被证明的性质；$\eta$ 约束 $I$ 而不是 $I+I_q$；接触率有界时，限制 $I$ 也限制了进入 $I$ 和 $I_q$ 的全部新增感染流量 | 第 2 章 $\eta$ 首次出现处一段（推导见补充材料医疗联系一节） | 摘要与引言只用“与医疗资源承载能力相适应的阈值”一语；其他位置（含图注）不写；任何位置不写“保证医疗资源不被超出” |
+| 群体免疫阈值 $S_c$ 的含义（用词的边界）：指常规控制 $(c_0,q_0)$ 下的群体免疫阈值，$S<S_c$ 时常规控制下的有效再生数小于 1 | 第 2 章定义 $S_c$ 处一句 | 其他位置直接写“群体免疫阈值 $S_c$”；不再写“常规传播临界状态”“临界易感者人数” |
 | 指标定义与统计约定：累计新增感染不含初始感染者、新增隔离易感者与 $J$ 只计阈值控制期、清零终点 $I=1$ | 2.4 节 | 6.1 节一句、表注一句；正文不重复 |
 | $J$ 不计隔离人天、权重未货币化、能力约束不限制调整速度 | 2.4 节定义处一句 | 讨论“局限”一段 |
 | 数值方法：求解器、开环输入、阈值偏差、解析回代与 ODE 验证之别 | 6.1 节 | 其他章不写 |
@@ -120,23 +127,30 @@ R1 可以调整此表，作者确认后以 `R1_storyline.md` 为准。
 
 ### 4.4 术语表
 
-| 统一为 | 英文译法 | 不再使用 |
-|---|---|---|
-| 阈值控制期 $[t_1,t_2]$ | threshold-control phase | 平台期、感染平台 |
-| 控制时长 $\Delta t$ | control duration | 控制持续时间 |
-| 隔离比例 $q$ | quarantine fraction | 隔离率 |
-| 接触率 $c$ | contact rate | — |
-| 清零时间 $t_{\rm end}$ | clearance time | 动态清零时间、清零时刻 |
-| 仅隔离控制 | quarantine-only control | 仅加强隔离、隔离率阈值控制 |
-| 仅减少接触 | contact-reduction-only control | — |
-| 联合阈值控制 | joint threshold control | — |
-| 阈值控制类 $\mathcal A(\eta)$ | admissible threshold-control class | 规定控制类 |
-| 最小成本分配 | minimum-cost allocation | 类内最小成本、最低成本分配 |
-| 常规控制 | baseline control | 无控制 |
-| 累计新增感染 | cumulative new infections | — |
-| 新增隔离易感者人数 | newly quarantined susceptibles | — |
-| 能力约束 | capacity constraints | 能力限制、能力界、额外能力限制 |
-| 不考虑能力约束时 | without capacity constraints | 无额外能力限制 |
+正文用第一栏；摘要与引言可用第二栏的说法（见 `paper/revision_notes/R1_framing.md` 第 3 节）。
+
+| 正文统一为 | 摘要、引言中的说法 | 英文译法 | 不再使用 |
+|---|---|---|---|
+| 阈值 $\eta$ | 与医疗资源承载能力相适应的非隔离感染者阈值 | threshold $\eta$ on non-isolated infections | 社区（非隔离）感染人数上限 |
+| 阈值策略；其全部控制记为 $\mathcal A(\eta)$ | 阈值策略（沿阈值运行的策略） | threshold strategy | 阈值控制（指策略时）、阈值控制类、规定控制类 |
+| （常规控制下的）群体免疫阈值 $S_c$ | 群体免疫阈值 | herd-immunity threshold | 常规传播临界状态、临界易感者人数 |
+| 控制组合；最优控制 | 两种干预的组合；最优控制 | combination of interventions; optimal control | 分配、最优分配 |
+| 成本最优控制 | 同左 | cost-optimal control | 最小成本分配、类内最小成本、最低成本分配 |
+| 阈值控制期 $[t_1,t_2]$ | 同左 | threshold-control phase | 平台期、感染平台 |
+| 控制时长 $\Delta t$ | 同左 | control duration | 控制持续时间 |
+| 隔离比例 $q$ | 同左 | quarantine fraction | 隔离率 |
+| 接触率 $c$ | 同左 | contact rate | — |
+| 清零时间 $t_{\rm end}$ | 同左 | clearance time | 动态清零时间、清零时刻 |
+| 仅隔离控制 | 仅加强隔离 | quarantine-only control | 隔离率阈值控制 |
+| 仅减少接触 | 同左 | contact-reduction-only control | — |
+| 联合阈值控制 | 两种干预的组合 | joint threshold control | — |
+| 常规控制 | 同左 | baseline control | 无控制 |
+| 累计新增感染 | 累计感染 | cumulative new infections | — |
+| 新增隔离易感者人数 | 未感染者的隔离负担 | newly quarantined susceptibles; quarantine burden on uninfected contacts | — |
+| 能力约束 | 不用术语，写含义（如“在干预能力允许时”） | capacity constraints | 能力限制、能力界、额外能力限制 |
+| 不考虑能力约束时 | 不用术语，写含义 | without capacity constraints | 无额外能力限制 |
+
+“最优控制”始终指阈值策略下的最优控制（用词的边界）：摘要、引言与正文第一次出现时各说明一次，之后可简称；不声称求解了一般的带容量状态约束的最优控制问题。
 
 $I_{\rm cum}$（社区累计）、$I_{q_{\rm cum}}$（隔离累计）、$I_{t_{\rm cum}}$（总累计，宏 `\Itcum`）是三个不同的量，不得合并。
 
