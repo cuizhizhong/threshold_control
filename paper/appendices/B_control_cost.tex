@@ -1,8 +1,7 @@
-% ===== theory_appendices =====
-\section{成本积分与单控制闭式表达}
+\section{成本积分}
 \label{app:cost}
-\subsection{仅隔离控制的成本积分}
-以下沿用默认权重 $w_c=1,w_q=2$。当 $\bar S>0$ 时，式\eqref{eq:cost:state}的积分结果为
+\subsection{仅隔离控制}
+取默认权重 $w_c=1$、$w_q=2$。由 $0<\bar S<S_c$，式\eqref{eq:cost:state}的两个积分为
 \begin{equation}
 J_q=\frac{N}{c_0\eta}\left[
 \frac{S_c}{\bar S}\ln\frac{S^*}{S_c}
@@ -19,7 +18,7 @@ J=\frac{2N}{c_0\eta}\bigg[&
 \end{split}
 \label{eq:cost:closed}
 \end{equation}
-这两式可由下列部分分式展开逐项积分得到：
+两式由下列部分分式逐项积分得到：
 \begin{align*}
 \frac{1-S_c/S}{S-\bar S}
 &=\frac{S_c/\bar S}{S}
@@ -29,21 +28,12 @@ J=\frac{2N}{c_0\eta}\bigg[&
 -\frac{S_c^2}{\bar S S^2}
 +\frac{(1-S_c/\bar S)^2}{S-\bar S}.
 \end{align*}
-在 $\beta=1$、$\bar S=0$ 时，直接展开式\eqref{eq:cost:state}的被积函数，得
-\begin{align}
-J_q&=\frac{N}{c_0\eta}\left[\ln\frac{S^*}{S_c}+\frac{S_c}{S^*}-1\right],\\
-J&=\frac{2N}{c_0\eta}\left[\ln\frac{S^*}{S_c}+\frac{2S_c}{S^*}
--\frac{S_c^2}{2(S^*)^2}-\frac32\right].
-\end{align}
-这些表达与积分式相同；当 $\bar S$ 很小或 $S^*$ 接近 $S_c$ 时，可使用原积分式避免接近量相减所带来的浮点误差。
+$\bar S$ 很小或 $S^*$ 接近 $S_c$ 时，闭式中有相近的量相减，数值计算宜直接用积分式\eqref{eq:cost:state}。
 
-\subsection{仅减少接触及显式族的成本参照}
-显式族可作为成本比较的参照。仅减少接触时，
+\subsection{仅减少接触}
+仅减少接触时 $c_c(S)=c_0S_c/S$、$q\equiv q_0$，$S$ 的下降速度恒为 $c_0(S_c-\bar S)\eta/N$。由式\eqref{eq:joint:cost}，
 \begin{equation}
 J=\frac{N}{c_0\eta(S_c-\bar S)}
-\left[S^*-\frac{S_c^2}{S^*}-2S_c\ln\frac{S^*}{S_c}\right],
+\left[S^*-\frac{S_c^2}{S^*}-2S_c\ln\frac{S^*}{S_c}\right].
 \label{eq:joint:contact-cost}
 \end{equation}
-仅隔离控制时恢复式\eqref{eq:cost:state}。全部允许控制中的最小成本不高于式\eqref{eq:joint:allocation-range}内任一显式策略的成本，但显式族未必包含类内最优解，不能以该子族中的最小值替代式\eqref{eq:joint:minimum-cost}。
-
-

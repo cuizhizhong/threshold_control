@@ -1,26 +1,26 @@
-\section{补充证明与参数敏感性汇总}
+\section{证明}
 \label{sec:appendix:proofs}
-\subsection{启动与退出条件的证明}
+\subsection{触发与退出}
 \label{sec:proof:threshold-rationale}
 本小节证明命题\ref{prop:model:threshold-rationale}。
 \begin{proof}
-常规轨迹在首次到达时满足
+(i) 常规轨迹在首次到达时满足
 \[
 \dot I(t_1)=\eta\left[\frac{\beta c_0(1-q_0)S^*}{N}-\gamma\right]>0.
 \]
-若其后仍维持常规控制一段正时间，由连续性，感染人数会超过 $\eta$，故首次加强时刻不能晚于 $t_1$。在此之前不超过阈值则由首次到达的定义得到。
+若其后仍维持常规控制一段正时间，由连续性 $I$ 将超过 $\eta$，故首次加强时刻不能晚于 $t_1$；$[0,t_1]$ 上 $I\le\eta$ 由首次到达的定义得到。
 
-第二项直接由模型的感染者方程在 $I=\eta$ 时求得。对于有界可测时间控制，若 $I$ 在一个区间恒等于 $\eta$，则 $\dot I=0$ 几乎处处，故等号几乎处处成立。
+(ii) 由感染者方程在 $I=\eta$ 处直接得到。对有界可测控制，若 $I$ 在一个区间上恒等于 $\eta$，则几乎处处 $\dot I=0$，故等号几乎处处成立。
 
-恢复常规控制后有
+(iii) 恢复常规控制后
 \[
 \dot I=\gamma I\left(\frac{S}{S_c}-1\right),\qquad
 \dot S=-\frac{c_0[\beta+(1-\beta)q_0]}{N}SI<0.
 \]
-若恢复时 $S\le S_c$，此后 $S$ 严格下降，因而所有后续正时间均有 $\dot I<0$，感染人数不再超过 $\eta$。若恢复时 $S>S_c$，则恢复后的一个右邻域内有 $\dot I>0$，立即违反上限。阈值控制期内 $S$ 也严格下降，故沿该轨迹首次到达 $S_c$ 时即可恢复常规，而不能在此之前从阈值上直接退出。
+若恢复时 $S\le S_c$，此后 $S$ 严格下降，所有后续时刻都有 $\dot I<0$，$I$ 不再超过 $\eta$。若恢复时 $S>S_c$，则恢复后的一个右邻域内 $\dot I>0$，立即违反 $I\le\eta$。阈值控制期内 $S$ 也严格下降，故沿该轨迹首次到达 $S_c$ 时即可恢复常规控制，在此之前则不能从阈值上直接退出。
 \end{proof}
 
-\subsection{退出后动态的证明}
+\subsection{退出后的动态}
 \label{sec:proof:post-dynamics}
 本小节证明定理\ref{thm:s1:tend}。
 \begin{proof}
@@ -28,7 +28,7 @@
 \[
 I(t)\le I(t_a)e^{-\varepsilon(t-t_a)},\qquad t\ge t_a.
 \]
-因此 $I\to0$、$\int_{t_a}^{\infty}I(t)dt<\infty$。将其代入 $S$ 的指数表示，得到严格正的下界，故 $S_\infty\in(0,S_c)$。$I$ 从 $\eta$ 严格下降至零，因而 $\eta>1$ 时存在唯一有限的 $t_{\rm end}$。
+因此 $I\to0$、$\int_{t_a}^{\infty}I(t)dt<\infty$。将其代入 $S$ 的指数表示，得到严格正的下界，故 $S_\infty\in(0,S_c)$。$I$ 从 $\eta>1$ 严格下降至零，故存在唯一有限的 $t_{\rm end}$。
 
 退出后的首次积分为
 \begin{equation}
@@ -38,7 +38,7 @@ I(t)=\eta+\frac{\beta_2^0}{\beta_1^0}(S_c-S(t))+\rho_1\ln\frac{S(t)}{S_c}.
 分别令 $I=1$ 和 $I=0$，并使用 $0<S<S_c$ 选择 $W_0$ 分支，得到式\eqref{eq:s1:Send}和\eqref{eq:s1:Sinfty}。最后沿常规易感者方程积分即得式\eqref{eq:s1:tend}。
 \end{proof}
 
-\subsection{启动状态参数导数的证明}
+\subsection{启动状态的导数}
 \label{sec:proof:start-sensitivity}
 本小节证明引理\ref{lem:s1:Sstar-sensitivity}。
 \begin{proof}
@@ -84,7 +84,7 @@ $\partial S^*/\partial p=-(\partial F/\partial p)/(\partial F/\partial S)$ 即�
 固定 $N$ 且使用 $\theta=\eta/N$ 时，有 $\partial S^*/\partial\theta=N\partial S^*/\partial\eta$。
 \end{proof}
 
-\subsection{阈值权衡的证明}
+\subsection{阈值的取舍}
 \label{sec:proof:threshold-tradeoff}
 本小节证明命题\ref{prop:threshold-tradeoff}。
 \begin{proof}
@@ -110,7 +110,7 @@ J=\frac{2N}{c_0\eta}\int_{S_c}^{S^*}\frac{(1-S_c/S)^2}{S-\bar S}\,dS.
 \end{equation}
 被积函数不含 $\eta$ 且在区间内部为正，系数 $1/\eta$ 和上限 $S^*$ 均随 $\eta$ 减小，故两个成本严格下降。两积分的初等表达列于附录\ref{app:cost}。
 
-为分析累计新增感染，退出后 $I=1$ 的条件对 $\eta$ 求导得
+对累计新增感染，把退出后 $I=1$ 的条件对 $\eta$ 求导得
 \[
 \frac{\partial S_{\rm end}}{\partial\eta}
 =-\frac1{\rho_1(1/S_{\rm end}-1/S_c)}<0.
@@ -125,7 +125,7 @@ J=\frac{2N}{c_0\eta}\int_{S_c}^{S^*}\frac{(1-S_c/S)^2}{S-\bar S}\,dS.
 其中使用 $\beta S_c/(S_c-\bar S)=\beta/[\beta+q_0(1-\beta)]$，以及 $S/(S-\bar S)$ 在 $S>\bar S$ 上非增。因此方括号非正，其与 $\partial S^*/\partial\eta<0$ 的乘积非负，最后一项严格为正。将终点替换为 $I=0,S=S_\infty$，同样的隐式微分给出无限时刻的结论。
 \end{proof}
 
-\subsection{常规接触率影响的证明}
+\subsection{接触率的影响}
 \label{sec:proof:contact-effects}
 本小节证明命题\ref{prop:contact-effects}。
 \begin{proof}
@@ -157,7 +157,7 @@ $S^*\to S_0-\frac{\beta_1^0}{\beta_2^0}(\eta-I_0)>0$，而 $S_c,\bar S$ 均为 $
 $\Delta t$ 在内部为正且连续，两端趋零，因此在内部达到正的最大值；中值定理同时保证其导数取正、负两种符号。
 \end{proof}
 
-\subsection{联合控制状态表示的证明}
+\subsection{状态参数化}
 \label{sec:proof:representation}
 本小节证明定理\ref{thm:joint:representation}。
 \begin{proof}
@@ -167,7 +167,7 @@ c(t)(1-q(t))S(t)=\frac{\gamma N}{\beta}
 =c_0(1-q_0)S_c.
 \label{eq:joint:balance}
 \end{equation}
-因而正的恒定感染阶段不允许 $q=1$。由 $q\ge q_0$ 和 $c\le c_0$，可得式\eqref{eq:joint:contact-range}和\eqref{eq:joint:q}；反向代入也成立。利用式\eqref{eq:joint:balance}，易感者方程化为
+因此在 $I=\eta>0$ 上 $q<1$。由 $q\ge q_0$ 和 $c\le c_0$，可得式\eqref{eq:joint:contact-range}和\eqref{eq:joint:q}；反向代入也成立。利用式\eqref{eq:joint:balance}，易感者方程化为
 \begin{equation}
 \dot S=-\frac{\eta}{N}\bigl[c_c(S)S-c_0\bar S\bigr].
 \label{eq:joint:Sdot}
@@ -182,14 +182,14 @@ c(t)(1-q(t))S(t)=\frac{\gamma N}{\beta}
 反之，给定满足式\eqref{eq:joint:contact-range}的可测函数，可在零测集上修改使界限处处成立。式\eqref{eq:joint:time}右侧随积分下限严格递减，且该时间变换及其逆函数均为 Lipschitz 函数，故定义唯一绝对连续的 $S(t)$。用式\eqref{eq:joint:q}构造时间控制，令 $I=\eta$，则前两个状态方程几乎处处成立；其余仓室由原模型确定。该时间变换保持零测集，所以这一对应在几乎处处相等意义下成立。最后，由 $c_0S_c/S\le c_c(S)\le c_0$，当 $S\downarrow S_c$ 时两界均趋于 $c_0$；式\eqref{eq:joint:q}继而给出 $q\to q_0$。
 \end{proof}
 
-\subsection{最小成本存在性与有限候选判据的证明}
+\subsection{最小值的存在性}
 \label{sec:proof:cost-minimum}
 本小节证明定理\ref{thm:joint:cost-minimum}。
 \begin{proof}
 式\eqref{eq:joint:cost}的分母满足
 $c_c(S)S-c_0\bar S\ge c_0(S_c-\bar S)>0$，所以 $f$ 在允许区域上连续有限。每个状态上的允许区间紧且非空，故最小值存在。任意允许控制的成本均不小于式\eqref{eq:joint:minimum-cost}右侧。
 
-为证明该下界可达到，先在本证明中将允许区间写为
+为证明下界可以达到，将允许区间写为
 $c=\underline c(S)+x[\overline c(S)-\underline c(S)]$，$x\in[0,1]$，并记
 \[
 H(S,x)=f\!\left(S,\underline c(S)+x[\overline c(S)-\underline c(S)]\right),
@@ -209,32 +209,11 @@ $c_c^*(S)=\underline c(S)+x_*(S)[\overline c(S)-\underline c(S)]$
 $c^3(cS-c_0\bar S)^2/S$，便得到式\eqref{eq:joint:stationary}右侧。该多项式最高次系数为 $1/c_0^2>0$，不恒为零，至多有五个实根。连续可微函数在闭区间上的最小值只能在端点或内部驻点取得，故比较所列候选值即可；不需要假设 $f$ 单峰或凸。
 \end{proof}
 
-\subsection{退出附近混合分配的证明}
-\label{sec:proof:terminal-allocation}
-本小节证明命题\ref{prop:joint:terminal-allocation}。
-\begin{proof}
-在本证明中令 $z=1-S_c/S$，并将允许接触率写为
-$c=c_0(1-zx)$、$0\le x\le1$。于是
-\[
-\frac{q_c-q_0}{1-q_0}=\frac{z(1-x)}{1-zx},\qquad
-\frac{f(S,c_0(1-zx))}{z^2}
-=\frac{x^2+2(1-x)^2/(1-zx)^2}
-{c_0[S(1-zx)-\bar S]}.
-\]
-当 $S\downarrow S_c$ 时，右侧在 $x\in[0,1]$ 上一致收敛于
-\[
-\frac{x^2+2(1-x)^2}{c_0(S_c-\bar S)},
-\]
-该函数的唯一最小化点为 $x=2/3$。由一致收敛和紧性，任何原问题最小化点序列均趋于 $2/3$：否则可取收敛子列，其极限将是极限函数的另一个最小化点，产生矛盾。因此所有最小化点在充分接近退出时均位于 $(0,1)$，并得到式\eqref{eq:joint:terminal-ratio}。
-
-在这样一个正长度状态区间上，两种单控制分别对应 $x=0$ 和 $x=1$，均不能达到逐状态最小值；其非负成本差的积分因而严格为正。有能力限制且 $c_{\min}<c_0,q_{\rm cap}>q_0$ 时，充分接近 $S_c$ 的原允许区间仍为 $[c_0S_c/S,c_0]$，因此同一局部论证成立。
-\end{proof}
-
-\subsection{端点局部性质的证明}
+\subsection{端点的局部性质}
 \label{sec:proof:endpoint-properties}
 本小节证明命题\ref{prop:joint:global-structure}。
 \begin{proof}
-在本证明中记 $n(c)=w_c(1-c/c_0)^2+w_q(1-c_0S_c/(cS))^2$。$f$ 关于 $c$ 的导数与
+记 $n(c)=w_c(1-c/c_0)^2+w_q(1-c_0S_c/(cS))^2$。$f$ 关于 $c$ 的导数与
 \[
 n'(c)(cS-c_0\bar S)-S n(c)
 \]
@@ -248,10 +227,31 @@ n'(c)(cS-c_0\bar S)-S n(c)
 -\frac{w_q}{S}\left(1-\frac{S_c}{S}\right)
 \bigl(S^2-3S_cS+2S_c\bar S\bigr).
 \]
-括号内二次式的较小根小于 $S_c$，较大根为 $S_{\rm sw}$，从而在 $S>S_{\rm sw}$ 时导数为负，在 $S_c<S<S_{\rm sw}$ 时导数为正。结合端点处的单侧比较，得到所述局部性质。由定理\ref{thm:joint:cost-minimum}，类内最小成本分配几乎处处取逐状态最小点；它不取左端点，在后一状态区间也不取右端点，故得到内部分配结论。
+括号内二次式的较小根小于 $S_c$，较大根为 $S_{\rm sw}$，从而在 $S>S_{\rm sw}$ 时导数为负，在 $S_c<S<S_{\rm sw}$ 时导数为正。结合端点处的单侧比较即得 (i)(ii)。由定理\ref{thm:joint:cost-minimum}，成本最优控制几乎处处取逐状态最小点；它不取左端点，在 $S_c<S<\min\{S_{\rm sw},S^*\}$ 上也不取右端点，故得到命题最后的结论。
+\end{proof}
+
+\subsection{退出附近的控制组合}
+\label{sec:proof:terminal-allocation}
+本小节证明命题\ref{prop:joint:terminal-allocation}。
+\begin{proof}
+令 $z=1-S_c/S$，把允许接触率写为
+$c=c_0(1-zx)$、$0\le x\le1$。于是
+\[
+\frac{q_c-q_0}{1-q_0}=\frac{z(1-x)}{1-zx},\qquad
+\frac{f(S,c_0(1-zx))}{z^2}
+=\frac{x^2+2(1-x)^2/(1-zx)^2}
+{c_0[S(1-zx)-\bar S]}.
+\]
+当 $S\downarrow S_c$ 时，右侧在 $x\in[0,1]$ 上一致收敛于
+\[
+\frac{x^2+2(1-x)^2}{c_0(S_c-\bar S)},
+\]
+该函数的唯一最小化点为 $x=2/3$。由一致收敛和紧性，任何原问题最小化点序列均趋于 $2/3$：否则可取收敛子列，其极限将是极限函数的另一个最小化点，产生矛盾。因此所有最小化点在充分接近退出时均位于 $(0,1)$，并得到式\eqref{eq:joint:terminal-ratio}。
+
+在这样一个正长度状态区间上，两种单控制分别对应 $x=0$ 和 $x=1$，均不能达到逐状态最小值；其非负成本差的积分因而严格为正。考虑满足 $c_{\min}<c_0$、$q_{\rm cap}>q_0$ 的能力约束时，充分接近 $S_c$ 处的允许区间仍为 $[c_0S_c/S,c_0]$，同一局部论证成立。
 \end{proof}
 \Needspace{12\baselineskip}
-\subsection{参数敏感性汇总}
+\subsection{敏感性汇总}
 \begin{table}[H]
 \centering\small
 \setlength{\tabcolsep}{3.5pt}
@@ -274,6 +274,3 @@ n'(c)(cS-c_0\bar S)-S n(c)
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
-
-
-% ===== 05_numerical_illustrations =====

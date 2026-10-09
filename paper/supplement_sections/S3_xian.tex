@@ -1,17 +1,17 @@
 \Needspace{12\baselineskip}
-\section{西安重构、阈值扫描和医疗联系}
+\section{西安算例的补充结果}
 \label{sec:sup:xian}
-\subsection{初值比较与阈值扫描}
-\label{sec:sup:xian:settings}
-本节沿用正文表\ref{tab:xian_initial_fit}的西安参数：$N=13{,}163{,}000,\beta=0.1498,\gamma=0.2953\ \mathrm d^{-1},\delta_q=0.3531\ \mathrm d^{-1},c_0=12.8872\ \mathrm d^{-1},q_0=0.3230$。拟合初值显示为 $I_0\approx1.00659\times10^{-3}$，计算使用未取整值；$S_0=N-I_0$，其余初始仓室为零。表\ref{tab:sup:initial}另列固定 $I_0=1$ 的对照。
+本节补充正文第~\ref{sec:xian}~节的西安算例：先给出初值对照与阈值扫描，再在附加的医疗需求假设下给出阈值的一个充分条件（第~\ref{sec:sup:medical-link}~节，正文第~\ref{sec:model}~节开头引用），最后说明设计阈值 $\eta=0.002N$ 的量级（第~\ref{sec:sup:threshold-scale}~节）。西安参数见正文表~\ref{tab:xian_initial_fit}，计算使用 $I_0$ 的未取整值。
 
-观测窗口的模型结果使用归一化方程、DOP853 求解器及分量容差，日新增由相邻整数日累计量之差计算。阈值扫描采用仅隔离控制的解析状态关系，以 \texttt{brentq} 求启动和清零状态，以 \texttt{quad} 计算时间与成本。两类结果的统计终点分别见表\ref{tab:sup:initial}、\ref{tab:sup:eta}的表注。
+\subsection{初值对照与阈值扫描}
+\label{sec:sup:xian:settings}
+拟合得到的 $I_0$ 远小于 $1$。表~\ref{tab:sup:initial}把它与固定 $I_0=1$ 的对照放在一起：后者使观测窗口内的累计病例高出两个数量级以上，与观测数据不符（正文第~\ref{sec:xian}~节）。
 \begin{table}[htbp]
 \centering\small
 \setlength{\tabcolsep}{3.5pt}
 \renewcommand{\arraystretch}{1.25}
 \begin{threeparttable}
-\caption{不同初值设定下的观测窗口比较}
+\caption{不同初值下观测窗口内的模型结果}
 \label{tab:sup:initial}
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lS[table-format=1.6]S[table-format=7.0]S[table-format=5.2]S[table-format=5.2]@{}}
 \toprule
@@ -23,17 +23,18 @@
 \bottomrule
 \end{tabular*}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：观测窗口为 2021 年 12 月 9 日至 2022 年 1 月 17 日的 40 个日区间。模型结果采用统一的归一化方程、DOP853 求解器和分量容差；拟合行使用未取整的最小二乘初值，另一模型行固定 $I_0=1$。TDINN 拟合轨迹在 $t=40$ 的总累计为 $2098.9747$，在清零时间 $45.2874$ d 为 $2105.6330$。容差收紧且最大步长减半后，清零时总累计的变化为 $3.61\times10^{-8}$ 人；该差异仅对应 TDINN 基准的清零累计量。日新增峰值不等于社区现存感染者峰值。
+\item 注：观测窗口为 2021 年 12 月 9 日至 2022 年 1 月 17 日，共 40 天；拟合行使用未取整的 $I_0$。日新增峰值是病例流量的峰值，不同于现存感染者的峰值。TDINN 拟合轨迹的总累计新增感染在 $t=40$ d 为 $2098.9747$，在清零时间 $45.2874$ d 为 $2105.6330$；收紧积分容差并把最大步长减半后，后者的变化为 $3.61\times10^{-8}$ 人。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
-\FloatBarrier
+
+表~\ref{tab:sup:eta}与图~\ref{fig:xian_eta_sens}给出 11 个阈值比例下仅隔离控制的结果，覆盖设计阈值 $\eta/N=0.002$ 的两侧。阈值从 $0.01N$ 降到 $0.0001N$ 时，$q_{\max}$ 只在 $0.838$ 与 $0.847$ 之间变化，控制时长与成本近似按阈值的反比增加，总累计新增感染则缓慢减少；正文第~\ref{sec:xian:threshold-scale}~节由此解释低阈值的代价。
 \begin{table}[htbp]
 \centering\small
 \setlength{\tabcolsep}{3.5pt}
 \renewcommand{\arraystretch}{1.25}
 \begin{threeparttable}
-\caption{西安参数下不同阈值的控制结果}
+\caption{西安参数下不同阈值的仅隔离控制}
 \label{tab:sup:eta}
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}S[table-format=1.4]S[table-format=1.4]S[table-format=4.2]S[table-format=4.2]S[table-format=3.4]S[table-format=7.0]@{}}
 \toprule
@@ -53,36 +54,30 @@
 \bottomrule
 \end{tabular*}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：数值采用本节给定的西安参数与未取整初值，按仅隔离控制的解析表达及数值求积计算；$q_{\max}=q_c(t_1)$。$\eta/N$ 为比例而非百分数，0.002对应0.2\%。阈值网格用于比较不同设计情景。累计新增感染不包含初始感染者，计算至各阈值情景的社区清零终点。长时间结果沿用固定参数模型的外推解释，不作为现实预测。
+\item 注：$q_{\max}=q_c(t_1)$；$\eta/N$ 为比例，$0.002$ 即 $0.2\%$；总累计新增感染计算至清零时间。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
-\FloatBarrier
-取 $\eta/N\in\{0.0001,0.0002,0.0005,0.001,0.0015,0.002,0.003,0.004,0.005,0.0075,0.01\}$，结果见表~\ref*{tab:sup:eta} 和图~\ref{fig:xian_eta_sens}。这些取值覆盖代表性阈值及其两侧的范围，用于比较不同设计情景。
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{xian_eta_sensitivity.pdf}
-    \caption{西安参数下仅隔离控制的指标随 $\eta/N$ 的变化。(a) 启动隔离比例；(b) 加权成本；(c) 累计新增感染；(d) 控制时长与清零时间。水平线为 TDINN 参照值。(d) 中 TDINN 的控制时长和清零时间均为 $45.29$ d，前者为干预持续时间，后者为从共同时间原点起算的终点，数值相同并不表示两个定义相同。}
+    \caption{西安参数下仅隔离控制的指标随 $\eta/N$ 的变化：(a) 启动时的隔离比例；(b) 成本 $J$；(c) 累计新增感染；(d) 控制时长与清零时间。水平线为 TDINN 参照值；(d) 中 TDINN 的控制时长与清零时间同为 $45.29$ d。}
     \label{fig:xian_eta_sens}
 \end{figure}
 
-\FloatBarrier
-\subsection{接触率 \texorpdfstring{$c_0$}{c0} 与阈值 \texorpdfstring{$\eta$}{eta} 的联合变化}
-图~\ref{fig:xian_heatmaps} 给出 $(\eta,c_0)$ 平面上的控制时长、清零时间、累计新增感染和成本。两条参照线分别为设计情景 $\eta=0.002N=26326$ 和 TDINN 峰值 $\eta=I_{\rm peak}^{\rm T}=152.55$。
+图~\ref{fig:xian_heatmaps}把扫描推广到 $(\eta,c_0)$ 平面。在图示的 $c_0$ 范围内，控制时长、清零时间与成本的等值线接近竖直，主要由阈值决定；正文第~\ref{sec:xian:threshold-scale}~节在 TDINN 峰值处的控制时长即取自子图 (a)。
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{xian_heatmaps.pdf}
-    \caption{西安参数下仅隔离控制在 $(\eta,c_0)$ 平面上的指标。(a) 控制时长；(b) 清零时间；(c) 累计新增感染；(d) 加权成本。竖直参照线分别表示 TDINN 社区感染峰值 $\eta=152.55$ 和设计阈值 $\eta=26326$，等值线表示各指标的水平。}
+    \caption{西安参数下仅隔离控制在 $(\eta,c_0)$ 平面上的指标：(a) 控制时长；(b) 清零时间；(c) 累计新增感染；(d) 成本 $J$。两条竖直参照线分别为 TDINN 的社区感染峰值 $\eta=152.55$ 与设计阈值 $\eta=26326$；虚线为等值线。}
     \label{fig:xian_heatmaps}
 \end{figure}
 
-
 \FloatBarrier
-
-\subsection{社区感染上限与医疗需求的联系}
+\subsection{阈值与医疗需求}
 \label{sec:sup:medical-link}
-本节在正文传播模型之外补充一个医疗需求关系，说明如何在附加假设下根据容量选取社区感染上限。
+正文第~\ref{sec:model}~节开头指出，接触率不超过常规水平时，限制 $I$ 也就限制了进入 $I$ 和 $I_q$ 的全部新增感染。本节给出这一上界，并在附加的医疗需求假设下由容量导出阈值的一个充分条件。
 
 两类感染仓室的新增流入之和为
 \[
@@ -90,20 +85,20 @@
 +\frac{\beta c(t)q(t)S(t)I(t)}{N}
 =\frac{\beta c(t)S(t)I(t)}{N}.
 \]
-若全过程满足 $0\le c(t)\le c_0$ 和 $I(t)\le\eta$，由无回流模型中的 $S(t)\le S_0$，得到
+若全过程满足 $0\le c(t)\le c_0$ 和 $I(t)\le\eta$，由 $S(t)\le S_0$，得到
 \[
 0\le\frac{\beta c(t)S(t)I(t)}{N}
 \le\frac{\beta c_0S_0}{N}\eta.
 \]
 这一上界包含进入 $I$ 和 $I_q$ 的全部新增感染。
 
-设非负可测函数 $h(a)$ 表示一例新感染者在感染后第 $a$ 天所需的平均 ICU 床位数，并假定它对两类病例、不同感染时点及所比较的干预分配共同适用。令
+设非负可测函数 $h(a)$ 表示一例新感染者在感染后第 $a$ 天所需的平均 ICU 床位数，并假定它对两类病例、不同感染时点及所比较的控制共同适用。令
 \[
 \int_0^\infty h(a)\,da=pL<\infty,
 \]
-其中 $p\in(0,1]$ 为需要 ICU 的概率，$L>0$ 为需要 ICU 者累计占用时长的均值；$h$ 可包含感染至入院的延迟。根据既往流入与停留过程计算床位占用的建模方法可参见文献\cite{Baas2021Occupancy}。
+其中 $p\in(0,1]$ 为需要 ICU 的概率，$L>0$ 为需要 ICU 者累计占用时长的均值；$h$ 可包含感染至入院的延迟。由既往流入与停留过程计算床位占用的方法可参见文献\cite{Baas2021Occupancy}。
 
-初始时刻之前已经感染者此后的平均需求记为 $D_0(t)$，并假定各策略均满足 $0\le D_0(t)\le D_{\mathrm{init}}<\infty$。该项包括初始病例以后才发生的入院和后续占用，也包括已从传播模型移出但仍需救治的病例。未受容量拒收限制的平均需求为
+初始时刻之前已经感染者此后的平均需求记为 $D_0(t)$，并假定各策略均满足 $0\le D_0(t)\le D_{\mathrm{init}}<\infty$。该项包括初始病例以后才发生的入院和后续占用，也包括已从传播模型移出但仍需救治的病例。不受容量拒收限制的平均需求为
 \[
 D(t)=D_0(t)+\int_0^t h(t-u)
 \frac{\beta c(u)S(u)I(u)}{N}\,du.
@@ -122,11 +117,11 @@ D(t)
 \[
 \eta\le\frac{C-D_{\mathrm{init}}}{pL\,\beta c_0S_0/N}
 \]
-是平均需求满足 $D(t)\le C$ 的充分条件。该界对允许的干预分配共同成立，可能偏保守；它针对上述平均需求关系，不给出随机超载概率。按此条件选取阈值后，仍须检验正文中的触发条件和干预能力条件。
+是平均需求满足 $D(t)\le C$ 的充分条件。该条件对 $\mathcal A(\eta)$ 中的全部控制同时成立，因而可能偏保守；它约束的是平均需求，不给出随机超载的概率。按此选取的阈值还须满足触发条件\eqref{eq:model:trigger}与能力约束下的可行条件（正文推论~\ref{cor:joint:feasibility}）。
 
-\subsection{代表性阈值的量级参考}
+\subsection{设计阈值的量级}
 \label{sec:sup:threshold-scale}
-正文西安算例采用 $N=13{,}163{,}000$\cite{XianStat2021}、$\eta=0.002N=26{,}326$。本节保留其比例情景的参考依据，并与上一小节的医疗需求充分条件区分。
+正文西安算例取 $N=13{,}163{,}000$\cite{XianStat2021}、$\eta=0.002N=26{,}326$。这一阈值来自下面的量级估计，它与第~\ref{sec:sup:medical-link}~节的充分条件是两种不同的依据。
 
 陈胤孜等\cite{Chen2021ICUForecast}基于既往资料预测，2021 年全国每10万人综合 ICU 床位约为 $4.37$ 张；这一数值为全国预测量，而非西安同期可用容量的实测值。Angulo 等\cite[补充材料 S4.1]{Angulo2021}对早期 COVID-19 采用需要重症监护的感染者比例名义值 $0.60\times0.15\times0.28=0.0252$。将前者作为人均容量参考、不扣除既有占用，并将后者移作参考系数 $\rho_{\mathrm{ICU}}$，按比例情景
 \[
@@ -138,7 +133,6 @@ D(t)
 \theta=\frac{4.37/10^5}{0.0252}\approx1.73\times10^{-3},
 \qquad \eta\approx2.28\times10^4.
 \]
-正文在这一量级附近取 $\theta=0.002$ 作代表性设计情景，而非对上式作保守取整。按相同参考系数反算，它对应每10万人 $5.04$ 张、全市约 $663$ 张的名义容量。
+正文在这一量级附近取 $\theta=0.002$ 作为设计情景。按相同的参考系数反算，它对应每10万人 $5.04$ 张、全市约 $663$ 张的名义容量。
 
-上述比例移植用于说明阈值量级，不是当地医疗容量的临床校准。以确诊病例或全部感染者为分母的 ICU 入院风险可能不同\cite{Pung2023Undetected}；此处的参考系数未依据共同需求函数和初始负担估计，也不等同于第\ref{sec:sup:medical-link}节的 $pL\beta c_0S_0/N$。两节分别给出一个历史比例情景和一个附加医疗假设下的充分条件，现有算例采用前者附近的设计阈值开展控制比较。
-
+这一比例移植只给出阈值的量级，不是当地医疗容量的临床校准。以确诊病例或全部感染者为分母的 ICU 入院风险可能不同\cite{Pung2023Undetected}；参考系数 $\rho_{\mathrm{ICU}}$ 也没有依据共同的需求函数和初始负担估计，不等同于第~\ref{sec:sup:medical-link}~节中的 $pL\beta c_0S_0/N$。
