@@ -50,7 +50,7 @@ c_{\min}\le\frac{c_0(1-q_0)S_c}{(1-q_{\rm cap})S}.
 \end{proof}
 减少接触扩大了可行范围：仅隔离控制的条件 $q_{\max}\le q_{\rm cap}$ 即 $c_0(1-q_{\rm cap})\le c_0(1-q_{\max})$，推论中的条件只是把左端的 $c_0$ 换成 $c_{\min}$。$q_{\rm cap}<q_{\max}$ 而式\eqref{eq:joint:feasibility}成立时，由式\eqref{eq:joint:bounds}，只要 $S>(1-q_0)S_c/(1-q_{\rm cap})$ 就有 $\overline c(S)<c_0$，所以启动后的一段时间内必须同时减少接触；$S$ 降到这一水平以下后，$c_c=c_0$ 重新落入允许区间。式\eqref{eq:joint:feasibility}不成立时，等到 $I=\eta$ 才启动的阈值策略不可行；提前干预会改变启动状态，其可行性需另行分析。
 
-提高阈值使可行条件更容易满足。由引理~\ref{lem:s1:Sstar-sensitivity}，$S^*$ 随 $\eta$ 严格下降，式\eqref{eq:joint:feasibility}左端随之减小。因此在其余参数与能力约束固定时，若某一阈值可行，则所有更高且仍触发控制的阈值都可行。
+提高阈值使可行条件更容易满足。由引理~\ref{lem:s1:Sstar-sensitivity}，$S^*$ 随 $\eta$ 严格下降，式\eqref{eq:joint:feasibility}左端随之减小。因此在其余参数与能力约束固定时，若某一阈值可行，则所有更高且仍触发控制的阈值都可行。反过来，降低阈值使启动状态 $S^*$ 增大，启动时所需的干预更强，可能超出能力约束。
 
 \subsection{显式控制族}
 常数 $\alpha\in[0,1]$ 给出一族连接两种单控制的控制：
