@@ -2,7 +2,8 @@
 % 整合稿：原主文件结构、图表和参数记号；新增联合控制位于第6节。
 \RequirePackage{xr-hyper}
 \documentclass[lang=cn,a4paper,newtx]{elegantpaper}
-\title{感染峰值约束下接触减少与追踪隔离的阈值控制}
+\title{阈值策略下接触控制与追踪隔离的最优控制}
+% English title: Optimal control of contact reduction and contact tracing under a capacity-based threshold strategy
 \author{XXX \and XXX}
 \institute{School of Mathematics and Statistics, Shaanxi Normal University}
 \date{}
@@ -25,8 +26,9 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-同一社区非隔离感染人数上限下，接触减少与追踪隔离的分配会改变控制时长、累计感染和隔离负担。本文在隔离易感者无回流的 SIQR 型模型中，研究常规轨迹首次触及阈值后维持 $I=\eta$、并在首次达到常规传播临界状态 $S=S_c$ 时恢复常规控制的阈值控制类。由首次积分与 Lambert $W$ 函数建立仅隔离控制的解析基准，再以社区易感者人数参数化全部联合分配，得到能力限制下整段可行的充要条件。固定二维起止状态且 $0<\beta<1$ 时，控制期累计新增感染与控制时长同序，新增隔离易感者人数反序。无额外能力限制时，仅隔离控制最快且控制期累计新增感染最少，代价是最多未感染者进入隔离。对于正权重的二次强度成本，在不含额外跨状态约束的允许控制类中，最小值可达到，且由逐状态的端点与有限驻点比较确定。在触发且整段可行的阈值范围内，固定其余条件，最小成本随阈值严格下降。无额外能力限制时，最小成本分配在退出附近共同使用两种措施，其成本严格低于两种单控制各自的成本。基准与西安参数的同条件数值比较显示，相对仅隔离控制，最小成本分配延长控制期并增加累计新增感染。规定有限时刻达到 $S=S_c$ 还使从初始时刻到退出的累计新增感染不小于 $\beta(S_0-S_c)$。这些结果给出同一峰值目标下干预分配的可行条件与指标取舍，并说明退出要求对感染结局的限制。
-\par\medskip\noindent 关键词：SIQR 模型；联合阈值控制；接触减少；追踪隔离；状态参数化；二次成本
+优化的非药物干预措施对控制新发传染病、使医疗需求不超出医疗资源承载能力至关重要。容量约束下的多项研究表明，最优干预策略的核心是感染人数达到容量水平后保持不变，并随易感者减少逐步放松。本文在含追踪隔离与接触控制的 SIQR 模型中研究这一阈值策略：非隔离感染者首次达到与医疗资源承载能力相适应的阈值后保持不变，待易感者降至群体免疫阈值时退出。本文求出仅加强隔离时的解析解，并以易感者人数代替时间，把该策略下的最优控制问题化为逐状态优化。结果表明，在干预能力允许时，使控制时长和累计感染最小的最优控制是仅加强隔离，使未感染者隔离负担最小的是仅减少接触；控制期累计感染和未感染者隔离负担都由控制时长唯一确定。不另加跨状态约束时，二次干预成本最小的最优控制在控制后期两种措施并用。在群体免疫阈值退出可避免疫情反弹，但使累计感染存在下界。基准与西安疫情参数下的数值结果展示了这些结论。
+\par\medskip\noindent 关键词：非药物干预；接触追踪；隔离；医疗资源承载能力；最优控制；群体免疫阈值
+% Keywords: non-pharmaceutical interventions; contact tracing; quarantine; healthcare capacity; optimal control; herd-immunity threshold
 \end{abstract}
 
 \input{sections/01_introduction}
