@@ -29,7 +29,7 @@ $\eta$ & 阈值（人） & $0.05N=38.15$ & $0.002N=\num{26326}$ & 设计情景�
 \bottomrule
 \end{tabularx}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：基准参数沿用文献~\cite{Zhou2024SPCI}的算例。西安参数中只有 $I_0$ 由拟合得到，计算使用其未取整值。
+\item 注：基准参数沿用文献~\cite{Zhou2024SPCI}的算例。西安的 $I_0$ 在计算中使用未取整值。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -37,7 +37,7 @@ $\eta$ & 阈值（人） & $0.05N=38.15$ & $0.002N=\num{26326}$ & 设计情景�
 表与图中的指标由解析式和状态积分计算：仅隔离控制用第~\ref{sec:s1}~节的闭式表达与数值求积，四种控制用式\eqref{eq:joint:duration}、\eqref{eq:joint:cost}的状态积分，成本最优控制按定理~\ref{thm:joint:cost-minimum}逐状态选出。完整仓室方程的数值积分只用于核对：输入的控制是按模型轨迹预先算出的时间函数，积分中不按实时状态纠偏。基准轨迹（图~\ref{fig:scenario1:single-sim}）用 \texttt{ode45} 分三段积分，四种控制与西安算例用 DOP853 求解归一化方程。在基准轨迹与西安的仅隔离控制中，阈值控制期内 $I$ 偏离 $\eta$ 的最大值分别约为 $1.07\times10^{-7}$ 人与 $1.35\times10^{-6}$ 人。日新增病例取相邻整数日累计量之差，积分容差的影响见补充表~\ref*{tab:sup:initial}。第~\ref{sec:joint:capacity-numerics}、\ref{sec:joint:weights-numerics}~节只在有限个代表点、网格点和乘子点上计算。
 
 \subsection{阈值与接触率}
-图~\ref{fig:scenario1:single-sim}给出基准参数下仅隔离控制的三阶段轨迹。常规控制下社区感染者的峰值约为 $300.4$ 人，远高于阈值 $\eta=38.15$。仅隔离控制在 $t_1\approx3.175$ d 感染者首次达到阈值时启动，隔离比例跳升至 $q_{\max}\approx0.7565$，此后随易感者减少而下降，约 $5.903$ d 后回到 $q_0$。
+图~\ref{fig:scenario1:single-sim}给出基准参数下仅隔离控制的三阶段轨迹。常规控制下非隔离感染者的峰值约为 $300.4$ 人，远高于阈值 $\eta=38.15$。仅隔离控制在 $t_1\approx3.175$ d 感染者首次达到阈值时启动，隔离比例跳升至 $q_{\max}\approx0.7565$，此后随易感者减少而下降，约 $5.903$ d 后回到 $q_0$。
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.7\textwidth]{figures/optimal_control_with_quarantine_panels.pdf}
@@ -66,7 +66,7 @@ $\eta$ & 阈值（人） & $0.05N=38.15$ & $0.002N=\num{26326}$ & 设计情景�
 \label{sec:joint:compare-numerics}
 成本最低的控制不是最快的控制。表~\ref{tab:joint:compare}比较不考虑能力约束时的四种控制。与最快的仅隔离控制相比，成本最优控制在基准参数下使 $J$ 降低约 $4.7\%$，控制时长与总累计新增感染分别增加约 $31.4\%$ 与 $7.3\%$；西安参数下相应为 $6.7\%$、$27.9\%$ 与 $6.6\%$。
 
-表中感染与隔离的差别都由控制时长决定。两组参数下，控制时长从长到短依次为仅减少接触、$\alpha=0.5$、成本最优控制与仅隔离控制；由定理~\ref{thm:joint:comparison}(iii)，阈值控制期累计新增感染按这一顺序减少，新增隔离易感者人数按这一顺序增加。推论~\ref{cor:joint:whole-epidemic}把感染的排序延伸到清零时间，表中的清零时间与总累计新增感染也按同一顺序排列。成本最优控制因而居于两种单控制之间（第~\ref{sec:joint:cost}~节末）。
+表中感染与隔离的差别都由控制时长决定。两组参数下，控制时长从长到短依次为仅减少接触、$\alpha=0.5$、成本最优控制与仅隔离控制；由定理~\ref{thm:joint:comparison}(iii)，阈值控制期累计新增感染按这一顺序减少，新增隔离易感者人数按这一顺序增加。推论~\ref{cor:joint:whole-epidemic}把感染的排序延伸到清零时间，表中的清零时间与总累计新增感染也按同一顺序排列。成本最优控制因而居于两种单控制之间（第~\ref{sec:joint:cost-structure}~节）。
 
 两组参数的成本最优控制都先仅隔离、后两者并用。两组的启动状态都高于 $S_{\rm sw}$（比值见表~\ref{tab:joint:compare}注）。命题~\ref{prop:joint:global-structure}只保证 $S>S_{\rm sw}$ 时仅隔离控制是局部最优；在默认权重下比较全部候选，它在这一段也是全局最优，并在 $S_{\rm sw}$ 处连续切换到两者并用。前段较短，基准与西安参数下分别约 $1.61$ d 与 $25.46$ d，却完成了阈值控制期 $S$ 下降的一半以上：$S$ 越大，下降越快，所以控制期的大部分时间落在两者并用的后段。两种控制在 $S\ge S_{\rm sw}$ 上相同，$J$ 与 $\Delta t$ 的差别全部来自 $S<S_{\rm sw}$ 一段：成本最优控制在这里取 $c_c(S)<c_0$，$S$ 下降变慢，控制期延长；接触减少分担了维持 $I=\eta$ 所需的干预，隔离强度降低，二次成本因而下降。后段的接触减少并不大：接触率最多降低约 $19.8\%$（基准）与 $28.2\%$（西安）。
 
@@ -98,7 +98,7 @@ $\eta$ & 阈值（人） & $0.05N=38.15$ & $0.002N=\num{26326}$ & 设计情景�
 \bottomrule
 \end{tabularx}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：每组的四种控制采用同一完整初值（表~\ref{tab:xian_initial_fit}），在 $I$ 首次升至 $\eta$ 时启动、于 $S=S_c$ 退出，恢复常规控制后在 $I$ 降至 $1$ 时终止；总累计新增感染与现存感染峰值都计至该终点。$J$ 见式\eqref{eq:cost:J}。基准与西安参数下，$S^*/S_c$ 约为 $4.044$ 与 $4.378$，$S_{\rm sw}/S_c$（式\eqref{eq:joint:ssw}）约为 $2.265$ 与 $2.548$。
+\item 注：每组的四种控制采用同一完整初值（表~\ref{tab:xian_initial_fit}），总累计新增感染与现存感染峰值都计至清零时间。$J$ 见式\eqref{eq:cost:J}。基准与西安参数下，$S^*/S_c$ 约为 $4.044$ 与 $4.378$，$S_{\rm sw}/S_c$（式\eqref{eq:joint:ssw}）约为 $2.265$ 与 $2.548$。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -115,11 +115,11 @@ $\eta$ & 阈值（人） & $0.05N=38.15$ & $0.002N=\num{26326}$ & 设计情景�
 \subsection{能力约束}
 \label{sec:joint:capacity-numerics}
 \def\jointcapacitypostexitdays{1}
-能力约束把能力平面分成三个区域（图~\ref{fig:joint:capacity}(a)(b)）：至少一种单控制可行，只有联合控制可行，以及阈值策略不可行。仅隔离控制可行当且仅当 $q_{\rm cap}\ge q_{\max}$（推论~\ref{cor:s1:qc-structure}），仅减少接触可行当且仅当 $c_{\min}\le c_0S_c/S^*$（第~\ref{sec:joint}~节）。两者都不成立时，联合控制是否可行由推论~\ref{cor:joint:feasibility}判断。
+能力约束把能力平面分成三个区域（图~\ref{fig:joint:capacity}(a)(b)）：至少一种单控制可行，只有联合控制可行，以及阈值策略不可行。仅隔离控制可行当且仅当 $q_{\rm cap}\ge q_{\max}$（推论~\ref{cor:s1:qc-structure}），仅减少接触可行当且仅当 $c_{\min}\le c_0S_c/S^*$（第~\ref{sec:joint:objectives}~节）。两者都不成立时，联合控制是否可行由推论~\ref{cor:joint:feasibility}判断。
 
-两个代表能力组合都落在只有联合控制可行的区域，能力约束使最小成本与控制时长都增加。基准代表点上，仅隔离控制需要 $q_{\max}\approx0.756$，仅减少接触需要把接触率降低约 $75.3\%$，都超出能力；西安代表点也是如此。这时最快与最慢的控制 $\overline c(S)$、$\underline c(S)$（推论~\ref{cor:joint:capped-comparison}）都不是单控制。能力约束下的成本最优控制在基准参数下 $J\approx 2.361$ d、$\Delta t\approx 8.34$ d，在西安参数下 $J\approx 41.62$ d、$\Delta t\approx 116.8$ d，都高于表~\ref{tab:joint:compare}中的值，与命题~\ref{prop:joint:minimum-threshold}一致。
+两个代表能力组合都落在只有联合控制可行的区域，能力约束使最小成本与控制时长都增加。基准代表点上，仅隔离控制需要 $q_{\max}\approx0.7565$，仅减少接触需要把接触率降低约 $75.3\%$，都超出能力；西安代表点也是如此。这时最快与最慢的控制 $\overline c(S)$、$\underline c(S)$（推论~\ref{cor:joint:capped-comparison}）都不是单控制。能力约束下的成本最优控制在基准参数下 $J\approx 2.361$ d、$\Delta t\approx 8.34$ d，在西安参数下 $J\approx 41.62$ d、$\Delta t\approx 116.8$ d，都高于表~\ref{tab:joint:compare}中的值，与命题~\ref{prop:joint:minimum-threshold}一致。
 
-增加的成本与时长全部来自能力约束起作用的前一段。图~\ref{fig:joint:capacity}(c)中，启动后约 $1.94$ d 内隔离比例停在上限，接触率同时降低，降幅从启动时的约 $39.1\%$ 随 $S$ 下降而减小。$S$ 降到 $(1-q_0)S_c/(1-q_{\rm cap})$ 以下后，仅隔离控制重新可行（第~\ref{sec:joint}~节）；在该代表点上，不考虑能力约束的成本最优控制此后也满足两项能力约束，能力约束下的控制便在同一 $S$ 上与它取相同的 $c_c(S)$、$q_c(S)$，只是到达得更晚。$J$ 与 $\Delta t$ 都是对 $S$ 的积分，增量因而只来自此前的一段。西安代表点的结构相同，隔离比例停在上限约 $30.38$ d。
+增加的成本与时长全部来自能力约束起作用的前一段。图~\ref{fig:joint:capacity}(c)中，启动后约 $1.94$ d 内隔离比例停在上限，接触率同时降低，降幅从启动时的约 $39.1\%$ 随 $S$ 下降而减小。$S$ 降到 $(1-q_0)S_c/(1-q_{\rm cap})$ 以下后，仅隔离控制重新可行（第~\ref{sec:joint:state}~节）；在该代表点上，不考虑能力约束的成本最优控制此后也满足两项能力约束，能力约束下的控制便在同一 $S$ 上与它取相同的 $c_c(S)$、$q_c(S)$，只是到达得更晚。$J$ 与 $\Delta t$ 都是对 $S$ 的积分，增量因而只来自此前的一段。西安代表点的结构相同，隔离比例停在上限约 $30.38$ d。
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/joint_v2/joint_capacity.pdf}
@@ -172,6 +172,6 @@ $\eta$ & 阈值（人） & $0.05N=38.15$ & $0.002N=\num{26326}$ & 设计情景�
 \label{fig:joint:frontier}
 \end{figure}
 
-下一章回到西安疫情：由观测数据重构初值，把仅隔离控制与文献\cite{He2023TDINN}重构的控制比较，并看低阈值和在群体免疫阈值退出的代价。
+第~\ref{sec:xian}~节回到西安疫情：由观测数据重构初值，把仅隔离控制与文献\cite{He2023TDINN}重构的控制比较，并看低阈值和在群体免疫阈值退出的代价。
 
 \FloatBarrier

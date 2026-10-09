@@ -1,6 +1,6 @@
 \section{仅隔离控制}
 \label{sec:s1}
-仅隔离控制保持常规接触率 $c=c_0$，只靠提高隔离比例维持 $I=\eta$。它是后文比较的基准：控制函数、控制时长和累计新增感染都有闭式表达；只要追踪隔离能力足以实施，它还是控制时长最短、累计新增感染最少的控制（定理~\ref{thm:joint:comparison}、推论~\ref{cor:joint:capped-comparison}）。此外，$\mathcal A(\eta)$ 中的控制都从 $(S^*,\eta)$ 启动、在 $(S_c,\eta)$ 退出，本章关于启动状态与退出后动态的结论（定理~\ref{thm:s1:start}、\ref{thm:s1:tend}）对它们全部成立。
+仅隔离控制保持常规接触率 $c=c_0$，只靠提高隔离比例维持 $I=\eta$。它是后文比较的基准：控制函数、控制时长和累计新增感染都有闭式表达；只要追踪隔离能力足以实施，它还是控制时长最短、累计新增感染最少的控制（定理~\ref{thm:joint:comparison}、推论~\ref{cor:joint:capped-comparison}）。此外，$\mathcal A(\eta)$ 中的控制都从 $(S^*,\eta)$ 启动、在 $(S_c,\eta)$ 退出，本节关于启动状态与退出后动态的结论（定理~\ref{thm:s1:start}、\ref{thm:s1:tend}）对它们全部成立。
 
 \subsection{控制轨迹}
 常规轨迹在 $I$ 上升和下降时各经过 $I=\eta$ 一次，阈值策略在第一次经过时启动。把 $I=\eta$ 代入首次积分\eqref{eq:model:first-integral}，启动状态可以用 Lambert $W$ 函数写出。
@@ -293,4 +293,4 @@ J=\frac{2}{c_0\theta}\int_{s_c}^{s^*}
 \end{equation}
 其中只含归一化状态和固定参数。代入控制表达可得其余结论。无限时间的终点为 $i\to0$，同样不含 $N$；有限的终点 $I=1$ 却对应 $i=1/N$，因而保留绝对人口尺度。
 \end{proof}
-本章固定 $c=c_0$，干预负担只能通过阈值调节：阈值越高，所需隔离越少、控制期越短，但累计新增感染越多（命题~\ref{prop:threshold-tradeoff}）。接触率也可以调整时，同一阈值下维持 $I=\eta$ 只要求 $c(1-q)$ 满足式\eqref{eq:model:balance}，接触减少得少，隔离就要多，反之亦然。下一章固定阈值比较这些控制组合，找出使控制时长、累计新增感染或新增隔离易感者人数最小的组合。
+以上固定 $c=c_0$，干预负担只能通过阈值调节（命题~\ref{prop:threshold-tradeoff}）。接触率也可以调整时，同一阈值下维持 $I=\eta$ 只要求 $c(1-q)$ 满足式\eqref{eq:model:balance}，接触减少得少，隔离就要多，反之亦然。第~\ref{sec:joint}~节固定阈值比较这些控制组合，找出使控制时长、累计新增感染或新增隔离易感者人数最小的组合。

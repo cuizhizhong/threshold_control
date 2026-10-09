@@ -1,6 +1,6 @@
 \section{成本最优控制}
 \label{sec:joint:cost}
-本章以二次干预成本 $J$（式\eqref{eq:cost:J}）为目标。与控制时长一样，$J$ 可以写成对 $S$ 的积分，最小化 $J$ 因而化为在每个状态上选取接触率。
+本节以二次干预成本 $J$（式\eqref{eq:cost:J}）为目标。与控制时长一样，$J$ 可以写成对 $S$ 的积分，最小化 $J$ 因而化为在每个状态上选取接触率。
 
 \subsection{存在性}
 由式\eqref{eq:joint:q}与\eqref{eq:joint:time}把时间换成 $S$，成本写为
@@ -15,7 +15,7 @@ f(S,c)=
 {cS-c_0\bar S}.
 \label{eq:joint:cost-integrand}
 \end{equation}
-被积项 $\frac{N}{\eta}f(S,c)$ 是 $S$ 每减少一人所付的成本：分子是两种归一化强度 $(c_0-c)/c_0$ 与 $(q-q_0)/(1-q_0)=1-c_0S_c/(cS)$ 的平方加权和，分母与 $S$ 的下降速度成正比（附录式\eqref{eq:joint:Sdot}）。一般正权重下，把分子两项的系数 $1,2$ 换为 $w_c,w_q$（式\eqref{eq:joint:stationary}两项的系数作相同替换），仍记为 $f$，下面定理的结论不变。
+被积项 $\frac{N}{\eta}f(S,c)$ 是 $S$ 每减少一人所付的成本：分子是两种归一化强度 $(c_0-c)/c_0$ 与 $(q-q_0)/(1-q_0)=1-c_0S_c/(cS)$ 的平方加权和，分母与 $S$ 的下降速度成正比（式\eqref{eq:joint:Sdot}）。一般正权重下，把分子两项的系数 $1,2$ 换为 $w_c,w_q$（式\eqref{eq:joint:stationary}两项的系数作相同替换），仍记为 $f$，下面定理的结论不变。
 \begin{theorem}
 \label{thm:joint:cost-minimum}
 不考虑能力约束时取 $\underline c(S)=c_0S_c/S$、$\overline c(S)=c_0$（式\eqref{eq:joint:contact-range}）；考虑能力约束时取式\eqref{eq:joint:bounds}，并设式\eqref{eq:joint:feasibility}成立。在相应的控制类 $\mathcal A(\eta)$ 或 $\mathcal A(\eta;c_{\min},q_{\rm cap})$ 中（不另加总时长、调整次数或控制变化率等约束），二次干预成本的最小值可以达到，且
@@ -65,7 +65,8 @@ J_{\min}(\eta)=\frac{N}{\eta}\int_{S_c}^{S^*(\eta)}m(S)\,dS.
 端点处的严格比较可直接由两个积分的上下限和正系数得到。把较低阈值下的逐状态最小化选择限制到较高阈值经过的区间上，它在每个状态仍达到 $m(S)$，即得兼容的成本最优控制。最后，放宽任一能力约束使每个状态的允许区间包含原区间，最小被积函数值不增，积分即得最后的结论。
 \end{proof}
 
-\subsection{成本最优控制的结构}
+\subsection{控制组合的结构}
+\label{sec:joint:cost-structure}
 不考虑能力约束时，成本最优控制从不单独减少接触，其结构取决于 $S$ 与状态
 \begin{equation}
 S_{\rm sw}=\frac{3S_c+\sqrt{9S_c^2-8S_c\bar S}}{2}
@@ -124,6 +125,6 @@ J[c_c]\ge J[c_\kappa]+\kappa\bigl(\Delta t[c_\kappa]-\Delta t[c_c]\bigr)\ge J[c_
 由式\eqref{eq:joint:quarantine}，时长下限 $\Delta t\ge T$ 等价于阈值控制期新增隔离易感者人数不超过 $(1-\beta)[S^*-S_c-\gamma\eta T]$。这一充分条件不要求可达集凸，但不保证每个允许时长都有匹配的 $\kappa$。
 \end{remarkn}
 
-下一章用两组参数看这些取舍有多大，以及能力约束、成本权重与时长约束如何改变它们。
+第~\ref{sec:numerics}~节用两组参数看这些取舍有多大，以及能力约束、成本权重与时长约束如何改变它们。
 
 \FloatBarrier

@@ -530,7 +530,7 @@ C3 与 C4 合起来的“居中”（成本最优控制的控制时长、控制�
 | 5 二次成本下的最优分配 | 5 成本最优控制 | Cost-optimal control | C4 短名（已定 5） |
 | 5.1 状态积分与最小值存在性 | 5.1 存在性 | Existence | |
 | 5.2 有限候选判据及阈值、能力的影响 | 5.2 逐状态判据 | A pointwise criterion | |
-| 5.3 退出附近的混合分配与端点局部性质 | 5.3 成本最优控制的结构 | Structure of the cost-optimal control | 按已定 5（框架第 7 节）；与章标题重复“成本最优控制”，不合 4.1 第 11 条“小节标题不重复章标题中的词”，若要避免可把章标题改为“二次干预成本”（Quadratic intervention cost） |
+| 5.3 退出附近的混合分配与端点局部性质 | 5.3 成本最优控制的结构 | Structure of the cost-optimal control | 按已定 5（框架第 7 节）；与章标题重复“成本最优控制”，不合 4.1 第 11 条“小节标题不重复章标题中的词”，若要避免可把章标题改为“二次干预成本”（Quadratic intervention cost）。**R5 作者改为“控制组合的结构”（Structure of the control combination）** |
 | 5.4 时长约束下的乘子充分条件 | 5.4 时长约束 | Duration constraints | |
 | 6 数值验证与同条件控制比较 | 6 数值结果 | Numerical results | |
 | 6.1 参数、指标口径与数值方法 | 6.1 参数与方法 | Parameters and methods | |

@@ -1,9 +1,15 @@
 \section{联合控制}
 \label{sec:joint}
-阈值控制期内 $S$ 严格下降，因此可以用易感者人数代替时间：每个控制组合对应接触率的一个状态函数，控制时长、感染与隔离人数都化为对 $S$ 的积分。本章及后文的最优控制都指阈值策略下的最优控制，即在 $\mathcal A(\eta)$ 或其能力约束下的控制类中取最优。
+阈值控制期内 $S$ 严格下降，因此可以用易感者人数代替时间：每个控制组合对应接触率的一个状态函数，控制时长、感染与隔离人数都化为对 $S$ 的积分。本节及后文的最优控制都指阈值策略下的最优控制，即在 $\mathcal A(\eta)$ 或其能力约束下的控制类中取最优。
 
 \subsection{状态参数化}
-记接触率与隔离比例的状态函数为 $c_c(S)$、$q_c(S)$，控制为 $c(t)=c_c(S(t))$、$q(t)=q_c(S(t))$。由平衡式\eqref{eq:model:balance}，易感者方程化为 $\dot S=-(\eta/N)[c_c(S)S-c_0\bar S]$（附录式\eqref{eq:joint:Sdot}），接触率越高，$S$ 下降越快。$c_c$ 的两个极端是仅隔离控制 $c_c\equiv c_0$ 和仅减少接触 $c_c=c_0S_c/S$。
+\label{sec:joint:state}
+记接触率与隔离比例的状态函数为 $c_c(S)$、$q_c(S)$，控制为 $c(t)=c_c(S(t))$、$q(t)=q_c(S(t))$。由平衡式\eqref{eq:model:balance}与 $\bar S$ 的定义\eqref{eq:s1:barS}，易感者方程化为
+\begin{equation}
+\dot S=-\frac{\eta}{N}\bigl[c_c(S)S-c_0\bar S\bigr],
+\label{eq:joint:Sdot}
+\end{equation}
+接触率越高，$S$ 下降越快。$c_c$ 的两个极端是仅隔离控制 $c_c\equiv c_0$ 和仅减少接触 $c_c=c_0S_c/S$。
 \begin{theorem}
 \label{thm:joint:representation}
 在几乎处处相等的意义下，$\mathcal A(\eta)$ 中的控制与满足
@@ -117,6 +123,7 @@ $c_{\min}S^*\le c_0(1-q_0)S_c/(1-q_{\rm cap})$，
 \end{proof}
 
 \subsection{不同目标的最优控制}
+\label{sec:joint:objectives}
 在 $\mathcal A(\eta)$ 中，控制组合只通过控制时长影响控制期的感染与隔离。维持 $I=\eta$ 要求未被追踪的新感染以恒定速率 $\gamma\eta$ 进入 $I$。阈值控制期内 $S$ 共减少 $S^*-S_c$，对所有控制都相同；其中 $\gamma\eta\Delta t$ 是这类感染，其余是被追踪的接触者。
 \begin{theorem}
 \label{thm:joint:comparison}
@@ -223,4 +230,4 @@ $\beta/[\beta+(1-\beta)q_{\rm cap}]$。在 $[0,T]$ 上积分即得两式。
 \end{proof}
 在群体免疫阈值退出的好处是恢复常规控制后 $S$、$I$ 严格递减，疫情不再反弹（定理~\ref{thm:s1:tend}）；代价就是这一下界。控制组合只改变式\eqref{eq:joint:cumulative}中与 $\Delta t$ 成正比的一项，不能绕开它；西安参数下的下界见第~\ref{sec:xian:threshold-scale}~节。
 
-以控制时长、感染或隔离人数为目标时，最优控制取允许区间的一端。以二次干预成本为目标时，两种干预的强度都要计入，最优控制不再只由控制时长决定，下一章研究成本最优控制。
+以控制时长、感染或隔离人数为目标时，最优控制取允许区间的一端。以二次干预成本为目标时，两种干预的强度都要计入，最优控制不再只由控制时长决定，第~\ref{sec:joint:cost}~节研究成本最优控制。

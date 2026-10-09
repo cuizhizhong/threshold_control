@@ -101,7 +101,7 @@ S_0>S_c,\qquad 0<I_0<\eta<I_{\max}^{no},
 
 \subsection{允许控制}
 \label{sec:model:control-class}
-阈值策略在 $t_1$ 启动后维持 $I=\eta$，到 $S$ 首次降至 $S_c$ 的时刻 $t_2$ 恢复常规控制，$[t_1,t_2]$ 称为阈值控制期。维持 $I=\eta$ 只约束接触率与隔离比例的乘积：由命题~\ref{prop:model:threshold-rationale}(ii)，阈值控制期内几乎处处有
+阈值策略在 $t_1$ 启动后维持 $I=\eta$，到 $S$ 首次降至 $S_c$ 的时刻 $t_2$ 恢复常规控制，$[t_1,t_2]$ 称为阈值控制期。维持 $I=\eta$ 只约束接触率与未隔离比例的乘积 $c(1-q)$：由命题~\ref{prop:model:threshold-rationale}(ii)，阈值控制期内几乎处处有
 \begin{equation}
 \frac{\beta c(t)(1-q(t))S(t)}{N}=\gamma,
 \label{eq:model:balance}
@@ -172,6 +172,6 @@ w_c\left(\frac{(c_0-c(t))_+}{c_0}\right)^2
 +w_q\left(\frac{(q(t)-q_0)_+}{1-q_0}\right)^2\right]dt,
 \label{eq:cost:J}
 \end{equation}
-默认取 $w_c=1,w_q=2$。$J$ 是归一化强度平方的加权积分，因此 $J\ne J_c+2J_q$，$J_c,J_q$ 只作分项参考。三者都只在阈值控制期内积分，时间以天计时单位都是天。权重没有换算为货币；$J$ 不计隔离人天等资源占用，$J$ 与能力约束也都不限制控制的调整速度。
+默认取 $w_c=1,w_q=2$。$J$ 是归一化强度平方的加权积分，因此 $J\ne J_c+2J_q$，$J_c,J_q$ 只作分项参考。三者都只在阈值控制期内积分，单位为天。权重没有换算为货币；$J$ 不计隔离人天等资源占用，$J$ 与能力约束也都不限制控制的调整速度。
 
-下一章先研究仅隔离控制：固定 $c=c_0$ 后，式\eqref{eq:model:balance}唯一确定隔离比例，整个控制过程可以显式求出，并作为后文比较的解析基准。
+第~\ref{sec:s1}~节先研究仅隔离控制：固定 $c=c_0$ 后，式\eqref{eq:model:balance}唯一确定隔离比例，整个控制过程可以显式求出。
