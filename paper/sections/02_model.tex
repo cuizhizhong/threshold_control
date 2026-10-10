@@ -1,10 +1,10 @@
 % ===== 02_model =====
 \section{模型与阈值策略}
 \label{sec:model}
-本文以社区中的非隔离感染者人数 $I$ 为控制对象，要求它不超过阈值 $\eta$。$\eta$ 是外生给定的设计参数，选取的依据是与医疗资源（如 ICU 床位）的承载能力相适应，并兼顾防控目标\cite{Miclo2022ICU,Angulo2021}。阈值约束的是仍在社区中传播的 $I$，而不是包括隔离感染者 $I_q$ 在内的现存感染人数 $I+I_q$。由于接触率不超过常规水平，限制 $I$ 也就限制了进入 $I$ 和 $I_q$ 的全部新增感染流量；补充材料第~\ref{sec:sup:medical-link}~节由此在附加的医疗需求假设下，给出平均 ICU 需求不超过容量的充分条件。
+本文以社区中的非隔离感染者人数 $I$ 为控制对象，要求它不超过阈值 $\eta$。阈值 $\eta$ 是外生给定的设计参数，其选取依据是与医疗资源（如 ICU 床位）的承载能力相适应，并兼顾防控目标\cite{Miclo2022ICU,Angulo2021}。阈值约束的是仍在社区中传播的 $I$，而不是包括隔离感染者 $I_q$ 在内的现存感染人数 $I+I_q$。由于接触率不超过常规水平，限制 $I$ 也就限制了进入 $I$ 和 $I_q$ 的全部新增感染流量；补充材料第~\ref{sec:sup:medical-link}~节由此在附加的医疗需求假设下，给出平均 ICU 需求不超过容量的充分条件。
 
 \subsection{基本方程}
-人群分为社区易感者 $S$、隔离易感者 $S_q$、非隔离感染者 $I$、隔离感染者 $I_q$ 和康复者 $R$，社区传播只来自非隔离感染者。接触率为 $c(t)$，每次接触的传播概率为 $\beta$，接触者中被追踪并隔离的比例为 $q(t)$，简称隔离比例。被追踪的接触者若已感染则进入 $I_q$，若未感染则进入 $S_q$；未被追踪的新感染者进入 $I$。两类感染者分别以速率 $\gamma$ 和 $\delta_q$ 移出。模型沿用文献\cite{Zhou2024SPCI}中社区传播与接触追踪的结构（图~\ref{fig:model_schematic}）：
+人群分为社区易感者 $S$、隔离易感者 $S_q$、非隔离感染者 $I$、隔离感染者 $I_q$ 和康复者 $R$，社区传播只来自非隔离感染者。接触率为 $c(t)$，每次接触的传播概率为 $\beta$，接触者中被追踪并隔离的比例为 $q(t)$，简称隔离比例。被追踪的接触者若已感染则进入 $I_q$，若未感染则进入 $S_q$；未被追踪的新感染者进入 $I$。非隔离感染者和隔离感染者分别以速率 $\gamma$ 和 $\delta_q$ 移出。模型沿用文献\cite{Zhou2024SPCI}中社区传播与接触追踪的结构（图~\ref{fig:model_schematic}）：
 \begin{equation}
 \begin{cases}
 \dot S=-\dfrac{c(t)[\beta+(1-\beta)q(t)]}{N}SI,\\[.5em]
@@ -49,7 +49,7 @@ S_c=\frac{\gamma N}{\beta c_0(1-q_0)}
 \end{equation}
 刻画。有效再生数 $R_e=\beta c(1-q)S/(\gamma N)$ 是一名非隔离感染者在移出前引起的、未被隔离的新感染数。常规控制下 $R_e=S/S_c$，因此 $S<S_c$ 时常规控制下的有效再生数小于 $1$，$I$ 下降。
 
-$S$ 与 $I$ 的方程不依赖其余仓室，常规轨迹可以显式写出。记
+$S$ 与 $I$ 的方程不依赖其余仓室，因此常规轨迹可以显式写出。记
 \begin{equation}
 \beta_1^0=\frac{c_0[\beta+q_0(1-\beta)]}{N},\quad
 \beta_2^0=\frac{\beta c_0(1-q_0)}{N},\quad
@@ -67,7 +67,7 @@ I(t)+\frac{\beta_2^0}{\beta_1^0}S(t)-\rho_1\ln S(t)=I_0+\frac{\beta_2^0}{\beta_1
 I(S)=I_0+\frac{\beta_2^0}{\beta_1^0}(S_0-S)+\rho_1\ln\frac{S}{S_0}.
 \label{eq:model:routine-orbit}
 \end{equation}
-$S_0>S_c$ 时 $I$ 先上升；这一阶段 $I\ge I_0$，故 $\dot S\le-\beta_1^0I_0S$，$S$ 在有限时间内降到 $S_c$，$I$ 在此时达到峰值。$S_0\le S_c$ 时 $I$ 从一开始就下降。因此常规峰值为
+$S_0>S_c$ 时 $I$ 先上升；这一阶段 $I\ge I_0$，故 $\dot S\le-\beta_1^0I_0S$，$S$ 在有限时间内降到 $S_c$，$I$ 在此时达到峰值。$S_0\le S_c$ 时，$I$ 则从一开始就下降。因此常规峰值为
 \begin{equation}
 I_{\max}^{no}=\begin{cases}
 I_0,&S_0\le S_c,\\
@@ -81,7 +81,7 @@ I_0+\frac{\beta_2^0}{\beta_1^0}(S_0-S_c)+\rho_1\ln(S_c/S_0),&S_0>S_c.
 S_0>S_c,\qquad 0<I_0<\eta<I_{\max}^{no},
 \label{eq:model:trigger}
 \end{equation}
-即常规轨迹在达到峰值之前触及阈值。记首次触及的时刻为 $t_1$，$S^*=S(t_1)$，则 $S^*>S_c$。$\eta$ 以人数计，后文始终设 $\eta>1$，从而恢复常规控制后 $I$ 会降到 $1$，清零时间（第~\ref{sec:cost}~节）有定义；记 $\theta=\eta/N$ 为阈值比例。下面的命题说明为什么在 $t_1$ 启动、在 $S=S_c$ 退出。
+即常规轨迹在达到峰值之前触及阈值。记首次触及的时刻为 $t_1$，$S^*=S(t_1)$，则 $S^*>S_c$。阈值 $\eta$ 以人数计。后文始终设 $\eta>1$，从而恢复常规控制后 $I$ 会降到 $1$，清零时间（第~\ref{sec:cost}~节）有定义；记 $\theta=\eta/N$ 为阈值比例。下面的命题说明为什么在 $t_1$ 启动、在 $S=S_c$ 退出。
 
 \begin{proposition}
 \label{prop:model:threshold-rationale}
@@ -97,7 +97,7 @@ S_0>S_c,\qquad 0<I_0<\eta<I_{\max}^{no},
 \item 从状态 $(S,\eta)$ 起恢复并保持 $(c_0,q_0)$，其后始终满足 $I\le\eta$，当且仅当 $S\le S_c$。因此，沿任一从 $S^*>S_c$ 出发并持续维持 $I=\eta$ 的允许轨迹，首次达到 $S_c$ 是该轨迹上可以直接恢复常规控制的最早时刻。
 \end{enumerate}
 \end{proposition}
-证明见附录\ref{sec:proof:threshold-rationale}。由 (i) 与 (iii)，首次触及阈值是不违反 $I\le\eta$ 的最晚启动时刻，首次到达 $S_c$ 是可以直接恢复常规控制的最早时刻；阈值策略就在这两个状态之间运行。
+证明见附录~\ref{sec:proof:threshold-rationale}。由 (i) 与 (iii)，首次触及阈值是不违反 $I\le\eta$ 的最晚启动时刻，首次到达 $S_c$ 是可以直接恢复常规控制的最早时刻；阈值策略就在这两个状态之间运行。
 
 \subsection{允许控制}
 \label{sec:model:control-class}
@@ -106,7 +106,7 @@ S_0>S_c,\qquad 0<I_0<\eta<I_{\max}^{no},
 \frac{\beta c(t)(1-q(t))S(t)}{N}=\gamma,
 \label{eq:model:balance}
 \end{equation}
-即有效再生数保持为 $1$。固定 $c=c_0$ 时它唯一确定隔离比例，称为仅隔离控制（第~\ref{sec:s1}~节）；固定 $q=q_0$ 时唯一确定接触率 $c=c_0S_c/S$，称为仅减少接触；两者之间还有无穷多种控制组合。
+即有效再生数保持为 $1$。固定 $c=c_0$ 时，式\eqref{eq:model:balance}唯一确定隔离比例，所得控制称为仅隔离控制（第~\ref{sec:s1}~节）；固定 $q=q_0$ 时，它唯一确定接触率 $c=c_0S_c/S$，所得控制称为仅减少接触。两者之间还有无穷多种控制组合。
 
 \begin{definition}
 设条件\eqref{eq:model:trigger}成立。阈值策略下的全部控制记为 $\mathcal A(\eta)$，由满足以下条件的有界可测控制 $(c,q)$ 组成，几乎处处相等的控制视为同一控制：
@@ -123,7 +123,7 @@ I(t)\equiv\eta,\qquad 0<c(t)\le c_0,\qquad q_0\le q(t)\le1,
 \end{enumerate}
 \end{definition}
 
-$\mathcal A(\eta)$ 中的控制有共同的进入状态 $(S^*,\eta)$ 和退出状态 $(S_c,\eta)$，这里的状态指 $(S,I)$；退出时刻 $t_2$ 与退出时的 $S_q,I_q,R$ 可以不同，比较全过程指标时各控制还采用同一完整初值。后文的比较与优化都在 $\mathcal A(\eta)$ 或其子类中进行，提前干预、在 $I<\eta$ 下运行或改变退出规则的控制不在其中。
+$\mathcal A(\eta)$ 中的控制有共同的进入状态 $(S^*,\eta)$ 和退出状态 $(S_c,\eta)$（这里的状态指 $(S,I)$），但退出时刻 $t_2$ 与退出时的 $S_q,I_q,R$ 可以不同；比较全过程指标时，各控制还采用同一完整初值。后文的比较与优化都在 $\mathcal A(\eta)$ 或其子类中进行；提前干预、在 $I<\eta$ 下运行或改变退出规则的控制不在其中。
 
 现实中接触率不能无限压低，追踪隔离也有能力上限，本文把这两类限制统称为能力约束。设接触率不低于 $c_{\min}$、隔离比例不超过 $q_{\rm cap}$，其中 $0\le c_{\min}\le c_0$、$q_0\le q_{\rm cap}<1$，能力约束下的控制类为
 \[
@@ -139,11 +139,11 @@ c(t)\ge c_{\min},\ q(t)\le q_{\rm cap}
 \frac{c_0(1-q_0)S_c}{(1-q_{\rm cap})S}\right\}.
 \label{eq:joint:bounds}
 \end{equation}
-整段可行的条件见推论\ref{cor:joint:feasibility}。$c_{\min}$ 不同于第~\ref{sec:s1}~节中判断常规轨迹是否触发控制的接触率边界 $c_{0,\min}(\eta)$（式\eqref{eq:s1:c0-min-def}），$q_{\rm cap}$ 也不同于仅隔离控制所需的最大隔离比例 $q_{\max}$。
+整段可行的条件见推论~\ref{cor:joint:feasibility}。接触率下限 $c_{\min}$ 不同于第~\ref{sec:s1}~节中判断常规轨迹是否触发控制的接触率边界 $c_{0,\min}(\eta)$（式\eqref{eq:s1:c0-min-def}）；隔离比例上限 $q_{\rm cap}$ 也不同于仅隔离控制所需的最大隔离比例 $q_{\max}$。
 
 \subsection{评价指标}
 \label{sec:cost}
-评价一个控制要看三类指标：时间、累计人数和干预成本，所有时刻都从初始时刻起算。控制时长为 $\Delta t=t_2-t_1$；$\mathcal A(\eta)$ 中各控制的 $t_1$ 相同，$t_2$ 与 $\Delta t$ 随控制组合改变。清零时间 $t_{\rm end}$ 是 $I$ 上升后再次降到 $1$ 的时刻，即满足 $I(t_{\rm end})=1$、$\dot I(t_{\rm end})<0$ 的时刻；对 $\mathcal A(\eta)$ 中的控制，它唯一且大于 $t_2$（定理\ref{thm:s1:tend}）。这一判据沿用文献\cite{Zhou2024SPCI}，不要求 $I_q$ 同时归零，也不表示模型在有限时间内灭绝。
+评价一个控制要看三类指标：时间、累计人数和干预成本；所有时刻都从初始时刻起算。控制时长为 $\Delta t=t_2-t_1$；$\mathcal A(\eta)$ 中各控制的 $t_1$ 相同，$t_2$ 与 $\Delta t$ 随控制组合改变。清零时间 $t_{\rm end}$ 是 $I$ 上升后再次降到 $1$ 的时刻，即满足 $I(t_{\rm end})=1$、$\dot I(t_{\rm end})<0$ 的时刻；对 $\mathcal A(\eta)$ 中的控制，它唯一且大于 $t_2$（定理~\ref{thm:s1:tend}）。这一判据沿用文献\cite{Zhou2024SPCI}，不要求 $I_q$ 同时归零，也不表示模型在有限时间内灭绝。
 
 累计人数只计初始时刻以后的新增流入，不含初始感染者。对统计终点 $T$，进入 $I$ 和进入 $I_q$ 的累计新增感染分别为
 \[
@@ -172,6 +172,6 @@ w_c\left(\frac{(c_0-c(t))_+}{c_0}\right)^2
 +w_q\left(\frac{(q(t)-q_0)_+}{1-q_0}\right)^2\right]dt,
 \label{eq:cost:J}
 \end{equation}
-默认取 $w_c=1,w_q=2$。$J$ 是归一化强度平方的加权积分，因此 $J\ne J_c+2J_q$，$J_c,J_q$ 只作分项参考。三者都只在阈值控制期内积分，单位为天。权重没有换算为货币；$J$ 不计隔离人天等资源占用，$J$ 与能力约束也都不限制控制的调整速度。
+默认取 $w_c=1,w_q=2$。二次干预成本 $J$ 是归一化强度平方的加权积分，因此 $J\ne J_c+2J_q$，$J_c,J_q$ 只作分项参考。三者都只在阈值控制期内积分，单位为天。权重没有换算为货币；$J$ 不计隔离人天等资源占用，$J$ 与能力约束也都不限制控制的调整速度。
 
 第~\ref{sec:s1}~节先研究仅隔离控制：固定 $c=c_0$ 后，式\eqref{eq:model:balance}唯一确定隔离比例，整个控制过程可以显式求出。

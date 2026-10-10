@@ -15,7 +15,7 @@ f(S,c)=
 {cS-c_0\bar S}.
 \label{eq:joint:cost-integrand}
 \end{equation}
-被积项 $\frac{N}{\eta}f(S,c)$ 是 $S$ 每减少一人所付的成本：分子是两种归一化强度 $(c_0-c)/c_0$ 与 $(q-q_0)/(1-q_0)=1-c_0S_c/(cS)$ 的平方加权和，分母与 $S$ 的下降速度成正比（式\eqref{eq:joint:Sdot}）。一般正权重下，把分子两项的系数 $1,2$ 换为 $w_c,w_q$（式\eqref{eq:joint:stationary}两项的系数作相同替换），仍记为 $f$，下面定理的结论不变。
+被积项 $\frac{N}{\eta}f(S,c)$ 是 $S$ 每减少一人所付的成本：分子是两种归一化强度 $(c_0-c)/c_0$ 与 $(q-q_0)/(1-q_0)=1-c_0S_c/(cS)$ 的平方加权和，分母与 $S$ 的下降速度成正比（式\eqref{eq:joint:Sdot}）。对一般的正权重，把分子两项的系数 $1,2$ 换为 $w_c,w_q$（式\eqref{eq:joint:stationary}两项的系数作相同替换），所得函数仍记为 $f$；下面定理的结论不变。
 \begin{theorem}
 \label{thm:joint:cost-minimum}
 不考虑能力约束时取 $\underline c(S)=c_0S_c/S$、$\overline c(S)=c_0$（式\eqref{eq:joint:contact-range}）；考虑能力约束时取式\eqref{eq:joint:bounds}，并设式\eqref{eq:joint:feasibility}成立。在相应的控制类 $\mathcal A(\eta)$ 或 $\mathcal A(\eta;c_{\min},q_{\rm cap})$ 中（不另加总时长、调整次数或控制变化率等约束），二次干预成本的最小值可以达到，且
@@ -38,10 +38,10 @@ f(S,c)=
 \end{equation}
 的全部实根处的 $f$ 值。该方程是五次多项式方程，故候选至多七个，重复的端点与重根只计一次。$S=S_c$ 时允许区间退化为 $c=c_0$，无需求根。
 \end{theorem}
-证明见附录\ref{sec:proof:cost-minimum}。在 $S$ 坐标下，成本是同一被积函数的积分，约束只限制每个状态上的接触率，因此各状态的选择互不影响；总时长等跨状态约束会打破这种分离（时长约束见注记~\ref{rem:joint:duration-constraint}）。
+证明见附录~\ref{sec:proof:cost-minimum}。在 $S$ 坐标下，成本是同一被积函数的积分，约束只限制每个状态上的接触率，因此各状态的选择互不影响；总时长等跨状态约束会打破这种分离（时长约束见注记~\ref{rem:joint:duration-constraint}）。
 
 \subsection{逐状态判据}
-逐状态判据是一个有限比较：候选只有允许区间的两个端点和五次方程在区间内的实根，因此不需要 $f(S,\cdot)$ 凸或单峰。但成本最优控制一般没有初等的时间表达；两种单控制的成本则有闭式（附录~\ref{app:cost}）。
+逐状态判据是一个有限比较：候选只有允许区间的两个端点和五次方程在区间内的实根，因此不需要 $f(S,\cdot)$ 凸或单峰。然而，成本最优控制一般没有初等的时间表达；两种单控制的成本则有闭式（附录~\ref{app:cost}）。
 
 阈值只通过系数 $N/\eta$ 与积分上限 $S^*(\eta)$ 进入式\eqref{eq:joint:minimum-cost}，二者都随 $\eta$ 减小，所以提高阈值降低最小成本。每个状态上的最优选择则与阈值无关：成本最优控制可以取成同一个状态反馈 $c_c^*(S)$，阈值只决定从哪个 $S^*$ 开始使用它。
 \begin{proposition}
@@ -67,7 +67,7 @@ J_{\min}(\eta)=\frac{N}{\eta}\int_{S_c}^{S^*(\eta)}m(S)\,dS.
 
 \subsection{控制组合的结构}
 \label{sec:joint:cost-structure}
-不考虑能力约束时，成本最优控制从不单独减少接触，其结构取决于 $S$ 与状态
+成本最优控制在不考虑能力约束时从不单独减少接触，其结构取决于 $S$ 与状态
 \begin{equation}
 S_{\rm sw}=\frac{3S_c+\sqrt{9S_c^2-8S_c\bar S}}{2}
 \label{eq:joint:ssw}
@@ -83,7 +83,7 @@ S_{\rm sw}=\frac{3S_c+\sqrt{9S_c^2-8S_c\bar S}}{2}
 \end{enumerate}
 因此，任一成本最优控制在几乎所有 $S\in(S_c,S^*]$ 上满足 $q_c^*(S)>q_0$；在 $S_c<S<\min\{S_{\rm sw},S^*\}$ 上还满足 $c_0S_c/S<c_c^*(S)<c_0$，即两种措施同时强于常规水平。
 \end{proposition}
-证明见附录\ref{sec:proof:endpoint-properties}。在 $c=c_0$ 处接触项的代价与导数都为零，略减接触只有两个一阶效应：所需的隔离强度降低，$S$ 的下降却放慢；二者都与 $w_q$ 成正比，故 $S_{\rm sw}$ 与权重无关。$S>S_{\rm sw}$ 时后一效应占优，$S=S_{\rm sw}$ 时二者相抵，命题在此不作分类。
+证明见附录~\ref{sec:proof:endpoint-properties}。在 $c=c_0$ 处接触项的代价与导数都为零，因此略减接触只有两个一阶效应：所需的隔离强度降低，$S$ 的下降却放慢；二者都与 $w_q$ 成正比，故 $S_{\rm sw}$ 与权重无关。$S>S_{\rm sw}$ 时后一效应占优；$S=S_{\rm sw}$ 时二者相抵，命题在此不作分类。
 \begin{proposition}
 \label{prop:joint:terminal-allocation}
 采用默认权重 $w_c=1$、$w_q=2$，不考虑能力约束。任一逐状态最小化选择在充分接近退出状态的 $S>S_c$ 上满足
@@ -104,11 +104,11 @@ S_{\rm sw}=\frac{3S_c+\sqrt{9S_c^2-8S_c\bar S}}{2}
 \end{equation}
 因此，最小成本严格小于仅减少接触与仅隔离控制各自的成本。加入满足 $c_{\min}<c_0$、$q_{\rm cap}>q_0$ 的能力约束后，式\eqref{eq:joint:terminal-interior}--\eqref{eq:joint:terminal-ratio}仍成立；与某一种单控制的严格成本比较，在该单控制整段可行时仍成立。
 \end{proposition}
-证明见附录\ref{sec:proof:terminal-allocation}。退出附近，无论怎样组合，两种归一化强度之和都近似等于 $1-S_c/S$，而组合对 $S$ 下降速度的影响是高阶小量，因此最优做法是按二次代价分担这一总强度。一般正权重下，同一证明把 $2/3,1/3$ 换为 $w_q/(w_c+w_q),w_c/(w_c+w_q)$，即两种强度之比趋于权重的反比。
+证明见附录~\ref{sec:proof:terminal-allocation}。退出附近，无论怎样组合，两种归一化强度之和都近似等于 $1-S_c/S$，而组合对 $S$ 下降速度的影响是高阶小量，因此最优做法是按二次代价分担这一总强度。对一般的正权重，同一证明把 $2/3,1/3$ 换为 $w_q/(w_c+w_q),w_c/(w_c+w_q)$，即两种强度之比趋于权重的反比。
 
-命题~\ref{prop:joint:global-structure}对前段（$S>S_{\rm sw}$）只给出局部性质，前段的全局结构只有数值结果：默认权重下，两组参数的成本最优控制在前段都取仅隔离控制，并在 $S_{\rm sw}$ 处连续切换（第~\ref{sec:joint:compare-numerics}~节）。前段较短，基准与西安参数下分别约 $1.61$ d 与 $25.46$ d（控制时长 $7.75$ d 与 $108.81$ d），控制期的大部分两种措施并用。隔离的相对权重较大时，切换提前，接触率在切换处跳变（图~\ref{fig:joint:phase}）；理论上，最小化选择也不保证唯一、连续或单调。
+命题~\ref{prop:joint:global-structure}对前段（$S>S_{\rm sw}$）只给出局部性质，前段的全局结构则只有数值结果：默认权重下，两组参数的成本最优控制在前段都取仅隔离控制，并在 $S_{\rm sw}$ 处连续切换（第~\ref{sec:joint:compare-numerics}~节）。前段较短：基准与西安参数下分别约 $1.61$ d 与 $25.46$ d（控制时长 $7.75$ d 与 $108.81$ d），因此控制期的大部分时间里两种措施并用。隔离的相对权重较大时，切换提前，接触率在切换处跳变（图~\ref{fig:joint:phase}）；理论上，最小化选择也不保证唯一、连续或单调。
 
-不考虑能力约束时，成本最优控制介于两种单控制之间：它在 $S_c<S<\min\{S_{\rm sw},S^*\}$ 上严格位于允许区间内部（命题~\ref{prop:joint:global-structure}），由定理~\ref{thm:joint:comparison}，其控制时长、控制期累计新增感染与新增隔离易感者人数都严格介于两者之间。与仅隔离控制相比，它以更长的控制期和更多的感染换取更低的成本（命题~\ref{prop:joint:terminal-allocation}）。
+成本最优控制在不考虑能力约束时介于两种单控制之间：它在 $S_c<S<\min\{S_{\rm sw},S^*\}$ 上严格位于允许区间内部（命题~\ref{prop:joint:global-structure}），因此由定理~\ref{thm:joint:comparison}，其控制时长、控制期累计新增感染与新增隔离易感者人数都严格介于两者之间。与仅隔离控制相比，它以更长的控制期和更多的感染换取更低的成本（命题~\ref{prop:joint:terminal-allocation}）。
 
 \subsection{时长约束}
 时长约束可以用乘子化为同样的逐状态问题。乘子 $\kappa$ 是控制时长的价格：$\kappa>0$ 惩罚长控制期，使控制组合偏向仅隔离控制；$\kappa<0$ 则偏向仅减少接触。
@@ -125,6 +125,6 @@ J[c_c]\ge J[c_\kappa]+\kappa\bigl(\Delta t[c_\kappa]-\Delta t[c_c]\bigr)\ge J[c_
 由式\eqref{eq:joint:quarantine}，时长下限 $\Delta t\ge T$ 等价于阈值控制期新增隔离易感者人数不超过 $(1-\beta)[S^*-S_c-\gamma\eta T]$。这一充分条件不要求可达集凸，但不保证每个允许时长都有匹配的 $\kappa$。
 \end{remarkn}
 
-第~\ref{sec:numerics}~节用两组参数看这些取舍有多大，以及能力约束、成本权重与时长约束如何改变它们。
+第~\ref{sec:numerics}~节用两组参数考察这些取舍的大小，以及能力约束、成本权重与时长约束如何改变它们。
 
 \FloatBarrier
