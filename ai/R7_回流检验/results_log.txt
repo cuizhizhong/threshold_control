@@ -1,0 +1,147 @@
+base {
+ "base|no_return_ref": {
+  "Sc": 175.1601700006617,
+  "Sstar": 708.3469575874324,
+  "sstar": 4.04399560462151,
+  "s_sw": 2.26536879999122
+ },
+ "base|limit|q_only": {
+  "Sc": 175.1601700006617,
+  "Sstar": 712.5124445282589,
+  "sstar": 4.067776621394962,
+  "dT": 18.104471813124228,
+  "J": 9.407699028172999,
+  "infections_arc": 537.3522745275973,
+  "untraced_arc": 242.0162341246095,
+  "entries_direct": 1610.0577686485458,
+  "entries_formula": 1610.0577686485462,
+  "inflow_ratio_start": 4.130812825106081
+ },
+ "base|limit|alpha": {
+  "Sc": 175.1601700006617,
+  "Sstar": 712.5124445282589,
+  "sstar": 4.067776621394962,
+  "dT": 23.993677539200213,
+  "J": 8.989330875317787,
+  "infections_arc": 537.3522745275973,
+  "untraced_arc": 320.741722861419,
+  "entries_direct": 1180.8768784381973,
+  "entries_formula": 1180.8768784381975,
+  "inflow_ratio_start": 2.573154650666655
+ },
+ "base|limit|optimal": {
+  "Sc": 175.1601700006617,
+  "Sstar": 712.5124445282589,
+  "sstar": 4.067776621394962,
+  "dT": 23.5506783533641,
+  "J": 8.23762143773512,
+  "infections_arc": 537.3522745275973,
+  "untraced_arc": 314.8198160649664,
+  "entries_direct": 1213.1608219414388,
+  "entries_formula": 1213.1608219414393,
+  "inflow_ratio_start": 4.130812825106081,
+  "s_switch_numeric": 2.999806885071841,
+  "terminal_contact_share": 0.6668819660112478,
+  "s_sw_theory_Sbar0": 3.0
+ },
+ "base|limit|c_only": {
+  "Sc": 175.1601700006617,
+  "Sstar": 712.5124445282589,
+  "sstar": 4.067776621394962,
+  "dT": 39.58421446961242,
+  "J": 13.106438051861751,
+  "infections_arc": 537.3522745275973,
+  "untraced_arc": 529.1522788183061,
+  "entries_direct": 44.703202415167894,
+  "entries_formula": 44.703202415168235,
+  "inflow_ratio_start": 1.0154964762272276
+ }
+}
+base lam=1.0 q_only: dT=20.88 inf_arc=531.57 sqin_arc=1377.7 inf_total=677.32 Imax_after/eta=1.0000
+base lam=1.0 optimal: dT=26.65 inf_arc=534.14 sqin_arc=971.21 inf_total=677.47 Imax_after/eta=0.9999
+base lam=1.0 c_only: dT=39.47 inf_arc=535.83 sqin_arc=46.152 inf_total=677.58 Imax_after/eta=0.9999
+base lam=5.0 q_only: dT=18.78 inf_arc=536.97 sqin_arc=1558.7 inf_total=678.04 Imax_after/eta=1.0000
+base lam=5.0 optimal: dT=24.27 inf_arc=537.08 sqin_arc=1158.8 inf_total=678.05 Imax_after/eta=1.0000
+base lam=5.0 c_only: dT=39.57 inf_arc=537.17 sqin_arc=44.688 inf_total=678.05 Imax_after/eta=1.0000
+base lam=1/14 oneshot=True q_only: dT=19.21 t_end=74.13000000000102 inf_total=619.48 Imax_after/eta=1.0000 (S+Sq)/Sc_end=0.814
+base lam=1/14 oneshot=False q_only: dT=19.21 t_end=74.13000000000102 inf_total=619.48 Imax_after/eta=1.0000 (S+Sq)/Sc_end=0.814
+base lam=1/14 oneshot=True optimal: dT=21.81 t_end=72.83000000000035 inf_total=620.5 Imax_after/eta=1.0000 (S+Sq)/Sc_end=0.808
+base lam=1/14 oneshot=False optimal: dT=21.81 t_end=72.83000000000035 inf_total=620.5 Imax_after/eta=1.0000 (S+Sq)/Sc_end=0.808
+base lam=1/14 oneshot=True c_only: dT=38.45 t_end=68.33999999999806 inf_total=665.76 Imax_after/eta=0.9999 (S+Sq)/Sc_end=0.549
+base lam=1/14 oneshot=False c_only: dT=38.45 t_end=68.33999999999806 inf_total=665.76 Imax_after/eta=0.9999 (S+Sq)/Sc_end=0.549
+base release at t_end=33.8 q_only: inf_total 285.72 -> 689.14; I peak after release / eta = 3.03
+base release at t_end=64.0 c_only: inf_total 627.72 -> 628.83; I peak after release / eta = 1.00
+xian {
+ "xian|no_return_ref": {
+  "Sc": 2974125.4115856644,
+  "Sstar": 13020440.754052369,
+  "sstar": 4.377905754522463,
+  "s_sw": 2.548250542570811
+ },
+ "xian|limit|q_only": {
+  "Sc": 2974125.4115856644,
+  "Sstar": 13112734.778809587,
+  "sstar": 4.4089380789825166,
+  "dT": 384.26104496994276,
+  "J": 213.17557579764443,
+  "infections_arc": 10138609.367223922,
+  "untraced_arc": 2987271.416495184,
+  "entries_direct": 40587900.70567137,
+  "entries_formula": 40587900.70567139,
+  "inflow_ratio_start": 6.512463927596035
+ },
+ "xian|limit|alpha": {
+  "Sc": 2974125.4115856644,
+  "Sstar": 13112734.778809587,
+  "sstar": 4.4089380789825166,
+  "dT": 515.3609350760739,
+  "J": 211.13702718153155,
+  "infections_arc": 10138609.367223922,
+  "untraced_arc": 4006450.850752797,
+  "entries_direct": 34803479.1101719,
+  "entries_formula": 34803479.11017191,
+  "inflow_ratio_start": 3.9947844010210596
+ },
+ "xian|limit|optimal": {
+  "Sc": 2974125.4115856644,
+  "Sstar": 13112734.778809587,
+  "sstar": 4.4089380789825166,
+  "dT": 493.578631095958,
+  "J": 189.6892010685685,
+  "infections_arc": 10138609.367223922,
+  "untraced_arc": 3837113.7427711654,
+  "entries_direct": 35764563.283776574,
+  "entries_formula": 35764563.2837766,
+  "inflow_ratio_start": 6.512463927596035,
+  "s_switch_numeric": 2.999768300583119,
+  "terminal_contact_share": 0.6669030065658079,
+  "s_sw_theory_Sbar0": 3.0
+ },
+ "xian|limit|c_only": {
+  "Sc": 2974125.4115856644,
+  "Sstar": 13112734.778809587,
+  "sstar": 4.4089380789825166,
+  "dT": 882.9146745556548,
+  "J": 314.6482150508006,
+  "infections_arc": 10138609.367223922,
+  "untraced_arc": 6863838.541610595,
+  "entries_direct": 18586182.616398193,
+  "entries_formula": 18586182.616398208,
+  "inflow_ratio_start": 1.4771048744460855
+ }
+}
+xian lam=1.0 q_only: dT=387.82 inf_arc=1.0117e+07 sqin_arc=4.0309e+07 inf_total=1.0631e+07 Imax_after/eta=1.0000
+xian lam=1.0 optimal: dT=497.26 inf_arc=1.0117e+07 sqin_arc=3.5481e+07 inf_total=1.0631e+07 Imax_after/eta=1.0000
+xian lam=1.0 c_only: dT=881.04 inf_arc=1.0117e+07 sqin_arc=1.8548e+07 inf_total=1.0631e+07 Imax_after/eta=1.0000
+xian lam=5.0 q_only: dT=384.98 inf_arc=1.0134e+07 sqin_arc=4.0532e+07 inf_total=1.0642e+07 Imax_after/eta=1.0000
+xian lam=5.0 optimal: dT=494.30 inf_arc=1.0134e+07 sqin_arc=3.5708e+07 inf_total=1.0642e+07 Imax_after/eta=1.0000
+xian lam=5.0 c_only: dT=882.54 inf_arc=1.0134e+07 sqin_arc=1.8579e+07 inf_total=1.0642e+07 Imax_after/eta=1.0000
+xian lam=1/14 oneshot=True q_only: dT=425.26 t_end=853.239999999369 inf_total=1.045e+07 Imax_after/eta=1.0000 (S+Sq)/Sc_end=0.912
+xian lam=1/14 oneshot=False q_only: dT=425.26 t_end=853.239999999369 inf_total=1.045e+07 Imax_after/eta=1.0000 (S+Sq)/Sc_end=0.912
+xian lam=1/14 oneshot=True optimal: dT=484.64 t_end=907.20999999932 inf_total=1.0452e+07 Imax_after/eta=1.0000 (S+Sq)/Sc_end=0.912
+xian lam=1/14 oneshot=False optimal: dT=484.64 t_end=907.20999999932 inf_total=1.0452e+07 Imax_after/eta=1.0000 (S+Sq)/Sc_end=0.912
+xian lam=1/14 oneshot=True c_only: dT=857.23 t_end=1275.9299999989846 inf_total=1.0454e+07 Imax_after/eta=1.0000 (S+Sq)/Sc_end=0.911
+xian lam=1/14 oneshot=False c_only: dT=857.23 t_end=1275.9299999989846 inf_total=1.0454e+07 Imax_after/eta=1.0000 (S+Sq)/Sc_end=0.911
+xian release at t_end=258.1 q_only: inf_total 2.3779e+06 -> 6.0718e+06; I peak after release / eta = 36.12
+xian release at t_end=481.8 c_only: inf_total 3.8565e+06 -> 6.9725e+06; I peak after release / eta = 26.68
+
