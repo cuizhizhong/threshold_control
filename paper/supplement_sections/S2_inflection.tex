@@ -1,6 +1,5 @@
 \section{拐点的相对位置}
 \label{sec:sup:inflection}
-本节补充正文第~\ref{sec:s1:shape}~节：给出拐点相对位置 $\lambda$ 的参数敏感性、数值结果，以及 $\partial\lambda/\partial q_0$ 两种符号都能出现的构造。
 
 \subsection{参数敏感性}
 \label{sec:s1:inflection-position}
@@ -74,7 +73,7 @@ q_0^\dagger
 \label{fig:s1:lambda-sensitivity}
 \end{figure}
 
-图中的灰色区域是内部拐点存在条件 $S_c<2\bar S<S^*$ 的边界：改变 $\beta$ 时两侧的边界都可能出现，改变 $c_0$ 时内部拐点在 $S^*=2\bar S$ 处出现；在图示的 $q_0$ 与 $\eta/N$ 范围内，只要控制被触发，内部拐点就存在。图~\ref{fig:s1:inflection-scan}给出相应的隔离比例轨迹，其中 $\qinf$ 只依赖 $\beta$，在其余三个参数的比较中不变。西安参数下的拐点存在范围见第~\ref{app:c0_beta}~节。
+图中的灰色区域是内部拐点存在条件 $S_c<2\bar S<S^*$ 的边界：改变 $\beta$ 时两侧的边界都可能出现，改变 $c_0$ 时内部拐点在 $S^*=2\bar S$ 处出现；在图示的 $q_0$ 与 $\eta/N$ 范围内，只要控制被触发，内部拐点就存在。图~\ref{fig:s1:inflection-scan}给出相应的隔离比例轨迹。西安参数下的拐点存在范围见第~\ref{app:c0_beta}~节。
 
 \begin{figure}[htbp]
 \centering
@@ -96,7 +95,7 @@ N=10^6,\quad \beta=\frac16,\quad q_0=\frac1{10},\quad
 S_0=rS^*,\qquad
 \eta=I_0+\frac{\beta_2^0}{\beta_1^0}(S_0-S^*)+\rho_1\ln(S^*/S_0).
 \]
-两组参数均有 $S_0+I_0<N$、$I_0<\eta<I_{\max}^{no}$ 和 $S_c<2\bar S<S^*$，余下的初始人数可置于不参与社区传播的仓室。在每个构造出的参数点求偏导时，固定该点的 $S_0,\eta$；以上关系只用于构造参数点，不作为求导时的约束。
+两组参数均有 $S_0+I_0<N$、$I_0<\eta<I_{\max}^{0}$ 和 $S_c<2\bar S<S^*$，余下的初始人数置于不参与社区传播的仓室（如 $R(0)>0$）；正文第~\ref{sec:model}~节只要求初始仓室非负、总和为 $N$，因而允许这种初值。在每个构造出的参数点求偏导时，固定该点的 $S_0,\eta$；以上关系只用于构造参数点，不作为求导时的约束。
 
 代入式\eqref{eq:lambda-q0-sign}，得到
 \begin{equation}

@@ -1,6 +1,6 @@
 \section{基准算例的补充结果}
 \label{sec:sup:baseline-scan}
-本节补充正文第~\ref{sec:scaling-theory}~节的参数分析与第~\ref{sec:num}~节的基准算例：给出仅隔离控制在不同常规接触率与阈值下的结果，以及阈值很低时的渐近行为。除 $c_0$ 与 $\eta/N$ 外，参数取正文表~\ref{tab:xian_initial_fit}的基准值。
+除 $c_0$ 与 $\eta/N$ 外，本节参数取正文表~\ref{tab:xian_initial_fit}的基准值。
 
 \subsection{参数扫描}
 表~\ref{tab:sup:baseline}列出两组代表点：固定 $\eta/N=5\%$ 改变 $c_0$，以及固定 $c_0=10$ 改变 $\eta/N$。固定阈值时，控制时长在 $c_0=5$ 附近最长（正文命题~\ref{prop:contact-effects}给出极大值的存在），清零时间与总累计新增感染随 $c_0$ 增大而减少；固定 $c_0$ 时，$q_{\max}$ 随阈值提高只略有下降，控制时长与成本近似与阈值成反比，总累计新增感染随阈值增加（正文命题~\ref{prop:threshold-tradeoff}）。
@@ -38,7 +38,7 @@ $\eta/N=2\%$ & 2.3459 & 15.0431 & 46.8029 & 0.7674 & 5.8888 & 233.7810\\
 \end{threeparttable}
 \end{table}
 
-图~\ref{fig:baseline:q-joint}给出这些参数下的隔离比例轨迹，图~\ref{fig:scenario1_heatmaps_c0_eta}给出 $(\eta/N,c_0)$ 平面上的四项指标。拐点处的隔离比例 $\qinf=1-1/[2(1-\beta)]\approx0.4083$ 只依赖 $\beta$（正文定理~\ref{thm:s1:inflection}），所以两幅子图中的拐点都在同一水平上。$c_0=4$ 时 $q_{\max}=0.3413<\qinf$，即 $S^*<2\bar S$，隔离比例在整个控制期内低于拐点水平，没有内部拐点。
+图~\ref{fig:baseline:q-joint}给出这些参数下的隔离比例轨迹，图~\ref{fig:scenario1_heatmaps_c0_eta}给出 $(\eta/N,c_0)$ 平面上的四项指标。两幅子图中的拐点都在 $\qinf=1-1/[2(1-\beta)]\approx0.4083$ 的同一水平上（正文定理~\ref{thm:s1:inflection}）。$c_0=4$ 时 $q_{\max}=0.3413<\qinf$，即 $S^*<2\bar S$，隔离比例在整个控制期内低于拐点水平，没有内部拐点。
 
 \begin{figure}[htbp]
 \centering

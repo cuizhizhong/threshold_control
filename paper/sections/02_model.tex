@@ -69,7 +69,7 @@ I(S)=I_0+\frac{\beta_2^0}{\beta_1^0}(S_0-S)+\rho_1\ln\frac{S}{S_0}.
 \end{equation}
 $S_0>S_c$ 时 $I$ 先上升；这一阶段 $I\ge I_0$，故 $\dot S\le-\beta_1^0I_0S$，$S$ 在有限时间内降到 $S_c$，$I$ 在此时达到峰值。$S_0\le S_c$ 时，$I$ 则从一开始就下降。因此常规峰值为
 \begin{equation}
-I_{\max}^{no}=\begin{cases}
+I_{\max}^{0}=\begin{cases}
 I_0,&S_0\le S_c,\\
 I_0+\frac{\beta_2^0}{\beta_1^0}(S_0-S_c)+\rho_1\ln(S_c/S_0),&S_0>S_c.
 \end{cases}
@@ -78,7 +78,7 @@ I_0+\frac{\beta_2^0}{\beta_1^0}(S_0-S_c)+\rho_1\ln(S_c/S_0),&S_0>S_c.
 
 只有常规峰值超过阈值时才需要加强干预，因此后文都设
 \begin{equation}
-S_0>S_c,\qquad 0<I_0<\eta<I_{\max}^{no},
+S_0>S_c,\qquad 0<I_0<\eta<I_{\max}^{0},
 \label{eq:model:trigger}
 \end{equation}
 即常规轨迹在达到峰值之前触及阈值。记首次触及的时刻为 $t_1$，$S^*=S(t_1)$，则 $S^*>S_c$。阈值 $\eta$ 以人数计。后文始终设 $\eta>1$，从而恢复常规控制后 $I$ 会降到 $1$，清零时间（第~\ref{sec:cost}~节）有定义；记 $\theta=\eta/N$ 为阈值比例。下面的命题说明为什么在 $t_1$ 启动、在 $S=S_c$ 退出。
@@ -125,22 +125,6 @@ I(t)\equiv\eta,\qquad 0<c(t)\le c_0,\qquad q_0\le q(t)\le1,
 
 $\mathcal A(\eta)$ 中的控制有共同的进入状态 $(S^*,\eta)$ 和退出状态 $(S_c,\eta)$（这里的状态指 $(S,I)$），但退出时刻 $t_2$ 与退出时的 $S_q,I_q,R$ 可以不同；比较全过程指标时，各控制还采用同一完整初值。后文的比较与优化都在 $\mathcal A(\eta)$ 或其子类中进行；提前干预、在 $I<\eta$ 下运行或改变退出规则的控制不在其中。
 
-现实中接触率不能无限压低，追踪隔离也有能力上限，本文把这两类限制统称为能力约束。设接触率不低于 $c_{\min}$、隔离比例不超过 $q_{\rm cap}$，其中 $0\le c_{\min}\le c_0$、$q_0\le q_{\rm cap}<1$，能力约束下的控制类为
-\[
-\mathcal A(\eta;c_{\min},q_{\rm cap})
-=\left\{(c,q)\in\mathcal A(\eta):
-c(t)\ge c_{\min},\ q(t)\le q_{\rm cap}
-\text{ 在 }[t_1,t_2]\text{ 上几乎处处成立}\right\}.
-\]
-由式\eqref{eq:model:balance}，给定 $S$ 后 $q$ 由 $c$ 唯一确定。因此 $c_{\min}\le c\le c_0$ 与 $q_0\le q\le q_{\rm cap}$ 合起来，等价于状态 $S$ 上的接触率落在区间 $[\underline c(S),\overline c(S)]$ 内：
-\begin{equation}
-\underline c(S)=\max\!\left\{c_{\min},\frac{c_0S_c}{S}\right\},\qquad
-\overline c(S)=\min\!\left\{c_0,
-\frac{c_0(1-q_0)S_c}{(1-q_{\rm cap})S}\right\}.
-\label{eq:joint:bounds}
-\end{equation}
-整段可行的条件见推论~\ref{cor:joint:feasibility}。接触率下限 $c_{\min}$ 不同于第~\ref{sec:s1}~节中判断常规轨迹是否触发控制的接触率边界 $c_{0,\min}(\eta)$（式\eqref{eq:s1:c0-min-def}）；隔离比例上限 $q_{\rm cap}$ 也不同于仅隔离控制所需的最大隔离比例 $q_{\max}$。
-
 \subsection{评价指标}
 \label{sec:cost}
 评价一个控制要看三类指标：时间、累计人数和干预成本；所有时刻都从初始时刻起算。控制时长为 $\Delta t=t_2-t_1$；$\mathcal A(\eta)$ 中各控制的 $t_1$ 相同，$t_2$ 与 $\Delta t$ 随控制组合改变。清零时间 $t_{\rm end}$ 是 $I$ 上升后再次降到 $1$ 的时刻，即满足 $I(t_{\rm end})=1$、$\dot I(t_{\rm end})<0$ 的时刻；对 $\mathcal A(\eta)$ 中的控制，它唯一且大于 $t_2$（定理~\ref{thm:s1:tend}）。这一判据沿用文献\cite{Zhou2024SPCI}，不要求 $I_q$ 同时归零，也不表示模型在有限时间内灭绝。
@@ -172,6 +156,4 @@ w_c\left(\frac{(c_0-c(t))_+}{c_0}\right)^2
 +w_q\left(\frac{(q(t)-q_0)_+}{1-q_0}\right)^2\right]dt,
 \label{eq:cost:J}
 \end{equation}
-默认取 $w_c=1,w_q=2$。二次干预成本 $J$ 是归一化强度平方的加权积分，因此 $J\ne J_c+2J_q$，$J_c,J_q$ 只作分项参考。三者都只在阈值控制期内积分，单位为天。权重没有换算为货币；$J$ 不计隔离人天等资源占用，$J$ 与能力约束也都不限制控制的调整速度。
-
-第~\ref{sec:s1}~节先研究仅隔离控制：固定 $c=c_0$ 后，式\eqref{eq:model:balance}唯一确定隔离比例，整个控制过程可以显式求出。
+默认取 $w_c=1,w_q=2$。$J_c,J_q$ 只作分项参考；三者都只在阈值控制期内积分，单位为天。权重没有换算为货币；$J$ 不计隔离人天等资源占用，也不限制控制的调整速度。

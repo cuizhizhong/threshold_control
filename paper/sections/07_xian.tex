@@ -64,11 +64,11 @@ TDINN 控制 & 153 & 2106 & 45.29 & 49.3894\\
 \label{sec:xian:threshold-scale}
 阈值越低，控制时长越长（命题~\ref{prop:threshold-tradeoff}），且近似与阈值成反比；设计阈值 $\eta=0.002N$ 只是其中一个情景（量级参考见补充材料第~\ref{sec:sup:threshold-scale}~节）。原因是阈值控制期内 $S$ 的下降速率 $c_0\eta(S-\bar S)/N$ 与 $\eta$ 成正比，而退出仍要求 $S$ 降到同一个 $S_c$：式\eqref{eq:s1:t2}中，$\Delta t$ 等于 $N/(c_0\eta)$ 乘一个只通过启动状态 $S^*$ 依赖 $\eta$ 的对数因子。在西安参数下把 $\eta/N$ 从 $0.01$ 降到 $0.0001$，控制时长由 $16.6$ d 增至 $1711$ d，与反比关系相符（补充表~\ref*{tab:sup:eta}，补充图~\ref{fig:xian_eta_sens}）。若把阈值降到 TDINN 的非隔离感染者峰值 $152.55$ 人，控制时长约为 $40.5$ 年（补充图~\ref{fig:xian_heatmaps}）。
 
-在群体免疫阈值退出本身就要求大量感染，任何控制组合都绕不开。由命题~\ref{prop:exit-infection-lower-bound}，从初始时刻到退出时刻的累计新增感染满足
+在群体免疫阈值退出本身就要求大量感染。由命题~\ref{prop:exit-infection-lower-bound}，从初始时刻到退出时刻的累计新增感染满足
 \[
 \Itcum(t_2)\ge\beta(S_0-S_c)\approx1.53\times10^6,
 \]
-已远高于 TDINN 在其清零时间的约 $2106$ 人。因此，在本模型与西安全市参数下，像 TDINN 那样低的累计新增感染与在 $S_c$ 退出不相容。改变控制组合可以降低二次成本（表~\ref{tab:joint:compare}），却不能降低这一下界。
+已远高于 TDINN 在其清零时间的约 $2106$ 人。因此，在本模型与西安全市参数下，像 TDINN 那样低的累计新增感染与在 $S_c$ 退出不相容。
 
 这些长时结果是固定参数、全市人口下的模型外推：传播参数来自观测窗口内的拟合，那时 $S(t)\approx N$，退出却要求 $S$ 降到 $S_c$。完整的阈值与接触率扫描见补充材料第~\ref{sec:sup:xian}~节；有效人口情景下常规接触率的影响见第~\ref{sec:sup:contact-scan}~节。
 
@@ -97,4 +97,4 @@ S_0-S(T)=I_{\rm cum}(T)+I_{q_{\rm cum}}(T)+S_q(T)
 \end{proof}
 代入 TDINN 轨迹得 $N_{\rm floor}\approx1.06\times10^4$，约为其总累计新增感染 $2105.63$ 人的 $5.04$ 倍。多出的部分是被隔离的未感染者：平均每隔离一名感染者，就同时隔离 $(1-\beta)/\beta\approx5.7$ 名未感染者（式\eqref{eq:count-identities}）。这一下界只是容纳该轨迹的必要条件，不是对 $N_{\rm eff}$ 的估计。
 
-补充材料第~\ref{sec:sup:population}~节在这一下界以上的人口情景中，比较仅隔离控制与 TDINN 的感染峰值、成本、控制时长和清零时间。在所算的情景中，只要人口满足这一下界，仅隔离控制的清零时间都晚于 TDINN。满足各项比较条件的人口集合是否为连续区间尚未确定。第~\ref{sec:discussion}~节讨论这些结果的含义与局限。
+补充材料第~\ref{sec:sup:population}~节在这一下界以上的人口情景中，比较仅隔离控制与 TDINN 的感染峰值、成本、控制时长和清零时间。在所算的情景中，只要人口满足这一下界，仅隔离控制的清零时间都晚于 TDINN。
