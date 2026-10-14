@@ -1,0 +1,4952 @@
+{
+ "generated_by": "r7_return/make_numbers.py",
+ "output": "paper/generated/r7_numbers.tex",
+ "inputs": {
+  "endpoint": {
+   "file": "r7_3_endpoint_immediate.json",
+   "sha256": "7c4110c3cd5e08d9fc330fb840737f5444f2c8a9ce335377ba2c4d510f2bf35b"
+  },
+  "return": {
+   "file": "r7_3_exponential_return.json",
+   "sha256": "148df884b6c696d6afb31bb4283d7d3e84845ddeed1b0af35727b7f5eb54eac0"
+  },
+  "release": {
+   "file": "r7_3_release.json",
+   "sha256": "a63130cf3f9419453c90fe836256e111ddf42424256b1b990e306c6190231f55"
+  },
+  "noreturn": {
+   "file": "r7_3_noreturn_inf.json",
+   "sha256": "a0fba5df9a963fae145f15d4caa92c52c6e3b70a3f9c5bbdd51456dae266180d"
+  },
+  "convergence": {
+   "file": "r7_3_convergence.json",
+   "sha256": "095e8ea7e2353168df61904f8168d9afdb1f54b5ca6b16ee0b9f8be20b00f0ad"
+  }
+ },
+ "n_macros": 547,
+ "macros": {
+  "rsBaseQonlyDtIr": {
+   "display": "18.104",
+   "value": 18.104471813124363,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.base.laws.q_only.dt",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsBaseQonlyJIr": {
+   "display": "9.4077",
+   "value": 9.407699028173834,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.base.laws.q_only.J",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsBaseQonlyKqIr": {
+   "display": "1610.1",
+   "value": 1610.057768648535,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.base.laws.q_only.Kq",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsBaseAlphaDtIr": {
+   "display": "23.994",
+   "value": 23.99367753920022,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.base.laws.alpha.dt",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsBaseAlphaJIr": {
+   "display": "8.9893",
+   "value": 8.989330875317973,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.base.laws.alpha.J",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsBaseAlphaKqIr": {
+   "display": "1180.9",
+   "value": 1180.8768784381955,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.base.laws.alpha.Kq",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsBaseOptDtIr": {
+   "display": "23.551",
+   "value": 23.55066154130741,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.base.laws.opt_immediate.dt",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsBaseOptJIr": {
+   "display": "8.2376",
+   "value": 8.237621438214662,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.base.laws.opt_immediate.J",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsBaseOptKqIr": {
+   "display": "1213.2",
+   "value": 1213.162047134408,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.base.laws.opt_immediate.Kq",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsBaseConlyDtIr": {
+   "display": "39.584",
+   "value": 39.584214469612405,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.base.laws.c_only.dt",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsBaseConlyJIr": {
+   "display": "13.106",
+   "value": 13.106438051862025,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.base.laws.c_only.J",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsBaseConlyKqIr": {
+   "display": "44.7",
+   "value": 44.70320241516787,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.base.laws.c_only.Kq",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsBaseInfIr": {
+   "display": "537.4",
+   "value": 537.352274527597,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.base.arc_infections_common",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsBaseSstarIr": {
+   "display": "712.5",
+   "value": 712.5124445282588,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.base.S_star_ir",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsBaseIrCostGapConly": {
+   "display": "37.1",
+   "value": 0.37148282350868417,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.base.cost_gap_vs_c_only",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsBaseIrCostGapQonly": {
+   "display": "12.4",
+   "value": 0.12437447100030162,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.base.cost_gap_vs_q_only",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsBaseIrSwitchZ": {
+   "display": "3.000",
+   "value": 3.0,
+   "unit": "S/S_c",
+   "rule": "3 位小数",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.base.laws.opt_immediate.switch_z",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsBaseIrShare": {
+   "display": "0.667",
+   "value": 0.6666667774670353,
+   "unit": "比例",
+   "rule": "3 位小数",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.base.laws.opt_immediate.terminal_share_z=1+1e-6",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsXianQonlyDtIr": {
+   "display": "384.26",
+   "value": 384.26104496994697,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.xian.laws.q_only.dt",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsXianQonlyJIr": {
+   "display": "213.18",
+   "value": 213.17557579767006,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.xian.laws.q_only.J",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsXianQonlyKqIrMil": {
+   "display": "40.5879",
+   "value": 40587900.70567119,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.xian.laws.q_only.Kq",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsXianAlphaDtIr": {
+   "display": "515.36",
+   "value": 515.3609350760745,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.xian.laws.alpha.dt",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsXianAlphaJIr": {
+   "display": "211.14",
+   "value": 211.13702718153743,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.xian.laws.alpha.J",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsXianAlphaKqIrMil": {
+   "display": "34.8035",
+   "value": 34803479.11017187,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.xian.laws.alpha.Kq",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsXianOptDtIr": {
+   "display": "493.58",
+   "value": 493.5796526423454,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.xian.laws.opt_immediate.dt",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsXianOptJIr": {
+   "display": "189.69",
+   "value": 189.6892010318007,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.xian.laws.opt_immediate.J",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsXianOptKqIrMil": {
+   "display": "35.7645",
+   "value": 35764518.210855626,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.xian.laws.opt_immediate.Kq",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsXianConlyDtIr": {
+   "display": "882.91",
+   "value": 882.9146745556548,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.xian.laws.c_only.dt",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsXianConlyJIr": {
+   "display": "314.65",
+   "value": 314.6482150508091,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.xian.laws.c_only.J",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsXianConlyKqIrMil": {
+   "display": "18.5862",
+   "value": 18586182.616398193,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.xian.laws.c_only.Kq",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsXianInfIrMil": {
+   "display": "10.1386",
+   "value": 10138609.36722392,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.xian.arc_infections_common",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsXianSstarIrMil": {
+   "display": "13.1127",
+   "value": 13112734.778809585,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.xian.S_star_ir",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsXianIrCostGapConly": {
+   "display": "39.7",
+   "value": 0.3971387983206265,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.xian.cost_gap_vs_c_only",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsXianIrCostGapQonly": {
+   "display": "11.0",
+   "value": 0.11017385400736915,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.xian.cost_gap_vs_q_only",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsXianIrSwitchZ": {
+   "display": "3.000",
+   "value": 2.9999999999999996,
+   "unit": "S/S_c",
+   "rule": "3 位小数",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.xian.laws.opt_immediate.switch_z",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsXianIrShare": {
+   "display": "0.667",
+   "value": 0.6666667774670353,
+   "unit": "比例",
+   "rule": "3 位小数",
+   "source": "r7_3_endpoint_immediate.json",
+   "path": "cases.xian.laws.opt_immediate.terminal_share_z=1+1e-6",
+   "group": "端点小表（立即返回对照模型，w_c=1、w_q=2）"
+  },
+  "rsBaseStaySevenQonlyDt": {
+   "display": "23.775",
+   "value": 23.77461088942554,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|q_only.dt",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenQonlyJ": {
+   "display": "3.9902",
+   "value": 3.9902152088186407,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|q_only.J",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenQonlyE": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|q_only.e_interior",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenQonlyPeakRatio": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|q_only.e_interior",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenQonlyCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|q_only.crossing",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenQonlyRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|q_only.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenQonlyBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|q_only.below_one_before_term",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenQonlyRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|q_only.regrowth_peak_I",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenQonlyReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|q_only.reached",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenQonlyCterm": {
+   "display": "656.9",
+   "value": 656.8794664211521,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|q_only.C_term",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenQonlyExcess": {
+   "display": "11.9",
+   "value": 0.11935051583307292,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|q_only.excess_rel",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenQonlyTailBound": {
+   "display": "\\ensuremath{7.6\\times10^{-4}}",
+   "value": 0.0007619999999999985,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|q_only.tail_bound",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenQonlyFinalHi": {
+   "display": "656.9",
+   "value": 656.8802284211521,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|q_only.final_estimate[1]",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenConlyDt": {
+   "display": "39.000",
+   "value": 39.00007884685709,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|c_only.dt",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenConlyJ": {
+   "display": "12.795",
+   "value": 12.79511902520831,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|c_only.J",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenConlyE": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|c_only.e_interior",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenConlyPeakRatio": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|c_only.e_interior",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenConlyCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|c_only.crossing",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenConlyRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|c_only.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenConlyBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|c_only.below_one_before_term",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenConlyRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|c_only.regrowth_peak_I",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenConlyReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|c_only.reached",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenConlyCterm": {
+   "display": "673.6",
+   "value": 673.5631830596291,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|c_only.C_term",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenConlyExcess": {
+   "display": "14.8",
+   "value": 0.14778027772993635,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|c_only.excess_rel",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenConlyTailBound": {
+   "display": "\\ensuremath{7.6\\times10^{-4}}",
+   "value": 0.0007619999999999993,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|c_only.tail_bound",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenConlyFinalHi": {
+   "display": "673.6",
+   "value": 673.5639450596291,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|c_only.final_estimate[1]",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenMigDt": {
+   "display": "26.111",
+   "value": 26.111427550653165,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|opt_noreturn.dt",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenMigJ": {
+   "display": "3.9851",
+   "value": 3.9850770248470155,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|opt_noreturn.J",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenMigE": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|opt_noreturn.e_interior",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenMigPeakRatio": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|opt_noreturn.e_interior",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenMigCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|opt_noreturn.crossing",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenMigRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|opt_noreturn.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenMigBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|opt_noreturn.below_one_before_term",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenMigRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|opt_noreturn.regrowth_peak_I",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenMigReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|opt_noreturn.reached",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenMigCterm": {
+   "display": "659.0",
+   "value": 658.9619021130395,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|opt_noreturn.C_term",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenMigExcess": {
+   "display": "12.3",
+   "value": 0.12289907471649054,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|opt_noreturn.excess_rel",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenMigTailBound": {
+   "display": "\\ensuremath{7.6\\times10^{-4}}",
+   "value": 0.000762000000000001,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|opt_noreturn.tail_bound",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStaySevenMigFinalHi": {
+   "display": "659.0",
+   "value": 658.9626641130395,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|7|opt_noreturn.final_estimate[1]",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsBaseStayFourteenQonlyDt": {
+   "display": "19.213",
+   "value": 19.21278349963665,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|q_only.dt",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenQonlyJ": {
+   "display": "2.8229",
+   "value": 2.8228580546493394,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|q_only.J",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenQonlyE": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|q_only.e_interior",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenQonlyPeakRatio": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|q_only.e_interior",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenQonlyCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|q_only.crossing",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenQonlyRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|q_only.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenQonlyBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|q_only.below_one_before_term",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenQonlyRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|q_only.regrowth_peak_I",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenQonlyReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|q_only.reached",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenQonlyCterm": {
+   "display": "623.2",
+   "value": 623.188201264295,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|q_only.C_term",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenQonlyExcess": {
+   "display": "6.19",
+   "value": 0.06193916875921281,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|q_only.excess_rel",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenQonlyTailBound": {
+   "display": "\\ensuremath{7.6\\times10^{-4}}",
+   "value": 0.0007620000000000022,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|q_only.tail_bound",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenQonlyFinalHi": {
+   "display": "623.2",
+   "value": 623.188963264295,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|q_only.final_estimate[1]",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenConlyDt": {
+   "display": "38.473",
+   "value": 38.47262190305208,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|c_only.dt",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenConlyJ": {
+   "display": "12.579",
+   "value": 12.578614418078022,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|c_only.J",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenConlyE": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|c_only.e_interior",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenConlyPeakRatio": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|c_only.e_interior",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenConlyCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|c_only.crossing",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenConlyRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|c_only.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenConlyBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|c_only.below_one_before_term",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenConlyRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|c_only.regrowth_peak_I",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenConlyReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|c_only.reached",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenConlyCterm": {
+   "display": "666.9",
+   "value": 666.9440729424871,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|c_only.C_term",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenConlyExcess": {
+   "display": "13.7",
+   "value": 0.1365010329023495,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|c_only.excess_rel",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenConlyTailBound": {
+   "display": "\\ensuremath{7.6\\times10^{-4}}",
+   "value": 0.0007619999999999984,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|c_only.tail_bound",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenConlyFinalHi": {
+   "display": "666.9",
+   "value": 666.9448349424871,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|c_only.final_estimate[1]",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenMigDt": {
+   "display": "21.807",
+   "value": 21.80688248535219,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|opt_noreturn.dt",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenMigJ": {
+   "display": "2.8421",
+   "value": 2.842076531369413,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|opt_noreturn.J",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenMigE": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|opt_noreturn.e_interior",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenMigPeakRatio": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|opt_noreturn.e_interior",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenMigCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|opt_noreturn.crossing",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenMigRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|opt_noreturn.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenMigBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|opt_noreturn.below_one_before_term",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenMigRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|opt_noreturn.regrowth_peak_I",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenMigReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|opt_noreturn.reached",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenMigCterm": {
+   "display": "624.1",
+   "value": 624.0563923491462,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|opt_noreturn.C_term",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenMigExcess": {
+   "display": "6.34",
+   "value": 0.06341860324962938,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|opt_noreturn.excess_rel",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenMigTailBound": {
+   "display": "\\ensuremath{7.6\\times10^{-4}}",
+   "value": 0.0007619999999999989,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|opt_noreturn.tail_bound",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayFourteenMigFinalHi": {
+   "display": "624.1",
+   "value": 624.0571543491462,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|14|opt_noreturn.final_estimate[1]",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsBaseStayThirtyQonlyDt": {
+   "display": "8.9041",
+   "value": 8.904080506809935,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|q_only.dt",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyQonlyJ": {
+   "display": "2.4176",
+   "value": 2.4175908315804495,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|q_only.J",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyQonlyE": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|q_only.e_interior",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyQonlyPeakRatio": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|q_only.e_interior",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyQonlyCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|q_only.crossing",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyQonlyRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|q_only.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyQonlyBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|q_only.below_one_before_term",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyQonlyRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|q_only.regrowth_peak_I",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyQonlyReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|q_only.reached",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyQonlyCterm": {
+   "display": "603.6",
+   "value": 603.6428330268991,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|q_only.C_term",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyQonlyExcess": {
+   "display": "2.86",
+   "value": 0.02863303097129554,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|q_only.excess_rel",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyQonlyTailBound": {
+   "display": "\\ensuremath{7.6\\times10^{-4}}",
+   "value": 0.0007620000000000011,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|q_only.tail_bound",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyQonlyFinalHi": {
+   "display": "603.6",
+   "value": 603.6435950268991,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|q_only.final_estimate[1]",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyConlyDt": {
+   "display": "37.711",
+   "value": 37.71117723646139,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|c_only.dt",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyConlyJ": {
+   "display": "12.329",
+   "value": 12.328930916652943,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|c_only.J",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyConlyE": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|c_only.e_interior",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyConlyPeakRatio": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|c_only.e_interior",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyConlyCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|c_only.crossing",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyConlyRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|c_only.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyConlyBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|c_only.below_one_before_term",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyConlyRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|c_only.regrowth_peak_I",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyConlyReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|c_only.reached",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyConlyCterm": {
+   "display": "655.6",
+   "value": 655.6458952083165,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|c_only.C_term",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyConlyExcess": {
+   "display": "11.7",
+   "value": 0.11724845808277161,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|c_only.excess_rel",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyConlyTailBound": {
+   "display": "\\ensuremath{7.6\\times10^{-4}}",
+   "value": 0.0007619999999999994,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|c_only.tail_bound",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyConlyFinalHi": {
+   "display": "655.6",
+   "value": 655.6466572083165,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|c_only.final_estimate[1]",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyMigDt": {
+   "display": "12.613",
+   "value": 12.613356664381383,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|opt_noreturn.dt",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyMigJ": {
+   "display": "2.3523",
+   "value": 2.3522972083374447,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|opt_noreturn.J",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyMigE": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|opt_noreturn.e_interior",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyMigPeakRatio": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|opt_noreturn.e_interior",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyMigCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|opt_noreturn.crossing",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyMigRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|opt_noreturn.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyMigBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|opt_noreturn.below_one_before_term",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyMigRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|opt_noreturn.regrowth_peak_I",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyMigReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|opt_noreturn.reached",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyMigCterm": {
+   "display": "604.7",
+   "value": 604.6773327330993,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|opt_noreturn.C_term",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyMigExcess": {
+   "display": "3.04",
+   "value": 0.030395862417486555,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|opt_noreturn.excess_rel",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyMigTailBound": {
+   "display": "\\ensuremath{7.6\\times10^{-4}}",
+   "value": 0.0007619999999999988,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|opt_noreturn.tail_bound",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStayThirtyMigFinalHi": {
+   "display": "604.7",
+   "value": 604.6780947330993,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|30|opt_noreturn.final_estimate[1]",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsBaseStaySixtyQonlyDt": {
+   "display": "6.8936",
+   "value": 6.8935935995781605,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|q_only.dt",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyQonlyJ": {
+   "display": "2.3109",
+   "value": 2.3109300353679396,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|q_only.J",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyQonlyE": {
+   "display": "\\ensuremath{-0.776}",
+   "value": -0.7763848816253398,
+   "unit": "无量纲",
+   "rule": "3 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|q_only.e_interior",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyQonlyPeakRatio": {
+   "display": "0.224",
+   "value": 0.2236151183746602,
+   "unit": "I/η",
+   "rule": "3 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|q_only.e_interior",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyQonlyCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|q_only.crossing",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyQonlyRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|q_only.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyQonlyBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|q_only.below_one_before_term",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyQonlyRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|q_only.regrowth_peak_I",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyQonlyReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|q_only.reached",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyQonlyCterm": {
+   "display": "596.7",
+   "value": 596.6870379207795,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|q_only.C_term",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyQonlyExcess": {
+   "display": "1.68",
+   "value": 0.016780060619696495,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|q_only.excess_rel",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyQonlyTailBound": {
+   "display": "\\ensuremath{7.6\\times10^{-4}}",
+   "value": 0.0007620000000000023,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|q_only.tail_bound",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyQonlyFinalHi": {
+   "display": "596.7",
+   "value": 596.6877999207795,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|q_only.final_estimate[1]",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyConlyDt": {
+   "display": "37.117",
+   "value": 37.11697041946441,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|c_only.dt",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyConlyJ": {
+   "display": "12.160",
+   "value": 12.160308703646901,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|c_only.J",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyConlyE": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|c_only.e_interior",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyConlyPeakRatio": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|c_only.e_interior",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyConlyCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|c_only.crossing",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyConlyRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|c_only.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyConlyBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|c_only.below_one_before_term",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyConlyRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|c_only.regrowth_peak_I",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyConlyReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|c_only.reached",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyConlyCterm": {
+   "display": "645.6",
+   "value": 645.5532998629797,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|c_only.C_term",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyConlyExcess": {
+   "display": "10.0",
+   "value": 0.10005024686839616,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|c_only.excess_rel",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyConlyTailBound": {
+   "display": "\\ensuremath{7.6\\times10^{-4}}",
+   "value": 0.0007619999999999991,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|c_only.tail_bound",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyConlyFinalHi": {
+   "display": "645.6",
+   "value": 645.5540618629797,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|c_only.final_estimate[1]",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyMigDt": {
+   "display": "9.5029",
+   "value": 9.502942001415343,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|opt_noreturn.dt",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyMigJ": {
+   "display": "2.2198",
+   "value": 2.2198450141360273,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|opt_noreturn.J",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyMigE": {
+   "display": "\\ensuremath{-0.795}",
+   "value": -0.7950634319488383,
+   "unit": "无量纲",
+   "rule": "3 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|opt_noreturn.e_interior",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyMigPeakRatio": {
+   "display": "0.205",
+   "value": 0.20493656805116167,
+   "unit": "I/η",
+   "rule": "3 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|opt_noreturn.e_interior",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyMigCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|opt_noreturn.crossing",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyMigRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|opt_noreturn.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyMigBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|opt_noreturn.below_one_before_term",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyMigRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|opt_noreturn.regrowth_peak_I",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyMigReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|opt_noreturn.reached",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyMigCterm": {
+   "display": "595.6",
+   "value": 595.6066206164869,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|opt_noreturn.C_term",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyMigExcess": {
+   "display": "1.49",
+   "value": 0.014938983635719747,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|opt_noreturn.excess_rel",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyMigTailBound": {
+   "display": "\\ensuremath{7.6\\times10^{-4}}",
+   "value": 0.0007620000000000016,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|opt_noreturn.tail_bound",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStaySixtyMigFinalHi": {
+   "display": "595.6",
+   "value": 595.6073826164869,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|60|opt_noreturn.final_estimate[1]",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsBaseStayOnetwentyQonlyDt": {
+   "display": "6.3317",
+   "value": 6.331745833116148,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|q_only.dt",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyQonlyJ": {
+   "display": "2.2654",
+   "value": 2.2653878592878542,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|q_only.J",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyQonlyE": {
+   "display": "\\ensuremath{-0.731}",
+   "value": -0.7307568589877533,
+   "unit": "无量纲",
+   "rule": "3 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|q_only.e_interior",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyQonlyPeakRatio": {
+   "display": "0.269",
+   "value": 0.26924314101224667,
+   "unit": "I/η",
+   "rule": "3 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|q_only.e_interior",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyQonlyCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|q_only.crossing",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyQonlyRegrow": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|q_only.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyQonlyBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|q_only.below_one_before_term",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyQonlyRegrowPeak": {
+   "display": "10.3",
+   "value": 10.27162582961721,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|q_only.regrowth_peak_I",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyQonlyReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|q_only.reached",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyQonlyCterm": {
+   "display": "591.7",
+   "value": 591.686159764426,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|q_only.C_term",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyQonlyExcess": {
+   "display": "0.826",
+   "value": 0.008258351797786428,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|q_only.excess_rel",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyQonlyTailBound": {
+   "display": "\\ensuremath{7.6\\times10^{-4}}",
+   "value": 0.0007620000000000057,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|q_only.tail_bound",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyQonlyFinalHi": {
+   "display": "591.7",
+   "value": 591.686921764426,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|q_only.final_estimate[1]",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyConlyDt": {
+   "display": "36.727",
+   "value": 36.72683569237399,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|c_only.dt",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyConlyJ": {
+   "display": "12.057",
+   "value": 12.057024793162709,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|c_only.J",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyConlyE": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|c_only.e_interior",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyConlyPeakRatio": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|c_only.e_interior",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyConlyCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|c_only.crossing",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyConlyRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|c_only.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyConlyBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|c_only.below_one_before_term",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyConlyRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|c_only.regrowth_peak_I",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyConlyReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|c_only.reached",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyConlyCterm": {
+   "display": "638.4",
+   "value": 638.4229754833169,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|c_only.C_term",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyConlyExcess": {
+   "display": "8.79",
+   "value": 0.08789987122046036,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|c_only.excess_rel",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyConlyTailBound": {
+   "display": "\\ensuremath{7.6\\times10^{-4}}",
+   "value": 0.0007620000000000007,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|c_only.tail_bound",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyConlyFinalHi": {
+   "display": "638.4",
+   "value": 638.4237374833169,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|c_only.final_estimate[1]",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyMigDt": {
+   "display": "8.5132",
+   "value": 8.513156107138775,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|opt_noreturn.dt",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyMigJ": {
+   "display": "2.1661",
+   "value": 2.166089804011508,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|opt_noreturn.J",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyMigE": {
+   "display": "\\ensuremath{-0.741}",
+   "value": -0.7409168418647958,
+   "unit": "无量纲",
+   "rule": "3 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|opt_noreturn.e_interior",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyMigPeakRatio": {
+   "display": "0.259",
+   "value": 0.2590831581352042,
+   "unit": "I/η",
+   "rule": "3 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|opt_noreturn.e_interior",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyMigCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|opt_noreturn.crossing",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyMigRegrow": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|opt_noreturn.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyMigBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|opt_noreturn.below_one_before_term",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyMigRegrowPeak": {
+   "display": "9.9",
+   "value": 9.884022482858043,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|opt_noreturn.regrowth_peak_I",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyMigReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|opt_noreturn.reached",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyMigCterm": {
+   "display": "588.6",
+   "value": 588.6241647852632,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|opt_noreturn.C_term",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyMigExcess": {
+   "display": "0.304",
+   "value": 0.003040582275962802,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|opt_noreturn.excess_rel",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyMigTailBound": {
+   "display": "\\ensuremath{7.6\\times10^{-4}}",
+   "value": 0.0007619999999999993,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|opt_noreturn.tail_bound",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayOnetwentyMigFinalHi": {
+   "display": "588.6",
+   "value": 588.6249267852633,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|120|opt_noreturn.final_estimate[1]",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsBaseStayThreesixtyfiveQonlyDt": {
+   "display": "6.0325",
+   "value": 6.032485202787088,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|q_only.dt",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveQonlyJ": {
+   "display": "2.2370",
+   "value": 2.2369777625987046,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|q_only.J",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveQonlyE": {
+   "display": "\\ensuremath{-0.692}",
+   "value": -0.6919261065499436,
+   "unit": "无量纲",
+   "rule": "3 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|q_only.e_interior",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveQonlyPeakRatio": {
+   "display": "0.308",
+   "value": 0.3080738934500564,
+   "unit": "I/η",
+   "rule": "3 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|q_only.e_interior",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveQonlyCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|q_only.crossing",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveQonlyRegrow": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|q_only.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveQonlyBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|q_only.below_one_before_term",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveQonlyRegrowPeak": {
+   "display": "11.8",
+   "value": 11.753019035119653,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|q_only.regrowth_peak_I",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveQonlyReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|q_only.reached",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveQonlyCterm": {
+   "display": "592.5",
+   "value": 592.5232752898552,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|q_only.C_term",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveQonlyExcess": {
+   "display": "0.968",
+   "value": 0.00968483221481976,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|q_only.excess_rel",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveQonlyTailBound": {
+   "display": "\\ensuremath{7.6\\times10^{-4}}",
+   "value": 0.000762,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|q_only.tail_bound",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveQonlyFinalHi": {
+   "display": "592.5",
+   "value": 592.5240372898552,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|q_only.final_estimate[1]",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveConlyDt": {
+   "display": "36.423",
+   "value": 36.422993543506536,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|c_only.dt",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveConlyJ": {
+   "display": "11.980",
+   "value": 11.979530077863982,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|c_only.J",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveConlyE": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|c_only.e_interior",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveConlyPeakRatio": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|c_only.e_interior",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveConlyCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|c_only.crossing",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveConlyRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|c_only.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveConlyBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|c_only.below_one_before_term",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveConlyRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|c_only.regrowth_peak_I",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveConlyReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|c_only.reached",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveConlyCterm": {
+   "display": "632.7",
+   "value": 632.6522871858037,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|c_only.C_term",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveConlyExcess": {
+   "display": "7.81",
+   "value": 0.07806637321552828,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|c_only.excess_rel",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveConlyTailBound": {
+   "display": "\\ensuremath{7.6\\times10^{-4}}",
+   "value": 0.0007620000000000011,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|c_only.tail_bound",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveConlyFinalHi": {
+   "display": "632.7",
+   "value": 632.6530491858038,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|c_only.final_estimate[1]",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveMigDt": {
+   "display": "7.9829",
+   "value": 7.982934920626391,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|opt_noreturn.dt",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveMigJ": {
+   "display": "2.1334",
+   "value": 2.1334203344586316,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|opt_noreturn.J",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveMigE": {
+   "display": "\\ensuremath{-0.700}",
+   "value": -0.6997456384252355,
+   "unit": "无量纲",
+   "rule": "3 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|opt_noreturn.e_interior",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveMigPeakRatio": {
+   "display": "0.300",
+   "value": 0.3002543615747645,
+   "unit": "I/η",
+   "rule": "3 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|opt_noreturn.e_interior",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveMigCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|opt_noreturn.crossing",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveMigRegrow": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|opt_noreturn.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveMigBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|opt_noreturn.below_one_before_term",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveMigRegrowPeak": {
+   "display": "11.5",
+   "value": 11.454703894077264,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|opt_noreturn.regrowth_peak_I",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveMigReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|opt_noreturn.reached",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveMigCterm": {
+   "display": "589.0",
+   "value": 588.9679013752992,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|opt_noreturn.C_term",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveMigExcess": {
+   "display": "0.363",
+   "value": 0.003626324027739196,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|opt_noreturn.excess_rel",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveMigTailBound": {
+   "display": "\\ensuremath{7.6\\times10^{-4}}",
+   "value": 0.0007620000000000094,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|opt_noreturn.tail_bound",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsBaseStayThreesixtyfiveMigFinalHi": {
+   "display": "589.0",
+   "value": 588.9686633752992,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|365|opt_noreturn.final_estimate[1]",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStaySevenQonlyDt": {
+   "display": "407.11",
+   "value": 407.1079036942369,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|q_only.dt",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenQonlyJ": {
+   "display": "204.08",
+   "value": 204.08336504211226,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|q_only.J",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenQonlyE": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|q_only.e_interior",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenQonlyPeakRatio": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|q_only.e_interior",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenQonlyCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|q_only.crossing",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenQonlyRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|q_only.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenQonlyBelowOneBeforeTerm": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|q_only.below_one_before_term",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenQonlyRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|q_only.regrowth_peak_I",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenQonlyReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|q_only.reached",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenQonlyCtermMil": {
+   "display": "10.5485",
+   "value": 10548526.761296527,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|q_only.C_term",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenQonlyExcess": {
+   "display": "3.53",
+   "value": 0.03529851808493863,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|q_only.excess_rel",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenQonlyTailBound": {
+   "display": "13",
+   "value": 13.162999998993438,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|q_only.tail_bound",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenQonlyFinalHiMil": {
+   "display": "10.5485",
+   "value": 10548539.924296526,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|q_only.final_estimate[1]",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenConlyDt": {
+   "display": "870.08",
+   "value": 870.0782517574175,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|c_only.dt",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenConlyJ": {
+   "display": "307.01",
+   "value": 307.01263726394984,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|c_only.J",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenConlyE": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|c_only.e_interior",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenConlyPeakRatio": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|c_only.e_interior",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenConlyCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|c_only.crossing",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenConlyRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|c_only.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenConlyBelowOneBeforeTerm": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|c_only.below_one_before_term",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenConlyRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|c_only.regrowth_peak_I",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenConlyReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|c_only.reached",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenConlyCtermMil": {
+   "display": "10.5495",
+   "value": 10549519.146804307,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|c_only.C_term",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenConlyExcess": {
+   "display": "3.54",
+   "value": 0.035395917017398325,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|c_only.excess_rel",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenConlyTailBound": {
+   "display": "13",
+   "value": 13.162999998993438,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|c_only.tail_bound",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenConlyFinalHiMil": {
+   "display": "10.5495",
+   "value": 10549532.309804305,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|c_only.final_estimate[1]",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenMigDt": {
+   "display": "464.58",
+   "value": 464.5777166299924,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|opt_noreturn.dt",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenMigJ": {
+   "display": "186.51",
+   "value": 186.50820931373377,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|opt_noreturn.J",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenMigE": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|opt_noreturn.e_interior",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenMigPeakRatio": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|opt_noreturn.e_interior",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenMigCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|opt_noreturn.crossing",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenMigRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|opt_noreturn.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenMigBelowOneBeforeTerm": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|opt_noreturn.below_one_before_term",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenMigRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|opt_noreturn.regrowth_peak_I",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenMigReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|opt_noreturn.reached",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenMigCtermMil": {
+   "display": "10.5491",
+   "value": 10549140.29758145,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|opt_noreturn.C_term",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenMigExcess": {
+   "display": "3.54",
+   "value": 0.035358734380630405,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|opt_noreturn.excess_rel",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenMigTailBound": {
+   "display": "13",
+   "value": 13.16299999899338,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|opt_noreturn.tail_bound",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStaySevenMigFinalHiMil": {
+   "display": "10.5492",
+   "value": 10549153.460581448,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|7|opt_noreturn.final_estimate[1]",
+   "group": "指数回流（1/ω = 7 d）"
+  },
+  "rsXianStayFourteenQonlyDt": {
+   "display": "425.26",
+   "value": 425.264444244724,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|q_only.dt",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenQonlyJ": {
+   "display": "192.88",
+   "value": 192.8824520681264,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|q_only.J",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenQonlyE": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|q_only.e_interior",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenQonlyPeakRatio": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|q_only.e_interior",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenQonlyCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|q_only.crossing",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenQonlyRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|q_only.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenQonlyBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|q_only.below_one_before_term",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenQonlyRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|q_only.regrowth_peak_I",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenQonlyReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|q_only.reached",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenQonlyCtermMil": {
+   "display": "10.4498",
+   "value": 10449824.561610928,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|q_only.C_term",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenQonlyExcess": {
+   "display": "2.56",
+   "value": 0.025611265696182762,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|q_only.excess_rel",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenQonlyTailBound": {
+   "display": "13",
+   "value": 13.1629999989934,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|q_only.tail_bound",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenQonlyFinalHiMil": {
+   "display": "10.4498",
+   "value": 10449837.724610927,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|q_only.final_estimate[1]",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenConlyDt": {
+   "display": "857.25",
+   "value": 857.2455296789093,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|c_only.dt",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenConlyJ": {
+   "display": "299.49",
+   "value": 299.4876123914927,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|c_only.J",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenConlyE": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|c_only.e_interior",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenConlyPeakRatio": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|c_only.e_interior",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenConlyCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|c_only.crossing",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenConlyRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|c_only.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenConlyBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|c_only.below_one_before_term",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenConlyRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|c_only.regrowth_peak_I",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenConlyReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|c_only.reached",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenConlyCtermMil": {
+   "display": "10.4538",
+   "value": 10453752.677091151,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|c_only.C_term",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenConlyExcess": {
+   "display": "2.60",
+   "value": 0.025996795564719802,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|c_only.excess_rel",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenConlyTailBound": {
+   "display": "13",
+   "value": 13.162999998993435,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|c_only.tail_bound",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenConlyFinalHiMil": {
+   "display": "10.4538",
+   "value": 10453765.84009115,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|c_only.final_estimate[1]",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenMigDt": {
+   "display": "484.65",
+   "value": 484.6469060302616,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|opt_noreturn.dt",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenMigJ": {
+   "display": "176.87",
+   "value": 176.87147262969043,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|opt_noreturn.J",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenMigE": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|opt_noreturn.e_interior",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenMigPeakRatio": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|opt_noreturn.e_interior",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenMigCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|opt_noreturn.crossing",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenMigRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|opt_noreturn.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenMigBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|opt_noreturn.below_one_before_term",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenMigRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|opt_noreturn.regrowth_peak_I",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenMigReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|opt_noreturn.reached",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenMigCtermMil": {
+   "display": "10.4520",
+   "value": 10452032.910328746,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|opt_noreturn.C_term",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenMigExcess": {
+   "display": "2.58",
+   "value": 0.025828006877838615,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|opt_noreturn.excess_rel",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenMigTailBound": {
+   "display": "13",
+   "value": 13.162999998993437,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|opt_noreturn.tail_bound",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayFourteenMigFinalHiMil": {
+   "display": "10.4520",
+   "value": 10452046.073328745,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|14|opt_noreturn.final_estimate[1]",
+   "group": "指数回流（1/ω = 14 d）"
+  },
+  "rsXianStayThirtyQonlyDt": {
+   "display": "452.04",
+   "value": 452.03899772224395,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|q_only.dt",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyQonlyJ": {
+   "display": "165.11",
+   "value": 165.11293472428542,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|q_only.J",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyQonlyE": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|q_only.e_interior",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyQonlyPeakRatio": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|q_only.e_interior",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyQonlyCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|q_only.crossing",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyQonlyRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|q_only.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyQonlyBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|q_only.below_one_before_term",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyQonlyRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|q_only.regrowth_peak_I",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyQonlyReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|q_only.reached",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyQonlyCtermMil": {
+   "display": "10.3044",
+   "value": 10304439.566732401,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|q_only.C_term",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyQonlyExcess": {
+   "display": "1.13",
+   "value": 0.01134227125216383,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|q_only.excess_rel",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyQonlyTailBound": {
+   "display": "13",
+   "value": 13.162999998993424,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|q_only.tail_bound",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyQonlyFinalHiMil": {
+   "display": "10.3045",
+   "value": 10304452.7297324,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|q_only.final_estimate[1]",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyConlyDt": {
+   "display": "827.91",
+   "value": 827.9140414342446,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|c_only.dt",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyConlyJ": {
+   "display": "282.73",
+   "value": 282.7334761783566,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|c_only.J",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyConlyE": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|c_only.e_interior",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyConlyPeakRatio": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|c_only.e_interior",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyConlyCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|c_only.crossing",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyConlyRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|c_only.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyConlyBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|c_only.below_one_before_term",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyConlyRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|c_only.regrowth_peak_I",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyConlyReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|c_only.reached",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyConlyCtermMil": {
+   "display": "10.3018",
+   "value": 10301784.284198826,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|c_only.C_term",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyConlyExcess": {
+   "display": "1.11",
+   "value": 0.011081665185144765,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|c_only.excess_rel",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyConlyTailBound": {
+   "display": "13",
+   "value": 13.162999998993406,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|c_only.tail_bound",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyConlyFinalHiMil": {
+   "display": "10.3018",
+   "value": 10301797.447198825,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|c_only.final_estimate[1]",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyMigDt": {
+   "display": "516.26",
+   "value": 516.2618013271945,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|opt_noreturn.dt",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyMigJ": {
+   "display": "153.10",
+   "value": 153.1001602536167,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|opt_noreturn.J",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyMigE": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|opt_noreturn.e_interior",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyMigPeakRatio": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|opt_noreturn.e_interior",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyMigCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|opt_noreturn.crossing",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyMigRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|opt_noreturn.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyMigBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|opt_noreturn.below_one_before_term",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyMigRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|opt_noreturn.regrowth_peak_I",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyMigReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|opt_noreturn.reached",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyMigCtermMil": {
+   "display": "10.3031",
+   "value": 10303094.660405146,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|opt_noreturn.C_term",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyMigExcess": {
+   "display": "1.12",
+   "value": 0.011210273717429503,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|opt_noreturn.excess_rel",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyMigTailBound": {
+   "display": "13",
+   "value": 13.162999998993474,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|opt_noreturn.tail_bound",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStayThirtyMigFinalHiMil": {
+   "display": "10.3031",
+   "value": 10303107.823405145,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|30|opt_noreturn.final_estimate[1]",
+   "group": "指数回流（1/ω = 30 d）"
+  },
+  "rsXianStaySixtyQonlyDt": {
+   "display": "462.73",
+   "value": 462.7341642295812,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|q_only.dt",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyQonlyJ": {
+   "display": "119.99",
+   "value": 119.99461301769706,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|q_only.J",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyQonlyE": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|q_only.e_interior",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyQonlyPeakRatio": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|q_only.e_interior",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyQonlyCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|q_only.crossing",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyQonlyRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|q_only.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyQonlyBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|q_only.below_one_before_term",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyQonlyRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|q_only.regrowth_peak_I",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyQonlyReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|q_only.reached",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyQonlyCtermMil": {
+   "display": "10.2483",
+   "value": 10248328.900898319,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|q_only.C_term",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyQonlyExcess": {
+   "display": "0.584",
+   "value": 0.005835218892973101,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|q_only.excess_rel",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyQonlyTailBound": {
+   "display": "13",
+   "value": 13.162999998993444,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|q_only.tail_bound",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyQonlyFinalHiMil": {
+   "display": "10.2483",
+   "value": 10248342.063898318,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|q_only.final_estimate[1]",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyConlyDt": {
+   "display": "772.92",
+   "value": 772.9179809372499,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|c_only.dt",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyConlyJ": {
+   "display": "253.25",
+   "value": 253.24649542896955,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|c_only.J",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyConlyE": {
+   "display": "\\ensuremath{-0.709}",
+   "value": -0.7094672370520323,
+   "unit": "无量纲",
+   "rule": "3 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|c_only.e_interior",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyConlyPeakRatio": {
+   "display": "0.291",
+   "value": 0.2905327629479677,
+   "unit": "I/η",
+   "rule": "3 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|c_only.e_interior",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyConlyCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|c_only.crossing",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyConlyRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|c_only.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyConlyBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|c_only.below_one_before_term",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyConlyRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|c_only.regrowth_peak_I",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyConlyReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|c_only.reached",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyConlyCtermMil": {
+   "display": "10.2475",
+   "value": 10247518.755379938,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|c_only.C_term",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyConlyExcess": {
+   "display": "0.576",
+   "value": 0.005755706135069261,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|c_only.excess_rel",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyConlyTailBound": {
+   "display": "13",
+   "value": 13.162999998993511,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|c_only.tail_bound",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyConlyFinalHiMil": {
+   "display": "10.2475",
+   "value": 10247531.918379936,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|c_only.final_estimate[1]",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyMigDt": {
+   "display": "525.89",
+   "value": 525.8854428746878,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|opt_noreturn.dt",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyMigJ": {
+   "display": "116.23",
+   "value": 116.23387329632386,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|opt_noreturn.J",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyMigE": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|opt_noreturn.e_interior",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyMigPeakRatio": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|opt_noreturn.e_interior",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyMigCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|opt_noreturn.crossing",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyMigRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|opt_noreturn.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyMigBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|opt_noreturn.below_one_before_term",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyMigRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|opt_noreturn.regrowth_peak_I",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyMigReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|opt_noreturn.reached",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyMigCtermMil": {
+   "display": "10.2483",
+   "value": 10248314.496851128,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|opt_noreturn.C_term",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyMigExcess": {
+   "display": "0.583",
+   "value": 0.005833805189519636,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|opt_noreturn.excess_rel",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyMigTailBound": {
+   "display": "13",
+   "value": 13.162999998993289,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|opt_noreturn.tail_bound",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStaySixtyMigFinalHiMil": {
+   "display": "10.2483",
+   "value": 10248327.659851126,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|60|opt_noreturn.final_estimate[1]",
+   "group": "指数回流（1/ω = 60 d）"
+  },
+  "rsXianStayOnetwentyQonlyDt": {
+   "display": "397.69",
+   "value": 397.6889261617842,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|q_only.dt",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyQonlyJ": {
+   "display": "70.725",
+   "value": 70.72527466821892,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|q_only.J",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyQonlyE": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|q_only.e_interior",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyQonlyPeakRatio": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|q_only.e_interior",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyQonlyCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|q_only.crossing",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyQonlyRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|q_only.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyQonlyBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|q_only.below_one_before_term",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyQonlyRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|q_only.regrowth_peak_I",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyQonlyReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|q_only.reached",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyQonlyCtermMil": {
+   "display": "10.2185",
+   "value": 10218495.148332138,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|q_only.C_term",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyQonlyExcess": {
+   "display": "0.291",
+   "value": 0.0029071474646475285,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|q_only.excess_rel",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyQonlyTailBound": {
+   "display": "13",
+   "value": 13.162999998993426,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|q_only.tail_bound",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyQonlyFinalHiMil": {
+   "display": "10.2185",
+   "value": 10218508.311332136,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|q_only.final_estimate[1]",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyConlyDt": {
+   "display": "663.76",
+   "value": 663.764895239596,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|c_only.dt",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyConlyJ": {
+   "display": "204.52",
+   "value": 204.51809175772382,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|c_only.J",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyConlyE": {
+   "display": "\\ensuremath{-0.488}",
+   "value": -0.4881988200347189,
+   "unit": "无量纲",
+   "rule": "3 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|c_only.e_interior",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyConlyPeakRatio": {
+   "display": "0.512",
+   "value": 0.5118011799652811,
+   "unit": "I/η",
+   "rule": "3 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|c_only.e_interior",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyConlyCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|c_only.crossing",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyConlyRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|c_only.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyConlyBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|c_only.below_one_before_term",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyConlyRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|c_only.regrowth_peak_I",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyConlyReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|c_only.reached",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyConlyCtermMil": {
+   "display": "10.2186",
+   "value": 10218573.317695644,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|c_only.C_term",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyConlyExcess": {
+   "display": "0.291",
+   "value": 0.002914819495825805,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|c_only.excess_rel",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyConlyTailBound": {
+   "display": "13",
+   "value": 13.162999998993433,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|c_only.tail_bound",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyConlyFinalHiMil": {
+   "display": "10.2186",
+   "value": 10218586.480695643,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|c_only.final_estimate[1]",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyMigDt": {
+   "display": "451.10",
+   "value": 451.097954097782,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|opt_noreturn.dt",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyMigJ": {
+   "display": "72.740",
+   "value": 72.7396208600332,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|opt_noreturn.J",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyMigE": {
+   "display": "\\ensuremath{-0.384}",
+   "value": -0.3843228341538535,
+   "unit": "无量纲",
+   "rule": "3 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|opt_noreturn.e_interior",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyMigPeakRatio": {
+   "display": "0.616",
+   "value": 0.6156771658461465,
+   "unit": "I/η",
+   "rule": "3 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|opt_noreturn.e_interior",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyMigCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|opt_noreturn.crossing",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyMigRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|opt_noreturn.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyMigBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|opt_noreturn.below_one_before_term",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyMigRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|opt_noreturn.regrowth_peak_I",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyMigReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|opt_noreturn.reached",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyMigCtermMil": {
+   "display": "10.2185",
+   "value": 10218476.364898982,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|opt_noreturn.C_term",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyMigExcess": {
+   "display": "0.291",
+   "value": 0.0029053039408122954,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|opt_noreturn.excess_rel",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyMigTailBound": {
+   "display": "13",
+   "value": 13.162999998993595,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|opt_noreturn.tail_bound",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayOnetwentyMigFinalHiMil": {
+   "display": "10.2185",
+   "value": 10218489.52789898,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|120|opt_noreturn.final_estimate[1]",
+   "group": "指数回流（1/ω = 120 d）"
+  },
+  "rsXianStayThreesixtyfiveQonlyDt": {
+   "display": "116.98",
+   "value": 116.98163577884094,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|q_only.dt",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveQonlyJ": {
+   "display": "45.266",
+   "value": 45.26644853570317,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|q_only.J",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveQonlyE": {
+   "display": "\\ensuremath{-0.277}",
+   "value": -0.27663768803136657,
+   "unit": "无量纲",
+   "rule": "3 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|q_only.e_interior",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveQonlyPeakRatio": {
+   "display": "0.723",
+   "value": 0.7233623119686334,
+   "unit": "I/η",
+   "rule": "3 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|q_only.e_interior",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveQonlyCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|q_only.crossing",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveQonlyRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|q_only.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveQonlyBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|q_only.below_one_before_term",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveQonlyRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|q_only.regrowth_peak_I",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveQonlyReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|q_only.reached",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveQonlyCtermMil": {
+   "display": "10.1986",
+   "value": 10198601.314500397,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|q_only.C_term",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveQonlyExcess": {
+   "display": "0.0955",
+   "value": 0.0009546419488443414,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|q_only.excess_rel",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveQonlyTailBound": {
+   "display": "13",
+   "value": 13.162999998993852,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|q_only.tail_bound",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveQonlyFinalHiMil": {
+   "display": "10.1986",
+   "value": 10198614.477500396,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|q_only.final_estimate[1]",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveConlyDt": {
+   "display": "421.89",
+   "value": 421.89455799917266,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|c_only.dt",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveConlyJ": {
+   "display": "136.53",
+   "value": 136.52695997864907,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|c_only.J",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveConlyE": {
+   "display": "\\ensuremath{-0.372}",
+   "value": -0.37210155919062415,
+   "unit": "无量纲",
+   "rule": "3 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|c_only.e_interior",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveConlyPeakRatio": {
+   "display": "0.628",
+   "value": 0.6278984408093758,
+   "unit": "I/η",
+   "rule": "3 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|c_only.e_interior",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveConlyCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|c_only.crossing",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveConlyRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|c_only.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveConlyBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|c_only.below_one_before_term",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveConlyRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|c_only.regrowth_peak_I",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveConlyReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|c_only.reached",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveConlyCtermMil": {
+   "display": "10.1986",
+   "value": 10198596.496503161,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|c_only.C_term",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveConlyExcess": {
+   "display": "0.0954",
+   "value": 0.0009541690804039191,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|c_only.excess_rel",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveConlyTailBound": {
+   "display": "13",
+   "value": 13.162999998993877,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|c_only.tail_bound",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveConlyFinalHiMil": {
+   "display": "10.1986",
+   "value": 10198609.65950316,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|c_only.final_estimate[1]",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveMigDt": {
+   "display": "165.09",
+   "value": 165.09087184575895,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|opt_noreturn.dt",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveMigJ": {
+   "display": "43.305",
+   "value": 43.305102715547086,
+   "unit": "d",
+   "rule": "5 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|opt_noreturn.J",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveMigE": {
+   "display": "\\ensuremath{-0.294}",
+   "value": -0.2942897874168814,
+   "unit": "无量纲",
+   "rule": "3 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|opt_noreturn.e_interior",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveMigPeakRatio": {
+   "display": "0.706",
+   "value": 0.7057102125831186,
+   "unit": "I/η",
+   "rule": "3 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|opt_noreturn.e_interior",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveMigCrossed": {
+   "display": "否",
+   "value": "not_crossed",
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|opt_noreturn.crossing",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveMigRegrow": {
+   "display": "否",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|opt_noreturn.regrowth_after_below_one",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveMigBelowOneBeforeTerm": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|opt_noreturn.below_one_before_term",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveMigRegrowPeak": {
+   "display": "—",
+   "value": null,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|opt_noreturn.regrowth_peak_I",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveMigReached": {
+   "display": "是",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|opt_noreturn.reached",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveMigCtermMil": {
+   "display": "10.1986",
+   "value": 10198599.991408166,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|opt_noreturn.C_term",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveMigExcess": {
+   "display": "0.0955",
+   "value": 0.0009545120922816586,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|opt_noreturn.excess_rel",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveMigTailBound": {
+   "display": "13",
+   "value": 13.162999998993408,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|opt_noreturn.tail_bound",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsXianStayThreesixtyfiveMigFinalHiMil": {
+   "display": "10.1986",
+   "value": 10198613.154408164,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|365|opt_noreturn.final_estimate[1]",
+   "group": "指数回流（1/ω = 365 d）"
+  },
+  "rsReturnRunsTotal": {
+   "display": "36",
+   "value": 36,
+   "unit": "条",
+   "rule": "整数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs",
+   "group": "指数回流（汇总）"
+  },
+  "rsReturnRunsCrossed": {
+   "display": "0",
+   "value": 0,
+   "unit": "条",
+   "rule": "整数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.*.crossing == crossed",
+   "group": "指数回流（汇总）"
+  },
+  "rsReturnRunsUndetermined": {
+   "display": "0",
+   "value": 0,
+   "unit": "条",
+   "rule": "整数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.*.crossing == undetermined",
+   "group": "指数回流（汇总）"
+  },
+  "rsReturnRunsNotReached": {
+   "display": "0",
+   "value": 0,
+   "unit": "条",
+   "rule": "整数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.*.reached == false",
+   "group": "指数回流（汇总）"
+  },
+  "rsReturnRunsRegrow": {
+   "display": "4",
+   "value": 4,
+   "unit": "条",
+   "rule": "整数",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.*.regrowth_after_below_one",
+   "group": "指数回流（汇总）"
+  },
+  "rsBaseReturnExcessMin": {
+   "display": "0.304",
+   "value": 0.003040582275962802,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "min runs.base|*.excess_rel",
+   "group": "指数回流（汇总）"
+  },
+  "rsBaseReturnExcessMax": {
+   "display": "14.8",
+   "value": 0.14778027772993635,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "max runs.base|*.excess_rel",
+   "group": "指数回流（汇总）"
+  },
+  "rsBaseReturnPeakRatioMax": {
+   "display": "0.308",
+   "value": 0.3080738934500564,
+   "unit": "I/η",
+   "rule": "3 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "max runs.base|*.e_interior + 1",
+   "group": "指数回流（汇总）"
+  },
+  "rsBaseEpsTail": {
+   "display": "\\ensuremath{7.6\\times10^{-4}}",
+   "value": 0.000762,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.base|*.eps_tail",
+   "group": "指数回流（汇总）"
+  },
+  "rsXianReturnExcessMin": {
+   "display": "0.0954",
+   "value": 0.0009541690804039191,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "min runs.xian|*.excess_rel",
+   "group": "指数回流（汇总）"
+  },
+  "rsXianReturnExcessMax": {
+   "display": "3.54",
+   "value": 0.035395917017398325,
+   "unit": "%",
+   "rule": "百分数 3 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "max runs.xian|*.excess_rel",
+   "group": "指数回流（汇总）"
+  },
+  "rsXianReturnPeakRatioMax": {
+   "display": "0.723",
+   "value": 0.7233623119686334,
+   "unit": "I/η",
+   "rule": "3 位小数",
+   "source": "r7_3_exponential_return.json",
+   "path": "max runs.xian|*.e_interior + 1",
+   "group": "指数回流（汇总）"
+  },
+  "rsXianEpsTail": {
+   "display": "13",
+   "value": 13.162999998993408,
+   "unit": "人",
+   "rule": "2 位有效数字",
+   "source": "r7_3_exponential_return.json",
+   "path": "runs.xian|*.eps_tail",
+   "group": "指数回流（汇总）"
+  },
+  "rsBaseReleaseSqRatio": {
+   "display": "2.215",
+   "value": 2.215056511401169,
+   "unit": "S_q(t2)/S_c",
+   "rule": "3 位小数",
+   "source": "r7_3_release.json",
+   "path": "cases.base.Sq_t2_over_Sc",
+   "group": "释放（ω = 0，仅隔离，ξ = 1）"
+  },
+  "rsBaseReleaseRe": {
+   "display": "3.215",
+   "value": 3.215056511401169,
+   "unit": "R_e(t2+)",
+   "rule": "3 位小数",
+   "source": "r7_3_release.json",
+   "path": "cases.base.Re_after_release",
+   "group": "释放（ω = 0，仅隔离，ξ = 1）"
+  },
+  "rsXianReleaseSqRatio": {
+   "display": "2.714",
+   "value": 2.713853600811079,
+   "unit": "S_q(t2)/S_c",
+   "rule": "3 位小数",
+   "source": "r7_3_release.json",
+   "path": "cases.xian.Sq_t2_over_Sc",
+   "group": "释放（ω = 0，仅隔离，ξ = 1）"
+  },
+  "rsXianReleaseRe": {
+   "display": "3.714",
+   "value": 3.7138536008110794,
+   "unit": "R_e(t2+)",
+   "rule": "3 位小数",
+   "source": "r7_3_release.json",
+   "path": "cases.xian.Re_after_release",
+   "group": "释放（ω = 0，仅隔离，ξ = 1）"
+  },
+  "rsBaseLBound": {
+   "display": "586.8",
+   "value": 586.8398299993382,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_noreturn_inf.json",
+   "path": "cases.base.L",
+   "group": "无回流 t→∞ 对照（ω = 0）"
+  },
+  "rsBaseQonlyCinfNr": {
+   "display": "286.6",
+   "value": 286.58973183443794,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_noreturn_inf.json",
+   "path": "cases.base.laws.q_only.C_inf",
+   "group": "无回流 t→∞ 对照（ω = 0）"
+  },
+  "rsBaseQonlyBelowL": {
+   "display": "满足",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_noreturn_inf.json",
+   "path": "cases.base.laws.q_only.below_L",
+   "group": "无回流 t→∞ 对照（ω = 0）"
+  },
+  "rsBaseAlphaCinfNr": {
+   "display": "324.2",
+   "value": 324.24726683556565,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_noreturn_inf.json",
+   "path": "cases.base.laws.alpha.C_inf",
+   "group": "无回流 t→∞ 对照（ω = 0）"
+  },
+  "rsBaseAlphaBelowL": {
+   "display": "满足",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_noreturn_inf.json",
+   "path": "cases.base.laws.alpha.below_L",
+   "group": "无回流 t→∞ 对照（ω = 0）"
+  },
+  "rsBaseOptCinfNr": {
+   "display": "307.5",
+   "value": 307.4986534960079,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_noreturn_inf.json",
+   "path": "cases.base.laws.opt_noreturn.C_inf",
+   "group": "无回流 t→∞ 对照（ω = 0）"
+  },
+  "rsBaseOptBelowL": {
+   "display": "满足",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_noreturn_inf.json",
+   "path": "cases.base.laws.opt_noreturn.below_L",
+   "group": "无回流 t→∞ 对照（ω = 0）"
+  },
+  "rsBaseConlyCinfNr": {
+   "display": "629.5",
+   "value": 629.508755173487,
+   "unit": "人",
+   "rule": "1 位小数",
+   "source": "r7_3_noreturn_inf.json",
+   "path": "cases.base.laws.c_only.C_inf",
+   "group": "无回流 t→∞ 对照（ω = 0）"
+  },
+  "rsBaseConlyBelowL": {
+   "display": "不满足",
+   "value": false,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_noreturn_inf.json",
+   "path": "cases.base.laws.c_only.below_L",
+   "group": "无回流 t→∞ 对照（ω = 0）"
+  },
+  "rsXianLBoundMil": {
+   "display": "10.1889",
+   "value": 10188874.587407744,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_noreturn_inf.json",
+   "path": "cases.xian.L",
+   "group": "无回流 t→∞ 对照（ω = 0）"
+  },
+  "rsXianQonlyCinfNrMil": {
+   "display": "2.3779",
+   "value": 2377947.6089643924,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_noreturn_inf.json",
+   "path": "cases.xian.laws.q_only.C_inf",
+   "group": "无回流 t→∞ 对照（ω = 0）"
+  },
+  "rsXianQonlyBelowL": {
+   "display": "满足",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_noreturn_inf.json",
+   "path": "cases.xian.laws.q_only.below_L",
+   "group": "无回流 t→∞ 对照（ω = 0）"
+  },
+  "rsXianAlphaCinfNrMil": {
+   "display": "2.6390",
+   "value": 2639000.128439188,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_noreturn_inf.json",
+   "path": "cases.xian.laws.alpha.C_inf",
+   "group": "无回流 t→∞ 对照（ω = 0）"
+  },
+  "rsXianAlphaBelowL": {
+   "display": "满足",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_noreturn_inf.json",
+   "path": "cases.xian.laws.alpha.below_L",
+   "group": "无回流 t→∞ 对照（ω = 0）"
+  },
+  "rsXianOptCinfNrMil": {
+   "display": "2.5348",
+   "value": 2534833.093836318,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_noreturn_inf.json",
+   "path": "cases.xian.laws.opt_noreturn.C_inf",
+   "group": "无回流 t→∞ 对照（ω = 0）"
+  },
+  "rsXianOptBelowL": {
+   "display": "满足",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_noreturn_inf.json",
+   "path": "cases.xian.laws.opt_noreturn.below_L",
+   "group": "无回流 t→∞ 对照（ω = 0）"
+  },
+  "rsXianConlyCinfNrMil": {
+   "display": "3.8566",
+   "value": 3856646.0907505597,
+   "unit": "10^6 人",
+   "rule": "以 10^6 人计，4 位小数",
+   "source": "r7_3_noreturn_inf.json",
+   "path": "cases.xian.laws.c_only.C_inf",
+   "group": "无回流 t→∞ 对照（ω = 0）"
+  },
+  "rsXianConlyBelowL": {
+   "display": "满足",
+   "value": true,
+   "unit": "文字",
+   "rule": "文字",
+   "source": "r7_3_noreturn_inf.json",
+   "path": "cases.xian.laws.c_only.below_L",
+   "group": "无回流 t→∞ 对照（ω = 0）"
+  },
+  "rsTolMaxRelChange": {
+   "display": "\\ensuremath{3\\times10^{-11}}",
+   "value": 2.5072481505952823e-11,
+   "unit": "相对变化",
+   "rule": "1 位有效数字",
+   "source": "r7_3_convergence.json",
+   "path": "tolerance_summary.max_rel_change_tight",
+   "group": "收敛与容差"
+  },
+  "rsTolMaxAbsEChange": {
+   "display": "\\ensuremath{6\\times10^{-12}}",
+   "value": 6.387779194483301e-12,
+   "unit": "绝对变化",
+   "rule": "1 位有效数字",
+   "source": "r7_3_convergence.json",
+   "path": "tolerance_summary.max_abs_e_change_tight",
+   "group": "收敛与容差"
+  },
+  "rsTolRuns": {
+   "display": "54",
+   "value": 54,
+   "unit": "条",
+   "rule": "整数",
+   "source": "r7_3_convergence.json",
+   "path": "tolerance_summary.n_runs",
+   "group": "收敛与容差"
+  },
+  "rsIdentityResidualMax": {
+   "display": "\\ensuremath{5\\times10^{-14}}",
+   "value": 5.3734794395966747e-14,
+   "unit": "相对残差",
+   "rule": "1 位有效数字",
+   "source": "r7_3_convergence.json",
+   "path": "tolerance_summary.max_identity_residual",
+   "group": "收敛与容差"
+  },
+  "rsIrNxGapTwoThousand": {
+   "display": "\\ensuremath{2.8\\times10^{-8}}",
+   "value": 2.775811222544e-08,
+   "unit": "S 坐标成本密度",
+   "rule": "2 位有效数字",
+   "source": "r7_3_convergence.json",
+   "path": "max pointwise.*|immediate.result.2001.max_gap",
+   "group": "收敛与容差"
+  },
+  "rsIrNxGapFourThousand": {
+   "display": "\\ensuremath{6.9\\times10^{-9}}",
+   "value": 6.93382778971241e-09,
+   "unit": "S 坐标成本密度",
+   "rule": "2 位有效数字",
+   "source": "r7_3_convergence.json",
+   "path": "max pointwise.*|immediate.result.4001.max_gap",
+   "group": "收敛与容差"
+  },
+  "rsIrNxGapEightThousand": {
+   "display": "\\ensuremath{1.7\\times10^{-9}}",
+   "value": 1.7209867142486956e-09,
+   "unit": "S 坐标成本密度",
+   "rule": "2 位有效数字",
+   "source": "r7_3_convergence.json",
+   "path": "max pointwise.*|immediate.result.8001.max_gap",
+   "group": "收敛与容差"
+  },
+  "rsIrNzQuadRelMax": {
+   "display": "\\ensuremath{2\\times10^{-12}}",
+   "value": 2.487528111237265e-12,
+   "unit": "相对差",
+   "rule": "1 位有效数字",
+   "source": "r7_3_convergence.json",
+   "path": "max quadrature_N_z.*.4001.rel_{dt,J}_quad",
+   "group": "收敛与容差"
+  }
+ }
+}

@@ -16,6 +16,8 @@ R7-b 回流修订的计算代码与测试（执行计划 `ai/R7_回流修订_分
 | `check_references.py` | 生成 `results/r7_1_reference_check.{json,md}`（与参考值的对照、网格报告） |
 | `tests/` | pytest：`test_a_noreturn.py` … `test_e_pointwise.py` 对应提示词中的 (a)–(e) |
 | `theory_checks.py` | R7-2：SymPy 核对引理 R1、命题 R2（含有限时间退出的常数 k）、命题 R3 与释放注记的代数，并用两组参数数值抽检；生成 `results/r7_2_theory_checks.{md,json}`。只核对代数，不代替存在性与量词论证（见 `paper/revision_notes/R7_2_return_theory.md`） |
+| `r7_3_numerics.py` | R7-3：端点小表、指数回流表（含反馈重放与退出后稠密采样核对）、释放用数、无回流 t→∞ 对照、收敛（立即返回端 N_x/N_z、迁移律状态范围上的 N_x、全部事件法轨迹的三档积分容差）、与执行计划第 5 节参考值的对照；生成 `results/r7_3_*.json`（全精度）与 `results/r7_3_numerics.md` |
+| `make_numbers.py` | R7-3：由 `results/r7_3_*.json` 生成 `paper/generated/r7_numbers.tex`（只含 `\newcommand`，宏名前缀 `\rs`）与 `results/r7_numbers_full.json`（每个宏的全精度值、单位、来源字段） |
 
 复制来源（原文件未改动）：`replay_feedback.py` 来自 `ai/R7_回流检验/fast_return.py` 的 `simulate`（一次性退出版本），J 的累计按 `ai/数值工作汇总_20261004/02_隔离易感者返回检验/sq_return.py` 补上；启动状态的首次积分写法与求积的被积函数来自同目录 `joint_cost_optimal.py`（`basic_quantities`、`solve_allocation`）和 `fast_return.py` 的 `limit_quantities`、`limit_policy`。旧的“细网格 + 有界局部搜索”的逐状态最小化不再使用，改为根法。
 
@@ -98,7 +100,24 @@ conda run --no-capture-output -n thesis python r7_return/check_references.py
 conda run --no-capture-output -n thesis python r7_return/theory_checks.py
 ```
 
-第一条在仓库根目录运行，约 30 s，84 项测试。第二条生成 `results/r7_1_reference_check.json`（全精度）与 `.md`，约 30 s。conda run 在 GBK 控制台转发中文输出会报编码错误，所以第二、三条加了 `--no-capture-output`。第三条（R7-2）约 5 s，83 项核对，任一不通过时退出码为 1。
+```bash
+conda run --no-capture-output -n thesis python r7_return/r7_3_numerics.py
+```
+
+```bash
+conda run --no-capture-output -n thesis python r7_return/make_numbers.py
+```
+
+第一条在仓库根目录运行，约 30 s（R7-3 起含 `test_f_numbers.py`，核对生成的宏）。第二条生成 `results/r7_1_reference_check.json`（全精度）与 `.md`，约 30 s。conda run 在 GBK 控制台转发中文输出会报编码错误，所以第二、三条加了 `--no-capture-output`。第三条（R7-2）约 5 s，83 项核对，任一不通过时退出码为 1。第四条（R7-3）约 7 分钟，第五条在其后运行，约 1 s。
+
+R7-3 的范围（`paper/revision_notes/R7_3_numerics.md`）：执行计划 R7-3 第 1–4、7、8 项与第 6 项中回流部分。第 5 项（固定人口初值诊断、四项拟合误差）与第 6 项中 ω = 0 的部分（ω = 0 端的逐状态最小化网格、表 S5 权重转折、ω = 0 的积分容差收敛表）按无回流分支 NR-0 的登记（作者 2026-10-14 确认）由无回流分支 NR-3 产出，本目录不重复执行。
+
+R7-3 的附加诊断：
+
+- 退出后峰值的独立核对：在退出后阶段每个积分步内取 8 个等分点（连续解），稠密采样的最大 I/η − 1 与 İ = 0 事件给出的值对照；
+- 反馈重放的积分上限取事件法首次 I < 1 之后 10 d（没有时取终止时刻），使两者比较同一时间窗；
+- 终止时 U < S_c，此后 S ≤ U < S_c，I 严格下降：终止前 I 未降到 1 以下的情景，“降到 1 以下后再回升”不会发生；
+- 积分容差三档：基准（rtol 1e-11、atol×1、max_step 1 d）、收紧（1e-12、×0.1、0.5 d）、放宽（1e-10、×10、2 d）。
 
 ## 与参考值的对照（摘要；完整表见 `results/r7_1_reference_check.md`）
 
