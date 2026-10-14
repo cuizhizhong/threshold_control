@@ -1,0 +1,946 @@
+[
+ {
+  "group": "A",
+  "id": "A1",
+  "desc": "式(2.1)五式右端之和为 0（总人数守恒）",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "A",
+  "id": "A2",
+  "desc": "式(2.10)第一式：dI_cum/dt = dI/dt + gamma I",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "A",
+  "id": "A3",
+  "desc": "式(2.10)第二式：dS_q/dt = (1-beta)/beta · dI_qcum/dt",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "A",
+  "id": "A4",
+  "desc": "-dS/dt = dItcum/dt + dS_q/dt（易感者流出只有感染与未感染隔离两条去路）",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "A",
+  "id": "A5",
+  "desc": "常规控制下 R_e = beta c0 (1-q0) S/(gamma N) = S/S_c",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "A",
+  "id": "A6",
+  "desc": "beta2^0/beta1^0 = rho1/S_c（式 2.3 末式）",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "A",
+  "id": "A7",
+  "desc": "常规控制下 dI/dt = gamma I (S/S_c - 1)（附录 A.1(iii)、A.2）",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "A",
+  "id": "A8",
+  "desc": "式(3.1)三种 z_eta 写法相等，且 z_eta∈(-1/e,0)",
+  "ok": true,
+  "method": "numeric",
+  "detail": "最大相对差 2.03e-39"
+ },
+ {
+  "group": "A",
+  "id": "A9",
+  "desc": "定理 3.1：S*=-S_c W_{-1}(z_eta) 满足 I(S*)=eta 且 S_c<S*<S0；W_0 分支给出 S<S_c 的交点",
+  "ok": true,
+  "method": "numeric",
+  "detail": "首次积分最大相对残差 2.64e-39"
+ },
+ {
+  "group": "A",
+  "id": "A10",
+  "desc": "定理 3.5：S_end、S_inf 的 W_0 表达满足退出后首次积分(A.1)，且 0<S_inf<S_end<S_c",
+  "ok": true,
+  "method": "numeric",
+  "detail": "最大残差 1.2e-35"
+ },
+ {
+  "group": "B",
+  "id": "B1",
+  "desc": "式(3.4)：S̄/S_c=(1-beta)(1-q0)",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "B",
+  "id": "B2",
+  "desc": "S_c - S̄ = S_c(beta+q0(1-beta))>0",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "B",
+  "id": "B3",
+  "desc": "式(4.3) 两种写法相等：1-gamma N/(beta c S) = 1-c0(1-q0)S_c/(cS)",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "B",
+  "id": "B4",
+  "desc": "平衡式下 c[beta+(1-beta)q]S = cS - c0 S̄（式 4.1、附录 A.6）",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "B",
+  "id": "B5",
+  "desc": "平衡式即 beta c(1-q)S/N = gamma",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "B",
+  "id": "B6",
+  "desc": "定理 3.2：c=c0、q=q_c(S)、I=eta 时 dS/dt = -(c0 eta/N)(S - S̄)",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "B",
+  "id": "B7",
+  "desc": "式(3.6) 的 S(t) 满足上述线性方程且 S(t1)=S*",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "B",
+  "id": "B8",
+  "desc": "式(3.7)：S(t1+Δt)=S_c",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "B",
+  "id": "B9",
+  "desc": "式(3.9) 第一种写法 = q_c(S(t))",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "B",
+  "id": "B10",
+  "desc": "式(3.9) 第二种写法 = q_c(S(t))",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "B",
+  "id": "B11",
+  "desc": "式(3.11)：dq_c/dt = -(gamma eta/beta)(S-S̄)/S^2",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "B",
+  "id": "B12",
+  "desc": "式(3.14)：d²q_c/dt² = (gamma c0 eta²/(beta N))(S-S̄)(2S̄-S)/S³",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "B",
+  "id": "B13",
+  "desc": "式(3.13)：q_inf = q_c(2S̄) = 1 - 1/[2(1-beta)]",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "B",
+  "id": "B14",
+  "desc": "式(3.13)：S(t_inf)=2S̄",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "B",
+  "id": "B15",
+  "desc": "推论 3.3：1-q_max = gamma N/(beta c0 S*) = (1-q0)S_c/S*（推论 4.8 证明）",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "B",
+  "id": "B16",
+  "desc": "式(4.6)：q_c(S)=q_cap 时 c = c0(1-q0)S_c/((1-q_cap)S)",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "B",
+  "id": "B17",
+  "desc": "式(4.7) 两种写法：beta c_min(1-q_cap)S*/N - gamma ∝ c_min(1-q_cap) - c0(1-q_max)",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "B",
+  "id": "B18",
+  "desc": "式(4.9) 与式(4.3) 一致：q_c(S;alpha)=1-(1-q0)S_c/[S_c+alpha(S-S_c)]",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "B",
+  "id": "B19",
+  "desc": "定理 4.3 证明：c_c(S;alpha)S - c0 S̄ = c0[S_c - S̄ + alpha(S-S_c)]",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "B",
+  "id": "B20",
+  "desc": "式(4.10) 满足 dS/dt = -(eta/N)(c_c S - c0 S̄) 且 S(t1)=S*",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "B",
+  "id": "B21",
+  "desc": "式(4.11)：S(t1+Δt(alpha))=S_c",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "B",
+  "id": "B22",
+  "desc": "式(4.12)：alpha↓0 时 Δt(alpha) → N(S*-S_c)/(c0 eta(S_c-S̄))",
+  "ok": true,
+  "method": "numeric",
+  "detail": "最大残差 0.0"
+ },
+ {
+  "group": "B",
+  "id": "B23",
+  "desc": "式(4.11) 在 alpha=1 时等于式(3.7)",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "B",
+  "id": "B24",
+  "desc": "定理 4.5(ii)：∂c_c(S;alpha)/∂alpha = c0(1-S_c/S)（S>S_c 时 >0）",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "B",
+  "id": "B25",
+  "desc": "推论 4.4：c(S*;lo)=c_min",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "B",
+  "id": "B26",
+  "desc": "推论 4.4：q(S*;hi)=q_cap",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "B",
+  "id": "B27",
+  "desc": "推论 4.4：(hi-lo)·c0(S*-S_c)(1-q_cap) = c0(1-q0)S_c - c_min(1-q_cap)S*（非空⇔式 4.7）",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "C",
+  "id": "C1",
+  "desc": "beta c0 S̄/N = gamma(1-beta)（式 4.15 证明）",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "C",
+  "id": "C2",
+  "desc": "式(4.15)：beta(eta/N)∫cS dt = beta(S*-S_c)+gamma eta(1-beta)Δt",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "C",
+  "id": "C3",
+  "desc": "式(4.16)：(S*-S_c) - 控制期感染 = (1-beta)(S*-S_c-gamma eta Δt)",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "C",
+  "id": "C4",
+  "desc": "式(4.16) 的独立路径：ΔS_q=(1-beta)(eta/N)∫cqS dt，平衡式下 cqS=cS-c0(1-q0)S_c",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "C",
+  "id": "C5",
+  "desc": "定理 3.6：∫_{S_c}^{S*} S/(S-S̄)dS = S*-S_c+S̄ ln[(S*-S̄)/(S_c-S̄)]",
+  "ok": true,
+  "method": "numeric",
+  "detail": "最大残差 5.67e-41"
+ },
+ {
+  "group": "C",
+  "id": "C6",
+  "desc": "定理 3.6 平台项 = beta(S*-S_c)+(1-beta)gamma eta Δt_q（与式 4.15 同形）",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "C",
+  "id": "C7",
+  "desc": "前后常规阶段 beta c0 S I/N = kappa0·(-dS/dt)，kappa0=beta/(beta+q0(1-beta))",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "C",
+  "id": "C8",
+  "desc": "式(4.14) 左界 = ∫ dS/(c0(S-S̄)) 乘 N/eta",
+  "ok": true,
+  "method": "numeric",
+  "detail": "最大残差 1.64e-40"
+ },
+ {
+  "group": "C",
+  "id": "C9",
+  "desc": "式(4.14) 右界 = ∫ dS/(c0(S_c-S̄)) 乘 N/eta",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "C",
+  "id": "C10",
+  "desc": "命题 4.9：dItcum/dt = beta/(beta+(1-beta)q)·(-dS/dt)",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "C",
+  "id": "C11",
+  "desc": "命题 4.9：系数 beta/(beta+(1-beta)q) 关于 q 递减（导数 = -beta(1-beta)/(...)^2）",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "C",
+  "id": "C12",
+  "desc": "命题 7.1：S0-S(T) = I_cum + I_qcum + S_q(T) = I_cum + I_qcum/beta（S_q(0)=0）",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "D",
+  "id": "D1",
+  "desc": "式(5.2)：(q-q0)/(1-q0) = 1 - c0 S_c/(cS)",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "D",
+  "id": "D2",
+  "desc": "式(5.1)：成本率 × dt/dS = (N/eta) f，dt/dS = -N/(eta(cS-c0S̄))",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "D",
+  "id": "D3",
+  "desc": "式(5.4)：∂f/∂c × c³(cS-c0S̄)²/S 恰等于五次式（附录 A.7）",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "D",
+  "id": "D4",
+  "desc": "五次式最高次系数为 w_c/c0²",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "D",
+  "id": "D5",
+  "desc": "附录 A.8：∂f/∂c·D² = n'(c)D - S n(c)",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "D",
+  "id": "D6",
+  "desc": "附录 A.8 左端点 c=c0S_c/S 处的量",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "D",
+  "id": "D7",
+  "desc": "附录 A.8 右端点 c=c0 处的量",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "D",
+  "id": "D8",
+  "desc": "式(5.6)：S_sw 是 S²-3S_cS+2S_cS̄ 的较大根",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "D",
+  "id": "D9",
+  "desc": "S_sw/S_c = (3+√(9-8u))/2，u=S̄/S_c=(1-beta)(1-q0)",
+  "ok": true,
+  "method": "numeric",
+  "detail": "最大残差 7.03e-42"
+ },
+ {
+  "group": "D",
+  "id": "D10",
+  "desc": "5.3 节：0<S̄<S_c ⇒ 2S_c<S_sw<3S_c（比值关于 u 严格递减，u=0 处 3、u=1 处 2）",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "D",
+  "id": "D11",
+  "desc": "附录 A.8：较小根/S_c=(3-√(9-8u))/2 严格增、在 u=1 处为 1，故 u<1 时小于 1（较小根 < S_c）",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "D",
+  "id": "D12",
+  "desc": "附录 A.9：f(S,c0(1-zx))/z² 的表达（一般权重）",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "D",
+  "id": "D13",
+  "desc": "附录 A.9：(q-q0)/(1-q0)=z(1-x)/(1-zx)",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "D",
+  "id": "D14",
+  "desc": "z→0 的极限函数 = [w_c x²+w_q(1-x)²]/(c0(S_c-S̄))",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "D",
+  "id": "D15",
+  "desc": "极限函数严格凸，唯一最小点 x*=w_q/(w_c+w_q)（默认权重 2/3）",
+  "ok": true,
+  "method": "symbolic",
+  "detail": "x*=[w_q/(w_c + w_q)]"
+ },
+ {
+  "group": "D",
+  "id": "D16",
+  "desc": "退出比例：接触降幅/(1-S_c/S) → w_q/(w_c+w_q)，隔离增幅/(1-S_c/S) → w_c/(w_c+w_q)",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "D",
+  "id": "D17",
+  "desc": "两种归一化强度之比 → w_q/w_c（不是 c 与 q 原值之比）；图 7 的 y → r/(1+r)，r=w_q/w_c",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "D",
+  "id": "D18",
+  "desc": "默认权重：2/3、1/3",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "D",
+  "id": "D19",
+  "desc": "附录 B.1 第一个部分分式",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "D",
+  "id": "D20",
+  "desc": "附录 B.1 第二个部分分式",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "D",
+  "id": "D21",
+  "desc": "式(B.1) = (N/(c0 eta))∫J_q 被积函数",
+  "ok": true,
+  "method": "numeric",
+  "detail": "最大残差 2.51e-39"
+ },
+ {
+  "group": "D",
+  "id": "D22",
+  "desc": "式(B.2) = (2N/(c0 eta))∫J 被积函数（默认权重 w_q=2）",
+  "ok": true,
+  "method": "numeric",
+  "detail": "最大残差 1.13e-37"
+ },
+ {
+  "group": "D",
+  "id": "D23",
+  "desc": "式(A.5)：仅隔离控制 f(S,c0)=w_q(1-S_c/S)²/(c0(S-S̄))",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "D",
+  "id": "D24",
+  "desc": "式(B.3)：仅减少接触的 J（w_c=1）",
+  "ok": true,
+  "method": "numeric",
+  "detail": "最大残差 1.01e-37"
+ },
+ {
+  "group": "D",
+  "id": "D25",
+  "desc": "仅减少接触时 f 不含 w_q、与 w_c 成正比，故式(B.3) 对应 w_c=1（B.1 开头的“取默认权重”须覆盖 B.2）",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "D",
+  "id": "D26",
+  "desc": "式(3.25)：J 的归一化表达与 S 积分一致（eta=theta N）",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "D",
+  "id": "D27",
+  "desc": "命题 5.2 证明：两项归一化强度同时为零 ⇔ c=c0 且 S=S_c",
+  "ok": true,
+  "method": "symbolic",
+  "detail": "[{S: -N*gamma/(beta*c0*(q0 - 1)), c: c0}]"
+ },
+ {
+  "group": "D",
+  "id": "D28",
+  "desc": "注记 5.5：Δt 的被积函数 (N/eta)/(cS-c0S̄)；J+kappa Δt 的逐状态被积函数为 f+kappa/(cS-c0S̄)",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "S",
+  "id": "S1",
+  "desc": "附录 A.3：∂F/∂S = rho1(1/S - 1/S_c)",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "S",
+  "id": "S2",
+  "desc": "附录 A.3：∂F/∂c0 = -(rho1/c0) ln(S/S0)",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "S",
+  "id": "S3",
+  "desc": "附录 A.3：∂F/∂beta",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "S",
+  "id": "S4",
+  "desc": "附录 A.3：∂F/∂q0",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "S",
+  "id": "S5",
+  "desc": "附录 A.3：S̄<S*<S0 ⇒ (S0-S*)-S̄ln(S0/S*)>0（另有 ln x<x-1 的证明）",
+  "ok": true,
+  "method": "numeric",
+  "detail": "2000 点最小相对值 0.0388"
+ },
+ {
+  "group": "S",
+  "id": "S6",
+  "desc": "式(A.2)：∂S*/∂eta = 1/[rho1(1/S*-1/S_c)]",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "S",
+  "id": "S7",
+  "desc": "式(A.2)：∂S*/∂c0 = ln(S*/S0)/[c0(1/S*-1/S_c)]",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "S",
+  "id": "S8",
+  "desc": "式(A.3)：∂S*/∂beta",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "S",
+  "id": "S9",
+  "desc": "式(A.4)：∂S*/∂q0",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "S",
+  "id": "S10",
+  "desc": "附录 A.4：∂Δt/∂eta = -Δt/eta + N/(c0 eta (S*-S̄))·∂S*/∂eta",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "S",
+  "id": "S11",
+  "desc": "式(A.6)：∂Itcum/∂eta 的表达",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "S",
+  "id": "S12",
+  "desc": "附录 A.4：beta S_c/(S_c-S̄) = beta/(beta+q0(1-beta))",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "S",
+  "id": "S13",
+  "desc": "附录 A.4：∂S_end/∂eta = -1/[rho1(1/S_end-1/S_c)]",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "S",
+  "id": "S14",
+  "desc": "S/(S-S̄) 关于 S 的导数 = -S̄/(S-S̄)² <0",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "S",
+  "id": "S15",
+  "desc": "附录 A.5：∂S̄/∂beta = -gamma N/(c0 beta²)",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "S",
+  "id": "S16",
+  "desc": "附录 A.5：∂(S_c-S̄)/∂beta = -q0 S_c/beta",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "S",
+  "id": "S17",
+  "desc": "附录 A.5：∂S̄/∂c0=-S̄/c0，∂S_c/∂c0=-S_c/c0，∂S_c/∂q0=S_c/(1-q0)",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "S",
+  "id": "S18",
+  "desc": "式(3.24)：∂Δt/∂c0 的表达（代入 ∂S*/∂c0）",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "S",
+  "id": "S19",
+  "desc": "式(3.23)：dI_max^0/dc0 = -(rho1/c0)ln(S_c/S0)",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "S",
+  "id": "S20",
+  "desc": "补充 S2：∂B/∂c0 = 0，∂B/∂eta = 0",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "S",
+  "id": "S21",
+  "desc": "补充 S2：∂B/∂beta = -1/[(1-beta)(beta+q0(1-beta))]",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "S",
+  "id": "S22",
+  "desc": "补充 S2：∂B/∂q0 = -1/[(1-q0)(beta+q0(1-beta))]",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "S",
+  "id": "S23c0",
+  "desc": "补充 S2：∂A/∂c0 的表达",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "S",
+  "id": "S23beta",
+  "desc": "补充 S2：∂A/∂beta 的表达",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "S",
+  "id": "S24",
+  "desc": "补充 S2.3：构造点满足触发与拐点条件，闭式与一般式一致，两点导数一正一负",
+  "ok": true,
+  "method": "symbolic+example",
+  "detail": "r=21/20: eta=3172.6, Imax=21583.8, dλ/dq0=0.6852; r=2: eta=78511.2, Imax=96922.3, dλ/dq0=-3.588"
+ },
+ {
+  "group": "S",
+  "id": "S25",
+  "desc": "补充 S4 命题：∂s_end/∂N = -1/[N²(rho1/N)(1/s_end-1/s_c)]",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "F",
+  "id": "F1",
+  "desc": "释放前后 S+S_q 不变（只从 S_q 转到 S；I、I_q、R 连续，总人口不变）",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "F",
+  "id": "F2",
+  "desc": "R_e(t2+) = 1 + xi S_q(t2-)/S_c",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "F",
+  "id": "F3",
+  "desc": "dI/dt(t2+) = gamma eta xi S_q(t2-)/S_c",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "F",
+  "id": "F4",
+  "desc": "xi=0 时 dI/dt(t2+)=0、R_e=1（恢复常规参数、不释放，回到定理 3.5 的情形）",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "F",
+  "id": "F5",
+  "desc": "（说明）启动前 S_q 增量 = (1-beta)q0/(beta+(1-beta)q0)·(S0-S*)；q0=0 且仅减少接触时 S_q(t2-)=S_q(0)",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "G",
+  "id": "G1",
+  "desc": "c0 - c0S_c/S = c0(1-S_c/S)>0（S>S_c），故 c_min<c0 ⇒ c^-(S)<c0",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "G",
+  "id": "G2",
+  "desc": "c0(1-q0)S_c/((1-q_cap)S) - c0S_c/S = c0S_c(q_cap-q0)/((1-q_cap)S)，故 q_cap>q0 ⇒ c^+(S)>c0S_c/S",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "G",
+  "id": "G3",
+  "desc": "c0∈[c^-,c^+] ⇔ S ≤ (1-q0)S_c/(1-q_cap)；该界 / S_c = (1-q0)/(1-q_cap) >1 ⇔ q_cap>q0",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "G",
+  "id": "G4",
+  "desc": "c0S_c/S ≥ c_min ⇔ S ≤ c0S_c/c_min；该界 >S_c ⇔ c_min<c0",
+  "ok": true,
+  "method": "symbolic",
+  "detail": ""
+ },
+ {
+  "group": "G",
+  "id": "G5",
+  "desc": "（算例 N）c_min/c0=0.9、q_cap=0.6 满足 c_min<c0、q_cap>q0，但式(4.7)不成立：两个不等式不蕴含整段可行",
+  "ok": true,
+  "method": "example",
+  "detail": "S*/S_c=4.0440, q_max=0.7565, c_min(1-q_cap)=3.600 > c0(1-q_max)=2.435"
+ },
+ {
+  "group": "G",
+  "id": "G6",
+  "desc": "（算例 N）c_min/c0=0.9、q_cap=0.8：S<S_sw 时约束最小点落在 c=c_min 上——两种措施都强于常规，但不在约束区间内部",
+  "ok": true,
+  "method": "example",
+  "detail": "S_sw/S_c=2.2654; S/S_c=1.2: 无约束 c*/c0=0.8994; 约束 c*/c0=0.9000, q*=0.0882; S/S_c=1.6: 无约束 c*/c0=0.8083; 约束 c*/c0=0.9000, q*=0.3162; S/S_c=2.0: 无约束 c*/c0=0.8447; 约束 c*/c0=0.9000, q*=0.4529"
+ },
+ {
+  "group": "R",
+  "id": "R-基准",
+  "desc": "基准参数：S*/S_c、S_sw/S_c、q_max、Δt（仅隔离、仅减少接触）、beta(S0-S_c) 与稿件舍入值一致",
+  "ok": true,
+  "method": "example",
+  "detail": "SsSc=4.043996; SswSc=2.265369; qmax=0.7564933; dtq=5.902556; dtc=36.26077; lb=90.96017"
+ },
+ {
+  "group": "R",
+  "id": "R-基准-lb",
+  "desc": "基准参数：退出下界 beta(S0-S_c) 占表 2 各控制总累计新增感染（计至清零）的比例",
+  "ok": true,
+  "method": "example",
+  "detail": "仅减少接触:0.145; alpha05:0.281; 仅隔离:0.318; 成本最优:0.297"
+ },
+ {
+  "group": "R",
+  "id": "R-西安",
+  "desc": "西安参数：S*/S_c、S_sw/S_c、q_max、Δt（仅隔离、仅减少接触）、beta(S0-S_c) 与稿件舍入值一致",
+  "ok": true,
+  "method": "example",
+  "detail": "SsSc=4.377906; SswSc=2.548251; qmax=0.8453599; dtq=85.07108; dtc=308.7939; lb=1526293.0"
+ },
+ {
+  "group": "R",
+  "id": "R-西安-lb",
+  "desc": "西安参数：退出下界 beta(S0-S_c) 占表 2 各控制总累计新增感染（计至清零）的比例",
+  "ok": true,
+  "method": "example",
+  "detail": "仅减少接触:0.396; alpha05:0.578; 仅隔离:0.642; 成本最优:0.602"
+ }
+]
