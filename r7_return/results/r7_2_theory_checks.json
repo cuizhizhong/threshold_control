@@ -1,0 +1,602 @@
+{
+ "checks": [
+  {
+   "group": "R1 U 恒等式",
+   "name": "d(S+S_q)/dt = -F（任意 ω ≥ 0）",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R1 U 恒等式",
+   "name": "五个仓室之和守恒（含回流模型）",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R1 U 恒等式",
+   "name": "进入 I 与进入 I_q 的流量之和 = F",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R1 U 恒等式",
+   "name": "A_q = (1-β)/β · q · F",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R1 U 恒等式",
+   "name": "立即返回对照模型：dS/dt = -F，S+I+I_q+R 守恒",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "有限时间退出：平台流量下界 k",
+   "name": "平衡式下 cS - c0S_c = c0S_c(q-q0)/(1-q)，故 q ≥ q0 ⇔ cS ≥ c0S_c",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "有限时间退出：平台流量下界 k",
+   "name": "k = βc0S_cη/N = γη/(1-q0)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "有限时间退出：平台流量下界 k",
+   "name": "平衡式下 c[β+(1-β)q]S = cS - c0S̄",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 启动状态（Lambert W）",
+   "name": "常规轨迹 dI/dS = -(1-q0)(1-S_c/S)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 启动状态（Lambert W）",
+   "name": "I(S) = I0 + (1-q0)[(S0-S) + S_c ln(S/S0)] 满足该方程",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 启动状态（Lambert W）",
+   "name": "I_peak,ir = I(S_c) = I0 + (1-q0)[S0 - S_c + S_c ln(S_c/S0)]",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 启动状态（Lambert W）",
+   "name": "I(S) - η = (1-q0)S_c[A - g(S/S_c)]，故 I(S) = η ⇔ S/S_c - ln(S/S_c) = A",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 启动状态（Lambert W）",
+   "name": "I_peak,ir - η = (1-q0)S_c(A-1)，故 η < I_peak,ir ⇔ A > 1",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 启动状态（Lambert W）",
+   "name": "η - I0 = (1-q0)S_c[g(S0/S_c) - A]，故 η > I0 ⇔ A < g(S0/S_c)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 启动状态（Lambert W）",
+   "name": "w e^w = -e^{-A}（w<0）⇒ z = -w 满足 z - ln z = A",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 启动状态（Lambert W）",
+   "name": "g'(z) = 1 - 1/z > 0（z > 1），g(1) = 1",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 阈值弧：时长、感染、K_q、成本",
+   "name": "时长被积函数：立即返回 = (1/β)·[无回流被积函数中取 S̄=0]",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 阈值弧：时长、感染、K_q、成本",
+   "name": "原模型中 S̄/S_c = (1-β)(1-q0) ∈ (0,1)（0<β<1、0≤q0<1）",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 阈值弧：时长、感染、K_q、成本",
+   "name": "Δt_q = N/(βηc0) ln(S*/S_c)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 阈值弧：时长、感染、K_q、成本",
+   "name": "Δt_c = N(S*-S_c)/(βηc0S_c)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 阈值弧：时长、感染、K_q、成本",
+   "name": "∂/∂c[N/(βηcS)] = -N/(βηc²S) < 0",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 阈值弧：时长、感染、K_q、成本",
+   "name": "平台上 F·dt/dS = 1，控制期累计感染 = S*_∞ - S_c",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 阈值弧：时长、感染、K_q、成本",
+   "name": "K_q 被积函数 = (1-β)/β·[1 - γη·N/(βηcS)]，积分得 (1-β)/β[S*-S_c-γηΔt]",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 阈值弧：时长、感染、K_q、成本",
+   "name": "仅减少接触：(1-β)/β[S*-S_c-γηΔt_c] = (1-β)/β·q0·(S*-S_c)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 阈值弧：时长、感染、K_q、成本",
+   "name": "(q-q0)/(1-q0) = 1 - c0S_c/(cS)（平衡式下）",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 阈值弧：时长、感染、K_q、成本",
+   "name": "J 的被积函数 = (N/(βη))·f(S,c)|_{S̄=0}",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 成本结构（h_a）",
+   "name": "x⁴h_a'(x) = w_c x⁴ - (w_c+w_q)x² + 4a w_q x - 3a² w_q",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 成本结构（h_a）",
+   "name": "h_a'(a) = w_c(1 - a⁻²)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 成本结构（h_a）",
+   "name": "h_a'(1) = w_q(1-a)(3a-1)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 成本结构（h_a）",
+   "name": "f(S,c0x)|_{S̄=0} = h_a(x)/(c0S)，a = S_c/S",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 成本结构（h_a）",
+   "name": "式 (joint:stationary) 中取 S̄=0 等于 c·c0²·[x⁴h_a'(x)]（x=c/c0），c=0 不在允许区间",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 成本结构（h_a）",
+   "name": "附录 A.7：∂f/∂c · c³(cS-c0S̄)²/S = 式 (joint:stationary)（S̄ ≥ 0 一般成立）",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 成本结构（h_a）",
+   "name": "S_sw 中取 S̄=0 等于 3S_c",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 成本结构（h_a）",
+   "name": "右端点二次式 S² - 3S_cS + 2S_cS̄ 在 S̄=0 处 = S(S-3S_c)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 成本结构（h_a）",
+   "name": "附录 A.8 左端点量 = -2w_c(1-S_c/S)(S_c-S̄) - Sw_c(1-S_c/S)²",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 成本结构（h_a）",
+   "name": "附录 A.8 右端点量 = -(w_q/S)(1-S_c/S)(S²-3S_cS+2S_cS̄)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 成本结构（h_a）",
+   "name": "四次式在 (x,a) = (1-εu, 1-ε) 处：ε⁰ 项为 0",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 成本结构（h_a）",
+   "name": "ε¹ 项为 2[w_q - (w_c+w_q)u]，零点 u = w_q/(w_c+w_q)",
+   "ok": true,
+   "detail": "u* = [w_q/(w_c + w_q)]"
+  },
+  {
+   "group": "R3 成本结构（h_a）",
+   "name": "f/ε² → [w_c u² + w_q(1-u)²]/(c0S_c)（ε→0）",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 成本结构（h_a）",
+   "name": "极限函数的唯一最小点 u = w_q/(w_c+w_q)（严格凸）",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 成本结构（h_a）",
+   "name": "强度之比 → w_q/w_c",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 成本结构（h_a）",
+   "name": "隔离强度/(1-S_c/S) → w_c/(w_c+w_q)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "R3 成本结构（h_a）",
+   "name": "默认权重：a = 1/(2√2)（S = 2√2 S_c）时 x = 1/√2 为三重根",
+   "ok": true,
+   "detail": "P, P', P'', P''' = [0, 0, 0, 12*sqrt(2)]"
+  },
+  {
+   "group": "释放注记（ω = 0）",
+   "name": "R_e(t2+) = 1 + ξS_q(t2)/S_c",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "释放注记（ω = 0）",
+   "name": "İ(t2+) = γη ξ S_q(t2)/S_c",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "数值抽检：base",
+   "name": "S_c 与参考值（相对差 < 1e-5）",
+   "ok": true,
+   "detail": "175.16017"
+  },
+  {
+   "group": "数值抽检：base",
+   "name": "触发条件 0 < I0 < η < I_peak,ir 且 S0 > S_c",
+   "ok": true,
+   "detail": "I0 = 1, η = 38.15, I_peak,ir = 325.2860447"
+  },
+  {
+   "group": "数值抽检：base",
+   "name": "A > 1，且 I_peak,ir - η = (1-q0)S_c(A-1)",
+   "ok": true,
+   "detail": "A = 2.66468005588"
+  },
+  {
+   "group": "数值抽检：base",
+   "name": "S*_∞ = -S_c W_{-1}(-e^{-A}) 与 brentq 一致（< 1e-12）",
+   "ok": true,
+   "detail": "712.512444528"
+  },
+  {
+   "group": "数值抽检：base",
+   "name": "S*_∞ 与参考值（< 1e-5）",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "数值抽检：base",
+   "name": "Δt_q 闭式 = 求积（< 1e-10），与参考值（< 1e-4）",
+   "ok": true,
+   "detail": "18.10447181"
+  },
+  {
+   "group": "数值抽检：base",
+   "name": "Δt_c 闭式 = 求积（< 1e-10），与参考值（< 1e-4）",
+   "ok": true,
+   "detail": "39.58421447"
+  },
+  {
+   "group": "数值抽检：base",
+   "name": "Δt_q < Δt_c",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "数值抽检：base",
+   "name": "控制期累计感染 S*_∞ - S_c 与参考值（< 1e-5）",
+   "ok": true,
+   "detail": "537.3522745"
+  },
+  {
+   "group": "数值抽检：base",
+   "name": "K_q 恒等式 = 直接求积（仅隔离）与 q0 公式（仅减少接触）（< 1e-10）",
+   "ok": true,
+   "detail": "K_q：仅隔离 1610.0578，仅减少接触 44.703202"
+  },
+  {
+   "group": "数值抽检：base",
+   "name": "K_q 与 Δt 反序：K_q(仅隔离) > K_q(仅减少接触)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "数值抽检：base",
+   "name": "k = βc0S_cη/N = γη/(1-q0)",
+   "ok": true,
+   "detail": "k = 13.57491318 人/d"
+  },
+  {
+   "group": "数值抽检：base",
+   "name": "x⁴h_a'(x) 与 h_a 的中心差分一致（相对 < 1e-7）",
+   "ok": true,
+   "detail": "max = 3.20e-10"
+  },
+  {
+   "group": "数值抽检：base",
+   "name": "抽样 S∈(S_c,S*_∞]：h_a'(a) < 0；h_a'(1) 在 S>3S_c 时 < 0、S<3S_c 时 > 0",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "数值抽检：base",
+   "name": "退出附近分担比例 → w_q/(w_c+w_q)（ε = 1e-2, 1e-3, 1e-4；三组权重）",
+   "ok": true,
+   "detail": "(w_c,w_q)=(1,2): 0.66778, 0.66677, 0.66668; (w_c,w_q)=(1,1): 0.49999, 0.50000, 0.50000; (w_c,w_q)=(3,1): 0.24857, 0.24986, 0.24999"
+  },
+  {
+   "group": "数值抽检：base",
+   "name": "无回流仅隔离 t→∞ 累计感染与参考值（< 1e-5）",
+   "ok": true,
+   "detail": "286.5897318"
+  },
+  {
+   "group": "数值抽检：base",
+   "name": "L = U(0) - S_c 与参考值（< 1e-5）",
+   "ok": true,
+   "detail": "586.83983"
+  },
+  {
+   "group": "数值抽检：base",
+   "name": "条件性推论前提 C_π(0) < L 的抽检（只报告，不判通过与否）",
+   "ok": true,
+   "detail": "q_only: C(0) = 286.58973，满足; alpha: C(0) = 324.24727，满足; c_only: C(0) = 629.50876，不满足; opt: C(0) = 307.49865，满足"
+  },
+  {
+   "group": "数值抽检：base",
+   "name": "仅隔离控制 S_q(t2)/S_c 与 ξ=1 的 R_e(t2+)（解析，与计划数值 < 1e-3）",
+   "ok": true,
+   "detail": "S_q(t2)/S_c = 2.2150565，R_e = 3.2150565"
+  },
+  {
+   "group": "数值抽检：xian",
+   "name": "S_c 与参考值（相对差 < 1e-5）",
+   "ok": true,
+   "detail": "2974125.412"
+  },
+  {
+   "group": "数值抽检：xian",
+   "name": "触发条件 0 < I0 < η < I_peak,ir 且 S0 > S_c",
+   "ok": true,
+   "detail": "I0 = 0.00100659, η = 26326, I_peak,ir = 3902893.125"
+  },
+  {
+   "group": "数值抽检：xian",
+   "name": "A > 1，且 I_peak,ir - η = (1-q0)S_c(A-1)",
+   "ok": true,
+   "detail": "A = 2.92530421694"
+  },
+  {
+   "group": "数值抽检：xian",
+   "name": "S*_∞ = -S_c W_{-1}(-e^{-A}) 与 brentq 一致（< 1e-12）",
+   "ok": true,
+   "detail": "13112734.7788"
+  },
+  {
+   "group": "数值抽检：xian",
+   "name": "S*_∞ 与参考值（< 1e-5）",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "数值抽检：xian",
+   "name": "Δt_q 闭式 = 求积（< 1e-10），与参考值（< 1e-4）",
+   "ok": true,
+   "detail": "384.261045"
+  },
+  {
+   "group": "数值抽检：xian",
+   "name": "Δt_c 闭式 = 求积（< 1e-10），与参考值（< 1e-4）",
+   "ok": true,
+   "detail": "882.9146746"
+  },
+  {
+   "group": "数值抽检：xian",
+   "name": "Δt_q < Δt_c",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "数值抽检：xian",
+   "name": "控制期累计感染 S*_∞ - S_c 与参考值（< 1e-5）",
+   "ok": true,
+   "detail": "10138609.37"
+  },
+  {
+   "group": "数值抽检：xian",
+   "name": "K_q 恒等式 = 直接求积（仅隔离）与 q0 公式（仅减少接触）（< 1e-10）",
+   "ok": true,
+   "detail": "K_q：仅隔离 40587901，仅减少接触 18586183"
+  },
+  {
+   "group": "数值抽检：xian",
+   "name": "K_q 与 Δt 反序：K_q(仅隔离) > K_q(仅减少接触)",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "数值抽检：xian",
+   "name": "k = βc0S_cη/N = γη/(1-q0)",
+   "ok": true,
+   "detail": "k = 11483.11344 人/d"
+  },
+  {
+   "group": "数值抽检：xian",
+   "name": "x⁴h_a'(x) 与 h_a 的中心差分一致（相对 < 1e-7）",
+   "ok": true,
+   "detail": "max = 2.93e-10"
+  },
+  {
+   "group": "数值抽检：xian",
+   "name": "抽样 S∈(S_c,S*_∞]：h_a'(a) < 0；h_a'(1) 在 S>3S_c 时 < 0、S<3S_c 时 > 0",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "group": "数值抽检：xian",
+   "name": "退出附近分担比例 → w_q/(w_c+w_q)（ε = 1e-2, 1e-3, 1e-4；三组权重）",
+   "ok": true,
+   "detail": "(w_c,w_q)=(1,2): 0.66778, 0.66677, 0.66668; (w_c,w_q)=(1,1): 0.49999, 0.50000, 0.50000; (w_c,w_q)=(3,1): 0.24857, 0.24986, 0.24999"
+  },
+  {
+   "group": "数值抽检：xian",
+   "name": "无回流仅隔离 t→∞ 累计感染与参考值（< 1e-5）",
+   "ok": true,
+   "detail": "2377947.609"
+  },
+  {
+   "group": "数值抽检：xian",
+   "name": "L = U(0) - S_c 与参考值（< 1e-5）",
+   "ok": true,
+   "detail": "10188874.59"
+  },
+  {
+   "group": "数值抽检：xian",
+   "name": "条件性推论前提 C_π(0) < L 的抽检（只报告，不判通过与否）",
+   "ok": true,
+   "detail": "q_only: C(0) = 2377947.6，满足; alpha: C(0) = 2639000.1，满足; c_only: C(0) = 3856646.1，满足; opt: C(0) = 2534833.1，满足"
+  },
+  {
+   "group": "数值抽检：xian",
+   "name": "仅隔离控制 S_q(t2)/S_c 与 ξ=1 的 R_e(t2+)（解析，与计划数值 < 1e-3）",
+   "ok": true,
+   "detail": "S_q(t2)/S_c = 2.7138536，R_e = 3.7138536"
+  }
+ ],
+ "numbers": {
+  "base": {
+   "S_c": 175.1601700006617,
+   "S_bar": 145.75170580645158,
+   "U0": 762.0,
+   "L": 586.8398299993382,
+   "I_peak_ir": 325.2860446936966,
+   "A": 2.6646800558778354,
+   "S_star_inf": 712.5124445282588,
+   "S_star_inf_brentq": 712.5124445282589,
+   "dt_q": 18.104471813124217,
+   "dt_c": 39.584214469612405,
+   "infections_ir": 537.352274527597,
+   "Kq_q": 1610.0577686485458,
+   "Kq_c": 44.703202415168235,
+   "k": 13.574913175051282,
+   "terminal_shares": {
+    "1,2": [
+     0.6677803941002813,
+     0.6667722716776625,
+     0.666675611192824
+    ],
+    "1,1": [
+     0.499987594622775,
+     0.5000007533313422,
+     0.4999986054043948
+    ],
+    "3,1": [
+     0.24857181714250665,
+     0.2498577944980429,
+     0.24998905647333203
+    ]
+   },
+   "S_star_noreturn": 708.3469575874326,
+   "S_inf_noreturn": 80.12139614694102,
+   "C0": {
+    "q_only": 286.5897318344364,
+    "alpha": 324.2472668356026,
+    "c_only": 629.508755173475,
+    "opt": 307.4986534962061
+   },
+   "premise_C0_lt_L": {
+    "q_only": true,
+    "alpha": true,
+    "c_only": false,
+    "opt": true
+   },
+   "Sq2_over_Sc": 2.215056511401177,
+   "Re_release": 3.215056511401177
+  },
+  "xian": {
+   "S_c": 2974125.4115856644,
+   "S_bar": 1711863.1646776996,
+   "U0": 13162999.998993408,
+   "L": 10188874.587407744,
+   "I_peak_ir": 3902893.125115414,
+   "A": 2.925304216937019,
+   "S_star_inf": 13112734.778809588,
+   "S_star_inf_brentq": 13112734.778809587,
+   "dt_q": 384.26104496994253,
+   "dt_c": 882.914674555655,
+   "infections_ir": 10138609.367223924,
+   "Kq_q": 40587900.705671415,
+   "Kq_c": 18586182.616398208,
+   "k": 11483.113441654355,
+   "terminal_shares": {
+    "1,2": [
+     0.6677803941002813,
+     0.6667722716776625,
+     0.666675611192824
+    ],
+    "1,1": [
+     0.499987594622775,
+     0.5000007533313422,
+     0.4999986054043948
+    ],
+    "3,1": [
+     0.24857181714250665,
+     0.2498577944980429,
+     0.24998905647333203
+    ]
+   },
+   "S_star_noreturn": 13020440.754052369,
+   "S_inf_noreturn": 2236318.3705054293,
+   "C0": {
+    "q_only": 2377947.6089646975,
+    "alpha": 2639000.128439228,
+    "c_only": 3856646.090750646,
+    "opt": 2534833.0938360016
+   },
+   "premise_C0_lt_L": {
+    "q_only": true,
+    "alpha": true,
+    "c_only": true,
+    "opt": true
+   },
+   "Sq2_over_Sc": 2.713853600810975,
+   "Re_release": 3.713853600810975
+  }
+ }
+}

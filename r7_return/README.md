@@ -15,6 +15,7 @@ R7-b 回流修订的计算代码与测试（执行计划 `ai/R7_回流修订_分
 | `references.py` | 参考值：全精度无回流参考（直接读 `reproducibility/results/.../joint_extra/compare_*.csv`）、稿件表 2 展示值、执行计划第 5 节的参考数 |
 | `check_references.py` | 生成 `results/r7_1_reference_check.{json,md}`（与参考值的对照、网格报告） |
 | `tests/` | pytest：`test_a_noreturn.py` … `test_e_pointwise.py` 对应提示词中的 (a)–(e) |
+| `theory_checks.py` | R7-2：SymPy 核对引理 R1、命题 R2（含有限时间退出的常数 k）、命题 R3 与释放注记的代数，并用两组参数数值抽检；生成 `results/r7_2_theory_checks.{md,json}`。只核对代数，不代替存在性与量词论证（见 `paper/revision_notes/R7_2_return_theory.md`） |
 
 复制来源（原文件未改动）：`replay_feedback.py` 来自 `ai/R7_回流检验/fast_return.py` 的 `simulate`（一次性退出版本），J 的累计按 `ai/数值工作汇总_20261004/02_隔离易感者返回检验/sq_return.py` 补上；启动状态的首次积分写法与求积的被积函数来自同目录 `joint_cost_optimal.py`（`basic_quantities`、`solve_allocation`）和 `fast_return.py` 的 `limit_quantities`、`limit_policy`。旧的“细网格 + 有界局部搜索”的逐状态最小化不再使用，改为根法。
 
@@ -93,7 +94,11 @@ conda run -n thesis python -m pytest r7_return/tests -q
 conda run --no-capture-output -n thesis python r7_return/check_references.py
 ```
 
-第一条在仓库根目录运行，约 30 s，84 项测试。第二条生成 `results/r7_1_reference_check.json`（全精度）与 `.md`，约 30 s。conda run 在 GBK 控制台转发中文输出会报编码错误，所以第二条加了 `--no-capture-output`。
+```bash
+conda run --no-capture-output -n thesis python r7_return/theory_checks.py
+```
+
+第一条在仓库根目录运行，约 30 s，84 项测试。第二条生成 `results/r7_1_reference_check.json`（全精度）与 `.md`，约 30 s。conda run 在 GBK 控制台转发中文输出会报编码错误，所以第二、三条加了 `--no-capture-output`。第三条（R7-2）约 5 s，83 项核对，任一不通过时退出码为 1。
 
 ## 与参考值的对照（摘要；完整表见 `results/r7_1_reference_check.md`）
 
