@@ -4,6 +4,8 @@
 
 **当前阶段：R7-b：回流修订，按 `ai/R7_回流修订_分步执行计划.md` 执行（2026-10-14 起）。** R7 是在现稿上的局部修订，不是重写，写作原则见 4.6、4.7 节。此前的重写阶段（R 系列，2026-10-07 起）已把论文的章节结构定稿（`paper/revision_notes/01_decisions.md`，R1 调整为九章），并对正文做了实质性重写：重组段落、压缩篇幅、去掉重复、理顺论证。全文叙事依据是 `paper/revision_notes/R1_storyline.md`（2026-10-08 经作者确认，已生效）；问题引入框架见 `paper/revision_notes/R1_framing.md`。此前 Codex 阶段的执行手册与任务记录已移到 `paper/revision_notes/archive/`，其中的执行约定不再适用。
 
+**分支说明（2026-10-14，作者定）：** 本工作区是无回流主稿分支 `paper/no-return-focus`，按 `ai/NR_无回流主稿修订_分步执行计划.md` 执行，下一步为 NR-0；本分支的规则覆盖由 NR-0 写入本文件。在 NR-0 完成前，本文件其余条目照旧，但不在本分支执行 R7 计划的任何后续步骤（R7-3 及以后）。回流影响研究在分支 `research/return-effects` 进行；本分支中的 `r7_return/` 与 `paper/revision_notes/R7_2_return_theory.md` 保留为只读资料，R7 的 G1 尚未确认。
+
 ## 0 仓库结构与历史
 
 | 目录 | 内容 | 现状 |
