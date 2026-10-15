@@ -24,6 +24,9 @@
      积分到 B ≤ ε_tail（默认 1e-6·U(0)）为止（事件，方向向上，终止），输出
      “最终规模估计 = 终止时累计感染 + [0, B]”；到积分上限仍未满足的记为“未到达”。
      不把 I < 1 当作尾部感染为零。
+   - ω > 0 且 Config.return_endpoint = 'first_below_one'（R7-3 起正式结果采用）：退出后 I 首次
+     由上方降到 1 时截断（方向向下的终止事件），假设此时传播结束；截断值不是 t→∞ 的估计，
+     命题 R2 的下界只针对不截断的 t→∞ 累计感染。
    退出后峰值：İ = 0 的非终止事件（İ/I = βc0(1-q0)s - γ 由正变负为极大、由负变正为极小）
    定位内部极值，与端点 t2、终止时刻比较；t2 处本来就有 İ = 0，紧邻 t2 的伪事件剔除，
    不作终止条件。另记 I = 1 的上、下穿越，“越过阈值”与“I 降到 1 以下后再回升”分开记录。
@@ -70,6 +73,10 @@ class Config:
     max_step: float = 1.0
     t_max: float = 1.0e5            # 积分上限（天）
     eps_tail_rel: float = 1e-6      # ε_tail = eps_tail_rel·U(0)
+    # ω > 0 的终止规则：'tail'（尾部误差上界 ≤ ε_tail，t→∞ 的区间估计）或
+    # 'first_below_one'（退出后 I 首次由上方降到 1 时截断，假设此时传播结束；
+    # 与 Zhou 等 2024 Remark 3.1 及第 3–7 章清零时间 t_end 的约定相同）
+    return_endpoint: str = 'tail'
     e_tol: float = E_ABS_TOL
     keep_solutions: bool = False
 
@@ -184,7 +191,8 @@ def run(P, law, omega=0.0, model='return', xi=0.0, wc=None, wq=None, cfg=None, a
     out = dict(case=P.name, model=model, omega=omega, law=law_name, xi=xi,
                settings=dict(method=cfg.method, rtol=cfg.rtol, atol=R.atol.tolist(),
                              max_step=cfg.max_step, t_max=cfg.t_max, eps_tail_rel=cfg.eps_tail_rel,
-                             e_tol=cfg.e_tol, event_root_tol='scipy brentq, xtol=rtol=4·eps'))
+                             e_tol=cfg.e_tol, return_endpoint=cfg.return_endpoint,
+                             event_root_tol='scipy brentq, xtol=rtol=4·eps'))
     y0 = np.array([P.s0_N, math.log(P.i0_N), P.Sq0 / N, P.Iq0 / N, P.R0 / N, 0.0, 0.0, 0.0])
     U0_N = P.U0 / N
     t = 0.0
@@ -288,7 +296,10 @@ def _post(out, R, P, y, t, U0_N, t_exit):
     ev_min = _event(lambda t, y: growth(t, y), False, 1)       # I 的极小
     ev_one_up = _event(lambda t, y: y[ILI] - R.l_one, False, 1)
     exact_tail = (R.model == 'immediate' or R.omega == 0.0)
-    if exact_tail:
+    if R.cfg.return_endpoint not in ('tail', 'first_below_one'):
+        raise ValueError(R.cfg.return_endpoint)
+    trunc = (not exact_tail) and R.cfg.return_endpoint == 'first_below_one'
+    if exact_tail or trunc:
         ev_one_down = _event(lambda t, y: y[ILI] - R.l_one, y[ILI] > R.l_one, -1)
         events = [ev_max, ev_min, ev_one_up, ev_one_down]
     else:
@@ -307,6 +318,12 @@ def _post(out, R, P, y, t, U0_N, t_exit):
         out['termination'] = 'clearance' if _fired(sol, 3) else 'not_reached'
         if _fired(sol, 3):
             out['clearance_event_abs'] = abs(N * math.exp(yT[ILI]) - 1.0)
+    elif trunc:
+        out['termination'] = 'first_below_one' if _fired(sol, 3) else 'not_reached'
+        if _fired(sol, 3):
+            out['clearance_event_abs'] = abs(N * math.exp(yT[ILI]) - 1.0)
+            out['t_end'] = T
+            out['C_t_end'] = yT[ICF] * N
     else:
         out['termination'] = 'tail' if _fired(sol, 4) else 'not_reached'
     out['T_term'] = T
@@ -330,11 +347,16 @@ def _post(out, R, P, y, t, U0_N, t_exit):
             B = P.beta * P.c0 * U * I / (N * P.gamma * (1.0 - U / P.S_c))
         else:
             B = float('inf')
-        out['tail_bound'] = B
-        out['eps_tail'] = R.cfg.eps_tail_rel * P.U0
-        out['final_reliable'] = out['termination'] == 'tail'
-        out['final_estimate_lo'] = out['C_term']
-        out['final_estimate_hi'] = out['C_term'] + B if out['final_reliable'] else None
+        if trunc:
+            # 截断终点不是 t→∞ 的估计：只记录截断时 U 是否已低于 S_c（否则此后确定性模型中还有感染）
+            out['U_below_Sc_at_end'] = bool(U < P.S_c)
+            out['final_reliable'] = False
+        else:
+            out['tail_bound'] = B
+            out['eps_tail'] = R.cfg.eps_tail_rel * P.U0
+            out['final_reliable'] = out['termination'] == 'tail'
+            out['final_estimate_lo'] = out['C_term']
+            out['final_estimate_hi'] = out['C_term'] + B if out['final_reliable'] else None
     out['L_bound'] = P.L_bound
     if not exact_tail:
         out['excess_over_L_rel'] = (out['C_term'] - P.L_bound) / P.L_bound

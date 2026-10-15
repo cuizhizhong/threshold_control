@@ -15,8 +15,10 @@
 - 人数：基准以人计，1 位小数；西安以 10^6 人计，4 位小数（宏名以 Mil 结尾）；
 - 百分数：3 位有效数字，不含 % 号；比值（S_q(t2)/S_c、R_e、切换位置、分担比例、I/η）：3 位小数；
 - e = max I/η − 1（退出后内部极大）：3 位小数，负数用 \\ensuremath；
-- 尾部误差上界与收敛量：2 位（或 1 位）有效数字的科学记数，用 \\ensuremath；
-- 文字宏：是／否／数值上未确定／未到达／未可靠估计／满足／不满足。
+- 收敛量：1–2 位有效数字的科学记数，用 \\ensuremath；
+- 文字宏：是／否／数值上未确定／未到达／满足／不满足。
+指数回流的终点为退出后首次 I<1 截断（作者 2026-10-15 决定），只给 Δt、J、e、是否越过 η、截断时刻与
+终止时累计感染；不给“超出下界幅度”与尾部误差（不截断的尾部判据结果只在 JSON 的 diagnostic_tail 中）。
 """
 import hashlib
 import json
@@ -161,7 +163,7 @@ def build(data):
         case, stay, law = key.split('|')
         C, W, L = CASE[case], STAY_WORD[int(stay)], LAW_RET[law]
         n = f'rs{C}Stay{W}{L}'
-        g = f'指数回流（1/ω = {stay} d）'
+        g = f'指数回流（1/ω = {stay} d；终点：退出后首次 I<1 截断）'
         pre = f'runs.{key}'
         B.five(n + 'Dt', d['dt'], 'd', src, pre + '.dt', g)
         B.five(n + 'J', d['J'], 'd', src, pre + '.J', g)
@@ -173,31 +175,12 @@ def build(data):
             B.add(n + 'PeakRatio', fixed(1 + d['e_interior'], 3), 1 + d['e_interior'], 'I/η', '3 位小数', src,
                   pre + '.e_interior', g)
         B.text(n + 'Crossed', CROSS_TEXT[d['crossing']], d['crossing'], src, pre + '.crossing', g)
-        # 终止前 I 未降到 1 以下时，终止后 S ≤ U < S_c，I 严格下降，不会回升，记“否”（记录中另列）
-        if d['below_one_time'] is None and not d['I_decreasing_after_term']:
-            raise ValueError(f'{key}：终止前 I 未降到 1 以下，且终止后单调下降未得到保证')
-        B.text(n + 'Regrow', '是' if d['regrowth_after_below_one'] else '否', bool(d['regrowth_after_below_one']),
-               src, pre + '.regrowth_after_below_one', g)
-        B.text(n + 'BelowOneBeforeTerm', '是' if d['below_one_before_term'] else '否', d['below_one_before_term'],
-               src, pre + '.below_one_before_term', g)
-        if d['regrowth_peak_I'] is None:
-            B.text(n + 'RegrowPeak', '—', None, src, pre + '.regrowth_peak_I', g)
-        else:
-            B.add(n + 'RegrowPeak', fixed(d['regrowth_peak_I'], 1), d['regrowth_peak_I'], '人', '1 位小数', src,
-                  pre + '.regrowth_peak_I', g)
         B.text(n + 'Reached', '是' if d['reached'] else '未到达', d['reached'], src, pre + '.reached', g)
+        if d['reached']:
+            B.five(n + 'Tend', d['t_end'], 'd', src, pre + '.t_end', g)
+        else:
+            B.text(n + 'Tend', '未到达', None, src, pre + '.t_end', g)
         B.persons(case, n + 'Cterm', d['C_term'], src, pre + '.C_term', g)
-        B.add(n + 'Excess', pct(d['excess_rel']), d['excess_rel'], '%', '百分数 3 位有效数字', src,
-              pre + '.excess_rel', g)
-        if d['tail_bound'] is None:
-            B.text(n + 'TailBound', '—', None, src, pre + '.tail_bound', g)
-        else:
-            B.add(n + 'TailBound', sci(d['tail_bound'], 2), d['tail_bound'], '人', '2 位有效数字', src,
-                  pre + '.tail_bound', g)
-        if d['final_estimate'] is None:
-            B.text(n + 'FinalHi', '未可靠估计', None, src, pre + '.final_estimate', g)
-        else:
-            B.persons(case, n + 'FinalHi', d['final_estimate'][1], src, pre + '.final_estimate[1]', g)
     # 汇总
     g = '指数回流（汇总）'
     vals = list(runs.values())
@@ -207,21 +190,15 @@ def build(data):
         B.add(f'rsReturnRuns{nm}', str(k), k, '条', '整数', src, f'runs.*.crossing == {crit}', g)
     k = sum(not v['reached'] for v in vals)
     B.add('rsReturnRunsNotReached', str(k), k, '条', '整数', src, 'runs.*.reached == false', g)
-    k = sum(bool(v['regrowth_after_below_one']) for v in vals)
-    B.add('rsReturnRunsRegrow', str(k), k, '条', '整数', src, 'runs.*.regrowth_after_below_one', g)
+    # 截断值低于命题 R2 的 t→∞ 下界 L 的条数（正文说明“R2 的下界针对不截断的 t→∞ 累计感染”时可用）
+    k = sum(bool(v['C_term_below_L']) for v in vals)
+    B.add('rsReturnRunsBelowL', str(k), k, '条', '整数', src, 'runs.*.C_term_below_L', g)
     for case in ('base', 'xian'):
         C = CASE[case]
-        ex = [v['excess_rel'] for k, v in runs.items() if k.startswith(case + '|')]
-        B.add(f'rs{C}ReturnExcessMin', pct(min(ex)), min(ex), '%', '百分数 3 位有效数字', src,
-              f'min runs.{case}|*.excess_rel', g)
-        B.add(f'rs{C}ReturnExcessMax', pct(max(ex)), max(ex), '%', '百分数 3 位有效数字', src,
-              f'max runs.{case}|*.excess_rel', g)
         eint = [v['e_interior'] for k, v in runs.items() if k.startswith(case + '|') and v['e_interior'] is not None]
         if eint:
             B.add(f'rs{C}ReturnPeakRatioMax', fixed(1 + max(eint), 3), 1 + max(eint), 'I/η', '3 位小数', src,
                   f'max runs.{case}|*.e_interior + 1', g)
-        eps = [v['eps_tail'] for k, v in runs.items() if k.startswith(case + '|')][0]
-        B.add(f'rs{C}EpsTail', sci(eps, 2), eps, '人', '2 位有效数字', src, f'runs.{case}|*.eps_tail', g)
 
     # ---- 3. 释放用数 ----
     src = INPUTS['release']
@@ -279,7 +256,8 @@ def write(B, data):
               '% 含 \\ensuremath 的宏（负数、科学记数）在正文与数学模式中均可用；放进 siunitx 的 S 列时加花括号。',
               '% 宏名：\\rs + 参数（Base/Xian）+ 情景或控制 + 量。控制：Qonly 仅隔离、Alpha α=0.5、Opt 成本最优、',
               '%   Conly 仅减少接触、Mig 无回流最优律迁移；后缀 Ir 为立即返回对照模型，Nr 为无回流模型 t→∞；',
-              '%   Stay{Seven,Fourteen,Thirty,Sixty,Onetwenty,Threesixtyfive} 为平均停留 1/ω（天）。', '']
+              '%   Stay{Seven,Fourteen,Thirty,Sixty,Onetwenty,Threesixtyfive} 为平均停留 1/ω（天）；',
+              '%   指数回流的终点为退出后首次 I<1 截断，Tend 为截断时刻，Cterm 为截断时的累计新增感染。', '']
     group = None
     for it in B.items:
         if it['group'] != group:

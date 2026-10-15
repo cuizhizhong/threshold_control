@@ -8,7 +8,8 @@
   1. 端点小表（立即返回对照模型）：两组参数 × 四种控制，S 坐标求积为主结果，事件法交叉核对
      → results/r7_3_endpoint_immediate.json
   2. 指数回流表：1/ω ∈ {7, 14, 30, 60, 120, 365} d × 两组参数 × 三种控制律（仅隔离、仅减少接触、
-     无回流最优律迁移），事件法；退出后 İ=0 事件与稠密采样两种方式核对峰值；反馈重放交叉核对
+     无回流最优律迁移），事件法；终点为退出后首次 I<1 截断（作者 2026-10-15 决定）；退出后 İ=0 事件
+     与稠密采样两种方式核对峰值；反馈重放交叉核对；不截断的尾部判据结果只作诊断
      → results/r7_3_exponential_return.json
   3. 释放用数（ω = 0，仅隔离，ξ = 1）：S_q(t2)/S_c 与 R_e(t2⁺)，事件法与解析式
      → results/r7_3_release.json
@@ -61,8 +62,14 @@ TOL_CHECK = dict(rel_nonzero=1e-3, e_abs=1e-8, identity_rel=1e-8, trigger_rel=1e
                  clearance_abs_persons=1e-8)
 
 
-def cfg_of(name, keep=False):
-    return S.Config(keep_solutions=keep, **CONFIGS[name])
+# ω > 0 的正式终点（作者 2026-10-15 决定）：退出后 I 首次由上方降到 1 时截断，假设此时传播结束，
+# 与 Zhou 等（2024）Remark 3.1 及第 3–7 章清零时间 t_end 的约定相同。尾部判据（t→∞ 的区间估计）
+# 只作诊断，记在 JSON 的 diagnostic_tail 中，不进表与宏。
+RETURN_ENDPOINT = 'first_below_one'
+
+
+def cfg_of(name, keep=False, endpoint=RETURN_ENDPOINT):
+    return S.Config(keep_solutions=keep, return_endpoint=endpoint, **CONFIGS[name])
 
 
 def rel(a, b):
@@ -98,9 +105,9 @@ def dump(name, obj):
 # ---------------------------------------------------------------------------
 # 事件法轨迹与附加诊断
 # ---------------------------------------------------------------------------
-def run_with_checks(P, law, omega=0.0, model='return', xi=0.0, cfg_name='base'):
+def run_with_checks(P, law, omega=0.0, model='return', xi=0.0, cfg_name='base', endpoint=RETURN_ENDPOINT):
     """事件法一条轨迹，另加：阈值弧上 z = S/S_c 的范围；退出后 I 的稠密采样核对。"""
-    res = S.run(P, law, omega=omega, model=model, xi=xi, cfg=cfg_of(cfg_name, keep=True))
+    res = S.run(P, law, omega=omega, model=model, xi=xi, cfg=cfg_of(cfg_name, keep=True, endpoint=endpoint))
     sols = res.pop('_sols', [])
     phases = res['phases']
     if 'plateau' in phases:
@@ -201,8 +208,8 @@ def task_endpoint():
 # 2. 指数回流表
 # ---------------------------------------------------------------------------
 def summarize_return_run(P, r):
-    """从事件法结果中取指数回流表的字段（全精度）。"""
-    reached = r.get('termination') == 'tail'
+    """从事件法结果（终点：退出后首次 I<1 截断）中取指数回流表的字段（全精度）。"""
+    reached = r.get('termination') == 'first_below_one'
     tm = r.get('post_interior_max') or []
     d = dict(
         status=r['status'], t1=r.get('t1'), t2=r.get('t2'), dt=r.get('dt'), J=r.get('J'),
@@ -212,24 +219,19 @@ def summarize_return_run(P, r):
         e=r.get('e'), e_interior=r.get('e_interior'), e_end=r.get('e_end'),
         n_post_interior_max=len(tm), post_interior_max=tm,
         crossing=r.get('crossing'), n_guarded_events=r.get('n_guarded_events'),
-        below_one_time=r.get('below_one_time'), regrowth_after_below_one=r.get('regrowth_after_below_one'),
-        # 终止时 U < S_c：此后 S ≤ U ≤ U(T) < S_c，İ = γI(S/S_c − 1) < 0，I 严格下降，不会再回升。
-        # 终止前 I 未降到 1 以下时（below_one_time 为 None），“降到 1 以下后再回升”因而不会发生
-        below_one_before_term=r.get('below_one_time') is not None,
-        I_decreasing_after_term=bool(r.get('termination') == 'tail' and r.get('U_term', math.inf) < P.S_c),
-        regrowth_peak_I=r.get('regrowth_peak_I'), recrossed_one=r.get('recrossed_one'),
-        termination=r.get('termination'), reached=reached, T_term=r.get('T_term'),
-        C_term=r.get('C_term'), U_term=r.get('U_term'), I_term=r.get('I_term'),
-        L=P.L_bound, excess_abs=r['C_term'] - P.L_bound, excess_rel=(r['C_term'] - P.L_bound) / P.L_bound,
-        tail_bound=r.get('tail_bound'), eps_tail=r.get('eps_tail'),
-        final_reliable=r.get('final_reliable'),
-        final_estimate=[r['C_term'], r['C_term'] + r['tail_bound']] if reached else None,
-        final_excess_rel_interval=([(r['C_term'] - P.L_bound) / P.L_bound,
-                                    (r['C_term'] + r['tail_bound'] - P.L_bound) / P.L_bound] if reached else None),
-        C_below_one=r.get('C_below_one'),
+        termination=r.get('termination'), reached=reached,
+        t_end=r.get('t_end'), C_term=r.get('C_term'), U_term=r.get('U_term'), Sq_term=None,
+        S_term=r.get('S_term'), I_term=r.get('I_term'), clearance_event_abs=r.get('clearance_event_abs'),
+        # 截断时 U 是否已低于 S_c。U ≥ S_c 时，确定性模型中被隔离者此后返回还会被感染，
+        # 截断值可低于命题 R2 的 t→∞ 下界 L
+        L=P.L_bound, U_below_Sc_at_end=r.get('U_below_Sc_at_end'),
+        C_term_below_L=bool(r['C_term'] < P.L_bound),
+        C_term_minus_L_rel=(r['C_term'] - P.L_bound) / P.L_bound,
         identity_residual_rel=r.get('identity_residual_rel'), mass_residual_abs=r.get('mass_residual_abs'),
         trigger_event_rel=r.get('trigger_event_rel'), exit_event_rel=r.get('exit_event_rel'),
         n_steps=r.get('n_steps'), post_dense=r.get('post_dense'))
+    if d['U_term'] is not None and d['S_term'] is not None:
+        d['Sq_term'] = d['U_term'] - d['S_term']
     pdn = r.get('post_dense') or {}
     # 稠密采样与事件定位的一致性：稠密最大值不应超过事件给出的最大值（含端点 t2 的 I = η）
     if pdn:
@@ -238,9 +240,27 @@ def summarize_return_run(P, r):
     return d
 
 
+def summarize_tail_diagnostic(P, r):
+    """诊断（不进表与宏）：同一轨迹不截断、积分到尾部误差上界 ≤ ε_tail 的结果（t→∞ 的区间估计）。"""
+    reached = r.get('termination') == 'tail'
+    return dict(
+        termination=r.get('termination'), reached=reached, T_term=r.get('T_term'), C_term=r.get('C_term'),
+        tail_bound=r.get('tail_bound'), eps_tail=r.get('eps_tail'),
+        final_estimate=[r['C_term'], r['C_term'] + r['tail_bound']] if reached else None,
+        excess_rel=(r['C_term'] - P.L_bound) / P.L_bound,
+        below_one_time=r.get('below_one_time'), C_below_one=r.get('C_below_one'),
+        regrowth_after_below_one=r.get('regrowth_after_below_one'), regrowth_peak_I=r.get('regrowth_peak_I'),
+        recrossed_one=r.get('recrossed_one'), e_interior=r.get('e_interior'), crossing=r.get('crossing'),
+        n_post_interior_max=len(r.get('post_interior_max') or []),
+        identity_residual_rel=r.get('identity_residual_rel'))
+
+
 def task_return(with_replay=True):
     out = dict(model='exponential_return', stays_days=list(STAYS), laws=list(LAWS_RETURN),
                law_note='opt_noreturn 在 ω > 0 下实施即“无回流最优律迁移”', weights=dict(w_c=1.0, w_q=2.0),
+               endpoint=RETURN_ENDPOINT,
+               endpoint_note='退出后 I 首次由上方降到 1 时截断（假设传播结束）；diagnostic_tail 为不截断、'
+                             '积分到尾部误差上界 ≤ ε_tail 的诊断结果，不进表与宏',
                eps_tail_rel=S.Config().eps_tail_rel, e_abs_tol=S.E_ABS_TOL, runs={})
     for case in ('base', 'xian'):
         P = CASES[case]
@@ -250,26 +270,28 @@ def task_return(with_replay=True):
                 t0 = time.time()
                 r = run_with_checks(P, law, omega=1.0 / stay)
                 d = summarize_return_run(P, r)
+                rt = S.run(P, law, omega=1.0 / stay, cfg=cfg_of('base', endpoint='tail'))
+                d['diagnostic_tail'] = summarize_tail_diagnostic(P, rt)
+                # 两种终点在截断时刻之前是同一条轨迹：截断时的累计感染应等于不截断轨迹首次 I<1 时的值
+                d['diagnostic_tail']['C_below_one_vs_truncated_rel'] = (
+                    rel(rt['C_below_one'], d['C_term']) if rt.get('C_below_one') is not None else None)
                 if with_replay:
-                    # 重放在退出后首次 I<1 时停止；积分上限取事件法首次 I<1 之后 10 d（没有时取终止时刻），
-                    # 使两者比较同一时间窗
-                    tb = d['below_one_time']
-                    T_rp = (tb + 10.0) if tb is not None else d['T_term']
+                    # 重放同样在退出后首次 I<1 时停止；积分上限取截断时刻之后 10 d
+                    T_rp = d['t_end'] + 10.0
                     rp = RF.replay(P, AL.get_law(law, P), 1.0 / stay, T=T_rp)
                     pdn = d.get('post_dense') or {}
                     d['replay'] = dict(
                         t1=rp['t1'], t2=rp['t2'], dt=rp['dt_ctrl'], J=rp['J'], C_first_below_one=rp['inf_total'],
                         t_end=rp['t_end'], Imax_after_over_eta=rp['Imax_after_eta'], n_episodes=rp['n_episodes'],
-                        n_would_reopen=rp['n_would_reopen'], step=rp['step'], gain=rp['gain'],
+                        n_would_reopen=rp['n_would_reopen'], step=rp['step'], gain=rp['gain'], T_replay=T_rp,
                         rel_dt=rel(rp['dt_ctrl'], d['dt']), rel_J=rel(rp['J'], d['J']),
-                        T_replay=T_rp,
-                        rel_C_first_below_one=(rel(rp['inf_total'], d['C_below_one'])
-                                               if d['C_below_one'] and rp['t_end'] is not None else None),
-                        event_e_until_below_one=pdn.get('e_dense_until_below_one'))
+                        rel_t_end=rel(rp['t_end'], d['t_end']) if rp['t_end'] is not None else None,
+                        rel_C_first_below_one=rel(rp['inf_total'], d['C_term']) if rp['t_end'] is not None else None,
+                        event_e=pdn.get('e_dense'))
                 d['wall_s'] = time.time() - t0
                 out['runs'][key] = d
-                print('R7-3 return', key, f"dt={d['dt']:.6g} C={d['C_term']:.9g} exc={d['excess_rel']:.4%} "
-                      f"{d['crossing']} {d['termination']} ({d['wall_s']:.1f}s)", flush=True)
+                print('R7-3 return', key, f"dt={d['dt']:.6g} t_end={d['t_end']:.6g} C={d['C_term']:.9g} "
+                      f"<L={d['C_term_below_L']} {d['crossing']} {d['termination']} ({d['wall_s']:.1f}s)", flush=True)
     # ω = 0 的反馈重放对照（与 ω > 0 同一套比较，便于列出事件法与重放的差异）
     out['replay_omega0'] = {}
     if with_replay:
@@ -432,7 +454,8 @@ def task_convergence(ret=None):
         for law in LAWS_IR:
             runs.append((case, law, 0.0, 'immediate', 0.0, f'immediate|{case}|{law}'))
         runs.append((case, 'q_only', 0.0, 'return', 1.0, f'release|{case}|q_only'))
-    keys = ('t1', 't2', 'dt', 'J', 'C_t2', 'Kq_t2', 'Sq_t2', 'C_term', 'C_inf', 'T_term', 'U_term')
+    # 指数回流轨迹的终点为首次 I<1 截断（t_end、C_term）；ω = 0 与立即返回另有 t→∞ 补尾（C_inf）
+    keys = ('t1', 't2', 'dt', 'J', 'C_t2', 'Kq_t2', 'Sq_t2', 't_end', 'C_term', 'C_inf', 'U_term')
     for case, law, omega, model, xi, key in runs:
         P = CASES[case]
         res = {name: run_with_checks(P, law, omega=omega, model=model, xi=xi, cfg_name=name) for name in CONFIGS}
@@ -557,10 +580,8 @@ def task_plan_comparison(ep, ret, rel_, nr):
         add(f'1/ω=14 {case} {law} Δt（旧反馈实现）', d['dt'], p['dt'], s5, key=True,
             note='旧实现为定步长反馈（步长 0.005／0.05 d）')
         add(f'1/ω=14 {case} {law} J（旧反馈实现）', d['J'], p['J'], s5, key=True)
-        add(f'1/ω=14 {case} {law} 终止时累计感染（尾部判据）vs 旧值（首次 I<1）', d['C_term'], p['C_end'], 4, key=True,
-            note='统计终点不同：旧实现在退出后首次 I<1 停止')
-        add(f'1/ω=14 {case} {law} 首次 I<1 时累计感染 vs 旧值', d['C_below_one'], p['C_end'], 4,
-            note='同一统计终点的对照')
+        add(f'1/ω=14 {case} {law} 终止时累计感染（首次 I<1 截断）', d['C_term'], p['C_end'], 4, key=True,
+            note='与旧实现同一终点')
         add(f'1/ω=14 {case} {law} 退出后 max I/η（旧值 1.000）', 1.0 + d['e'], 1.0, 4, note='旧值按 3 位小数舍入')
     for stay, v in REF.PLAN_XIAN_QONLY_DT_OTHER.items():
         add(f'1/ω={stay} xian q_only Δt', ret['runs'][f'xian|{stay}|q_only']['dt'], v, 4, key=True,
@@ -568,14 +589,12 @@ def task_plan_comparison(ep, ret, rel_, nr):
     for (case, law), v in REF.PLAN_OMEGA14_EXCESS.items():
         d = ret['runs'][f'{case}|14|{law}']
         s = 3 if v >= 10 else 2
-        add(f'1/ω=14 {case} {law} 超出下界幅度（%，尾部判据）', 100 * d['excess_rel'], v, s, kind='pp', key=True,
-            note='统计终点不同')
-        add(f'1/ω=14 {case} {law} 超出下界幅度（%，首次 I<1）', 100 * (d['C_below_one'] - d['L']) / d['L'], v, s,
-            kind='pp', note='同一统计终点的对照')
+        add(f'1/ω=14 {case} {law} 终止时累计感染相对 L 的超出（%，首次 I<1 截断）', 100 * d['C_term_minus_L_rel'], v, s,
+            kind='pp', key=True, note='只作与旧值的对照；正文不列此量（作者 10-15 决定）')
     for stay in (120, 365):
-        d = ret['runs'][f'base|{stay}|q_only']
-        add(f'1/ω={stay} base q_only I<1 后回升峰值（人）', d['regrowth_peak_I'], REF.PLAN_REGROWTH_RANGE_BASE,
-            kind='range', note='计划只给范围 10–12 人')
+        d = ret['runs'][f'base|{stay}|q_only']['diagnostic_tail']
+        add(f'1/ω={stay} base q_only I<1 后回升峰值（人，诊断：不截断）', d['regrowth_peak_I'],
+            REF.PLAN_REGROWTH_RANGE_BASE, kind='range', note='计划只给范围 10–12 人；截断后不出现')
     for case in ('base', 'xian'):
         r = rel_['cases'][case]
         p = REF.PLAN_RELEASE[case]
@@ -627,28 +646,33 @@ def write_markdown(ep, ret, rel_, nr, conv, cmp_):
                   f"切换 z = {sw['switch_z']:.12f}，陡峭点 {sw['steep_points']}；退出附近分担比例 "
                   f"{sw['terminal_share_z=1+1e-6']:.6f}；Δt 排序 {c['dt_order']}，K_q 与 Δt 反序 {c['Kq_reverse_of_dt']}；"
                   f"J 排序 {c['J_order']}。")
-    md += ['', '## 2 指数回流表（事件法，基准容差）', '',
-           '| 参数 | 1/ω | 控制律 | Δt | J | e_int | 越过 η | I<1 后回升（峰值） | 终止 | 终止时累计感染 | 超出 L | 尾部上界 B | t→∞ 估计 |',
-           '|---|---|---|---|---|---|---|---|---|---|---|---|---|']
+    md += ['', '## 2 指数回流表（事件法，基准容差；终点：退出后首次 I<1 截断）', '',
+           '| 参数 | 1/ω | 控制律 | Δt | J | e_int | 越过 η | 截断时刻 t_end | 终止时累计感染 | 截断时 U<S_c | 低于 L |',
+           '|---|---|---|---|---|---|---|---|---|---|---|']
     for case in ('base', 'xian'):
         for stay in STAYS:
             for law in LAWS_RETURN:
                 d = ret['runs'][f'{case}|{stay}|{law}']
                 ei = '—' if d['e_interior'] is None else f"{d['e_interior']:.6f}"
-                if d['below_one_time'] is None:
-                    rg = '否（终止时 I>1，此后单调下降）'
-                elif d['regrowth_after_below_one']:
-                    rg = f"是（{d['regrowth_peak_I']:.4g} 人）"
-                else:
-                    rg = '否'
-                fe = (f"[{fmt_persons(case, d['final_estimate'][0])}, {fmt_persons(case, d['final_estimate'][1])}]"
-                      if d['final_estimate'] else '未可靠估计')
+                te = '未到达' if not d['reached'] else f"{d['t_end']:.6g}"
                 md.append(f"| {case} | {stay} | {LAW_CN_RET[law]} | {d['dt']:.8g} | {d['J']:.8g} | {ei} | "
-                          f"{CROSS_CN[d['crossing']]} | {rg} | {'是' if d['reached'] else '未到达'} | "
-                          f"{fmt_persons(case, d['C_term'])} | {100 * d['excess_rel']:.4f}% | {d['tail_bound']:.3g} | {fe} |")
-    md += ['', '### 事件法与反馈重放（ω > 0）', '',
-           '| 参数 | 1/ω | 控制律 | Δt 相对差 | J 相对差 | 首次 I<1 时累计感染相对差 | 重放 max I/η（退出后至首次 I<1） | 事件法同窗口 e | 重放控制段数 | 退出后请求重启步数 |',
-           '|---|---|---|---|---|---|---|---|---|---|']
+                          f"{CROSS_CN[d['crossing']]} | {te} | {fmt_persons(case, d['C_term'])} | "
+                          f"{'是' if d['U_below_Sc_at_end'] else '否'} | {'是' if d['C_term_below_L'] else '否'} |")
+    md += ['', '### 诊断（不进表与宏）：同一轨迹不截断、积分到尾部误差上界 ≤ ε_tail', '',
+           '| 参数 | 1/ω | 控制律 | 终止时刻 | 终止时累计感染 | 超出 L | 尾部上界 B | I<1 后回升（峰值，人） | 截断值与首次 I<1 值相对差 |',
+           '|---|---|---|---|---|---|---|---|---|']
+    for case in ('base', 'xian'):
+        for stay in STAYS:
+            for law in LAWS_RETURN:
+                g = ret['runs'][f'{case}|{stay}|{law}']['diagnostic_tail']
+                rg = (f"是（{g['regrowth_peak_I']:.4g}）" if g['regrowth_after_below_one'] else
+                      ('否' if g['below_one_time'] is not None else '否（终止时 I>1，此后单调下降）'))
+                cc = '—' if g['C_below_one_vs_truncated_rel'] is None else f"{g['C_below_one_vs_truncated_rel']:.1e}"
+                md.append(f"| {case} | {stay} | {LAW_CN_RET[law]} | {g['T_term']:.6g} | {fmt_persons(case, g['C_term'])} | "
+                          f"{100 * g['excess_rel']:.4f}% | {g['tail_bound']:.3g} | {rg} | {cc} |")
+    md += ['', '### 事件法与反馈重放（ω > 0，同一截断终点）', '',
+           '| 参数 | 1/ω | 控制律 | Δt 相对差 | J 相对差 | t_end 相对差 | 终止时累计感染相对差 | 重放 max I/η（退出后） | 事件法 e（稠密采样） | 重放控制段数 | 退出后请求重启步数 |',
+           '|---|---|---|---|---|---|---|---|---|---|---|']
     for case in ('base', 'xian'):
         for stay in STAYS:
             for law in LAWS_RETURN:
@@ -656,8 +680,9 @@ def write_markdown(ep, ret, rel_, nr, conv, cmp_):
                 if not rp:
                     continue
                 c1 = '—' if rp['rel_C_first_below_one'] is None else f"{rp['rel_C_first_below_one']:.1e}"
-                ee = '—' if rp['event_e_until_below_one'] is None else f"{rp['event_e_until_below_one']:.2e}"
-                md.append(f"| {case} | {stay} | {LAW_CN_RET[law]} | {rp['rel_dt']:.1e} | {rp['rel_J']:.1e} | {c1} | "
+                c2 = '—' if rp['rel_t_end'] is None else f"{rp['rel_t_end']:.1e}"
+                ee = '—' if rp['event_e'] is None else f"{rp['event_e']:.2e}"
+                md.append(f"| {case} | {stay} | {LAW_CN_RET[law]} | {rp['rel_dt']:.1e} | {rp['rel_J']:.1e} | {c2} | {c1} | "
                           f"{rp['Imax_after_over_eta']:.6f} | {ee} | {rp['n_episodes']} | {rp['n_would_reopen']} |")
     if ret.get('replay_omega0'):
         md += ['', '### 事件法与反馈重放（ω = 0）', '', '| 参数 | 控制 | Δt 相对差 | J 相对差 | 计至清零累计感染相对差 |',
