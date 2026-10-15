@@ -242,6 +242,28 @@ def build(data):
     v = max(max(r['4001']['rel_dt_quad'], r['4001']['rel_J_quad']) for k, r in cv['quadrature_N_z'].items())
     B.add('rsIrNzQuadRelMax', sci(v, 1), v, '相对差', '1 位有效数字', src,
           'max quadrature_N_z.*.4001.rel_{dt,J}_quad', g)
+
+    # 补充材料用（R7-4）：N_z 粗网格、迁移律状态范围上的 N_x 核对、无回流 t→∞ 的事件法与闭式之差。
+    # 只读上面已有的 JSON，不新增计算。
+    for nz, word in (('1001', 'Coarse'), ('2001', 'Mid')):
+        v = max(max(r[nz]['rel_dt_quad'], r[nz]['rel_J_quad']) for k, r in cv['quadrature_N_z'].items())
+        B.add(f'rsIrNzQuadRel{word}', sci(v, 1), v, '相对差', '1 位有效数字', src,
+              f'max quadrature_N_z.*.{nz}.rel_{{dt,J}}_quad', g)
+    for nx, word in (('2001', 'TwoThousand'), ('4001', 'FourThousand'), ('8001', 'EightThousand')):
+        v = max(cv['pointwise'][f'{case}|migrated_law_range']['result'][nx]['max_gap'] for case in ('base', 'xian'))
+        B.add(f'rsMigNxGap{word}', sci(v, 2), v, 'S 坐标成本密度', '2 位有效数字', src,
+              f'max pointwise.*|migrated_law_range.result.{nx}.max_gap', g)
+    for case in ('base', 'xian'):
+        C = CASE[case]
+        pw = cv['pointwise'][f'{case}|migrated_law_range']
+        B.add(f'rs{C}ZStarNoreturn', fixed(pw['z_star_noreturn'], 3), pw['z_star_noreturn'], 'S*/S_c', '3 位小数',
+              src, f'pointwise.{case}|migrated_law_range.z_star_noreturn', g)
+        B.add(f'rs{C}ZPlateauMax', fixed(pw['plateau_z_max_over_stays'], 3), pw['plateau_z_max_over_stays'],
+              'S/S_c', '3 位小数', src, f'pointwise.{case}|migrated_law_range.plateau_z_max_over_stays', g)
+    nr = data['noreturn']
+    v = max(l['rel_event_vs_closed'] for c in nr['cases'].values() for l in c['laws'].values())
+    B.add('rsNrClosedFormRelMax', sci(v, 2), v, '相对差', '2 位有效数字', INPUTS['noreturn'],
+          'max cases.*.laws.*.rel_event_vs_closed', 'ω = 0 t→∞ 对照与闭式')
     return B
 
 

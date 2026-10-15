@@ -1,0 +1,179 @@
+% ===== 07b_return =====
+\section{隔离易感者回流的影响}
+\label{sec:return}
+被追踪隔离的未感染接触者没有获得免疫，隔离结束后仍是易感者。第~\ref{sec:s1}--\ref{sec:xian}~节采用模型\eqref{eq:model:full}，其中隔离易感者在整个研究时段内不返回，即回流率 $\omega=0$ 的无回流模型。本章加入回流，考察它对累计感染和退出后动态的影响。无回流模型中控制时长与累计感染的同向关系（定理~\ref{thm:joint:comparison}）依赖未感染者被隔离后永久离开传播这一结构，不能直接推广到有限回流模型。
+
+\subsection{模型}
+\label{sec:return:model}
+含回流的模型在式\eqref{eq:model:full}的 $S$、$S_q$ 方程中加入回流项 $\omega S_q$：
+\begin{equation}
+\begin{cases}
+\dot S=-\dfrac{c[\beta+(1-\beta)q]}{N}SI+\omega S_q,\\[.5em]
+\dot I=\dfrac{\beta c(1-q)}{N}SI-\gamma I,\\[.5em]
+\dot S_q=\dfrac{(1-\beta)cq}{N}SI-\omega S_q,\\[.5em]
+\dot I_q=\dfrac{\beta cq}{N}SI-\delta_q I_q,\\[.5em]
+\dot R=\gamma I+\delta_q I_q,
+\end{cases}
+\qquad\omega\ge0.
+\label{eq:return:model}
+\end{equation}
+回流率 $\omega$ 为常数，隔离易感者的停留时间服从均值 $1/\omega$ 的指数分布，$\omega=0$ 即式\eqref{eq:model:full}。隔离感染者 $I_q$ 康复后进入 $R$，不回到易感人群；参数范围、初始条件和控制的允许范围同第~\ref{sec:model}~节。记总易感者 $U=S+S_q$ 与新增感染流量 $F=\beta c(t)SI/N$（进入 $I$ 与 $I_q$ 的流量之和），则 $\Itcum(T)=\int_0^TF\,dt$。
+
+阈值策略的实施方式同第~\ref{sec:model:control-class}~节。给定接触率的状态函数 $c_c(S)$，它在 $S\ge S_c$ 上有界可测并满足 $c_0S_c/S\le c_c(S)\le c_0$，隔离比例 $q_c(S)$ 由式\eqref{eq:joint:q}给出。$I$ 由下方首次到达 $\eta$ 的时刻 $t_1$ 之前取 $(c_0,q_0)$；$[t_1,t_2)$ 上取 $c=c_c(S(t))$、$q=q_c(S(t))$，由平衡式\eqref{eq:model:balance}维持 $I\equiv\eta$，其中 $t_2$ 是 $S$ 首次降到 $S_c$ 的时刻；$t_2$ 之后永久取 $(c_0,q_0)$。这一退出强化控制只恢复 $(c_0,q_0)$，不额外释放隔离易感者，$S_q$ 继续按所采用模型的回流机制演化；退出后即使 $I$ 再超过 $\eta$，策略也不重新启动。有回流时平台上的 $S$ 可能因回流而回升，所以 $c_c$ 的定义域延拓到 $S\ge S_c$，界限不变。
+
+立即返回对照模型令被追踪的未感染接触者立即回到 $S$（零停留时间）：$S_q(0)=0$，$S_q\equiv0$，
+\begin{equation}
+\dot S=-\frac{\beta c}{N}SI,\quad
+\dot I=\frac{\beta c(1-q)}{N}SI-\gamma I,\quad
+\dot I_q=\frac{\beta cq}{N}SI-\delta_q I_q,\quad
+\dot R=\gamma I+\delta_q I_q.
+\label{eq:return:immediate}
+\end{equation}
+它是单独定义的对照模型，不是模型\eqref{eq:return:model}在 $\omega\to\infty$ 时的极限结论。两组算例都有 $S_q(0)=0$（表~\ref{tab:xian_initial_fit}）。
+
+\subsection{指数停留}
+\label{sec:return:exp}
+追踪与回流只在两个易感仓室之间转移人数，因此总易感者只因感染而减少。
+\begin{lemma}
+\label{lem:return:U}
+设 $\omega\ge0$，$c(t)\ge0$ 局部有界且可测，$q(t)\in[0,1]$ 可测，初始仓室非负、总和为 $N$。模型\eqref{eq:return:model}的解存在唯一、全局，各仓室非负；总易感者 $U=S+S_q$ 满足 $\dot U=-F$ 对几乎所有 $t\ge0$ 成立，且对所有 $t\ge0$，
+\begin{equation}
+\Itcum(t)=U(0)-U(t)=S_0+S_q(0)-S(t)-S_q(t).
+\label{eq:return:U}
+\end{equation}
+\end{lemma}
+证明见附录~\ref{sec:proof:return}。追踪把未感染接触者从 $S$ 移到 $S_q$，回流把他们移回 $S$，二者都不改变 $U$，$\Itcum$ 恰为 $U$ 的减少量；累计新增感染不含初始感染者。$S_q(0)=0$ 时 $\Itcum(t)=S_0-U(t)$。
+
+引理给出累计感染的下界：恢复常规控制后，总易感者 $U$ 必须降到常规传播临界值 $S_c$ 以下，感染才会停止。
+\begin{proposition}
+\label{prop:return:final-size}
+设 $\omega>0$，$c_0>0$，$I(0)>0$，并且存在有限时刻 $T_0\ge0$，使 $(c(t),q(t))=(c_0,q_0)$ 对几乎所有 $t>T_0$ 成立，$[0,T_0]$ 上的控制满足引理~\ref{lem:return:U}的条件。则在模型\eqref{eq:return:model}中，$t\to\infty$ 时 $S_q(t)\to0$，$U(t)$ 单调不增地收敛到某个 $U_\infty\le S_c$。因此 $\Itcum(\infty):=\lim_{T\to\infty}\Itcum(T)$ 满足
+\begin{equation}
+\Itcum(\infty)=U(0)-U_\infty\ \ge\ U(0)-S_c=S_0+S_q(0)-S_c.
+\label{eq:return:lower}
+\end{equation}
+\end{proposition}
+经典 SIR 模型中，恢复自然参数后最终易感比例不高于临界值，有限期干预后严格低于临界值\cite{Ketcheson2021Finite}。命题把非严格的结论推广到含 $S_q$ 的总易感者 $U$：回流使 $S$ 与 $I$ 不再有首次积分，证明改用 $F$ 的可积性（附录~\ref{sec:proof:return}）。式\eqref{eq:return:lower}是满足条件的所有控制共享的下界，包括满足能力约束的控制；下界之上的部分 $S_c-U_\infty$ 随控制而变，命题对这一部分没有结论。命题只关于 $t\to\infty$，退出后 $I$ 是否再超过 $\eta$ 要由具体的控制与参数判断（见下）。它与命题~\ref{prop:exit-infection-lower-bound}的模型和终点都不同：后者是无回流模型在 $S$ 到达 $S_c$ 的退出时刻的下界 $\beta(S_0-S_c)$，前者是正指数回流模型在 $t\to\infty$ 的下界 $U(0)-S_c$。
+
+阈值策略满足命题的条件。设平台一经触发就能维持，即 $[t_1,t_2)$ 上有界可测的控制使 $I\equiv\eta$，且几乎处处 $0<c\le c_0$、$q_0\le q\le1$。此时平台上的新增感染流量有常数下界 $F\ge\gamma\eta/(1-q_0)$，而 $U$ 以 $F$ 的速率下降，所以 $S$ 在有限时刻到达 $S_c$，策略在有限时刻 $t_2$ 之后恒为 $(c_0,q_0)$（证明见附录~\ref{sec:proof:return}）。回流使平台上的 $S$ 可能回升，退出时通常 $U(t_2)=S_c+S_q(t_2)>S_c$，$U$ 并不是在平台上降到 $S_c$。平台能否维持是前提：不考虑能力约束时，$S\ge S_c$ 上的允许区间 $[c_0S_c/S,c_0]$ 非空，前提只涉及所选控制律的解是否存在；考虑能力约束时，有回流的平台是否可行，本章未分析。
+
+无回流模型与正回流模型的 $t\to\infty$ 累计感染因而可以相差很大。
+\begin{corollaryn}
+\label{cor:return:right-discontinuity}
+固定参数与同一完整初值，$I(0)>0$，并设无回流模型满足条件\eqref{eq:model:trigger}。固定控制律 $\pi$（第~\ref{sec:return:model}~节的状态函数 $c_c$），并设对 $\omega=0$ 与每个 $\omega>0$，在模型\eqref{eq:return:model}中实施 $\pi$ 的阈值策略都有解，即平台能维持到 $S$ 首次到达 $S_c$。记 $C_\pi(\omega):=\Itcum(\infty;\pi,\omega)$、$L:=U(0)-S_c$；$\omega>0$ 时若解不唯一，$C_\pi(\omega)$ 指其中任一个解的值。若 $C_\pi(0)<L$，则对所有 $\omega>0$ 有 $C_\pi(\omega)\ge L$，因而
+\begin{equation}
+\liminf_{\omega\downarrow0}C_\pi(\omega)\ \ge\ L\ >\ C_\pi(0),
+\label{eq:return:discontinuity}
+\end{equation}
+即 $\omega\mapsto C_\pi(\omega)$ 在 $\omega=0$ 处不右连续。
+\end{corollaryn}
+证明见附录~\ref{sec:proof:return}。$C_\pi(0)$ 须取 $t\to\infty$ 的值：仅隔离控制由定理~\ref{thm:s1:Itcum}将 $S_{\rm end}$ 换为 $S_\infty$ 得到，其余控制由推论~\ref{cor:joint:whole-epidemic}的第二式得到，不能用表~\ref{tab:joint:compare}中计至清零时间的数。两组参数下（$S_q(0)=0$，$L$ 分别为 $\rsBaseLBound$ 人与 $\rsXianLBoundMil\times10^{6}$ 人），仅隔离控制的 $C_\pi(0)$ 为 $\rsBaseQonlyCinfNr$ 人与 $\rsXianQonlyCinfNrMil\times10^{6}$ 人，$\alpha=0.5$ 的控制与成本最优控制也满足 $C_\pi(0)<L$（补充表~\ref*{tab:sup:return:cinf}）；成本最优控制在 $\omega>0$ 时的平台解只有数值实现。仅减少接触在西安参数下满足这一前提，在基准参数下不满足（$C_\pi(0)=\rsBaseConlyCinfNr>L$），推论不适用。
+
+无回流模型可以作为解析基准，但在这些情景中，$t\to\infty$ 的累计感染对是否允许正回流非常敏感：$\omega=0$ 时被隔离的未感染者永久离开传播，$\omega>0$ 时他们终将返回，总易感者仍要由感染降到 $S_c$ 以下。因此推论~\ref{cor:joint:whole-epidemic}这类计至无限时刻的结论只在无回流模型中得到证明。推论只涉及 $t\to\infty$ 的累计感染；控制时长与成本等有限时间量随 $\omega$ 的依赖，本章只给数值结果。
+
+数值上，所考察的指数回流情景取平均停留 $1/\omega=7,14,30,60,120,365$ d（60 d 以上是长停留诊断，不代表实际隔离制度），控制律取仅隔离、仅减少接触和无回流最优律迁移（简称迁移律）。迁移律把 $\omega=0$ 时的成本最优控制律原样用于 $\omega>0$，不重新优化，因此不称成本最优。两组参数共 $\rsReturnRunsTotal$ 条轨迹，每条在退出后 $I$ 首次降到 $1$ 时截断，与清零时间的约定相同，终止时累计感染即截断时刻的 $\Itcum$（方法与全部结果见补充材料第~\ref{sec:sup:return}~节）。
+
+这些轨迹退出后都没有越过阈值：$\rsReturnRunsTotal$ 条中越过 $\eta$ 的有 $\rsReturnRunsCrossed$ 条。部分轨迹退出后 $I$ 先回升再下降，形成低于阈值的次峰，最高为 $\rsBaseReturnPeakRatioMax\,\eta$（基准参数，平均停留 60 d 的仅隔离控制）与 $\rsXianReturnPeakRatioMax\,\eta$（西安参数，365 d 的仅隔离控制）；回升不等于越过阈值。各组参数与停留时间下，控制时长的排序都是仅隔离控制最短、迁移律居中、仅减少接触最长。
+
+终止时累计感染随控制而变，例如基准参数平均停留 14 d 时，仅隔离、迁移律与仅减少接触分别为 $\rsBaseStayFourteenQonlyCterm$、$\rsBaseStayFourteenMigCterm$ 与 $\rsBaseStayFourteenConlyCterm$ 人，都高于 $L$。截断值可以低于式\eqref{eq:return:lower}的下界，因为下界针对不截断的 $t\to\infty$ 累计感染：$\rsReturnRunsTotal$ 条中有 $\rsReturnRunsBelowL$ 条低于 $L$，都是基准参数下平均停留不短于 60 d 的仅隔离与迁移律，它们在截断时仍有大量未感染者在隔离中。
+
+退出强化控制不包括瞬时释放隔离易感者，定理~\ref{thm:s1:tend}只针对恢复常规参数。以 $\omega=0$ 的仅隔离控制为例，若在 $t_2$ 恢复 $(c_0,q_0)$ 的同时把比例 $\xi\in[0,1]$ 的隔离易感者释放回 $S$（$S_q(t_2)$ 为释放前的库存），则 $R_e(t_2^+)=1+\xi S_q(t_2)/S_c$，$\dot I(t_2^+)=\gamma\eta\,\xi S_q(t_2)/S_c$（附录~\ref{sec:proof:return}）。$\xi=1$ 时 $S_q(t_2)/S_c$ 为 $\rsBaseReleaseSqRatio$（基准）与 $\rsXianReleaseSqRatio$（西安），$R_e(t_2^+)$ 为 $\rsBaseReleaseRe$ 与 $\rsXianReleaseRe$，感染立即增长并越过 $\eta$。
+
+\subsection{立即返回}
+\label{sec:return:immediate}
+立即返回对照模型\eqref{eq:return:immediate}中，阈值控制期的感染由 $S$ 的下降完全确定，各个结果因此可以像第~\ref{sec:joint}、\ref{sec:joint:cost}~节那样写成对 $S$ 的积分。
+\begin{proposition}
+\label{prop:return:immediate}
+在模型\eqref{eq:return:immediate}中，设 $S_0>S_c$，不考虑能力约束，且
+\begin{equation}
+0<I_0<\eta<I_{\rm peak,ir}:=I_0+(1-q_0)\Bigl[S_0-S_c+S_c\ln\frac{S_c}{S_0}\Bigr].
+\label{eq:return:trigger}
+\end{equation}
+按第~\ref{sec:model:control-class}~节理解阈值策略（以模型\eqref{eq:return:immediate}代替式\eqref{eq:model:full}，以式\eqref{eq:return:trigger}代替条件\eqref{eq:model:trigger}），其全部控制记为 $\mathcal A_{\rm ir}(\eta)$。则有以下结论。
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\roman{enumi})}
+\item 启动状态。常规轨迹满足 $I=I_0+(1-q_0)\bigl[(S_0-S)+S_c\ln(S/S_0)\bigr]$，并在唯一的状态
+\begin{equation}
+S^*_{\rm ir}=-S_cW_{-1}\bigl(-e^{-A}\bigr),\qquad
+A=\frac{S_0-(\eta-I_0)/(1-q_0)}{S_c}-\ln\frac{S_0}{S_c}>1
+\label{eq:return:Sstar}
+\end{equation}
+处首次由下方到达 $\eta$，且 $S_c<S^*_{\rm ir}<S_0$。
+\item 控制时长。$\mathcal A_{\rm ir}(\eta)$ 中的控制与 $[S_c,S^*_{\rm ir}]$ 上满足 $c_0S_c/S\le c_c(S)\le c_0$ 的有界可测函数 $c_c$ 在几乎处处相等的意义下一一对应，$q_c$ 由式\eqref{eq:joint:q}确定，阈值控制期内 $\dot S=-(\beta\eta/N)c_c(S)S$，且
+\begin{equation}
+\Delta t_{\rm ir}[c_c]=\frac{N}{\beta\eta}\int_{S_c}^{S^*_{\rm ir}}\frac{dS}{c_c(S)S}.
+\label{eq:return:duration}
+\end{equation}
+若 $c_c^{(1)}\ge c_c^{(2)}$ 几乎处处成立，则 $\Delta t_{\rm ir}[c_c^{(1)}]\le\Delta t_{\rm ir}[c_c^{(2)}]$；若前一不等式在正测度集合上严格成立，则后一不等式严格。特别地
+\begin{equation}
+\Delta t_q:=\frac{N}{\beta\eta c_0}\ln\frac{S^*_{\rm ir}}{S_c}\ \le\ \Delta t_{\rm ir}[c_c]\ \le\ \Delta t_c:=\frac{N(S^*_{\rm ir}-S_c)}{\beta\eta c_0S_c},
+\label{eq:return:duration-bounds}
+\end{equation}
+左、右等号分别当且仅当 $c_c=c_0$（仅隔离控制）与 $c_c=c_0S_c/S$（仅减少接触）几乎处处成立。
+\item 感染与追踪人次。沿 $\mathcal A_{\rm ir}(\eta)$ 中任一控制，
+\begin{equation}
+\Itcum(t_2)-\Itcum(t_1)=S^*_{\rm ir}-S_c,
+\label{eq:return:cumulative}
+\end{equation}
+即各控制的阈值控制期累计新增感染相同；未感染接触者的累计追踪处置人次
+\begin{equation}
+K_q:=\int_{t_1}^{t_2}\frac{(1-\beta)cqS\eta}{N}\,dt
+=\frac{1-\beta}{\beta}\bigl[S^*_{\rm ir}-S_c-\gamma\eta\,\Delta t_{\rm ir}\bigr]
+\label{eq:return:Kq}
+\end{equation}
+与控制时长反序。$K_q$ 是累计人次，不是隔离库存或隔离人天。
+\item 成本最优控制。设 $w_c,w_q>0$。二次干预强度成本（式\eqref{eq:cost:J}）可写为
+\begin{equation}
+J[c_c]=\frac{N}{\beta\eta}\int_{S_c}^{S^*_{\rm ir}}f_{\rm ir}(S,c_c(S))\,dS,\qquad
+f_{\rm ir}(S,c)=\frac{w_c(1-c/c_0)^2+w_q\bigl(1-\frac{c_0S_c}{cS}\bigr)^2}{cS},
+\label{eq:return:cost}
+\end{equation}
+即式\eqref{eq:joint:cost-integrand}中的 $f$ 在 $\bar S=0$ 处的取值。$J$ 的最小值可以达到，等于 $\frac{N}{\beta\eta}\int_{S_c}^{S^*_{\rm ir}}\min_{c_0S_c/S\le c\le c_0}f_{\rm ir}(S,c)\,dS$；允许函数达到最小值，当且仅当它几乎处处属于逐状态最小化解集。对每个 $S\in(S_c,S^*_{\rm ir}]$，在允许区间 $[c_0S_c/S,c_0]$ 上：
+\begin{itemize}
+\item[(a)] 仅减少接触的取值 $c=c_0S_c/S$ 不是 $f_{\rm ir}(S,\cdot)$ 的局部最小点；
+\item[(b)] 仅隔离控制的取值 $c=c_0$ 在 $S>3S_c$ 时是严格局部最小点，在 $S_c<S<3S_c$ 时不是局部最小点；$S=3S_c$ 时该点的一阶导数为零，命题不作分类。
+\end{itemize}
+因此任一成本最优控制在几乎所有 $S\in(S_c,S^*_{\rm ir}]$ 上满足 $q_c^*(S)>q_0$，并在 $S_c<S<\min\{3S_c,S^*_{\rm ir}\}$ 上满足 $c_0S_c/S<c_c^*(S)<c_0$。任一逐状态最小化选择还满足
+\begin{equation}
+\lim_{S\downarrow S_c}\frac{(c_0-c_c^*(S))/c_0}{1-S_c/S}=\frac{w_q}{w_c+w_q},\qquad
+\lim_{S\downarrow S_c}\frac{(q_c^*(S)-q_0)/(1-q_0)}{1-S_c/S}=\frac{w_c}{w_c+w_q},
+\label{eq:return:ratio}
+\end{equation}
+即退出时两种归一化强度之比趋于 $w_q/w_c$。
+\end{enumerate}
+\end{proposition}
+证明见附录~\ref{sec:proof:return}。(ii)(iv) 的论证复用第~\ref{sec:joint}、\ref{sec:joint:cost}~节的证明，它们在 $\bar S=0$ 处逐步成立，但 $\bar S=0$ 不是模型\eqref{eq:model:full}的合法取值（$\bar S/S_c=(1-\beta)(1-q_0)>0$），所以本命题不称为那些结果的推论；定理~\ref{thm:joint:comparison}(iii)的计数关系依赖无回流的 $S$ 方程，在这里不成立，(iii) 单独计算。
+
+\begin{table}[htbp]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{threeparttable}
+\caption{立即返回对照模型中四种控制的比较（$w_c=1,w_q=2$）}
+\label{tab:return:endpoint}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccc@{}}
+\toprule
+控制 & \shortstack{控制时长\\$\Delta t_{\rm ir}$（d）} & \shortstack{控制期\\累计新增感染} & \shortstack{追踪人次\\$K_q$} & $J$（d）\\
+\midrule
+\multicolumn{5}{@{}l}{基准参数：$\eta=0.05N$；人数单位为人}\\
+仅隔离控制 & \rsBaseQonlyDtIr & \rsBaseInfIr & \rsBaseQonlyKqIr & \rsBaseQonlyJIr\\
+成本最优控制 & \rsBaseOptDtIr & \rsBaseInfIr & \rsBaseOptKqIr & \rsBaseOptJIr\\
+显式族 $\alpha=0.5$ & \rsBaseAlphaDtIr & \rsBaseInfIr & \rsBaseAlphaKqIr & \rsBaseAlphaJIr\\
+仅减少接触 & \rsBaseConlyDtIr & \rsBaseInfIr & \rsBaseConlyKqIr & \rsBaseConlyJIr\\
+\midrule
+\multicolumn{5}{@{}l}{西安参数：$\eta=0.002N$；人数单位为 $10^6$ 人}\\
+仅隔离控制 & \rsXianQonlyDtIr & \rsXianInfIrMil & \rsXianQonlyKqIrMil & \rsXianQonlyJIr\\
+成本最优控制 & \rsXianOptDtIr & \rsXianInfIrMil & \rsXianOptKqIrMil & \rsXianOptJIr\\
+显式族 $\alpha=0.5$ & \rsXianAlphaDtIr & \rsXianInfIrMil & \rsXianAlphaKqIrMil & \rsXianAlphaJIr\\
+仅减少接触 & \rsXianConlyDtIr & \rsXianInfIrMil & \rsXianConlyKqIrMil & \rsXianConlyJIr\\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]\footnotesize
+\item 注：每组的四种控制采用同一完整初值（表~\ref{tab:xian_initial_fit}），$S_q(0)=0$；各行按 $\Delta t_{\rm ir}$ 由小到大排列。控制期累计新增感染为 $S^*_{\rm ir}-S_c$（式\eqref{eq:return:cumulative}），$S^*_{\rm ir}$ 为 $\rsBaseSstarIr$ 人（基准）与 $\rsXianSstarIrMil\times10^{6}$ 人（西安）。$K_q$ 见式\eqref{eq:return:Kq}，$J$ 见式\eqref{eq:cost:J}。
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+立即返回对照模型中，各控制的控制期累计感染相同，控制组合仍改变控制时长、干预成本与未感染接触者的追踪人次（表~\ref{tab:return:endpoint}）。无回流模型中追踪隔离同时把未感染者移出社区（第~\ref{sec:joint:objectives}~节），这是控制越快、感染越少的原因；立即返回消除了这一渠道，控制期内 $S$ 的下降完全由感染决定，从 $S^*_{\rm ir}$ 降到 $S_c$ 所需的感染恒为 $S^*_{\rm ir}-S_c$。控制组合改变的是这些感染发生得多快：接触率越高，单位时间的新增感染 $\beta cS\eta/N$ 越多，控制时长越短，追踪人次越多。两组参数下 $\Delta t_{\rm ir}$ 的排序都是仅隔离控制最短、仅减少接触最长，$K_q$ 与之反序。
+
+成本的差别来自两种干预强度的组合。由命题~\ref{prop:return:immediate}(iv)(a)，每个状态上仅减少接触的被积函数都严格大于逐状态最小值，故其 $J$ 严格大于最小成本；成本最优控制的 $J$ 不高于任一允许控制。默认权重下，成本最优控制的 $J$ 比仅减少接触低 $\rsBaseIrCostGapConly\%$（基准）与 $\rsXianIrCostGapConly\%$（西安），比仅隔离控制低 $\rsBaseIrCostGapQonly\%$ 与 $\rsXianIrCostGapQonly\%$；这是该模型、该参数、该权重下的数值结果。具体控制之间的成本比较须按该模型重新计算：基准参数下 $\alpha=0.5$ 的 $J$（$\rsBaseAlphaJIr$ d）低于仅隔离控制（$\rsBaseQonlyJIr$ d），与无回流模型相反（表~\ref{tab:joint:compare}）。$3S_c$ 只是局部性质的分界，不是已证明的全局切换点；两组参数、默认权重下的数值全局切换位置在 $S=\rsBaseIrSwitchZ\,S_c$，退出附近接触减少的分担比例趋于 $\rsBaseIrShare$，即式\eqref{eq:return:ratio}中的 $w_q/(w_c+w_q)$。命题没有给出成本最优控制 $c_c^*$ 的连续性或光滑性。

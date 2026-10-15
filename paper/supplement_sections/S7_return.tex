@@ -1,0 +1,145 @@
+\section{回流情景与数值核验}
+\label{sec:sup:return}
+本节给出正文第~\ref{sec:return}~节摘述的数值：指数回流情景的全部结果（表~\ref{tab:sup:return:base}、\ref{tab:sup:return:xian}）、无回流模型 $t\to\infty$ 的累计感染（表~\ref{tab:sup:return:cinf}），以及回流部分的收敛与容差检验。立即返回对照模型的端点小表见正文表~\ref{tab:return:endpoint}。
+
+\emph{控制律。}仅隔离控制、仅减少接触与 $\alpha=0.5$ 的接触率状态函数取自正文第~\ref{sec:joint}~节。无回流最优律迁移（表中称迁移律）把 $\omega=0$ 时逐状态最小化得到的 $c_c^*(S)$ 原样用于 $\omega>0$：平台上遇到的任何 $S$，包括超过无回流启动状态 $S^*$ 的状态，都直接按 $\omega=0$ 的逐状态最小化计算，不插值、不外推，也不对 $\omega>0$ 重新优化，所以不称成本最优。立即返回对照模型的成本最优控制由正文式~\eqref{eq:return:cost} 逐状态最小化得到。逐状态最小化比较允许区间的两个端点与驻点方程在区间内的实根；全部控制不考虑能力约束，成本权重取默认值 $w_c=1,w_q=2$。
+
+\emph{终止规则。}终止规则按模型分支确定。$\omega=0$ 与立即返回对照模型沿用正文的清零约定：退出后 $I$ 由上方到达 $1$ 的时刻为清零时间，$t\to\infty$ 的累计感染由首次积分解析补尾（正文定理~\ref{thm:s1:tend}的 $S_\infty$）。指数回流情景（$\omega>0$）以退出后 $I$ 首次降到 $1$ 的时刻截断，假设此时传播结束，这与清零时间的约定相同（正文第~\ref{sec:cost}~节，沿用文献\cite{Zhou2024SPCI}）；终止时累计感染即截断时刻的 $\Itcum$。它不是 $t\to\infty$ 的累计感染，可以低于正文命题~\ref{prop:return:final-size}的下界。
+
+\emph{尾部误差标准。}同一轨迹若不截断而继续积分，$t\to\infty$ 的累计感染以尾部误差上界控制。退出后控制恒为 $(c_0,q_0)$，当 $U(T)<S_c$ 时 $S\le U\le U(T)$，故 $I(t)\le I(T)e^{-\gamma(1-U(T)/S_c)(t-T)}$，$T$ 之后的新增感染不超过
+\[
+B(T)=\frac{\beta c_0U(T)I(T)}{N\gamma[1-U(T)/S_c]} ;
+\]
+积分到 $B(T)\le10^{-6}U(0)$ 为止。这一不截断的结果只作诊断，不进表。
+
+\emph{情景。}平均停留 $1/\omega=7,14,30,60,120,365$ d 中，60 d 以上是长停留诊断，不代表实际隔离制度。西安回流情景沿用正文表~\ref{tab:xian_initial_fit}的参数与初值，没有用病例数据重新校准含回流模型。越过阈值按退出后 $I/\eta-1$ 的内部极大值判定：大于 $10^{-8}$ 为越过，小于 $-10^{-8}$ 或没有内部极大为未越过，其余记为数值上未确定。
+
+\subsection{指数回流结果}
+\label{sec:sup:return:exp}
+表~\ref{tab:sup:return:base}和\ref{tab:sup:return:xian}给出两组参数下三种控制律在六个平均停留时间下的结果。
+\begin{table}[htbp]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{threeparttable}
+\caption{基准参数下指数回流情景的结果}
+\label{tab:sup:return:base}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}clccccc@{}}
+\toprule
+\shortstack{平均停留\\$1/\omega$（d）} & 控制 & \shortstack{控制时长\\$\Delta t$（d）} & $J$（d） & \shortstack{次峰\\$I/\eta$} & \shortstack{截断时刻\\（d）} & \shortstack{终止时\\累计感染（人）}\\
+\midrule
+\multirow{3}{*}{7} & 仅隔离控制 & \rsBaseStaySevenQonlyDt & \rsBaseStaySevenQonlyJ & \rsBaseStaySevenQonlyPeakRatio & \rsBaseStaySevenQonlyTend & \rsBaseStaySevenQonlyCterm\\
+ & 迁移律 & \rsBaseStaySevenMigDt & \rsBaseStaySevenMigJ & \rsBaseStaySevenMigPeakRatio & \rsBaseStaySevenMigTend & \rsBaseStaySevenMigCterm\\
+ & 仅减少接触 & \rsBaseStaySevenConlyDt & \rsBaseStaySevenConlyJ & \rsBaseStaySevenConlyPeakRatio & \rsBaseStaySevenConlyTend & \rsBaseStaySevenConlyCterm\\
+\midrule
+\multirow{3}{*}{14} & 仅隔离控制 & \rsBaseStayFourteenQonlyDt & \rsBaseStayFourteenQonlyJ & \rsBaseStayFourteenQonlyPeakRatio & \rsBaseStayFourteenQonlyTend & \rsBaseStayFourteenQonlyCterm\\
+ & 迁移律 & \rsBaseStayFourteenMigDt & \rsBaseStayFourteenMigJ & \rsBaseStayFourteenMigPeakRatio & \rsBaseStayFourteenMigTend & \rsBaseStayFourteenMigCterm\\
+ & 仅减少接触 & \rsBaseStayFourteenConlyDt & \rsBaseStayFourteenConlyJ & \rsBaseStayFourteenConlyPeakRatio & \rsBaseStayFourteenConlyTend & \rsBaseStayFourteenConlyCterm\\
+\midrule
+\multirow{3}{*}{30} & 仅隔离控制 & \rsBaseStayThirtyQonlyDt & \rsBaseStayThirtyQonlyJ & \rsBaseStayThirtyQonlyPeakRatio & \rsBaseStayThirtyQonlyTend & \rsBaseStayThirtyQonlyCterm\\
+ & 迁移律 & \rsBaseStayThirtyMigDt & \rsBaseStayThirtyMigJ & \rsBaseStayThirtyMigPeakRatio & \rsBaseStayThirtyMigTend & \rsBaseStayThirtyMigCterm\\
+ & 仅减少接触 & \rsBaseStayThirtyConlyDt & \rsBaseStayThirtyConlyJ & \rsBaseStayThirtyConlyPeakRatio & \rsBaseStayThirtyConlyTend & \rsBaseStayThirtyConlyCterm\\
+\midrule
+\multirow{3}{*}{60} & 仅隔离控制 & \rsBaseStaySixtyQonlyDt & \rsBaseStaySixtyQonlyJ & \rsBaseStaySixtyQonlyPeakRatio & \rsBaseStaySixtyQonlyTend & \rsBaseStaySixtyQonlyCterm$^{*}$\\
+ & 迁移律 & \rsBaseStaySixtyMigDt & \rsBaseStaySixtyMigJ & \rsBaseStaySixtyMigPeakRatio & \rsBaseStaySixtyMigTend & \rsBaseStaySixtyMigCterm$^{*}$\\
+ & 仅减少接触 & \rsBaseStaySixtyConlyDt & \rsBaseStaySixtyConlyJ & \rsBaseStaySixtyConlyPeakRatio & \rsBaseStaySixtyConlyTend & \rsBaseStaySixtyConlyCterm\\
+\midrule
+\multirow{3}{*}{120} & 仅隔离控制 & \rsBaseStayOnetwentyQonlyDt & \rsBaseStayOnetwentyQonlyJ & \rsBaseStayOnetwentyQonlyPeakRatio & \rsBaseStayOnetwentyQonlyTend & \rsBaseStayOnetwentyQonlyCterm$^{*}$\\
+ & 迁移律 & \rsBaseStayOnetwentyMigDt & \rsBaseStayOnetwentyMigJ & \rsBaseStayOnetwentyMigPeakRatio & \rsBaseStayOnetwentyMigTend & \rsBaseStayOnetwentyMigCterm$^{*}$\\
+ & 仅减少接触 & \rsBaseStayOnetwentyConlyDt & \rsBaseStayOnetwentyConlyJ & \rsBaseStayOnetwentyConlyPeakRatio & \rsBaseStayOnetwentyConlyTend & \rsBaseStayOnetwentyConlyCterm\\
+\midrule
+\multirow{3}{*}{365} & 仅隔离控制 & \rsBaseStayThreesixtyfiveQonlyDt & \rsBaseStayThreesixtyfiveQonlyJ & \rsBaseStayThreesixtyfiveQonlyPeakRatio & \rsBaseStayThreesixtyfiveQonlyTend & \rsBaseStayThreesixtyfiveQonlyCterm$^{*}$\\
+ & 迁移律 & \rsBaseStayThreesixtyfiveMigDt & \rsBaseStayThreesixtyfiveMigJ & \rsBaseStayThreesixtyfiveMigPeakRatio & \rsBaseStayThreesixtyfiveMigTend & \rsBaseStayThreesixtyfiveMigCterm$^{*}$\\
+ & 仅减少接触 & \rsBaseStayThreesixtyfiveConlyDt & \rsBaseStayThreesixtyfiveConlyJ & \rsBaseStayThreesixtyfiveConlyPeakRatio & \rsBaseStayThreesixtyfiveConlyTend & \rsBaseStayThreesixtyfiveConlyCterm\\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]\footnotesize
+\item 注：$w_c=1,w_q=2$，$S_q(0)=0$。迁移律为无回流最优律迁移。次峰为退出后、截断前 $I$ 的内部极大值与 $\eta$ 之比，“—”表示没有内部极大。终止时累计感染为退出后 $I$ 首次降到 $1$ 时的 $\Itcum$；$^{*}$ 表示低于 $L=U(0)-S_c=\rsBaseLBound$ 人。
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\begin{table}[htbp]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{threeparttable}
+\caption{西安参数下指数回流情景的结果}
+\label{tab:sup:return:xian}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}clccccc@{}}
+\toprule
+\shortstack{平均停留\\$1/\omega$（d）} & 控制 & \shortstack{控制时长\\$\Delta t$（d）} & $J$（d） & \shortstack{次峰\\$I/\eta$} & \shortstack{截断时刻\\（d）} & \shortstack{终止时累计\\感染（$10^6$ 人）}\\
+\midrule
+\multirow{3}{*}{7} & 仅隔离控制 & \rsXianStaySevenQonlyDt & \rsXianStaySevenQonlyJ & \rsXianStaySevenQonlyPeakRatio & \rsXianStaySevenQonlyTend & \rsXianStaySevenQonlyCtermMil\\
+ & 迁移律 & \rsXianStaySevenMigDt & \rsXianStaySevenMigJ & \rsXianStaySevenMigPeakRatio & \rsXianStaySevenMigTend & \rsXianStaySevenMigCtermMil\\
+ & 仅减少接触 & \rsXianStaySevenConlyDt & \rsXianStaySevenConlyJ & \rsXianStaySevenConlyPeakRatio & \rsXianStaySevenConlyTend & \rsXianStaySevenConlyCtermMil\\
+\midrule
+\multirow{3}{*}{14} & 仅隔离控制 & \rsXianStayFourteenQonlyDt & \rsXianStayFourteenQonlyJ & \rsXianStayFourteenQonlyPeakRatio & \rsXianStayFourteenQonlyTend & \rsXianStayFourteenQonlyCtermMil\\
+ & 迁移律 & \rsXianStayFourteenMigDt & \rsXianStayFourteenMigJ & \rsXianStayFourteenMigPeakRatio & \rsXianStayFourteenMigTend & \rsXianStayFourteenMigCtermMil\\
+ & 仅减少接触 & \rsXianStayFourteenConlyDt & \rsXianStayFourteenConlyJ & \rsXianStayFourteenConlyPeakRatio & \rsXianStayFourteenConlyTend & \rsXianStayFourteenConlyCtermMil\\
+\midrule
+\multirow{3}{*}{30} & 仅隔离控制 & \rsXianStayThirtyQonlyDt & \rsXianStayThirtyQonlyJ & \rsXianStayThirtyQonlyPeakRatio & \rsXianStayThirtyQonlyTend & \rsXianStayThirtyQonlyCtermMil\\
+ & 迁移律 & \rsXianStayThirtyMigDt & \rsXianStayThirtyMigJ & \rsXianStayThirtyMigPeakRatio & \rsXianStayThirtyMigTend & \rsXianStayThirtyMigCtermMil\\
+ & 仅减少接触 & \rsXianStayThirtyConlyDt & \rsXianStayThirtyConlyJ & \rsXianStayThirtyConlyPeakRatio & \rsXianStayThirtyConlyTend & \rsXianStayThirtyConlyCtermMil\\
+\midrule
+\multirow{3}{*}{60} & 仅隔离控制 & \rsXianStaySixtyQonlyDt & \rsXianStaySixtyQonlyJ & \rsXianStaySixtyQonlyPeakRatio & \rsXianStaySixtyQonlyTend & \rsXianStaySixtyQonlyCtermMil\\
+ & 迁移律 & \rsXianStaySixtyMigDt & \rsXianStaySixtyMigJ & \rsXianStaySixtyMigPeakRatio & \rsXianStaySixtyMigTend & \rsXianStaySixtyMigCtermMil\\
+ & 仅减少接触 & \rsXianStaySixtyConlyDt & \rsXianStaySixtyConlyJ & \rsXianStaySixtyConlyPeakRatio & \rsXianStaySixtyConlyTend & \rsXianStaySixtyConlyCtermMil\\
+\midrule
+\multirow{3}{*}{120} & 仅隔离控制 & \rsXianStayOnetwentyQonlyDt & \rsXianStayOnetwentyQonlyJ & \rsXianStayOnetwentyQonlyPeakRatio & \rsXianStayOnetwentyQonlyTend & \rsXianStayOnetwentyQonlyCtermMil\\
+ & 迁移律 & \rsXianStayOnetwentyMigDt & \rsXianStayOnetwentyMigJ & \rsXianStayOnetwentyMigPeakRatio & \rsXianStayOnetwentyMigTend & \rsXianStayOnetwentyMigCtermMil\\
+ & 仅减少接触 & \rsXianStayOnetwentyConlyDt & \rsXianStayOnetwentyConlyJ & \rsXianStayOnetwentyConlyPeakRatio & \rsXianStayOnetwentyConlyTend & \rsXianStayOnetwentyConlyCtermMil\\
+\midrule
+\multirow{3}{*}{365} & 仅隔离控制 & \rsXianStayThreesixtyfiveQonlyDt & \rsXianStayThreesixtyfiveQonlyJ & \rsXianStayThreesixtyfiveQonlyPeakRatio & \rsXianStayThreesixtyfiveQonlyTend & \rsXianStayThreesixtyfiveQonlyCtermMil\\
+ & 迁移律 & \rsXianStayThreesixtyfiveMigDt & \rsXianStayThreesixtyfiveMigJ & \rsXianStayThreesixtyfiveMigPeakRatio & \rsXianStayThreesixtyfiveMigTend & \rsXianStayThreesixtyfiveMigCtermMil\\
+ & 仅减少接触 & \rsXianStayThreesixtyfiveConlyDt & \rsXianStayThreesixtyfiveConlyJ & \rsXianStayThreesixtyfiveConlyPeakRatio & \rsXianStayThreesixtyfiveConlyTend & \rsXianStayThreesixtyfiveConlyCtermMil\\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]\footnotesize
+\item 注：$w_c=1,w_q=2$，$S_q(0)=0$，$\eta=0.002N$；其余同表~\ref{tab:sup:return:base}。$L=U(0)-S_c=\rsXianLBoundMil\times10^{6}$ 人，所有终止时累计感染均高于 $L$。
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+两组参数共 \rsReturnRunsTotal 条轨迹，退出后截断前越过阈值的有 \rsReturnRunsCrossed 条，数值上未确定的有 \rsReturnRunsUndetermined 条，到积分上限仍未截断的有 \rsReturnRunsNotReached 条。次峰最高为 $\rsBaseReturnPeakRatioMax\,\eta$（基准）与 $\rsXianReturnPeakRatioMax\,\eta$（西安）。控制时长的排序在每组参数与停留时间下都是仅隔离控制最短、迁移律居中、仅减少接触最长。基准参数下终止时累计感染的排序在六个停留时间下都与控制时长相同；西安参数下平均停留 7、14 d 同此，30 d 起三种控制的终止时累计感染相差很小，排序也不再与控制时长一致。西安参数下仅隔离控制的 $\Delta t$ 随平均停留时间不单调：7 d 时为 \rsXianStaySevenQonlyDt d，60 d 时为 \rsXianStaySixtyQonlyDt d，365 d 时为 \rsXianStayThreesixtyfiveQonlyDt d；$\omega=0$ 时为 $85.07$ d（正文表~\ref{tab:joint:compare}）。
+
+标 $^{*}$ 的 \rsReturnRunsBelowL 条在截断时刻 $U\ge S_c$，即仍有大量未感染者在隔离中；按截断假设，他们返回后不再被感染，终止时累计感染因而低于不截断的 $t\to\infty$ 累计感染的下界 $L$。其余各条截断时 $U<S_c$，终止时累计感染都高于 $L$。
+
+\subsection{无回流模型 \texorpdfstring{$t\to\infty$}{t→∞} 的累计感染}
+\label{sec:sup:return:noreturn}
+表~\ref{tab:sup:return:cinf}核验正文推论~\ref{cor:return:right-discontinuity}的前提 $C_\pi(0)<L$。$C_\pi(0)$ 是不截断的 $t\to\infty$ 累计感染：仅隔离控制由正文定理~\ref{thm:s1:Itcum}将 $S_{\rm end}$ 换为 $S_\infty$ 得到，其余控制由推论~\ref{cor:joint:whole-epidemic}的第二式得到。事件法积分加解析补尾与闭式的相对差不超过 \rsNrClosedFormRelMax。
+\begin{table}[htbp]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{threeparttable}
+\caption{无回流模型 $t\to\infty$ 的累计感染与下界 $L$}
+\label{tab:sup:return:cinf}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llcccc@{}}
+\toprule
+参数 & 控制 & \shortstack{$C_\pi(0)$\\（$t\to\infty$）} & \shortstack{计至\\清零时间} & $L$ & $C_\pi(0)<L$\\
+\midrule
+\multirow{4}{*}{\shortstack[l]{基准\\（人）}} & 仅隔离控制 & \rsBaseQonlyCinfNr & 285.7 & \rsBaseLBound & \rsBaseQonlyBelowL\\
+ & 显式族 $\alpha=0.5$ & \rsBaseAlphaCinfNr & 323.4 & \rsBaseLBound & \rsBaseAlphaBelowL\\
+ & 成本最优控制 & \rsBaseOptCinfNr & 306.6 & \rsBaseLBound & \rsBaseOptBelowL\\
+ & 仅减少接触 & \rsBaseConlyCinfNr & 628.6 & \rsBaseLBound & \rsBaseConlyBelowL\\
+\midrule
+\multirow{4}{*}{\shortstack[l]{西安\\（$10^6$ 人）}} & 仅隔离控制 & \rsXianQonlyCinfNrMil & 2.3779 & \rsXianLBoundMil & \rsXianQonlyBelowL\\
+ & 显式族 $\alpha=0.5$ & \rsXianAlphaCinfNrMil & 2.6390 & \rsXianLBoundMil & \rsXianAlphaBelowL\\
+ & 成本最优控制 & \rsXianOptCinfNrMil & 2.5348 & \rsXianLBoundMil & \rsXianOptBelowL\\
+ & 仅减少接触 & \rsXianConlyCinfNrMil & 3.8566 & \rsXianLBoundMil & \rsXianConlyBelowL\\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]\footnotesize
+\item 注：$\omega=0$，$w_c=1,w_q=2$，$S_q(0)=0$，$L=U(0)-S_c$。“计至清零时间”一列取自正文表~\ref{tab:joint:compare}，不用于推论。
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\subsection{收敛与容差}
+\label{sec:sup:return:convergence}
+\emph{立即返回对照模型。}逐状态最小化用等距网格 $N_x=2001,4001,8001$ 核对根法：在每组参数的退出附近对数加密的状态点上（含 $S=3S_c$ 与 $2\sqrt2\,S_c$），网格最小值减根法最小值的最大差（两组参数中的较大者）分别为 \rsIrNxGapTwoThousand、\rsIrNxGapFourThousand 与 \rsIrNxGapEightThousand（$S$ 坐标成本密度），约按 $N_x^{-2}$ 下降，没有状态违反“根法不高于网格”。$S$ 坐标求积用 $N_z$ 个节点的分段 Simpson，与自适应 quad 的 $\Delta t$、$J$ 的最大相对差在 $N_z=1001,2001,4001$ 时分别约为 \rsIrNzQuadRelCoarse、\rsIrNzQuadRelMid 与 \rsIrNzQuadRelMax；成本最优控制的切换位置不随 $N_z$ 变化。
+
+\emph{迁移律的状态范围。}$\omega>0$ 时平台上的 $S$ 可以超过无回流的启动状态。基准参数下平台上的最大 $S/S_c$ 为 \rsBaseZPlateauMax（无回流的 $S^*/S_c$ 为 \rsBaseZStarNoreturn），西安参数下为 \rsXianZPlateauMax（\rsXianZStarNoreturn）。在这一范围内对 $\omega=0$ 的逐状态最小化同样用 $N_x=2001,4001,8001$ 核对，最大差分别为 \rsMigNxGapTwoThousand、\rsMigNxGapFourThousand 与 \rsMigNxGapEightThousand，与立即返回端同量级。
+
+\emph{积分容差。}全部事件法轨迹共 \rsTolRuns 条，包括 \rsReturnRunsTotal 条指数回流轨迹（截断终点）、$\omega=0$ 与立即返回对照模型的各控制，以及释放用的轨迹。每条用三档积分设置各算一次：基准为相对容差 $10^{-11}$、最大步长 $1$ d；收紧为 $10^{-12}$、$0.5$ d；放宽为 $10^{-10}$、$2$ d；各分量绝对容差与相对容差同比缩放。收紧后启动时刻、退出时刻、控制时长、$J$、截断时刻、终止时累计感染、$t\to\infty$ 累计感染与退出后峰值的最大相对变化约为 \rsTolMaxRelChange，次峰 $I/\eta-1$ 的最大绝对变化约为 \rsTolMaxAbsEChange；越过判定与终止状态在三档设置下相同。总易感者恒等式（正文引理~\ref{lem:return:U}）的相对残差约为 \rsIdentityResidualMax。

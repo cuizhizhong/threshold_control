@@ -15,6 +15,7 @@
 \allowdisplaybreaks[3]
 \newcommand{\qinf}{q_{\mathrm{inf}}}
 \newcommand{\Itcum}{I_{t_{\mathrm{cum}}}}
+\input{generated/r7_numbers}
 \renewcommand{\arraystretch}{1.25}
 \emergencystretch=2em
 \renewcommand{\topfraction}{0.9}
@@ -28,7 +29,7 @@
 \renewcommand{\thesection}{S\arabic{section}}
 \begin{document}
 \maketitle
-本补充材料给出正文未展开的参数扫描、推导与案例细节：S1 为基准算例的扫描与低阈值极限（对应正文第~\ref{sec:scaling-theory}、\ref{sec:num}~节），S2 为拐点相对位置的敏感性（第~\ref{sec:s1:shape}~节），S3 为西安算例的初值对照、阈值扫描与阈值的医疗依据（第~\ref{sec:model}、\ref{sec:xian}~节），S4 为有效人口情景下与 TDINN 的比较（第~\ref{sec:dominance}~节），S5 为常规接触率的影响（命题~\ref{prop:contact-effects}），S6 为数值计算的细节（第~\ref{sec:numerics}~节）。
+本补充材料给出正文未展开的参数扫描、推导与案例细节：S1 为基准算例的扫描与低阈值极限（对应正文第~\ref{sec:scaling-theory}、\ref{sec:num}~节），S2 为拐点相对位置的敏感性（第~\ref{sec:s1:shape}~节），S3 为西安算例的初值对照、阈值扫描与阈值的医疗依据（第~\ref{sec:model}、\ref{sec:xian}~节），S4 为有效人口情景下与 TDINN 的比较（第~\ref{sec:dominance}~节），S5 为常规接触率的影响（命题~\ref{prop:contact-effects}），S6 为数值计算的细节（第~\ref{sec:numerics}~节），S7 为隔离易感者回流的数值核验（第~\ref{sec:return}~节）。
 
 记号与正文相同：$\eta$ 为非隔离感染者 $I$ 的阈值，$\theta=\eta/N$ 为阈值比例，$S^*$、$S_c$ 分别为启动与退出时的易感者人数；归一化变量记为 $s=S/N$、$i=I/N$，并记 $s_0=S_0/N$、$i_0=I_0/N$、$s^*=S^*/N$、$s_c=S_c/N$、$\bar s=\bar S/N$。指标的定义与统计约定见正文第~\ref{sec:cost}~节，成本取默认权重 $w_c=1$、$w_q=2$；数值方法见正文第~\ref{sec:num:methods}~节，各算例的数值设置见代码仓库。
 \input{supplement_sections/S1_baseline}
@@ -37,5 +38,6 @@
 \input{supplement_sections/S4_population}
 \input{supplement_sections/S5_contact}
 \input{supplement_sections/S6_numerics}
+\input{supplement_sections/S7_return}
 \printbibliography[title={参考文献}]
 \end{document}

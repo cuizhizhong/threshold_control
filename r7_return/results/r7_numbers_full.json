@@ -23,7 +23,7 @@
    "sha256": "3f8a1e3186d8fce3924f3ffd7e094bc4c855fbe5553a9f2b9df55dd87f995186"
   }
  },
- "n_macros": 361,
+ "n_macros": 371,
  "macros": {
   "rsBaseQonlyDtIr": {
    "display": "18.104",
@@ -3273,6 +3273,96 @@
    "source": "r7_3_convergence.json",
    "path": "max quadrature_N_z.*.4001.rel_{dt,J}_quad",
    "group": "收敛与容差"
+  },
+  "rsIrNzQuadRelCoarse": {
+   "display": "\\ensuremath{9\\times10^{-10}}",
+   "value": 8.561984256383969e-10,
+   "unit": "相对差",
+   "rule": "1 位有效数字",
+   "source": "r7_3_convergence.json",
+   "path": "max quadrature_N_z.*.1001.rel_{dt,J}_quad",
+   "group": "收敛与容差"
+  },
+  "rsIrNzQuadRelMid": {
+   "display": "\\ensuremath{4\\times10^{-11}}",
+   "value": 3.999852905717581e-11,
+   "unit": "相对差",
+   "rule": "1 位有效数字",
+   "source": "r7_3_convergence.json",
+   "path": "max quadrature_N_z.*.2001.rel_{dt,J}_quad",
+   "group": "收敛与容差"
+  },
+  "rsMigNxGapTwoThousand": {
+   "display": "\\ensuremath{3.6\\times10^{-8}}",
+   "value": 3.554069083477884e-08,
+   "unit": "S 坐标成本密度",
+   "rule": "2 位有效数字",
+   "source": "r7_3_convergence.json",
+   "path": "max pointwise.*|migrated_law_range.result.2001.max_gap",
+   "group": "收敛与容差"
+  },
+  "rsMigNxGapFourThousand": {
+   "display": "\\ensuremath{8.6\\times10^{-9}}",
+   "value": 8.622362990262644e-09,
+   "unit": "S 坐标成本密度",
+   "rule": "2 位有效数字",
+   "source": "r7_3_convergence.json",
+   "path": "max pointwise.*|migrated_law_range.result.4001.max_gap",
+   "group": "收敛与容差"
+  },
+  "rsMigNxGapEightThousand": {
+   "display": "\\ensuremath{2.1\\times10^{-9}}",
+   "value": 2.1033844110895927e-09,
+   "unit": "S 坐标成本密度",
+   "rule": "2 位有效数字",
+   "source": "r7_3_convergence.json",
+   "path": "max pointwise.*|migrated_law_range.result.8001.max_gap",
+   "group": "收敛与容差"
+  },
+  "rsBaseZStarNoreturn": {
+   "display": "4.044",
+   "value": 4.043995604621511,
+   "unit": "S*/S_c",
+   "rule": "3 位小数",
+   "source": "r7_3_convergence.json",
+   "path": "pointwise.base|migrated_law_range.z_star_noreturn",
+   "group": "收敛与容差"
+  },
+  "rsBaseZPlateauMax": {
+   "display": "4.046",
+   "value": 4.046472600330926,
+   "unit": "S/S_c",
+   "rule": "3 位小数",
+   "source": "r7_3_convergence.json",
+   "path": "pointwise.base|migrated_law_range.plateau_z_max_over_stays",
+   "group": "收敛与容差"
+  },
+  "rsXianZStarNoreturn": {
+   "display": "4.378",
+   "value": 4.3779057545224624,
+   "unit": "S*/S_c",
+   "rule": "3 位小数",
+   "source": "r7_3_convergence.json",
+   "path": "pointwise.xian|migrated_law_range.z_star_noreturn",
+   "group": "收敛与容差"
+  },
+  "rsXianZPlateauMax": {
+   "display": "4.382",
+   "value": 4.381769777276439,
+   "unit": "S/S_c",
+   "rule": "3 位小数",
+   "source": "r7_3_convergence.json",
+   "path": "pointwise.xian|migrated_law_range.plateau_z_max_over_stays",
+   "group": "收敛与容差"
+  },
+  "rsNrClosedFormRelMax": {
+   "display": "\\ensuremath{7.4\\times10^{-13}}",
+   "value": 7.436601861319935e-13,
+   "unit": "相对差",
+   "rule": "2 位有效数字",
+   "source": "r7_3_noreturn_inf.json",
+   "path": "max cases.*.laws.*.rel_event_vs_closed",
+   "group": "ω = 0 t→∞ 对照与闭式"
   }
  }
 }

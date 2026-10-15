@@ -1,0 +1,168 @@
+\section{回流结果的证明}
+\label{sec:proof:return}
+本附录证明第~\ref{sec:return}~节的结果。条件 (H) 指第~\ref{sec:model}~节的常设条件：$N,c_0,\gamma,\delta_q>0$，$0<\beta<1$，$0\le q_0<1$，初始仓室非负、总和为 $N$，控制 $c(t)\ge0$ 局部有界可测、$q(t)\in[0,1]$ 可测。$S_c$ 与 $\bar S$ 按式\eqref{eq:model:Sc}与\eqref{eq:s1:barS}定义，$0<\bar S<S_c$。
+
+\subsection{总易感者恒等式}
+\label{sec:proof:return:U}
+本小节证明引理\ref{lem:return:U}。
+\begin{proof}
+第 1 步（适定性）。命题\ref{prop:model:positive}的证明对 $\omega\ge0$ 照搬，只需改写 $S,S_q$ 的非负性论证。右端关于时间可测、关于状态局部 Lipschitz，且在有界状态集上 Lipschitz 常数局部可积（$c$ 局部有界，$q\in[0,1]$），故有唯一的局部绝对连续解，定义在最大区间 $[0,T_{\max})$ 上。在此区间上
+\[
+I(t)=I(0)\exp\Bigl\{\int_0^t\Bigl[\frac{\beta c(1-q)S}{N}-\gamma\Bigr]ds\Bigr\}\ge0 .
+\]
+记 $a=c[\beta+(1-\beta)q]I/N\ge0$、$b=(1-\beta)cqI/N\ge0$，则 $\dot S=-aS+\omega S_q$、$\dot S_q=bS-\omega S_q$。令 $\Lambda(t)=\int_0^t(a+\omega)\,ds$，$\hat S=e^{\Lambda}S$，$\hat S_q=e^{\Lambda}S_q$，得
+\[
+\dot{\hat S}=\omega\hat S+\omega\hat S_q,\qquad
+\dot{\hat S}_q=b\hat S+a\hat S_q ,
+\]
+系数全部非负；Picard 迭代从非负初值出发每一步都非负并收敛到唯一解，故 $S,S_q\ge0$。$I_q$ 的流入非负，由常数变易公式保持非负；$\dot R\ge0$。五式相加为零，总人数恒为 $N$，各分量有界，解可延拓到全部 $t\ge0$。
+
+第 2 步。式\eqref{eq:return:model}的第一、三式相加，$\omega S_q$ 项抵消：
+\[
+\dot U=-\frac{c[\beta+(1-\beta)q]}{N}SI+\frac{(1-\beta)cq}{N}SI=-\frac{\beta c}{N}SI=-F,
+\]
+两式本身几乎处处成立，故此式对几乎所有 $t\ge0$ 成立。
+
+第 3 步。$U$ 是两个绝对连续函数之和，因而绝对连续，对所有 $t\ge0$ 有 $U(t)-U(0)=\int_0^t\dot U\,ds=-\int_0^tF\,ds$。按第~\ref{sec:cost}~节，$\Itcum(t)=\int_0^t[\beta c(1-q)+\beta cq]SI/N\,ds=\int_0^tF\,ds$，即得式\eqref{eq:return:U}。
+\end{proof}
+
+\subsection{共享下界}
+\label{sec:proof:return:final-size}
+本小节证明命题\ref{prop:return:final-size}。
+\begin{proof}
+第 1 步（$U$ 收敛）。由引理\ref{lem:return:U}，$U$ 绝对连续且几乎处处 $\dot U=-F\le0$，故 $U$ 单调不增；又 $U\ge0$。于是 $U(t)\downarrow U_\infty\in[0,U(0)]$，
+\[
+\int_0^\infty F\,dt=U(0)-U_\infty<\infty ,
+\]
+且 $\Itcum(\infty)=U(0)-U_\infty$。
+
+第 2 步（$S_q\to0$，用到 $\omega>0$）。未感染接触者被追踪的流量 $A_q=(1-\beta)cqSI/N=\frac{1-\beta}{\beta}qF\le\frac{1-\beta}{\beta}F$，故 $A_q\in L^1(0,\infty)$。$S_q$ 绝对连续，$\dot S_q=A_q-\omega S_q$，由常数变易公式
+\[
+S_q(t)=e^{-\omega t}S_q(0)+\int_0^te^{-\omega(t-u)}A_q(u)\,du .
+\]
+把积分拆为 $[0,t/2]$ 与 $[t/2,t]$ 两段：前者不超过 $e^{-\omega t/2}\|A_q\|_{L^1}$，后者不超过 $\int_{t/2}^\infty A_q\,du$，二者都趋于零；又 $e^{-\omega t}S_q(0)\to0$。故 $S_q(t)\to0$，从而 $S(t)=U(t)-S_q(t)\to U_\infty$。
+
+第 3 步（$U_\infty\le S_c$）。设 $U_\infty>S_c$，令 $S_m=(U_\infty+S_c)/2>S_c$。由第 2 步，存在 $T_1\ge T_0$，使 $t\ge T_1$ 时 $S(t)\ge S_m$。$t>T_1$ 时控制几乎处处为 $(c_0,q_0)$，而 $\beta c_0(1-q_0)/N=\gamma/S_c$，故几乎处处
+\[
+\dot I=\gamma I\Bigl(\frac{S}{S_c}-1\Bigr)\ge\varepsilon I,\qquad \varepsilon:=\gamma\Bigl(\frac{S_m}{S_c}-1\Bigr)>0 .
+\]
+由 $I(0)>0$ 及第~\ref{sec:proof:return:U}~小节中 $I$ 的指数表示，$I(t)>0$ 对所有 $t$ 成立，$\ln I$ 绝对连续，故 $I(t)\ge I(T_1)e^{\varepsilon(t-T_1)}$。于是
+\[
+F(t)=\frac{\beta c_0SI}{N}\ge\frac{\beta c_0S_mI(T_1)}{N}\,e^{\varepsilon(t-T_1)},
+\]
+在 $(T_1,\infty)$ 上不可积，与第 1 步矛盾。故 $U_\infty\le S_c$，代入第 1 步即得式\eqref{eq:return:lower}。
+\end{proof}
+$I(0)>0$ 不可省：$I(0)=0$ 时 $I\equiv0$、$F\equiv0$、$U\equiv U(0)$，若同时 $U(0)>S_c$，式\eqref{eq:return:lower}不成立。$\omega>0$ 只在第 2 步使用；$\omega=0$ 时 $S_q$ 不减，一般不趋于零，$U_\infty$ 可以大于 $S_c$：基准参数下无回流仅隔离控制 $t\to\infty$ 的累计新增感染为 $\rsBaseQonlyCinfNr$ 人，低于 $U(0)-S_c=\rsBaseLBound$ 人。
+
+\subsection{有限时间退出}
+\label{sec:proof:return:exit}
+命题\ref{prop:return:final-size}的条件对阈值策略成立。设条件 (H) 成立，$\omega\ge0$，$0<I(0)<\eta$，在模型\eqref{eq:return:model}中按第~\ref{sec:return:model}~节实施阈值策略，并设平台一经触发就能维持：在 $[t_1,t_2)$ 上，有界可测控制使 $I\equiv\eta$，且几乎处处 $0<c\le c_0$、$q_0\le q\le1$。则 $t_2<\infty$。因此阈值策略下的控制在有限时刻 $t_2$ 之后恒为 $(c_0,q_0)$（从未触发时恒为常规控制），$\omega>0$ 时命题\ref{prop:return:final-size}的条件成立。
+\begin{proof}
+若 $t_1=\infty$，控制始终为 $(c_0,q_0)$，取 $T_0=0$。设 $t_1<\infty$。若 $S(t_1)\le S_c$，则 $t_2=t_1$。下设 $S(t_1)>S_c$。
+
+(1) 平台上的流量下界。模型\eqref{eq:return:model}中 $I$ 的方程与式\eqref{eq:model:full}相同。在 $[t_1,t_2)$ 上 $I\equiv\eta>0$，几乎处处 $\dot I=0$，即平衡式\eqref{eq:model:balance}。由此 $q<1$，并由 $q\ge q_0$ 得
+\[
+cS=\frac{\gamma N}{\beta(1-q)}\ \ge\ \frac{\gamma N}{\beta(1-q_0)}=c_0S_c ,
+\]
+于是几乎处处
+\[
+F=\frac{\beta cS\eta}{N}\ \ge\ k:=\frac{\beta c_0S_c\eta}{N}=\frac{\gamma\eta}{1-q_0}>0 .
+\]
+这正是允许区间 $c\ge c_0S_c/S$ 的含义，不需要 $S>S_c$。
+
+(2) 反证。若 $t_2=\infty$，则对所有 $t\ge t_1$ 有 $S(t)>S_c$；又 $S_q\ge0$（引理\ref{lem:return:U}的证明第 1 步），故 $U(t)\ge S(t)>S_c$。另一方面由引理\ref{lem:return:U}，
+\[
+U(t)=U(t_1)-\int_{t_1}^tF\,ds\le U(t_1)-k(t-t_1),
+\]
+取 $t>t_1+(U(t_1)-S_c)/k$ 即得 $U(t)<S_c$，矛盾。故 $t_2<\infty$，并且 $t_2-t_1\le(U(t_1)-S_c)(1-q_0)/(\gamma\eta)$。
+
+(3) $t\ge t_2$ 时按策略定义永久取 $(c_0,q_0)$，取 $T_0=t_2$ 即满足命题\ref{prop:return:final-size}的条件。
+\end{proof}
+反证用的是 $U$ 的下降而不是 $S$ 的下降：平台上 $S$ 可能因回流暂时上升，退出时通常 $U(t_2)=S_c+S_q(t_2)>S_c$。退出后 $I$ 是否再超过 $\eta$ 不属于这里的结论。
+
+平台解的存在要对具体的控制律说明。$c_c$ 在 $S>0$ 上局部 Lipschitz 时（仅隔离控制、仅减少接触与显式族），平台上 $(S,S_q)$ 满足
+\[
+\dot S=-\frac{\eta}{N}\bigl[c_c(S)S-c_0\bar S\bigr]+\omega S_q,\qquad
+\dot S_q=\frac{(1-\beta)\eta}{N}\Bigl[c_c(S)S-\frac{\gamma N}{\beta}\Bigr]-\omega S_q ,
+\]
+右端局部 Lipschitz，有唯一解；把 $c(t)=c_c(S(t))$、$q(t)=q_c(S(t))$ 代回模型，由引理\ref{lem:return:U}证明第 1 步的唯一性得 $I\equiv\eta$。无回流最优律迁移的 $c_c^*$ 是否连续没有证明，$\omega>0$ 时它的平台解只有数值实现（补充材料第~\ref{sec:sup:return}~节）。
+
+\subsection{累计感染在 \texorpdfstring{$\omega=0$}{ω=0} 处不右连续}
+\label{sec:proof:return:discontinuity}
+本小节证明推论\ref{cor:return:right-discontinuity}。
+\begin{proof}
+设 $\omega>0$。无回流模型满足条件\eqref{eq:model:trigger}，故 $0<I(0)<\eta$。由第~\ref{sec:proof:return:exit}~小节，实施 $\pi$ 的阈值策略在有限时刻后恒为 $(c_0,q_0)$；又 $I(0)>0$，命题\ref{prop:return:final-size}给出 $C_\pi(\omega)\ge L$（对任一个解）。对 $\omega\downarrow0$ 取下极限，再用前提 $L>C_\pi(0)$，即得式\eqref{eq:return:discontinuity}。
+\end{proof}
+$C_\pi(0)$ 的算法：仅隔离控制用定理\ref{thm:s1:Itcum}，并以 $S_\infty$（定理\ref{thm:s1:tend}）代替 $S_{\rm end}$；其余控制用推论\ref{cor:joint:whole-epidemic}的第二式（它对无限时刻同样成立）：$C_\pi(0)=C_{\rm q}(0)+\gamma\eta(1-\beta)(\Delta t_\pi-\Delta t_{\rm q})$，其中 $C_{\rm q}(0)$ 与 $\Delta t_{\rm q}$ 属于仅隔离控制。
+
+\subsection{立即返回对照模型}
+\label{sec:proof:return:immediate}
+本小节证明命题\ref{prop:return:immediate}。(ii)(iv) 复用附录~\ref{sec:proof:representation}--\ref{sec:proof:terminal-allocation}与定理\ref{thm:joint:comparison}(i)的论证，并逐步核对它们在 $\bar S=0$ 处仍成立：这些论证只用到 $\bar S<S_c$，没有用到 $\bar S>0$。用到 $\bar S>0$ 的只有第~\ref{sec:joint:cost-structure}~节正文中 $2S_c<S_{\rm sw}<3S_c$ 的右侧不等号与附录~\ref{app:cost}中仅隔离控制的成本闭式，二者本命题都不使用。原模型中 $\bar S/S_c=(1-\beta)(1-q_0)>0$，$\bar S=0$ 不是式\eqref{eq:model:full}的合法取值，也不对应 $\beta=1$，所以本命题的各部分不称为那些结果的推论。证明中局部记 $g(y)=y-\ln y$（$y>0$）；(iv) 中另记 $a=S_c/S$、$x=c/c_0$、$\varepsilon=1-S_c/S$、$u=(1-c/c_0)/\varepsilon$。
+\begin{proof}
+第 0 步（适定性）。与命题\ref{prop:model:positive}相同：$S(t)=S_0\exp(-\int_0^t\beta cI/N)>0$，$I(t)=I_0\exp\{\int_0^t[\beta c(1-q)S/N-\gamma]\}>0$，$I_q,R$ 非负；四式相加为零，$S+I+I_q+R\equiv N$（这里用到 $S_q(0)=0$）。
+
+第 1 步（(i)）。常规阶段 $\dot S=-\beta c_0SI/N<0$，且
+\[
+\frac{dI}{dS}=\frac{\dot I}{\dot S}=-(1-q_0)\Bigl(1-\frac{S_c}{S}\Bigr),
+\]
+积分得所列轨迹。该函数在 $(S_c,S_0)$ 上关于 $S$ 严格递减，$S=S_0$ 处为 $I_0$，$S\downarrow S_c$ 时为 $I_{\rm peak,ir}$。$S>S_c$ 期间 $I\ge I_0$，$\dot S\le-\beta c_0I_0S/N$，$S$ 在有限时间内到达 $(S_c,S_0)$ 中任一水平。由式\eqref{eq:return:trigger}与连续性，$(S_c,S_0)$ 中恰有一个状态使 $I=\eta$；$S$ 随时间严格递减，所以 $I$ 在该状态处首次由下方到达 $\eta$，$t_1$ 有限。代数上，
+\[
+I(S)-\eta=(1-q_0)S_c\bigl[A-g(S/S_c)\bigr],\quad
+I_{\rm peak,ir}-\eta=(1-q_0)S_c(A-1),\quad
+\eta-I_0=(1-q_0)S_c\bigl[g(S_0/S_c)-A\bigr].
+\]
+故式\eqref{eq:return:trigger}等价于 $1<A<g(S_0/S_c)$；$g$ 在 $(1,\infty)$ 上严格增、$g(1)=1$，根 $S/S_c\in(1,S_0/S_c)$ 唯一。$g(y)=A$ 等价于 $(-y)e^{-y}=-e^{-A}\in(-e^{-1},0)$；在此区间上 $W_0\in(-1,0)$、$W_{-1}<-1$\cite{Corless1996}，$y>1$ 对应 $W_{-1}$，即式\eqref{eq:return:Sstar}。
+
+第 2 步（(ii)，复用附录~\ref{sec:proof:representation}与定理\ref{thm:joint:comparison}(i)的论证）。模型\eqref{eq:return:immediate}中 $I$ 的方程与式\eqref{eq:model:full}相同，所以平衡式\eqref{eq:joint:balance}、$q<1$、允许区间\eqref{eq:joint:contact-range}与式\eqref{eq:joint:q}的推导不变。唯一的改动是易感者方程：$\dot S=-\beta cS\eta/N=-(\beta\eta/N)c_c(S)S$，即式\eqref{eq:joint:Sdot}在 $\bar S=0$ 处再乘 $\beta$。速度界相应为
+\[
+0<\beta c_0S_c\le\beta c_c(S)S\le\beta c_0S^*_{\rm ir},
+\]
+于是 $S$ 在有限时间从 $S^*_{\rm ir}$ 到达 $S_c$，分离变量得式\eqref{eq:return:duration}；反向构造（时间变换及其逆为 Lipschitz、零测集不变、$S\downarrow S_c$ 时 $c\to c_0$、$q\to q_0$）逐字成立。式\eqref{eq:return:duration}的被积函数 $1/(cS)$ 关于 $c$ 严格递减，且 $1/(c_0S)\le1/(c_cS)\le1/(c_0S_c)$；积分得排序与式\eqref{eq:return:duration-bounds}，等号成立当且仅当非负积分差为零，即几乎处处相等。
+
+第 3 步（(iii)，单独计算，不在上述对应之内）。模型\eqref{eq:return:immediate}中 $F=\beta cSI/N=-\dot S$，故 $\Itcum(t_2)-\Itcum(t_1)=S(t_1)-S(t_2)=S^*_{\rm ir}-S_c$。由平衡式 $c(1-q)S=\gamma N/\beta$，$cqS=cS-\gamma N/\beta$，于是在平台上
+\[
+\frac{(1-\beta)cqS\eta}{N}=\frac{1-\beta}{\beta}\bigl(F-\gamma\eta\bigr),
+\]
+在 $[t_1,t_2]$ 上积分得式\eqref{eq:return:Kq}。由 (ii)，$K_q$ 与 $\Delta t_{\rm ir}$ 反序。式\eqref{eq:joint:cumulative}与\eqref{eq:joint:quarantine}在 $\bar S=0$ 处给出 $\beta(S^*-S_c)+(1-\beta)\gamma\eta\,\Delta t$，与式\eqref{eq:return:cumulative}不同：它们依赖无回流模型中未感染接触者进入 $S_q$ 后不再返回，不属于“取 $\bar S=0$”的对应。
+
+第 4 步（(iv)，复用附录~\ref{sec:proof:cost-minimum}--\ref{sec:proof:terminal-allocation}的论证）。
+
+\emph{换元。}平台上两种归一化强度为 $(c_0-c)/c_0$ 与 $(q-q_0)/(1-q_0)=1-c_0S_c/(cS)$（由式\eqref{eq:joint:q}，与无回流相同），$dt=N\,dS/(\beta\eta cS)$，代入式\eqref{eq:cost:J}即得式\eqref{eq:return:cost}。
+
+\emph{存在性与逐状态判据。}分母 $cS\ge c_0S_c>0$，$f_{\rm ir}$ 在允许区域上连续有限；每个状态的允许区间紧且非空；附录~\ref{sec:proof:cost-minimum}中可测选择的构造（以有理数构造的闭集可数并）不含 $\bar S$；由第 2 步的表示得到可行控制，积分差为零当且仅当逐点差几乎处处为零。式\eqref{eq:joint:stationary}在 $\bar S=0$ 处等于
+\[
+c\,c_0^2\,\bigl[\,w_cx^4-(w_c+w_q)x^2+4aw_qx-3a^2w_q\,\bigr],
+\]
+$c=0$ 不在允许区间内，故只需比较两个端点与该四次式在区间内的至多四个实根。
+
+\emph{(a)(b)。}$f_{\rm ir}(S,c_0x)=h_a(x)/(c_0S)$，$h_a(x)=[w_c(1-x)^2+w_q(1-a/x)^2]/x$，且
+\[
+x^4h_a'(x)=w_cx^4-(w_c+w_q)x^2+4aw_qx-3a^2w_q,\qquad
+h_a'(a)=w_c(1-a^{-2})<0,\qquad
+h_a'(1)=w_q(1-a)(3a-1)
+\]
+（$0<a<1$）。左端点导数为负，向区间内部增大 $c$ 降低成本，(a) 成立。$h_a'(1)$ 在 $a<1/3$（$S>3S_c$）时为负，$f_{\rm ir}$ 在 $c_0$ 的左邻域内严格递减，$c_0$ 是严格局部最小点；在 $1/3<a<1$（$S_c<S<3S_c$）时为正，减小 $c$ 降低成本，$c_0$ 不是局部最小点；$a=1/3$ 时为零，不分类。这与附录~\ref{sec:proof:endpoint-properties}的端点量一致：左端点量 $-2w_c(1-S_c/S)S_c-Sw_c(1-S_c/S)^2<0$，右端点量 $-(w_q/S)(1-S_c/S)\,S(S-3S_c)$，即二次式 $S^2-3S_cS+2S_c\bar S$ 取 $\bar S=0$，其较大根 $S_{\rm sw}|_{\bar S=0}=3S_c$。“因此”一句：逐状态最小点从不取左端点，即 $c>c_0S_c/S$，等价于 $q>q_0$；在 $S_c<S<3S_c$ 上也不取右端点；再由上一段的“几乎处处属于逐状态最小化解集”。
+
+\emph{式\eqref{eq:return:ratio}。}对一般权重，写 $c=c_0(1-\varepsilon u)$、$u\in[0,1]$，则 $(q-q_0)/(1-q_0)=\varepsilon(1-u)/(1-\varepsilon u)$，且（$S=S_c/(1-\varepsilon)$）
+\[
+\frac{f_{\rm ir}(S,c)}{\varepsilon^2}=\frac{(1-\varepsilon)\bigl[w_cu^2+w_q(1-u)^2(1-\varepsilon u)^{-2}\bigr]}{c_0S_c(1-\varepsilon u)}
+\ \longrightarrow\ \frac{w_cu^2+w_q(1-u)^2}{c_0S_c}\qquad(\varepsilon\downarrow0)
+\]
+在 $u\in[0,1]$ 上一致成立。极限函数严格凸，唯一最小点为 $u=w_q/(w_c+w_q)$。由一致收敛与紧性，任何逐状态最小点 $u^*(S)\to w_q/(w_c+w_q)$（否则取收敛子列，其极限是极限函数的另一个最小点）。于是 $(c_0-c_c^*)/c_0/(1-S_c/S)=u^*\to w_q/(w_c+w_q)$，$(q_c^*-q_0)/(1-q_0)/(1-S_c/S)=(1-u^*)/(1-\varepsilon u^*)\to w_c/(w_c+w_q)$，两者之比趋于 $w_q/w_c$。
+\end{proof}
+
+\subsection{退出时释放隔离易感者}
+\label{sec:proof:return:release}
+设无回流模型\eqref{eq:model:full}中的控制属于 $\mathcal A(\eta)$ 或其能力约束子类。若在 $t_2$ 恢复常规控制的同时，把比例 $\xi\in[0,1]$ 的隔离易感者释放回 $S$（$S_q(t_2)$ 指释放前的库存），即
+\[
+S(t_2^+)=S_c+\xi S_q(t_2),\qquad S_q(t_2^+)=(1-\xi)S_q(t_2),
+\]
+而 $I,I_q,R$ 连续（$I(t_2^+)=\eta$），总人口仍为 $N$，则
+\[
+R_e(t_2^+)=1+\frac{\xi S_q(t_2)}{S_c},\qquad \dot I(t_2^+)=\gamma\eta\,\frac{\xi S_q(t_2)}{S_c}.
+\]
+$\xi S_q(t_2)>0$ 时 $I$ 在 $t_2$ 的某个右邻域内超过 $\eta$。
+\begin{proof}
+$t>t_2$ 时控制为 $(c_0,q_0)$，$R_e=\beta c_0(1-q_0)S/(\gamma N)=S/S_c$（第~\ref{sec:model:strategy}~节）。释放后的解是常规自治系统从释放后状态出发的古典解，右导数等于右端在该状态的值：$\dot I(t_2^+)=\gamma I(S/S_c-1)=\gamma\eta\,\xi S_q(t_2)/S_c$。$I(t_2)=\eta$ 且 $\dot I(t_2^+)>0$，故 $I$ 在 $t_2$ 的某个右邻域内超过 $\eta$。
+\end{proof}
+定理\ref{thm:s1:tend}的结论只针对 $\xi=0$。
