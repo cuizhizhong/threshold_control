@@ -59,7 +59,21 @@ FILES = {
     'input_manifest': (f'{JOINT_EXTRA}/input_manifest.json', '原 joint_extra 的输入与派生量'),
     'capacity': (f'{JOINT_EXTRA}/capacity.json', '能力代表点（point 字段）与其成本最优控制的指标'),
     'phase': (f'{JOINT_EXTRA}/phase.json', '权重网格上的切换位置（回归核对用的几个 r）'),
-    'frontier': (f'{JOINT_EXTRA}/frontier_baseline.csv', 'J + κΔt 的最小化解（回归核对用的几个 κ）'),
+    'frontier': (f'{JOINT_EXTRA}/frontier_baseline.csv', 'J + κΔt 的最小化解（回归核对用的几个 κ；N1 的 11.09 d）'),
+    # NR-3 增加
+    'xian_raw_data': ('真实数据/Xianguankong.xlsx', 'N5：西安原始日报（社区、隔离发现的日新增）'),
+    'xian_observed': (f'{XIAN_DIR}/observed.csv', 'N5：原程序处理后的观测序列（与原始表格逐项核对）'),
+    'xian_code': ('reproducibility/xian.py', 'N5：拟合准则（fit_initial）与 TDINN 函数（controls）的原定义，只读'),
+    'xian_loader': ('xian_control_comparison/xian_control_comparison.py', 'N5：观测数据的处理规则（load_observed_data），只读'),
+    'c0_code': ('reproducibility/c0.py', 'N1：补充 S5 代表点 c0 的取法（触发边界 ×1.03、拐点边界 +0.05），只读'),
+    'c0_representative': ('reproducibility/results/20261003_release_final/c0/representative_summary.csv',
+                          'N1：补充 S5 代表点的原结果（核对用）'),
+    'numerics_S1': ('paper/supplement_sections/S1_baseline.tex', 'N1：补充表 S1'),
+    'numerics_S2': ('paper/supplement_sections/S2_inflection.tex', 'N1：补充 S2 的 q0†'),
+    'xian_S3': ('paper/supplement_sections/S3_xian.tex', 'N1、N5：补充表 S2、S3'),
+    'contact_S5': ('paper/supplement_sections/S5_contact.tex', 'N1：补充 S5'),
+    'numerics_S6': ('paper/supplement_sections/S6_numerics.tex', 'N1、N3：补充 S6 与表 S5'),
+    'xian_chapter': ('paper/sections/07_xian.tex', 'N1：第 7 章与表 3'),
 }
 
 # 复用的代码：nr_audit 文件 ← 回流分支 research/return-effects 的提交 bb52b96（R7-3，G2 通过）

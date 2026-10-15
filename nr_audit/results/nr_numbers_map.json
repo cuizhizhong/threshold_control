@@ -1,0 +1,287 @@
+{
+ "generated": "2026-10-15T22:31:18",
+ "git_head": "60c2b2fd73115ec0369b8f2d432ff585e83f5e40",
+ "tex": "paper/generated/nr_numbers.tex",
+ "n_macros": 31,
+ "macros": [
+  {
+   "macro": "\\nrICtOneLow",
+   "value": 19.172794097264166,
+   "display": "19.17",
+   "unit": "d",
+   "source": "nr_audit/results/initial_condition.json",
+   "field": "rows[law=q_only,factor=0.1].state.t1",
+   "meaning": "西安仅隔离控制的启动时刻 t1，I0 为拟合值的 0.1 倍"
+  },
+  {
+   "macro": "\\nrICtOneFit",
+   "value": 16.896725724327315,
+   "display": "16.90",
+   "unit": "d",
+   "source": "nr_audit/results/initial_condition.json",
+   "field": "rows[law=q_only,factor=1.0].state.t1",
+   "meaning": "西安仅隔离控制的启动时刻 t1，I0 为拟合值的 1 倍"
+  },
+  {
+   "macro": "\\nrICtOneHigh",
+   "value": 14.620657297281106,
+   "display": "14.62",
+   "unit": "d",
+   "source": "nr_audit/results/initial_condition.json",
+   "field": "rows[law=q_only,factor=10.0].state.t1",
+   "meaning": "西安仅隔离控制的启动时刻 t1，I0 为拟合值的 10 倍"
+  },
+  {
+   "macro": "\\nrICtOneShift",
+   "value": 2.2760684270462086,
+   "display": "2.28",
+   "unit": "d",
+   "source": "nr_audit/results/initial_condition.json",
+   "field": "max |rows[].change_vs_fit.t1_abs_days|",
+   "meaning": "I0 改为 0.1 或 10 倍时 t1 的最大变化（两种控制相同）"
+  },
+  {
+   "macro": "\\nrICMaxRelSstar",
+   "value": 3.0757928277424936e-09,
+   "display": "3.1\\times10^{-9}",
+   "unit": "",
+   "source": "nr_audit/results/initial_condition.json",
+   "field": "max over laws of max_abs_relative_change[*].S_star",
+   "meaning": "六条轨迹中 S_star 相对拟合初值的最大相对变化"
+  },
+  {
+   "macro": "\\nrICMaxRelDt",
+   "value": 1.61511810902306e-09,
+   "display": "1.6\\times10^{-9}",
+   "unit": "",
+   "source": "nr_audit/results/initial_condition.json",
+   "field": "max over laws of max_abs_relative_change[*].dt",
+   "meaning": "六条轨迹中 dt 相对拟合初值的最大相对变化"
+  },
+  {
+   "macro": "\\nrICMaxRelJ",
+   "value": 4.302852796746866e-09,
+   "display": "4.3\\times10^{-9}",
+   "unit": "",
+   "source": "nr_audit/results/initial_condition.json",
+   "field": "max over laws of max_abs_relative_change[*].J",
+   "meaning": "六条轨迹中 J 相对拟合初值的最大相对变化"
+  },
+  {
+   "macro": "\\nrICMaxRelTotal",
+   "value": 4.384235370588342e-09,
+   "display": "4.4\\times10^{-9}",
+   "unit": "",
+   "source": "nr_audit/results/initial_condition.json",
+   "field": "max over laws of max_abs_relative_change[*].total_infections_to_clearance",
+   "meaning": "六条轨迹中计至清零的总累计新增感染的最大相对变化"
+  },
+  {
+   "macro": "\\nrFitMseCommNew",
+   "value": 47.327699456112995,
+   "display": "47.33",
+   "unit": "例²",
+   "source": "nr_audit/results/fit_reconstruction.json",
+   "field": "at_fit_I0.mse.community_new",
+   "meaning": "拟合初值下 community_new 的均方误差"
+  },
+  {
+   "macro": "\\nrFitMseQuarNew",
+   "value": 130.38316023930082,
+   "display": "130.38",
+   "unit": "例²",
+   "source": "nr_audit/results/fit_reconstruction.json",
+   "field": "at_fit_I0.mse.quarantine_new",
+   "meaning": "拟合初值下 quarantine_new 的均方误差"
+  },
+  {
+   "macro": "\\nrFitMseCommCum",
+   "value": 387.21554579089235,
+   "display": "387.22",
+   "unit": "例²",
+   "source": "nr_audit/results/fit_reconstruction.json",
+   "field": "at_fit_I0.mse.community_cum",
+   "meaning": "拟合初值下 community_cum 的均方误差"
+  },
+  {
+   "macro": "\\nrFitMseQuarCum",
+   "value": 471.83505660078174,
+   "display": "471.84",
+   "unit": "例²",
+   "source": "nr_audit/results/fit_reconstruction.json",
+   "field": "at_fit_I0.mse.quarantine_cum",
+   "meaning": "拟合初值下 quarantine_cum 的均方误差"
+  },
+  {
+   "macro": "\\nrFitObjective",
+   "value": 1036.761462087088,
+   "display": "1036.76",
+   "unit": "例²",
+   "source": "nr_audit/results/fit_reconstruction.json",
+   "field": "at_fit_I0.objective",
+   "meaning": "四项均方误差之和（拟合准则）"
+  },
+  {
+   "macro": "\\nrWtBaseAToApLo",
+   "value": 3.1354413758416575,
+   "display": "3.1354",
+   "unit": "",
+   "source": "nr_audit/results/weight_brackets.json",
+   "field": "cases.base.changes[grid 3.130902–3.236316].brackets[A->A'].lo",
+   "meaning": "base：结构由 A 变为 A' 的 r 括区下端（宽度 < 1e-3，所检验网格上）"
+  },
+  {
+   "macro": "\\nrWtBaseAToApHi",
+   "value": 3.1360903712606403,
+   "display": "3.1361",
+   "unit": "",
+   "source": "nr_audit/results/weight_brackets.json",
+   "field": "cases.base.changes[grid 3.130902–3.236316].brackets[A->A'].hi",
+   "meaning": "base：结构由 A 变为 A' 的 r 括区上端（宽度 < 1e-3，所检验网格上）"
+  },
+  {
+   "macro": "\\nrWtBaseApToBLo",
+   "value": 3.204987849516518,
+   "display": "3.2050",
+   "unit": "",
+   "source": "nr_audit/results/weight_brackets.json",
+   "field": "cases.base.changes[grid 3.130902–3.236316].brackets[A'->B].lo",
+   "meaning": "base：结构由 A' 变为 B 的 r 括区下端（宽度 < 1e-3，所检验网格上）"
+  },
+  {
+   "macro": "\\nrWtBaseApToBHi",
+   "value": 3.205651240147342,
+   "display": "3.2057",
+   "unit": "",
+   "source": "nr_audit/results/weight_brackets.json",
+   "field": "cases.base.changes[grid 3.130902–3.236316].brackets[A'->B].hi",
+   "meaning": "base：结构由 A' 变为 B 的 r 括区上端（宽度 < 1e-3，所检验网格上）"
+  },
+  {
+   "macro": "\\nrWtBaseBToCLo",
+   "value": 13.10108100566108,
+   "display": "13.1011",
+   "unit": "",
+   "source": "nr_audit/results/weight_brackets.json",
+   "field": "cases.base.changes[grid 13.003831–13.441655].brackets[B->C].lo",
+   "meaning": "base：结构由 B 变为 C 的 r 括区下端（宽度 < 1e-3，所检验网格上）"
+  },
+  {
+   "macro": "\\nrWtBaseBToCHi",
+   "value": 13.101758891215999,
+   "display": "13.1018",
+   "unit": "",
+   "source": "nr_audit/results/weight_brackets.json",
+   "field": "cases.base.changes[grid 13.003831–13.441655].brackets[B->C].hi",
+   "meaning": "base：结构由 B 变为 C 的 r 括区上端（宽度 < 1e-3，所检验网格上）"
+  },
+  {
+   "macro": "\\nrWtXianAToApLo",
+   "value": 2.5476810040254465,
+   "display": "2.5477",
+   "unit": "",
+   "source": "nr_audit/results/weight_brackets.json",
+   "field": "cases.xian.changes[grid 2.483130–2.566734].brackets[A->A'].lo",
+   "meaning": "xian：结构由 A 变为 A' 的 r 括区下端（宽度 < 1e-3，所检验网格上）"
+  },
+  {
+   "macro": "\\nrWtXianAToApHi",
+   "value": 2.5482083407230425,
+   "display": "2.5482",
+   "unit": "",
+   "source": "nr_audit/results/weight_brackets.json",
+   "field": "cases.xian.changes[grid 2.483130–2.566734].brackets[A->A'].hi",
+   "meaning": "xian：结构由 A 变为 A' 的 r 括区上端（宽度 < 1e-3，所检验网格上）"
+  },
+  {
+   "macro": "\\nrWtXianApToBLo",
+   "value": 2.7086363863078087,
+   "display": "2.7086",
+   "unit": "",
+   "source": "nr_audit/results/weight_brackets.json",
+   "field": "cases.xian.changes[grid 2.653153–2.742482].brackets[A'->B].lo",
+   "meaning": "xian：结构由 A' 变为 B 的 r 括区下端（宽度 < 1e-3，所检验网格上）"
+  },
+  {
+   "macro": "\\nrWtXianApToBHi",
+   "value": 2.7091970386676163,
+   "display": "2.7092",
+   "unit": "",
+   "source": "nr_audit/results/weight_brackets.json",
+   "field": "cases.xian.changes[grid 2.653153–2.742482].brackets[A'->B].hi",
+   "meaning": "xian：结构由 A' 变为 B 的 r 括区上端（宽度 < 1e-3，所检验网格上）"
+  },
+  {
+   "macro": "\\nrWtXianBToCLo",
+   "value": 7.452952150788069,
+   "display": "7.4530",
+   "unit": "",
+   "source": "nr_audit/results/weight_brackets.json",
+   "field": "cases.xian.changes[grid 7.406054–7.655407].brackets[B->C].lo",
+   "meaning": "xian：结构由 B 变为 C 的 r 括区下端（宽度 < 1e-3，所检验网格上）"
+  },
+  {
+   "macro": "\\nrWtXianBToCHi",
+   "value": 7.453723442761744,
+   "display": "7.4537",
+   "unit": "",
+   "source": "nr_audit/results/weight_brackets.json",
+   "field": "cases.xian.changes[grid 7.406054–7.655407].brackets[B->C].hi",
+   "meaning": "xian：结构由 B 变为 C 的 r 括区上端（宽度 < 1e-3，所检验网格上）"
+  },
+  {
+   "macro": "\\nrConvTolMaxRel",
+   "value": 8.550500143103477e-12,
+   "display": "9\\times10^{-12}",
+   "unit": "",
+   "source": "nr_audit/results/convergence.json",
+   "field": "max tolerance_tiers[阈值策略].max_rel_change_vs_base",
+   "meaning": "积分容差三档间核心量的最大相对变化（阈值策略的全部轨迹）"
+  },
+  {
+   "macro": "\\nrConvNzMaxRel",
+   "value": 1.406729163667633e-13,
+   "display": "1\\times10^{-13}",
+   "unit": "",
+   "source": "nr_audit/results/convergence.json",
+   "field": "max state_grid[].vs_8001[4001].{dt_rel,J_rel}",
+   "meaning": "N_z = 4001 与 8001 的 Δt、J 最大相对差"
+  },
+  {
+   "macro": "\\nrConvNxMaxGap",
+   "value": 1.1816065115777686e-13,
+   "display": "1\\times10^{-13}",
+   "unit": "",
+   "source": "nr_audit/results/convergence.json",
+   "field": "max control_grid[].max_gap_rel",
+   "meaning": "控制网格上网格值低于根法值的最大相对量"
+  },
+  {
+   "macro": "\\nrPlateauDevBase",
+   "value": 2.086153472191654e-11,
+   "display": "2.1\\times10^{-11}",
+   "unit": "人",
+   "source": "nr_audit/results/convergence.json",
+   "field": "tolerance_tiers[base,q_only].residuals.base.plateau_abs_dev",
+   "meaning": "base 仅隔离控制开环完整方程阈值控制期的 max|I-η|（基准档）"
+  },
+  {
+   "macro": "\\nrPlateauDevXian",
+   "value": 5.929905455559492e-10,
+   "display": "5.9\\times10^{-10}",
+   "unit": "人",
+   "source": "nr_audit/results/convergence.json",
+   "field": "tolerance_tiers[xian,q_only].residuals.base.plateau_abs_dev",
+   "meaning": "xian 仅隔离控制开环完整方程阈值控制期的 max|I-η|（基准档）"
+  },
+  {
+   "macro": "\\nrIdentityMaxRel",
+   "value": 1.0880185642158555e-14,
+   "display": "1\\times10^{-14}",
+   "unit": "",
+   "source": "nr_audit/results/convergence.json",
+   "field": "max tolerance_tiers[].residuals[*].identity_residual_rel",
+   "meaning": "累计新增感染恒等式残差/初始易感者总数的最大值"
+  }
+ ]
+}

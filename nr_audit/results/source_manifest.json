@@ -77,8 +77,80 @@
     "frontier": {
       "path": "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/frontier_baseline.csv",
       "sha256": "6aa3625951a90db169c9f2ecc82c9b86da283f40ecd813c3753a367383331d8a",
-      "use": "J + κΔt 的最小化解（回归核对用的几个 κ）",
+      "use": "J + κΔt 的最小化解（回归核对用的几个 κ；N1 的 11.09 d）",
       "pinned": true
+    },
+    "xian_raw_data": {
+      "path": "真实数据/Xianguankong.xlsx",
+      "sha256": "5ea88fcc6041e29e267d30a858c6706e1c791b98f6da79b889fe01326d7b2bbf",
+      "use": "N5：西安原始日报（社区、隔离发现的日新增）",
+      "pinned": true
+    },
+    "xian_observed": {
+      "path": "reproducibility/results/20261003_release_final/xian/observed.csv",
+      "sha256": "c634b0b4f637c71bbeaa91328adeba464aa74b18db0db26ae8a00489b79ce43a",
+      "use": "N5：原程序处理后的观测序列（与原始表格逐项核对）",
+      "pinned": true
+    },
+    "xian_code": {
+      "path": "reproducibility/xian.py",
+      "sha256": "7a8a3b82137432150bd6e2bb775386124b1f12a3e85c75d6b7776bda9f008aba",
+      "use": "N5：拟合准则（fit_initial）与 TDINN 函数（controls）的原定义，只读",
+      "pinned": true
+    },
+    "xian_loader": {
+      "path": "xian_control_comparison/xian_control_comparison.py",
+      "sha256": "569fc207501058eeb7e4efd3dacd8772748d0c7a82aa38ce22de4b691e0983de",
+      "use": "N5：观测数据的处理规则（load_observed_data），只读",
+      "pinned": true
+    },
+    "c0_code": {
+      "path": "reproducibility/c0.py",
+      "sha256": "eab4e61b0301cf80a6233b4de9a99f955238f53ecf6283da011459ec8bbeda4b",
+      "use": "N1：补充 S5 代表点 c0 的取法（触发边界 ×1.03、拐点边界 +0.05），只读",
+      "pinned": true
+    },
+    "c0_representative": {
+      "path": "reproducibility/results/20261003_release_final/c0/representative_summary.csv",
+      "sha256": "4e054fbbbef349d33ee5d22baf9f05aa4ff072c264e7921625319500ff9b1f51",
+      "use": "N1：补充 S5 代表点的原结果（核对用）",
+      "pinned": true
+    },
+    "numerics_S1": {
+      "path": "paper/supplement_sections/S1_baseline.tex",
+      "sha256": "be93227b49fdd686f7954f400eeeb8b98f6967a5d8c5d9317f735f020be9ebf2",
+      "use": "N1：补充表 S1",
+      "pinned": false
+    },
+    "numerics_S2": {
+      "path": "paper/supplement_sections/S2_inflection.tex",
+      "sha256": "feabe992515c9e9ac79dcd37bd2185eb852c900594f7ed9a5781a874d65ae4c2",
+      "use": "N1：补充 S2 的 q0†",
+      "pinned": false
+    },
+    "xian_S3": {
+      "path": "paper/supplement_sections/S3_xian.tex",
+      "sha256": "2a93d18da95f6e8e60cf57672a726b3e7087d4717ac2c617d1cfe112ca69d9c4",
+      "use": "N1、N5：补充表 S2、S3",
+      "pinned": false
+    },
+    "contact_S5": {
+      "path": "paper/supplement_sections/S5_contact.tex",
+      "sha256": "85b32618e964497350bdfe071d0d845297ad40f45c717d2850af63ffa8bc629c",
+      "use": "N1：补充 S5",
+      "pinned": false
+    },
+    "numerics_S6": {
+      "path": "paper/supplement_sections/S6_numerics.tex",
+      "sha256": "af034bdf17e8309bd65750aa62a4eb8f33defc1f8471edd5fe36cf1a69563f44",
+      "use": "N1、N3：补充 S6 与表 S5",
+      "pinned": false
+    },
+    "xian_chapter": {
+      "path": "paper/sections/07_xian.tex",
+      "sha256": "154d3a683beb6a1c8cd99967febf0fe66044ab275f6b63e4bb1a7fcc643170ab",
+      "use": "N1：第 7 章与表 3",
+      "pinned": false
     }
   },
   "parameters": {

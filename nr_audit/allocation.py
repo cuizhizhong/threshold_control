@@ -481,7 +481,11 @@ def scan_structure(full_fn, z_a, z_b, N_z, poly_at_end=None, kinks=()):
                 if g(lo_) * g(hi_) < 0:
                     zc = brentq(g, lo_, hi_, xtol=1e-15, rtol=1e-15)
                     xl, xr = full_fn(zc * (1 - 1e-12))[0], full_fn(zc * (1 + 1e-12))[0]
-                    if abs(xr - xl) <= JUMP_CLASSIFY_TOL:
+                    # 还须确认该点的选择就是这个端点：否则（例如端点驻点处两侧都已选内部解，真正的切换是别处的
+                    # 跳变）不能把它当作连续切换，退回二分
+                    xc, _, ic = full_fn(zc)
+                    x_end = ic['x_hi'] if end == 'hi' else ic['x_lo']
+                    if abs(xr - xl) <= JUMP_CLASSIFY_TOL and abs(xc - x_end) <= JUMP_CLASSIFY_TOL:
                         zloc, method = zc, 'brentq_endpoint_stationary'
                     break
         if zloc is None:

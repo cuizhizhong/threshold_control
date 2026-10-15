@@ -1,0 +1,33 @@
+% 由 nr_audit/make_numbers.py 生成，勿手改。字段映射见 nr_audit/results/nr_numbers_map.json。
+% 含 \times 的宏须在数学模式中使用。
+\newcommand{\nrICtOneLow}{19.17}  % 西安仅隔离控制的启动时刻 t1，I0 为拟合值的 0.1 倍
+\newcommand{\nrICtOneFit}{16.90}  % 西安仅隔离控制的启动时刻 t1，I0 为拟合值的 1 倍
+\newcommand{\nrICtOneHigh}{14.62}  % 西安仅隔离控制的启动时刻 t1，I0 为拟合值的 10 倍
+\newcommand{\nrICtOneShift}{2.28}  % I0 改为 0.1 或 10 倍时 t1 的最大变化（两种控制相同）
+\newcommand{\nrICMaxRelSstar}{3.1\times10^{-9}}  % 六条轨迹中 S_star 相对拟合初值的最大相对变化
+\newcommand{\nrICMaxRelDt}{1.6\times10^{-9}}  % 六条轨迹中 dt 相对拟合初值的最大相对变化
+\newcommand{\nrICMaxRelJ}{4.3\times10^{-9}}  % 六条轨迹中 J 相对拟合初值的最大相对变化
+\newcommand{\nrICMaxRelTotal}{4.4\times10^{-9}}  % 六条轨迹中计至清零的总累计新增感染的最大相对变化
+\newcommand{\nrFitMseCommNew}{47.33}  % 拟合初值下 community_new 的均方误差
+\newcommand{\nrFitMseQuarNew}{130.38}  % 拟合初值下 quarantine_new 的均方误差
+\newcommand{\nrFitMseCommCum}{387.22}  % 拟合初值下 community_cum 的均方误差
+\newcommand{\nrFitMseQuarCum}{471.84}  % 拟合初值下 quarantine_cum 的均方误差
+\newcommand{\nrFitObjective}{1036.76}  % 四项均方误差之和（拟合准则）
+\newcommand{\nrWtBaseAToApLo}{3.1354}  % base：结构由 A 变为 A' 的 r 括区下端（宽度 < 1e-3，所检验网格上）
+\newcommand{\nrWtBaseAToApHi}{3.1361}  % base：结构由 A 变为 A' 的 r 括区上端（宽度 < 1e-3，所检验网格上）
+\newcommand{\nrWtBaseApToBLo}{3.2050}  % base：结构由 A' 变为 B 的 r 括区下端（宽度 < 1e-3，所检验网格上）
+\newcommand{\nrWtBaseApToBHi}{3.2057}  % base：结构由 A' 变为 B 的 r 括区上端（宽度 < 1e-3，所检验网格上）
+\newcommand{\nrWtBaseBToCLo}{13.1011}  % base：结构由 B 变为 C 的 r 括区下端（宽度 < 1e-3，所检验网格上）
+\newcommand{\nrWtBaseBToCHi}{13.1018}  % base：结构由 B 变为 C 的 r 括区上端（宽度 < 1e-3，所检验网格上）
+\newcommand{\nrWtXianAToApLo}{2.5477}  % xian：结构由 A 变为 A' 的 r 括区下端（宽度 < 1e-3，所检验网格上）
+\newcommand{\nrWtXianAToApHi}{2.5482}  % xian：结构由 A 变为 A' 的 r 括区上端（宽度 < 1e-3，所检验网格上）
+\newcommand{\nrWtXianApToBLo}{2.7086}  % xian：结构由 A' 变为 B 的 r 括区下端（宽度 < 1e-3，所检验网格上）
+\newcommand{\nrWtXianApToBHi}{2.7092}  % xian：结构由 A' 变为 B 的 r 括区上端（宽度 < 1e-3，所检验网格上）
+\newcommand{\nrWtXianBToCLo}{7.4530}  % xian：结构由 B 变为 C 的 r 括区下端（宽度 < 1e-3，所检验网格上）
+\newcommand{\nrWtXianBToCHi}{7.4537}  % xian：结构由 B 变为 C 的 r 括区上端（宽度 < 1e-3，所检验网格上）
+\newcommand{\nrConvTolMaxRel}{9\times10^{-12}}  % 积分容差三档间核心量的最大相对变化（阈值策略的全部轨迹）
+\newcommand{\nrConvNzMaxRel}{1\times10^{-13}}  % N_z = 4001 与 8001 的 Δt、J 最大相对差
+\newcommand{\nrConvNxMaxGap}{1\times10^{-13}}  % 控制网格上网格值低于根法值的最大相对量
+\newcommand{\nrPlateauDevBase}{2.1\times10^{-11}}  % base 仅隔离控制开环完整方程阈值控制期的 max|I-η|（基准档）
+\newcommand{\nrPlateauDevXian}{5.9\times10^{-10}}  % xian 仅隔离控制开环完整方程阈值控制期的 max|I-η|（基准档）
+\newcommand{\nrIdentityMaxRel}{1\times10^{-14}}  % 累计新增感染恒等式残差/初始易感者总数的最大值

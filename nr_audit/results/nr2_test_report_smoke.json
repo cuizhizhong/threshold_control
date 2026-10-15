@@ -13,27 +13,37 @@
   "not roots_vs_grid and not xian and not frontier and not contact_only_never"
  ],
  "exit_code": 0,
- "started": "2026-10-15T11:36:47",
- "seconds": 18.3,
+ "started": "2026-10-15T22:36:28",
+ "seconds": 48.7,
  "counts": {
-  "passed": 95
+  "passed": 104
  },
- "git_head": "3296c272923fe1e04a6d3ce59226daa34c9a0927",
- "git_status_short": "A  nr_audit/README.md\nAM nr_audit/allocation.py\nA  nr_audit/model.py\nA  nr_audit/params.py\nAM nr_audit/pytest.ini\nAM nr_audit/results/nr2_test_report.json\nAM nr_audit/results/nr2_test_report.md\nA  nr_audit/results/nr2_test_report_smoke.json\nA  nr_audit/results/nr2_test_report_smoke.md\nA  nr_audit/results/source_manifest.json\nAM nr_audit/run_tests.py\nAM nr_audit/simulate.py\nAM nr_audit/sources.py\nAM nr_audit/state_integrals.py\nA  nr_audit/tests/conftest.py\nA  nr_audit/tests/test_allocation.py\nA  nr_audit/tests/test_model.py\nAM nr_audit/tests/test_simulate.py\nAM nr_audit/tests/test_sources.py\nAM nr_audit/tests/test_state_integrals.py",
+ "git_head": "60c2b2fd73115ec0369b8f2d432ff585e83f5e40",
+ "git_status_short": "M nr_audit/README.md\n M nr_audit/allocation.py\n M nr_audit/results/nr2_test_report.json\n M nr_audit/results/nr2_test_report.md\n M nr_audit/results/source_manifest.json\n M nr_audit/sources.py\n M nr_audit/tests/test_allocation.py\n?? nr_audit/audit_baseline.py\n?? nr_audit/audit_common.py\n?? nr_audit/audit_convergence.py\n?? nr_audit/audit_fit.py\n?? nr_audit/audit_initial_condition.py\n?? nr_audit/audit_weights.py\n?? nr_audit/make_numbers.py\n?? nr_audit/results/convergence.json\n?? nr_audit/results/convergence.md\n?? nr_audit/results/fit_reconstruction.json\n?? nr_audit/results/fit_reconstruction.md\n?? nr_audit/results/initial_condition.json\n?? nr_audit/results/initial_condition.md\n?? nr_audit/results/nr_numbers_map.json\n?? nr_audit/results/regression.json\n?? nr_audit/results/regression.md\n?? nr_audit/results/weight_brackets.json\n?? nr_audit/results/weight_brackets.md\n?? nr_audit/tdinn.py\n?? nr_audit/tests/test_numbers.py\n?? nr_audit/tests/test_tdinn.py",
  "source_sha256": {
-  "nr_audit/allocation.py": "fc06b0b833972d0b8869ba0c5b90857b697d625cc91b1177acbac7c843549016",
+  "nr_audit/allocation.py": "ad1ba61f6d665519a7742ea994a1c3a267d19aab7aff3bc38c02c32bb9776801",
+  "nr_audit/audit_baseline.py": "18869961bc54f1a26f2154c9dee350e3889f3191bb05e2c8a2a48dc671569fe8",
+  "nr_audit/audit_common.py": "550456e5b55ec1a7a67f18e504dbfd3271ec8122fb3c414f754229f13b4da80e",
+  "nr_audit/audit_convergence.py": "3dc3b936ab81ccf01e7ff75a1d274177e3c1ad114bab0e22baf73efb81085dc4",
+  "nr_audit/audit_fit.py": "23339983b0980c3c51063e5cb3b26d6794342f89fd26b269e66a26dece8fd1d0",
+  "nr_audit/audit_initial_condition.py": "bfe05914c468975245830cdad46c8432530a96b23d5f2f56c7b18b29d05adb49",
+  "nr_audit/audit_weights.py": "47334a9b51c6eeca417f67c48a1de9eb7e0b86fe2997a2334462a57571673697",
+  "nr_audit/make_numbers.py": "a95f69f7a9c3177e25e257a92d5f8f7a3e803a9ccfc9b5588b2f931c377aa161",
   "nr_audit/model.py": "8746912da1a33138cb06df335d2bdaeadb10d3c5fbf4adb88f3de7a0cac4d0d2",
   "nr_audit/params.py": "0db269fb16f92f2ee01f7a5d2586c38c683a906aecc732032c46c4620c74395f",
   "nr_audit/run_tests.py": "9379bcbdb7477cc4d7ba52c598b1ea79d69b5720d8ef72e3bf953af880e8d14c",
   "nr_audit/simulate.py": "82fb51792ce34755b2c9b3c796ff91791fb10c08cab4002f427076845f015b87",
-  "nr_audit/sources.py": "28e1aa1e92f9e1eb3aef5c4793df842a11b1edc5271a87bb0923dfb0d98501bc",
+  "nr_audit/sources.py": "fde1bcf947c8182d3df7f31adc4520c87c7ef4f1c344ac2c91f3ebd9077f081b",
   "nr_audit/state_integrals.py": "c4630da50f415c0e0233d82ebd4fde695d69f66435bffcb97806f86e681d56de",
+  "nr_audit/tdinn.py": "7af103b8bb410c2c8e79ac1d4c3d9dd0843f3e692fda83f8078e51705e49a0ea",
   "nr_audit/tests/conftest.py": "3aeeeb01554caea92de418a27cb8c16836f1f47614aed5015aeb607dec96c900",
-  "nr_audit/tests/test_allocation.py": "02c81cc2116320f34e4a5c75c88579f738da66c2e7b48c83c916467685304b06",
+  "nr_audit/tests/test_allocation.py": "d4220a3a34c5f933ccb850eee06e533b843028557cf519266153a389e49e61e6",
   "nr_audit/tests/test_model.py": "f4ee306bfdb145a3ab8569f7b2c8497e94c5ecd47a89eb9e3fa5ab50d70aa5c8",
+  "nr_audit/tests/test_numbers.py": "326d7c96281a255ab8c552f47f2b5fb908390090f896ae566c9d1ee1fe9f4594",
   "nr_audit/tests/test_simulate.py": "b49814ab1392aad64e47ecabb739c291d2540d42e1244fcdcb129717c608f2b0",
   "nr_audit/tests/test_sources.py": "1260b9174a07e89a33cea7f1df474cc47151923878ea9bff82d733ba65654653",
   "nr_audit/tests/test_state_integrals.py": "4083e3361d0db74d9c171e0229fb45ee9c9a00bd8e9bfc6af61a841d2f44a9c0",
+  "nr_audit/tests/test_tdinn.py": "d7ff55061e4cf497006252cb777e50166be06ce606e76ce15892838637ea581c",
   "nr_audit/theory_checks.py": "8af27e59927c58e6bb0d972666ce59819d302b56469fe160823583200d763881",
   "nr_audit/pytest.ini": "651c38e9bb4b2ff323a7956247c806dc4129605abe54b97f4b83ce0a84d0c5e0"
  },
@@ -51,7 +61,7 @@
    "nodeid": "tests/test_allocation.py::test_poly_x_is_derivative_numerator",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.174,
+   "duration": 0.17,
    "properties": {},
    "message": null
   },
@@ -59,7 +69,7 @@
    "nodeid": "tests/test_allocation.py::test_poly_x_matches_manuscript_eq_5_4",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.165,
+   "duration": 0.16,
    "properties": {},
    "message": null
   },
@@ -67,7 +77,7 @@
    "nodeid": "tests/test_allocation.py::test_poly_y_is_derivative_numerator",
    "outcome": "passed",
    "when": "call",
-   "duration": 1.411,
+   "duration": 1.406,
    "properties": {},
    "message": null
   },
@@ -91,7 +101,7 @@
    "nodeid": "tests/test_allocation.py::test_argmin_tie",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.001,
+   "duration": 0.0,
    "properties": {},
    "message": null
   },
@@ -107,7 +117,7 @@
    "nodeid": "tests/test_allocation.py::test_capacity_infeasible_and_equality",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.62,
+   "duration": 1.309,
    "properties": {},
    "message": null
   },
@@ -115,7 +125,7 @@
    "nodeid": "tests/test_allocation.py::test_switch_equals_S_sw[base]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.606,
+   "duration": 1.705,
    "properties": {
     "z_switch": 2.2653687999912213,
     "z_sw_formula": 2.26536879999122
@@ -126,7 +136,7 @@
    "nodeid": "tests/test_allocation.py::test_structure_classes[base-r1.0]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.597,
+   "duration": 1.678,
    "properties": {},
    "message": null
   },
@@ -134,7 +144,7 @@
    "nodeid": "tests/test_allocation.py::test_structure_classes[base-r5.0]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.774,
+   "duration": 2.244,
    "properties": {},
    "message": null
   },
@@ -142,7 +152,7 @@
    "nodeid": "tests/test_allocation.py::test_structure_classes[base-r20.0]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.971,
+   "duration": 2.683,
    "properties": {},
    "message": null
   },
@@ -150,7 +160,7 @@
    "nodeid": "tests/test_allocation.py::test_switch_regression_phase[base-baseline-4.977]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.744,
+   "duration": 2.113,
    "properties": {
     "S_rel_diff": 4.4802613498837126e-12
    },
@@ -160,7 +170,7 @@
    "nodeid": "tests/test_allocation.py::test_switch_regression_phase[base-baseline-12.17]",
    "outcome": "passed",
    "when": "call",
-   "duration": 1.964,
+   "duration": 2.787,
    "properties": {
     "S_rel_diff": 5.113612616052259e-13
    },
@@ -170,7 +180,7 @@
    "nodeid": "tests/test_allocation.py::test_default_weight_labels[base]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.097,
+   "duration": 0.287,
    "properties": {},
    "message": null
   },
@@ -178,7 +188,7 @@
    "nodeid": "tests/test_allocation.py::test_terminal_share[0.5]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.005,
+   "duration": 0.016,
    "properties": {},
    "message": null
   },
@@ -186,7 +196,7 @@
    "nodeid": "tests/test_allocation.py::test_terminal_share[2.0]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.005,
+   "duration": 0.013,
    "properties": {},
    "message": null
   },
@@ -194,7 +204,7 @@
    "nodeid": "tests/test_allocation.py::test_terminal_share[7.0]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.005,
+   "duration": 0.014,
    "properties": {},
    "message": null
   },
@@ -202,7 +212,23 @@
    "nodeid": "tests/test_allocation.py::test_capacity_structure_matches_reference",
    "outcome": "passed",
    "when": "call",
-   "duration": 1.259,
+   "duration": 3.698,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_continuous_switch_is_endpoint[base-3.2143]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 1.834,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_continuous_switch_is_endpoint[base-3.17]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 1.863,
    "properties": {},
    "message": null
   },
@@ -210,7 +236,7 @@
    "nodeid": "tests/test_model.py::test_mass_and_susceptible_flux",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.001,
+   "duration": 0.002,
    "properties": {},
    "message": null
   },
@@ -218,7 +244,7 @@
    "nodeid": "tests/test_model.py::test_no_return_term",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.0,
+   "duration": 0.001,
    "properties": {},
    "message": null
   },
@@ -226,7 +252,7 @@
    "nodeid": "tests/test_model.py::test_plateau_balance[base]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.0,
+   "duration": 0.001,
    "properties": {},
    "message": null
   },
@@ -239,10 +265,34 @@
    "message": null
   },
   {
+   "nodeid": "tests/test_numbers.py::test_tex_matches_map",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.001,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_numbers.py::test_map_values_trace_to_results",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.002,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_numbers.py::test_registry_has_no_stop",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.002,
+   "properties": {},
+   "message": null
+  },
+  {
    "nodeid": "tests/test_simulate.py::test_conservation_positivity[base-q_only]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.044,
+   "duration": 0.105,
    "properties": {
     "mass_residual_persons": 5.446854078883234e-11,
     "min_compartment_persons": 0.0
@@ -253,7 +303,7 @@
    "nodeid": "tests/test_simulate.py::test_conservation_positivity[base-c_only]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.059,
+   "duration": 0.166,
    "properties": {
     "mass_residual_persons": 5.446854078883234e-11,
     "min_compartment_persons": 0.0
@@ -264,7 +314,7 @@
    "nodeid": "tests/test_simulate.py::test_conservation_positivity[base-alpha]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.035,
+   "duration": 0.104,
    "properties": {
     "mass_residual_persons": 5.446854078883234e-11,
     "min_compartment_persons": 0.0
@@ -275,7 +325,7 @@
    "nodeid": "tests/test_simulate.py::test_conservation_positivity[base-opt]",
    "outcome": "passed",
    "when": "call",
-   "duration": 1.156,
+   "duration": 3.424,
    "properties": {
     "mass_residual_persons": 5.446854078883234e-11,
     "min_compartment_persons": 0.0
@@ -318,7 +368,7 @@
    "nodeid": "tests/test_simulate.py::test_events[base-q_only]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.015,
+   "duration": 0.031,
    "properties": {
     "t1_rel": 1.8320703530113784e-14,
     "exit_S_error_persons": -2.30834795722501e-12
@@ -329,7 +379,7 @@
    "nodeid": "tests/test_simulate.py::test_events[base-c_only]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.005,
+   "duration": 0.01,
    "properties": {
     "t1_rel": 1.8320703530113784e-14,
     "exit_S_error_persons": -4.066080805387173e-12
@@ -340,7 +390,7 @@
    "nodeid": "tests/test_simulate.py::test_events[base-alpha]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.006,
+   "duration": 0.014,
    "properties": {
     "t1_rel": 1.8320703530113784e-14,
     "exit_S_error_persons": -1.9059753775252375e-12
@@ -351,7 +401,7 @@
    "nodeid": "tests/test_simulate.py::test_events[base-opt]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.485,
+   "duration": 1.375,
    "properties": {
     "t1_rel": 1.8320703530113784e-14,
     "exit_S_error_persons": 1.4951317961475752e-11
@@ -442,7 +492,7 @@
    "nodeid": "tests/test_simulate.py::test_open_loop_sensitivity",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.034,
+   "duration": 0.093,
    "properties": {
     "perturbed_plateau_rel_dev": 4.0678460133174877e-07,
     "unperturbed_plateau_rel_dev": 5.468292194473537e-13
@@ -493,7 +543,7 @@
    "nodeid": "tests/test_simulate.py::test_regression_compare_ode[base-q_only]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.004,
+   "duration": 0.003,
    "properties": {
     "max_rel": 1.1943420469250956e-13
    },
@@ -533,7 +583,7 @@
    "nodeid": "tests/test_simulate.py::test_q_only_closed_form_trajectory[base]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.004,
+   "duration": 0.005,
    "properties": {
     "S_max_rel": 6.705747068735946e-14
    },
@@ -561,7 +611,7 @@
    "nodeid": "tests/test_simulate.py::test_post_exit_monotone[base-c_only]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.001,
+   "duration": 0.002,
    "properties": {},
    "message": null
   },
@@ -569,7 +619,7 @@
    "nodeid": "tests/test_simulate.py::test_post_exit_monotone[base-alpha]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.001,
+   "duration": 0.002,
    "properties": {},
    "message": null
   },
@@ -601,7 +651,7 @@
    "nodeid": "tests/test_simulate.py::test_infinite_time_tail[base-alpha]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.0,
+   "duration": 0.002,
    "properties": {},
    "message": null
   },
@@ -609,7 +659,7 @@
    "nodeid": "tests/test_simulate.py::test_infinite_time_tail[base-opt]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.0,
+   "duration": 0.001,
    "properties": {},
    "message": null
   },
@@ -617,7 +667,7 @@
    "nodeid": "tests/test_simulate.py::test_capacity_ode[base-opt]",
    "outcome": "passed",
    "when": "call",
-   "duration": 2.532,
+   "duration": 7.317,
    "properties": {
     "max_rel": 4.596104993948844e-12
    },
@@ -627,7 +677,7 @@
    "nodeid": "tests/test_simulate.py::test_capacity_ode[base-cap_upper]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.05,
+   "duration": 0.143,
    "properties": {},
    "message": null
   },
@@ -635,7 +685,7 @@
    "nodeid": "tests/test_simulate.py::test_capacity_ode[base-cap_lower]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.057,
+   "duration": 0.146,
    "properties": {},
    "message": null
   },
@@ -643,7 +693,7 @@
    "nodeid": "tests/test_sources.py::test_manifest_current",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.003,
+   "duration": 0.021,
    "properties": {},
    "message": null
   },
@@ -651,7 +701,7 @@
    "nodeid": "tests/test_sources.py::test_pinned_files_unchanged",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.001,
+   "duration": 0.004,
    "properties": {},
    "message": null
   },
@@ -659,7 +709,7 @@
    "nodeid": "tests/test_sources.py::test_params_equal_source_fields[base]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.001,
+   "duration": 0.004,
    "properties": {},
    "message": null
   },
@@ -667,7 +717,7 @@
    "nodeid": "tests/test_sources.py::test_derived_rules",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.0,
+   "duration": 0.001,
    "properties": {},
    "message": null
   },
@@ -675,7 +725,7 @@
    "nodeid": "tests/test_sources.py::test_audit_notes_I0",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.0,
+   "duration": 0.001,
    "properties": {},
    "message": null
   },
@@ -683,7 +733,7 @@
    "nodeid": "tests/test_sources.py::test_manuscript_table1_display",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.0,
+   "duration": 0.002,
    "properties": {},
    "message": null
   },
@@ -691,7 +741,7 @@
    "nodeid": "tests/test_sources.py::test_default_weights_in_manuscript",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.0,
+   "duration": 0.001,
    "properties": {},
    "message": null
   },
@@ -699,7 +749,7 @@
    "nodeid": "tests/test_sources.py::test_capacity_points",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.0,
+   "duration": 0.001,
    "properties": {},
    "message": null
   },
@@ -707,7 +757,7 @@
    "nodeid": "tests/test_sources.py::test_reference_columns",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.001,
+   "duration": 0.002,
    "properties": {},
    "message": null
   },
@@ -715,7 +765,7 @@
    "nodeid": "tests/test_sources.py::test_code_reuse_blobs",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.104,
+   "duration": 0.115,
    "properties": {},
    "message": null
   },
@@ -723,7 +773,7 @@
    "nodeid": "tests/test_state_integrals.py::test_start_state[base]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.0,
+   "duration": 0.001,
    "properties": {
     "S_star": 708.3469575874326
    },
@@ -733,7 +783,7 @@
    "nodeid": "tests/test_state_integrals.py::test_post_exit[base]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.0,
+   "duration": 0.001,
    "properties": {},
    "message": null
   },
@@ -741,7 +791,7 @@
    "nodeid": "tests/test_state_integrals.py::test_closed_forms[base]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.0,
+   "duration": 0.001,
    "properties": {
     "max_rel": 3.8099134950088626e-13
    },
@@ -781,7 +831,7 @@
    "nodeid": "tests/test_state_integrals.py::test_simpson_vs_quad[base-opt]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.0,
+   "duration": 0.001,
    "properties": {
     "max_rel": 1.501070165701989e-13
    },
@@ -823,7 +873,7 @@
    "nodeid": "tests/test_state_integrals.py::test_duration_ordering[base]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.025,
+   "duration": 0.045,
    "properties": {},
    "message": null
   },
@@ -881,7 +931,7 @@
    "nodeid": "tests/test_state_integrals.py::test_Nz_convergence[base]",
    "outcome": "passed",
    "when": "call",
-   "duration": 0.873,
+   "duration": 2.448,
    "properties": {
     "max_rel": 3.4296415928614393e-13
    },
@@ -899,8 +949,44 @@
    "nodeid": "tests/test_state_integrals.py::test_minimum_cost_decreases_with_threshold",
    "outcome": "passed",
    "when": "call",
-   "duration": 2.372,
+   "duration": 6.48,
    "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_tdinn.py::test_controls_at_origin",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.001,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_tdinn.py::test_reference_regression",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.001,
+   "properties": {
+    "max_rel": 1.7567352021910128e-11
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_tdinn.py::test_conservation",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_tdinn.py::test_fit_objective_reconstruction",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.978,
+   "properties": {
+    "objective_rel": 4.912576823288906e-14
+   },
    "message": null
   }
  ]

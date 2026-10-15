@@ -1,0 +1,4160 @@
+{
+ "generated": "2026-10-15T22:11:59",
+ "git_head": "60c2b2fd73115ec0369b8f2d432ff585e83f5e40",
+ "description": "NR-3 N1：表 2 的两条路径（状态路径、开环完整方程）与旧全精度结果；能力代表点；稿件保留数字的复算与显示核对；文中定性陈述的数值核对；旧实现的数值与本模块的对应值。",
+ "table2": {
+  "base|c_only": {
+   "dt": {
+    "state": 36.260770645190235,
+    "ode": 36.26077064519023,
+    "old": 36.26077064519019,
+    "display": "36.26",
+    "rel_state_old": 1.175721403242184e-15,
+    "rel_ode_old": 9.797678360351535e-16,
+    "rel_ode_state": 1.9595356720703045e-16
+   },
+   "t_end": {
+    "state": 64.13139751316535,
+    "ode": 64.1313975131653,
+    "old": 64.13139751316481,
+    "display": "64.13",
+    "rel_state_old": 8.42040716587882e-15,
+    "rel_ode_old": 7.534048516838945e-15,
+    "rel_ode_state": 8.863586490398683e-16
+   },
+   "total_to_clearance": {
+    "state": 628.6433946995476,
+    "ode": 628.6433946995448,
+    "old": 628.6433946995478,
+    "display": "628.6",
+    "rel_state_old": 3.616894369054851e-16,
+    "rel_ode_old": 4.701962679771306e-15,
+    "rel_ode_state": 4.340273242865823e-15
+   },
+   "Sq_new_arc": {
+    "state": 40.94997441786513,
+    "ode": 40.94997441786717,
+    "old": 40.94997441786544,
+    "display": "40.9",
+    "rel_state_old": 7.634651991334276e-15,
+    "rel_ode_old": 4.2164100770323394e-14,
+    "rel_ode_state": 4.979875276165805e-14
+   },
+   "J": {
+    "state": 11.939018759346773,
+    "ode": 11.939018759346496,
+    "old": 11.93901875934649,
+    "display": "11.9390",
+    "rel_state_old": 2.3656947288363242e-14,
+    "rel_ode_old": 4.463574960068536e-16,
+    "rel_ode_state": 2.3210589792355838e-14
+   },
+   "peak_I_plus_Iq_over_eta": {
+    "state": null,
+    "ode": 1.0154964758221339,
+    "old": 1.0154964758222094,
+    "display": "1.02",
+    "rel_state_old": null,
+    "rel_ode_old": 7.434310947596843e-14,
+    "rel_ode_state": null
+   },
+   "t1": {
+    "state": 3.175406795636133,
+    "ode": 3.1754067956361913,
+    "old": 3.175406795635812
+   },
+   "t2": {
+    "state": 39.43617744082637,
+    "ode": 39.43617744082642,
+    "old": 39.436177440826015
+   },
+   "plateau_infections": {
+    "state": 492.23681316890566,
+    "ode": 492.23681316893135,
+    "old": 492.2368131689067
+   },
+   "total_inf_t_inf": {
+    "state": 629.5087551734755,
+    "ode": 629.508755173473
+   },
+   "plateau_abs_dev_persons": 4.853006885241484e-12,
+   "identity_residual_rel": 3.3350400306653324e-16,
+   "mass_residual_persons": 5.446854078883234e-11
+  },
+  "base|alpha": {
+   "dt": {
+    "state": 9.236332802472333,
+    "ode": 9.236332802468816,
+    "old": 9.236332802468814,
+    "display": "9.24",
+    "rel_state_old": 3.8099134950088626e-13,
+    "rel_ode_old": 1.9232274078792846e-16,
+    "rel_ode_state": 3.8079902675995327e-13
+   },
+   "t_end": {
+    "state": 37.10695967044746,
+    "ode": 37.10695967044351,
+    "old": 37.106959670443416,
+    "display": "37.11",
+    "rel_state_old": 1.0895498317247767e-13,
+    "rel_ode_old": 2.4893054151884177e-15,
+    "rel_ode_state": 1.0646567775727766e-13
+   },
+   "total_to_clearance": {
+    "state": 323.3819063617143,
+    "ode": 323.38190636166087,
+    "old": 323.3819063616743,
+    "display": "323.4",
+    "rel_state_old": 1.2374769920878777e-13,
+    "rel_ode_old": 4.1483603712036814e-14,
+    "rel_ode_state": 1.6523130292080414e-13
+   },
+   "Sq_new_arc": {
+    "state": 346.21146275569834,
+    "ode": 346.2114627557547,
+    "old": 346.2114627557383,
+    "display": "346.2",
+    "rel_state_old": 1.1542345577200477e-13,
+    "rel_ode_old": 4.74500408507957e-14,
+    "rel_ode_state": 1.6287349662281926e-13
+   },
+   "J": {
+    "state": 2.546161974883592,
+    "ode": 2.546161974883163,
+    "old": 2.54616197488316,
+    "display": "2.5462",
+    "rel_state_old": 1.697059360113723e-13,
+    "rel_ode_old": 1.2209060144703044e-15,
+    "rel_ode_state": 1.684850299968734e-13
+   },
+   "peak_I_plus_Iq_over_eta": {
+    "state": null,
+    "ode": 1.6405078547925178,
+    "old": 1.6405078547925211,
+    "display": "1.64",
+    "rel_state_old": null,
+    "rel_ode_old": 2.030267068911235e-15,
+    "rel_ode_state": null
+   },
+   "t1": {
+    "state": 3.175406795636133,
+    "ode": 3.1754067956361913,
+    "old": 3.175406795635812
+   },
+   "t2": {
+    "state": 12.411739598108467,
+    "ode": 12.411739598105008,
+    "old": 12.411739598104626
+   },
+   "plateau_infections": {
+    "state": 186.9753248310725,
+    "ode": 186.9753248310417,
+    "old": 186.9753248310328
+   },
+   "total_inf_t_inf": {
+    "state": 324.2472668356423,
+    "ode": 324.2472668355889
+   },
+   "plateau_abs_dev_persons": 7.815970093361102e-12,
+   "identity_residual_rel": 3.8908800357762215e-16,
+   "mass_residual_persons": 5.446854078883234e-11
+  },
+  "base|q_only": {
+   "dt": {
+    "state": 5.902555851141787,
+    "ode": 5.902555851140028,
+    "old": 5.9025558511400265,
+    "display": "5.90",
+    "rel_state_old": 2.982385380573143e-13,
+    "rel_ode_old": 3.0094706161182074e-16,
+    "rel_ode_state": 2.979375909956137e-13
+   },
+   "t_end": {
+    "state": 33.77318271911691,
+    "ode": 33.77318271911478,
+    "old": 33.77318271911462,
+    "display": "33.77",
+    "rel_state_old": 6.774450688216044e-14,
+    "rel_ode_old": 4.628506681389844e-15,
+    "rel_ode_state": 6.311600020076633e-14
+   },
+   "total_to_clearance": {
+    "state": 285.72437136052827,
+    "ode": 285.7243713604929,
+    "old": 285.724371360508,
+    "display": "285.7",
+    "rel_state_old": 7.102334475942893e-14,
+    "rel_ode_old": 5.2720409975486466e-14,
+    "rel_ode_state": 1.237437547349066e-13
+   },
+   "Sq_new_arc": {
+    "state": 383.86899775688437,
+    "ode": 383.8689977569221,
+    "old": 383.86899775690443,
+    "display": "383.9",
+    "rel_state_old": 5.227232981855024e-14,
+    "rel_ode_old": 4.605295913192386e-14,
+    "rel_ode_state": 9.832528895047924e-14
+   },
+   "J": {
+    "state": 2.2236157029354806,
+    "ode": 2.223615702935363,
+    "old": 2.2236157029353474,
+    "display": "2.2236",
+    "rel_state_old": 5.991447298161683e-14,
+    "rel_ode_old": 6.990021847855297e-15,
+    "rel_ode_state": 5.292445113375836e-14
+   },
+   "peak_I_plus_Iq_over_eta": {
+    "state": null,
+    "ode": 1.9150147033442046,
+    "old": 1.915014703344174,
+    "display": "1.92",
+    "rel_state_old": null,
+    "rel_ode_old": 1.6001002721359883e-14,
+    "rel_ode_state": null
+   },
+   "t1": {
+    "state": 3.175406795636133,
+    "ode": 3.1754067956361913,
+    "old": 3.175406795635812
+   },
+   "t2": {
+    "state": 9.07796264677792,
+    "ode": 9.07796264677622,
+    "old": 9.077962646775838
+   },
+   "plateau_infections": {
+    "state": 149.31778982988646,
+    "ode": 149.31778982987473,
+    "old": 149.3177898298665
+   },
+   "total_inf_t_inf": {
+    "state": 286.58973183445624,
+    "ode": 286.58973183442095
+   },
+   "plateau_abs_dev_persons": 2.086153472191654e-11,
+   "identity_residual_rel": 3.3350400306653324e-16,
+   "mass_residual_persons": 5.446854078883234e-11
+  },
+  "base|opt": {
+   "dt": {
+    "state": 7.75359790981404,
+    "ode": 7.753597909814412,
+    "old": 7.7535979098158725,
+    "display": "7.75",
+    "rel_state_old": 2.363176555134094e-13,
+    "rel_ode_old": 1.8832100129134513e-13,
+    "rel_ode_state": 4.7996654222075585e-14
+   },
+   "t_end": {
+    "state": 35.624224777789166,
+    "ode": 35.624224777790026,
+    "old": 35.62422477780614,
+    "display": "35.62",
+    "rel_state_old": 4.764978343580439e-13,
+    "rel_ode_old": 4.523637874943673e-13,
+    "rel_ode_state": 2.4134046863688064e-14
+   },
+   "total_to_clearance": {
+    "state": 306.63329302227817,
+    "ode": 306.633293022286,
+    "old": 306.633293022035,
+    "display": "306.6",
+    "rel_state_old": 7.930519986590686e-13,
+    "rel_ode_old": 8.186343211964579e-13,
+    "rel_ode_state": 2.558232253736902e-14
+   },
+   "Sq_new_arc": {
+    "state": 362.96007609513447,
+    "ode": 362.96007609513015,
+    "old": 362.96007609528675,
+    "display": "363.0",
+    "rel_state_old": 4.1955997135102583e-13,
+    "rel_ode_old": 4.314623818858067e-13,
+    "rel_ode_state": 1.1902410534785869e-14
+   },
+   "J": {
+    "state": 2.1182745584980167,
+    "ode": 2.118274558497622,
+    "old": 2.118274558497698,
+    "display": "2.1183",
+    "rel_state_old": 1.5052630991257383e-13,
+    "rel_ode_old": 3.5849580773050315e-14,
+    "rel_ode_state": 1.863758906855961e-13
+   },
+   "peak_I_plus_Iq_over_eta": {
+    "state": null,
+    "ode": 1.8916876238715417,
+    "old": 1.891687623871188,
+    "display": "1.89",
+    "rel_state_old": null,
+    "rel_ode_old": 1.869849182190668e-13,
+    "rel_ode_state": null
+   },
+   "t1": {
+    "state": 3.175406795636133,
+    "ode": 3.1754067956361913,
+    "old": 3.175406795635812
+   },
+   "t2": {
+    "state": 10.929004705450174,
+    "ode": 10.929004705450604,
+    "old": 10.929004705454089
+   },
+   "plateau_infections": {
+    "state": 170.22671149163637,
+    "ode": 170.2267114916496,
+    "old": 170.2267114914774
+   },
+   "total_inf_t_inf": {
+    "state": 307.49865349620615,
+    "ode": 307.498653496214
+   },
+   "plateau_abs_dev_persons": 1.411848415955319e-11,
+   "identity_residual_rel": 2.779200025554444e-16,
+   "mass_residual_persons": 5.446854078883234e-11
+  },
+  "xian|c_only": {
+   "dt": {
+    "state": 308.7938546651569,
+    "ode": 308.7938546651569,
+    "old": 308.7938546651569,
+    "display": "308.79",
+    "rel_state_old": 0.0,
+    "rel_ode_old": 0.0,
+    "rel_ode_state": 0.0
+   },
+   "t_end": {
+    "state": 481.82711118866655,
+    "ode": 481.82711118877455,
+    "old": 481.8271111887772,
+    "display": "481.83",
+    "rel_state_old": 2.2969678117309526e-13,
+    "rel_ode_old": 5.544811872180523e-15,
+    "rel_ode_state": 2.2415196930096624e-13
+   },
+   "total_to_clearance": {
+    "state": 3856641.6135440776,
+    "ode": 3856641.6135440883,
+    "old": 3856641.613544109,
+    "display": "3.8566",
+    "rel_state_old": 8.089760308567417e-15,
+    "rel_ode_old": 5.312678411596513e-15,
+    "rel_ode_state": 2.7770818969709266e-15
+   },
+   "Sq_new_arc": {
+    "state": 6500400.479260978,
+    "ode": 6500400.479261003,
+    "old": 6500400.479261168,
+    "display": "6.5004",
+    "rel_state_old": 2.9227400039074477e-14,
+    "rel_ode_old": 2.5359067680961678e-14,
+    "rel_ode_state": 3.868332358112911e-15
+   },
+   "J": {
+    "state": 109.36480750085109,
+    "ode": 109.36480750084792,
+    "old": 109.36480750084803,
+    "display": "109.3648",
+    "rel_state_old": 2.79370835425714e-14,
+    "rel_ode_old": 1.0395193876305637e-15,
+    "rel_ode_state": 2.897660293020116e-14
+   },
+   "peak_I_plus_Iq_over_eta": {
+    "state": null,
+    "ode": 1.45677718102822,
+    "old": 1.4567771810285735,
+    "display": "1.46",
+    "rel_state_old": null,
+    "rel_ode_old": 2.426555108387e-13,
+    "rel_ode_state": null
+   },
+   "t1": {
+    "state": 16.896725724327315,
+    "ode": 16.896725724327304,
+    "old": 16.896725724329258
+   },
+   "t2": {
+    "state": 325.69058038948424,
+    "ode": 325.69058038948424,
+    "old": 325.6905803894861
+   },
+   "plateau_infections": {
+    "state": 3545914.8632057244,
+    "ode": 3545914.8632057225,
+    "old": 3545914.8632057463
+   },
+   "total_inf_t_inf": {
+    "state": 3856646.0907506463,
+    "ode": 3856646.0907506566
+   },
+   "plateau_abs_dev_persons": 1.5133991837501526e-09,
+   "identity_residual_rel": 7.965850202294657e-15,
+   "mass_residual_persons": 7.306932836570468e-08
+  },
+  "xian|alpha": {
+   "dt": {
+    "state": 124.5675637383853,
+    "ode": 124.5675637383828,
+    "old": 124.5675637383828,
+    "display": "124.57",
+    "rel_state_old": 2.007834427209633e-14,
+    "rel_ode_old": 0.0,
+    "rel_ode_state": 2.0078344272095926e-14
+   },
+   "t_end": {
+    "state": 297.6008202618949,
+    "ode": 297.60082026200297,
+    "old": 297.6008202620027,
+    "display": "297.60",
+    "rel_state_old": 3.6214658973455994e-13,
+    "rel_ode_old": 9.550279265151896e-16,
+    "rel_ode_state": 3.631016176612066e-13
+   },
+   "total_to_clearance": {
+    "state": 2638995.651232676,
+    "ode": 2638995.6512326677,
+    "old": 2638995.651232661,
+    "display": "2.6390",
+    "rel_state_old": 5.646527377522355e-15,
+    "rel_ode_old": 2.47035572766603e-15,
+    "rel_ode_state": 3.1761716498563064e-15
+   },
+   "Sq_new_arc": {
+    "state": 7718046.441572381,
+    "ode": 7718046.441572343,
+    "old": 7718046.441572382,
+    "display": "7.7180",
+    "rel_state_old": 1.2066817447469805e-16,
+    "rel_ode_old": 5.068063327937317e-15,
+    "rel_ode_state": 4.94739515346262e-15
+   },
+   "J": {
+    "state": 44.52855016280279,
+    "ode": 44.52855016279989,
+    "old": 44.528550162799874,
+    "display": "44.5286",
+    "rel_state_old": 6.542376084479352e-14,
+    "rel_ode_old": 3.1914029680387087e-16,
+    "rel_ode_state": 6.510462054798539e-14
+   },
+   "peak_I_plus_Iq_over_eta": {
+    "state": null,
+    "ode": 3.1988983832967754,
+    "old": 3.1988983832967555,
+    "display": "3.20",
+    "rel_state_old": null,
+    "rel_ode_old": 6.247155129278435e-15,
+    "rel_ode_state": null
+   },
+   "t1": {
+    "state": 16.896725724327315,
+    "ode": 16.896725724327304,
+    "old": 16.896725724329258
+   },
+   "t2": {
+    "state": 141.46428946271263,
+    "ode": 141.4642894627101,
+    "old": 141.46428946271203
+   },
+   "plateau_infections": {
+    "state": 2328268.900894323,
+    "ode": 2328268.900894295,
+    "old": 2328268.9008943043
+   },
+   "total_inf_t_inf": {
+    "state": 2639000.128439245,
+    "ode": 2639000.1284392364
+   },
+   "plateau_abs_dev_persons": 6.912159733474255e-10,
+   "identity_residual_rel": 9.992007222390511e-16,
+   "mass_residual_persons": 2.7766344778967778e-08
+  },
+  "xian|q_only": {
+   "dt": {
+    "state": 85.07107716640367,
+    "ode": 85.07107716638342,
+    "old": 85.07107716638339,
+    "display": "85.07",
+    "rel_state_old": 2.3837584234335575e-13,
+    "rel_ode_old": 3.3409368233126245e-16,
+    "rel_ode_state": 2.3804174866096777e-13
+   },
+   "t_end": {
+    "state": 258.10433368991323,
+    "ode": 258.104333690001,
+    "old": 258.1043336900043,
+    "display": "258.10",
+    "rel_state_old": 3.528152964854347e-13,
+    "rel_ode_old": 1.2773587513205501e-14,
+    "rel_ode_state": 3.400417089723492e-13
+   },
+   "total_to_clearance": {
+    "state": 2377943.1317582633,
+    "ode": 2377943.1317581404,
+    "old": 2377943.131758125,
+    "display": "2.3779",
+    "rel_state_old": 5.816009663281806e-14,
+    "rel_ode_old": 6.462232959202007e-15,
+    "rel_ode_state": 5.1697863673613044e-14
+   },
+   "Sq_new_arc": {
+    "state": 7979098.9610467935,
+    "ode": 7979098.961046875,
+    "old": 7979098.961046925,
+    "display": "7.9791",
+    "rel_state_old": 1.645755788490091e-14,
+    "rel_ode_old": 6.186174240423746e-15,
+    "rel_ode_state": 1.0271383644477332e-14
+   },
+   "J": {
+    "state": 40.76864984010535,
+    "ode": 40.7686498400918,
+    "old": 40.768649840091854,
+    "display": "40.7686",
+    "rel_state_old": 3.309701597921228e-13,
+    "rel_ode_old": 1.3942924056540191e-15,
+    "rel_ode_state": 3.323644521976668e-13
+   },
+   "peak_I_plus_Iq_over_eta": {
+    "state": null,
+    "ode": 4.733869884048953,
+    "old": 4.733869884049078,
+    "display": "4.73",
+    "rel_state_old": null,
+    "rel_ode_old": 2.6454710468425566e-14,
+    "rel_ode_state": null
+   },
+   "t1": {
+    "state": 16.896725724327315,
+    "ode": 16.896725724327304,
+    "old": 16.896725724329258
+   },
+   "t2": {
+    "state": 101.96780289073098,
+    "ode": 101.96780289071071,
+    "old": 101.96780289071266
+   },
+   "plateau_infections": {
+    "state": 2067216.38141991,
+    "ode": 2067216.381419767,
+    "old": 2067216.3814197758
+   },
+   "total_inf_t_inf": {
+    "state": 2377947.608964832,
+    "ode": 2377947.6089647086
+   },
+   "plateau_abs_dev_persons": 5.929905455559492e-10,
+   "identity_residual_rel": 1.6098233858295823e-15,
+   "mass_residual_persons": 3.653466418285234e-08
+  },
+  "xian|opt": {
+   "dt": {
+    "state": 108.80739451368878,
+    "ode": 108.80739451367813,
+    "old": 108.80739451369547,
+    "display": "108.81",
+    "rel_state_old": 6.15152361728289e-14,
+    "rel_ode_old": 1.5933882830329353e-13,
+    "rel_ode_state": 9.782359213047066e-14
+   },
+   "t_end": {
+    "state": 281.84065103719837,
+    "ode": 281.84065103730927,
+    "old": 281.8406510339936,
+    "display": "281.84",
+    "rel_state_old": 1.137087606133495e-11,
+    "rel_ode_old": 1.1764366176371833e-11,
+    "rel_ode_state": 3.9349011503240975e-13
+   },
+   "total_to_clearance": {
+    "state": 2534828.616629433,
+    "ode": 2534828.616629458,
+    "old": 2534828.6166340606,
+    "display": "2.5348",
+    "rel_state_old": 1.8256626277990273e-12,
+    "rel_ode_old": 1.815742545096155e-12,
+    "rel_ode_state": 9.920082702890668e-15
+   },
+   "Sq_new_arc": {
+    "state": 7822213.476175624,
+    "ode": 7822213.476175301,
+    "old": 7822213.476171732,
+    "display": "7.8222",
+    "rel_state_old": 4.975569960055432e-13,
+    "rel_ode_old": 4.562427395772294e-13,
+    "rel_ode_state": 4.131425642829327e-14
+   },
+   "J": {
+    "state": 38.02086219503629,
+    "ode": 38.02086219503371,
+    "old": 38.02086219503376,
+    "display": "38.0209",
+    "rel_state_old": 6.653010987310964e-14,
+    "rel_ode_old": 1.3081763177296841e-15,
+    "rel_ode_state": 6.783828619083482e-14
+   },
+   "peak_I_plus_Iq_over_eta": {
+    "state": null,
+    "ode": 4.73386988404895,
+    "old": 4.733869884049078,
+    "display": "4.73",
+    "rel_state_old": null,
+    "rel_ode_old": 2.7017576648604834e-14,
+    "rel_ode_state": null
+   },
+   "t1": {
+    "state": 16.896725724327315,
+    "ode": 16.896725724327304,
+    "old": 16.896725724329258
+   },
+   "t2": {
+    "state": 125.70412023801609,
+    "ode": 125.70412023800543,
+    "old": 125.70412023859802
+   },
+   "plateau_infections": {
+    "state": 2224101.8662910797,
+    "ode": 2224101.866290942,
+    "old": 2224101.8662826647
+   },
+   "total_inf_t_inf": {
+    "state": 2534833.0938360016,
+    "ode": 2534833.093836026
+   },
+   "plateau_abs_dev_persons": 6.439222488552332e-10,
+   "identity_residual_rel": 6.106226635905312e-16,
+   "mass_residual_persons": 2.045941194239731e-08
+  }
+ },
+ "capacity": {
+  "base": {
+   "point": {
+    "c_min": 5.0,
+    "q_cap": 0.6
+   },
+   "q_only_feasible": false,
+   "c_only_feasible": false,
+   "joint_feasible": true,
+   "dt": {
+    "state": 8.338312428871282,
+    "ode": 8.338312428872925,
+    "old": 8.338312428867143
+   },
+   "J": {
+    "state": 2.3611264994387917,
+    "ode": 2.3611264994383507,
+    "old": 2.3611264994384706
+   },
+   "t_end": {
+    "state": 36.20893929684641,
+    "ode": 36.208939296846594,
+    "old": 36.20893929685064
+   },
+   "total": {
+    "state": 313.23808626086355,
+    "ode": 313.23808626091295,
+    "old": 313.2380862596556
+   },
+   "peak": {
+    "ode": 1.8300386187157807,
+    "old": 1.8300386187073696
+   },
+   "front_segment": {
+    "z_hi": 4.043995604621511,
+    "z_lo": 2.4618499999999996,
+    "duration": 1.9415870530169985,
+    "h": 2.4618499999999996,
+    "contact_reduction_at_start": 0.3912332651433702
+   },
+   "upper": {
+    "dt": 6.487270370199026
+   },
+   "lower": {
+    "dt": 19.745353321921524
+   }
+  },
+  "xian": {
+   "point": {
+    "c_min": 6.4436,
+    "q_cap": 0.75
+   },
+   "q_only_feasible": false,
+   "c_only_feasible": false,
+   "joint_feasible": true,
+   "dt": {
+    "state": 116.7512855233165,
+    "ode": 116.75128552331918,
+    "old": 116.75128552327438
+   },
+   "J": {
+    "state": 41.616596317872606,
+    "ode": 41.616596317873416,
+    "old": 41.61659631787002
+   },
+   "t_end": {
+    "state": 289.7845420468261,
+    "ode": 289.78454204691747,
+    "old": 289.7845420459922
+   },
+   "total": {
+    "state": 2587333.863107852,
+    "ode": 2587333.863107908,
+    "old": 2587333.8631075043
+   },
+   "peak": {
+    "ode": 3.5088760147180706,
+    "old": 3.5088760147181044
+   },
+   "front_segment": {
+    "z_hi": 4.3779057545224624,
+    "z_lo": 2.708,
+    "duration": 30.383076686223383,
+    "h": 2.708,
+    "contact_reduction_at_start": 0.3814394023437844
+   },
+   "upper": {
+    "dt": 93.01496817601253
+   },
+   "lower": {
+    "dt": 195.03549060863566
+   }
+  }
+ },
+ "registry": [
+  {
+   "id": "tab2.base.c_only.dt",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "36.26",
+   "value": 36.260770645190235,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.125331467833722e-05,
+   "source": "state_path",
+   "note": "",
+   "old": 36.26077064519019,
+   "old_source": "joint_extra/compare_baseline.csv",
+   "rel_to_old": 1.175721403242184e-15
+  },
+  {
+   "id": "tab2.base.c_only.t_end",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "64.13",
+   "value": 64.13139751316535,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.1791878455607012e-05,
+   "source": "state_path",
+   "note": "",
+   "old": 64.13139751316481,
+   "old_source": "joint_extra/compare_baseline.csv",
+   "rel_to_old": 8.42040716587882e-15
+  },
+  {
+   "id": "tab2.base.c_only.total_to_clearance",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "628.6",
+   "value": 628.6433946995476,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 6.90338841036399e-05,
+   "source": "state_path",
+   "note": "",
+   "old": 628.6433946995478,
+   "old_source": "joint_extra/compare_baseline.csv",
+   "rel_to_old": 3.616894369054851e-16
+  },
+  {
+   "id": "tab2.base.c_only.Sq_new_arc",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "40.9",
+   "value": 40.94997441786513,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0012218684074603863,
+   "source": "state_path",
+   "note": "",
+   "old": 40.94997441786544,
+   "old_source": "joint_extra/compare_baseline.csv",
+   "rel_to_old": 7.634651991334276e-15
+  },
+  {
+   "id": "tab2.base.c_only.J",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "11.9390",
+   "value": 11.939018759346773,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.5712661674233607e-06,
+   "source": "state_path",
+   "note": "",
+   "old": 11.93901875934649,
+   "old_source": "joint_extra/compare_baseline.csv",
+   "rel_to_old": 2.3656947288363242e-14
+  },
+  {
+   "id": "tab2.base.c_only.peak_I_plus_Iq_over_eta",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "1.02",
+   "value": 1.0154964758221339,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0044152197822217125,
+   "source": "simulate.run（开环完整方程）",
+   "note": "",
+   "old": 1.0154964758222094,
+   "old_source": "joint_extra/compare_baseline.csv",
+   "rel_to_old": 7.434310947596843e-14
+  },
+  {
+   "id": "tab2.base.alpha.dt",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "9.24",
+   "value": 9.236332802472333,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0003968828493146319,
+   "source": "state_path",
+   "note": "",
+   "old": 9.236332802468814,
+   "old_source": "joint_extra/compare_baseline.csv",
+   "rel_to_old": 3.8099134950088626e-13
+  },
+  {
+   "id": "tab2.base.alpha.t_end",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "37.11",
+   "value": 37.10695967044746,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 8.19275007421261e-05,
+   "source": "state_path",
+   "note": "",
+   "old": 37.106959670443416,
+   "old_source": "joint_extra/compare_baseline.csv",
+   "rel_to_old": 1.0895498317247767e-13
+  },
+  {
+   "id": "tab2.base.alpha.total_to_clearance",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "323.4",
+   "value": 323.3819063617143,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 5.594817033295336e-05,
+   "source": "state_path",
+   "note": "",
+   "old": 323.3819063616743,
+   "old_source": "joint_extra/compare_baseline.csv",
+   "rel_to_old": 1.2374769920878777e-13
+  },
+  {
+   "id": "tab2.base.alpha.Sq_new_arc",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "346.2",
+   "value": 346.21146275569834,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 3.3110212877950395e-05,
+   "source": "state_path",
+   "note": "",
+   "old": 346.2114627557383,
+   "old_source": "joint_extra/compare_baseline.csv",
+   "rel_to_old": 1.1542345577200477e-13
+  },
+  {
+   "id": "tab2.base.alpha.J",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "2.5462",
+   "value": 2.546161974883592,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.4934065041081953e-05,
+   "source": "state_path",
+   "note": "",
+   "old": 2.54616197488316,
+   "old_source": "joint_extra/compare_baseline.csv",
+   "rel_to_old": 1.697059360113723e-13
+  },
+  {
+   "id": "tab2.base.alpha.peak_I_plus_Iq_over_eta",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "1.64",
+   "value": 1.6405078547925178,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0003096675564133625,
+   "source": "simulate.run（开环完整方程）",
+   "note": "",
+   "old": 1.6405078547925211,
+   "old_source": "joint_extra/compare_baseline.csv",
+   "rel_to_old": 2.030267068911235e-15
+  },
+  {
+   "id": "tab2.base.q_only.dt",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "5.90",
+   "value": 5.902555851141787,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.00043319510877736764,
+   "source": "state_path",
+   "note": "",
+   "old": 5.9025558511400265,
+   "old_source": "joint_extra/compare_baseline.csv",
+   "rel_to_old": 2.982385380573143e-13
+  },
+  {
+   "id": "tab2.base.q_only.t_end",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "33.77",
+   "value": 33.77318271911691,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 9.424693861140512e-05,
+   "source": "state_path",
+   "note": "",
+   "old": 33.77318271911462,
+   "old_source": "joint_extra/compare_baseline.csv",
+   "rel_to_old": 6.774450688216044e-14
+  },
+  {
+   "id": "tab2.base.q_only.total_to_clearance",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "285.7",
+   "value": 285.72437136052827,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 8.530402705032488e-05,
+   "source": "state_path",
+   "note": "",
+   "old": 285.724371360508,
+   "old_source": "joint_extra/compare_baseline.csv",
+   "rel_to_old": 7.102334475942893e-14
+  },
+  {
+   "id": "tab2.base.q_only.Sq_new_arc",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "383.9",
+   "value": 383.86899775688437,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 8.075603833187942e-05,
+   "source": "state_path",
+   "note": "",
+   "old": 383.86899775690443,
+   "old_source": "joint_extra/compare_baseline.csv",
+   "rel_to_old": 5.227232981855024e-14
+  },
+  {
+   "id": "tab2.base.q_only.J",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "2.2236",
+   "value": 2.2236157029354806,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 7.06194256197619e-06,
+   "source": "state_path",
+   "note": "",
+   "old": 2.2236157029353474,
+   "old_source": "joint_extra/compare_baseline.csv",
+   "rel_to_old": 5.991447298161683e-14
+  },
+  {
+   "id": "tab2.base.q_only.peak_I_plus_Iq_over_eta",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "1.92",
+   "value": 1.9150147033442046,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0025965086748933747,
+   "source": "simulate.run（开环完整方程）",
+   "note": "",
+   "old": 1.915014703344174,
+   "old_source": "joint_extra/compare_baseline.csv",
+   "rel_to_old": 1.6001002721359883e-14
+  },
+  {
+   "id": "tab2.base.opt.dt",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "7.75",
+   "value": 7.75359790981404,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0004642464276180876,
+   "source": "state_path",
+   "note": "",
+   "old": 7.7535979098158725,
+   "old_source": "joint_extra/compare_baseline.csv",
+   "rel_to_old": 2.363176555134094e-13
+  },
+  {
+   "id": "tab2.base.opt.t_end",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "35.62",
+   "value": 35.624224777789166,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.00011860690031355572,
+   "source": "state_path",
+   "note": "",
+   "old": 35.62422477780614,
+   "old_source": "joint_extra/compare_baseline.csv",
+   "rel_to_old": 4.764978343580439e-13
+  },
+  {
+   "id": "tab2.base.opt.total_to_clearance",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "306.6",
+   "value": 306.63329302227817,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.00010858780912636736,
+   "source": "state_path",
+   "note": "",
+   "old": 306.633293022035,
+   "old_source": "joint_extra/compare_baseline.csv",
+   "rel_to_old": 7.930519986590686e-13
+  },
+  {
+   "id": "tab2.base.opt.Sq_new_arc",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "363.0",
+   "value": 362.96007609513447,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.00010998320899595529,
+   "source": "state_path",
+   "note": "",
+   "old": 362.96007609528675,
+   "old_source": "joint_extra/compare_baseline.csv",
+   "rel_to_old": 4.1955997135102583e-13
+  },
+  {
+   "id": "tab2.base.opt.J",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "2.1183",
+   "value": 2.1182745584980167,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.2010339415266348e-05,
+   "source": "state_path",
+   "note": "",
+   "old": 2.118274558497698,
+   "old_source": "joint_extra/compare_baseline.csv",
+   "rel_to_old": 1.5052630991257383e-13
+  },
+  {
+   "id": "tab2.base.opt.peak_I_plus_Iq_over_eta",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "1.89",
+   "value": 1.8916876238715417,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0008929226833554258,
+   "source": "simulate.run（开环完整方程）",
+   "note": "",
+   "old": 1.891687623871188,
+   "old_source": "joint_extra/compare_baseline.csv",
+   "rel_to_old": 1.869849182190668e-13
+  },
+  {
+   "id": "tab2.xian.c_only.dt",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "308.79",
+   "value": 308.7938546651569,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.2483128200050482e-05,
+   "source": "state_path",
+   "note": "",
+   "old": 308.7938546651569,
+   "old_source": "joint_extra/compare_xian.csv",
+   "rel_to_old": 0.0
+  },
+  {
+   "id": "tab2.xian.c_only.t_end",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "481.83",
+   "value": 481.82711118866655,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 5.9954991043203205e-06,
+   "source": "state_path",
+   "note": "",
+   "old": 481.8271111887772,
+   "old_source": "joint_extra/compare_xian.csv",
+   "rel_to_old": 2.2969678117309526e-13
+  },
+  {
+   "id": "tab2.xian.c_only.total_to_clearance",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "3.8566",
+   "value": 3.8566416135440775,
+   "unit": "10^6 人",
+   "status": "consistent",
+   "rel_to_display": 1.0790215235628072e-05,
+   "source": "state_path",
+   "note": "",
+   "old": 3.8566416135441086,
+   "old_source": "joint_extra/compare_xian.csv",
+   "rel_to_old": 8.060444242558825e-15
+  },
+  {
+   "id": "tab2.xian.c_only.Sq_new_arc",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "6.5004",
+   "value": 6.500400479260978,
+   "unit": "10^6 人",
+   "status": "consistent",
+   "rel_to_display": 7.372792112158326e-08,
+   "source": "state_path",
+   "note": "",
+   "old": 6.5004004792611685,
+   "old_source": "joint_extra/compare_xian.csv",
+   "rel_to_old": 2.923976490713539e-14
+  },
+  {
+   "id": "tab2.xian.c_only.J",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "109.3648",
+   "value": 109.36480750085109,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 6.858560600269985e-08,
+   "source": "state_path",
+   "note": "",
+   "old": 109.36480750084803,
+   "old_source": "joint_extra/compare_xian.csv",
+   "rel_to_old": 2.79370835425714e-14
+  },
+  {
+   "id": "tab2.xian.c_only.peak_I_plus_Iq_over_eta",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "1.46",
+   "value": 1.45677718102822,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.00220741025464384,
+   "source": "simulate.run（开环完整方程）",
+   "note": "",
+   "old": 1.4567771810285735,
+   "old_source": "joint_extra/compare_xian.csv",
+   "rel_to_old": 2.426555108387e-13
+  },
+  {
+   "id": "tab2.xian.alpha.dt",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "124.57",
+   "value": 124.5675637383853,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.9557370271255025e-05,
+   "source": "state_path",
+   "note": "",
+   "old": 124.5675637383828,
+   "old_source": "joint_extra/compare_xian.csv",
+   "rel_to_old": 2.007834427209633e-14
+  },
+  {
+   "id": "tab2.xian.alpha.t_end",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "297.60",
+   "value": 297.6008202618949,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.756256367228337e-06,
+   "source": "state_path",
+   "note": "",
+   "old": 297.6008202620027,
+   "old_source": "joint_extra/compare_xian.csv",
+   "rel_to_old": 3.6214658973455994e-13
+  },
+  {
+   "id": "tab2.xian.alpha.total_to_clearance",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "2.6390",
+   "value": 2.638995651232676,
+   "unit": "10^6 人",
+   "status": "consistent",
+   "rel_to_display": 1.6478845485338825e-06,
+   "source": "state_path",
+   "note": "",
+   "old": 2.638995651232661,
+   "old_source": "joint_extra/compare_xian.csv",
+   "rel_to_old": 5.721507395379545e-15
+  },
+  {
+   "id": "tab2.xian.alpha.Sq_new_arc",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "7.7180",
+   "value": 7.7180464415723815,
+   "unit": "10^6 人",
+   "status": "consistent",
+   "rel_to_display": 6.017306605537604e-06,
+   "source": "state_path",
+   "note": "",
+   "old": 7.718046441572382,
+   "old_source": "joint_extra/compare_xian.csv",
+   "rel_to_old": 1.1507813880414776e-16
+  },
+  {
+   "id": "tab2.xian.alpha.J",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "44.5286",
+   "value": 44.52855016280279,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.1192176985121384e-06,
+   "source": "state_path",
+   "note": "",
+   "old": 44.528550162799874,
+   "old_source": "joint_extra/compare_xian.csv",
+   "rel_to_old": 6.542376084479352e-14
+  },
+  {
+   "id": "tab2.xian.alpha.peak_I_plus_Iq_over_eta",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "3.20",
+   "value": 3.1988983832967754,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.00034425521975772755,
+   "source": "simulate.run（开环完整方程）",
+   "note": "",
+   "old": 3.1988983832967555,
+   "old_source": "joint_extra/compare_xian.csv",
+   "rel_to_old": 6.247155129278435e-15
+  },
+  {
+   "id": "tab2.xian.q_only.dt",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "85.07",
+   "value": 85.07107716640367,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.2662118298757238e-05,
+   "source": "state_path",
+   "note": "",
+   "old": 85.07107716638339,
+   "old_source": "joint_extra/compare_xian.csv",
+   "rel_to_old": 2.3837584234335575e-13
+  },
+  {
+   "id": "tab2.xian.q_only.t_end",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "258.10",
+   "value": 258.10433368991323,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.6790739686981933e-05,
+   "source": "state_path",
+   "note": "",
+   "old": 258.1043336900043,
+   "old_source": "joint_extra/compare_xian.csv",
+   "rel_to_old": 3.528152964854347e-13
+  },
+  {
+   "id": "tab2.xian.q_only.total_to_clearance",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "2.3779",
+   "value": 2.3779431317582636,
+   "unit": "10^6 人",
+   "status": "consistent",
+   "rel_to_display": 1.8138592145863208e-05,
+   "source": "state_path",
+   "note": "",
+   "old": 2.377943131758125,
+   "old_source": "joint_extra/compare_xian.csv",
+   "rel_to_old": 5.826709294379916e-14
+  },
+  {
+   "id": "tab2.xian.q_only.Sq_new_arc",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "7.9791",
+   "value": 7.979098961046794,
+   "unit": "10^6 人",
+   "status": "consistent",
+   "rel_to_display": 1.302093226220873e-07,
+   "source": "state_path",
+   "note": "",
+   "old": 7.979098961046925,
+   "old_source": "joint_extra/compare_xian.csv",
+   "rel_to_old": 1.647434212275657e-14
+  },
+  {
+   "id": "tab2.xian.q_only.J",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "40.7686",
+   "value": 40.76864984010535,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.2225120643754809e-06,
+   "source": "state_path",
+   "note": "",
+   "old": 40.768649840091854,
+   "old_source": "joint_extra/compare_xian.csv",
+   "rel_to_old": 3.309701597921228e-13
+  },
+  {
+   "id": "tab2.xian.q_only.peak_I_plus_Iq_over_eta",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "4.73",
+   "value": 4.733869884048953,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0008181573042182168,
+   "source": "simulate.run（开环完整方程）",
+   "note": "",
+   "old": 4.733869884049078,
+   "old_source": "joint_extra/compare_xian.csv",
+   "rel_to_old": 2.6454710468425566e-14
+  },
+  {
+   "id": "tab2.xian.opt.dt",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "108.81",
+   "value": 108.80739451368878,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.394528362489694e-05,
+   "source": "state_path",
+   "note": "",
+   "old": 108.80739451369547,
+   "old_source": "joint_extra/compare_xian.csv",
+   "rel_to_old": 6.15152361728289e-14
+  },
+  {
+   "id": "tab2.xian.opt.t_end",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "281.84",
+   "value": 281.84065103719837,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.309953159221502e-06,
+   "source": "state_path",
+   "note": "",
+   "old": 281.8406510339936,
+   "old_source": "joint_extra/compare_xian.csv",
+   "rel_to_old": 1.137087606133495e-11
+  },
+  {
+   "id": "tab2.xian.opt.total_to_clearance",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "2.5348",
+   "value": 2.534828616629433,
+   "unit": "10^6 人",
+   "status": "consistent",
+   "rel_to_display": 1.128950190656659e-05,
+   "source": "state_path",
+   "note": "",
+   "old": 2.534828616634061,
+   "old_source": "joint_extra/compare_xian.csv",
+   "rel_to_old": 1.825706726473966e-12
+  },
+  {
+   "id": "tab2.xian.opt.Sq_new_arc",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "7.8222",
+   "value": 7.822213476175624,
+   "unit": "10^6 人",
+   "status": "consistent",
+   "rel_to_display": 1.7228114372305928e-06,
+   "source": "state_path",
+   "note": "",
+   "old": 7.822213476171732,
+   "old_source": "joint_extra/compare_xian.csv",
+   "rel_to_old": 4.975570977424578e-13
+  },
+  {
+   "id": "tab2.xian.opt.J",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "38.0209",
+   "value": 38.02086219503629,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 9.943205897451522e-07,
+   "source": "state_path",
+   "note": "",
+   "old": 38.02086219503376,
+   "old_source": "joint_extra/compare_xian.csv",
+   "rel_to_old": 6.653010987310964e-14
+  },
+  {
+   "id": "tab2.xian.opt.peak_I_plus_Iq_over_eta",
+   "where": "paper/sections/06_numerics.tex 表 tab:joint:compare",
+   "display": "4.73",
+   "value": 4.73386988404895,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0008181573042176535,
+   "source": "simulate.run（开环完整方程）",
+   "note": "",
+   "old": 4.733869884049078,
+   "old_source": "joint_extra/compare_xian.csv",
+   "rel_to_old": 2.7017576648604834e-14
+  },
+  {
+   "id": "s62.routine_peak",
+   "where": "paper/sections/06_numerics.tex §6.2",
+   "display": "300.4",
+   "value": 300.3801288993814,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 6.61488036569874e-05,
+   "source": "式 (2.6)",
+   "note": ""
+  },
+  {
+   "id": "s62.t1",
+   "where": "paper/sections/06_numerics.tex §6.2",
+   "display": "3.175",
+   "value": 3.175406795636133,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0001281246098057726,
+   "source": "式 (3.2)",
+   "note": ""
+  },
+  {
+   "id": "s62.q_max",
+   "where": "paper/sections/06_numerics.tex §6.2",
+   "display": "0.7565",
+   "value": 0.756493306057348,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 8.848569268947193e-06,
+   "source": "式 (3.10)",
+   "note": ""
+  },
+  {
+   "id": "s62.dt",
+   "where": "paper/sections/06_numerics.tex §6.2",
+   "display": "5.903",
+   "value": 5.902555851141787,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 7.524120925169511e-05,
+   "source": "式 (3.6)",
+   "note": ""
+  },
+  {
+   "id": "s62.eta0.002.dt",
+   "where": "paper/sections/06_numerics.tex §6.2",
+   "display": "152.1",
+   "value": 152.05736878341335,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.00028028413271954006,
+   "source": "仅隔离控制，η = 0.002N",
+   "note": ""
+  },
+  {
+   "id": "s62.eta0.002.total",
+   "where": "paper/sections/06_numerics.tex §6.2",
+   "display": "173.0",
+   "value": 173.0313892882973,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.00018144097281679207,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s62.eta0.02.dt",
+   "where": "paper/sections/06_numerics.tex §6.2",
+   "display": "15.04",
+   "value": 15.04309024451909,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.00020546838557788938,
+   "source": "仅隔离控制，η = 0.02N",
+   "note": ""
+  },
+  {
+   "id": "s62.eta0.02.total",
+   "where": "paper/sections/06_numerics.tex §6.2",
+   "display": "233.8",
+   "value": 233.78103557754022,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 8.111386851919788e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s62.c0_argmax",
+   "where": "paper/sections/06_numerics.tex §6.2",
+   "display": "5.1",
+   "value": 5.06454737759612,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.006951494588996041,
+   "source": "Δt(c0) 的数值极大（式 3.6，网格 + 有界搜索）",
+   "note": ""
+  },
+  {
+   "id": "s62.dt_max",
+   "where": "paper/sections/06_numerics.tex §6.2",
+   "display": "7.579",
+   "value": 7.579194837518993,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.5707549675853814e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s62.c0min",
+   "where": "paper/sections/06_numerics.tex §6.2",
+   "display": "3.327",
+   "value": 3.3270273660475493,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 8.225442605765552e-06,
+   "source": "I_max^0(c0) = η",
+   "note": ""
+  },
+  {
+   "id": "s63.base.J_drop_pct",
+   "where": "paper/sections/06_numerics.tex §6.3",
+   "display": "4.7",
+   "value": 4.737380847706685,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.007953371852486178,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s63.base.dt_rise_pct",
+   "where": "paper/sections/06_numerics.tex §6.3",
+   "display": "31.4",
+   "value": 31.360009212182028,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0012735919687251716,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s63.base.total_rise_pct",
+   "where": "paper/sections/06_numerics.tex §6.3",
+   "display": "7.3",
+   "value": 7.317864262746743,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0024471592803757413,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s63.xian.J_drop_pct",
+   "where": "paper/sections/06_numerics.tex §6.3",
+   "display": "6.7",
+   "value": 6.7399525268702405,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.005963063711976166,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s63.xian.dt_rise_pct",
+   "where": "paper/sections/06_numerics.tex §6.3",
+   "display": "27.9",
+   "value": 27.901747736020297,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 6.264286811107074e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s63.xian.total_rise_pct",
+   "where": "paper/sections/06_numerics.tex §6.3",
+   "display": "6.6",
+   "value": 6.597528880144732,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.00037441209928300344,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s63.base.front_duration",
+   "where": "paper/sections/06_numerics.tex §6.3",
+   "display": "1.61",
+   "value": 1.6138112637128417,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0023672445421376227,
+   "source": "S* → S_sw 段的仅隔离闭式",
+   "note": "完整方程名义时钟第一段 1.61381126371284"
+  },
+  {
+   "id": "s63.base.max_contact_drop_pct",
+   "where": "paper/sections/06_numerics.tex §6.3",
+   "display": "19.8",
+   "value": 19.795253157828018,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.00023973950363549164,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s63.xian.front_duration",
+   "where": "paper/sections/06_numerics.tex §6.3",
+   "display": "25.46",
+   "value": 25.460379573859917,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.4908635503401583e-05,
+   "source": "S* → S_sw 段的仅隔离闭式",
+   "note": "完整方程名义时钟第一段 25.460379573859875"
+  },
+  {
+   "id": "s63.xian.max_contact_drop_pct",
+   "where": "paper/sections/06_numerics.tex §6.3",
+   "display": "28.2",
+   "value": 28.222237958409824,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0007885800854547836,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s63.base.peak.q_only",
+   "where": "paper/sections/06_numerics.tex §6.3",
+   "display": "1.92",
+   "value": 1.9150147033442046,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0025965086748933747,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s63.base.peak.opt",
+   "where": "paper/sections/06_numerics.tex §6.3",
+   "display": "1.89",
+   "value": 1.8916876238715417,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0008929226833554258,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s63.base.peak.c_only",
+   "where": "paper/sections/06_numerics.tex §6.3",
+   "display": "1.02",
+   "value": 1.0154964758221339,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0044152197822217125,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s63.xian.peak_after_start",
+   "where": "paper/sections/06_numerics.tex §6.3",
+   "display": "7.62",
+   "value": 7.623431933970522,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.00045038503550160315,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "tab2note.base.zstar",
+   "where": "paper/sections/06_numerics.tex 表 2 注",
+   "display": "4.044",
+   "value": 4.043995604621511,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.0868888448889042e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "tab2note.base.zsw",
+   "where": "paper/sections/06_numerics.tex 表 2 注",
+   "display": "2.265",
+   "value": 2.26536879999122,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.00016282560318757577,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "tab2note.xian.zstar",
+   "where": "paper/sections/06_numerics.tex 表 2 注",
+   "display": "4.378",
+   "value": 4.3779057545224624,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.1527062023222674e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "tab2note.xian.zsw",
+   "where": "paper/sections/06_numerics.tex 表 2 注",
+   "display": "2.548",
+   "value": 2.548250542570811,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 9.832910942339394e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s64.base.c_only_drop_pct",
+   "where": "paper/sections/06_numerics.tex §6.4",
+   "display": "75.3",
+   "value": 75.2719810363495,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.00037209779084323665,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s64.base.cap.J",
+   "where": "paper/sections/06_numerics.tex §6.4",
+   "display": "2.361",
+   "value": 2.3611264994387917,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 5.357875425307296e-05,
+   "source": "",
+   "note": "",
+   "old": 2.3611264994384706,
+   "old_source": "joint_extra/capacity.json",
+   "rel_to_old": 1.3598445436868992e-13
+  },
+  {
+   "id": "s64.base.cap.dt",
+   "where": "paper/sections/06_numerics.tex §6.4",
+   "display": "8.34",
+   "value": 8.338312428871282,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.00020234665811967513,
+   "source": "",
+   "note": "",
+   "old": 8.338312428867143,
+   "old_source": "joint_extra/capacity.json",
+   "rel_to_old": 4.963727937890309e-13
+  },
+  {
+   "id": "s64.xian.cap.J",
+   "where": "paper/sections/06_numerics.tex §6.4",
+   "display": "41.62",
+   "value": 41.616596317872606,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 8.177996461776803e-05,
+   "source": "",
+   "note": "",
+   "old": 41.61659631787002,
+   "old_source": "joint_extra/capacity.json",
+   "rel_to_old": 6.214769555904753e-14
+  },
+  {
+   "id": "s64.xian.cap.dt",
+   "where": "paper/sections/06_numerics.tex §6.4",
+   "display": "116.8",
+   "value": 116.7512855233165,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0004170759990025698,
+   "source": "",
+   "note": "",
+   "old": 116.75128552327438,
+   "old_source": "joint_extra/capacity.json",
+   "rel_to_old": 3.6077524274849994e-13
+  },
+  {
+   "id": "S6.base.cap_front",
+   "where": "paper/supplement_sections/S6_numerics.tex 第 2 段",
+   "display": "1.94",
+   "value": 1.9415870530169985,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0008180685654631826,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S6.base.cap_contact_drop_pct",
+   "where": "paper/supplement_sections/S6_numerics.tex 第 2 段",
+   "display": "39.1",
+   "value": 39.12332651433702,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0005965860444251105,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S6.xian.cap_front",
+   "where": "paper/supplement_sections/S6_numerics.tex 第 2 段",
+   "display": "30.38",
+   "value": 30.383076686223383,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.00010127341090796488,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s65.Jq_over_Jmin",
+   "where": "paper/sections/06_numerics.tex §6.5",
+   "display": "1.05",
+   "value": 1.0497296934501998,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0002574348093335269,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s65.Jc_over_Jmin",
+   "where": "paper/sections/06_numerics.tex §6.5",
+   "display": "5.64",
+   "value": 5.6361998549481,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0006737845836701076,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s65.c_only_dt",
+   "where": "paper/sections/06_numerics.tex §6.5",
+   "display": "36.26",
+   "value": 36.260770645190235,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.125331467833722e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s65.longest_within_110",
+   "where": "paper/sections/06_numerics.tex §6.5",
+   "display": "11.09",
+   "value": 11.086722651675885,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0002955228425712427,
+   "source": "",
+   "note": "κ = -0.11999999999999988；本模块复算该点 J/J_min = np.float64(1.0975879997663662)",
+   "old": 11.086722651821786,
+   "old_source": "joint_extra/frontier_baseline.csv（470 点中 J ≤ 1.10 J_min 的最长者）",
+   "rel_to_old": 1.3159981861742064e-11
+  },
+  {
+   "id": "S1.c03.34703.c0",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "3.3470",
+   "value": 3.3470273660475494,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 8.176291469788464e-06,
+   "source": "",
+   "note": "c0 = c_{0,min} + 0.02"
+  },
+  {
+   "id": "S1.c03.34703.t1",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "29.9176",
+   "value": 29.917631872887362,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.0653557558856027e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c03.34703.dt",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "2.0432",
+   "value": 2.043189631131104,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 5.0748183711521245e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c03.34703.t_end",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "71.4690",
+   "value": 71.46903015934083,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 4.219919243036009e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c03.34703.q_max",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "0.0783",
+   "value": 0.07834229542071747,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0005401714012448595,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c03.34703.J",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "0.0053",
+   "value": 0.00530308273187913,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0005816475243641424,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c03.34703.total",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "382.5525",
+   "value": 382.552465838011,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 8.930013264142696e-08,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c04.t1",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "15.3697",
+   "value": 15.369740981229969,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.666364988818957e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c04.dt",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "6.8658",
+   "value": 6.865813656412172,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.9890489341037774e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c04.t_end",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "58.7277",
+   "value": 58.72771624483355,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.766128003140425e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c04.q_max",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "0.3413",
+   "value": 0.34127703284452904,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 6.729315989145706e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c04.J",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "0.4374",
+   "value": 0.43739772511067365,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 5.200935817007564e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c04.total",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "360.7318",
+   "value": 360.73181659425995,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 4.600165533615232e-08,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c05.t1",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "9.3039",
+   "value": 9.303860954983085,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 4.196629038967624e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c05.dt",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "7.5778",
+   "value": 7.577835974577695,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 4.747364366365068e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c05.t_end",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "49.9657",
+   "value": 49.96574864388295,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 9.735455111874832e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c05.q_max",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "0.4946",
+   "value": 0.4945979081457369,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 4.229385893826439e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c05.J",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "1.0561",
+   "value": 1.0561031580395044,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.9902845415655174e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c05.total",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "342.5629",
+   "value": 342.5628808496823,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 5.590306980717022e-08,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c08.t1",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "4.3073",
+   "value": 4.307346992742575,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.091002311783926e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c08.dt",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "6.6308",
+   "value": 6.630817722979822,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.6728267814423127e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c08.t_end",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "38.0095",
+   "value": 38.0095305194975,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 8.029439350657402e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c08.q_max",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "0.6936",
+   "value": 0.693612058011994,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.7384677038636625e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c08.J",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "2.0006",
+   "value": 2.000585946246907,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 7.024769115677394e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c08.total",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "303.5829",
+   "value": 303.5828725346554,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 9.047065760718485e-08,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c010.t1",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "3.1754",
+   "value": 3.175406795636133,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.1400882198690196e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c010.dt",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "5.9026",
+   "value": 5.902555851141787,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 7.479561246366048e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c010.t_end",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "33.7732",
+   "value": 33.77318271911691,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 5.116744369054879e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c010.q_max",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "0.7565",
+   "value": 0.756493306057348,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 8.848569268947193e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c010.J",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "2.2236",
+   "value": 2.2236157029354806,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 7.06194256197619e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c010.total",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "285.7244",
+   "value": 285.72437136052827,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.0023460277235391e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c012.t1",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "2.5150",
+   "value": 2.5150430895545672,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.7133023684735827e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c012.dt",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "5.3007",
+   "value": 5.30072249644853,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 4.244052394930361e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c012.t_end",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "30.7687",
+   "value": 30.768720910774874,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 6.796119067495426e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c012.q_max",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "0.7978",
+   "value": 0.7978435740664858,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 5.461778200778081e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c012.J",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "2.3110",
+   "value": 2.3109856605793873,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 6.2048553062248686e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.c012.total",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "271.9295",
+   "value": 271.92951908177326,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 7.017176601267468e-08,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.eta0.002.t1",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "0.3602",
+   "value": 0.3602393207687134,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.00010916371103103854,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.eta0.002.dt",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "152.0574",
+   "value": 152.05736878341335,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.0529475480280615e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.eta0.002.t_end",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "180.5821",
+   "value": 180.58205824179174,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.3124223416830982e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.eta0.002.q_max",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "0.7734",
+   "value": 0.7734153798513308,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.9886024477400056e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.eta0.002.J",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "60.8005",
+   "value": 60.80047195588163,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 4.612481536535155e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.eta0.002.total",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "173.0314",
+   "value": 173.0313892882973,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 6.190612042519168e-08,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.eta0.006.t1",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "1.3001",
+   "value": 1.3001418047150413,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 3.215499964712489e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.eta0.006.dt",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "50.5672",
+   "value": 50.56719295595544,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.3930066442897945e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.eta0.006.t_end",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "86.5579",
+   "value": 86.55786391466336,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 4.168924690397625e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.eta0.006.q_max",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "0.7721",
+   "value": 0.7721088897792494,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.151376667452293e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.eta0.006.J",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "20.1265",
+   "value": 20.12646908052702,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.536256824593107e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.eta0.006.total",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "195.3349",
+   "value": 195.33494286470324,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.1944211317192175e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.eta0.01.t1",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "1.7406",
+   "value": 1.7406200962604073,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.1545593707532927e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.eta0.01.dt",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "30.2685",
+   "value": 30.26852271687389,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 7.505120468325162e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.eta0.01.t_end",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "64.9343",
+   "value": 64.93430715960892,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.1025927633091066e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.eta0.01.q_max",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "0.7708",
+   "value": 0.7707849338327292,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.9546143319761084e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.eta0.01.J",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "11.9912",
+   "value": 11.99121170103933,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 9.758021991416526e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.eta0.01.total",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "208.9166",
+   "value": 208.91657070393188,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.4022853189517925e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.eta0.02.t1",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "2.3459",
+   "value": 2.3458664289182027,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.4310534036887608e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.eta0.02.dt",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "15.0431",
+   "value": 15.04309024451909,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 6.485020315095114e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.eta0.02.t_end",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "46.8029",
+   "value": 46.802928113772225,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 6.006844068210141e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.eta0.02.q_max",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "0.7674",
+   "value": 0.7673960660557416,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 5.1263281969633794e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.eta0.02.J",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "5.8888",
+   "value": 5.888750602296805,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 8.388415839316111e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.eta0.02.total",
+   "where": "paper/supplement_sections/S1_baseline.tex 表 S1",
+   "display": "233.7810",
+   "value": 233.78103557754022,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.5218319802289796e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S1.q_inf",
+   "where": "paper/supplement_sections/S1_baseline.tex 正文",
+   "display": "0.4083",
+   "value": 0.40828402366863903,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 3.9128903651646636e-05,
+   "source": "式 (3.12) 的 q_inf（公式常数）",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.0001.q_max",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "0.8470",
+   "value": 0.8469518975047767,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 5.6791611833820084e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.0001.dt",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "1710.66",
+   "value": 1710.6599946862389,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 3.1062637936582858e-09,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.0001.t_end",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "2209.55",
+   "value": 2209.5458476514086,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.8792734228962637e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.0001.J",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "826.4066",
+   "value": 826.4065735033774,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 3.20624527700557e-08,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.0001.total",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "2155649",
+   "value": 2155648.68738723,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.4502025613876373e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.0002.q_max",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "0.8469",
+   "value": 0.8468690423942359,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 3.655402735163971e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.0002.dt",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "855.09",
+   "value": 855.0885934649208,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.6448971210524173e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.0002.t_end",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "1243.15",
+   "value": 1243.1509660188372,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 7.77073432057041e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.0002.J",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "412.9141",
+   "value": 412.914144830421,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.0857081645131893e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.0002.total",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "2182123",
+   "value": 2182122.7888855827,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 9.674725819575843e-08,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.0005.q_max",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "0.8466",
+   "value": 0.846619858864921,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.345719929240716e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.0005.dt",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "341.75",
+   "value": 341.7452997290913,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.3753535943524862e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.0005.t_end",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "620.77",
+   "value": 620.7669006505378,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 4.9927500720363665e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.0005.J",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "164.8184",
+   "value": 164.81836521005863,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.1108044591412654e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.0005.total",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "2234666",
+   "value": 2234665.809218559,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 8.537358202591034e-08,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.001.q_max",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "0.8462",
+   "value": 0.846202479700984,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.930395868580418e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.001.dt",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "170.63",
+   "value": 170.63010963722596,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 6.425436673564053e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.001.t_end",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "389.32",
+   "value": 389.31739509195944,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 6.6909176013377175e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.001.J",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "82.1192",
+   "value": 82.119232969712,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 4.0148603487587356e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.001.total",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "2293939",
+   "value": 2293938.6965224473,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.3229538916222893e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.0015.q_max",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "0.8458",
+   "value": 0.8457824859122813,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.0707126647744053e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.0015.dt",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "113.59",
+   "value": 113.59107590087471,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 9.47179218866186e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.0015.t_end",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "304.01",
+   "value": 304.009680510631,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.0509173021258041e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.0015.J",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "54.5524",
+   "value": 54.55240433669788,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 7.949600538849051e-08,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.0015.total",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "2339486",
+   "value": 2339486.0850687567,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 3.636215677908021e-08,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.002.q_max",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "0.8454",
+   "value": 0.8453598505859461,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 4.749161823272666e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.002.dt",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "85.07",
+   "value": 85.07107716640367,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.2662118298757238e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.002.t_end",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "258.10",
+   "value": 258.10433368991323,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.6790739686981933e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.002.J",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "40.7686",
+   "value": 40.76864984010535,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.2225120643754809e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.002.total",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "2377943",
+   "value": 2377943.1317582633,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 5.540850362461671e-08,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.003.q_max",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "0.8445",
+   "value": 0.844506545692069,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 7.750967517971148e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.003.dt",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "56.55",
+   "value": 56.550103618022604,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.8323257755368842e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.003.t_end",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "208.39",
+   "value": 208.38880845851077,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 5.717843894716981e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.003.J",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "26.9842",
+   "value": 26.984210226569974,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 3.7898362645810543e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.003.total",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "2442608",
+   "value": 2442608.174322756,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 7.136747116496537e-08,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.004.q_max",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "0.8436",
+   "value": 0.8436423417019769,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 5.0191680864061557e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.004.dt",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "42.29",
+   "value": 42.28862789723032,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 3.244508795646531e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.004.t_end",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "181.18",
+   "value": 181.18074108406816,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 4.0903193959211074e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.004.J",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "20.0913",
+   "value": 20.091299282209178,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 3.572644987310295e-08,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.004.total",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "2497306",
+   "value": 2497305.942991063,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.2828174441269245e-08,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.005.q_max",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "0.8428",
+   "value": 0.8427670086235259,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 3.914496496684429e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.005.dt",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "33.73",
+   "value": 33.73093741596959,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.779175717744379e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.005.t_end",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "163.65",
+   "value": 163.65383221251219,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.3417125036232612e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.005.J",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "15.9550",
+   "value": 15.95499394051212,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 3.797861410435559e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.005.total",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "2545663",
+   "value": 2545662.561588993,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.722187921848391e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.0075.q_max",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "0.8405",
+   "value": 0.8405284134903885,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 3.3805461497337875e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.0075.dt",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "22.32",
+   "value": 22.31827227688114,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 7.740694976978005e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.0075.t_end",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "138.10",
+   "value": 138.10261741109326,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.895301298529058e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.0075.J",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "10.4383",
+   "value": 10.438264129594732,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 3.436422144248806e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.0075.total",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "2649240",
+   "value": 2649240.4794384195,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.8097205970534937e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.01.q_max",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "0.8382",
+   "value": 0.8382148556985286,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.772333396404157e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.01.dt",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "16.61",
+   "value": 16.60926166800884,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 4.445105304986439e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.01.t_end",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "123.89",
+   "value": 123.88650076001257,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.8244733129663947e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.01.J",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "7.6781",
+   "value": 7.6780862630915845,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.7891025664185608e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S3.eta0.01.total",
+   "where": "paper/supplement_sections/S3_xian.tex 表 S3",
+   "display": "2737382",
+   "value": 2737381.6288551176,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.355838835804846e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s73.dt_eta0.01",
+   "where": "paper/sections/07_xian.tex §7.3",
+   "display": "16.6",
+   "value": 16.60926166800884,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0005579318077614314,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s73.dt_eta0.0001",
+   "where": "paper/sections/07_xian.tex §7.3",
+   "display": "1711",
+   "value": 1710.6599946862389,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.00019871730786741052,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s73.dt_TDINN_peak_years",
+   "where": "paper/sections/07_xian.tex §7.3",
+   "display": "40.5",
+   "value": 40.450302946813125,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0012270877330092704,
+   "source": "",
+   "note": "η = 152.55，Δt = np.float64(14764.36057558679) d，按 365 d/年；按 365.25 d/年为 np.float64(40.42261622337246)（显示应为 40.4）"
+  },
+  {
+   "id": "s73.lower_bound",
+   "where": "paper/sections/07_xian.tex §7.3",
+   "display": "1.53e6",
+   "value": 1526293.4131936799,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.002422605755764784,
+   "source": "命题 4.9",
+   "note": ""
+  },
+  {
+   "id": "tab3.tdinn.peak_I",
+   "where": "paper/sections/07_xian.tex 表 tab:xian_summary",
+   "display": "153",
+   "value": 152.54629679237559,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0029653804419896373,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "tab3.tdinn.total",
+   "where": "paper/sections/07_xian.tex 表 tab:xian_summary",
+   "display": "2106",
+   "value": 2105.6330487929786,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.00017424083904151453,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "tab3.tdinn.t_end",
+   "where": "paper/sections/07_xian.tex 表 tab:xian_summary",
+   "display": "45.29",
+   "value": 45.287419359338145,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 5.698036347657896e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "tab3.tdinn.J",
+   "where": "paper/sections/07_xian.tex 表 tab:xian_summary",
+   "display": "49.3894",
+   "value": 49.38940435746883,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 8.822680220610488e-08,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "tab3.q_only.peak_I",
+   "where": "paper/sections/07_xian.tex 表 tab:xian_summary",
+   "display": "26326",
+   "value": 26326.000000000593,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.25249010695111e-14,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "tab3.q_only.total",
+   "where": "paper/sections/07_xian.tex 表 tab:xian_summary",
+   "display": "2377943",
+   "value": 2377943.1317582633,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 5.540850362461671e-08,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "tab3.q_only.t_end",
+   "where": "paper/sections/07_xian.tex 表 tab:xian_summary",
+   "display": "258.10",
+   "value": 258.10433368991323,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.6790739686981933e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "tab3.q_only.J",
+   "where": "paper/sections/07_xian.tex 表 tab:xian_summary",
+   "display": "40.7686",
+   "value": 40.76864984010535,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.2225120643754809e-06,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "tab3.routine.peak_I",
+   "where": "paper/sections/07_xian.tex 表 tab:xian_summary",
+   "display": "1377552",
+   "value": 1377552.4932901172,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 3.580918304668752e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "tab3.routine.total",
+   "where": "paper/sections/07_xian.tex 表 tab:xian_summary",
+   "display": "4587183",
+   "value": 4587182.843167162,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 3.418935726588643e-08,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "tab3.routine.t_end",
+   "where": "paper/sections/07_xian.tex 表 tab:xian_summary",
+   "display": "75.57",
+   "value": 75.57218992803084,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.8978801519711692e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "tab3.routine.J",
+   "where": "paper/sections/07_xian.tex 表 tab:xian_summary",
+   "display": "0.0000",
+   "value": 0.0,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "tab3note.t1",
+   "where": "paper/sections/07_xian.tex 表 3 注",
+   "display": "16.90",
+   "value": 16.896725724327315,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.00019374412264402445,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "tab3note.t2",
+   "where": "paper/sections/07_xian.tex 表 3 注",
+   "display": "101.97",
+   "value": 101.96780289073098,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.1546624193580395e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "tab3note.dt",
+   "where": "paper/sections/07_xian.tex 表 3 注",
+   "display": "85.07",
+   "value": 85.07107716640367,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.2662118298757238e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "tab3note.tdinn.peak",
+   "where": "paper/sections/07_xian.tex 表 3 注",
+   "display": "152.55",
+   "value": 152.54629679237559,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.4275369547203447e-05,
+   "source": "",
+   "note": "",
+   "old": 152.54629678969766,
+   "old_source": "xian/reference.json",
+   "rel_to_old": 1.755481411609693e-11
+  },
+  {
+   "id": "tab3note.tdinn.total",
+   "where": "paper/sections/07_xian.tex 表 3 注",
+   "display": "2105.63",
+   "value": 2105.6330487929786,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.4479243639486893e-06,
+   "source": "",
+   "note": "",
+   "old": 2105.633048755997,
+   "old_source": "xian/reference.json",
+   "rel_to_old": 1.7563088135412983e-11
+  },
+  {
+   "id": "tab3note.tdinn.t_end",
+   "where": "paper/sections/07_xian.tex 表 3 注",
+   "display": "45.29",
+   "value": 45.287419359338145,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 5.698036347657896e-05,
+   "source": "",
+   "note": "",
+   "old": 45.28741935927593,
+   "old_source": "xian/reference.json",
+   "rel_to_old": 1.3737837753480041e-12
+  },
+  {
+   "id": "tab3note.tdinn.J",
+   "where": "paper/sections/07_xian.tex 表 3 注",
+   "display": "49.39",
+   "value": 49.38940435746883,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.2059982408862592e-05,
+   "source": "",
+   "note": "",
+   "old": 49.389404357321155,
+   "old_source": "xian/reference.json",
+   "rel_to_old": 2.9899550054227714e-12
+  },
+  {
+   "id": "s72.J_q_only",
+   "where": "paper/sections/07_xian.tex §7.2",
+   "display": "40.77",
+   "value": 40.76864984010535,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 3.311650465185539e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s72.J_tdinn",
+   "where": "paper/sections/07_xian.tex §7.2",
+   "display": "49.39",
+   "value": 49.38940435746883,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.2059982408862592e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s72.total_q_only",
+   "where": "paper/sections/07_xian.tex §7.2",
+   "display": "2.38e6",
+   "value": 2377943.1317582633,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0008642303536708678,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s72.t_end_q_only",
+   "where": "paper/sections/07_xian.tex §7.2",
+   "display": "258.1",
+   "value": 258.10433368991323,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.6790739686981933e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s72.total_tdinn",
+   "where": "paper/sections/07_xian.tex §7.2",
+   "display": "2106",
+   "value": 2105.6330487929786,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.00017424083904151453,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s72.t_end_tdinn",
+   "where": "paper/sections/07_xian.tex §7.2",
+   "display": "45.29",
+   "value": 45.287419359338145,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 5.698036347657896e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s72.Re0",
+   "where": "paper/sections/07_xian.tex §7.2",
+   "display": "4.43",
+   "value": 4.425838919810551,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0009392957538258958,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s72.q_max",
+   "where": "paper/sections/07_xian.tex §7.2",
+   "display": "0.85",
+   "value": 0.8453598505859461,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.005458999310651629,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s72.tdinn_c_inf_share_pct",
+   "where": "paper/sections/07_xian.tex §7.2",
+   "display": "27",
+   "value": 26.867744738965797,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.004898343001266775,
+   "source": "式 (7.1) 的常数",
+   "note": ""
+  },
+  {
+   "id": "s72.tdinn_q_inf",
+   "where": "paper/sections/07_xian.tex §7.2",
+   "display": "0.98",
+   "value": 0.9844,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.004489795918367419,
+   "source": "式 (7.1) 的常数",
+   "note": ""
+  },
+  {
+   "id": "s74.N_floor",
+   "where": "paper/sections/07_xian.tex §7.4",
+   "display": "1.06e4",
+   "value": 10605.758174507047,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0005432240100988154,
+   "source": "命题 7.1，TDINN 轨迹计至清零",
+   "note": ""
+  },
+  {
+   "id": "s74.floor_ratio",
+   "where": "paper/sections/07_xian.tex §7.4",
+   "display": "5.04",
+   "value": 5.036850167500284,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0006249667658166466,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "s74.untraced_per_traced",
+   "where": "paper/sections/07_xian.tex §7.4",
+   "display": "5.7",
+   "value": 5.675567423230976,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.004286416977021851,
+   "source": "公式常数",
+   "note": ""
+  },
+  {
+   "id": "S6.tdinn_40",
+   "where": "paper/supplement_sections/S6_numerics.tex 第 1 段",
+   "display": "2098.9747",
+   "value": 2098.9746855570493,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 6.880955231086964e-09,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S6.tdinn_t_end",
+   "where": "paper/supplement_sections/S6_numerics.tex 第 1 段",
+   "display": "45.2874",
+   "value": 45.287419359338145,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 4.274773589736863e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S6.tdinn_total",
+   "where": "paper/supplement_sections/S6_numerics.tex 第 1 段",
+   "display": "2105.6330",
+   "value": 2105.6330487929786,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.3172594065344295e-08,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S5.trigger",
+   "where": "paper/supplement_sections/S5_contact.tex 图 S 注",
+   "display": "3.334",
+   "value": 3.3337246322908816,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 8.259379397675839e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S5.inflection",
+   "where": "paper/supplement_sections/S5_contact.tex 图 S 注",
+   "display": "3.543",
+   "value": 3.5430896648465926,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 2.5307605586353965e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S5.c0_near_trigger",
+   "where": "paper/supplement_sections/S5_contact.tex §S5.1",
+   "display": "3.43",
+   "value": 3.433736371259608,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0010893210669410806,
+   "source": "",
+   "note": "触发边界 × 1.03（原程序 c0.py）"
+  },
+  {
+   "id": "S5.c0_post_inflection",
+   "where": "paper/supplement_sections/S5_contact.tex §S5.1",
+   "display": "3.59",
+   "value": 3.5930896648465924,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0008606308764881799,
+   "source": "",
+   "note": "拐点边界 + 0.05（原程序 c0.py）"
+  },
+  {
+   "id": "S5.qmax_3.43",
+   "where": "paper/supplement_sections/S5_contact.tex §S5.1",
+   "display": "0.383",
+   "value": 0.3833677723538357,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0009602411327302126,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S5.qmax_3.59",
+   "where": "paper/supplement_sections/S5_contact.tex §S5.1",
+   "display": "0.423",
+   "value": 0.4227481181274756,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0005954654196794218,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S5.q_inf",
+   "where": "paper/supplement_sections/S5_contact.tex §S5.1",
+   "display": "0.4119",
+   "value": 0.4119030816278523,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 7.481495150002551e-06,
+   "source": "公式常数",
+   "note": ""
+  },
+  {
+   "id": "S5.dt_argmax",
+   "where": "paper/supplement_sections/S5_contact.tex 图 S 注",
+   "display": "6.607",
+   "value": 6.606994282877784,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 8.653128827805157e-07,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S5.dt_argmax_text",
+   "where": "paper/supplement_sections/S5_contact.tex §S5.2",
+   "display": "6.61",
+   "value": 6.606994282877784,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.00045472271137922003,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S5.dt_max",
+   "where": "paper/supplement_sections/S5_contact.tex §S5.2",
+   "display": "103.2",
+   "value": 103.1810164219604,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.00018394939960861902,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S5.J_argmax",
+   "where": "paper/supplement_sections/S5_contact.tex §S5.2",
+   "display": "18.12",
+   "value": 18.121156176652768,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 6.380665854122603e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S5.J_max",
+   "where": "paper/supplement_sections/S5_contact.tex §S5.2",
+   "display": "42.80",
+   "value": 42.79792984722239,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 4.836805555152972e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S5.I_argmax",
+   "where": "paper/supplement_sections/S5_contact.tex §S5.2",
+   "display": "13.88",
+   "value": 13.882495416840474,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.00017978507496202749,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S5.I_max",
+   "where": "paper/supplement_sections/S5_contact.tex §S5.2",
+   "display": "3610",
+   "value": 3610.22631729176,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 6.269177057066394e-05,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S5.t_end_3.43",
+   "where": "paper/supplement_sections/S5_contact.tex §S5.2",
+   "display": "367",
+   "value": 366.52116753654366,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.0013047206088728674,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S5.t_end_30",
+   "where": "paper/supplement_sections/S5_contact.tex §S5.2",
+   "display": "102",
+   "value": 101.72495604006434,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 0.002696509411133904,
+   "source": "",
+   "note": ""
+  },
+  {
+   "id": "S5.beta_max",
+   "where": "paper/supplement_sections/S5_contact.tex §S5.3",
+   "display": "0.261448",
+   "value": 0.26144756277695724,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.6723135872935267e-06,
+   "source": "q_inf = q0（公式常数）",
+   "note": ""
+  },
+  {
+   "id": "S2.q0dagger.beta0.1",
+   "where": "paper/supplement_sections/S2_inflection.tex §S2 数值结果",
+   "display": "0.0736525",
+   "value": 0.07365249416921336,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 7.916617401038798e-08,
+   "source": "",
+   "note": "λ_max = 0.2470331699602877"
+  },
+  {
+   "id": "S2.q0dagger.beta0.12",
+   "where": "paper/supplement_sections/S2_inflection.tex §S2 数值结果",
+   "display": "0.1969606",
+   "value": 0.1969606148431816,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 7.536117158834531e-08,
+   "source": "",
+   "note": "λ_max = 0.4201602945189209"
+  },
+  {
+   "id": "S2.q0dagger.beta0.155",
+   "where": "paper/supplement_sections/S2_inflection.tex §S2 数值结果",
+   "display": "0.3890712",
+   "value": 0.389071205542167,
+   "unit": "",
+   "status": "consistent",
+   "rel_to_display": 1.42446087068461e-08,
+   "source": "",
+   "note": "λ_max = 0.8590542112803912"
+  }
+ ],
+ "registry_summary": {
+  "consistent": 265
+ },
+ "claims": [
+  {
+   "id": "cap.base.joint_required",
+   "where": "paper/sections/06_numerics.tex §6.4",
+   "statement": "代表点只有联合控制可行",
+   "holds": true,
+   "values": {}
+  },
+  {
+   "id": "cap.base.higher",
+   "where": "paper/sections/06_numerics.tex §6.4",
+   "statement": "能力约束下成本最优控制的 J 与 Δt 都高于表 2",
+   "holds": true,
+   "values": {
+    "J": 2.3611264994387917,
+    "J_free": 2.1182745584980167,
+    "dt": 8.338312428871282,
+    "dt_free": 7.75359790981404
+   }
+  },
+  {
+   "id": "cap.base.qcap_until_h",
+   "where": "paper/sections/06_numerics.tex §6.4",
+   "statement": "启动后一段内隔离比例停在上限，直到 S 降到 (1-q0)S_c/(1-q_cap)",
+   "holds": true,
+   "values": {}
+  },
+  {
+   "id": "cap.xian.joint_required",
+   "where": "paper/sections/06_numerics.tex §6.4",
+   "statement": "代表点只有联合控制可行",
+   "holds": true,
+   "values": {}
+  },
+  {
+   "id": "cap.xian.higher",
+   "where": "paper/sections/06_numerics.tex §6.4",
+   "statement": "能力约束下成本最优控制的 J 与 Δt 都高于表 2",
+   "holds": true,
+   "values": {
+    "J": 41.616596317872606,
+    "J_free": 38.02086219503629,
+    "dt": 116.7512855233165,
+    "dt_free": 108.80739451368878
+   }
+  },
+  {
+   "id": "cap.xian.qcap_until_h",
+   "where": "paper/sections/06_numerics.tex §6.4",
+   "statement": "启动后一段内隔离比例停在上限，直到 S 降到 (1-q0)S_c/(1-q_cap)",
+   "holds": true,
+   "values": {}
+  },
+  {
+   "id": "s62.c0_interior_max",
+   "where": "paper/sections/06_numerics.tex §6.2",
+   "statement": "Δt 随 c0 先增后减（所考察的范围内取得内部极大）",
+   "holds": true,
+   "values": {}
+  },
+  {
+   "id": "s63.base.front_half",
+   "where": "paper/sections/06_numerics.tex §6.3",
+   "statement": "前段完成阈值控制期 S 下降的一半以上",
+   "holds": true,
+   "values": {
+    "share": 0.5843066270956212
+   }
+  },
+  {
+   "id": "s63.xian.front_half",
+   "where": "paper/sections/06_numerics.tex §6.3",
+   "statement": "前段完成阈值控制期 S 下降的一半以上",
+   "holds": true,
+   "values": {
+    "share": 0.5416537182844853
+   }
+  },
+  {
+   "id": "s63.base.peak_in_back",
+   "where": "paper/sections/06_numerics.tex §6.3",
+   "statement": "基准参数下峰值出现在后段（两者并用段）",
+   "holds": true,
+   "values": {
+    "t_peak": 5.069971356729125
+   }
+  },
+  {
+   "id": "s63.xian.peak_in_front_equal",
+   "where": "paper/sections/06_numerics.tex §6.3",
+   "statement": "西安参数下峰值在前段，仅隔离与成本最优控制的峰值相同",
+   "holds": true,
+   "values": {
+    "rel_peak": 5.838334407086378e-16
+   }
+  },
+  {
+   "id": "s63.base.order",
+   "where": "paper/sections/06_numerics.tex §6.3",
+   "statement": "控制时长从长到短：仅减少接触、α = 0.5、成本最优、仅隔离",
+   "holds": true,
+   "values": {
+    "c_only": 36.260770645190235,
+    "alpha": 9.236332802472333,
+    "q_only": 5.902555851141787,
+    "opt": 7.75359790981404
+   }
+  },
+  {
+   "id": "s63.base.Sstar_above_Ssw",
+   "where": "paper/sections/06_numerics.tex §6.3",
+   "statement": "S* 高于 S_sw",
+   "holds": true,
+   "values": {}
+  },
+  {
+   "id": "s63.xian.order",
+   "where": "paper/sections/06_numerics.tex §6.3",
+   "statement": "控制时长从长到短：仅减少接触、α = 0.5、成本最优、仅隔离",
+   "holds": true,
+   "values": {
+    "c_only": 308.7938546651569,
+    "alpha": 124.5675637383853,
+    "q_only": 85.07107716640367,
+    "opt": 108.80739451368878
+   }
+  },
+  {
+   "id": "s63.xian.Sstar_above_Ssw",
+   "where": "paper/sections/06_numerics.tex §6.3",
+   "statement": "S* 高于 S_sw",
+   "holds": true,
+   "values": {}
+  },
+  {
+   "id": "s65.frontier_points",
+   "where": "paper/supplement_sections/S6_numerics.tex 第 2 段",
+   "statement": "乘子曲线由 470 个点构成",
+   "holds": true,
+   "values": {
+    "n": 470
+   }
+  },
+  {
+   "id": "S5.interior_maxima",
+   "where": "paper/supplement_sections/S5_contact.tex §S5.2",
+   "statement": "三个极大值都在扫描范围内部",
+   "holds": true,
+   "values": {}
+  },
+  {
+   "id": "S2.q0dagger.beta0.1.interior",
+   "where": "paper/supplement_sections/S2_inflection.tex",
+   "statement": "q0† 在 [0, 0.39] 内部",
+   "holds": true,
+   "values": {}
+  },
+  {
+   "id": "S2.q0dagger.beta0.12.interior",
+   "where": "paper/supplement_sections/S2_inflection.tex",
+   "statement": "q0† 在 [0, 0.39] 内部",
+   "holds": true,
+   "values": {}
+  },
+  {
+   "id": "S2.q0dagger.beta0.155.interior",
+   "where": "paper/supplement_sections/S2_inflection.tex",
+   "statement": "q0† 在 [0, 0.39] 内部",
+   "holds": true,
+   "values": {}
+  }
+ ],
+ "old_implementation_numbers": {
+  "S6_plateau_base_ode45": {
+   "display": "1.07e-7",
+   "meaning": "旧 ode45 基准轨迹的阈值控制期 max|I-η|（人）",
+   "nr_audit": 2.086153472191654e-11
+  },
+  "S6_plateau_xian_xianpy": {
+   "display": "1.35e-6",
+   "meaning": "旧 xian.py 仅隔离控制的 max|I-η|（人）",
+   "nr_audit": 5.929905455559492e-10
+  },
+  "S6_tdinn_tolerance": {
+   "display": "3.61e-8",
+   "meaning": "旧 xian.py 收紧容差后 TDINN 总累计的变化（人）",
+   "nr_audit": 1.4097167877480388e-11,
+   "nr_audit_settings": {
+    "method": "DOP853",
+    "rtol": 1e-13,
+    "atol_scale": 0.1,
+    "max_step": 0.25,
+    "nominal_rtol": 1e-13,
+    "nominal_atol": 1e-15,
+    "t_max": 10000.0,
+    "dense_sub": 8
+   }
+  }
+ },
+ "tdinn": {
+  "clearance": {
+   "settings": {
+    "method": "DOP853",
+    "rtol": 1e-12,
+    "atol": [
+     1e-15,
+     1e-12,
+     7.647131266974627e-24,
+     7.647131266974627e-24,
+     7.647131266974627e-24,
+     7.647131266974627e-24,
+     7.647131266974627e-24,
+     7.647131266974627e-24,
+     1e-13,
+     1e-13,
+     1e-13
+    ],
+    "max_step": 0.5
+   },
+   "t_end": 45.287419359338145,
+   "n_clearance_events": 1,
+   "clearance_I_error": -6.661338147750939e-16,
+   "T": 45.287419359338145,
+   "cI": 607.96339008683,
+   "cIq": 1497.6696587061485,
+   "total": 2105.6330487929786,
+   "J": 49.38940435746883,
+   "Jc": 19.163812164006643,
+   "Jq": 25.161529335288957,
+   "S_T": 13152394.240818901,
+   "mass_residual_persons": 2.922773134628187e-09,
+   "identity_residual_rel": 2.0954917490316037e-16,
+   "peak_I": 152.54629679237559,
+   "t_peak_I": 21.207546151342978
+  },
+  "routine": {
+   "settings": {
+    "method": "DOP853",
+    "rtol": 1e-12,
+    "atol": [
+     1e-15,
+     1e-12,
+     7.647131266974627e-24,
+     7.647131266974627e-24,
+     7.647131266974627e-24,
+     7.647131266974627e-24,
+     7.647131266974627e-24,
+     7.647131266974627e-24,
+     1e-13,
+     1e-13,
+     1e-13
+    ],
+    "max_step": 0.5
+   },
+   "t_end": 75.57218992803084,
+   "n_clearance_events": 1,
+   "clearance_I_error": -6.661338147750939e-16,
+   "T": 75.57218992803084,
+   "cI": 3105522.7848241683,
+   "cIq": 1481660.0583429928,
+   "total": 4587182.843167162,
+   "J": 0.0,
+   "Jc": 0.0,
+   "Jq": 0.0,
+   "S_T": 166555.5963922475,
+   "mass_residual_persons": 1.3152479105826842e-07,
+   "identity_residual_rel": 4.440892098840227e-16,
+   "peak_I": 1377552.4932901172,
+   "t_peak_I": 22.986073878966785
+  },
+  "window40": {
+   "settings": {
+    "method": "DOP853",
+    "rtol": 1e-12,
+    "atol": [
+     1e-15,
+     1e-12,
+     7.647131266974627e-24,
+     7.647131266974627e-24,
+     7.647131266974627e-24,
+     7.647131266974627e-24,
+     7.647131266974627e-24,
+     7.647131266974627e-24,
+     1e-13,
+     1e-13,
+     1e-13
+    ],
+    "max_step": 0.5
+   },
+   "T": 40.0,
+   "cI": 607.7365501017639,
+   "cIq": 1491.2381354552856,
+   "total": 2098.9746855570493,
+   "J": 37.085486112053616,
+   "Jc": 15.378081602829239,
+   "Jq": 20.12558839785085,
+   "S_T": 13152437.401725983,
+   "mass_residual_persons": 2.922773134628187e-09,
+   "identity_residual_rel": 2.0954917490316037e-16,
+   "peak_I": 152.54629679237559,
+   "t_peak_I": 21.207546151342896
+  },
+  "tight_tolerance": {
+   "settings": {
+    "method": "DOP853",
+    "rtol": 1e-13,
+    "atol": [
+     1.0000000000000001e-16,
+     1e-13,
+     7.647131266974628e-25,
+     7.647131266974628e-25,
+     7.647131266974628e-25,
+     7.647131266974628e-25,
+     7.647131266974628e-25,
+     7.647131266974628e-25,
+     1.0000000000000002e-14,
+     1.0000000000000002e-14,
+     1.0000000000000002e-14
+    ],
+    "max_step": 0.25
+   },
+   "t_end": 45.28741935933814,
+   "n_clearance_events": 1,
+   "clearance_I_error": -6.661338147750939e-16,
+   "T": 45.28741935933814,
+   "cI": 607.9633900868259,
+   "cIq": 1497.6696587061383,
+   "total": 2105.6330487929645,
+   "J": 49.38940435746884,
+   "Jc": 19.16381216400663,
+   "Jq": 25.161529335288947,
+   "S_T": 13152394.240818907,
+   "mass_residual_persons": 1.1691092538512748e-08,
+   "identity_residual_rel": 8.702890839206666e-16,
+   "peak_I": 152.5462967923745,
+   "t_peak_I": 21.20754615134298
+  },
+  "reference": {
+   "I_peak_T": 152.54629678969766,
+   "Itcum_T": 2105.633048755997,
+   "t_end_T": 45.28741935927593,
+   "J_T": 49.389404357321155
+  }
+ }
+}

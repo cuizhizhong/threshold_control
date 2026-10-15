@@ -117,3 +117,18 @@ conda run --no-capture-output -n thesis python nr_audit/sources.py
 - 开发中发现：乘子曲线（注记 5.5）在 $\kappa\approx-0.24$ 附近，成本最优控制律 $x(z)$ 在 $z\approx2.82$ 处有只跨几个网格格子的陡峭区（接近跳变消失的临界 $\kappa$）。不分段、不细分时 $N_z=4001$ 的 Simpson 只准到约 $10^{-6}$。为此结构扫描增加了陡峭点，Simpson 增加了逐片误差控制；此后在所抽检的乘子点上 Simpson 与 quad 互差 $\le4\times10^{-13}$（开发中的检查）。`test_frontier_regression` 所抽检的 15 个乘子点与原 `frontier_baseline.csv` 的最大相对差见测试报告（集中在 $\kappa\approx-0.244$ 附近，原结果在该处的分段与插值方式不同）；NR-3 决定是否需要逐点复核。
 - 网格扫描只能定位网格分辨得出的结构；宽度远小于网格且 $x$ 变化很小的特征可能漏检，其对积分的影响由 $N_z$ 收敛与 quad 互核反映。
 - 西安归一化初始感染极小（$i_0\approx7.65\times10^{-11}$），完整方程用 $\ln i$ 作状态，并把小量分量的 atol 设得远小于 $i_0$。
+
+## 11 NR-3 的审计脚本
+
+在仓库根目录依次运行（每条前加 `conda run --no-capture-output -n thesis`）：
+
+| 脚本 | 任务 | 输出（`results/`） | 时间（本机） |
+|---|---|---|---|
+| `python nr_audit/audit_baseline.py` | N1：表 2 两条路径与旧值、能力代表点、稿件保留数字的复算与显示核对（第 6、7 章，补充 S1、S2、S3、S5、S6），文中定性陈述的数值核对，旧实现数值与本模块对应值 | `regression.{json,md}` | 约 20 s |
+| `python nr_audit/audit_initial_condition.py` | N2：西安固定人口，$I_0$ 为拟合值的 0.1/1/10 倍，仅隔离与成本最优控制 | `initial_condition.{json,md}` | 约 10 s |
+| `python nr_audit/audit_weights.py` | N3：表 S5 的结构转折复核与加密（不假定单调） | `weight_brackets.{json,md}` | 约 10–20 min |
+| `python nr_audit/audit_convergence.py` | N4：控制网格、状态网格、积分容差三档 | `convergence.{json,md}` | 约 5 min |
+| `python nr_audit/audit_fit.py` | N5：在给定 $I_0$ 下按原定义重算四项拟合误差与补充表 S2 | `fit_reconstruction.{json,md}` | 约 3 s |
+| `python nr_audit/make_numbers.py` | 新增数字的宏 | `paper/generated/nr_numbers.tex`、`nr_numbers_map.json` | 1 s |
+
+`tdinn.py` 实现 TDINN 控制与常规控制下的完整方程（时间开环，控制函数为稿件式 (7.1)），供 N1 的第 7 章数字与 N5 使用；`audit_common.py` 是写出、读表与显示核对的公共部分。N6（无回流 $t\to\infty$ 汇总）本步未做。

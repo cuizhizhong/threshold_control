@@ -228,3 +228,15 @@ def test_capacity_structure_matches_reference():
         assert info['label'] == 'hi' and info['hi_kind'] == 'qcap'
         q = 1 - (1 - P.q0) / (x * pol.z_star)
         assert abs(q - capacity_ref()[key]['point']['q_cap']) <= 1e-8
+
+
+@pytest.mark.parametrize('case,r', [('base', 3.2143), ('base', 3.17), ('xian', 2.7137), ('xian', 2.70)])
+def test_continuous_switch_is_endpoint(case, r):
+    """NR-3 中修正的问题：用端点驻点式的 brentq 定位的连续切换点，该处的选择必须就是该端点
+    （A→B 转折附近，端点驻点处两侧都已选内部解时，真正的切换是别处的跳变）。"""
+    pol = SI.Policy(PR.CASES[case], 'opt', wq=r)
+    for b in pol.structure['breakpoints']:
+        if b['method'] == 'brentq_endpoint_stationary':
+            x, v, info = pol.law.full(b['z'])
+            assert abs(x - info['x_hi']) <= 1e-6 or abs(x - info['x_lo']) <= 1e-6
+            assert 'hi' in (b['label_left'], b['label_right']) or 'lo' in (b['label_left'], b['label_right'])
