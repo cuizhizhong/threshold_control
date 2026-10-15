@@ -1,10 +1,20 @@
-# R7-3 回流数值与收敛表（2026-10-14；10-15 按作者决定改用首次 I<1 截断；待 G2）
+# R7-3 回流数值与收敛表（2026-10-14；10-15 按作者决定改用首次 I<1 截断；G2 已通过）
 
 - 依据：`ai/R7_回流修订_分步执行计划.md` 第 3、5 节与第 6 节 R7-3；`AGENTS.md`；`R7_2_return_theory.md`（G1 已确认，公式与假设无变化，R7-1 的数值与测试无须重跑）。
 - **作者决定（2026-10-15）**：指数回流情景以退出后 I 首次降到 1 的时刻截断，假设此时传播结束，与 Zhou 等（2024）Remark 3.1 及本文第 3–7 章清零时间 t_end 的约定相同；表中只报终止时累计感染，不列“超出下界幅度”；正文用一句话说明命题 R2 的下界针对不截断的 t→∞ 累计感染，截断值可以低于它（第 7 节）。
 - 代码（`r7_return/`）：新增 `r7_3_numerics.py`、`make_numbers.py`、`tests/test_f_numbers.py`、`tests/test_g_endpoint.py`；`simulate.py` 增加终点选项 `Config.return_endpoint`（`'tail'` 为默认，R7-1 不变；`'first_below_one'` 为本步正式结果）；`references.py` 增补执行计划第 5 节中 R7-1 未录入的三项参考值；`README.md` 增补。pytest 91 项全部通过。
 - 输出：`r7_return/results/r7_3_{endpoint_immediate,exponential_return,release,noreturn_inf,convergence,plan_comparison}.json`（全精度）；全部展示表在 `r7_return/results/r7_3_numerics.md`；宏 `paper/generated/r7_numbers.tex`（361 个）与 `r7_return/results/r7_numbers_full.json`。稿件未改，`r7_numbers.tex` 尚未被任何 tex 输入（R7-4 暂停）。
 - 运行：`conda run --no-capture-output -n thesis python r7_return/r7_3_numerics.py`（约 5 分钟），再运行 `make_numbers.py`。
+
+## G2 决定（作者 2026-10-15 确认）
+
+| # | 审查项 | 作者决定 |
+|---|---|---|
+| 1 | 指数回流的统计终点（第 7 节） | 退出后首次 I<1 截断；表中不列超出下界幅度；正文一句说明 R2 的下界针对不截断的 t→∞（10-15 已执行） |
+| 2 | 第 5 项与第 6 项的 ω = 0 部分（第 0 节） | 按建议：本分支不执行，写入时按源提交复用无回流分支 NR-3 的结果 |
+| 3 | 宏名后缀与展示位数（第 10 节） | 按建议：立即返回对照模型用后缀 `Ir`，展示位数如第 10 节 |
+
+数值与代码无变化；G2 只确认上述三项。R7-4 至 R7-7 仍按双分支安排暂停，是否写入论文由作者另定。
 
 ## 0 范围
 
@@ -119,7 +129,7 @@ S_q(t₂)/S_c：基准 2.215057、西安 2.713854；R_e(t₂⁺) = 3.215057、3.
 - 例外（不宏化）：日期、章节号、公式常数（e 的容限 1e-8、停留天数）。
 - 用一个独立的 ctexart 小文件 `\input` 后逐个展开全部宏，并放入 siunitx S 列与数学模式，xelatex 编译通过，无缺字警告。
 
-## 11 待作者决定（G2）
+## 11 待作者决定（G2，已于 10-15 确认，见文件开头）
 
 1. 第 0 节：确认本分支不执行第 5 项与第 6 项的 ω = 0 部分，写入时按源提交复用无回流分支 NR-3 的结果。
 2. 第 10 节：宏名后缀 `Ir`（代替示例中的 `Inf`）与展示位数。
