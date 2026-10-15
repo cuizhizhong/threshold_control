@@ -1,0 +1,2238 @@
+{
+ "level": "full",
+ "pytest_args": [
+  "-p",
+  "no:cacheprovider",
+  "E:\\work\\draft-nr\\nr_audit\\tests",
+  "-q",
+  "-p",
+  "no:cacheprovider"
+ ],
+ "exit_code": 0,
+ "started": "2026-10-15T11:35:43",
+ "seconds": 60.6,
+ "counts": {
+  "passed": 235
+ },
+ "git_head": "3296c272923fe1e04a6d3ce59226daa34c9a0927",
+ "git_status_short": "A  nr_audit/README.md\nAM nr_audit/allocation.py\nA  nr_audit/model.py\nA  nr_audit/params.py\nAM nr_audit/pytest.ini\nA  nr_audit/results/nr2_test_report.json\nA  nr_audit/results/nr2_test_report.md\nA  nr_audit/results/nr2_test_report_smoke.json\nA  nr_audit/results/nr2_test_report_smoke.md\nA  nr_audit/results/source_manifest.json\nAM nr_audit/run_tests.py\nAM nr_audit/simulate.py\nAM nr_audit/sources.py\nAM nr_audit/state_integrals.py\nA  nr_audit/tests/conftest.py\nA  nr_audit/tests/test_allocation.py\nA  nr_audit/tests/test_model.py\nAM nr_audit/tests/test_simulate.py\nAM nr_audit/tests/test_sources.py\nAM nr_audit/tests/test_state_integrals.py",
+ "source_sha256": {
+  "nr_audit/allocation.py": "fc06b0b833972d0b8869ba0c5b90857b697d625cc91b1177acbac7c843549016",
+  "nr_audit/model.py": "8746912da1a33138cb06df335d2bdaeadb10d3c5fbf4adb88f3de7a0cac4d0d2",
+  "nr_audit/params.py": "0db269fb16f92f2ee01f7a5d2586c38c683a906aecc732032c46c4620c74395f",
+  "nr_audit/run_tests.py": "9379bcbdb7477cc4d7ba52c598b1ea79d69b5720d8ef72e3bf953af880e8d14c",
+  "nr_audit/simulate.py": "82fb51792ce34755b2c9b3c796ff91791fb10c08cab4002f427076845f015b87",
+  "nr_audit/sources.py": "28e1aa1e92f9e1eb3aef5c4793df842a11b1edc5271a87bb0923dfb0d98501bc",
+  "nr_audit/state_integrals.py": "c4630da50f415c0e0233d82ebd4fde695d69f66435bffcb97806f86e681d56de",
+  "nr_audit/tests/conftest.py": "3aeeeb01554caea92de418a27cb8c16836f1f47614aed5015aeb607dec96c900",
+  "nr_audit/tests/test_allocation.py": "02c81cc2116320f34e4a5c75c88579f738da66c2e7b48c83c916467685304b06",
+  "nr_audit/tests/test_model.py": "f4ee306bfdb145a3ab8569f7b2c8497e94c5ecd47a89eb9e3fa5ab50d70aa5c8",
+  "nr_audit/tests/test_simulate.py": "b49814ab1392aad64e47ecabb739c291d2540d42e1244fcdcb129717c608f2b0",
+  "nr_audit/tests/test_sources.py": "1260b9174a07e89a33cea7f1df474cc47151923878ea9bff82d733ba65654653",
+  "nr_audit/tests/test_state_integrals.py": "4083e3361d0db74d9c171e0229fb45ee9c9a00bd8e9bfc6af61a841d2f44a9c0",
+  "nr_audit/theory_checks.py": "8af27e59927c58e6bb0d972666ce59819d302b56469fe160823583200d763881",
+  "nr_audit/pytest.ini": "651c38e9bb4b2ff323a7956247c806dc4129605abe54b97f4b83ce0a84d0c5e0"
+ },
+ "environment": {
+  "python": "3.10.20",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "numpy": "2.2.5",
+  "scipy": "1.15.3",
+  "sympy": "1.14.0",
+  "mpmath": "1.3.0",
+  "pytest": "9.1.1"
+ },
+ "tests": [
+  {
+   "nodeid": "tests/test_allocation.py::test_poly_x_is_derivative_numerator",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.18,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_poly_x_matches_manuscript_eq_5_4",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.17,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_poly_y_is_derivative_numerator",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 1.437,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r0.1-k-0.4-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.067,
+   "properties": {
+    "max_gap_rel": 3.260668757207994e-16
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r0.1-k-0.4-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.069,
+   "properties": {
+    "max_gap_rel": 4.89100313581199e-16
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r0.1-k0.0-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.096,
+   "properties": {
+    "max_gap_rel": 5.374745456716202e-15
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r0.1-k0.0-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.092,
+   "properties": {
+    "max_gap_rel": 5.374745456716202e-15
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r0.1-k0.3-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.087,
+   "properties": {
+    "max_gap_rel": 0.0
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r0.1-k0.3-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.091,
+   "properties": {
+    "max_gap_rel": 0.0
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r0.5-k-0.4-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.064,
+   "properties": {
+    "max_gap_rel": 5.714048578411115e-16
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r0.5-k-0.4-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.065,
+   "properties": {
+    "max_gap_rel": 6.260161096054711e-16
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r0.5-k0.0-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.089,
+   "properties": {
+    "max_gap_rel": 1.730244727064656e-14
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r0.5-k0.0-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.091,
+   "properties": {
+    "max_gap_rel": 1.730244727064656e-14
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r0.5-k0.3-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.091,
+   "properties": {
+    "max_gap_rel": 0.0
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r0.5-k0.3-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.089,
+   "properties": {
+    "max_gap_rel": 0.0
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r2.0-k-0.4-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.071,
+   "properties": {
+    "max_gap_rel": 3.912045390324265e-15
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r2.0-k-0.4-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.059,
+   "properties": {
+    "max_gap_rel": 0.0
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r2.0-k0.0-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.086,
+   "properties": {
+    "max_gap_rel": 6.657725320150769e-14
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r2.0-k0.0-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.086,
+   "properties": {
+    "max_gap_rel": 6.657725320150769e-14
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r2.0-k0.3-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.09,
+   "properties": {
+    "max_gap_rel": 0.0
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r2.0-k0.3-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.088,
+   "properties": {
+    "max_gap_rel": 0.0
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r5.0-k-0.4-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.065,
+   "properties": {
+    "max_gap_rel": 3.6979866441622904e-14
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r5.0-k-0.4-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.056,
+   "properties": {
+    "max_gap_rel": 0.0
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r5.0-k0.0-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.082,
+   "properties": {
+    "max_gap_rel": 3.2204607868731615e-14
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r5.0-k0.0-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.081,
+   "properties": {
+    "max_gap_rel": 3.2204607868731615e-14
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r5.0-k0.3-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.091,
+   "properties": {
+    "max_gap_rel": 3.5146434908054135e-16
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r5.0-k0.3-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.088,
+   "properties": {
+    "max_gap_rel": 3.5146434908054135e-16
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r20.0-k-0.4-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.066,
+   "properties": {
+    "max_gap_rel": 5.665148989045271e-15
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r20.0-k-0.4-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.059,
+   "properties": {
+    "max_gap_rel": 0.0
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r20.0-k0.0-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.075,
+   "properties": {
+    "max_gap_rel": 1.3977367932080683e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r20.0-k0.0-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.065,
+   "properties": {
+    "max_gap_rel": 1.3977367932080683e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r20.0-k0.3-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.076,
+   "properties": {
+    "max_gap_rel": 2.803289117447598e-16
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[base-r20.0-k0.3-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.071,
+   "properties": {
+    "max_gap_rel": 2.1815583937473284e-16
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r0.1-k-0.4-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.07,
+   "properties": {
+    "max_gap_rel": 3.4202115145087063e-16
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r0.1-k-0.4-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.071,
+   "properties": {
+    "max_gap_rel": 2.516084053173604e-16
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r0.1-k0.0-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.093,
+   "properties": {
+    "max_gap_rel": 5.024746728430714e-14
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r0.1-k0.0-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.09,
+   "properties": {
+    "max_gap_rel": 5.024746728430714e-14
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r0.1-k0.3-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.089,
+   "properties": {
+    "max_gap_rel": 0.0
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r0.1-k0.3-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.089,
+   "properties": {
+    "max_gap_rel": 0.0
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r0.5-k-0.4-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.069,
+   "properties": {
+    "max_gap_rel": 1.1625892719713693e-15
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r0.5-k-0.4-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.069,
+   "properties": {
+    "max_gap_rel": 6.121081119707766e-16
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r0.5-k0.0-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.088,
+   "properties": {
+    "max_gap_rel": 1.6876933178224775e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r0.5-k0.0-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.093,
+   "properties": {
+    "max_gap_rel": 1.6876933178224775e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r0.5-k0.3-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.088,
+   "properties": {
+    "max_gap_rel": 0.0
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r0.5-k0.3-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.089,
+   "properties": {
+    "max_gap_rel": 0.0
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r2.0-k-0.4-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.068,
+   "properties": {
+    "max_gap_rel": 4.4169829545937584e-15
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r2.0-k-0.4-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.06,
+   "properties": {
+    "max_gap_rel": 0.0
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r2.0-k0.0-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.082,
+   "properties": {
+    "max_gap_rel": 1.0072407899043899e-15
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r2.0-k0.0-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.083,
+   "properties": {
+    "max_gap_rel": 1.0072407899043899e-15
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r2.0-k0.3-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.091,
+   "properties": {
+    "max_gap_rel": 3.912121998924762e-16
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r2.0-k0.3-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.09,
+   "properties": {
+    "max_gap_rel": 3.912121998924762e-16
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r5.0-k-0.4-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.068,
+   "properties": {
+    "max_gap_rel": 5.054276440544101e-15
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r5.0-k-0.4-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.058,
+   "properties": {
+    "max_gap_rel": 1.3966260690535276e-16
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r5.0-k0.0-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.077,
+   "properties": {
+    "max_gap_rel": 6.303493375778306e-16
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r5.0-k0.0-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.074,
+   "properties": {
+    "max_gap_rel": 6.303493375778306e-16
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r5.0-k0.3-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.082,
+   "properties": {
+    "max_gap_rel": 5.473932633492728e-16
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r5.0-k0.3-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.081,
+   "properties": {
+    "max_gap_rel": 5.473932633492728e-16
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r20.0-k-0.4-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.091,
+   "properties": {
+    "max_gap_rel": 2.2958839700274683e-14
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r20.0-k-0.4-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.055,
+   "properties": {
+    "max_gap_rel": 0.0
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r20.0-k0.0-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.068,
+   "properties": {
+    "max_gap_rel": 1.864680027839786e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r20.0-k0.0-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.061,
+   "properties": {
+    "max_gap_rel": 1.864680027839786e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r20.0-k0.3-free]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.071,
+   "properties": {
+    "max_gap_rel": 3.6034852744899767e-16
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_roots_vs_grid[xian-r20.0-k0.3-cap]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.065,
+   "properties": {
+    "max_gap_rel": 2.770272169948921e-16
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_argmin_triple_root_minimum",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.001,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_argmin_double_root_saddle",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_argmin_tie",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_capacity_bounds_formula",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_capacity_infeasible_and_equality",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.608,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_switch_equals_S_sw[base]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.601,
+   "properties": {
+    "z_switch": 2.2653687999912213,
+    "z_sw_formula": 2.26536879999122
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_switch_equals_S_sw[xian]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.629,
+   "properties": {
+    "z_switch": 2.5482505425708113,
+    "z_sw_formula": 2.548250542570811
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_structure_classes[base-r1.0]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.623,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_structure_classes[base-r5.0]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.738,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_structure_classes[base-r20.0]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.928,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_structure_classes[xian-r1.0]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.579,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_structure_classes[xian-r5.0]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.986,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_structure_classes[xian-r20.0]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.853,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_switch_regression_phase[base-baseline-4.977]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.761,
+   "properties": {
+    "S_rel_diff": 4.4802613498837126e-12
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_switch_regression_phase[base-baseline-12.17]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.972,
+   "properties": {
+    "S_rel_diff": 5.113612616052259e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_switch_regression_phase[xian-xian-3.131]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.761,
+   "properties": {
+    "S_rel_diff": 1.6504506475587458e-14
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_switch_regression_phase[xian-xian-4.977]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.946,
+   "properties": {
+    "S_rel_diff": 1.6741015377435271e-15
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_contact_only_never_selected[0.1-base]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.041,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_contact_only_never_selected[0.1-xian]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.042,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_contact_only_never_selected[1.0-base]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.049,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_contact_only_never_selected[1.0-xian]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.051,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_contact_only_never_selected[2.0-base]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.05,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_contact_only_never_selected[2.0-xian]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.051,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_contact_only_never_selected[5.0-base]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.061,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_contact_only_never_selected[5.0-xian]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.08,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_contact_only_never_selected[20.0-base]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.082,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_contact_only_never_selected[20.0-xian]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.072,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_default_weight_labels[base]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.101,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_default_weight_labels[xian]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.108,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_terminal_share[0.5]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.005,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_terminal_share[2.0]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.005,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_terminal_share[7.0]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.005,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_allocation.py::test_capacity_structure_matches_reference",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 1.265,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_model.py::test_mass_and_susceptible_flux",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.001,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_model.py::test_no_return_term",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_model.py::test_plateau_balance[base]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_model.py::test_plateau_balance[xian]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_model.py::test_intensities_and_cost",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_conservation_positivity[base-q_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.045,
+   "properties": {
+    "mass_residual_persons": 5.446854078883234e-11,
+    "min_compartment_persons": 0.0
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_conservation_positivity[base-c_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.061,
+   "properties": {
+    "mass_residual_persons": 5.446854078883234e-11,
+    "min_compartment_persons": 0.0
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_conservation_positivity[base-alpha]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.035,
+   "properties": {
+    "mass_residual_persons": 5.446854078883234e-11,
+    "min_compartment_persons": 0.0
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_conservation_positivity[base-opt]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 1.247,
+   "properties": {
+    "mass_residual_persons": 5.446854078883234e-11,
+    "min_compartment_persons": 0.0
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_conservation_positivity[xian-q_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.21,
+   "properties": {
+    "mass_residual_persons": 3.653466418285234e-08,
+    "min_compartment_persons": 0.0
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_conservation_positivity[xian-c_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.43,
+   "properties": {
+    "mass_residual_persons": 7.306932836570468e-08,
+    "min_compartment_persons": 0.0
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_conservation_positivity[xian-alpha]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.249,
+   "properties": {
+    "mass_residual_persons": 2.7766344778967778e-08,
+    "min_compartment_persons": 0.0
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_conservation_positivity[xian-opt]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 2.122,
+   "properties": {
+    "mass_residual_persons": 2.045941194239731e-08,
+    "min_compartment_persons": 0.0
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_control_feasibility[base-q_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_control_feasibility[base-c_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_control_feasibility[base-alpha]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_control_feasibility[base-opt]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_control_feasibility[xian-q_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_control_feasibility[xian-c_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_control_feasibility[xian-alpha]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_control_feasibility[xian-opt]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_events[base-q_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.015,
+   "properties": {
+    "t1_rel": 1.8320703530113784e-14,
+    "exit_S_error_persons": -2.30834795722501e-12
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_events[base-c_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.006,
+   "properties": {
+    "t1_rel": 1.8320703530113784e-14,
+    "exit_S_error_persons": -4.066080805387173e-12
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_events[base-alpha]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.006,
+   "properties": {
+    "t1_rel": 1.8320703530113784e-14,
+    "exit_S_error_persons": -1.9059753775252375e-12
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_events[base-opt]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.501,
+   "properties": {
+    "t1_rel": 1.8320703530113784e-14,
+    "exit_S_error_persons": 1.4951317961475752e-11
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_events[xian-q_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.007,
+   "properties": {
+    "t1_rel": 6.307814431204434e-16,
+    "exit_S_error_persons": -1.3517825747655365e-08
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_events[xian-c_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.006,
+   "properties": {
+    "t1_rel": 6.307814431204434e-16,
+    "exit_S_error_persons": -2.4112878360682544e-08
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_events[xian-alpha]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.007,
+   "properties": {
+    "t1_rel": 6.307814431204434e-16,
+    "exit_S_error_persons": -3.2881197764567105e-09
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_events[xian-opt]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.527,
+   "properties": {
+    "t1_rel": 6.307814431204434e-16,
+    "exit_S_error_persons": 3.9311298660749117e-07
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_flux_identities[base-q_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "identity_residual_rel": 3.3350400306653324e-16
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_flux_identities[base-c_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "identity_residual_rel": 3.3350400306653324e-16
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_flux_identities[base-alpha]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "identity_residual_rel": 3.8908800357762215e-16
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_flux_identities[base-opt]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "identity_residual_rel": 2.779200025554444e-16
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_flux_identities[xian-q_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "identity_residual_rel": 1.6098233858295823e-15
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_flux_identities[xian-c_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "identity_residual_rel": 7.965850202294657e-15
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_flux_identities[xian-alpha]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "identity_residual_rel": 9.992007222390511e-16
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_flux_identities[xian-opt]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "identity_residual_rel": 6.106226635905312e-16
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_plateau_not_reset[base-q_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "plateau_abs_dev_persons": 2.086153472191654e-11
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_plateau_not_reset[base-c_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "plateau_abs_dev_persons": 4.853006885241484e-12
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_plateau_not_reset[base-alpha]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "plateau_abs_dev_persons": 7.815970093361102e-12
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_plateau_not_reset[base-opt]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "plateau_abs_dev_persons": 1.411848415955319e-11
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_plateau_not_reset[xian-q_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "plateau_abs_dev_persons": 5.929905455559492e-10
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_plateau_not_reset[xian-c_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "plateau_abs_dev_persons": 1.5133991837501526e-09
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_plateau_not_reset[xian-alpha]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "plateau_abs_dev_persons": 6.912159733474255e-10
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_plateau_not_reset[xian-opt]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "plateau_abs_dev_persons": 6.439222488552332e-10
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_open_loop_sensitivity",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.033,
+   "properties": {
+    "perturbed_plateau_rel_dev": 4.0678460133174877e-07,
+    "unperturbed_plateau_rel_dev": 5.468292194473537e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_ode_vs_state_path[base-q_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 2.979375909956137e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_ode_vs_state_path[base-c_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 5.219687889590833e-14
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_ode_vs_state_path[base-alpha]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 4.570143593339553e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_ode_vs_state_path[base-opt]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 1.0572154095281293e-12
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_ode_vs_state_path[xian-q_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 3.7474953709206887e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_ode_vs_state_path[xian-c_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 2.2415196930096624e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_ode_vs_state_path[xian-alpha]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 3.631016176612066e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_ode_vs_state_path[xian-opt]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 3.9349011503240975e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_regression_compare_ode[base-q_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.001,
+   "properties": {
+    "max_rel": 1.1943420469250956e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_regression_compare_ode[base-c_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 1.1943420469250956e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_regression_compare_ode[base-alpha]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 1.1943420469250956e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_regression_compare_ode[base-opt]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 1.7318911506764113e-12
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_regression_compare_ode[xian-q_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 1.1564326457206799e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_regression_compare_ode[xian-c_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 2.426555108387e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_regression_compare_ode[xian-alpha]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 1.1564326457206799e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_regression_compare_ode[xian-opt]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 1.3602791116230446e-11
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_q_only_closed_form_trajectory[base]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.004,
+   "properties": {
+    "S_max_rel": 6.705747068735946e-14
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_q_only_closed_form_trajectory[xian]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.007,
+   "properties": {
+    "S_max_rel": 5.773159728050814e-15
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_whole_epidemic_shift[base]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 9.137962480159785e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_whole_epidemic_shift[xian]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 5.711566457400711e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_post_exit_monotone[base-q_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.002,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_post_exit_monotone[base-c_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.001,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_post_exit_monotone[base-alpha]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.001,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_post_exit_monotone[base-opt]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.001,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_post_exit_monotone[xian-q_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.005,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_post_exit_monotone[xian-c_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.006,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_post_exit_monotone[xian-alpha]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.005,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_post_exit_monotone[xian-opt]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.006,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_infinite_time_tail[base-q_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.001,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_infinite_time_tail[base-c_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_infinite_time_tail[base-alpha]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_infinite_time_tail[base-opt]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_infinite_time_tail[xian-q_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.001,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_infinite_time_tail[xian-c_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.001,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_infinite_time_tail[xian-alpha]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.001,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_infinite_time_tail[xian-opt]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.001,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_capacity_ode[base-opt]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 2.605,
+   "properties": {
+    "max_rel": 4.596104993948844e-12
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_capacity_ode[base-cap_upper]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.05,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_capacity_ode[base-cap_lower]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.059,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_capacity_ode[xian-opt]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 3.613,
+   "properties": {
+    "max_rel": 3.1928560518266898e-12
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_capacity_ode[xian-cap_upper]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.238,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_simulate.py::test_capacity_ode[xian-cap_lower]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.335,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_sources.py::test_manifest_current",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.003,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_sources.py::test_pinned_files_unchanged",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.001,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_sources.py::test_params_equal_source_fields[base]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.001,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_sources.py::test_params_equal_source_fields[xian]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.001,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_sources.py::test_derived_rules",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_sources.py::test_audit_notes_I0",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_sources.py::test_manuscript_table1_display",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.09,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_sources.py::test_default_weights_in_manuscript",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_sources.py::test_capacity_points",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_sources.py::test_reference_columns",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.001,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_sources.py::test_code_reuse_blobs",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.119,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_start_state[base]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "S_star": 708.3469575874326
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_start_state[xian]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "S_star": 13020440.754052367
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_post_exit[base]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_post_exit[xian]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.001,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_closed_forms[base]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 3.8099134950088626e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_closed_forms[xian]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.001,
+   "properties": {
+    "max_rel": 3.74942607435613e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_simpson_vs_quad[base-q_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 2.980880645265084e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_simpson_vs_quad[base-c_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 2.231787480034265e-14
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_simpson_vs_quad[base-alpha]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 3.8079902676009827e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_simpson_vs_quad[base-opt]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 1.501070165701989e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_simpson_vs_quad[xian-q_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 3.311444463428296e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_simpson_vs_quad[xian-c_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 2.8456843236386695e-14
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_simpson_vs_quad[xian-alpha]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 6.574290114159742e-14
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_simpson_vs_quad[xian-opt]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 6.653010987310964e-14
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_arc_identities[base-q_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_arc_identities[base-c_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_arc_identities[base-alpha]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_arc_identities[base-opt]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_arc_identities[xian-q_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_arc_identities[xian-c_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_arc_identities[xian-alpha]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_arc_identities[xian-opt]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_duration_ordering[base]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.025,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_duration_ordering[xian]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.016,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_regression_compare_state[base-q_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 2.982385380573143e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_regression_compare_state[base-c_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 1.0111350116239393e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_regression_compare_state[base-alpha]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 3.8099134950088626e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_regression_compare_state[base-opt]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 2.363176555134094e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_regression_compare_state[xian-q_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 1.7552671117259494e-12
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_regression_compare_state[xian-c_only]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 9.822575244200061e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_regression_compare_state[xian-alpha]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 1.5819082574778307e-12
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_regression_compare_state[xian-opt]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 1.702838052902603e-12
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_capacity_state[base]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 4.963727937890309e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_capacity_state[xian]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {
+    "max_rel": 1.4876586777015365e-12
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_Nz_convergence[base]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.891,
+   "properties": {
+    "max_rel": 3.4296415928614393e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_Nz_convergence[xian]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.989,
+   "properties": {
+    "max_rel": 2.057574465457552e-13
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_frontier_regression",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 23.421,
+   "properties": {
+    "max_rel": 1.3486757714808655e-07
+   },
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_exit_lower_bound[base]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_exit_lower_bound[xian]",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 0.0,
+   "properties": {},
+   "message": null
+  },
+  {
+   "nodeid": "tests/test_state_integrals.py::test_minimum_cost_decreases_with_threshold",
+   "outcome": "passed",
+   "when": "call",
+   "duration": 2.669,
+   "properties": {},
+   "message": null
+  }
+ ]
+}

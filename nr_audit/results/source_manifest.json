@@ -1,0 +1,352 @@
+{
+  "description": "nr_audit 的数字来源清单（NR-2）。参数与初值逐位取自来源字段；参照数据只用于回归核对。",
+  "normalization": "完整方程按 N 归一（s = S/N 等）；控制律与 S 坐标求积按 S_c 归一（z = S/S_c、x = c/c0）",
+  "units": {
+    "population": "人",
+    "time": "天",
+    "rates": "d^-1",
+    "J": "天（二次干预强度成本，式 2.13）"
+  },
+  "files": {
+    "baseline_parameters": {
+      "path": "joint_control/threshold_control_reproducible_release_20261002/numerics/inputs/baseline_parameters.json",
+      "sha256": "5aeafe3fe2ba5809eda90a9fbfd9c722dd9161e9d026e5740dd74f94e183f9d6",
+      "use": "基准参数与初值（原 joint_extra 的输入）",
+      "pinned": true
+    },
+    "xian_reference": {
+      "path": "reproducibility/results/20261003_release_final/xian/reference.json",
+      "sha256": "b920deaf55f771958433ab27f32ca1606393c9ae7b96d3361aee053af097bc45",
+      "use": "西安参数与未取整拟合初值 I0_abs",
+      "pinned": true
+    },
+    "xian_fit": {
+      "path": "reproducibility/results/20261003_release_final/xian/fit.json",
+      "sha256": "bdbee6a736f2f620f5e306bc75d71825453689e798dc67c0c45fec65de879693",
+      "use": "西安拟合输出（I0、S0 = N - I0、R0）",
+      "pinned": true
+    },
+    "audit_notes": {
+      "path": "reproducibility/manuscript_audit_notes.md",
+      "sha256": "82bf0c64d14a8f36e41a3e00ee016452ae182f97b3a0436d4142d489416f3ddb",
+      "use": "“拟合初值 I0=0.00100659188867187，计算不使用论文显示的取整数”",
+      "pinned": true
+    },
+    "table1": {
+      "path": "paper/sections/06_numerics.tex",
+      "sha256": "d2510ff6550bf8053b5ba63d212eb170c6ba933e07c68a6c7876336720d82d45",
+      "use": "稿件表 1（tab:xian_initial_fit）与图 6 图注（能力代表点）",
+      "pinned": false
+    },
+    "model_section": {
+      "path": "paper/sections/02_model.tex",
+      "sha256": "deb2bcaf4a9d1763c98148b735ac4d5857f9df8d68e472ee4c2122877123214f",
+      "use": "默认权重 w_c = 1、w_q = 2（式 2.13 之后）",
+      "pinned": false
+    },
+    "compare_baseline": {
+      "path": "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/compare_baseline.csv",
+      "sha256": "9b4ae23be6bbbca4f912a6c060e07dd7da0c81144ad191a0dfaa2f9b3c2abbf3",
+      "use": "回归参照：基准四种控制（原表 2 的全精度来源）",
+      "pinned": true
+    },
+    "compare_xian": {
+      "path": "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/compare_xian.csv",
+      "sha256": "a610aa4f0dbaf562f723cfa984f1c2565799fafe1cf3695011d63a1fdbe72448",
+      "use": "回归参照：西安四种控制",
+      "pinned": true
+    },
+    "input_manifest": {
+      "path": "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/input_manifest.json",
+      "sha256": "33d2edd859ed11d364e523ebd4542ee368faca5bad97c51b9e89d1c1959d1835",
+      "use": "原 joint_extra 的输入与派生量",
+      "pinned": true
+    },
+    "capacity": {
+      "path": "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/capacity.json",
+      "sha256": "1eec6f25f630dfe669ade76a4d683cfa509ab00f71ba65351cfd9b8fdad6a7f9",
+      "use": "能力代表点（point 字段）与其成本最优控制的指标",
+      "pinned": true
+    },
+    "phase": {
+      "path": "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/phase.json",
+      "sha256": "2385cab466e9e15003b559dd418351bd194f507e45397a14f46f49c77b04cb01",
+      "use": "权重网格上的切换位置（回归核对用的几个 r）",
+      "pinned": true
+    },
+    "frontier": {
+      "path": "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/frontier_baseline.csv",
+      "sha256": "6aa3625951a90db169c9f2ecc82c9b86da283f40ecd813c3753a367383331d8a",
+      "use": "J + κΔt 的最小化解（回归核对用的几个 κ）",
+      "pinned": true
+    }
+  },
+  "parameters": {
+    "base": {
+      "N": {
+        "value": 763.0,
+        "unit": "人",
+        "source": "baseline_parameters",
+        "field": "parameters.N",
+        "source_value": 763.0
+      },
+      "S0": {
+        "value": 762.0,
+        "unit": "人",
+        "source": "baseline_parameters",
+        "field": "parameters.S0",
+        "source_value": 762.0
+      },
+      "I0": {
+        "value": 1.0,
+        "unit": "人",
+        "source": "baseline_parameters",
+        "field": "parameters.I0",
+        "source_value": 1.0
+      },
+      "beta": {
+        "value": 0.155,
+        "unit": "无量纲",
+        "source": "baseline_parameters",
+        "field": "parameters.beta",
+        "source_value": 0.155
+      },
+      "gamma": {
+        "value": 0.3504,
+        "unit": "d^-1",
+        "source": "baseline_parameters",
+        "field": "parameters.gamma",
+        "source_value": 0.3504
+      },
+      "delta_q": {
+        "value": 0.3504,
+        "unit": "d^-1",
+        "source": "baseline_parameters",
+        "field": "parameters.delta_q",
+        "source_value": 0.3504
+      },
+      "c0": {
+        "value": 10.0,
+        "unit": "d^-1",
+        "source": "baseline_parameters",
+        "field": "parameters.c0",
+        "source_value": 10.0
+      },
+      "q0": {
+        "value": 0.01526,
+        "unit": "无量纲",
+        "source": "baseline_parameters",
+        "field": "parameters.q0",
+        "source_value": 0.01526
+      },
+      "eta": {
+        "value": 38.15,
+        "unit": "人",
+        "source": "baseline_parameters",
+        "field": "parameters.eta",
+        "source_value": 38.15,
+        "rule": "η = 0.05N（稿件表 1）；与 baseline_parameters.json 的 38.15 逐位相等"
+      },
+      "Sq0": {
+        "value": 0.0,
+        "unit": "人",
+        "source": "baseline_parameters",
+        "field": "other_initial_states.Sq0",
+        "source_value": 0.0
+      },
+      "Iq0": {
+        "value": 0.0,
+        "unit": "人",
+        "source": "baseline_parameters",
+        "field": "other_initial_states.Iq0",
+        "source_value": 0.0
+      },
+      "R0": {
+        "value": 0.0,
+        "unit": "人",
+        "source": "baseline_parameters",
+        "field": "other_initial_states.R0",
+        "source_value": 0.0
+      },
+      "wc": {
+        "value": 1.0,
+        "unit": "无量纲",
+        "source": "baseline_parameters",
+        "field": "parameters.wc",
+        "source_value": 1.0
+      },
+      "wq": {
+        "value": 2.0,
+        "unit": "无量纲",
+        "source": "baseline_parameters",
+        "field": "parameters.wq",
+        "source_value": 2.0
+      }
+    },
+    "xian": {
+      "N": {
+        "value": 13163000.0,
+        "unit": "人",
+        "source": "xian_reference",
+        "field": "parameters.N",
+        "source_value": 13163000.0
+      },
+      "S0": {
+        "value": 13162999.998993408,
+        "unit": "人",
+        "source": "xian_fit",
+        "field": "S0",
+        "source_value": 13162999.998993408,
+        "rule": "S0 = N - I0（稿件表 1；与 fit.json 的 S0 逐位相等）"
+      },
+      "I0": {
+        "value": 0.00100659188867187,
+        "unit": "人",
+        "source": "xian_reference",
+        "field": "I0_abs",
+        "source_value": 0.00100659188867187
+      },
+      "beta": {
+        "value": 0.1498,
+        "unit": "无量纲",
+        "source": "xian_reference",
+        "field": "parameters.beta",
+        "source_value": 0.1498
+      },
+      "gamma": {
+        "value": 0.2953,
+        "unit": "d^-1",
+        "source": "xian_reference",
+        "field": "parameters.gamma",
+        "source_value": 0.2953
+      },
+      "delta_q": {
+        "value": 0.3531,
+        "unit": "d^-1",
+        "source": "xian_reference",
+        "field": "parameters.delta_q",
+        "source_value": 0.3531
+      },
+      "c0": {
+        "value": 12.8872,
+        "unit": "d^-1",
+        "source": "xian_reference",
+        "field": "parameters.c0",
+        "source_value": 12.8872
+      },
+      "q0": {
+        "value": 0.323,
+        "unit": "无量纲",
+        "source": "xian_reference",
+        "field": "parameters.q0",
+        "source_value": 0.323
+      },
+      "eta": {
+        "value": 26326.0,
+        "unit": "人",
+        "rule": "η = 0.002N = 26326（设计情景，稿件表 1；原 joint_extra 的 load_inputs 同此）"
+      },
+      "Sq0": {
+        "value": 0.0,
+        "unit": "人",
+        "rule": "S_q(0) = 0（稿件表 1）"
+      },
+      "Iq0": {
+        "value": 0.0,
+        "unit": "人",
+        "rule": "I_q(0) = 0（稿件表 1）"
+      },
+      "R0": {
+        "value": 0.0,
+        "unit": "人",
+        "source": "xian_fit",
+        "field": "R0_initial",
+        "source_value": 0.0
+      },
+      "wc": {
+        "value": 1.0,
+        "unit": "无量纲",
+        "rule": "默认权重 w_c = 1（稿件第 2.4 节）"
+      },
+      "wq": {
+        "value": 2.0,
+        "unit": "无量纲",
+        "rule": "默认权重 w_q = 2（稿件第 2.4 节）"
+      }
+    }
+  },
+  "capacity_points": {
+    "base": {
+      "c_min": 5.0,
+      "q_cap": 0.6,
+      "source": "capacity",
+      "field": "baseline.point",
+      "source_value": {
+        "u_max": 0.5,
+        "q_cap": 0.6,
+        "c_min": 5.0
+      },
+      "caption": "图 6 图注：c_min/c0 = 0.5、q_cap = 0.6"
+    },
+    "xian": {
+      "c_min": 6.4436,
+      "q_cap": 0.75,
+      "source": "capacity",
+      "field": "xian.point",
+      "source_value": {
+        "u_max": 0.5,
+        "q_cap": 0.75,
+        "c_min": 6.4436
+      },
+      "caption": "图 6 图注：c_min/c0 = 0.5、q_cap = 0.75"
+    }
+  },
+  "code_reuse": [
+    {
+      "file": "params.py",
+      "source": "r7_return/params.py",
+      "blob": "b5467aae6b2bd824ad1d508ffb589e52f61eee21",
+      "change": "删去回流专用的 L_bound、omega_from_stay；增加常规轨迹派生量与能力约束代表点；数值未改",
+      "source_branch": "research/return-effects",
+      "source_commit": "bb52b965a8cd98dd07a5c41b9997dae433128756"
+    },
+    {
+      "file": "model.py",
+      "source": "r7_return/model.py",
+      "blob": "810bf85c74350bb2cd78c43d70198857e1f0812f",
+      "change": "只保留 ω = 0；成本被积函数改为式 (2.13) 的 (·)_+ 形式；增加线性强度",
+      "source_branch": "research/return-effects",
+      "source_commit": "bb52b965a8cd98dd07a5c41b9997dae433128756"
+    },
+    {
+      "file": "allocation.py",
+      "source": "r7_return/alloc.py",
+      "blob": "034e6207b6befb5dbc9755fc42c8f51bfbd07daa",
+      "change": "只保留无回流；扩展为一般权重、κ、能力约束区间、缩放坐标 y、牛顿修正与重根诊断、带局部加密的 N_x 网格核对、异常括区（同类型跳变与陡峭点）与退出附近的对数网格",
+      "source_branch": "research/return-effects",
+      "source_commit": "bb52b965a8cd98dd07a5c41b9997dae433128756"
+    },
+    {
+      "file": "state_integrals.py",
+      "source": "r7_return/endpoints.py",
+      "blob": "345eb9f1895c0e4e9ed06c2d1b5b80244083ab1c",
+      "change": "只保留无回流的启动状态与分段 Simpson/quad；增加 J_c、J_q、t1、退出后、闭式与 Policy 分段",
+      "source_branch": "research/return-effects",
+      "source_commit": "bb52b965a8cd98dd07a5c41b9997dae433128756"
+    },
+    {
+      "file": "simulate.py",
+      "source": "r7_return/simulate.py",
+      "blob": "c088330c9c532ebc28963657d861588b0e3219ec",
+      "change": "只复用 ω = 0 的 analytic_tail；事件法（阈值弧上代数令 I ≡ η、状态反馈控制）未复用，改为新写的开环完整方程",
+      "source_branch": "research/return-effects",
+      "source_commit": "bb52b965a8cd98dd07a5c41b9997dae433128756"
+    }
+  ],
+  "code_consulted": [
+    {
+      "path": "reproducibility/joint_extra/core.py",
+      "use": "缩放坐标 y 的驻点多项式写法、t1 的换元、名义时钟分段的思路"
+    }
+  ]
+}
