@@ -1,0 +1,100 @@
+{
+ "generated": "2026-10-16T21:21:34",
+ "git_head": "f4d49a6f4ccf87d012e308048ff37dd930da24de",
+ "description": "NR-7：无回流 t→∞ 累计感染与 L=U(0)−S_c 的交叉核对（模型 (2.1)，默认权重，S_q(0)=0）。return_branch 为回流分支 bb52b96 记录值（手抄，只读来源）。",
+ "rows": [
+  {
+   "case": "base",
+   "law": "q_only",
+   "C_inf": 286.58973183445624,
+   "C_to_clearance": 285.72437136052827,
+   "L": 586.8398299993382,
+   "return_branch": 286.5897318,
+   "rel_vs_return_branch": 1.2022853506884174e-10,
+   "premise_C_lt_L": true,
+   "ratio_L_over_C": 2.047665232955089
+  },
+  {
+   "case": "base",
+   "law": "alpha",
+   "C_inf": 324.2472668356423,
+   "C_to_clearance": 323.3819063617143,
+   "L": 586.8398299993382,
+   "return_branch": 324.2472668,
+   "rel_vs_return_branch": 1.0992321355973573e-10,
+   "premise_C_lt_L": true,
+   "ratio_L_over_C": 1.8098528191967815
+  },
+  {
+   "case": "base",
+   "law": "opt",
+   "C_inf": 307.49865349620615,
+   "C_to_clearance": 306.63329302227817,
+   "L": 586.8398299993382,
+   "return_branch": 307.4986535,
+   "rel_vs_return_branch": 1.2337756339502309e-11,
+   "premise_C_lt_L": true,
+   "ratio_L_over_C": 1.9084305681571987
+  },
+  {
+   "case": "base",
+   "law": "c_only",
+   "C_inf": 629.5087551734755,
+   "C_to_clearance": 628.6433946995476,
+   "L": 586.8398299993382,
+   "return_branch": 629.5087552,
+   "rel_vs_return_branch": 4.213524158862355e-11,
+   "premise_C_lt_L": false,
+   "ratio_L_over_C": 0.9322186946194595
+  },
+  {
+   "case": "xian",
+   "law": "q_only",
+   "C_inf": 2377947.608964832,
+   "C_to_clearance": 2377943.1317582633,
+   "L": 10188874.587407744,
+   "return_branch": 2377947.609,
+   "rel_vs_return_branch": 1.4789281844662538e-11,
+   "premise_C_lt_L": true,
+   "ratio_L_over_C": 4.284734680022309
+  },
+  {
+   "case": "xian",
+   "law": "alpha",
+   "C_inf": 2639000.128439245,
+   "C_to_clearance": 2638995.651232676,
+   "L": 10188874.587407744,
+   "return_branch": 2639000.128,
+   "rel_vs_return_branch": 1.6644364033166825e-10,
+   "premise_C_lt_L": true,
+   "ratio_L_over_C": 3.8608844605982036
+  },
+  {
+   "case": "xian",
+   "law": "opt",
+   "C_inf": 2534833.0938360016,
+   "C_to_clearance": 2534828.616629433,
+   "L": 10188874.587407744,
+   "return_branch": 2534833.094,
+   "rel_vs_return_branch": 6.469793028873436e-11,
+   "premise_C_lt_L": true,
+   "ratio_L_over_C": 4.019544565748416
+  },
+  {
+   "case": "xian",
+   "law": "c_only",
+   "C_inf": 3856646.0907506463,
+   "C_to_clearance": 3856641.6135440776,
+   "L": 10188874.587407744,
+   "return_branch": 3856646.091,
+   "rel_vs_return_branch": 6.465558343383138e-11,
+   "premise_C_lt_L": true,
+   "ratio_L_over_C": 2.6419003319603567
+  }
+ ],
+ "L_rel_diff": {
+  "base": 1.1276860372233543e-12,
+  "xian": 2.544202767246709e-10
+ },
+ "max_rel_vs_return_branch": 1.6644364033166825e-10
+}

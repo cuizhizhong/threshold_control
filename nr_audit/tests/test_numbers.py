@@ -56,3 +56,15 @@ def test_population_scale_matches_old_csv():
     assert all(abs(r['dt'] - 85.07) < 0.005 for r in d['a_fixed_theta'])
     lf = [r['log_factor'] for r in d['c_log_factor']]
     assert round(lf[0], 2) == 2.20 and round(lf[1], 2) == 2.15
+
+
+def test_noreturn_inf_crosscheck():
+    """NR-7：无回流 t→∞ 累计感染与回流分支记录一致，推论前提的判定与记录相同。"""
+    f = RES / 'noreturn_inf_crosscheck.json'
+    if not f.exists():
+        pytest.skip('尚未运行 audit_noreturn_inf.py')
+    d = json.loads(f.read_text(encoding='utf-8'))
+    assert d['max_rel_vs_return_branch'] < 1e-8
+    prem = {(r['case'], r['law']): r['premise_C_lt_L'] for r in d['rows']}
+    assert prem[('base', 'c_only')] is False
+    assert all(v for k, v in prem.items() if k != ('base', 'c_only'))

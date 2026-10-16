@@ -130,6 +130,7 @@ conda run --no-capture-output -n thesis python nr_audit/sources.py
 | `python nr_audit/audit_convergence.py` | N4：控制网格、状态网格、积分容差三档 | `convergence.{json,md}` | 约 5 min |
 | `python nr_audit/audit_fit.py` | N5：在给定 $I_0$ 下按原定义重算四项拟合误差与补充表 S2 | `fit_reconstruction.{json,md}` | 约 3 s |
 | `python nr_audit/audit_population_scale.py` | NR-6：人口缩放情景（原补充 S4“规模的作用”，移入补充 S3.1）的数字复核：θ=0.002 的六个人口、η=100 的两个人口与对数因子，并与原 `fixed_absolute_scale.csv`（只读）对照 | `population_scale.{json,md}` | 约 10 s |
+| `python nr_audit/audit_noreturn_inf.py` | NR-7：无回流 t→∞ 累计感染 $C_\pi(0)$（四种控制、两组参数）与 $L=U(0)-S_c$ 的独立复核，对照回流分支 bb52b96 记录值（手抄，只读来源），并核对条件性推论的前提 $C_\pi(0)<L$ | `noreturn_inf_crosscheck.{json,md}` | 约 5 s |
 | `python nr_audit/make_numbers.py` | 新增数字的宏（NR-3 的 31 个；NR-5 追加 12 个：权重括区的两位小数取整值 `...Apx` 共 6 个、收敛检查的上界 5 个、TDINN 收紧容差的变化 1 个，上界一律向上取整） | `paper/generated/nr_numbers.tex`、`nr_numbers_map.json` | 1 s |
 
 `tdinn.py` 实现 TDINN 控制与常规控制下的完整方程（时间开环，控制函数为稿件式 (7.1)），供 N1 的第 7 章数字与 N5 使用；`audit_common.py` 是写出、读表与显示核对的公共部分。N6（无回流 $t\to\infty$ 汇总）本步未做。
