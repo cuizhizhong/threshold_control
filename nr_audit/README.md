@@ -129,6 +129,6 @@ conda run --no-capture-output -n thesis python nr_audit/sources.py
 | `python nr_audit/audit_weights.py` | N3：表 S5 的结构转折复核与加密（不假定单调） | `weight_brackets.{json,md}` | 约 10–20 min |
 | `python nr_audit/audit_convergence.py` | N4：控制网格、状态网格、积分容差三档 | `convergence.{json,md}` | 约 5 min |
 | `python nr_audit/audit_fit.py` | N5：在给定 $I_0$ 下按原定义重算四项拟合误差与补充表 S2 | `fit_reconstruction.{json,md}` | 约 3 s |
-| `python nr_audit/make_numbers.py` | 新增数字的宏 | `paper/generated/nr_numbers.tex`、`nr_numbers_map.json` | 1 s |
+| `python nr_audit/make_numbers.py` | 新增数字的宏（NR-3 的 31 个；NR-5 追加 12 个：权重括区的两位小数取整值 `...Apx` 共 6 个、收敛检查的上界 5 个、TDINN 收紧容差的变化 1 个，上界一律向上取整） | `paper/generated/nr_numbers.tex`、`nr_numbers_map.json` | 1 s |
 
 `tdinn.py` 实现 TDINN 控制与常规控制下的完整方程（时间开环，控制函数为稿件式 (7.1)），供 N1 的第 7 章数字与 N5 使用；`audit_common.py` 是写出、读表与显示核对的公共部分。N6（无回流 $t\to\infty$ 汇总）本步未做。

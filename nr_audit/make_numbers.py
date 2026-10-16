@@ -1,7 +1,8 @@
 """由 NR-3 的结果 JSON 生成 paper/generated/nr_numbers.tex（只含 \\newcommand，宏名前缀 \\nr、只用字母）与
 results/nr_numbers_map.json（每个宏的全精度值、显示格式、单位、来源文件与字段）。
 
-只为 NR-3 新增的数字生成宏（初值诊断 N2、权重转折括区 N3、收敛与残差 N4、拟合误差 N5）。既有数字经 N1 核对与显示一致，
+只为 NR-3 新增的数字生成宏（初值诊断 N2、权重转折括区 N3、收敛与残差 N4、拟合误差 N5），以及 NR-5 为正文取整显示与补充 S6
+收敛表追加的宏（括区的两位小数取整值 `...Apx`、`nrConvNzAllMaxRel` 等、`nrTdinnTolChange`）。既有数字经 N1 核对与显示一致，
 不为统一格式改宏。科学记数的宏写成 a\\times10^{b}，须在数学模式中使用。本步不在稿件中 \\input 本文件。
 
 运行：conda run --no-capture-output -n thesis python nr_audit/make_numbers.py
@@ -34,6 +35,17 @@ def sci(v, sig=2):
         e += 1
         ms = f'{m / 10:.{sig - 1}f}'
     return f'{ms}\\times10^{{{e}}}'
+
+
+def sci_up(v, sig=2):
+    """科学记数，向上取整到 sig 位有效数字（用于“不超过”的上界）。"""
+    e = int(math.floor(math.log10(abs(v))))
+    m = math.ceil(round(v / 10 ** (e - sig + 1), 9))
+    ms_val = m / 10 ** (sig - 1)
+    if ms_val >= 10:
+        e += 1
+        ms_val /= 10
+    return f'{ms_val:.{sig - 1}f}\\times10^{{{e}}}'
 
 
 def add(name, value, text, unit, src_file, field, meaning):
@@ -82,6 +94,12 @@ def main():
                     add(base + end.capitalize(), b[end], fixed(b[end], 4), '', 'weight_brackets.json',
                         f"cases.{case}.changes[grid {c['grid'][1]:.6f}–{c['grid'][2]:.6f}].brackets[{b['from_']}->{b['to']}].{end}",
                         f"{case}：结构由 {b['from_']} 变为 {b['to']} 的 r 括区{'下' if end == 'lo' else '上'}端（宽度 < 1e-3，所检验网格上）")
+                mid = 0.5 * (b['lo'] + b['hi'])
+                rd = round(mid, 2)
+                assert b['lo'] - 0.005 <= rd <= b['hi'] + 0.005, (case, b)
+                add(base + 'Apx', rd, fixed(rd, 2), '', 'weight_brackets.json',
+                    f"cases.{case}.changes[grid {c['grid'][1]:.6f}–{c['grid'][2]:.6f}].brackets[{b['from_']}->{b['to']}].(lo+hi)/2 取两位小数",
+                    f"{case}：结构由 {b['from_']} 变为 {b['to']} 的 r 括区中点取两位小数（正文用语“约”，不是括区端点）")
 
     cv = load('convergence.json')
     tol = max(max(r['max_rel_change_vs_base'].values()) for r in cv['tolerance_tiers'] if r['law'] not in ('tdinn', 'routine'))
@@ -98,6 +116,28 @@ def main():
         v = r['residuals']['base']['plateau_abs_dev']
         add(f'nrPlateauDev{tag}', v, sci(v), '人', 'convergence.json',
             f'tolerance_tiers[{case},q_only].residuals.base.plateau_abs_dev', f'{case} 仅隔离控制开环完整方程阈值控制期的 max|I-η|（基准档）')
+    nzall = max(max(r['vs_8001'][k]['dt_rel'], r['vs_8001'][k]['J_rel']) for r in cv['state_grid'] for k in ('1001', '2001', '4001'))
+    add('nrConvNzAllMaxRel', nzall, sci_up(nzall), '', 'convergence.json', 'max state_grid[].vs_8001[1001,2001,4001].{dt_rel,J_rel}',
+        'N_z = 1001、2001、4001 与 8001 的 Δt、J 最大相对差')
+    nzq = max(max(abs(r['values']['8001']['dt'] - r['values']['8001']['dt_quad']) / abs(r['values']['8001']['dt_quad']),
+                  abs(r['values']['8001']['J'] - r['values']['8001']['J_quad']) / abs(r['values']['8001']['J_quad']))
+              for r in cv['state_grid'])
+    add('nrConvNzQuadMaxRel', nzq, sci_up(nzq), '', 'convergence.json', 'max state_grid[].values[8001] 与 quad 的 Δt、J 相对差',
+        'N_z = 8001 的 Simpson 与分段 quad 的 Δt、J 最大相对差')
+    thr = [r for r in cv['tolerance_tiers'] if r['law'] not in ('tdinn', 'routine')]
+    pl = max(t['plateau_abs_dev'] for r in thr for t in r['residuals'].values())
+    add('nrConvPlateauMax', pl, sci_up(pl), '人', 'convergence.json', 'max tolerance_tiers[阈值策略].residuals[*].plateau_abs_dev',
+        '积分容差三档下阈值控制期 max|I-η| 的最大值')
+    ex = max(abs(t['exit_S_error']) for r in thr for t in r['residuals'].values())
+    add('nrConvExitMax', ex, sci_up(ex), '人', 'convergence.json', 'max |tolerance_tiers[阈值策略].residuals[*].exit_S_error|',
+        '积分容差三档下退出时刻 S 与 S_c 之差的最大值')
+    ms = max(t['mass_residual_persons'] for r in cv['tolerance_tiers'] for t in r['residuals'].values())
+    add('nrConvMassMax', ms, sci_up(ms), '人', 'convergence.json', 'max tolerance_tiers[].residuals[*].mass_residual_persons',
+        '积分容差三档下人口守恒残差的最大值（含常规控制与 TDINN）')
+    reg = load('regression.json')
+    tv = reg['old_implementation_numbers']['S6_tdinn_tolerance']['nr_audit']
+    add('nrTdinnTolChange', tv, sci_up(tv), '人', 'regression.json', 'old_implementation_numbers.S6_tdinn_tolerance.nr_audit',
+        '本模块收紧容差并把最大步长减半后，TDINN 总累计新增感染（清零时间）的变化')
     idr = max(max(t['identity_residual_rel'] for t in r['residuals'].values()) for r in cv['tolerance_tiers'])
     add('nrIdentityMaxRel', idr, sci(idr, 1), '', 'convergence.json', 'max tolerance_tiers[].residuals[*].identity_residual_rel',
         '累计新增感染恒等式残差/初始易感者总数的最大值')

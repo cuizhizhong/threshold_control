@@ -1,8 +1,8 @@
 {
- "generated": "2026-10-15T22:31:18",
- "git_head": "60c2b2fd73115ec0369b8f2d432ff585e83f5e40",
+ "generated": "2026-10-16T20:59:10",
+ "git_head": "bf47aa15b3167f0612fd285be94fd9c2be148c09",
  "tex": "paper/generated/nr_numbers.tex",
- "n_macros": 31,
+ "n_macros": 43,
  "macros": [
   {
    "macro": "\\nrICtOneLow",
@@ -140,6 +140,15 @@
    "meaning": "base：结构由 A 变为 A' 的 r 括区上端（宽度 < 1e-3，所检验网格上）"
   },
   {
+   "macro": "\\nrWtBaseAToApApx",
+   "value": 3.14,
+   "display": "3.14",
+   "unit": "",
+   "source": "nr_audit/results/weight_brackets.json",
+   "field": "cases.base.changes[grid 3.130902–3.236316].brackets[A->A'].(lo+hi)/2 取两位小数",
+   "meaning": "base：结构由 A 变为 A' 的 r 括区中点取两位小数（正文用语“约”，不是括区端点）"
+  },
+  {
    "macro": "\\nrWtBaseApToBLo",
    "value": 3.204987849516518,
    "display": "3.2050",
@@ -156,6 +165,15 @@
    "source": "nr_audit/results/weight_brackets.json",
    "field": "cases.base.changes[grid 3.130902–3.236316].brackets[A'->B].hi",
    "meaning": "base：结构由 A' 变为 B 的 r 括区上端（宽度 < 1e-3，所检验网格上）"
+  },
+  {
+   "macro": "\\nrWtBaseApToBApx",
+   "value": 3.21,
+   "display": "3.21",
+   "unit": "",
+   "source": "nr_audit/results/weight_brackets.json",
+   "field": "cases.base.changes[grid 3.130902–3.236316].brackets[A'->B].(lo+hi)/2 取两位小数",
+   "meaning": "base：结构由 A' 变为 B 的 r 括区中点取两位小数（正文用语“约”，不是括区端点）"
   },
   {
    "macro": "\\nrWtBaseBToCLo",
@@ -176,6 +194,15 @@
    "meaning": "base：结构由 B 变为 C 的 r 括区上端（宽度 < 1e-3，所检验网格上）"
   },
   {
+   "macro": "\\nrWtBaseBToCApx",
+   "value": 13.1,
+   "display": "13.10",
+   "unit": "",
+   "source": "nr_audit/results/weight_brackets.json",
+   "field": "cases.base.changes[grid 13.003831–13.441655].brackets[B->C].(lo+hi)/2 取两位小数",
+   "meaning": "base：结构由 B 变为 C 的 r 括区中点取两位小数（正文用语“约”，不是括区端点）"
+  },
+  {
    "macro": "\\nrWtXianAToApLo",
    "value": 2.5476810040254465,
    "display": "2.5477",
@@ -192,6 +219,15 @@
    "source": "nr_audit/results/weight_brackets.json",
    "field": "cases.xian.changes[grid 2.483130–2.566734].brackets[A->A'].hi",
    "meaning": "xian：结构由 A 变为 A' 的 r 括区上端（宽度 < 1e-3，所检验网格上）"
+  },
+  {
+   "macro": "\\nrWtXianAToApApx",
+   "value": 2.55,
+   "display": "2.55",
+   "unit": "",
+   "source": "nr_audit/results/weight_brackets.json",
+   "field": "cases.xian.changes[grid 2.483130–2.566734].brackets[A->A'].(lo+hi)/2 取两位小数",
+   "meaning": "xian：结构由 A 变为 A' 的 r 括区中点取两位小数（正文用语“约”，不是括区端点）"
   },
   {
    "macro": "\\nrWtXianApToBLo",
@@ -212,6 +248,15 @@
    "meaning": "xian：结构由 A' 变为 B 的 r 括区上端（宽度 < 1e-3，所检验网格上）"
   },
   {
+   "macro": "\\nrWtXianApToBApx",
+   "value": 2.71,
+   "display": "2.71",
+   "unit": "",
+   "source": "nr_audit/results/weight_brackets.json",
+   "field": "cases.xian.changes[grid 2.653153–2.742482].brackets[A'->B].(lo+hi)/2 取两位小数",
+   "meaning": "xian：结构由 A' 变为 B 的 r 括区中点取两位小数（正文用语“约”，不是括区端点）"
+  },
+  {
    "macro": "\\nrWtXianBToCLo",
    "value": 7.452952150788069,
    "display": "7.4530",
@@ -228,6 +273,15 @@
    "source": "nr_audit/results/weight_brackets.json",
    "field": "cases.xian.changes[grid 7.406054–7.655407].brackets[B->C].hi",
    "meaning": "xian：结构由 B 变为 C 的 r 括区上端（宽度 < 1e-3，所检验网格上）"
+  },
+  {
+   "macro": "\\nrWtXianBToCApx",
+   "value": 7.45,
+   "display": "7.45",
+   "unit": "",
+   "source": "nr_audit/results/weight_brackets.json",
+   "field": "cases.xian.changes[grid 7.406054–7.655407].brackets[B->C].(lo+hi)/2 取两位小数",
+   "meaning": "xian：结构由 B 变为 C 的 r 括区中点取两位小数（正文用语“约”，不是括区端点）"
   },
   {
    "macro": "\\nrConvTolMaxRel",
@@ -273,6 +327,60 @@
    "source": "nr_audit/results/convergence.json",
    "field": "tolerance_tiers[xian,q_only].residuals.base.plateau_abs_dev",
    "meaning": "xian 仅隔离控制开环完整方程阈值控制期的 max|I-η|（基准档）"
+  },
+  {
+   "macro": "\\nrConvNzAllMaxRel",
+   "value": 5.390714599126295e-13,
+   "display": "5.4\\times10^{-13}",
+   "unit": "",
+   "source": "nr_audit/results/convergence.json",
+   "field": "max state_grid[].vs_8001[1001,2001,4001].{dt_rel,J_rel}",
+   "meaning": "N_z = 1001、2001、4001 与 8001 的 Δt、J 最大相对差"
+  },
+  {
+   "macro": "\\nrConvNzQuadMaxRel",
+   "value": 1.9815304010467568e-13,
+   "display": "2.0\\times10^{-13}",
+   "unit": "",
+   "source": "nr_audit/results/convergence.json",
+   "field": "max state_grid[].values[8001] 与 quad 的 Δt、J 相对差",
+   "meaning": "N_z = 8001 的 Simpson 与分段 quad 的 Δt、J 最大相对差"
+  },
+  {
+   "macro": "\\nrConvPlateauMax",
+   "value": 4.453249857760966e-08,
+   "display": "4.5\\times10^{-8}",
+   "unit": "人",
+   "source": "nr_audit/results/convergence.json",
+   "field": "max tolerance_tiers[阈值策略].residuals[*].plateau_abs_dev",
+   "meaning": "积分容差三档下阈值控制期 max|I-η| 的最大值"
+  },
+  {
+   "macro": "\\nrConvExitMax",
+   "value": 3.9311298660749117e-07,
+   "display": "4.0\\times10^{-7}",
+   "unit": "人",
+   "source": "nr_audit/results/convergence.json",
+   "field": "max |tolerance_tiers[阈值策略].residuals[*].exit_S_error|",
+   "meaning": "积分容差三档下退出时刻 S 与 S_c 之差的最大值"
+  },
+  {
+   "macro": "\\nrConvMassMax",
+   "value": 1.2597152210247486e-06,
+   "display": "1.3\\times10^{-6}",
+   "unit": "人",
+   "source": "nr_audit/results/convergence.json",
+   "field": "max tolerance_tiers[].residuals[*].mass_residual_persons",
+   "meaning": "积分容差三档下人口守恒残差的最大值（含常规控制与 TDINN）"
+  },
+  {
+   "macro": "\\nrTdinnTolChange",
+   "value": 1.4097167877480388e-11,
+   "display": "1.5\\times10^{-11}",
+   "unit": "人",
+   "source": "nr_audit/results/regression.json",
+   "field": "old_implementation_numbers.S6_tdinn_tolerance.nr_audit",
+   "meaning": "本模块收紧容差并把最大步长减半后，TDINN 总累计新增感染（清零时间）的变化"
   },
   {
    "macro": "\\nrIdentityMaxRel",

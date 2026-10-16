@@ -1,26 +1,49 @@
 \section{数值计算的细节}
 \label{sec:sup:numerics}
-正文表与图中的指标由闭式解与对 $S$ 的一维积分得到（正文第~\ref{sec:num:methods}~节），完整仓室方程的数值积分只用于核对。核对时输入的控制是按模型轨迹预先算出的时间函数，积分中不按实时状态纠偏。基准轨迹（正文图~\ref{fig:scenario1:single-sim}）用 \texttt{ode45} 分三段积分；四种控制与西安算例用 DOP853 求解归一化方程。在基准轨迹与西安的仅隔离控制中，阈值控制期内 $I$ 偏离 $\eta$ 的最大值分别约为 $1.07\times10^{-7}$ 人与 $1.35\times10^{-6}$ 人。日新增病例取相邻整数日累计量之差。TDINN 拟合轨迹的总累计新增感染在 $t=40$ d 为 $2098.9747$，在清零时间 $45.2874$ d 为 $2105.6330$；收紧积分容差并把最大步长减半后，后者的变化为 $3.61\times10^{-8}$ 人。
+正文表与图中的指标由闭式解与对 $S$ 的一维积分得到（正文第~\ref{sec:num:methods}~节），完整仓室方程的数值积分只用于核对。核对时输入的控制是按模型轨迹预先算出的时间函数，积分中不按实时状态纠偏，也不把 $I$ 重置到 $\eta$。正文表中的指标与正文引用的数字（扫描曲线与热图的底层网格除外）另由独立的核验程序复算：一条路径用闭式与对 $S$ 的求积，另一条路径积分完整的五仓室方程与累计流量，累计新增感染由流量积分得到，而不是由 $S$ 的差定义；复算值与显示的数字一致。完整方程在人数除以 $N$ 的变量下用 DOP853 求解（rtol $10^{-12}$，最大步长 $0.5$ d，各分量的 atol 分别设置；西安的初始感染极小，感染分量按其自然对数积分，使绝对容差远小于初值）。启动与退出由事件检测，清零事件只在退出后向下检测。日新增病例取相邻整数日累计量之差。TDINN 拟合轨迹的总累计新增感染在 $t=40$ d 为 $2098.9747$，在清零时间 $45.2874$ d 为 $2105.6330$。
 
-能力约束、成本权重与时长约束的结果都在有限个计算点上得到。能力约束的基准代表点上，能力约束下的成本最优控制在启动后约 $1.94$ d 内使隔离比例停在上限，接触率降幅从启动时的约 $39.1\%$ 随 $S$ 下降而减小；西安代表点上，隔离比例停在上限约 $30.38$ d（正文第~\ref{sec:joint:capacity-numerics}~节）。正文图~\ref{fig:joint:phase}的权重网格为 $r\in[0.1,20]$ 内 $161$ 个对数等距点，表~\ref{tab:joint:weight-transitions}列出成本最优控制的结构转折所在的相邻网格点；默认的 $r=2$ 不是网格点，正文第~\ref{sec:joint:compare-numerics}~节对它单独计算。正文图~\ref{fig:joint:frontier}由基准参数下 $470$ 个 $J+\kappa\Delta t$ 的最小化解构成。
+逐状态最优选择按定理~\ref{thm:joint:cost-minimum}比较允许区间的两个端点与五次方程的全部实根，不假定目标函数凸或单峰；另在区间内取 $N_x$ 个等距点并加密网格上的局部极小邻域，网格值低于根法值即视为漏根，作独立核对。状态积分用分段复合 Simpson 公式（初始 $N_z=4001$ 个点，分段点取在结构变化点与陡峭点），逐片按 Richardson 估计细分，另用分段 quad 交叉核对。表~\ref{tab:sup:convergence}给出三类收敛检查；这些是本次复核的判据，不是对数值真值的证明。
+\begin{table}[htbp]
+\centering\small
+\renewcommand{\arraystretch}{1.2}
+\begin{threeparttable}
+\caption{数值核验的收敛检查}
+\label{tab:sup:convergence}
+\begin{tabularx}{\linewidth}{@{}l>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+\toprule
+检查 & 设置 & 结果\\
+\midrule
+控制网格 $N_x$ & $N_x=2001,4001,8001$；两组参数的 $r=2$、表~\ref{tab:joint:weight-transitions}转折附近的权重与能力代表点，共 $12$ 组，每组 $200$ 个状态 & 网格值低于根法值的最大相对量约 $\nrConvNxMaxGap$\\
+状态网格 $N_z$ & $N_z=1001,2001,4001$ 对 $8001$，同样 $12$ 组的成本最优控制 & $\Delta t$、$J$ 的最大相对差 $\nrConvNzAllMaxRel$；$N_z=8001$ 与分段 quad 的最大相对差 $\nrConvNzQuadMaxRel$\\
+积分容差 & 三档：基准（rtol $10^{-12}$、atol 比例 $1$、最大步长 $0.5$ d），收紧（$10^{-13}$、$0.1$、$0.25$ d），放宽（$10^{-11}$、$10$、$1$ d）；两组参数的四种控制、能力代表点、TDINN 与常规控制 & 阈值策略核心量（$t_1$、$\Delta t$、$J$、$t_{\rm end}$、总累计新增感染、新增隔离易感者、$\max(I+I_q)/\eta$）的最大相对变化约 $\nrConvTolMaxRel$\\
+\bottomrule
+\end{tabularx}
+\begin{tablenotes}[flushleft]\footnotesize
+\item 注：$N_x$ 只核对根法，$N_z$ 与积分容差分别检查状态积分与完整方程。控制律、参数与终点同正文第~\ref{sec:num:methods}~节。
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+基准档下，仅隔离控制在阈值控制期内 $I$ 偏离 $\eta$ 的最大值，基准参数与西安参数分别约为 $\nrPlateauDevBase$ 人与 $\nrPlateauDevXian$ 人；三档下该偏离不超过 $\nrConvPlateauMax$ 人，退出时 $S$ 与 $S_c$ 之差不超过 $\nrConvExitMax$ 人，人口守恒残差不超过 $\nrConvMassMax$ 人（均出自西安参数），累计新增感染恒等式的残差与初始易感者人数之比约为 $\nrIdentityMaxRel$。TDINN 总累计新增感染（清零时间）在收紧容差并把最大步长减半后的变化不超过 $\nrTdinnTolChange$ 人。
+
+能力约束、成本权重与时长约束的结果都在有限个计算点上得到。能力约束的基准代表点上，能力约束下的成本最优控制在启动后约 $1.94$ d 内使隔离比例停在上限，接触率降幅从启动时的约 $39.1\%$ 随 $S$ 下降而减小；西安代表点上，隔离比例停在上限约 $30.38$ d（正文第~\ref{sec:joint:capacity-numerics}~节）。正文图~\ref{fig:joint:phase}的权重网格为 $r\in[0.1,20]$ 内 $161$ 个对数等距点；默认的 $r=2$ 不是网格点，正文第~\ref{sec:joint:compare-numerics}~节对它单独计算。表~\ref{tab:joint:weight-transitions}给出成本最优控制的结构转折所在的 $r$ 括区。括区由原网格出发确定：对全部网格点重新分类，在类别不同的相邻网格点之间取 $20$ 个细分点，找出每个改变区间，再在 $\log r$ 上二分到宽度小于 $10^{-3}$，不假定结构类别对 $r$ 单调；各括区在 $N_z=8001$ 与 $16001$ 下类别不变。结构 A$'$ 中的内部跳变另用不依赖根法的 $2\times10^{5}$ 点网格逐点核对：两个内部局部极小在跳变处交换全局最优，两个分支的成本相对只差约 $10^{-5}$。正文图~\ref{fig:joint:frontier}由基准参数下 $470$ 个 $J+\kappa\Delta t$ 的最小化解构成。
 \begin{table}[htbp]
 \centering\small
 \renewcommand{\arraystretch}{1.2}
 \begin{threeparttable}
 \caption{权重网格上成本最优控制的结构转折}
 \label{tab:joint:weight-transitions}
-\begin{tabular*}{0.62\linewidth}{@{\extracolsep{\fill}}lcc@{}}
+\begin{tabular*}{0.9\linewidth}{@{\extracolsep{\fill}}llcc@{}}
 \toprule
-网格点 & 基准 & 西安\\
+转折 & 结构变化 & 基准 & 西安\\
 \midrule
-在 $S_{\rm sw}$ 处连续切换的最大 $r$ & 3.13 & 2.65\\
-切换提前并跳变的最小 $r$ & 3.24 & 2.74\\
-出现仅隔离段的最大 $r$ & 13.00 & 7.41\\
-不出现仅隔离段的最小 $r$ & 13.44 & 7.66\\
+A$\to$A$'$ & 出现内部跳变 & $[\nrWtBaseAToApLo,\nrWtBaseAToApHi]$ & $[\nrWtXianAToApLo,\nrWtXianAToApHi]$\\
+A$'\to$B & 切换提前并跳变 & $[\nrWtBaseApToBLo,\nrWtBaseApToBHi]$ & $[\nrWtXianApToBLo,\nrWtXianApToBHi]$\\
+B$\to$C & 仅隔离段消失 & $[\nrWtBaseBToCLo,\nrWtBaseBToCHi]$ & $[\nrWtXianBToCLo,\nrWtXianBToCHi]$\\
 \bottomrule
 \end{tabular*}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：$w_c=1$，$r=w_q/w_c$，不考虑能力约束；第 1、2 行与第 3、4 行各为相邻网格点。
+\item 注：$w_c=1$，$r=w_q/w_c$，不考虑能力约束。结构 A：在 $S_{\rm sw}$ 处连续切换，此后控制连续；A$'$：在 $S_{\rm sw}$ 处连续切换，随后在 $S_{\rm sw}$ 稍下方于两个内部取值之间跳变一次；B：切换提前到 $S_{\rm sw}$ 以上，接触率在切换处跳变；C：没有仅隔离段。每格是所检验网格与精度下含该转折的 $r$ 括区，宽度小于 $10^{-3}$。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
