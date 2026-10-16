@@ -42,3 +42,17 @@ def test_registry_has_no_stop():
     reg = json.loads((RES / 'regression.json').read_text(encoding='utf-8'))
     assert all(r['status'] != 'stop' for r in reg['registry'])
     assert all(c['holds'] for c in reg['claims'])
+
+
+def test_population_scale_matches_old_csv():
+    """NR-6：人口缩放情景的复核值与原 CSV 一致，正文所写的极差与启动时刻成立。"""
+    f = RES / 'population_scale.json'
+    if not f.exists():
+        pytest.skip('尚未运行 audit_population_scale.py')
+    d = json.loads(f.read_text(encoding='utf-8'))
+    assert d['old_compare_max'] < 1e-10
+    assert abs(d['spread_dt'] - 4.71e-8) < 0.01e-8 and abs(d['spread_J'] - 1.17e-7) < 0.01e-7
+    assert round(d['t1_min'], 2) == 11.39 and round(d['t1_max'], 2) == 16.90
+    assert all(abs(r['dt'] - 85.07) < 0.005 for r in d['a_fixed_theta'])
+    lf = [r['log_factor'] for r in d['c_log_factor']]
+    assert round(lf[0], 2) == 2.20 and round(lf[1], 2) == 2.15

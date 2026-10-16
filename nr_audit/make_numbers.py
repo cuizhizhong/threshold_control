@@ -1,8 +1,9 @@
 """由 NR-3 的结果 JSON 生成 paper/generated/nr_numbers.tex（只含 \\newcommand，宏名前缀 \\nr、只用字母）与
 results/nr_numbers_map.json（每个宏的全精度值、显示格式、单位、来源文件与字段）。
 
-只为 NR-3 新增的数字生成宏（初值诊断 N2、权重转折括区 N3、收敛与残差 N4、拟合误差 N5），以及 NR-5 为正文取整显示与补充 S6
-收敛表追加的宏（括区的两位小数取整值 `...Apx`、`nrConvNzAllMaxRel` 等、`nrTdinnTolChange`）。既有数字经 N1 核对与显示一致，
+只为 NR-3 新增的数字生成宏（初值诊断 N2、权重转折括区 N3、收敛与残差 N4、拟合误差 N5），
+NR-5 为正文取整显示与补充 S6 收敛表追加的宏（括区的两位小数取整值 `...Apx`、`nrConvNzAllMaxRel` 等、`nrTdinnTolChange`），
+NR-6 为补充 S3.1 的初值诊断表追加的宏（`nrICtab…`，六条轨迹各四个量）。既有数字经 N1 核对与显示一致，
 不为统一格式改宏。科学记数的宏写成 a\\times10^{b}，须在数学模式中使用。本步不在稿件中 \\input 本文件。
 
 运行：conda run --no-capture-output -n thesis python nr_audit/make_numbers.py
@@ -72,6 +73,14 @@ def main():
     v = max(span[l]['total_infections_to_clearance'] for l in span)
     add('nrICMaxRelTotal', v, sci(v), '', 'initial_condition.json',
         'max over laws of max_abs_relative_change[*].total_infections_to_clearance', '六条轨迹中计至清零的总累计新增感染的最大相对变化')
+
+    # NR-6：六条固定人口初值诊断的表（补充 S3.1）：t1、Δt、J、清零时间
+    for law, lt in (('q_only', 'Q'), ('opt', 'O')):
+        for f, tag in ((0.1, 'Low'), (1.0, 'Fit'), (10.0, 'High')):
+            st = rows[(law, f)]['state']
+            for key, kt, d, unit in (('t1', 'TOne', 2, 'd'), ('dt', 'Dt', 4, 'd'), ('J', 'J', 3, 'd'), ('t_end', 'Tend', 2, 'd')):
+                add(f'nrICtab{lt}{tag}{kt}', st[key], fixed(st[key], d), unit, 'initial_condition.json',
+                    f'rows[law={law},factor={f}].state.{key}', f'西安固定人口初值诊断表：{law}，I0 为拟合值的 {f:g} 倍，{key}')
 
     fit = load('fit_reconstruction.json')['at_fit_I0']
     for key, tag in (('community_new', 'CommNew'), ('quarantine_new', 'QuarNew'), ('community_cum', 'CommCum'),

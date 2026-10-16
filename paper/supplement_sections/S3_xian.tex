@@ -3,8 +3,32 @@
 \label{sec:sup:xian}
 西安参数见正文表~\ref{tab:xian_initial_fit}，计算使用 $I_0$ 的未取整值。
 
-\subsection{初值对照与阈值扫描}
+\subsection{初值与人口缩放}
 \label{sec:sup:xian:settings}
+正文第~\ref{sec:xian}~节的拟合准则是四项均方误差之和，四项等权：社区日新增、隔离日新增、社区累计与隔离累计。模型的日新增取进入 $I$ 与 $I_q$ 的流量在日区间 $[k,k+1]$ 上的积分，累计数取 $t=k+1$ 时自 $t=0$ 起的累计（不含初始感染者），观测累计数由观测日新增逐日相加。表~\ref{tab:sup:fit}给出拟合所得 $I_0$ 对应的四项误差；这里只重建给定 $I_0$ 下的误差，没有重新拟合。
+\begin{table}[htbp]
+\centering\small
+\renewcommand{\arraystretch}{1.2}
+\begin{threeparttable}
+\caption{拟合初值下的四项均方误差}
+\label{tab:sup:fit}
+\begin{tabular*}{0.6\linewidth}{@{\extracolsep{\fill}}lc@{}}
+\toprule
+误差项 & 均方误差（例$^2$）\\
+\midrule
+社区日新增 & $\nrFitMseCommNew$\\
+隔离日新增 & $\nrFitMseQuarNew$\\
+社区累计 & $\nrFitMseCommCum$\\
+隔离累计 & $\nrFitMseQuarCum$\\
+合计（拟合准则） & $\nrFitObjective$\\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]\footnotesize
+\item 注：$I_0\approx1.00659\times10^{-3}$（未取整值）；观测窗口 40 个日区间，起于 2021 年 12 月 9 日。
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
 拟合得到的 $I_0$ 远小于 $1$。表~\ref{tab:sup:initial}把它与固定 $I_0=1$ 的对照放在一起：后者使观测窗口内的累计病例高出两个数量级以上，与观测数据不符（正文第~\ref{sec:xian}~节）。
 \begin{table}[htbp]
 \centering\small
@@ -28,6 +52,67 @@
 \end{threeparttable}
 \end{table}
 
+初值对固定人口下的控制有多大影响，由六条前向轨迹给出：固定西安 $N$、$\eta=0.002N$、传播参数与默认权重，$I_0$ 取拟合值的 $0.1$、$1$、$10$ 倍，$S_0=N-I_0$，其余初始仓室为零，分别计算仅隔离控制与成本最优控制（表~\ref{tab:sup:ic}）。$I_0$ 每放大 $10$ 倍，启动时刻与清零时间都提前约 $\nrICtOneShift$ d，与初期近似指数增长一致（$\ln10/r\approx2.28$ d，$r=\beta c_0(1-q_0)-\gamma$）；$S^*$、控制时长、$J$ 与计至清零的总累计新增感染的相对变化不超过 $\nrICMaxRelTotal$。这只是固定参数下的前向诊断，不是置信区间，也不表示 $0.1$ 倍与 $10$ 倍的初值与观测相容。
+\begin{table}[htbp]
+\centering\small
+\renewcommand{\arraystretch}{1.2}
+\begin{threeparttable}
+\caption{固定西安人口下 $I_0$ 取拟合值的 $0.1$、$1$、$10$ 倍}
+\label{tab:sup:ic}
+\begin{tabular*}{0.8\linewidth}{@{\extracolsep{\fill}}lccccc@{}}
+\toprule
+控制 & $I_0$ 倍数 & $t_1$（d） & $\Delta t$（d） & $J$（d） & $t_{\rm end}$（d）\\
+\midrule
+仅隔离控制 & $0.1$ & \nrICtabQLowTOne & \nrICtabQLowDt & \nrICtabQLowJ & \nrICtabQLowTend\\
+ & $1$ & \nrICtabQFitTOne & \nrICtabQFitDt & \nrICtabQFitJ & \nrICtabQFitTend\\
+ & $10$ & \nrICtabQHighTOne & \nrICtabQHighDt & \nrICtabQHighJ & \nrICtabQHighTend\\
+成本最优控制 & $0.1$ & \nrICtabOLowTOne & \nrICtabOLowDt & \nrICtabOLowJ & \nrICtabOLowTend\\
+ & $1$ & \nrICtabOFitTOne & \nrICtabOFitDt & \nrICtabOFitJ & \nrICtabOFitTend\\
+ & $10$ & \nrICtabOHighTOne & \nrICtabOHighDt & \nrICtabOHighJ & \nrICtabOHighTend\\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]\footnotesize
+\item 注：$N$、$\eta=0.002N$ 与传播参数固定；$t_{\rm end}$ 为清零时间。
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+人口缩放情景与上述诊断不同：取 $N=N_{\rm eff}$、$S_0=N-I_0$，沿用全市拟合的绝对初值 $I_0$ 与传播参数，其余初始仓室为零，不重新拟合。它同时改变 $N$、$i_0=I_0/N$ 与 $\eta=\theta N$，因而不是固定西安人口下的初值敏感性检验。固定 $\theta=0.002$、取 $N\in\{5\times10^4,10^5,5\times10^5,10^6,5\times10^6,1.3163\times10^7\}$ 的六个人口规模，仅隔离控制的控制时长均约为 $85.07$ 天，$\Delta t$ 和 $J$ 的相对极差分别为 $4.71\times10^{-8}$ 和 $1.17\times10^{-7}$；以 $t-t_1$ 为时间变量时，归一化感染轨迹和隔离比例近似重合。启动时间由 $11.39$ 天增加至 $16.90$ 天，这是初始感染比例 $i_0=I_0/N$ 随 $N$ 减小的结果：初期近似指数增长，$t_1\approx r^{-1}\ln(\theta/i_0)$，其中 $r=\beta c_0(1-q_0)-\gamma$。固定绝对阈值 $\eta=100$、把 $N$ 从 $1.3163\times10^7$ 降到 $5\times10^4$ 时，$\theta=\eta/N$ 增大，控制时长由约 $2.25\times10^4$ 天缩短到约 $85$ 天。两组结果都符合
+\[
+\Delta t=\frac1{c_0\theta}\ln\frac{s^*-\bar s}{s_c-\bar s},
+\]
+其中对数因子在 $\theta\in[5\times10^{-4},8\times10^{-3}]$ 内仅由 $2.20$ 变到 $2.15$，因此 $\Delta t$ 近似与 $\theta$ 成反比。
+
+固定归一化初值时，以绝对终点 $I=1$ 计的量随人口单调变化。记 $i_{\max}^{0}=I_{\max}^{0}/N$（式\eqref{eq:s1:Imax-no}），固定归一化初值 $s_0,i_0$ 时它不依赖 $N$。
+\begin{proposition}
+\label{prop:reference-population}
+固定 $s_0,i_0,\theta$ 和模型参数，且 $i_0<\theta<i_{\max}^{0}$。在 $N\theta>1$ 的范围内，仅隔离控制的清零时间和计算至该终点的累计新增感染均随 $N$ 严格增加。
+\end{proposition}
+\begin{proof}
+归一化轨迹及启动、控制时长与 $N$ 无关。退出后 $i(t)$ 从 $\theta$ 严格下降至零，终点为 $i=1/N$。增大 $N$ 使终点更低，故清零时间严格增加。
+
+记 $s_{\rm end}=S_{\rm end}/N$。归一化的退出后首次积分为
+\[
+\frac1N=\theta+\frac{\beta_2^0}{\beta_1^0}(s_c-s_{\rm end})
++\frac{\rho_1}{N}\ln\frac{s_{\rm end}}{s_c},
+\]
+其中 $\rho_1/N$ 与 $\beta_2^0/\beta_1^0$ 均不随 $N$ 改变。于是
+\[
+\frac{\partial s_{\rm end}}{\partial N}
+=-\frac1{N^2(\rho_1/N)(1/s_{\rm end}-1/s_c)}<0.
+\]
+将式\eqref{eq:s1:cumulative}除以 $N$ 后，只有 $s_{\rm end}$ 含 $N$，因而
+\[
+\frac{\partial\Itcum}{\partial N}
+=\frac{\Itcum}{N}
+-\frac{N\beta}{\beta+q_0(1-\beta)}\frac{\partial s_{\rm end}}{\partial N}>0.\qedhere
+\]
+\end{proof}
+命题不适用于固定绝对阈值或固定绝对 $I_0$ 的比较，后者见上一段。
+
+\FloatBarrier
+\subsection{阈值扫描}
+\label{sec:sup:xian:threshold-scan}
 表~\ref{tab:sup:eta}与图~\ref{fig:xian_eta_sens}给出 11 个阈值比例下仅隔离控制的结果，覆盖设计阈值 $\eta/N=0.002$ 的两侧。阈值从 $0.01N$ 降到 $0.0001N$ 时，$q_{\max}$ 只在 $0.838$ 与 $0.847$ 之间变化，控制时长与成本近似按阈值的反比增加，总累计新增感染则缓慢减少；正文第~\ref{sec:xian:threshold-scale}~节由此解释低阈值的代价。
 \begin{table}[htbp]
 \centering\small
