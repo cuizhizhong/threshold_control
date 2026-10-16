@@ -174,7 +174,7 @@ c(t)(1-q(t))S(t)=\frac{\gamma N}{\beta}
 \]
 因此 $S$ 在有限时间从 $S^*$ 到达 $S_c$，分离变量即得式\eqref{eq:joint:time}和\eqref{eq:joint:duration}。
 
-反之，给定满足式\eqref{eq:joint:contact-range}的可测函数，可在零测集上修改使界限处处成立。式\eqref{eq:joint:time}右侧随积分下限严格递减，且该时间变换及其逆函数均为 Lipschitz 函数，故定义唯一绝对连续的 $S(t)$。用式\eqref{eq:joint:q}构造时间控制，令 $I=\eta$，则前两个状态方程几乎处处成立；其余仓室由原模型确定。该时间变换保持零测集，所以这一对应在几乎处处相等意义下成立。最后，由 $c_0S_c/S\le c_c(S)\le c_0$，当 $S\downarrow S_c$ 时两界均趋于 $c_0$；式\eqref{eq:joint:q}继而给出 $q\to q_0$。
+反之，给定满足式\eqref{eq:joint:contact-range}的可测函数，可在零测集上修改使界限处处成立。式\eqref{eq:joint:time}右侧随积分下限严格递减，且该时间变换及其逆函数均为 Lipschitz 函数，故定义唯一绝对连续的 $S(t)$。用式\eqref{eq:joint:q}构造时间控制，令 $I=\eta$，则前两个状态方程几乎处处成立；其余仓室由原模型确定。该时间变换及其逆都是 Lipschitz 的，保持零测集与可测性，所以这一对应在几乎处处相等意义下成立。最后，由 $c_0S_c/S\le c_c(S)\le c_0$，当 $S\downarrow S_c$ 时两界均趋于 $c_0$；式\eqref{eq:joint:q}继而给出 $q\to q_0$。
 \end{proof}
 
 \subsection{最小值的存在性}
@@ -234,14 +234,14 @@ $c=c_0(1-zx)$、$0\le x\le1$。于是
 \[
 \frac{q_c-q_0}{1-q_0}=\frac{z(1-x)}{1-zx},\qquad
 \frac{f(S,c_0(1-zx))}{z^2}
-=\frac{x^2+2(1-x)^2/(1-zx)^2}
+=\frac{w_cx^2+w_q(1-x)^2/(1-zx)^2}
 {c_0[S(1-zx)-\bar S]}.
 \]
 当 $S\downarrow S_c$ 时，右侧在 $x\in[0,1]$ 上一致收敛于
 \[
-\frac{x^2+2(1-x)^2}{c_0(S_c-\bar S)},
+\frac{w_cx^2+w_q(1-x)^2}{c_0(S_c-\bar S)},
 \]
-该函数的唯一最小化点为 $x=2/3$。由一致收敛和紧性，任何原问题最小化点序列均趋于 $2/3$：否则可取收敛子列，其极限将是极限函数的另一个最小化点，产生矛盾。因此所有最小化点在充分接近退出时均位于 $(0,1)$，并得到式\eqref{eq:joint:terminal-ratio}。
+该函数严格凸，唯一最小化点为 $x=w_q/(w_c+w_q)$。由一致收敛和紧性，任何原问题最小化点序列均趋于 $w_q/(w_c+w_q)$：否则可取收敛子列，其极限将是极限函数的另一个最小化点，产生矛盾。因此所有最小化点在充分接近退出时均位于 $(0,1)$，并得到式\eqref{eq:joint:terminal-ratio}。
 
 在这样一个正长度状态区间上，两种单控制分别对应 $x=0$ 和 $x=1$，均不能达到逐状态最小值；其非负成本差的积分因而严格为正。考虑满足 $c_{\min}<c_0$、$q_{\rm cap}>q_0$ 的能力约束时，充分接近 $S_c$ 处的允许区间仍为 $[c_0S_c/S,c_0]$，同一局部论证成立。
 \end{proof}

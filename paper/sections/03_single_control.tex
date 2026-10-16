@@ -175,7 +175,19 @@ t_{\rm end}=t_2+\frac{1}{\beta_1^0}\int_{S_{\rm end}}^{S_c}
 \label{eq:s1:tend}
 \end{equation}
 \end{theorem}
-证明见附录~\ref{sec:proof:post-dynamics}。其余仓室也有极限：流入 $I_q$ 的感染随 $I\to0$ 趋于零，且 $\delta_q>0$，故 $I_q\to0$；$S_q$ 与 $R$ 单调有界。累计新增感染可以分三段计算：前后两个常规阶段的感染流入与 $-\dot S$ 成正比，阈值控制期内则可以把时间积分换成对 $S$ 的积分。
+证明见附录~\ref{sec:proof:post-dynamics}。其余仓室也有极限：流入 $I_q$ 的感染随 $I\to0$ 趋于零，且 $\delta_q>0$，故 $I_q\to0$；$S_q$ 与 $R$ 单调有界。
+\begin{remarkn}
+\label{rem:release-at-exit}
+若在 $t_2$ 恢复常规控制的同时，另把比例 $\xi\in[0,1]$ 的隔离易感者一次性转回 $S$（$S_q(t_2^-)$ 为转回前的人数，$I,I_q,R$ 连续，总人口不变），则
+\[
+S(t_2^+)=S_c+\xi S_q(t_2^-),\qquad
+R_e(t_2^+)=1+\frac{\xi S_q(t_2^-)}{S_c},\qquad
+\dot I(t_2^+)=\gamma\eta\,\frac{\xi S_q(t_2^-)}{S_c}.
+\]
+因此 $\xi S_q(t_2^-)>0$ 时，$I$ 在 $t_2$ 之后立即超过 $\eta$。这一释放不属于 $\mathcal A(\eta)$ 中的退出；定理~\ref{thm:s1:tend}只涉及不释放（$\xi=0$）的情形。
+\end{remarkn}
+
+累计新增感染可以分三段计算：前后两个常规阶段的感染流入与 $-\dot S$ 成正比，阈值控制期内则可以把时间积分换成对 $S$ 的积分。
 \begin{theorem}
 \label{thm:s1:Itcum}
 仅隔离控制下，
@@ -278,7 +290,7 @@ I_{\max}^{0}\bigl(c_{0,\min}(\eta)\bigr)=\eta,
 人口规模的影响取决于初值和阈值如何随 $N$ 缩放。记 $s=S/N$、$i=I/N$，下面固定归一化初值 $s_0,i_0$；低阈值下的渐近行为与完整参数扫描见补充材料第~\ref{sec:sup:baseline-scan}~节。
 \begin{proposition}
 \label{prop:scaling}
-对于仅隔离控制，固定 $s_0,i_0$ 和 $\beta,\gamma,c_0,q_0$。控制被触发时，$t_1,\Delta t,q_{\max},J$ 以及存在内部拐点时的 $\lambda$ 对 $N,\eta$ 的依赖仅通过 $\theta=\eta/N$ 表现。最终累计新增感染除以 $N$ 后亦不依赖 $N$。但是，使用绝对终点 $I=1$ 时，$t_{\rm end}$ 及计算至该终点的累计新增感染比例一般仍含 $N$。
+对于仅隔离控制，固定 $s_0,i_0$ 和 $\beta,\gamma,c_0,q_0$。控制被触发时，$t_1,\Delta t,q_{\max},J$ 以及存在内部拐点时的 $\lambda$ 对 $N,\eta$ 的依赖仅通过 $\theta=\eta/N$ 表现。计算至无限时刻的累计新增感染除以 $N$ 后亦不依赖 $N$。但是，使用绝对终点 $I=1$ 时，$t_{\rm end}$ 及计算至该终点的累计新增感染比例一般仍含 $N$。
 \end{proposition}
 \begin{proof}
 常规阶段的归一化系统为
@@ -292,7 +304,7 @@ s_c=\frac{\gamma}{\beta c_0(1-q_0)},\qquad
 \bar s=\frac{(1-\beta)\gamma}{\beta c_0},\qquad
 \Delta t=\frac1{c_0\theta}\ln\frac{s^*-\bar s}{s_c-\bar s}.
 \]
-例如，二次成本的归一化表达为
+例如，二次干预强度成本的归一化表达为
 \begin{equation}
 J=\frac{2}{c_0\theta}\int_{s_c}^{s^*}
 \frac{(1-s_c/s)^2}{s-\bar s}\,ds,

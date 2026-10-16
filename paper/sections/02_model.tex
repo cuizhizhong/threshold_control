@@ -1,7 +1,7 @@
 % ===== 02_model =====
 \section{模型与阈值策略}
 \label{sec:model}
-本文以社区中的非隔离感染者人数 $I$ 为控制对象，要求它不超过阈值 $\eta$。阈值 $\eta$ 是外生给定的设计参数，其选取依据是与医疗资源（如 ICU 床位）的承载能力相适应，并兼顾防控目标\cite{Miclo2022ICU,Angulo2021}。阈值约束的是仍在社区中传播的 $I$，而不是包括隔离感染者 $I_q$ 在内的现存感染人数 $I+I_q$。由于接触率不超过常规水平，限制 $I$ 也就限制了进入 $I$ 和 $I_q$ 的全部新增感染流量；补充材料第~\ref{sec:sup:medical-link}~节由此在附加的医疗需求假设下，给出平均 ICU 需求不超过容量的充分条件。
+本文以社区中的非隔离感染者人数 $I$ 为控制对象，要求它不超过阈值 $\eta$。阈值 $\eta$ 是外生给定的设计参数，其选取依据是与医疗资源（如 ICU 床位）的承载能力相适应，并兼顾防控目标\cite{Miclo2022ICU,Angulo2021}。阈值约束的是仍在社区中传播的 $I$，而不是包括隔离感染者 $I_q$ 在内的现存感染人数 $I+I_q$。由于接触率不超过常规水平，限制 $I$ 也就限制了进入 $I$ 和 $I_q$ 的全部新增感染流量，其上界 $\beta c_0S_0\eta/N$ 对每条满足 $c\le c_0$、$I\le\eta$ 的轨迹成立（本模型中 $S\le S_0$）；补充材料第~\ref{sec:sup:medical-link}~节由此在附加的医疗需求假设下，给出平均 ICU 需求不超过容量的充分条件。
 
 \subsection{基本方程}
 人群分为社区易感者 $S$、隔离易感者 $S_q$、非隔离感染者 $I$、隔离感染者 $I_q$ 和康复者 $R$，社区传播只来自非隔离感染者。接触率为 $c(t)$，每次接触的传播概率为 $\beta$，接触者中被追踪并隔离的比例为 $q(t)$，简称隔离比例。被追踪的接触者若已感染则进入 $I_q$，若未感染则进入 $S_q$；未被追踪的新感染者进入 $I$。非隔离感染者和隔离感染者分别以速率 $\gamma$ 和 $\delta_q$ 移出。模型沿用文献\cite{Zhou2024SPCI}中社区传播与接触追踪的结构（图~\ref{fig:model_schematic}）：
@@ -25,7 +25,7 @@
 
 常规控制下的接触率和隔离比例记为 $c_0,q_0$。以下设 $N,c_0,\gamma,\delta_q>0$、$0<\beta<1$、$0\le q_0<1$，初始仓室非负、总和为 $N$，且 $S_0,I_0>0$。人数以人计，$c,\gamma,\delta_q$ 的单位为时间的倒数；$\beta$ 与 $q$ 是无量纲比例，$q$ 不是检出感染者的风险率。
 
-隔离者不参与社区传播，隔离易感者在研究时段内不返回 $S$，模型也不含输入病例、出生和免疫丧失。因此 $S$ 的减少由两部分组成：新感染，以及未感染接触者的隔离，后者没有获得免疫。下面的命题保证，后文考虑的全部控制都给出唯一的非负解。
+隔离者不参与社区传播，隔离易感者不返回 $S$（计算无限时刻的指标时，这一假设也延续到该时间范围），模型也不含输入病例、出生和免疫丧失。因此 $S$ 的减少由两部分组成：新感染，以及未感染接触者的隔离，后者没有获得免疫。下面的命题保证，后文考虑的全部控制都给出唯一的非负解。
 
 \begin{proposition}
 \label{prop:model:positive}
@@ -42,7 +42,7 @@ I(t)&=I_0\exp\!\left[\int_0^t\left(\frac{\beta c(s)(1-q(s))}{N}S(s)-\gamma\right
 
 \subsection{常规轨迹}
 \label{sec:model:strategy}
-常规控制下的传播由群体免疫阈值
+常规控制下的传播由常规传播临界值
 \begin{equation}
 S_c=\frac{\gamma N}{\beta c_0(1-q_0)}
 \label{eq:model:Sc}
@@ -97,11 +97,11 @@ S_0>S_c,\qquad 0<I_0<\eta<I_{\max}^{0},
 \item 从状态 $(S,\eta)$ 起恢复并保持 $(c_0,q_0)$，其后始终满足 $I\le\eta$，当且仅当 $S\le S_c$。因此，沿任一从 $S^*>S_c$ 出发并持续维持 $I=\eta$ 的允许轨迹，首次达到 $S_c$ 是该轨迹上可以直接恢复常规控制的最早时刻。
 \end{enumerate}
 \end{proposition}
-证明见附录~\ref{sec:proof:threshold-rationale}。由 (i) 与 (iii)，首次触及阈值是不违反 $I\le\eta$ 的最晚启动时刻，首次到达 $S_c$ 是可以直接恢复常规控制的最早时刻；阈值策略就在这两个状态之间运行。
+证明见附录~\ref{sec:proof:threshold-rationale}。由 (i) 与 (iii)，对启动前保持常规控制的策略，首次触及阈值是不违反 $I\le\eta$ 的最晚启动时刻；沿阈值运行时，首次到达 $S_c$ 是可以直接恢复常规控制的最早时刻。阈值策略就在这两个状态之间运行。
 
 \subsection{允许控制}
 \label{sec:model:control-class}
-阈值策略在 $t_1$ 启动后维持 $I=\eta$，到 $S$ 首次降至 $S_c$ 的时刻 $t_2$ 恢复常规控制，$[t_1,t_2]$ 称为阈值控制期。维持 $I=\eta$ 只约束接触率与未隔离比例的乘积 $c(1-q)$：由命题~\ref{prop:model:threshold-rationale}(ii)，阈值控制期内几乎处处有
+阈值策略在 $t_1$ 启动后维持 $I=\eta$，到 $S$ 首次降至 $S_c$ 的时刻 $t_2$ 恢复常规控制，$[t_1,t_2]$ 称为阈值控制期。退出强化控制只指恢复 $(c_0,q_0)$，不瞬时释放隔离易感者；本模型中 $S_q$ 仍不返回。维持 $I=\eta$ 只约束接触率与未隔离比例的乘积 $c(1-q)$：由命题~\ref{prop:model:threshold-rationale}(ii)，阈值控制期内几乎处处有
 \begin{equation}
 \frac{\beta c(t)(1-q(t))S(t)}{N}=\gamma,
 \label{eq:model:balance}
@@ -134,7 +134,7 @@ $\mathcal A(\eta)$ 中的控制有共同的进入状态 $(S^*,\eta)$ 和退出�
 I_{\rm cum}(T)=\int_0^T\frac{\beta c(1-q)}{N}SI\,dt,\qquad
 I_{q_{\rm cum}}(T)=\int_0^T\frac{\beta cq}{N}SI\,dt,
 \]
-总累计新增感染为 $\Itcum(T)=I_{\rm cum}(T)+I_{q_{\rm cum}}(T)$。不写终点时，$\Itcum$ 统计至 $t_{\rm end}$，其他终点另行标明；阈值控制期的累计新增感染为 $\Itcum(t_2)-\Itcum(t_1)$。新增隔离易感者人数是 $S_q$ 的增量，不写时段时指阈值控制期内的 $S_q(t_2)-S_q(t_1)$。由式\eqref{eq:model:full}，这些计数满足
+总累计新增感染为 $\Itcum(T)=I_{\rm cum}(T)+I_{q_{\rm cum}}(T)$。不写终点时，$\Itcum$ 统计至 $t_{\rm end}$，其他终点（如 $t\to\infty$）另行标明；阈值控制期的累计新增感染为 $\Itcum(t_2)-\Itcum(t_1)$。新增隔离易感者人数是 $S_q$ 的增量，不写时段时指阈值控制期内的 $S_q(t_2)-S_q(t_1)$。由式\eqref{eq:model:full}，这些计数满足
 \begin{equation}
 I_{\rm cum}(T)=I(T)-I_0+\gamma\int_0^T I(t)dt,
 \qquad
@@ -149,11 +149,11 @@ J_c=\int_{t_1}^{t_2}\frac{(c_0-c(t))_+}{c_0}\,dt,
 J_q=\int_{t_1}^{t_2}\frac{(q(t)-q_0)_+}{1-q_0}\,dt,
 \label{eq:cost:linear}
 \end{equation}
-其中 $(x)_+=\max\{x,0\}$。给定正权重 $w_c,w_q$，二次干预成本为
+其中 $(x)_+=\max\{x,0\}$。给定正权重 $w_c,w_q$，二次干预强度成本为
 \begin{equation}
 J=\int_{t_1}^{t_2}\left[
 w_c\left(\frac{(c_0-c(t))_+}{c_0}\right)^2
 +w_q\left(\frac{(q(t)-q_0)_+}{1-q_0}\right)^2\right]dt,
 \label{eq:cost:J}
 \end{equation}
-默认取 $w_c=1,w_q=2$。$J_c,J_q$ 只作分项参考；三者都只在阈值控制期内积分，单位为天。权重没有换算为货币；$J$ 不计隔离人天等资源占用，也不限制控制的调整速度。
+默认取 $w_c=1,w_q=2$。$J_c,J_q$ 只是分项强度积分，$J$ 是二次加权积分，并非二者的加权和；三者都只在阈值控制期内积分，单位为天。权重没有换算为货币；$J$ 不计隔离人天等资源占用，也不限制控制的调整速度。
