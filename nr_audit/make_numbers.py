@@ -3,7 +3,7 @@ results/nr_numbers_map.json（每个宏的全精度值、显示格式、单位�
 
 只为 NR-3 新增的数字生成宏（初值诊断 N2、权重转折括区 N3、收敛与残差 N4、拟合误差 N5），
 NR-5 为正文取整显示与补充 S6 收敛表追加的宏（括区的两位小数取整值 `...Apx`、`nrConvNzAllMaxRel` 等、`nrTdinnTolChange`），
-NR-6 为补充 S3.1 的初值诊断表追加的宏（`nrICtab…`，六条轨迹各四个量）。既有数字经 N1 核对与显示一致，
+NR-6 为补充 S3.1 的初值诊断表追加的宏（`nrICtab…`，六条轨迹各四个量），NR-7 为补充“隔离易感者回流”一节追加的宏（`nrRet…`：L、无回流 t→∞ 值、指数回流的终止时累计感染）。既有数字经 N1 核对与显示一致，
 不为统一格式改宏。科学记数的宏写成 a\\times10^{b}，须在数学模式中使用。本步不在稿件中 \\input 本文件。
 
 运行：conda run --no-capture-output -n thesis python nr_audit/make_numbers.py
@@ -150,6 +150,33 @@ def main():
     idr = max(max(t['identity_residual_rel'] for t in r['residuals'].values()) for r in cv['tolerance_tiers'])
     add('nrIdentityMaxRel', idr, sci(idr, 1), '', 'convergence.json', 'max tolerance_tiers[].residuals[*].identity_residual_rel',
         '累计新增感染恒等式残差/初始易感者总数的最大值')
+
+    # NR-7（G-N3 方案 B）：补充材料“隔离易感者回流”一节的数字。
+    # 无回流 t→∞ 值、L 与计至清零值来自本模块的独立复核（noreturn_inf_crosscheck.json）；
+    # 指数回流的终止时累计感染自回流分支固定提交导入（return_import.json，不重算）。西安的人数以 10^6 人为单位。
+    cc = load('noreturn_inf_crosscheck.json')
+    crow = {(r['case'], r['law']): r for r in cc['rows']}
+    for case, tag, scale, dec in (('base', 'Base', 1.0, 2), ('xian', 'Xian', 1e6, 4)):
+        L0 = crow[(case, 'q_only')]['L']
+        add(f'nrRetL{tag}', L0 / scale, fixed(L0 / scale, dec), '人' if scale == 1 else '10^6 人', 'noreturn_inf_crosscheck.json',
+            f'rows[case={case}].L', f'{case}：L = U(0) − S_c = S_0 + S_q(0) − S_c')
+        for law, lt in (('q_only', 'Q'), ('alpha', 'A'), ('opt', 'O'), ('c_only', 'C')):
+            r = crow[(case, law)]
+            add(f'nrRetCinf{tag}{lt}', r['C_inf'] / scale, fixed(r['C_inf'] / scale, dec), '人' if scale == 1 else '10^6 人',
+                'noreturn_inf_crosscheck.json', f'rows[case={case},law={law}].C_inf',
+                f'{case}：无回流（ω=0）{law} 的 t→∞ 累计新增感染 C_π(0)')
+            if law in ('q_only', 'opt', 'c_only'):
+                add(f'nrRetClr{tag}{lt}', r['C_to_clearance'] / scale, fixed(r['C_to_clearance'] / scale, 1 if scale == 1 else 4),
+                    '人' if scale == 1 else '10^6 人', 'noreturn_inf_crosscheck.json', f'rows[case={case},law={law}].C_to_clearance',
+                    f'{case}：无回流 {law} 计至清零时间的累计新增感染（表 2）')
+    ri = load('return_import.json')
+    for case, tag, scale, dec in (('base', 'Base', 1.0, 2), ('xian', 'Xian', 1e6, 4)):
+        for s, st in ((7, 'Seven'), (14, 'Fourteen'), (30, 'Thirty')):
+            for law, lt in (('q_only', 'Q'), ('opt_noreturn', 'M'), ('c_only', 'C')):
+                v = ri['runs'][f'{case}|{s}|{law}']['C_term']
+                add(f'nrRetTerm{tag}{st}{lt}', v / scale, fixed(v / scale, dec), '人' if scale == 1 else '10^6 人',
+                    'return_import.json', f'runs[{case}|{s}|{law}].C_term',
+                    f'{case}：指数回流 1/ω={s} d，{law}，终止时（退出后首次 I<1）累计新增感染；来源见 source')
 
     # 宏名不得与稿件中已有的定义重名
     existing = set()

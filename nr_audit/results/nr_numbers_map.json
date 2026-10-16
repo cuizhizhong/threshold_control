@@ -1,8 +1,8 @@
 {
- "generated": "2026-10-16T21:12:55",
- "git_head": "fa5e404ea823b0a41066e7f01abd2b3cb0b58f65",
+ "generated": "2026-10-16T21:28:06",
+ "git_head": "d9681db808bb50af0fbc1bcfb99261cae04cd8a1",
  "tex": "paper/generated/nr_numbers.tex",
- "n_macros": 67,
+ "n_macros": 101,
  "macros": [
   {
    "macro": "\\nrICtOneLow",
@@ -606,6 +606,312 @@
    "source": "nr_audit/results/convergence.json",
    "field": "max tolerance_tiers[].residuals[*].identity_residual_rel",
    "meaning": "累计新增感染恒等式残差/初始易感者总数的最大值"
+  },
+  {
+   "macro": "\\nrRetLBase",
+   "value": 586.8398299993382,
+   "display": "586.84",
+   "unit": "人",
+   "source": "nr_audit/results/noreturn_inf_crosscheck.json",
+   "field": "rows[case=base].L",
+   "meaning": "base：L = U(0) − S_c = S_0 + S_q(0) − S_c"
+  },
+  {
+   "macro": "\\nrRetCinfBaseQ",
+   "value": 286.58973183445624,
+   "display": "286.59",
+   "unit": "人",
+   "source": "nr_audit/results/noreturn_inf_crosscheck.json",
+   "field": "rows[case=base,law=q_only].C_inf",
+   "meaning": "base：无回流（ω=0）q_only 的 t→∞ 累计新增感染 C_π(0)"
+  },
+  {
+   "macro": "\\nrRetClrBaseQ",
+   "value": 285.72437136052827,
+   "display": "285.7",
+   "unit": "人",
+   "source": "nr_audit/results/noreturn_inf_crosscheck.json",
+   "field": "rows[case=base,law=q_only].C_to_clearance",
+   "meaning": "base：无回流 q_only 计至清零时间的累计新增感染（表 2）"
+  },
+  {
+   "macro": "\\nrRetCinfBaseA",
+   "value": 324.2472668356423,
+   "display": "324.25",
+   "unit": "人",
+   "source": "nr_audit/results/noreturn_inf_crosscheck.json",
+   "field": "rows[case=base,law=alpha].C_inf",
+   "meaning": "base：无回流（ω=0）alpha 的 t→∞ 累计新增感染 C_π(0)"
+  },
+  {
+   "macro": "\\nrRetCinfBaseO",
+   "value": 307.49865349620615,
+   "display": "307.50",
+   "unit": "人",
+   "source": "nr_audit/results/noreturn_inf_crosscheck.json",
+   "field": "rows[case=base,law=opt].C_inf",
+   "meaning": "base：无回流（ω=0）opt 的 t→∞ 累计新增感染 C_π(0)"
+  },
+  {
+   "macro": "\\nrRetClrBaseO",
+   "value": 306.63329302227817,
+   "display": "306.6",
+   "unit": "人",
+   "source": "nr_audit/results/noreturn_inf_crosscheck.json",
+   "field": "rows[case=base,law=opt].C_to_clearance",
+   "meaning": "base：无回流 opt 计至清零时间的累计新增感染（表 2）"
+  },
+  {
+   "macro": "\\nrRetCinfBaseC",
+   "value": 629.5087551734755,
+   "display": "629.51",
+   "unit": "人",
+   "source": "nr_audit/results/noreturn_inf_crosscheck.json",
+   "field": "rows[case=base,law=c_only].C_inf",
+   "meaning": "base：无回流（ω=0）c_only 的 t→∞ 累计新增感染 C_π(0)"
+  },
+  {
+   "macro": "\\nrRetClrBaseC",
+   "value": 628.6433946995476,
+   "display": "628.6",
+   "unit": "人",
+   "source": "nr_audit/results/noreturn_inf_crosscheck.json",
+   "field": "rows[case=base,law=c_only].C_to_clearance",
+   "meaning": "base：无回流 c_only 计至清零时间的累计新增感染（表 2）"
+  },
+  {
+   "macro": "\\nrRetLXian",
+   "value": 10.188874587407744,
+   "display": "10.1889",
+   "unit": "10^6 人",
+   "source": "nr_audit/results/noreturn_inf_crosscheck.json",
+   "field": "rows[case=xian].L",
+   "meaning": "xian：L = U(0) − S_c = S_0 + S_q(0) − S_c"
+  },
+  {
+   "macro": "\\nrRetCinfXianQ",
+   "value": 2.377947608964832,
+   "display": "2.3779",
+   "unit": "10^6 人",
+   "source": "nr_audit/results/noreturn_inf_crosscheck.json",
+   "field": "rows[case=xian,law=q_only].C_inf",
+   "meaning": "xian：无回流（ω=0）q_only 的 t→∞ 累计新增感染 C_π(0)"
+  },
+  {
+   "macro": "\\nrRetClrXianQ",
+   "value": 2.3779431317582636,
+   "display": "2.3779",
+   "unit": "10^6 人",
+   "source": "nr_audit/results/noreturn_inf_crosscheck.json",
+   "field": "rows[case=xian,law=q_only].C_to_clearance",
+   "meaning": "xian：无回流 q_only 计至清零时间的累计新增感染（表 2）"
+  },
+  {
+   "macro": "\\nrRetCinfXianA",
+   "value": 2.639000128439245,
+   "display": "2.6390",
+   "unit": "10^6 人",
+   "source": "nr_audit/results/noreturn_inf_crosscheck.json",
+   "field": "rows[case=xian,law=alpha].C_inf",
+   "meaning": "xian：无回流（ω=0）alpha 的 t→∞ 累计新增感染 C_π(0)"
+  },
+  {
+   "macro": "\\nrRetCinfXianO",
+   "value": 2.5348330938360015,
+   "display": "2.5348",
+   "unit": "10^6 人",
+   "source": "nr_audit/results/noreturn_inf_crosscheck.json",
+   "field": "rows[case=xian,law=opt].C_inf",
+   "meaning": "xian：无回流（ω=0）opt 的 t→∞ 累计新增感染 C_π(0)"
+  },
+  {
+   "macro": "\\nrRetClrXianO",
+   "value": 2.534828616629433,
+   "display": "2.5348",
+   "unit": "10^6 人",
+   "source": "nr_audit/results/noreturn_inf_crosscheck.json",
+   "field": "rows[case=xian,law=opt].C_to_clearance",
+   "meaning": "xian：无回流 opt 计至清零时间的累计新增感染（表 2）"
+  },
+  {
+   "macro": "\\nrRetCinfXianC",
+   "value": 3.856646090750646,
+   "display": "3.8566",
+   "unit": "10^6 人",
+   "source": "nr_audit/results/noreturn_inf_crosscheck.json",
+   "field": "rows[case=xian,law=c_only].C_inf",
+   "meaning": "xian：无回流（ω=0）c_only 的 t→∞ 累计新增感染 C_π(0)"
+  },
+  {
+   "macro": "\\nrRetClrXianC",
+   "value": 3.8566416135440775,
+   "display": "3.8566",
+   "unit": "10^6 人",
+   "source": "nr_audit/results/noreturn_inf_crosscheck.json",
+   "field": "rows[case=xian,law=c_only].C_to_clearance",
+   "meaning": "xian：无回流 c_only 计至清零时间的累计新增感染（表 2）"
+  },
+  {
+   "macro": "\\nrRetTermBaseSevenQ",
+   "value": 655.3491715879402,
+   "display": "655.35",
+   "unit": "人",
+   "source": "nr_audit/results/return_import.json",
+   "field": "runs[base|7|q_only].C_term",
+   "meaning": "base：指数回流 1/ω=7 d，q_only，终止时（退出后首次 I<1）累计新增感染；来源见 source"
+  },
+  {
+   "macro": "\\nrRetTermBaseSevenM",
+   "value": 657.5071783988437,
+   "display": "657.51",
+   "unit": "人",
+   "source": "nr_audit/results/return_import.json",
+   "field": "runs[base|7|opt_noreturn].C_term",
+   "meaning": "base：指数回流 1/ω=7 d，opt_noreturn，终止时（退出后首次 I<1）累计新增感染；来源见 source"
+  },
+  {
+   "macro": "\\nrRetTermBaseSevenC",
+   "value": 672.5268220593935,
+   "display": "672.53",
+   "unit": "人",
+   "source": "nr_audit/results/return_import.json",
+   "field": "runs[base|7|c_only].C_term",
+   "meaning": "base：指数回流 1/ω=7 d，c_only，终止时（退出后首次 I<1）累计新增感染；来源见 source"
+  },
+  {
+   "macro": "\\nrRetTermBaseFourteenQ",
+   "value": 619.4795455735934,
+   "display": "619.48",
+   "unit": "人",
+   "source": "nr_audit/results/return_import.json",
+   "field": "runs[base|14|q_only].C_term",
+   "meaning": "base：指数回流 1/ω=14 d，q_only，终止时（退出后首次 I<1）累计新增感染；来源见 source"
+  },
+  {
+   "macro": "\\nrRetTermBaseFourteenM",
+   "value": 620.4966638560528,
+   "display": "620.50",
+   "unit": "人",
+   "source": "nr_audit/results/return_import.json",
+   "field": "runs[base|14|opt_noreturn].C_term",
+   "meaning": "base：指数回流 1/ω=14 d，opt_noreturn，终止时（退出后首次 I<1）累计新增感染；来源见 source"
+  },
+  {
+   "macro": "\\nrRetTermBaseFourteenC",
+   "value": 665.8031347696576,
+   "display": "665.80",
+   "unit": "人",
+   "source": "nr_audit/results/return_import.json",
+   "field": "runs[base|14|c_only].C_term",
+   "meaning": "base：指数回流 1/ω=14 d，c_only，终止时（退出后首次 I<1）累计新增感染；来源见 source"
+  },
+  {
+   "macro": "\\nrRetTermBaseThirtyQ",
+   "value": 594.4449008489034,
+   "display": "594.44",
+   "unit": "人",
+   "source": "nr_audit/results/return_import.json",
+   "field": "runs[base|30|q_only].C_term",
+   "meaning": "base：指数回流 1/ω=30 d，q_only，终止时（退出后首次 I<1）累计新增感染；来源见 source"
+  },
+  {
+   "macro": "\\nrRetTermBaseThirtyM",
+   "value": 595.8992982744667,
+   "display": "595.90",
+   "unit": "人",
+   "source": "nr_audit/results/return_import.json",
+   "field": "runs[base|30|opt_noreturn].C_term",
+   "meaning": "base：指数回流 1/ω=30 d，opt_noreturn，终止时（退出后首次 I<1）累计新增感染；来源见 source"
+  },
+  {
+   "macro": "\\nrRetTermBaseThirtyC",
+   "value": 654.4417350661968,
+   "display": "654.44",
+   "unit": "人",
+   "source": "nr_audit/results/return_import.json",
+   "field": "runs[base|30|c_only].C_term",
+   "meaning": "base：指数回流 1/ω=30 d，c_only，终止时（退出后首次 I<1）累计新增感染；来源见 source"
+  },
+  {
+   "macro": "\\nrRetTermXianSevenQ",
+   "value": 10.548529186492248,
+   "display": "10.5485",
+   "unit": "10^6 人",
+   "source": "nr_audit/results/return_import.json",
+   "field": "runs[xian|7|q_only].C_term",
+   "meaning": "xian：指数回流 1/ω=7 d，q_only，终止时（退出后首次 I<1）累计新增感染；来源见 source"
+  },
+  {
+   "macro": "\\nrRetTermXianSevenM",
+   "value": 10.549142743578551,
+   "display": "10.5491",
+   "unit": "10^6 人",
+   "source": "nr_audit/results/return_import.json",
+   "field": "runs[xian|7|opt_noreturn].C_term",
+   "meaning": "xian：指数回流 1/ω=7 d，opt_noreturn，终止时（退出后首次 I<1）累计新增感染；来源见 source"
+  },
+  {
+   "macro": "\\nrRetTermXianSevenC",
+   "value": 10.549521605610598,
+   "display": "10.5495",
+   "unit": "10^6 人",
+   "source": "nr_audit/results/return_import.json",
+   "field": "runs[xian|7|c_only].C_term",
+   "meaning": "xian：指数回流 1/ω=7 d，c_only，终止时（退出后首次 I<1）累计新增感染；来源见 source"
+  },
+  {
+   "macro": "\\nrRetTermXianFourteenQ",
+   "value": 10.449822366833965,
+   "display": "10.4498",
+   "unit": "10^6 人",
+   "source": "nr_audit/results/return_import.json",
+   "field": "runs[xian|14|q_only].C_term",
+   "meaning": "xian：指数回流 1/ω=14 d，q_only，终止时（退出后首次 I<1）累计新增感染；来源见 source"
+  },
+  {
+   "macro": "\\nrRetTermXianFourteenM",
+   "value": 10.4520308568189,
+   "display": "10.4520",
+   "unit": "10^6 人",
+   "source": "nr_audit/results/return_import.json",
+   "field": "runs[xian|14|opt_noreturn].C_term",
+   "meaning": "xian：指数回流 1/ω=14 d，opt_noreturn，终止时（退出后首次 I<1）累计新增感染；来源见 source"
+  },
+  {
+   "macro": "\\nrRetTermXianFourteenC",
+   "value": 10.453750731962511,
+   "display": "10.4538",
+   "unit": "10^6 人",
+   "source": "nr_audit/results/return_import.json",
+   "field": "runs[xian|14|c_only].C_term",
+   "meaning": "xian：指数回流 1/ω=14 d，c_only，终止时（退出后首次 I<1）累计新增感染；来源见 source"
+  },
+  {
+   "macro": "\\nrRetTermXianThirtyQ",
+   "value": 10.304416195340965,
+   "display": "10.3044",
+   "unit": "10^6 人",
+   "source": "nr_audit/results/return_import.json",
+   "field": "runs[xian|30|q_only].C_term",
+   "meaning": "xian：指数回流 1/ω=30 d，q_only，终止时（退出后首次 I<1）累计新增感染；来源见 source"
+  },
+  {
+   "macro": "\\nrRetTermXianThirtyM",
+   "value": 10.303070841394469,
+   "display": "10.3031",
+   "unit": "10^6 人",
+   "source": "nr_audit/results/return_import.json",
+   "field": "runs[xian|30|opt_noreturn].C_term",
+   "meaning": "xian：指数回流 1/ω=30 d，opt_noreturn，终止时（退出后首次 I<1）累计新增感染；来源见 source"
+  },
+  {
+   "macro": "\\nrRetTermXianThirtyC",
+   "value": 10.301760018802144,
+   "display": "10.3018",
+   "unit": "10^6 人",
+   "source": "nr_audit/results/return_import.json",
+   "field": "runs[xian|30|c_only].C_term",
+   "meaning": "xian：指数回流 1/ω=30 d，c_only，终止时（退出后首次 I<1）累计新增感染；来源见 source"
   }
  ]
 }

@@ -1,0 +1,137 @@
+\section{隔离易感者回流}
+\label{sec:sup:return}
+正文第~\ref{sec:model}--\ref{sec:xian}~节采用无回流模型~\eqref{eq:model:full}：被追踪隔离的未感染接触者没有获得免疫，却始终留在 $S_q$。本节在指数停留的回流情景中给出累计新增感染的一个下界及其适用范围，并用数值说明有限回流时控制组合之间的感染差别。这些结果补充无回流结论的适用范围，不改变第~\ref{sec:model}--\ref{sec:joint:cost}~节的任何陈述。
+
+\subsection{模型}
+含回流的模型在式\eqref{eq:model:full}的 $S$、$S_q$ 方程中加入回流项 $\omega S_q$：
+\begin{equation}
+\begin{cases}
+\dot S=-\dfrac{c[\beta+(1-\beta)q]}{N}SI+\omega S_q,\\[.5em]
+\dot I=\dfrac{\beta c(1-q)}{N}SI-\gamma I,\\[.5em]
+\dot S_q=\dfrac{(1-\beta)cq}{N}SI-\omega S_q,\\[.5em]
+\dot I_q=\dfrac{\beta cq}{N}SI-\delta_q I_q,\\[.5em]
+\dot R=\gamma I+\delta_q I_q,
+\end{cases}
+\qquad\omega\ge0.
+\label{eq:return:model}
+\end{equation}
+回流率 $\omega$ 为常数，隔离易感者的停留时间服从均值 $1/\omega$ 的指数分布，$\omega=0$ 即式\eqref{eq:model:full}；隔离感染者 $I_q$ 康复后进入 $R$，不回到易感人群。参数范围、初始条件（$S_q(0)\ge0$ 任意）和控制的允许范围同第~\ref{sec:model}~节。记总易感者 $U=S+S_q$ 与新增感染流量 $F=\beta c(t)SI/N$（进入 $I$ 与 $I_q$ 的流量之和），则 $\Itcum(T)=\int_0^TF\,dt$。
+
+阈值策略的实施方式同第~\ref{sec:model:control-class}~节。给定接触率的状态函数 $c_c(S)$，它在 $S\ge S_c$ 上有界可测并满足 $c_0S_c/S\le c_c(S)\le c_0$（式\eqref{eq:joint:contact-range}延拓到 $S\ge S_c$：有回流时平台上的 $S$ 可能高于无回流的启动状态），隔离比例 $q_c(S)$ 由式\eqref{eq:joint:q}给出。$I$ 由下方首次到达 $\eta$ 的时刻 $t_1$ 之前取 $(c_0,q_0)$；$[t_1,t_2)$ 上取 $c=c_c(S(t))$、$q=q_c(S(t))$，由平衡式\eqref{eq:model:balance}维持 $I\equiv\eta$，其中 $t_2$ 是 $S$ 首次降到 $S_c$ 的时刻；$t_2$ 之后永久取 $(c_0,q_0)$。这一退出强化控制只恢复 $(c_0,q_0)$，不额外释放隔离易感者，$S_q$ 继续按回流机制演化；退出后即使 $I$ 再超过 $\eta$，策略也不重新启动。
+
+\subsection{累计感染的下界}
+追踪与回流只在两个易感仓室之间转移人数，因此总易感者只因感染而减少。
+\begin{lemma}
+\label{lem:return:U}
+设 $\omega\ge0$，$c(t)\ge0$ 局部有界且可测，$q(t)\in[0,1]$ 可测，初始仓室非负、总和为 $N$。则模型\eqref{eq:return:model}的解存在唯一、全局，各仓室非负；$U=S+S_q$ 满足 $\dot U=-F$ 对几乎所有 $t\ge0$ 成立，且对所有 $t\ge0$，
+\begin{equation}
+\Itcum(t)=U(0)-U(t)=S_0+S_q(0)-S(t)-S_q(t).
+\label{eq:return:U}
+\end{equation}
+\end{lemma}
+\begin{proof}
+适定性与命题~\ref{prop:model:positive}的证明相同，只需改写 $S,S_q$ 的非负性论证。右端关于时间可测、关于状态局部 Lipschitz，且在有界状态集上 Lipschitz 常数局部可积，故有唯一的局部绝对连续解。$I(t)=I(0)\exp\{\int_0^t[\beta c(1-q)S/N-\gamma]\,ds\}\ge0$。记 $a=c[\beta+(1-\beta)q]I/N\ge0$、$b=(1-\beta)cqI/N\ge0$，则 $\dot S=-aS+\omega S_q$、$\dot S_q=bS-\omega S_q$。令 $\Lambda(t)=\int_0^t(a+\omega)\,ds$、$\hat S=e^{\Lambda}S$、$\hat S_q=e^{\Lambda}S_q$，得 $\dot{\hat S}=\omega(\hat S+\hat S_q)$、$\dot{\hat S}_q=b\hat S+a\hat S_q$，系数全部非负；Picard 迭代从非负初值出发每一步都非负并收敛到唯一解，故 $S,S_q\ge0$。$I_q$ 的流入非负，由常数变易公式保持非负；$\dot R\ge0$。五式相加为零，总人数恒为 $N$，各分量有界，解可延拓到全部 $t\ge0$。
+
+模型的第一、三式相加，$\omega S_q$ 项抵消：
+\[
+\dot U=-\frac{c[\beta+(1-\beta)q]}{N}SI+\frac{(1-\beta)cq}{N}SI=-\frac{\beta c}{N}SI=-F,
+\]
+两式本身几乎处处成立，故此式对几乎所有 $t\ge0$ 成立。$U$ 是两个绝对连续函数之和，因而绝对连续，对所有 $t\ge0$ 有 $U(t)-U(0)=-\int_0^tF\,ds$；而按第~\ref{sec:cost}~节，$\Itcum(t)=\int_0^t[\beta c(1-q)+\beta cq]SI/N\,ds=\int_0^tF\,ds$，即得式\eqref{eq:return:U}。
+\end{proof}
+累计新增感染不含初始感染者；$S_q(0)=0$ 时 $\Itcum(t)=S_0-U(t)$。引理给出累计感染的下界：恢复常规控制后，总易感者 $U$ 必须降到常规传播临界值 $S_c$ 以下，感染才会停止。
+\begin{proposition}
+\label{prop:return:final-size}
+设 $\omega>0$，$c_0>0$，$I(0)>0$，并且存在有限时刻 $T_0\ge0$，使 $(c(t),q(t))=(c_0,q_0)$ 对几乎所有 $t>T_0$ 成立，$[0,T_0]$ 上的控制满足引理~\ref{lem:return:U}的条件。则在模型\eqref{eq:return:model}中，$t\to\infty$ 时 $S_q(t)\to0$，$U(t)$ 单调不增地收敛到某个 $U_\infty\le S_c$。因此 $\Itcum(\infty):=\lim_{T\to\infty}\Itcum(T)$ 满足
+\begin{equation}
+\Itcum(\infty)=U(0)-U_\infty\ \ge\ U(0)-S_c=S_0+S_q(0)-S_c.
+\label{eq:return:lower}
+\end{equation}
+\end{proposition}
+\begin{proof}
+第 1 步（$U$ 收敛）。由引理~\ref{lem:return:U}，$U$ 绝对连续且几乎处处 $\dot U=-F\le0$，故 $U$ 单调不增，又 $U\ge0$。于是 $U(t)\downarrow U_\infty\in[0,U(0)]$，$\int_0^\infty F\,dt=U(0)-U_\infty<\infty$，且 $\Itcum(\infty)=U(0)-U_\infty$。
+
+第 2 步（$S_q\to0$，用到 $\omega>0$）。未感染接触者被追踪的流量 $A_q=(1-\beta)cqSI/N=\frac{1-\beta}{\beta}qF\le\frac{1-\beta}{\beta}F$ 可积。$S_q$ 绝对连续，$\dot S_q=A_q-\omega S_q$，由常数变易公式
+\[
+S_q(t)=e^{-\omega t}S_q(0)+\int_0^te^{-\omega(t-u)}A_q(u)\,du.
+\]
+把积分拆为 $[0,t/2]$ 与 $[t/2,t]$ 两段：前者不超过 $e^{-\omega t/2}\|A_q\|_{L^1}$，后者不超过 $\int_{t/2}^\infty A_q\,du$，二者都趋于零。故 $S_q(t)\to0$，从而 $S(t)=U(t)-S_q(t)\to U_\infty$。
+
+第 3 步（$U_\infty\le S_c$）。设 $U_\infty>S_c$，令 $S_m=(U_\infty+S_c)/2>S_c$。由第 2 步，存在 $T_1\ge T_0$ 使 $t\ge T_1$ 时 $S(t)\ge S_m$。$t>T_1$ 时控制几乎处处为 $(c_0,q_0)$，而 $\beta c_0(1-q_0)/N=\gamma/S_c$，故几乎处处
+\[
+\dot I=\gamma I\Bigl(\frac{S}{S_c}-1\Bigr)\ge\varepsilon I,\qquad \varepsilon:=\gamma\Bigl(\frac{S_m}{S_c}-1\Bigr)>0.
+\]
+由 $I(0)>0$ 及 $I$ 的指数表示，$I(t)>0$ 对所有 $t$ 成立，$\ln I$ 绝对连续，故 $I(t)\ge I(T_1)e^{\varepsilon(t-T_1)}$。于是 $F(t)=\beta c_0SI/N\ge(\beta c_0S_mI(T_1)/N)\,e^{\varepsilon(t-T_1)}$ 在 $(T_1,\infty)$ 上不可积，与第 1 步矛盾。故 $U_\infty\le S_c$，代入第 1 步即得式\eqref{eq:return:lower}。
+\end{proof}
+经典 SIR 模型中，恢复自然参数后最终易感比例不高于临界值，有限期干预后严格低于临界值\cite{Ketcheson2021Finite}。命题把非严格的结论推广到含 $S_q$ 的总易感者 $U$：回流使 $S$ 与 $I$ 不再有首次积分，证明改用 $F$ 的可积性。式\eqref{eq:return:lower}是满足条件的所有控制共享的下界，包括满足能力约束的控制；下界之上的部分 $S_c-U_\infty$ 随控制而变，命题对这一部分没有结论，也不宣称在 $S=S_c$ 恢复常规参数后始终 $I\le\eta$。它与命题~\ref{prop:exit-infection-lower-bound}的模型和终点都不同：后者是无回流模型在 $S$ 到达 $S_c$ 的退出时刻的下界 $\beta(S_0-S_c)$，前者是正指数回流模型在 $t\to\infty$ 的下界 $U(0)-S_c$。条件 $I(0)>0$ 与 $\omega>0$ 都不能省：$I(0)=0$ 时 $I\equiv0$，$U\equiv U(0)$，下界在 $U(0)>S_c$ 时不成立；$\omega=0$ 时 $S_q$ 不减，$U_\infty$ 可以大于 $S_c$，例如基准参数下无回流仅隔离控制 $t\to\infty$ 的累计感染为 $\nrRetCinfBaseQ$ 人，低于 $U(0)-S_c=\nrRetLBase$ 人。
+
+\subsection{退出与不连续}
+阈值策略满足命题的条件。设 $\omega\ge0$，$0<I(0)<\eta$，在模型\eqref{eq:return:model}中按上面的方式实施阈值策略，并设平台一经触发就能维持，即 $[t_1,t_2)$ 上有界可测的控制使 $I\equiv\eta$，且几乎处处 $0<c\le c_0$、$q_0\le q\le1$。则 $t_2<\infty$：若 $t_1=\infty$ 或 $S(t_1)\le S_c$，结论显然；否则平台上 $I$ 的方程与式\eqref{eq:model:full}相同，由平衡式 $\beta c(1-q)S/N=\gamma$ 得 $q<1$，并由 $q\ge q_0$ 得 $cS=\gamma N/[\beta(1-q)]\ge c_0S_c$，于是几乎处处 $F=\beta cS\eta/N\ge\beta c_0S_c\eta/N=\gamma\eta/(1-q_0)=:k>0$。若 $t_2=\infty$，则 $t\ge t_1$ 时 $S>S_c$，$U\ge S>S_c$；但由引理~\ref{lem:return:U}，$U(t)\le U(t_1)-k(t-t_1)$，当 $t>t_1+(U(t_1)-S_c)/k$ 时 $U(t)<S_c$，矛盾。策略因此在有限时刻 $t_2$ 之后恒为 $(c_0,q_0)$，命题~\ref{prop:return:final-size}的条件成立。证明用的是 $U$ 的下降而不是 $S$ 的下降：回流使平台上的 $S$ 可能回升，退出时通常 $U(t_2)=S_c+S_q(t_2)>S_c$。平台能否维持是前提：不考虑能力约束时，$S\ge S_c$ 上的允许区间 $[c_0S_c/S,c_0]$ 非空，前提只涉及所选控制律的解是否存在；考虑能力约束时，有回流的平台是否可行，本节没有分析。
+
+无回流模型与正回流模型的 $t\to\infty$ 累计感染因而可以相差很大。
+\begin{corollaryn}
+\label{cor:return:right-discontinuity}
+固定参数与同一完整初值，$I(0)>0$，并设无回流模型满足条件\eqref{eq:model:trigger}。固定控制律 $\pi$（上述状态函数 $c_c$），并设对 $\omega=0$ 与每个 $\omega>0$，在模型\eqref{eq:return:model}中实施 $\pi$ 的阈值策略都有解，即平台能维持到 $S$ 首次到达 $S_c$。记 $C_\pi(\omega):=\Itcum(\infty;\pi,\omega)$、$L:=U(0)-S_c$；$\omega>0$ 时若解不唯一，$C_\pi(\omega)$ 指其中任一个解的值。若 $C_\pi(0)<L$，则对所有 $\omega>0$ 有 $C_\pi(\omega)\ge L$，因而
+\begin{equation}
+\liminf_{\omega\downarrow0}C_\pi(\omega)\ \ge\ L\ >\ C_\pi(0),
+\label{eq:return:discontinuity}
+\end{equation}
+即 $\omega\mapsto C_\pi(\omega)$ 在 $\omega=0$ 处不右连续。
+\end{corollaryn}
+\begin{proof}
+设 $\omega>0$。由上面的有限时间退出，实施 $\pi$ 的阈值策略在有限时刻后恒为 $(c_0,q_0)$；又 $I(0)>0$，命题~\ref{prop:return:final-size}给出 $C_\pi(\omega)\ge L$（对任一个解）。对 $\omega\downarrow0$ 取下极限，再用前提 $C_\pi(0)<L$。
+\end{proof}
+$C_\pi(0)$ 须取 $t\to\infty$ 的值：仅隔离控制由定理~\ref{thm:s1:Itcum}将 $S_{\rm end}$ 换为 $S_\infty$ 得到，其余控制由推论~\ref{cor:joint:whole-epidemic}的第二式（对无限时刻同样成立）得到，不能用表~\ref{tab:joint:compare}中计至清零时间的数。两组参数的取值见表~\ref{tab:sup:return:cinf}：仅隔离控制、$\alpha=0.5$ 的控制与成本最优控制都满足 $C_\pi(0)<L$，成本最优控制在 $\omega>0$ 时的平台解只有数值实现（其 $c_c^*$ 的连续性未证）；仅减少接触在西安参数下满足这一前提，在基准参数下不满足，推论不适用。仅隔离控制、仅减少接触与 $\alpha$ 族的 $c_c$ 在 $S>0$ 上光滑，平台解存在。
+\begin{table}[htbp]
+\centering\small
+\renewcommand{\arraystretch}{1.2}
+\begin{threeparttable}
+\caption{无回流 $t\to\infty$ 累计新增感染与下界 $L$（默认权重，$S_q(0)=0$）}
+\label{tab:sup:return:cinf}
+\begin{tabular*}{0.85\linewidth}{@{\extracolsep{\fill}}lccccc@{}}
+\toprule
+参数 & $L$ & 仅隔离 & $\alpha=0.5$ & 成本最优 & 仅减少接触\\
+\midrule
+基准（人） & $\nrRetLBase$ & $\nrRetCinfBaseQ$ & $\nrRetCinfBaseA$ & $\nrRetCinfBaseO$ & $\nrRetCinfBaseC$\\
+西安（$10^6$ 人） & $\nrRetLXian$ & $\nrRetCinfXianQ$ & $\nrRetCinfXianA$ & $\nrRetCinfXianO$ & $\nrRetCinfXianC$\\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]\footnotesize
+\item 注：$C_\pi(0)$ 为无回流模型中各控制 $t\to\infty$ 的累计新增感染，$L=S_0+S_q(0)-S_c$；基准参数下仅减少接触的 $C_\pi(0)>L$，推论~\ref{cor:return:right-discontinuity}不适用。
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+无回流模型可以作为解析基准，但在这些情景中，$t\to\infty$ 的累计感染对是否允许正回流非常敏感：$\omega=0$ 时被隔离的未感染者永久离开传播，$\omega>0$ 时他们终将返回，总易感者仍要由感染降到 $S_c$ 以下。因此定理~\ref{thm:s1:Itcum}与推论~\ref{cor:joint:whole-epidemic}中计至无限时刻的结论只在无回流模型中得到证明。推论只涉及 $t\to\infty$ 的累计感染；控制时长与成本等有限时间量随 $\omega$ 的依赖，本节只给数值观察。
+
+\subsection{有限回流的数值}
+数值取所考察的指数回流情景：平均停留 $1/\omega=7,14,30$ d，控制律取仅隔离、仅减少接触和无回流最优律迁移（简称迁移律）。迁移律把 $\omega=0$ 时的成本最优控制律（定理~\ref{thm:joint:cost-minimum}，默认权重）原样用于 $\omega>0$，不重新优化，因此不称成本最优。两组参数的初值同表~\ref{tab:xian_initial_fit}（$S_q(0)=0$）。每条轨迹在退出后 $I$ 首次降到 $1$ 时截断，与清零时间的约定相同，终止时累计感染即截断时刻的 $\Itcum$（表~\ref{tab:sup:return:term}）。表中 $18$ 条轨迹退出后 $I$ 都没有越过 $\eta$，终止时累计感染也都高于 $L$；下界~\eqref{eq:return:lower}针对不截断的 $t\to\infty$ 累计感染，截断值与它不必满足同一不等式。
+\begin{table}[htbp]
+\centering\small
+\renewcommand{\arraystretch}{1.2}
+\begin{threeparttable}
+\caption{指数回流情景中的终止时累计新增感染与无回流计至清零的值}
+\label{tab:sup:return:term}
+\begin{tabular*}{0.8\linewidth}{@{\extracolsep{\fill}}lccc@{}}
+\toprule
+ & 仅隔离控制 & 迁移律 & 仅减少接触\\
+\midrule
+\multicolumn{4}{@{}l}{基准参数（人）}\\
+无回流，计至清零（表~\ref{tab:joint:compare}） & $\nrRetClrBaseQ$ & $\nrRetClrBaseO$ & $\nrRetClrBaseC$\\
+$1/\omega=7$ d & $\nrRetTermBaseSevenQ$ & $\nrRetTermBaseSevenM$ & $\nrRetTermBaseSevenC$\\
+$1/\omega=14$ d & $\nrRetTermBaseFourteenQ$ & $\nrRetTermBaseFourteenM$ & $\nrRetTermBaseFourteenC$\\
+$1/\omega=30$ d & $\nrRetTermBaseThirtyQ$ & $\nrRetTermBaseThirtyM$ & $\nrRetTermBaseThirtyC$\\
+\midrule
+\multicolumn{4}{@{}l}{西安参数（$10^6$ 人）}\\
+无回流，计至清零（表~\ref{tab:joint:compare}） & $\nrRetClrXianQ$ & $\nrRetClrXianO$ & $\nrRetClrXianC$\\
+$1/\omega=7$ d & $\nrRetTermXianSevenQ$ & $\nrRetTermXianSevenM$ & $\nrRetTermXianSevenC$\\
+$1/\omega=14$ d & $\nrRetTermXianFourteenQ$ & $\nrRetTermXianFourteenM$ & $\nrRetTermXianFourteenC$\\
+$1/\omega=30$ d & $\nrRetTermXianThirtyQ$ & $\nrRetTermXianThirtyM$ & $\nrRetTermXianThirtyC$\\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]\footnotesize
+\item 注：终止时累计新增感染为退出后 $I$ 首次降到 $1$ 的截断时刻的 $\Itcum$；迁移律在 $\omega=0$ 一行即成本最优控制。各条轨迹的 $S_q(0)=0$，控制律与参数同表~\ref{tab:xian_initial_fit}。
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+平均停留 $7$–$30$ d 时，仅隔离控制的终止时累计感染约为无回流计至清零值的 $2.1$–$2.3$ 倍（基准）与 $4.3$–$4.4$ 倍（西安）；无回流模型中三种控制的计至清零累计感染相差很大（基准约 $120\%$，西安约 $62\%$），西安参数下有回流的三种控制则相差不超过 $0.04\%$，$1/\omega=30$ d 时仅减少接触最低，排序与无回流相反；基准参数下排序保持，差别比无回流小。这些是该参数、该控制律（迁移律未重新优化）、该终点下的数值观察，不是定理；推论~\ref{cor:return:right-discontinuity}是本节仅有的理论结论。

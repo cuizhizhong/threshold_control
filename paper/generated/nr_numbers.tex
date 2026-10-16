@@ -67,3 +67,37 @@
 \newcommand{\nrConvMassMax}{1.3\times10^{-6}}  % 积分容差三档下人口守恒残差的最大值（含常规控制与 TDINN）
 \newcommand{\nrTdinnTolChange}{1.5\times10^{-11}}  % 本模块收紧容差并把最大步长减半后，TDINN 总累计新增感染（清零时间）的变化
 \newcommand{\nrIdentityMaxRel}{1\times10^{-14}}  % 累计新增感染恒等式残差/初始易感者总数的最大值
+\newcommand{\nrRetLBase}{586.84}  % base：L = U(0) − S_c = S_0 + S_q(0) − S_c
+\newcommand{\nrRetCinfBaseQ}{286.59}  % base：无回流（ω=0）q_only 的 t→∞ 累计新增感染 C_π(0)
+\newcommand{\nrRetClrBaseQ}{285.7}  % base：无回流 q_only 计至清零时间的累计新增感染（表 2）
+\newcommand{\nrRetCinfBaseA}{324.25}  % base：无回流（ω=0）alpha 的 t→∞ 累计新增感染 C_π(0)
+\newcommand{\nrRetCinfBaseO}{307.50}  % base：无回流（ω=0）opt 的 t→∞ 累计新增感染 C_π(0)
+\newcommand{\nrRetClrBaseO}{306.6}  % base：无回流 opt 计至清零时间的累计新增感染（表 2）
+\newcommand{\nrRetCinfBaseC}{629.51}  % base：无回流（ω=0）c_only 的 t→∞ 累计新增感染 C_π(0)
+\newcommand{\nrRetClrBaseC}{628.6}  % base：无回流 c_only 计至清零时间的累计新增感染（表 2）
+\newcommand{\nrRetLXian}{10.1889}  % xian：L = U(0) − S_c = S_0 + S_q(0) − S_c
+\newcommand{\nrRetCinfXianQ}{2.3779}  % xian：无回流（ω=0）q_only 的 t→∞ 累计新增感染 C_π(0)
+\newcommand{\nrRetClrXianQ}{2.3779}  % xian：无回流 q_only 计至清零时间的累计新增感染（表 2）
+\newcommand{\nrRetCinfXianA}{2.6390}  % xian：无回流（ω=0）alpha 的 t→∞ 累计新增感染 C_π(0)
+\newcommand{\nrRetCinfXianO}{2.5348}  % xian：无回流（ω=0）opt 的 t→∞ 累计新增感染 C_π(0)
+\newcommand{\nrRetClrXianO}{2.5348}  % xian：无回流 opt 计至清零时间的累计新增感染（表 2）
+\newcommand{\nrRetCinfXianC}{3.8566}  % xian：无回流（ω=0）c_only 的 t→∞ 累计新增感染 C_π(0)
+\newcommand{\nrRetClrXianC}{3.8566}  % xian：无回流 c_only 计至清零时间的累计新增感染（表 2）
+\newcommand{\nrRetTermBaseSevenQ}{655.35}  % base：指数回流 1/ω=7 d，q_only，终止时（退出后首次 I<1）累计新增感染；来源见 source
+\newcommand{\nrRetTermBaseSevenM}{657.51}  % base：指数回流 1/ω=7 d，opt_noreturn，终止时（退出后首次 I<1）累计新增感染；来源见 source
+\newcommand{\nrRetTermBaseSevenC}{672.53}  % base：指数回流 1/ω=7 d，c_only，终止时（退出后首次 I<1）累计新增感染；来源见 source
+\newcommand{\nrRetTermBaseFourteenQ}{619.48}  % base：指数回流 1/ω=14 d，q_only，终止时（退出后首次 I<1）累计新增感染；来源见 source
+\newcommand{\nrRetTermBaseFourteenM}{620.50}  % base：指数回流 1/ω=14 d，opt_noreturn，终止时（退出后首次 I<1）累计新增感染；来源见 source
+\newcommand{\nrRetTermBaseFourteenC}{665.80}  % base：指数回流 1/ω=14 d，c_only，终止时（退出后首次 I<1）累计新增感染；来源见 source
+\newcommand{\nrRetTermBaseThirtyQ}{594.44}  % base：指数回流 1/ω=30 d，q_only，终止时（退出后首次 I<1）累计新增感染；来源见 source
+\newcommand{\nrRetTermBaseThirtyM}{595.90}  % base：指数回流 1/ω=30 d，opt_noreturn，终止时（退出后首次 I<1）累计新增感染；来源见 source
+\newcommand{\nrRetTermBaseThirtyC}{654.44}  % base：指数回流 1/ω=30 d，c_only，终止时（退出后首次 I<1）累计新增感染；来源见 source
+\newcommand{\nrRetTermXianSevenQ}{10.5485}  % xian：指数回流 1/ω=7 d，q_only，终止时（退出后首次 I<1）累计新增感染；来源见 source
+\newcommand{\nrRetTermXianSevenM}{10.5491}  % xian：指数回流 1/ω=7 d，opt_noreturn，终止时（退出后首次 I<1）累计新增感染；来源见 source
+\newcommand{\nrRetTermXianSevenC}{10.5495}  % xian：指数回流 1/ω=7 d，c_only，终止时（退出后首次 I<1）累计新增感染；来源见 source
+\newcommand{\nrRetTermXianFourteenQ}{10.4498}  % xian：指数回流 1/ω=14 d，q_only，终止时（退出后首次 I<1）累计新增感染；来源见 source
+\newcommand{\nrRetTermXianFourteenM}{10.4520}  % xian：指数回流 1/ω=14 d，opt_noreturn，终止时（退出后首次 I<1）累计新增感染；来源见 source
+\newcommand{\nrRetTermXianFourteenC}{10.4538}  % xian：指数回流 1/ω=14 d，c_only，终止时（退出后首次 I<1）累计新增感染；来源见 source
+\newcommand{\nrRetTermXianThirtyQ}{10.3044}  % xian：指数回流 1/ω=30 d，q_only，终止时（退出后首次 I<1）累计新增感染；来源见 source
+\newcommand{\nrRetTermXianThirtyM}{10.3031}  % xian：指数回流 1/ω=30 d，opt_noreturn，终止时（退出后首次 I<1）累计新增感染；来源见 source
+\newcommand{\nrRetTermXianThirtyC}{10.3018}  % xian：指数回流 1/ω=30 d，c_only，终止时（退出后首次 I<1）累计新增感染；来源见 source
