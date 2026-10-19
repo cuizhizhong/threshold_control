@@ -86,7 +86,7 @@ git merge --ff-only origin/claude/paper-branch-merge-strategy-w4vpck
 git log --oneline -4
 ```
 
-预期：最上面两个提交分别放入本计划与合并方案，其下是 `101b3e0`。
+预期：`101b3e0` 之上只有放入本计划与合并方案的提交（提交信息以“SUB 计划”“SUB 投稿准备”“分支合并与投稿路线”开头）。
 
 路径 B（本地无回流分支有更新的提交）：
 
