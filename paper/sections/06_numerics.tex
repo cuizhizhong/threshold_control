@@ -68,7 +68,7 @@ $\delta_q$ 不影响无回流模型中闭合的 $(S,I)$ 子系统，因而不改
 \label{sec:joint:compare-numerics}
 成本最低的控制不是最快的控制。表~\ref{tab:joint:compare}比较不考虑能力约束时的四种控制。两组参数下，控制时长从长到短依次为仅减少接触、$\alpha=0.5$、成本最优控制与仅隔离控制；由定理~\ref{thm:joint:comparison}(iii)与推论~\ref{cor:joint:whole-epidemic}，这一排序同时决定了清零时间、累计新增感染与新增隔离易感者人数的排序。与最快的仅隔离控制相比，成本最优控制在基准参数下使 $J$ 降低约 $4.7\%$，控制时长与总累计新增感染分别增加约 $31.4\%$ 与 $7.3\%$；西安参数下相应为 $6.7\%$、$27.9\%$ 与 $6.6\%$。
 
-在所算的两组参数与默认权重下，成本最优控制都先仅隔离、后两者并用。两组参数的启动状态 $S^*$ 都高于 $S_{\rm sw}$（比值见表~\ref{tab:joint:compare}注）。在 $S$ 的有限网格上逐点比较全部候选，仅隔离控制在 $S>S_{\rm sw}$ 的各点都是全局最优（命题~\ref{prop:joint:global-structure}只保证局部最优），并在 $S_{\rm sw}$ 处连续切换到两者并用（比较方法见补充材料第~\ref{sec:sup:numerics}~节）。前段较短，基准与西安参数下分别约 $1.61$ d 与 $25.46$ d，却完成了阈值控制期 $S$ 下降的一半以上：$S$ 越大，下降越快，所以控制期的大部分时间落在两者并用的后段。成本最优控制与仅隔离控制在 $S\ge S_{\rm sw}$ 上相同，$J$ 与 $\Delta t$ 的差别全部来自 $S<S_{\rm sw}$ 一段。成本最优控制在这里取 $c_c(S)<c_0$，于是 $S$ 下降变慢，控制期延长；同时接触减少分担了维持 $I=\eta$ 所需的干预，隔离强度降低，二次干预强度成本因而下降。后段的接触减少并不大：接触率最多降低约 $19.8\%$（基准）与 $28.2\%$（西安）。
+两组参数下，成本最优控制都先仅隔离、后两者并用。默认权重满足定理~\ref{thm:joint:cost-structure}的条件，两组参数的启动状态 $S^*$ 又都高于 $S_{\rm sw}$（比值见表~\ref{tab:joint:compare}注），所以这一结构由定理保证：仅隔离控制在 $S\ge S_{\rm sw}$ 上是唯一的成本最优选择，并在 $S_{\rm sw}$ 处连续切换到两者并用。在 $S$ 的有限网格上逐点比较全部候选，数值结果与之一致（比较方法见补充材料第~\ref{sec:sup:numerics}~节）。前段较短，基准与西安参数下分别约 $1.61$ d 与 $25.46$ d，却完成了阈值控制期 $S$ 下降的一半以上：$S$ 越大，下降越快，所以控制期的大部分时间落在两者并用的后段。成本最优控制与仅隔离控制在 $S\ge S_{\rm sw}$ 上相同，$J$ 与 $\Delta t$ 的差别全部来自 $S<S_{\rm sw}$ 一段。成本最优控制在这里取 $c_c(S)<c_0$，于是 $S$ 下降变慢，控制期延长；同时接触减少分担了维持 $I=\eta$ 所需的干预，隔离强度降低，二次干预强度成本因而下降。后段的接触减少并不大：接触率最多降低约 $19.8\%$（基准）与 $28.2\%$（西安）。
 
 在这两组参数下，追踪隔离越强的控制，两感染仓室人数之和 $I+I_q$ 越高：$I$ 维持在 $\eta$，被追踪的感染者则不断进入 $I_q$。基准参数下，$\max(I+I_q)/\eta$ 在仅隔离控制、成本最优控制与仅减少接触下分别约为 $1.92$、$1.89$ 与 $1.02$（表~\ref{tab:joint:compare}，图~\ref{fig:joint:compare}(c)）。这一峰值在基准参数下出现在后段，成本最优控制的隔离较弱，因此峰值略低；在西安参数下出现在启动后约 $7.62$ d，仍在两者相同的前段，因此峰值也相同。
 
@@ -119,7 +119,7 @@ $\delta_q$ 不影响无回流模型中闭合的 $(S,I)$ 子系统，因而不改
 
 两个代表能力组合都落在只有联合控制可行的区域；在这两点上，能力约束下的最小成本与控制时长都高于不考虑能力约束时的值。基准代表点上，仅隔离控制需要 $q_{\max}\approx0.7565$，仅减少接触需要把接触率降低约 $75.3\%$，都超出能力；西安代表点也是如此。因此最快与最慢的控制 $c^{+}(S)$、$c^{-}(S)$（推论~\ref{cor:joint:capped-comparison}）都不是单控制。能力约束下的成本最优控制在基准参数下给出 $J\approx 2.361$ d、$\Delta t\approx 8.34$ d，在西安参数下给出 $J\approx 41.62$ d、$\Delta t\approx 116.8$ d，都高于表~\ref{tab:joint:compare}中的值：最小成本的增加与命题~\ref{prop:joint:minimum-threshold}一致，控制时长的增加则是这两个代表点上的数值结果。
 
-增加的成本与时长全部来自能力约束起作用的前一段。启动后的一段时间内，隔离比例停在上限，接触率同时降低，降幅随 $S$ 下降而减小（图~\ref{fig:joint:capacity}(c)）；易感者降到 $(1-q_0)S_c/(1-q_{\rm cap})$ 以下后，仅隔离控制重新可行（第~\ref{sec:joint:state}~节）。在该代表点上，不考虑能力约束的成本最优控制此后也满足两项能力约束，因此能力约束下的控制在同一 $S$ 上与它取相同的 $c_c(S)$、$q_c(S)$，只是到达得更晚。由于 $J$ 与 $\Delta t$ 都是对 $S$ 的积分，增量只来自此前的一段；西安代表点的结构相同（各段时长见补充材料第~\ref{sec:sup:numerics}~节）。
+增加的成本与时长全部来自能力约束起作用的前一段。启动后的一段时间内，隔离比例停在上限，接触率同时降低，降幅随 $S$ 下降而减小（图~\ref{fig:joint:capacity}(c)）；易感者降到 $(1-q_0)S_c/(1-q_{\rm cap})$ 以下后，仅隔离控制重新可行（第~\ref{sec:joint:state}~节）。由推论~\ref{cor:joint:capacity-clip}，能力约束下的成本最优控制是把不考虑能力约束的控制截断到允许区间；在代表点上，后者此后也满足两项能力约束，因此能力约束下的控制在同一 $S$ 上与它取相同的 $c_c(S)$、$q_c(S)$，只是到达得更晚。由于 $J$ 与 $\Delta t$ 都是对 $S$ 的积分，增量只来自此前的一段；西安代表点的结构相同（各段时长见补充材料第~\ref{sec:sup:numerics}~节）。
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/joint_v2/joint_capacity.pdf}
@@ -130,9 +130,9 @@ $\delta_q$ 不影响无回流模型中闭合的 $(S,I)$ 子系统，因而不改
 \FloatBarrier
 \subsection{成本权重与时长}
 \label{sec:joint:weights-numerics}
-在所算的权重网格中，“先仅隔离、后两者并用”的结构在隔离的相对权重不大时保持不变。固定 $w_c=1$（最优选择只通过 $r=w_q/w_c$ 依赖权重），图~\ref{fig:joint:phase}给出 $r\in[0.1,20]$ 内不考虑能力约束时的成本最优控制；颜色 $y$ 是接触率降幅占仅减少接触时降幅的比例。在所检验的网格与精度下，$r$ 低于约 $\nrWtBaseAToApApx$（基准）或 $\nrWtXianAToApApx$（西安）时，切换都发生在 $S_{\rm sw}$ 处且控制连续；$r$ 在约 $\nrWtBaseAToApApx$–$\nrWtBaseApToBApx$（基准）或 $\nrWtXianAToApApx$–$\nrWtXianApToBApx$（西安）之间时，控制仍在 $S_{\rm sw}$ 处连续切换，随后在 $S_{\rm sw}$ 稍下方于两个内部取值之间跳变一次。默认的 $r=2$ 单独计算，属于控制连续的情形（第~\ref{sec:joint:compare-numerics}~节）。
+“先仅隔离、后两者并用”的结构在隔离的相对权重不大时保持不变。固定 $w_c=1$（最优选择只通过 $r=w_q/w_c$ 依赖权重），图~\ref{fig:joint:phase}给出 $r\in[1,20]$ 内不考虑能力约束时的成本最优控制，即加强隔离的相对代价不低于减少接触的情形；颜色与等高线 $y$ 是接触率降幅占仅减少接触时降幅的比例。$r<1$ 时成本最优控制更接近仅隔离控制：仅隔离控制的成本与 $r$ 成正比，而由命题~\ref{prop:joint:weight-monotone}(i)，$J_{\min}/w_c$ 是 $r$ 的凹函数，所以 $1-J_{\min}/J[c_0]$ 随 $r$ 不减；$r=1$ 时它在两组参数下约为 $\nrCostGapOneBase\%$ 与 $\nrCostGapOneXian\%$。由定理~\ref{thm:joint:cost-structure}，$r\le r_{\rm cont}$（基准约 $\nrCostRcontBase$，西安约 $\nrCostRcontXian$）时，切换发生在 $S_{\rm sw}$ 处且控制连续，默认的 $r=2$ 属于这一情形。$r_{\rm cont}<r\le\hat r$（基准 $\hat r$ 约 $\nrCostRhatBase$，西安约 $\nrCostRhatXian$，见补充命题~\ref*{prop:sup:rhat}）时，控制仍在 $S_{\rm sw}$ 处连续切换，随后在 $S_{\rm sw}$ 稍下方于两个内部取值之间跳变，所算网格中只跳变一次（补充图~\ref*{fig:sup:phase-detail}）。图~\ref{fig:joint:phase}(c)(d) 给出基准参数下几个权重的控制：隔离比例在每个权重下都随时间下降（命题~\ref{prop:joint:weight-monotone}(ii)），接触率则在 $S_{\rm sw}$ 以下先降后回升；权重越大，每个状态上的接触率与隔离比例都越低（命题~\ref{prop:joint:weight-monotone}(i)）。
 
-$r$ 再大时切换提前并出现跳变，最终仅隔离段消失。切换提前时，仅隔离控制仍是局部最优，但另一个内部局部最优的成本更低，因此接触率在切换处由 $c_0$ 跳到内部值；$r$ 越大，切换越早。$r$ 超过约 $\nrWtBaseBToCApx$（基准）或 $\nrWtXianBToCApx$（西安）后，仅隔离段消失，整个阈值控制期都两者并用；各转折所在的括区见补充表~\ref*{tab:joint:weight-transitions}。退出时 $y$ 对所有 $r$ 都趋于 $r/(1+r)$，即两种归一化强度之比趋于权重的反比（命题~\ref{prop:joint:terminal-allocation}）。
+$r$ 再大时切换提前并出现跳变，最终仅隔离段消失。切换提前时，仅隔离控制仍是局部最优，但另一个内部局部最优的成本更低，因此接触率在切换处由 $c_0$ 跳到内部值；$r$ 越大，切换越早。$r$ 超过约 $\nrWtBaseBToCApx$（基准）或 $\nrWtXianBToCApx$（西安）后，仅隔离段消失，整个阈值控制期都两者并用；各转折所在的括区与闭式值见补充表~\ref*{tab:joint:weight-transitions}。退出时 $y$ 对所有 $r$ 都趋于 $r/(1+r)$，即两种归一化强度之比趋于权重的反比（命题~\ref{prop:joint:terminal-allocation}）；图中的等高线因而在 $S\to S_c$ 处趋于水平线 $r=y/(1-y)$。
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/joint_v2/joint_phase_contour.pdf}
@@ -141,7 +141,7 @@ $r$ 再大时切换提前并出现跳变，最终仅隔离段消失。切换提�
 \end{figure}
 
 \label{sec:joint:duration-numerics}
-在基准参数下，成本在最小值附近对控制时长不敏感（图~\ref{fig:joint:frontier}）。图中每个计算点都使 $J+\kappa\Delta t$ 最小；由注记~\ref{rem:joint:duration-constraint}，它在自身的时长 $T$ 下使 $J$ 最小：$\kappa\ge0$ 的点对应时长上限 $\Delta t\le T$，$\kappa<0$ 的点对应时长下限，即新增隔离易感者人数上限。缩短控制期时，仅隔离控制始终满足时长上限，所以最小成本至多升到它的成本 $J[c_0]\approx1.05J_{\min}$（$J_{\min}$ 为不考虑时长约束的最小成本）；延长控制期时，成本不超过 $1.10J_{\min}$ 的计算点最长约 $11.09$ d，而仅减少接触的 $36.26$ d 对应约 $5.64J_{\min}$。
+在基准参数下，成本在最小值附近对控制时长不敏感（图~\ref{fig:joint:frontier}）。图中每个计算点都使 $J+\kappa\Delta t$ 最小；由注记~\ref{rem:joint:duration-constraint}，它在自身的时长 $T$ 下使 $J$ 最小：$\kappa\ge0$ 的点对应时长上限 $\Delta t\le T$，$\kappa<0$ 的点对应时长下限，即新增隔离易感者人数上限。由命题~\ref{prop:joint:duration-frontier}，最短与最长之间的每个时长都有匹配的乘子，图中曲线是凸函数 $V(T)$ 的采样。缩短控制期时，仅隔离控制始终满足时长上限，所以最小成本至多升到它的成本 $J[c_0]\approx1.05J_{\min}$（$J_{\min}$ 为不考虑时长约束的最小成本）；延长控制期时，成本不超过 $1.10J_{\min}$ 的计算点最长约 $11.09$ d，而仅减少接触的 $36.26$ d 对应约 $5.64J_{\min}$。
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.6\textwidth]{figures/joint_v2/joint_frontier_baseline.pdf}
