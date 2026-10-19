@@ -13,6 +13,7 @@ import math
 import re
 
 from audit_common import RESULTS, ROOT, dump
+from audit_return_endpoint import validate_endpoint_sources
 
 OUT_TEX = ROOT / 'paper' / 'generated' / 'nr_numbers.tex'
 MACROS = []
@@ -179,15 +180,14 @@ def main():
                     f'{case}：指数回流 1/ω={s} d，{law}，终止时（退出后首次 I<1）累计新增感染；来源见 source')
 
     # NEW-2：新增的解析尾界在数值终点上求值；原表值保持。
-    ep = load('new_return_endpoint.json')
+    ep = validate_endpoint_sources(load('new_return_endpoint.json'))
     for case, tag in (('base', 'Base'), ('xian', 'Xian')):
         for stay, st in ((7, 'Seven'), (14, 'Fourteen'), (30, 'Thirty')):
             row = ep['groups'][case][str(stay)]
             add(f'nrRetTail{tag}{st}', row['B_max_persons'], row['B_display_up'], '人',
                 'new_return_endpoint.json', f'groups.{case}.{stay}.B_max_persons',
                 f'{case}：平均停留{stay}d三控制的最大剩余感染上界，显示向上取整')
-    tolfile = ROOT / 'r7_return/results/r7_3_convergence.json'
-    tol = json.loads(tolfile.read_text(encoding='utf-8'))['tolerance_summary']['max_rel_change_tight']
+    tol = ep['solver_tolerance_max_rel_tight']
     # 数字源统一由派生审计JSON记录，避免映射指向旧全文宏。
     add('nrRetSolverTolRel', tol, sci_up(tol), '', 'new_return_endpoint.json',
         'solver_tolerance_max_rel_tight', '固定来源54条容差对照中收紧后的核心量最大相对变化')

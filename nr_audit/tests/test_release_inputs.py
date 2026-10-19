@@ -36,21 +36,45 @@ def test_frozen_loader_is_canonical_lf():
 
 
 def test_fixed_paths_ignore_autocrlf(tmp_path):
-    """Git检出配置模拟，不冒称Linux操作系统实测。"""
+    """真实attributes全文和真实相对路径，在同一Windows主机模拟两种检出配置。"""
     repo = tmp_path / 'repo'
     repo.mkdir()
     subprocess.run(['git', 'init', '-q', str(repo)], check=True)
     def git(*args):
         return subprocess.run(['git', '-C', str(repo), *args], check=True, capture_output=True)
-    (repo / '.gitattributes').write_text('/source.json -text\n/loader.py -text\n', encoding='utf-8')
-    expected = {'source.json': (SRC.ROOT / IR.SOURCE_PATH).read_bytes(),
-                'loader.py': (SRC.ROOT / 'xian_control_comparison/xian_control_comparison.py').read_bytes()}
-    for name, raw in expected.items():
-        (repo / name).write_bytes(raw)
-    git('add', '.gitattributes', 'source.json', 'loader.py')
+    # 必须复制仓库真正的属性文件，不能用简化规则替代。
+    (repo / '.gitattributes').write_bytes((SRC.ROOT / '.gitattributes').read_bytes())
+    lf_paths = [
+        'nr_audit/allocation.py', 'nr_audit/audit_weights.py', 'nr_audit/params.py',
+        'nr_audit/plot_figure7.py', 'nr_audit/audit_common.py',
+        'nr_audit/import_return_numbers.py', 'nr_audit/audit_return_endpoint.py',
+        'nr_audit/make_numbers.py', 'nr_audit/results/weight_brackets.json',
+        'nr_audit/results/new_figure7.json', 'nr_audit/results/new_figure7_render.json',
+        'nr_audit/results/new_return_endpoint.json', 'nr_audit/results/nr_numbers_map.json',
+        'nr_audit/results/new_figure7_alignment.json', 'nr_audit/results/new_figure7_collisions.json',
+        'nr_audit/results/new4a_identity_migration.json']
+    frozen_paths = [
+        IR.SOURCE_PATH, IR.CONVERGENCE_PATH, 'xian_control_comparison/xian_control_comparison.py',
+        'nr_audit/results/new_figure7.npz',
+        'reproducibility/results/20261005_sec7_v2_refinement/joint_extra/phase.json',
+        'reproducibility/results/20261005_sec7_v2_refinement/joint_extra/phase_baseline.npz',
+        'reproducibility/results/20261005_sec7_v2_refinement/joint_extra/phase_xian.npz']
+    expected = {p: (SRC.ROOT / p).read_bytes() for p in lf_paths + frozen_paths}
+    assert all(b'\r' not in expected[p] for p in lf_paths)
+    for name, content in expected.items():
+        path = repo / name
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(content)
+    git('add', '.gitattributes', *expected)
+    attrs = git('check-attr', 'text', 'eol', '--', *expected).stdout.decode().splitlines()
+    for p in lf_paths:
+        assert f'{p}: text: set' in attrs
+        assert f'{p}: eol: lf' in attrs
+    for p in frozen_paths:
+        assert f'{p}: text: unset' in attrs
     for setting in ('true', 'false'):
         git('config', 'core.autocrlf', setting)
         for name in expected:
             (repo / name).unlink()
         git('checkout-index', '-f', '--all')
-        assert all((repo / name).read_bytes() == raw for name, raw in expected.items())
+        assert all((repo / p).read_bytes() == content for p, content in expected.items())

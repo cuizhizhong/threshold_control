@@ -1,0 +1,69 @@
+{
+  "stage": "NEW-4a",
+  "base_commit": "8157fcd5cb3bce318adad0422e1846749317d4c5",
+  "snapshot_path": "tmp/new4a_no_git_snapshot",
+  "git_discovery_exit_code": 128,
+  "actual_commands": [
+    {
+      "arguments": [
+        "nr_audit/audit_return_endpoint.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "nr_audit/make_numbers.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "arguments": [
+        "nr_audit/plot_figure7.py",
+        "--reuse-data"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "negative_cli_checks": [
+    {
+      "script": "nr_audit/audit_return_endpoint.py",
+      "exit_code": 1,
+      "reason": "modified second input rejected by raw SHA-256"
+    },
+    {
+      "script": "nr_audit/make_numbers.py",
+      "exit_code": 1,
+      "reason": "modified second input rejected by raw SHA-256"
+    }
+  ],
+  "endpoint_rows_equal": true,
+  "tail_groups_equal": true,
+  "n_rows": 18,
+  "n_macros": 108,
+  "macros_byte_equal_to_NEW4": true,
+  "local_npz_byte_equal": true,
+  "local_npz_sha256": "719d07962df7bb607ad6fd8a73cbc454be10254dc15d7543f0819ed36ecd963f",
+  "both_fixed_inputs_verified": true,
+  "convergence_source": {
+    "path": "r7_return/results/r7_3_convergence.json",
+    "commit": "bb52b965a8cd98dd07a5c41b9997dae433128756",
+    "archived_commit": "9887340091911eda76753c1d2cc2afa23430cc62",
+    "sha256": "bbd7e4ea49a1d8e94623c3c2d27bdc67d690b592a5c189a01129a17f150b1d3b",
+    "blob": "5dde27d9bb447ef7896f63642dfd33f54cbb8f0f",
+    "history_check": "not_available"
+  },
+  "tests": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "48",
+    "time": "3.801",
+    "timestamp": "2026-10-19T15:15:12.833621+08:00",
+    "hostname": "DESKTOP-501"
+  },
+  "new_weight_classifications": 0,
+  "new_background_calculations": 0,
+  "new_return_ode_solves": 0,
+  "platform_scope": "Windows；真实attributes与相对路径在autocrlf=true/false检出验证；Linux系统未实测"
+}

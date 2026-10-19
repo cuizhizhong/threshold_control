@@ -1,6 +1,6 @@
 {
- "generated": "2026-10-19T12:08:02",
- "git_head": "b0cb0d9f920c42482ee8a99ff7bb3978c6e515cc",
+ "generated": "2026-10-19T15:12:25",
+ "git_head": "8157fcd5cb3bce318adad0422e1846749317d4c5",
  "description": "NEW-2：只读固定JSON，派生首次向下I=1终点、后续衰减充分条件和剩余感染尾界。",
  "source": {
   "path": "r7_return/results/r7_3_exponential_return.json",
@@ -387,6 +387,14 @@
     "B_display_up": "37.440"
    }
   }
+ },
+ "convergence_source": {
+  "path": "r7_return/results/r7_3_convergence.json",
+  "commit": "bb52b965a8cd98dd07a5c41b9997dae433128756",
+  "archived_commit": "9887340091911eda76753c1d2cc2afa23430cc62",
+  "sha256": "bbd7e4ea49a1d8e94623c3c2d27bdc67d690b592a5c189a01129a17f150b1d3b",
+  "blob": "5dde27d9bb447ef7896f63642dfd33f54cbb8f0f",
+  "history_check": "matched"
  },
  "solver_tolerance_max_rel_tight": 2.5072481505952823e-11
 }

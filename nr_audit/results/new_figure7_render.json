@@ -1,9 +1,10 @@
 {
-  "render_script_sha256": "eb341a899aeac5a5914ef1f06a130a7e4abd07647fa50798ae8bef2de2ce55bd",
-  "data_sha256": "629eccba52a9269040cfea28efecec484e785be7783c86dfc9069aacf0ab485c",
+  "render_script_sha256": "fb420c6f50afcdfcd84d1d8fc16f08f960774e825cf6e7f6dd629f3766ff42da",
+  "data_sha256": "44788474db5264ee491b8abbfb2cb985b8c1f5d8904541992305cac643a40d45",
   "npz_sha256": "719d07962df7bb607ad6fd8a73cbc454be10254dc15d7543f0819ed36ecd963f",
-  "pdf_sha256": "7aaa50a1a09d1f41cd3a5e793e21051b3dae925105ead0eae2cd07f00f6fac2f",
+  "pdf_sha256": "0528223a58c34b0009623a029efdda379814d8f3fc5336585ed28da656bb1a60",
   "width_mm": 174,
   "height_mm": 145,
-  "source_hashes_unchanged": true
+  "source_hashes_unchanged": true,
+  "reuse_data": true
 }

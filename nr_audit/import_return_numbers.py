@@ -13,37 +13,65 @@ ARCHIVED_COMMIT = '9887340091911eda76753c1d2cc2afa23430cc62'
 SOURCE_PATH = 'r7_return/results/r7_3_exponential_return.json'
 SOURCE_BLOB = '582def57c4a957e242d884dff50d6c8937e9137a'
 SOURCE_SHA256 = '3ca0a3d245314230df83c0717e07ed73ab67129803c284ea46eab8921cdfb05f'
+CONVERGENCE_PATH = 'r7_return/results/r7_3_convergence.json'
+CONVERGENCE_COMMIT = SOURCE_COMMIT
+CONVERGENCE_BLOB = '5dde27d9bb447ef7896f63642dfd33f54cbb8f0f'
+CONVERGENCE_SHA256 = 'bbd7e4ea49a1d8e94623c3c2d27bdc67d690b592a5c189a01129a17f150b1d3b'
 STAYS = (7, 14, 30)
 LAWS = ('q_only', 'opt_noreturn', 'c_only')
 KEYS = ('status', 'dt', 'J', 'C_term', 'L', 'crossing', 't_end', 'termination',
         'C_term_below_L', 'U_below_Sc_at_end')
 
 
-def read_source(path, repository=None):
-    """缺失、字节损坏或语义不符均失败；历史不可用只影响额外历史核对。"""
+def _read_fixed_json(path, *, expected_sha256, expected_blob, source_path,
+                     source_commit, label, repository=None):
+    """按原始字节核验；仅额外Git历史核对允许在无历史快照中不可用。"""
     path = pathlib.Path(path)
     raw = path.read_bytes()
     sha = hashlib.sha256(raw).hexdigest()
-    if sha != SOURCE_SHA256:
-        raise ValueError(f'固定回流输入SHA-256不符: {path}: {sha}')
+    if sha != expected_sha256:
+        raise ValueError(f'{label}SHA-256不符: {path}: {sha}')
     blob = hashlib.sha1(b'blob ' + str(len(raw)).encode() + b'\0' + raw).hexdigest()
-    if blob != SOURCE_BLOB:
-        raise ValueError(f'固定回流输入blob不符: {blob}')
+    if blob != expected_blob:
+        raise ValueError(f'{label}blob不符: {blob}')
     history = 'not_available'
     repository = pathlib.Path(repository) if repository is not None else ROOT
     if (repository / '.git').exists():
         try:
-            known = subprocess.run(['git', 'cat-file', '-e', SOURCE_COMMIT],
+            known = subprocess.run(['git', 'cat-file', '-e', source_commit],
                                    cwd=repository, capture_output=True)
             if known.returncode == 0:
                 historical = subprocess.check_output(
-                    ['git', 'show', f'{SOURCE_COMMIT}:{SOURCE_PATH}'], cwd=repository)
+                    ['git', 'show', f'{source_commit}:{source_path}'], cwd=repository)
                 if historical != raw:
-                    raise ValueError('历史blob与固定本地输入不一致')
+                    raise ValueError(f'{label}历史blob与固定本地输入不一致')
                 history = 'matched'
         except FileNotFoundError:
             history = 'git_unavailable'
-    data = json.loads(raw.decode('utf-8'))
+    return json.loads(raw.decode('utf-8')), dict(sha256=sha, blob=blob, history_check=history)
+
+
+def read_convergence(path=None, repository=None):
+    """第二输入必须在容差值使用前通过身份与记录完整性校验。"""
+    path = pathlib.Path(path) if path is not None else ROOT / CONVERGENCE_PATH
+    data, identity = _read_fixed_json(path, expected_sha256=CONVERGENCE_SHA256,
+        expected_blob=CONVERGENCE_BLOB, source_path=CONVERGENCE_PATH,
+        source_commit=CONVERGENCE_COMMIT, label='固定回流收敛输入', repository=repository)
+    summary = data['tolerance_summary']
+    value = summary['max_rel_change_tight']
+    if (summary['n_runs'] != 54 or len(data['tolerance']) != 54
+            or summary['all_pass'] is not True or summary['failed']
+            or not math.isfinite(value) or value < 0):
+        raise ValueError('固定回流收敛记录不完整或容差值无效')
+    return data, dict(path=CONVERGENCE_PATH, commit=CONVERGENCE_COMMIT,
+                      archived_commit=ARCHIVED_COMMIT, **identity)
+
+
+def read_source(path, repository=None):
+    """缺失、字节损坏或语义不符均失败；历史不可用只影响额外历史核对。"""
+    data, identity = _read_fixed_json(path, expected_sha256=SOURCE_SHA256,
+        expected_blob=SOURCE_BLOB, source_path=SOURCE_PATH, source_commit=SOURCE_COMMIT,
+        label='固定回流输入', repository=repository)
     if (data['model'], data['endpoint'], data['weights']) != (
             'exponential_return', 'first_below_one', {'w_c': 1.0, 'w_q': 2.0}):
         raise ValueError('回流输入模型、终点或权重不符')
@@ -57,7 +85,7 @@ def read_source(path, repository=None):
                 for field in ('dt', 'J', 'C_term', 'L', 't_end'):
                     if not math.isfinite(row[field]):
                         raise ValueError(f'回流字段非有限: {key}.{field}')
-    return data, dict(sha256=sha, blob=blob, history_check=history)
+    return data, identity
 
 
 def build_import(path=None, repository=None):

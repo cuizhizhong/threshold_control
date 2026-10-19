@@ -18,8 +18,9 @@ def remaining_bound(P, U, I):
                 B_persons=P.beta * P.c0 * U * I / (P.N * rate))
 
 
-def main():
-    data, identity = IR.read_source(ROOT / IR.SOURCE_PATH)
+def build_audit(source_path=None, convergence_path=None, repository=None):
+    data, identity = IR.read_source(source_path or ROOT / IR.SOURCE_PATH, repository)
+    convergence, convergence_identity = IR.read_convergence(convergence_path, repository)
     rows = []
     for case, P in PR.CASES.items():
         for stay in IR.STAYS:
@@ -52,9 +53,26 @@ def main():
                condition='baseline forever after exit; U_cut < S_c',
                formula='B=beta*c0*U_cut*I_cut/(N*gamma*(1-U_cut/S_c))',
                numeric_not_interval_certification=True, rows=rows, groups=groups,
-               solver_tolerance_max_rel_tight=json.loads(
-                   (ROOT/'r7_return/results/r7_3_convergence.json').read_text(encoding='utf-8')
-               )['tolerance_summary']['max_rel_change_tight'])
+               convergence_source=convergence_identity,
+               solver_tolerance_max_rel_tight=convergence['tolerance_summary']['max_rel_change_tight'])
+    return out
+
+
+def validate_endpoint_sources(ep, convergence_path=None, repository=None):
+    """宏生成前验证第二输入及派生字段，数值仍从已验证ep读取。"""
+    convergence, identity = IR.read_convergence(convergence_path, repository)
+    recorded = ep.get('convergence_source', {})
+    for key in ('path', 'commit', 'archived_commit', 'sha256', 'blob'):
+        if recorded.get(key) != identity[key]:
+            raise ValueError(f'派生终点审计的收敛来源身份不符: {key}')
+    if ep.get('solver_tolerance_max_rel_tight') != convergence['tolerance_summary']['max_rel_change_tight']:
+        raise ValueError('派生终点审计的容差字段与已核验来源不符')
+    return ep
+
+
+def main():
+    out = build_audit()
+    rows, groups = out['rows'], out['groups']
     dump('new_return_endpoint.json', out)
     with open(RESULTS/'new_return_endpoint.csv','w',encoding='utf-8-sig',newline='') as fh:
         writer=csv.DictWriter(fh,fieldnames=list(rows[0]))

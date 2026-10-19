@@ -42,7 +42,7 @@ def git_head():
 def dump(name, obj):
     RESULTS.mkdir(parents=True, exist_ok=True)
     obj = dict(generated=datetime.datetime.now().isoformat(timespec='seconds'), git_head=git_head(), **obj)
-    (RESULTS / name).write_text(json.dumps(plain(obj), ensure_ascii=False, indent=1), encoding='utf-8')
+    (RESULTS / name).write_text(json.dumps(plain(obj), ensure_ascii=False, indent=1), encoding='utf-8', newline='\n')
 
 
 def rel(a, b):

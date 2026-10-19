@@ -4,3 +4,24 @@
 # NEW-1：固定输入按Git原始字节保存，禁止换行转换。
 /r7_return/results/r7_3_exponential_return.json -text
 /xian_control_comparison/xian_control_comparison.py -text
+
+# NEW-4a：点名绘图代码与派生记录固定UTF-8/LF；冻结输入保持原始字节。
+/nr_audit/results/weight_brackets.json text eol=lf
+/nr_audit/allocation.py text eol=lf
+/nr_audit/audit_weights.py text eol=lf
+/nr_audit/params.py text eol=lf
+/nr_audit/plot_figure7.py text eol=lf
+/nr_audit/audit_common.py text eol=lf
+/nr_audit/import_return_numbers.py text eol=lf
+/nr_audit/audit_return_endpoint.py text eol=lf
+/nr_audit/make_numbers.py text eol=lf
+/nr_audit/results/new_figure7.json text eol=lf
+/nr_audit/results/new_figure7_render.json text eol=lf
+/nr_audit/results/new_return_endpoint.json text eol=lf
+/nr_audit/results/nr_numbers_map.json text eol=lf
+/nr_audit/results/new4a_identity_migration.json text eol=lf
+/nr_audit/results/new_figure7.npz -text
+/r7_return/results/r7_3_convergence.json -text
+/nr_audit/results/new_figure7_alignment.json text eol=lf
+/nr_audit/results/new_figure7_collisions.json text eol=lf
+/nr_audit/results/new4a_*.json text eol=lf

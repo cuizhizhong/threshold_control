@@ -72,7 +72,8 @@ def compute():
         new_ode_solves=0,N_z=4001,N_local=4001,cases=cases,
         data_scope='原全域网格完整保留；仅已有加密权重及两处旧网格纠错点局部计算；非连续参数分类')
     np.savez_compressed(NPZ,**arrays)
-    DATA.write_text(json.dumps(receipt,ensure_ascii=False,indent=1),encoding='utf-8')
+    receipt['cache_npz_sha256']=sha(NPZ)
+    DATA.write_text(json.dumps(receipt,ensure_ascii=False,indent=1),encoding='utf-8',newline='\n')
     return receipt,arrays
 
 
@@ -112,10 +113,11 @@ def refine_background(d,arrays):
     d['data_scope']=('原全域网格完整保留；已有加密权重及两处纠错点作局部分类；'
         f'另加西安{counts["xian"]}行仅填补背景颜色，不新增分类转折或ODE；非连续参数分类')
     np.savez_compressed(NPZ,**arrays)
-    DATA.write_text(json.dumps(d,ensure_ascii=False,indent=1),encoding='utf-8')
+    d['cache_npz_sha256']=sha(NPZ)
+    DATA.write_text(json.dumps(d,ensure_ascii=False,indent=1),encoding='utf-8',newline='\n')
 
 
-def render(d,arrays):
+def render(d,arrays,reuse_data=False):
     plt.rcParams.update({'font.family':'sans-serif',
         'font.sans-serif':['Arial','Helvetica','DejaVu Sans','sans-serif'],
         'font.size':8,'axes.titlesize':8,
@@ -180,18 +182,31 @@ def render(d,arrays):
     fig.canvas.draw()
     require_matplotlib_panel_alignment(fig,json_out=RESULTS/'new_figure7_alignment.json',
         overlay_svg=ROOT/'tmp/new_figure7_alignment.svg',strict=True,tolerance_pt=1.5)
+    # vendor保持原样；调用端统一派生JSON的物理换行。
+    alignment=RESULTS/'new_figure7_alignment.json'
+    alignment.write_text(alignment.read_text(encoding='utf-8'),encoding='utf-8',newline='\n')
     OUT.parent.mkdir(parents=True,exist_ok=True)
     fig.savefig(OUT.with_suffix('.pdf'),dpi=400)
     fig.savefig(OUT.with_suffix('.svg'),dpi=400)
     svg=OUT.with_suffix('.svg')
     svg.write_text('\n'.join(line.rstrip() for line in svg.read_text(encoding='utf-8').splitlines())+'\n',
-                   encoding='utf-8')
+                   encoding='utf-8',newline='\n')
     fig.savefig(ROOT/'paper/revision_notes/NEW_2_figure7_after.png',dpi=300)
     plt.close(fig)
     (RESULTS/'new_figure7_render.json').write_text(json.dumps(dict(
         render_script_sha256=sha(__file__),data_sha256=sha(DATA),npz_sha256=sha(NPZ),
         pdf_sha256=sha(OUT.with_suffix('.pdf')),width_mm=174,height_mm=145,
-        source_hashes_unchanged=inputs()==d['source_hashes']),indent=2),encoding='utf-8')
+        source_hashes_unchanged=inputs()==d['source_hashes'],reuse_data=reuse_data),indent=2),encoding='utf-8',newline='\n')
+
+
+def validate_cached_inputs(d):
+    """源码/JSON/冻结源均按记录的原字节比较，不在校验时忽略任何换行。"""
+    if inputs()!=d['source_hashes']:
+        raise ValueError('图7输入已变，不能复用')
+    if sha(NPZ)!=d.get('cache_npz_sha256'):
+        raise ValueError('图7缓存NPZ身份不符，不能复用')
+    if 'background_refinement' not in d:
+        raise ValueError('图7缓存缺少背景细化，reuse-data不执行新计算')
 
 
 def main():
@@ -199,12 +214,13 @@ def main():
     args=p.parse_args()
     if args.reuse_data:
         d=json.loads(DATA.read_text(encoding='utf-8'))
-        if inputs()!=d['source_hashes']: raise ValueError('图7输入已变，不能复用')
+        validate_cached_inputs(d)
         arrays=dict(np.load(NPZ))
     else:
         d,arrays=compute()
-    refine_background(d,arrays)
-    render(d,arrays)
+    if not args.reuse_data:
+        refine_background(d,arrays)
+    render(d,arrays,reuse_data=args.reuse_data)
 
 
 if __name__=='__main__':

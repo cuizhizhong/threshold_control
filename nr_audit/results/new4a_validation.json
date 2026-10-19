@@ -1,0 +1,36 @@
+{
+  "stage": "NEW-4a",
+  "pdfs": {
+    "main": {
+      "pages": 35,
+      "all_pages_pixel_equal_to_NEW4": true,
+      "log_flags": {
+        "undefined": 0,
+        "multiply defined": 0,
+        "Missing character": 0,
+        "Overfull": 0,
+        "Rerun to get": 0
+      },
+      "sha256": "8da7c1ba3cb06578118e620e47780684dc57eaac42ef50777f3be5e3284c341e"
+    },
+    "supp": {
+      "pages": 19,
+      "all_pages_pixel_equal_to_NEW4": true,
+      "log_flags": {
+        "undefined": 0,
+        "multiply defined": 0,
+        "Missing character": 0,
+        "Overfull": 0,
+        "Rerun to get": 0
+      },
+      "sha256": "26f2eced30e750aa58193345d3246926d51327d3ba8102a543121c108bf60c50"
+    }
+  },
+  "all_108_macros_byte_equal": true,
+  "figure_classifications_unchanged": true,
+  "history_compute_identities_unchanged": true,
+  "new_weight_classifications": 0,
+  "new_background_calculations": 0,
+  "new_return_ode_solves": 0,
+  "validation": "48项受影响测试通过；无Git实际生成及第二输入破坏CLI失败均通过；图7重绘未改格式"
+}
