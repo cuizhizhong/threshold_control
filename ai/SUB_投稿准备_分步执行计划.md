@@ -86,7 +86,7 @@ git merge --ff-only origin/claude/paper-branch-merge-strategy-w4vpck
 git log --oneline -4
 ```
 
-预期：最上面是放入本计划与合并方案的提交，其下是 `101b3e0`。
+预期：最上面两个提交分别放入本计划与合并方案，其下是 `101b3e0`。
 
 路径 B（本地无回流分支有更新的提交）：
 
@@ -113,11 +113,19 @@ git rev-parse HEAD:r7_return/results/r7_3_exponential_return.json
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File paper\build.ps1
-conda run --no-capture-output -n thesis python nr_audit/run_tests.py --level smoke
+conda run --no-capture-output -n thesis python -m pytest nr_audit/tests -q -m "not slow"
 conda run --no-capture-output -n thesis python -m pytest r7_return/tests -q
+git status --short
 ```
 
-预期：补充 18 页、主稿 34 页，undefined 0（若有 undefined，再运行一次 `build.ps1`）；两组测试全部通过，其中 `r7_return` 的宏测试因 `main` 没有 `r7_numbers.tex` 而自动跳过。
+预期：
+
+- 补充 18 页、主稿 34 页，undefined 0。若有 undefined，再运行一次 `build.ps1`（补充材料与主稿互相引用）。
+- `nr_audit`：230 项选中，全部通过，约 1–2 分钟。在 Linux/macOS 检出中，`test_sources` 有两项会因换行符失败，这是 SUB-3 要修的问题，Windows 检出中不会出现。
+- `r7_return`：89 项通过、2 项跳过，约 2 分钟；跳过的是宏测试，因为 `main` 没有 `r7_numbers.tex`。
+- `git status --short` 没有输出。这里不用 `nr_audit/run_tests.py`：它会改写已跟踪的测试报告，使工作区不干净。
+
+以上预期已在云端用同样的步骤演练过（本地 `main` 取 2b5545a），编译页数与两组测试结果一致。
 
 ```powershell
 git push origin main
@@ -178,7 +186,7 @@ A. 换行符（必须）。nr_audit/results/source_manifest.json 中 xian_loader
    1. 在 .gitattributes 加一行 /xian_control_comparison/** -text；
    2. 删除工作区中的该文件后运行 git checkout -- xian_control_comparison/xian_control_comparison.py，使工作区为仓库中的 LF 内容（git diff 应为空）；
    3. conda run --no-capture-output -n thesis python nr_audit/sources.py 重新生成清单；核对只有 xian_loader 的哈希变化，新值应为 c029a604c8f7147a24d59e6c0d39a927ff360f0dbb1b7338f23bd86573ff15a2；
-   4. 运行 nr_audit 全部测试（run_tests.py），应全部通过。
+   4. 运行 nr_audit 全部测试（conda run --no-capture-output -n thesis python nr_audit/run_tests.py），应全部通过；它会重写 nr_audit/results/nr2_test_report.{json,md}，随本步一起提交。
 B. 依赖清单（必须）：用 conda list -n thesis 读取实际版本，写根目录 requirements.txt（Python 版本写在注释中；至少 numpy、scipy、sympy、mpmath、pandas、openpyxl、pytest）。
 C. README.md：把“计算代码的现状”一节改为现状：nr_audit/ 为无回流数字核验（入口与测试），r7_return/ 为补充 S5 的回流数字，reproducibility/ 为原始结果（只读）；编译方法不变。
 D. 公开范围（只提方案，不执行公开）：列出公开包应含与不应含的目录。不应公开 refs/：其中有出版社 PDF 与一本电子书，有版权问题。ai/ 中的内部讨论由作者决定。真实数据/ 须作者确认来源与许可（He 等 2023 的数据是否已公开、可否再分发）。nr_audit 依赖的只读来源文件须保持相对路径；test_sources 中依赖提交 bb52b96 的检查在没有完整 git 历史时会自动 skip，写明这一点。写出数据与代码可得性声明的中英文草稿（URL 留空）。
