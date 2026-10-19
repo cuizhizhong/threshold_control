@@ -54,6 +54,21 @@ def x_and_label(z, b, r):
     return x, info['label']
 
 
+def bisect_jump(b, r, zl, zr, xl, ll, xr, lr):
+    """在 [zl, zr] 上二分；两侧仍分离才是跳变（陡峭的连续段会收拢）。返回 (z_J, 左侧 x, 右侧 x, 类型) 或 None。"""
+    for _ in range(60):
+        zm = 0.5 * (zl + zr)
+        xm, lm = x_and_label(zm, b, r)
+        if abs(xm * zm - xl * zl) < abs(xm * zm - xr * zr):
+            zl, xl, ll = zm, xm, lm
+        else:
+            zr, xr, lr = zm, xm, lm
+    if abs(xr * zr - xl * zl) > 1e-6:
+        kind = 'endpoint' if 'hi' in (ll, lr) else 'internal'
+        return 0.5 * (zl + zr), xl, xr, kind
+    return None
+
+
 def jump_in(b, r, z_lo, z_hi, n=3000):
     """在 [z_lo, z_hi] 上找成本最优控制的第一个跳变：返回 (z_J, 左侧 x, 右侧 x, 类型) 或 None。"""
     zs = np.linspace(z_lo, z_hi, n)
@@ -62,19 +77,25 @@ def jump_in(b, r, z_lo, z_hi, n=3000):
     du = np.abs(np.diff(u))
     k = np.flatnonzero(du > max(20 * np.median(du), 1e-4))
     for j in k:
-        zl, zr = zs[j], zs[j + 1]
-        (xl, ll), (xr, lr) = (xs[j], labs[j]), (xs[j + 1], labs[j + 1])
-        for _ in range(60):
-            zm = 0.5 * (zl + zr)
-            xm, lm = x_and_label(zm, b, r)
-            if abs(xm * zm - xl * zl) < abs(xm * zm - xr * zr):
-                zl, xl, ll = zm, xm, lm
-            else:
-                zr, xr, lr = zm, xm, lm
-        if abs(xr * zr - xl * zl) > 1e-6:            # 二分后仍分离才是跳变（陡峭的连续段会收拢）
-            kind = 'endpoint' if 'hi' in (ll, lr) else 'internal'
-            return 0.5 * (zl + zr), xl, xr, kind
+        jmp = bisect_jump(b, r, zs[j], zs[j + 1], xs[j], labs[j], xs[j + 1], labs[j + 1])
+        if jmp is not None:
+            return jmp
     return None
+
+
+def profile_jumps(b, r, zp, x):
+    """剖面网格上的跳变：候选区间与 jump_in 同一判据，逐个二分确认；返回 [(区间下标 j, z_J, 左侧 x, 右侧 x, 类型)]。"""
+    u = x * zp
+    du = np.abs(np.diff(u))
+    out = []
+    for j in np.flatnonzero(du > max(20 * np.median(du), 1e-4)):
+        zl, zr = zp[j], zp[j + 1]
+        xl, ll = x_and_label(zl, b, r) if zl > 1 else (1.0, 'deg')
+        xr, lr = x_and_label(zr, b, r)
+        jmp = bisect_jump(b, r, zl, zr, xl, ll, xr, lr)
+        if jmp is not None:
+            out.append((int(j),) + tuple(jmp))
+    return out
 
 
 def compute():
@@ -182,16 +203,20 @@ def render(d, arrays):
     P = PR.CASES['base']
     c = d['cases']['base']
     zp = arrays['profile_z']
+    profile_receipt = []
     for kk, (rv, col) in enumerate(zip(REP, REP_COLORS)):
         x = arrays[f'profile_{kk}_x']
-        u = x * zp
-        jumps = np.flatnonzero(np.abs(np.diff(u)) > 0.02)
-        for ax, yv in ((axC, x), (axD, 1 - (1 - P.q0) / u)):
-            yy = yv.copy()
-            yy[jumps] = np.nan
-            ax.plot(zp, yy, color=col, lw=1.3, label=f'$r={rv:g}$')
-            for j in jumps:
-                ax.plot([zp[j], zp[j]], [yv[j], yv[j + 1]], color=col, lw=.7, ls=(0, (2, 1.5)))
+        jumps = profile_jumps(P.z_bar, rv, zp, x)
+        profile_receipt.append(dict(r=rv, jumps=[dict(z=float(zj), x_left=float(xl), x_right=float(xr), kind=kd)
+                                                 for _, zj, xl, xr, kd in jumps]))
+        cuts = [j + 1 for j, *_ in jumps]                 # 只在确认的跳变处断开曲线
+        q = lambda xv, zv: 1 - (1 - P.q0) / (xv * zv)
+        for ax, yv in ((axC, x), (axD, q(x, zp))):
+            for m, (a, e) in enumerate(zip([0] + cuts, cuts + [zp.size])):
+                ax.plot(zp[a:e], yv[a:e], color=col, lw=1.3, label=f'$r={rv:g}$' if m == 0 else None)
+        for _, zj, xl, xr, _ in jumps:                    # 跳变处画竖直点线，连接两侧的最优取值
+            axC.plot([zj, zj], [xl, xr], color=col, lw=.7, ls=(0, (2, 1.5)))
+            axD.plot([zj, zj], [q(xl, zj), q(xr, zj)], color=col, lw=.7, ls=(0, (2, 1.5)))
     for ax, lab, yl in ((axC, '(c) Baseline: contact rate', r'$c^*/c_0$'),
                         (axD, '(d) Baseline: quarantine fraction', r'$q^*$')):
         ax.set_xlim(c['z_star'], 1)
@@ -214,11 +239,11 @@ def render(d, arrays):
     svg = OUT.with_suffix('.svg')
     svg.write_text('\n'.join(line.rstrip() for line in svg.read_text(encoding='utf-8').splitlines()) + '\n',
                    encoding='utf-8', newline='\n')
-    fig.savefig(ROOT / 'paper/revision_notes/NEW_4d_figure7_after.png', dpi=200)
+    fig.savefig(ROOT / 'paper/revision_notes/NEW_4e_figure7_after.png', dpi=200)
     plt.close(fig)
     (RESULTS / 'new4d_figure7_render.json').write_text(json.dumps(dict(
         render_script_sha256=text_sha(__file__), data_sha256=text_sha(DATA), npz_sha256=sha(NPZ),
-        pdf_sha256=sha(OUT.with_suffix('.pdf')), width_mm=174, height_mm=150,
+        pdf_sha256=sha(OUT.with_suffix('.pdf')), width_mm=174, height_mm=150, profile_jumps=profile_receipt,
         source_hashes_unchanged=inputs() == d['source_hashes']), indent=2), encoding='utf-8', newline='\n')
 
 

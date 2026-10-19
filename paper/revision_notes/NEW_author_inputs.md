@@ -5,4 +5,4 @@ NEW-0至NEW-4、NEW-4d已完成。本文件不列例行步骤审批；没有待�
 1. 集中审阅中文稿：主稿第4/18页的移出仓室、参数来源与delta_q设定，第23页图7，以及补充第14–17页的回流条件、首次I=1终点和尾界。认可后由作者指定冻结提交；本轮不自行标记zh-final、英译或更新main。
 2. 后续英译/投稿材料需要作者姓名与顺序、通讯作者邮箱、完整单位、基金、作者贡献与利益冲突等真实信息。当前保留原XXX占位，不填写猜测事实。
 3. 后续公开复现快照需要确认病例输入数据的可分发权限与公开范围，以及是否建立代码归档链接/DOI。本轮只核验本地来源，不发布或填入虚构链接。
-4. NEW-4d 新增五条陈述（定理 `thm:joint:cost-structure`、推论 `cor:joint:capacity-clip`、命题 `prop:joint:weight-monotone`、`prop:joint:duration-frontier`、补充命题 `prop:sup:rhat`）及附录 A 两小节证明已入稿，请在审阅中文稿时一并看过（主稿5.3–5.4节与附录A末两小节、补充S6，记录 `NEW_4d_cost_structure.md`）。Aumann (1965) 的出版信息已核对，但本环境打不开原文：请对照原文确认附录引用的“定理1（凸性）与定理4（紧性）”编号。
+4. NEW-4d 新增五条陈述（定理 `thm:joint:cost-structure`、推论 `cor:joint:capacity-clip`、命题 `prop:joint:weight-monotone`、`prop:joint:duration-frontier`、补充命题 `prop:sup:rhat`）及附录 A 两小节证明已入稿，请在审阅中文稿时一并看过（主稿5.3–5.4节与附录A末两小节、补充S6，记录 `NEW_4d_cost_structure.md`）。Aumann (1965) 的定理编号已由作者 10-19 对照原文确认（定理1为凸性、定理4为紧性），此项关闭。

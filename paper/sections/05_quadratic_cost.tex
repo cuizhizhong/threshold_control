@@ -144,7 +144,7 @@ c_{\rm cap}^*(S)=\min\bigl\{c^{+}(S),\max\{c^{-}(S),c_c^*(S)\}\bigr\},
 \end{proposition}
 证明见附录~\ref{sec:proof:cost-structure}。提高隔离的相对权重，使成本最优控制在每个状态上少用追踪隔离、多用减少接触；由定理~\ref{thm:joint:comparison}，易感者下降变慢，控制期延长，感染增加，被隔离的未感染者减少。接触率没有类似的时间单调性：在定理~\ref{thm:joint:cost-structure}的条件下，它在 $S_{\rm sw}$ 以下低于 $c_0$，退出时又回到 $c_0$。
 
-成本最优控制在不考虑能力约束时介于两种单控制之间：它在 $S_c<S<\min\{S_{\rm sw},S^*\}$ 上严格位于允许区间内部（命题~\ref{prop:joint:global-structure}），因此由定理~\ref{thm:joint:comparison}，其控制时长、控制期累计新增感染与新增隔离易感者人数都严格介于两者之间。与仅隔离控制相比，它以更长的控制期和更多的感染换取更低的成本（命题~\ref{prop:joint:terminal-allocation}）。$r>r_{\rm cont}$ 时，前段与跳变的结构只有数值结果（第~\ref{sec:joint:weights-numerics}~节）。
+成本最优控制在不考虑能力约束时介于两种单控制之间：它在 $S_c<S<\min\{S_{\rm sw},S^*\}$ 上严格位于允许区间内部（命题~\ref{prop:joint:global-structure}），因此由定理~\ref{thm:joint:comparison}，其控制时长、控制期累计新增感染与新增隔离易感者人数都严格介于两者之间。与仅隔离控制相比，它以更长的控制期和更多的感染换取更低的成本（命题~\ref{prop:joint:terminal-allocation}）。对更大的权重，最优控制的完整跳变结构仍通过数值考察（第~\ref{sec:joint:weights-numerics}~节）。
 
 \subsection{时长约束}
 时长约束可以用乘子化为同样的逐状态问题。乘子 $\kappa$ 是控制时长的价格：$\kappa>0$ 惩罚长控制期，使控制组合偏向仅隔离控制；$\kappa<0$ 则偏向仅减少接触。
@@ -168,6 +168,6 @@ V(T)=\inf\{J[c_c]:\Delta t[c_c]=T\}.
 \]
 则下确界可以达到，$V$ 是凸函数。对每个 $T\in(\Delta t_{\min},\Delta t_{\max})$，存在有限的 $\kappa$，使在时长 $T$ 下达到 $V(T)$ 的控制同时使 $J+\kappa\Delta t$ 最小，因而它几乎处处是注记~\ref{rem:joint:duration-constraint}中被积函数的逐状态最小化选择。
 \end{proposition}
-证明见附录~\ref{sec:proof:duration-frontier}。$-\kappa$ 是 $V$ 在 $T$ 处的次梯度，即控制时长的边际成本；$V$ 在不受时长约束的成本最优控制处取最小值，所以最小成本在其附近对控制时长不敏感。由式\eqref{eq:joint:cumulative}与\eqref{eq:joint:quarantine}，$V$ 同时给出 $J$ 与累计新增感染、新增隔离易感者人数之间的取舍。
+证明见附录~\ref{sec:proof:duration-frontier}。$-\kappa$ 是 $V$ 在 $T$ 处的次梯度，即控制时长的边际成本；由式\eqref{eq:joint:cumulative}与\eqref{eq:joint:quarantine}，$V$ 同时给出 $J$ 与累计新增感染、新增隔离易感者人数之间的取舍。
 
 \FloatBarrier
