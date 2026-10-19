@@ -135,8 +135,8 @@ $\delta_q$ 不影响无回流模型中闭合的 $(S,I)$ 子系统，因而不改
 $r$ 再大时切换提前并出现跳变，最终仅隔离段消失。切换提前时，仅隔离控制仍是局部最优，但另一个内部局部最优的成本更低，因此接触率在切换处由 $c_0$ 跳到内部值；$r$ 越大，切换越早。$r$ 超过约 $\nrWtBaseBToCApx$（基准）或 $\nrWtXianBToCApx$（西安）后，仅隔离段消失，整个阈值控制期都两者并用；各转折所在的括区见补充表~\ref*{tab:joint:weight-transitions}。退出时 $y$ 对所有 $r$ 都趋于 $r/(1+r)$，即两种归一化强度之比趋于权重的反比（命题~\ref{prop:joint:terminal-allocation}）。
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\textwidth]{figures/joint_v2/joint_phase_weights.pdf}
-\caption{固定 $w_c=1$、改变 $r=w_q/w_c$ 时不考虑能力约束的成本最优控制。(a,b) 基准与西安参数的全域网格；(c,d) 相应转折区的局部加密。颜色为 $y=(1-c_c^*/c_0)/(1-S_c/S)$：$y=0$ 为仅隔离，$y=1$ 为仅减少接触，$0<y<1$ 为两者并用。黑线为连续进入内部分支的边界，红线为端点到内部的跳变，紫线为两个内部取值之间的跳变；竖直灰虚线仅标示端点局部最优判据 $S_{\rm sw}/S_c$。全域背景沿用 $161$ 点权重网格，局部线与点取自补充表~\ref*{tab:joint:weight-transitions}所涉加密区间及西安两处纠错点；$A,A',B$ 依次表示连续、连续进入后内部跳变、端点直接跳入内部的采样结构。水平点线为默认权重 $r=2$。随时间推进，$S$ 从右向左减小。}
+\includegraphics[width=\textwidth]{figures/joint_v2/joint_phase_contour.pdf}
+\caption{固定 $w_c=1$、改变 $r=w_q/w_c$ 时不考虑能力约束的成本最优控制。(a)(b) 基准与西安参数，颜色与等高线为 $y=(1-c_c^*/c_0)/(1-S_c/S)$：$y=0$ 为仅隔离控制，$y=1$ 为仅减少接触，等高线只画在两者并用的区域。黑线为在 $S_{\rm sw}$ 处的连续切换，红线为由仅隔离控制跳入两者并用，紫线为两个内部取值之间的跳变（很短，放大见补充图~\ref*{fig:sup:phase-detail}）；菱形为 $(S_{\rm sw}/S_c,\hat r)$，三角为仅隔离段在 $S^*$ 处消失的权重。(a) 中彩色虚线为 (c)(d) 所用的权重，(b) 中点线为默认权重 $r=2$。(c)(d) 基准参数下这些权重的接触率与隔离比例，竖直虚线为 $S_{\rm sw}/S_c$，竖直点线连接跳变两侧。随时间推进，$S$ 从左向右减小。}
 \label{fig:joint:phase}
 \end{figure}
 

@@ -1,0 +1,29 @@
+{
+  "source_cache": {
+    "json": "nr_audit/results/new_figure7.json",
+    "npz_sha256": "719d07962df7bb607ad6fd8a73cbc454be10254dc15d7543f0819ed36ecd963f"
+  },
+  "closed_form_markers": {
+    "base": {
+      "cusp": [
+        2.2588347173346572,
+        3.1358196310216817
+      ],
+      "switch": [
+        2.26536879999122,
+        3.205114772545149
+      ]
+    },
+    "xian": {
+      "cusp": [
+        2.506029740739499,
+        2.5476956241561206
+      ],
+      "switch": [
+        2.548250542570811,
+        2.7089548638662406
+      ]
+    }
+  },
+  "pdf_sha256": "a5d17c40b1722616af176fbfd9db76a624619d056b4cef4f92fc555f52c3a32e"
+}

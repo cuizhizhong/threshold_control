@@ -20,7 +20,8 @@ FIG={
 'fig:scenario1_summary_c0':(f'{D}/baseline/c0_sensitivity_selected_eta.csv;{D}/baseline/main_c0_summary.csv',f'{L}/layout_matlab.m'),
 'fig:joint:compare':(f'{E}/trajectories_baseline.csv;{E}/compare_baseline.csv','reproducibility/joint_extra/figures.py:fig_compare'),
 'fig:joint:capacity':(f'{E}/capacity_baseline.npz;{E}/capacity_xian.npz;{E}/capacity.json;{E}/capacity_traj_baseline.csv','paper/tools/replot_joint_figs.py:fig_capacity'),
-'fig:joint:phase':(f'{E}/phase_baseline.npz;{E}/phase_xian.npz;{E}/phase.json;{A}/weight_brackets.json','paper/tools/replot_joint_figs.py:fig_phase'),
+'fig:joint:phase':(f'{A}/new4d_cost_structure.json;nr_audit/allocation.py;nr_audit/params.py','nr_audit/plot_figure7_contour.py'),
+'fig:sup:phase-detail':(f'{E}/phase_baseline.npz;{E}/phase_xian.npz;{E}/phase.json;{A}/weight_brackets.json;{A}/new_figure7.json;{A}/new_figure7.npz;{A}/new4d_cost_structure.json','nr_audit/plot_figure7_detail.py'),
 'fig:joint:frontier':(f'{E}/frontier_baseline.csv;{E}/alpha_family_baseline.csv','reproducibility/joint_extra/figures.py:fig_duration'),
 'fig:xian:observed-fit':(f'{D}/xian/observed.csv;{D}/xian/timeseries.csv;{D}/xian/fit.json;真实数据/Xianguankong.xlsx',f'reproducibility/figures.py:run_python_figures;{L}/layout_python.py'),
 'fig:xian:strategy-process':(f'{D}/xian/timeseries.csv;{D}/xian/reference.json;{D}/xian/summary.csv',f'{L}/layout_python.py'),
@@ -78,15 +79,16 @@ def main():
                     old=bylabel.get(label)
                     same=bool(old and hashlib.sha256(candidate.read_bytes()).hexdigest()==old['file_sha256'])
                     status='历史生成报告PDF字节匹配；本轮未重绘' if same else 'R7-a改图；入口已定位，不能沿用旧PDF身份'
-                    if label=='fig:joint:phase' and (RESULTS/'new_figure7.json').exists():
-                        inputs+=';nr_audit/results/new_figure7.json;nr_audit/results/new_figure7.npz'
-                        entry='nr_audit/plot_figure7.py'
-                        status='NEW-2局部计算与重绘；见new_figure7.json及QA记录'
+                    if label=='fig:joint:phase' and (RESULTS/'new4d_figure7.json').exists():
+                        inputs+=';nr_audit/results/new4d_figure7.json;nr_audit/results/new4d_figure7.npz'
+                        status='NEW-4d逐状态精确求解与重绘（等高线相图与基准剖面）；见new4d_figure7.json'
+                    if label=='fig:sup:phase-detail':
+                        status='NEW-4d由NEW-2已验证缓存重绘局部加密面板并叠加闭式点；见new4d_figure7_detail_render.json'
                 rows.append(dict(labels='|'.join(labels),kind=kind,tex=file.relative_to(ROOT).as_posix(),
                     artifact=artifact,inputs=inputs,generation_or_audit_entry=entry,
                     historical_report=H if kind=='figure' else 'nr_audit/results/regression.json或所列理论/专项结果',
                     old_pdf_hash_matches=same,status=status))
-    assert len(rows)==33,(len(rows),rows)
+    assert len(rows)==34,(len(rows),rows)
     with open(RESULTS/'figure_table_sources.csv','w',encoding='utf-8-sig',newline='') as fh:
         w=csv.DictWriter(fh,fieldnames=list(rows[0]));w.writeheader();w.writerows(rows)
     receipt=dict(formal_figures=sum(r['kind']=='figure' for r in rows),
