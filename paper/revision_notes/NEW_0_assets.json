@@ -1,0 +1,44 @@
+{
+  "author_untracked_preserved": [
+    {
+      "root": "E:\\work\\draft",
+      "file": "ai/NR_no_return_revision_plan_20261014.md",
+      "sha256": "942c9e7cf0d2af48c891692a440e25fc51ab5ebbfd804f299e43607de131e1f3"
+    },
+    {
+      "root": "E:\\work\\draft",
+      "file": "paper/revision_notes/20261019_submission_assessment/R1_数学评阅.md",
+      "sha256": "5c278f119008315adba70a2c3349a041d4604752672cefff1dbb91271626be43"
+    },
+    {
+      "root": "E:\\work\\draft",
+      "file": "paper/revision_notes/20261019_submission_assessment/R2_生物学评阅.md",
+      "sha256": "a536739fbb55c5865c24c111d900973a8a79a154ebc807e729f1918104d8bc23"
+    },
+    {
+      "root": "E:\\work\\draft",
+      "file": "paper/revision_notes/20261019_submission_assessment/R3_交付评阅.md",
+      "sha256": "a31eb26c6289dfdbabcf84fb468ab3bdf2c2570ab3befba41149ad7266e62836"
+    },
+    {
+      "root": "E:\\work\\draft",
+      "file": "paper/revision_notes/20261019_submission_assessment/投稿路线建议.md",
+      "sha256": "a3f91faa6b1bc911dfec9e40fb8eecbe6e91c8293cb4ca1696174ce77c43ec02"
+    },
+    {
+      "root": "E:\\work\\draft-nr",
+      "file": "ai/CODEX_new_manuscript_plan_20261019.md",
+      "sha256": "f7b7e7d71abc78de5667ecd15250e134f1542c742a82a8a840e9678816106e10"
+    }
+  ],
+  "old_plan_sources": {
+    "ai/SUB_投稿准备_分步执行计划.md": {
+      "sha256": "f1e9f374f474f81f651b8a5b141dfb87d025f560c4a3c7e3cf0266211ddbe66a",
+      "bytes": 23354
+    },
+    "paper/revision_notes/merge_submission_plan.md": {
+      "sha256": "2602722e1a45bf1e77351839069231d37f6981d7f5915880b1f5afbc4913d465",
+      "bytes": 16524
+    }
+  }
+}
