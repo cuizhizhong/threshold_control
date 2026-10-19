@@ -1,8 +1,8 @@
 {
- "generated": "2026-10-19T15:12:25",
- "git_head": "8157fcd5cb3bce318adad0422e1846749317d4c5",
+ "generated": "2026-10-19T10:07:38",
+ "git_head": "abe05812000a4399132ef9f2c941961c513a4d8a",
  "tex": "paper/generated/nr_numbers.tex",
- "n_macros": 108,
+ "n_macros": 114,
  "macros": [
   {
    "macro": "\\nrICtOneLow",
@@ -975,6 +975,60 @@
    "source": "nr_audit/results/new_return_endpoint.json",
    "field": "solver_tolerance_max_rel_tight",
    "meaning": "固定来源54条容差对照中收紧后的核心量最大相对变化"
+  },
+  {
+   "macro": "\\nrCostRcontBase",
+   "value": 3.1358196310216817,
+   "display": "3.1358",
+   "unit": "",
+   "source": "nr_audit/results/new4d_cost_structure.json",
+   "field": "cases.base.r_cont",
+   "meaning": "base：连续结构定理的权重界 r_cont(b) = 16/(b+sqrt(b^2-8b+8))^2"
+  },
+  {
+   "macro": "\\nrCostRhatBase",
+   "value": 3.205114772545149,
+   "display": "3.2051",
+   "unit": "",
+   "source": "nr_audit/results/new4d_cost_structure.json",
+   "field": "cases.base.r_hat",
+   "meaning": "base：前段仅隔离控制全局最优的权重界 r̂(b) = (S_sw/(S_sw-S_c))^2"
+  },
+  {
+   "macro": "\\nrCostGapOneBase",
+   "value": 2.2672885016178035,
+   "display": "2.3",
+   "unit": "%",
+   "source": "nr_audit/results/new4d_cost_structure.json",
+   "field": "cases.base.r1.gap_percent",
+   "meaning": "base：r = 1 时 100(1 - J_min/J_q-only)，即成本最优控制比仅隔离控制低的百分比"
+  },
+  {
+   "macro": "\\nrCostRcontXian",
+   "value": 2.5476956241561206,
+   "display": "2.5477",
+   "unit": "",
+   "source": "nr_audit/results/new4d_cost_structure.json",
+   "field": "cases.xian.r_cont",
+   "meaning": "xian：连续结构定理的权重界 r_cont(b) = 16/(b+sqrt(b^2-8b+8))^2"
+  },
+  {
+   "macro": "\\nrCostRhatXian",
+   "value": 2.7089548638662406,
+   "display": "2.7090",
+   "unit": "",
+   "source": "nr_audit/results/new4d_cost_structure.json",
+   "field": "cases.xian.r_hat",
+   "meaning": "xian：前段仅隔离控制全局最优的权重界 r̂(b) = (S_sw/(S_sw-S_c))^2"
+  },
+  {
+   "macro": "\\nrCostGapOneXian",
+   "value": 3.02078962050345,
+   "display": "3.0",
+   "unit": "%",
+   "source": "nr_audit/results/new4d_cost_structure.json",
+   "field": "cases.xian.r1.gap_percent",
+   "meaning": "xian：r = 1 时 100(1 - J_min/J_q-only)，即成本最优控制比仅隔离控制低的百分比"
   }
  ]
 }

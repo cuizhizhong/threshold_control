@@ -3,7 +3,7 @@ results/nr_numbers_map.json（每个宏的全精度值、显示格式、单位�
 
 只为 NR-3 新增的数字生成宏（初值诊断 N2、权重转折括区 N3、收敛与残差 N4、拟合误差 N5），
 NR-5 为正文取整显示与补充 S6 收敛表追加的宏（括区的两位小数取整值 `...Apx`、`nrConvNzAllMaxRel` 等、`nrTdinnTolChange`），
-NR-6 为补充 S3.1 的初值诊断表追加的宏（`nrICtab…`，六条轨迹各四个量），NR-7 为补充“隔离易感者回流”一节追加的宏（`nrRet…`：L、无回流 t→∞ 值、指数回流的终止时累计感染）。既有数字经 N1 核对与显示一致，
+NR-6 为补充 S3.1 的初值诊断表追加的宏（`nrICtab…`，六条轨迹各四个量），NR-7 为补充“隔离易感者回流”一节追加的宏（`nrRet…`：L、无回流 t→∞ 值、指数回流的终止时累计感染），NEW-4d 为成本结构定理追加的宏（`nrCost…`：r_cont、r̂、r = 1 的成本差）。既有数字经 N1 核对与显示一致，
 不为统一格式改宏。科学记数的宏写成 a\\times10^{b}，须在数学模式中使用。本步不在稿件中 \\input 本文件。
 
 运行：conda run --no-capture-output -n thesis python nr_audit/make_numbers.py
@@ -191,6 +191,19 @@ def main():
     # 数字源统一由派生审计JSON记录，避免映射指向旧全文宏。
     add('nrRetSolverTolRel', tol, sci_up(tol), '', 'new_return_endpoint.json',
         'solver_tolerance_max_rel_tight', '固定来源54条容差对照中收紧后的核心量最大相对变化')
+
+    # NEW-4d：成本结构定理入稿的闭式阈值与 r = 1 的成本差（audit_cost_structure.py）。
+    cs = load('new4d_cost_structure.json')
+    assert cs['all_checks_ok'], 'new4d_cost_structure.json 未全部通过'
+    for case, tag in (('base', 'Base'), ('xian', 'Xian')):
+        o = cs['cases'][case]
+        add(f'nrCostRcont{tag}', o['r_cont'], fixed(o['r_cont'], 4), '', 'new4d_cost_structure.json',
+            f'cases.{case}.r_cont', f'{case}：连续结构定理的权重界 r_cont(b) = 16/(b+sqrt(b^2-8b+8))^2')
+        add(f'nrCostRhat{tag}', o['r_hat'], fixed(o['r_hat'], 4), '', 'new4d_cost_structure.json',
+            f'cases.{case}.r_hat', f'{case}：前段仅隔离控制全局最优的权重界 r̂(b) = (S_sw/(S_sw-S_c))^2')
+        add(f'nrCostGapOne{tag}', o['r1']['gap_percent'], fixed(o['r1']['gap_percent'], 1), '%',
+            'new4d_cost_structure.json', f'cases.{case}.r1.gap_percent',
+            f'{case}：r = 1 时 100(1 - J_min/J_q-only)，即成本最优控制比仅隔离控制低的百分比')
 
     # 宏名不得与稿件中已有的定义重名
     existing = set()

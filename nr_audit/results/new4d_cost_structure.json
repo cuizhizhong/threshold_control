@@ -1,0 +1,139 @@
+{
+ "generated": "2026-10-19T10:07:11",
+ "git_head": "abe05812000a4399132ef9f2c941961c513a4d8a",
+ "script": "nr_audit/audit_cost_structure.py",
+ "cases": {
+  "base": {
+   "b": 0.8321052999999999,
+   "z_sw": 2.26536879999122,
+   "z_star": 4.043995604621511,
+   "r_cont": 3.1358196310216817,
+   "r_hat": 3.205114772545149,
+   "cusp_state": 2.2588347173346572,
+   "bracket_A_Ap": [
+    3.1354413758416575,
+    3.1360903712606403
+   ],
+   "bracket_Ap_B": [
+    3.204987849516518,
+    3.205651240147342
+   ],
+   "r_cont_in_bracket": true,
+   "r_hat_in_bracket": true,
+   "unimodal_violations": {
+    "0.25": [],
+    "0.5": [],
+    "1": [],
+    "2": [],
+    "3.13582": []
+   },
+   "fold_above_rcont": 3,
+   "q_only_global_just_above_zsw": {
+    "3.20479": true,
+    "3.20544": false
+   },
+   "clip_max_abs_diff_x": {
+    "0.5": 0.0,
+    "1": 0.0,
+    "2": 0.0,
+    "3.13582": 0.0
+   },
+   "monotonicity": {
+    "free": {
+     "max_increase_in_r": 0.0,
+     "max_decrease_of_u_in_z": -7.129070211586708e-05
+    },
+    "cap": {
+     "max_increase_in_r": 0.0,
+     "max_decrease_of_u_in_z": -0.0
+    }
+   },
+   "r1": {
+    "J_min": 1.0865999598913283,
+    "J_q_only": 1.1118078514677403,
+    "gap_percent": 2.2672885016178035,
+    "dt_min": 6.779687504317222,
+    "dt_q_only": 5.902555851141787
+   }
+  },
+  "xian": {
+   "b": 0.5755854000000001,
+   "z_sw": 2.548250542570811,
+   "z_star": 4.377905754522463,
+   "r_cont": 2.5476956241561206,
+   "r_hat": 2.7089548638662406,
+   "cusp_state": 2.506029740739499,
+   "bracket_A_Ap": [
+    2.5476810040254465,
+    2.5482083407230425
+   ],
+   "bracket_Ap_B": [
+    2.7086363863078087,
+    2.7091970386676163
+   ],
+   "r_cont_in_bracket": true,
+   "r_hat_in_bracket": true,
+   "unimodal_violations": {
+    "0.25": [],
+    "0.5": [],
+    "1": [],
+    "2": [],
+    "2.54769": [],
+    "2.5477": []
+   },
+   "fold_above_rcont": 3,
+   "q_only_global_just_above_zsw": {
+    "2.70868": true,
+    "2.70923": false
+   },
+   "clip_max_abs_diff_x": {
+    "0.5": 0.0,
+    "1": 0.0,
+    "2": 0.0,
+    "2.5477": 0.0
+   },
+   "monotonicity": {
+    "free": {
+     "max_increase_in_r": 0.0,
+     "max_decrease_of_u_in_z": -2.2816411736181763e-05
+    },
+    "cap": {
+     "max_increase_in_r": 0.0,
+     "max_decrease_of_u_in_z": 4.440892098500626e-16
+    }
+   },
+   "r1": {
+    "J_min": 19.768557348658028,
+    "J_q_only": 20.384324920052677,
+    "gap_percent": 3.02078962050345,
+    "dt_min": 95.2022069604799,
+    "dt_q_only": 85.07107716640368
+   }
+  }
+ },
+ "symbolic": {
+  "E_is_numerator_of_G_p": true,
+  "E_p_formula": true,
+  "E_zeta_formula": true,
+  "phi_prime_formula": true,
+  "E_at_p1": true,
+  "E_at_p_eq_zeta": true,
+  "fold_reduces_to_F1": true,
+  "F1_at_rcont_factorizes": true,
+  "s_rcont_root": true,
+  "Q_const_at_sqrt2": true,
+  "Q_const_increasing": true,
+  "Q_lin_decreasing_min_minus2": true,
+  "Q_quadratic_lower_bound_discriminant": -70.11948210964592,
+  "Q_min_on_box": 3.7279220613578588,
+  "min_rinf_minus_rcont": 1.0000020808822203,
+  "min_rhat_minus_rcont": 7.999823026239028e-12,
+  "rcont_range": [
+   2.0000005857868164,
+   3.999992000028
+  ],
+  "rcont_increasing_in_b": true
+ },
+ "all_symbolic_ok": true,
+ "all_checks_ok": true
+}
