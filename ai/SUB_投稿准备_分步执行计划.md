@@ -83,7 +83,7 @@ git branch backup/main-pre-sub0 main
 
 ```powershell
 git merge --ff-only origin/claude/paper-branch-merge-strategy-w4vpck
-git log --oneline -4
+git log --oneline -8
 ```
 
 预期：`101b3e0` 之上只有放入本计划与合并方案的提交（提交信息以“SUB 计划”“SUB 投稿准备”“分支合并与投稿路线”开头）。
@@ -125,7 +125,7 @@ git status --short
 - `r7_return`：89 项通过、2 项跳过，约 2 分钟；跳过的是宏测试，因为 `main` 没有 `r7_numbers.tex`。
 - `git status --short` 没有输出。这里不用 `nr_audit/run_tests.py`：它会改写已跟踪的测试报告，使工作区不干净。
 
-以上预期已在云端用同样的步骤演练过（本地 `main` 取 2b5545a），编译页数与两组测试结果一致。
+云端用同样的步骤演练过（Linux，本地 `main` 取 2b5545a）：快进与引入正常，blob 一致；主稿 34 页、补充 18 页、0 undefined；`r7_return` 89 项通过、2 项跳过；`nr_audit` 228 项通过，失败的 2 项就是上面说的换行符问题。
 
 ```powershell
 git push origin main
