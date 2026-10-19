@@ -1,0 +1,78 @@
+{
+  "base_commit": "fc2052500577525a95481c7b4ce0dc3287e2e156",
+  "author_abstract_exact": true,
+  "author_contribution_block_exact": true,
+  "exit_prefix_removed": true,
+  "scientific_calculations_run": 0,
+  "pdfs": {
+    "main": {
+      "pages": 35,
+      "previous_pages": 35,
+      "sha256": "726baade75b09fcbc5e60a256d35165416aa4d0ab2323b6b294e80a4a37fbd78",
+      "log_flags": {
+        "undefined": 0,
+        "multiply defined": 0,
+        "Missing character": 0,
+        "Overfull": 0,
+        "Rerun to get": 0
+      },
+      "changed_pages_vs_NEW4b": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "contact_sheets": [
+        "tmp/new4c_pdf_qa/main_contact_1.png",
+        "tmp/new4c_pdf_qa/main_contact_2.png",
+        "tmp/new4c_pdf_qa/main_contact_3.png",
+        "tmp/new4c_pdf_qa/main_contact_4.png",
+        "tmp/new4c_pdf_qa/main_contact_5.png"
+      ],
+      "visual_review": "completed: contact sheets inspected for all changed pages 1-20; pages 1 and 3 inspected at high resolution; no clipping, overlap or abnormal floats; pages 21-35 pixel-identical to NEW-4b"
+    },
+    "supp": {
+      "pages": 19,
+      "previous_pages": 19,
+      "sha256": "49c88245615186603a271ea7db71b5575043c17fede2ccace62ba8594c2a344d",
+      "log_flags": {
+        "undefined": 0,
+        "multiply defined": 0,
+        "Missing character": 0,
+        "Overfull": 0,
+        "Rerun to get": 0
+      },
+      "changed_pages_vs_NEW4b": [],
+      "contact_sheets": [],
+      "visual_review": "all 19 pages pixel-identical to the previously reviewed NEW-4b supplement"
+    }
+  },
+  "static_checks": {
+    "missing_labels": 0,
+    "dangling_refs": 0,
+    "duplicate_labels": 0,
+    "numeric_literals_before": 669,
+    "numeric_literals_after": 669,
+    "missing_numeric_literals": 0,
+    "added_numeric_literals": 0,
+    "changed_numbered_statements": 0,
+    "changed_proofs": 0
+  },
+  "independent_read_only_review": "passed: supplied text exact; no changes outside the authorized abstract, contribution block and exit prefix"
+}
