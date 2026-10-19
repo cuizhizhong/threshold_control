@@ -13,7 +13,7 @@
 | NEW-4a | 图7换行可移植性与第二输入身份 | 完成；48项测试，纯缓存验收，54页像素不变 | 见NEW_4a_reproducibility.md |
 | NEW-4b | 三处中文、图7字体与色标、vendor许可证及文本内容哈希 | 完成待作者审阅；51项测试、LF/CRLF真实缓存CLI通过，主35/补19页核验通过 | 见NEW_4b_fixes.md |
 | NEW-4c | 作者指定摘要、引出段与贡献列表替换 | 完成；逐字核对，数学陈述/数字未变，主35/补19页构建与受影响页面检查通过 | 见NEW_4c_abstract_intro.md |
-| NEW-4d | 成本结构定理入稿（连续结构定理、截断推论、权重单调性、时长命题、图7与补充S6） | 进行中：D0 规则与计划；D1 定理、证明、补充 r̂ 命题与核验；D2 图7改为等高线相图加基准剖面（r∈[1,20]，横轴按时间方向），原局部加密面板移补充图S11；D3 6.3–6.5、8.1、8.4、引言贡献(4)与摘要按新定理更新（289 测试通过，主38/补20页，undefined=0） | 见ai/NEW_4d_cost_structure_plan.md |
+| NEW-4d | 成本结构定理入稿（连续结构定理、截断推论、权重单调性、时长命题、图7与补充S6） | 完成（作者10-19授权）：D0 规则与计划；D1 定理 `thm:joint:cost-structure`、推论 `cor:joint:capacity-clip`、命题 `prop:joint:weight-monotone`、`prop:joint:duration-frontier`、补充命题 `prop:sup:rhat` 及附录A两小节证明，新引 Aumann1965；D2 图7改为等高线相图加基准剖面（r∈[1,20]，横轴按时间方向），原局部加密面板移补充图S11，表S6加闭式列；D3 6.3–6.5、8.1、8.4、引言贡献(4)与摘要按新定理更新；D4 检查（标签缺失0、悬空0，陈述变化1条为措辞、新增5条）、专稿两处过强表述订正并重建PDF与打包；数字宏114个；289 测试通过，主38/补20页，undefined=0，Overfull=0；待作者：审阅新增陈述、对照原文确认 Aumann 定理编号（`NEW_author_inputs.md` 第4项） | 见NEW_4d_cost_structure.md |
 | R0 | 准备：新规则、示例与检查工具；旧过程文件归档 | 完成 | 3bef3cf、9285117 |
 | R1 | 全文叙事蓝图 `R1_storyline.md`；问题引入框架 `R1_framing.md` | 完成（作者确认 2026-10-08；D1–D8 均按建议；`AGENTS.md` 已同步） | 3e5ed70 至 7b20a80，及确认提交（见 git log） |
 | R2-2 | 重写第 2 章 模型与阈值策略 | 完成（正文 2021→1566 字；$\mathcal A(\eta)$ 改为定义环境；记录 `R2_2_model.md`） | 见 git log |
