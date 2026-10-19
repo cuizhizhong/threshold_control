@@ -201,7 +201,18 @@ $c_c^*(S)=c^{-}(S)+x_*(S)[c^{+}(S)-c^{-}(S)]$
 是可测最小化选择，由定理\ref{thm:joint:representation}产生可行时间控制并达到下界。任意控制与逐点最小值之差非负，因此积分差为零当且仅当逐点差几乎处处为零。
 
 固定 $S$，对式\eqref{eq:joint:cost-integrand}关于 $c$ 求偏导。将导数乘以正数
-$c^3(cS-c_0\bar S)^2/S$，便得到式\eqref{eq:joint:stationary}右侧。该多项式最高次系数为 $w_c/c_0^2>0$，不恒为零，至多有五个实根。连续可微函数在闭区间上的最小值只能在端点或内部驻点取得，故比较所列候选值即可；不需要假设 $f$ 单峰或凸。
+$c^3(cS-c_0\bar S)^2/S$，驻点方程化为
+\begin{equation}
+\begin{split}
+0={}&w_c\frac{c^3}{c_0^2}(c-c_0)
+\left(c+c_0-\frac{2c_0\bar S}{S}\right)\\
+&+w_q\left(c-\frac{c_0S_c}{S}\right)
+\left(-c^2+\frac{3c_0S_c}{S}c-
+\frac{2c_0^2\bar S S_c}{S^2}\right).
+\end{split}
+\label{eq:joint:stationary}
+\end{equation}
+该多项式最高次系数为 $w_c/c_0^2>0$，不恒为零，至多有五个实根。连续可微函数在闭区间上的最小值只能在端点或内部驻点取得，故比较所列候选值即可；不需要假设 $f$ 单峰或凸。
 \end{proof}
 
 \subsection{端点的局部性质}
