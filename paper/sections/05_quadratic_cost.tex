@@ -43,7 +43,7 @@ f(S,c)=
 \subsection{逐状态判据}
 逐状态判据是一个有限比较：候选只有允许区间的两个端点和五次方程在区间内的实根，因此不需要 $f(S,\cdot)$ 凸或单峰。然而，成本最优控制一般没有已知的初等时间表达；两种单控制的成本则有闭式（附录~\ref{app:cost}）。
 
-阈值只通过系数 $N/\eta$ 与积分上限 $S^*(\eta)$ 进入式\eqref{eq:joint:minimum-cost}，二者都随 $\eta$ 减小，所以提高阈值降低最小成本。每个状态上的最优选择则与阈值无关：成本最优控制可以取成同一个状态反馈 $c_c^*(S)$，阈值只决定从哪个 $S^*$ 开始使用它。
+阈值只通过系数 $N/\eta$ 与积分上限 $S^*(\eta)$ 进入式\eqref{eq:joint:minimum-cost}，二者都随 $\eta$ 增大而减小，所以提高阈值降低最小成本。每个状态上的最优选择则与阈值无关：成本最优控制可以取成同一个状态反馈 $c_c^*(S)$，阈值只决定从哪个 $S^*$ 开始使用它。
 \begin{proposition}
 \label{prop:joint:minimum-threshold}
 固定 $N,S_0,I_0,\beta,\gamma,c_0,q_0$ 及能力约束。在控制被触发且满足式\eqref{eq:joint:feasibility}的阈值范围内，记 $J_{\min}(\eta)$ 为式\eqref{eq:joint:minimum-cost}的最小值，则 $J_{\min}$ 随 $\eta$ 严格下降。对于任意两个可行阈值，可以选取成本最优控制，使二者在共同经过的易感者状态上采用相同的 $c_c^*(S),q_c^*(S)$。

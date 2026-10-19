@@ -1,8 +1,8 @@
 {
- "generated": "2026-10-19T11:58:46",
- "git_head": "101b3e044418930e7242187f15044ee290c9f9f9",
+ "generated": "2026-10-19T12:08:02",
+ "git_head": "b0cb0d9f920c42482ee8a99ff7bb3978c6e515cc",
  "tex": "paper/generated/nr_numbers.tex",
- "n_macros": 101,
+ "n_macros": 108,
  "macros": [
   {
    "macro": "\\nrICtOneLow",
@@ -912,6 +912,69 @@
    "source": "nr_audit/results/return_import.json",
    "field": "runs[xian|30|c_only].C_term",
    "meaning": "xian：指数回流 1/ω=30 d，c_only，终止时（退出后首次 I<1）累计新增感染；来源见 source"
+  },
+  {
+   "macro": "\\nrRetTailBaseSeven",
+   "value": 1.5808579958267366,
+   "display": "1.581",
+   "unit": "人",
+   "source": "nr_audit/results/new_return_endpoint.json",
+   "field": "groups.base.7.B_max_persons",
+   "meaning": "base：平均停留7d三控制的最大剩余感染上界，显示向上取整"
+  },
+  {
+   "macro": "\\nrRetTailBaseFourteen",
+   "value": 4.43413849397868,
+   "display": "4.435",
+   "unit": "人",
+   "source": "nr_audit/results/new_return_endpoint.json",
+   "field": "groups.base.14.B_max_persons",
+   "meaning": "base：平均停留14d三控制的最大剩余感染上界，显示向上取整"
+  },
+  {
+   "macro": "\\nrRetTailBaseThirty",
+   "value": 22.373442158207126,
+   "display": "22.374",
+   "unit": "人",
+   "source": "nr_audit/results/new_return_endpoint.json",
+   "field": "groups.base.30.B_max_persons",
+   "meaning": "base：平均停留30d三控制的最大剩余感染上界，显示向上取整"
+  },
+  {
+   "macro": "\\nrRetTailXianSeven",
+   "value": 10.73765660462089,
+   "display": "10.738",
+   "unit": "人",
+   "source": "nr_audit/results/new_return_endpoint.json",
+   "field": "groups.xian.7.B_max_persons",
+   "meaning": "xian：平均停留7d三控制的最大剩余感染上界，显示向上取整"
+  },
+  {
+   "macro": "\\nrRetTailXianFourteen",
+   "value": 15.358045638527248,
+   "display": "15.359",
+   "unit": "人",
+   "source": "nr_audit/results/new_return_endpoint.json",
+   "field": "groups.xian.14.B_max_persons",
+   "meaning": "xian：平均停留14d三控制的最大剩余感染上界，显示向上取整"
+  },
+  {
+   "macro": "\\nrRetTailXianThirty",
+   "value": 37.43929991233286,
+   "display": "37.440",
+   "unit": "人",
+   "source": "nr_audit/results/new_return_endpoint.json",
+   "field": "groups.xian.30.B_max_persons",
+   "meaning": "xian：平均停留30d三控制的最大剩余感染上界，显示向上取整"
+  },
+  {
+   "macro": "\\nrRetSolverTolRel",
+   "value": 2.5072481505952823e-11,
+   "display": "2.6\\times10^{-11}",
+   "unit": "",
+   "source": "nr_audit/results/new_return_endpoint.json",
+   "field": "solver_tolerance_max_rel_tight",
+   "meaning": "固定来源54条容差对照中收紧后的核心量最大相对变化"
   }
  ]
 }

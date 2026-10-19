@@ -1,10 +1,10 @@
 % ===== 02_model =====
 \section{模型与阈值策略}
 \label{sec:model}
-本文以社区中的非隔离感染者人数 $I$ 为控制对象，要求它不超过阈值 $\eta$。阈值 $\eta$ 是外生给定的设计参数，其选取依据是与医疗资源（如 ICU 床位）的承载能力相适应，并兼顾防控目标\cite{Miclo2022ICU,Angulo2021}。阈值约束的是仍在社区中传播的 $I$，而不是包括隔离感染者 $I_q$ 在内的现存感染人数 $I+I_q$。由于接触率不超过常规水平，限制 $I$ 也就限制了进入 $I$ 和 $I_q$ 的全部新增感染流量，其上界 $\beta c_0S_0\eta/N$ 对每条满足 $c\le c_0$、$I\le\eta$ 的轨迹成立（本模型中 $S\le S_0$）；补充材料第~\ref{sec:sup:medical-link}~节由此在附加的医疗需求假设下，给出平均 ICU 需求不超过容量的充分条件。
+本文以社区中的非隔离感染者人数 $I$ 为控制对象，要求它不超过阈值 $\eta$。阈值 $\eta$ 是外生给定的设计参数，其选取依据是与医疗资源（如 ICU 床位）的承载能力相适应，并兼顾防控目标\cite{Miclo2022ICU,Angulo2021}。阈值约束的是仍在社区中传播的 $I$，而不是模型显式追踪的两个感染仓室之和 $I+I_q$。由于接触率不超过常规水平，限制 $I$ 也就限制了进入 $I$ 和 $I_q$ 的全部新增感染流量，其上界 $\beta c_0S_0\eta/N$ 对每条满足 $c\le c_0$、$I\le\eta$ 的轨迹成立（本模型中 $S\le S_0$）；补充材料第~\ref{sec:sup:medical-link}~节由此在附加的医疗需求假设下，给出平均 ICU 需求不超过容量的充分条件。
 
 \subsection{基本方程}
-人群分为社区易感者 $S$、隔离易感者 $S_q$、非隔离感染者 $I$、隔离感染者 $I_q$ 和康复者 $R$，社区传播只来自非隔离感染者。接触率为 $c(t)$，每次接触的传播概率为 $\beta$，接触者中被追踪并隔离的比例为 $q(t)$，简称隔离比例。被追踪的接触者若已感染则进入 $I_q$，若未感染则进入 $S_q$；未被追踪的新感染者进入 $I$。非隔离感染者和隔离感染者分别以速率 $\gamma$ 和 $\delta_q$ 移出。模型沿用文献\cite{Zhou2024SPCI}中社区传播与接触追踪的结构（图~\ref{fig:model_schematic}）：
+人群分为社区易感者 $S$、隔离易感者 $S_q$、非隔离感染者 $I$、隔离感染者 $I_q$ 和移出者 $R$，社区传播只来自非隔离感染者。接触率为 $c(t)$，每次接触的传播概率为 $\beta$，接触者中被追踪并隔离的比例为 $q(t)$，简称隔离比例。被追踪的接触者若已感染则进入 $I_q$，若未感染则进入 $S_q$；未被追踪的新感染者进入 $I$。非隔离感染者和隔离感染者分别以速率 $\gamma$ 和 $\delta_q$ 移出。模型沿用文献\cite{Zhou2024SPCI}中社区传播与接触追踪的结构（图~\ref{fig:model_schematic}）：
 \begin{equation}
 \begin{cases}
 \dot S=-\dfrac{c(t)[\beta+(1-\beta)q(t)]}{N}SI,\\[.5em]
@@ -16,10 +16,12 @@
 \label{eq:model:full}
 \end{equation}
 
+$R$ 表示从两个显式感染仓室移出的人员，可以包括进入后续医疗状态或已经康复者。文献\cite{Zhou2024SPCI}的住院仓室 $H$ 与康复仓室聚合后，其导数为 $(\delta_I+\gamma_I)I+\delta_q I_q$，因此本模型取 $\gamma=\delta_I+\gamma_I$，沿用的是传播与追踪结构。$I+I_q$ 不包括已聚合到 $R$ 的后续临床状态。
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.5\textwidth]{figures/Fig1.pdf}
-\caption{含追踪隔离的 SIQR 模型。$S,S_q,I,I_q,R$ 分别为社区易感者、隔离易感者、非隔离感染者、隔离感染者和康复者。}
+\caption{含追踪隔离的 SIQR 模型。$S,S_q,I,I_q,R$ 分别为社区易感者、隔离易感者、非隔离感染者、隔离感染者和移出者。}
 \label{fig:model_schematic}
 \end{figure}
 

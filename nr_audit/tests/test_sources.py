@@ -59,7 +59,7 @@ def test_audit_notes_I0():
 def test_manuscript_table1_display():
     """稿件表 1 的显示值是未取整参数的舍入（西安 I0 显示为 ≈1.00659×10^-3）。"""
     text = (SRC.ROOT / SRC.FILES['table1'][0]).read_text(encoding='utf-8')
-    rows = {m.group(1): m.group(0) for m in re.finditer(r'^\$(N|\\beta|\\gamma|\\delta_q|c_0|q_0|I_0|S_0|\\eta)\$.*$',
+    rows = {m.group(1): m.group(0) for m in re.finditer(r'^\$(N|\\beta|\\gamma|\\delta_q|c_0|q_0|I_0|S_0|\\eta)\$\s*&.*$',
                                                          text, flags=re.M)}
     B, X = PR.BASE, PR.XIAN
     assert '763' in rows['N'] and r'\num{13163000}' in rows['N']

@@ -4,7 +4,7 @@
 \label{sec:numerics}
 \subsection{参数与方法}
 \label{sec:num:methods}
-数值计算采用两组参数（表~\ref{tab:xian_initial_fit}）。基准参数是一个小人口算例，用来演示解析结果；西安参数取自统计资料与文献，初值由观测数据拟合（第~\ref{sec:xian}~节）。全部计算都在隔离易感者不返回社区的模型~\eqref{eq:model:full}中进行，所有控制都属于 $\mathcal A(\eta)$，各指标都计算至清零时间；统计约定见第~\ref{sec:cost}~节，成本权重取默认值。
+数值计算采用两组参数（表~\ref{tab:xian_initial_fit}）。基准参数是一个小人口算例，用来演示解析结果；西安参数取自统计资料与文献，初值由观测数据拟合（第~\ref{sec:xian}~节）。本节阈值策略的比较采用无回流模型~\eqref{eq:model:full}，控制属于 $\mathcal A(\eta)$ 或所述能力约束子类；各指标的统计时段见第~\ref{sec:cost}~节，成本权重取默认值。
 \begin{table}[htbp]
 \centering\small
 \setlength{\tabcolsep}{3.5pt}
@@ -29,10 +29,12 @@ $\eta$ & 阈值（人） & $0.05N=38.15$ & $0.002N=\num{26326}$ & 设计情景�
 \bottomrule
 \end{tabularx}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：基准参数沿用文献\cite{Zhou2024SPCI}的算例。西安的 $I_0$ 在计算中使用未取整值。
+\item 注：基准的 $N,S_0,I_0,\beta,c_0,q_0$ 沿用文献\cite{Zhou2024SPCI}图3的示例；该例取 $\gamma_I=0.1$、$\delta_I=0.2504$，本模型的总移出率为二者之和 $\gamma=0.3504$。该示例未给出本稿采用的 $\delta_q$，本文设定 $\delta_q=\gamma$。西安的 $I_0$ 在计算中使用未取整值。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
+
+$\delta_q$ 不影响无回流模型中闭合的 $(S,I)$ 子系统，因而不改变本文控制律、时长、累计感染流量与 $J$；它影响 $I_q,R$ 及含这些仓室的派生指标，包括 $\max(I+I_q)/\eta$。
 
 表与图中的指标都由第~\ref{sec:s1}--\ref{sec:joint:cost}~节的闭式解或对 $S$ 的一维积分（式\eqref{eq:joint:duration}、\eqref{eq:joint:cost}）得到，成本最优控制按定理~\ref{thm:joint:cost-minimum}逐状态求取。完整仓室方程的直接数值积分只用于核对，输入的是按名义模型预先算出的开环控制；求解器与误差见补充材料第~\ref{sec:sup:numerics}~节。第~\ref{sec:joint:capacity-numerics}、\ref{sec:joint:weights-numerics}~节只在有限个代表点、网格点和乘子点上计算。
 
@@ -68,7 +70,7 @@ $\eta$ & 阈值（人） & $0.05N=38.15$ & $0.002N=\num{26326}$ & 设计情景�
 
 在所算的两组参数与默认权重下，成本最优控制都先仅隔离、后两者并用。两组参数的启动状态 $S^*$ 都高于 $S_{\rm sw}$（比值见表~\ref{tab:joint:compare}注）。在 $S$ 的有限网格上逐点比较全部候选，仅隔离控制在 $S>S_{\rm sw}$ 的各点都是全局最优（命题~\ref{prop:joint:global-structure}只保证局部最优），并在 $S_{\rm sw}$ 处连续切换到两者并用（比较方法见补充材料第~\ref{sec:sup:numerics}~节）。前段较短，基准与西安参数下分别约 $1.61$ d 与 $25.46$ d，却完成了阈值控制期 $S$ 下降的一半以上：$S$ 越大，下降越快，所以控制期的大部分时间落在两者并用的后段。成本最优控制与仅隔离控制在 $S\ge S_{\rm sw}$ 上相同，$J$ 与 $\Delta t$ 的差别全部来自 $S<S_{\rm sw}$ 一段。成本最优控制在这里取 $c_c(S)<c_0$，于是 $S$ 下降变慢，控制期延长；同时接触减少分担了维持 $I=\eta$ 所需的干预，隔离强度降低，二次干预强度成本因而下降。后段的接触减少并不大：接触率最多降低约 $19.8\%$（基准）与 $28.2\%$（西安）。
 
-在这两组参数下，追踪隔离越强的控制，现存感染人数 $I+I_q$ 越高：$I$ 维持在 $\eta$，被追踪的感染者则不断进入 $I_q$。基准参数下，$\max(I+I_q)/\eta$ 在仅隔离控制、成本最优控制与仅减少接触下分别约为 $1.92$、$1.89$ 与 $1.02$（表~\ref{tab:joint:compare}，图~\ref{fig:joint:compare}(c)）。这一峰值在基准参数下出现在后段，成本最优控制的隔离较弱，因此峰值略低；在西安参数下出现在启动后约 $7.62$ d，仍在两者相同的前段，因此峰值也相同。
+在这两组参数下，追踪隔离越强的控制，两感染仓室人数之和 $I+I_q$ 越高：$I$ 维持在 $\eta$，被追踪的感染者则不断进入 $I_q$。基准参数下，$\max(I+I_q)/\eta$ 在仅隔离控制、成本最优控制与仅减少接触下分别约为 $1.92$、$1.89$ 与 $1.02$（表~\ref{tab:joint:compare}，图~\ref{fig:joint:compare}(c)）。这一峰值在基准参数下出现在后段，成本最优控制的隔离较弱，因此峰值略低；在西安参数下出现在启动后约 $7.62$ d，仍在两者相同的前段，因此峰值也相同。
 
 \begingroup
 \begin{table}[htbp]
@@ -80,7 +82,7 @@ $\eta$ & 阈值（人） & $0.05N=38.15$ & $0.002N=\num{26326}$ & 设计情景�
 \label{tab:joint:compare}
 \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}Xcccccc@{}}
 \toprule
-控制 & \shortstack{控制时长\\$\Delta t$（d）} & \shortstack{清零时间\\$t_{\rm end}$（d）} & \shortstack{总累计\\新增感染} & \shortstack{阈值控制期\\新增隔离易感者} & $J$（d） & \shortstack{现存感染峰值\\$\max(I+I_q)/\eta$}\\
+控制 & \shortstack{控制时长\\$\Delta t$（d）} & \shortstack{清零时间\\$t_{\rm end}$（d）} & \shortstack{总累计\\新增感染} & \shortstack{阈值控制期\\新增隔离易感者} & $J$（d） & \shortstack{两感染仓室峰值\\$\max(I+I_q)/\eta$}\\
 \midrule
 \multicolumn{7}{@{}l}{基准参数：$N=763$，$\eta=0.05N$；新增人数单位为人}\\
 仅减少接触 & 36.26 & 64.13 & 628.6 & 40.9 & 11.9390 & 1.02\\
@@ -96,7 +98,7 @@ $\eta$ & 阈值（人） & $0.05N=38.15$ & $0.002N=\num{26326}$ & 设计情景�
 \bottomrule
 \end{tabularx}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：每组的四种控制采用同一完整初值（表~\ref{tab:xian_initial_fit}），总累计新增感染与现存感染峰值都计至清零时间。$J$ 见式\eqref{eq:cost:J}。基准与西安参数下，$S^*/S_c$ 约为 $4.044$ 与 $4.378$，$S_{\rm sw}/S_c$（式\eqref{eq:joint:ssw}）约为 $2.265$ 与 $2.548$。
+\item 注：每组的四种控制采用同一完整初值（表~\ref{tab:xian_initial_fit}），总累计新增感染与两感染仓室峰值都计至清零时间。$J$ 见式\eqref{eq:cost:J}。基准与西安参数下，$S^*/S_c$ 约为 $4.044$ 与 $4.378$，$S_{\rm sw}/S_c$（式\eqref{eq:joint:ssw}）约为 $2.265$ 与 $2.548$。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -105,7 +107,7 @@ $\eta$ & 阈值（人） & $0.05N=38.15$ & $0.002N=\num{26326}$ & 设计情景�
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/joint_v2/joint_compare_baseline.pdf}
-\caption{基准参数下不考虑能力约束时四种控制的时间轨迹（$w_c=1,w_q=2$）。(a) 接触率；(b) 隔离比例；(c) 现存感染人数与阈值之比 $(I+I_q)/\eta$；(d) 社区易感者比例。各轨迹画至自身的清零时间，$t$ 以天计。}
+\caption{基准参数下不考虑能力约束时四种控制的时间轨迹（$w_c=1,w_q=2$）。(a) 接触率；(b) 隔离比例；(c) 两感染仓室人数之和与阈值之比 $(I+I_q)/\eta$；(d) 社区易感者比例。各轨迹画至自身的清零时间，$t$ 以天计。}
 \label{fig:joint:compare}
 \end{figure}
 
@@ -134,7 +136,7 @@ $r$ 再大时切换提前并出现跳变，最终仅隔离段消失。切换提�
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/joint_v2/joint_phase_weights.pdf}
-\caption{固定 $w_c=1$、改变 $r=w_q/w_c$ 时不考虑能力约束的成本最优控制。(a) 基准参数；(b) 西安参数。颜色为 $y=(1-c_c^*/c_0)/(1-S_c/S)$，颜色越深 $y$ 越大：$y=0$ 为仅隔离控制，$y=1$ 为仅减少接触，$0<y<1$ 为两者并用。竖直虚线位于 $S_{\rm sw}/S_c$，其实线段与红色曲线为数值比较得到的全局切换边界，红色曲线处接触率跳变；水平点线为默认权重 $r=2$。切换边界取自 $161$ 点权重网格的计算，不含 $S_{\rm sw}$ 稍下方的内部跳变（补充表~\ref*{tab:joint:weight-transitions}）。随时间推进，$S$ 从右向左减小。}
+\caption{固定 $w_c=1$、改变 $r=w_q/w_c$ 时不考虑能力约束的成本最优控制。(a,b) 基准与西安参数的全域网格；(c,d) 相应转折区的局部加密。颜色为 $y=(1-c_c^*/c_0)/(1-S_c/S)$：$y=0$ 为仅隔离，$y=1$ 为仅减少接触，$0<y<1$ 为两者并用。黑线为连续进入内部分支的边界，红线为端点到内部的跳变，紫线为两个内部取值之间的跳变；竖直灰虚线仅标示端点局部最优判据 $S_{\rm sw}/S_c$。全域背景沿用 $161$ 点权重网格，局部线与点取自补充表~\ref*{tab:joint:weight-transitions}所涉加密区间及西安两处纠错点；$A,A',B$ 依次表示连续、连续进入后内部跳变、端点直接跳入内部的采样结构。水平点线为默认权重 $r=2$。随时间推进，$S$ 从右向左减小。}
 \label{fig:joint:phase}
 \end{figure}
 
