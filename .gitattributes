@@ -1,3 +1,6 @@
 # 冻结包、复现源码和验收文件依赖逐字节 SHA，禁止自动换行转换。
 /joint_control/threshold_control_reproducible_release_20261002/** -text
 /reproducibility/** -text
+# NEW-1：固定输入按Git原始字节保存，禁止换行转换。
+/r7_return/results/r7_3_exponential_return.json -text
+/xian_control_comparison/xian_control_comparison.py -text

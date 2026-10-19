@@ -1,0 +1,9 @@
+# Python >=3.10，核验、读表及本轮绘图的精简依赖。
+numpy>=1.24
+scipy>=1.10
+sympy>=1.12
+mpmath>=1.3
+pandas>=2.0
+openpyxl>=3.1
+pytest>=8.0
+matplotlib>=3.8

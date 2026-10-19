@@ -127,7 +127,7 @@ def check_R3_start():
 
 def check_R3_arc():
     g = 'R3 阈值弧：时长、感染、K_q、成本'
-    S1, S2 = sp.symbols('S_1 S_2', positive=True)        # 积分区间 [S_c, S*]，用一般端点核对
+    S1, S2 = sp.symbols('S_1 S_2', positive=True)        # 积分区间 [S_c, S*_ir]，用一般端点核对
     q_bal = 1 - gamma * N / (beta * c * S)
     # 立即返回：Ṡ = -βcSη/N；dt = N dS/(βη c S)（正向时长）
     dt_dS_ir = N / (beta * eta * c * S)
@@ -140,21 +140,21 @@ def check_R3_arc():
            is_zero(Sbar / Sc - (1 - beta) * (1 - q0)))
     # 仅隔离 c = c0 与仅减少接触 c = c0 S_c/S 的闭式
     dtq = sp.integrate(dt_dS_ir.subs(c, c0), (S, S1, S2))
-    record(g, 'Δt_q = N/(βηc0) ln(S*/S_c)', is_zero(sp.expand_log(dtq - N / (beta * eta * c0) * sp.log(S2 / S1), force=True)))
+    record(g, 'Δt_q = N/(βηc0) ln(S*_ir/S_c)', is_zero(sp.expand_log(dtq - N / (beta * eta * c0) * sp.log(S2 / S1), force=True)))
     dtc = sp.integrate(dt_dS_ir.subs(c, c0 * S1 / S), (S, S1, S2))
-    record(g, 'Δt_c = N(S*-S_c)/(βηc0S_c)', is_zero(dtc - N * (S2 - S1) / (beta * eta * c0 * S1)))
+    record(g, 'Δt_c = N(S*_ir-S_c)/(βηc0S_c)', is_zero(dtc - N * (S2 - S1) / (beta * eta * c0 * S1)))
     # 被积函数随 c 严格减：∂/∂c [1/(cS)] < 0
     record(g, '∂/∂c[N/(βηcS)] = -N/(βηc²S) < 0', is_zero(sp.diff(dt_dS_ir, c) + N / (beta * eta * c ** 2 * S)))
-    # 感染：F dt = βcSη/N · dt = dS，控制期累计感染 = S* - S_c
+    # 感染：F dt = βcSη/N · dt = dS，控制期累计感染 = S*_ir - S_c
     F_dt = (beta * c * S * eta / N) * dt_dS_ir
-    record(g, '平台上 F·dt/dS = 1，控制期累计感染 = S*_∞ - S_c', is_zero(F_dt - 1))
+    record(g, '平台上 F·dt/dS = 1，控制期累计感染 = S*_ir - S_c', is_zero(F_dt - 1))
     # K_q：(1-β)cqSη/N · dt = (1-β)/β · q dS，且 q = 1 - γN/(βcS)
     Kq_dens = (1 - beta) * c * q_bal * S * eta / N * dt_dS_ir
-    record(g, 'K_q 被积函数 = (1-β)/β·[1 - γη·N/(βηcS)]，积分得 (1-β)/β[S*-S_c-γηΔt]',
+    record(g, 'K_q 被积函数 = (1-β)/β·[1 - γη·N/(βηcS)]，积分得 (1-β)/β[S*_ir-S_c-γηΔt_ir]',
            is_zero(Kq_dens - (1 - beta) / beta * (1 - gamma * eta * dt_dS_ir)))
-    # 仅减少接触（q ≡ q0）时 K_q = (1-β)/β q0 (S*-S_c)，与恒等式一致
+    # 仅减少接触（q ≡ q0）时 K_q = (1-β)/β q0 (S*_ir-S_c)，与恒等式一致
     Kq_c = (1 - beta) / beta * (S2 - S1 - gamma * eta * dtc)
-    record(g, '仅减少接触：(1-β)/β[S*-S_c-γηΔt_c] = (1-β)/β·q0·(S*-S_c)',
+    record(g, '仅减少接触：(1-β)/β[S*_ir-S_c-γηΔt_c] = (1-β)/β·q0·(S*_ir-S_c)',
            is_zero((Kq_c - (1 - beta) / beta * q0 * (S2 - S1)).subs(S1, Sc)))
     # 归一化隔离强度在立即返回模型中仍为 1 - c0S_c/(cS)
     record(g, '(q-q0)/(1-q0) = 1 - c0S_c/(cS)（平衡式下）',
@@ -269,7 +269,7 @@ def numeric_case(P):
     ref = REF[P.name]
     out.update(S_c=Sc_, S_bar=Sb_, U0=P.U0, L=P.L_bound)
     record(g, 'S_c 与参考值（相对差 < 1e-5）', rel(Sc_, ref['S_c']) < 1e-5, f'{Sc_:.10g}')
-    # ---- 立即返回：触发条件、A、S*_∞ ----
+    # ---- 立即返回：触发条件、A、S*_ir ----
     z0 = S0_ / Sc_
     Ipeak = I0_ + (1 - q0_) * (S0_ - Sc_ + Sc_ * math.log(Sc_ / S0_))
     A = (S0_ - (eta_ - I0_) / (1 - q0_)) / Sc_ - math.log(S0_ / Sc_)
@@ -283,9 +283,9 @@ def numeric_case(P):
     Ifun = lambda s: I0_ + (1 - q0_) * ((S0_ - s) + Sc_ * math.log(s / S0_)) - eta_
     S_inf_b = brentq(Ifun, Sc_ * (1 + 1e-14), S0_, xtol=1e-13 * S0_, rtol=4 * np.finfo(float).eps)
     out.update(S_star_inf=S_inf, S_star_inf_brentq=S_inf_b)
-    record(g, 'S*_∞ = -S_c W_{-1}(-e^{-A}) 与 brentq 一致（< 1e-12）',
+    record(g, 'S*_ir = -S_c W_{-1}(-e^{-A}) 与 brentq 一致（< 1e-12）',
            rel(S_inf, S_inf_b) < 1e-12 and abs(w.imag) < 1e-12 and Sc_ < S_inf < S0_, f'{S_inf:.12g}')
-    record(g, 'S*_∞ 与参考值（< 1e-5）', rel(S_inf, ref['S_star_inf']) < 1e-5)
+    record(g, 'S*_ir 与参考值（< 1e-5）', rel(S_inf, ref['S_star_inf']) < 1e-5)
     # ---- Δt_q、Δt_c 闭式与求积 ----
     pref = N_ / (b_ * eta_)
     dtq = N_ / (b_ * eta_ * c0_) * math.log(S_inf / Sc_)
@@ -301,7 +301,7 @@ def numeric_case(P):
     # ---- 控制期感染与 K_q ----
     inf = S_inf - Sc_
     out['infections_ir'] = inf
-    record(g, '控制期累计感染 S*_∞ - S_c 与参考值（< 1e-5）', rel(inf, ref['infections']) < 1e-5, f'{inf:.10g}')
+    record(g, '控制期累计感染 S*_ir - S_c 与参考值（< 1e-5）', rel(inf, ref['infections']) < 1e-5, f'{inf:.10g}')
     Kq = lambda dt: (1 - b_) / b_ * (S_inf - Sc_ - g_ * eta_ * dt)
     Kq_q, Kq_c = Kq(dtq), Kq(dtc)
     # 直接求积：K_q = (1-β)/β ∫ q dS，q = 1 - γN/(βcS)
@@ -333,7 +333,7 @@ def numeric_case(P):
     ok_left = all(quart(1 / zz, 1 / zz) < 0 for zz in zs)
     sgn_right = [(zz, np.sign(quart(1.0, 1 / zz))) for zz in zs]
     ok_right = all((s < 0) == (zz > 3) for zz, s in sgn_right if abs(zz - 3) > 1e-9)
-    record(g, "抽样 S∈(S_c,S*_∞]：h_a'(a) < 0；h_a'(1) 在 S>3S_c 时 < 0、S<3S_c 时 > 0", ok_left and ok_right)
+    record(g, "抽样 S∈(S_c,S*_ir]：h_a'(a) < 0；h_a'(1) 在 S>3S_c 时 < 0、S<3S_c 时 > 0", ok_left and ok_right)
     # ---- 退出附近的分担比例（数值最小化） ----
     shares = {}
     for (wcv, wqv) in [(1.0, 2.0), (1.0, 1.0), (3.0, 1.0)]:
@@ -349,7 +349,7 @@ def numeric_case(P):
     record(g, '退出附近分担比例 → w_q/(w_c+w_q)（ε = 1e-2, 1e-3, 1e-4；三组权重）', ok_share,
            '; '.join(f'(w_c,w_q)=({k}): ' + ', '.join(f'{v:.5f}' for v in vals) for k, vals in shares.items()))
     out['terminal_shares'] = shares
-    # ---- 无回流仅隔离控制 t→∞ 的累计感染（定理 3.5、3.6）与 L：条件性推论的前提抽检 ----
+    # ---- 无回流仅隔离控制 t→∞ 的累计感染（定理 3.5、3.6）与 L：推论 cor:return:right-discontinuity 的前提抽检 ----
     kappa0 = b_ * (1 - q0_) / (b_ + (1 - b_) * q0_)          # β2/β1
     kprime = b_ / (b_ + q0_ * (1 - b_))
     I0fun = lambda s: I0_ + kappa0 * ((S0_ - s) + Sc_ * math.log(s / S0_)) - eta_
@@ -375,7 +375,7 @@ def numeric_case(P):
     record(g, 'L = U(0) - S_c 与参考值（< 1e-5）', rel(P.L_bound, ref['L']) < 1e-5, f'{P.L_bound:.10g}')
     premise = {k: (v < P.L_bound) for k, v in Cs.items()}
     out['premise_C0_lt_L'] = premise
-    record(g, '条件性推论前提 C_π(0) < L 的抽检（只报告，不判通过与否）', True,
+    record(g, '推论 cor:return:right-discontinuity 的前提 C_π(0) < L 的抽检（只报告，不判通过与否）', True,
            '; '.join(f'{k}: C(0) = {v:.8g}，{"满足" if premise[k] else "不满足"}' for k, v in Cs.items()))
     # ---- 释放注记：仅隔离控制 S_q(t2)/S_c 的解析值（S_q(0)=0） ----
     dSq_pre = (1 - b_) * q0_ / (b_ + (1 - b_) * q0_) * (S0_ - S_star0)

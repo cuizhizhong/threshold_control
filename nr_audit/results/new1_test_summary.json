@@ -1,0 +1,36 @@
+{
+  "command": "python -m pytest nr_audit/tests -q --basetemp=tmp/new1_pytest --junitxml=tmp/new1_tests.xml",
+  "counts": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "255",
+    "time": "190.525",
+    "timestamp": "2026-10-19T11:59:05.317363+08:00",
+    "hostname": "DESKTOP-501"
+  },
+  "warnings": "152 PytestWarning: record_property与junit xunit2不兼容；数值断言全部通过",
+  "python": "3.10.20 | packaged by Anaconda, Inc. | (main, Jun 11 2026, 15:13:20) [MSC v.1942 64 bit (AMD64)]",
+  "versions": {
+    "numpy": "2.2.5",
+    "scipy": "1.15.3",
+    "sympy": "1.14.0",
+    "mpmath": "1.3.0",
+    "pandas": "2.3.3",
+    "openpyxl": "3.1.5",
+    "pytest": "9.1.1",
+    "matplotlib": "3.10.9"
+  },
+  "source_sha256": {
+    "nr_audit/import_return_numbers.py": "626f6c33f253984ab2a68a01b013212696bfc83312f0c62d121d146f2ac2a262",
+    "nr_audit/sources.py": "3f13e1756383913c0fb4893bb38f05e56c9178d5e7d74583a081415c52eac4ef",
+    "nr_audit/tests/test_release_inputs.py": "b4eac1e8d00ba1275084a97afdcda937306bba8d4c6afe8f1f7222d5598831d2"
+  },
+  "pinned_hash_changes": [
+    "xian_loader"
+  ],
+  "wsl_exit": 1,
+  "wsl_message": "",
+  "linux_executed": false
+}

@@ -1,5 +1,25 @@
 # nr_audit：无回流模型的核验模块（NR-2）
 
+## NEW中文审阅版的复现入口
+
+以下命令在仓库根目录运行。建议使用隔离环境；精简依赖在requirements.txt，实际验证版本在requirements-validated.txt。
+
+~~~powershell
+python -m venv .venv
+.\.venv\Scripts\python -m pip install -r nr_audit/requirements.txt
+python -m pytest nr_audit/tests -q -m "not slow"
+python -m pytest nr_audit/tests -q
+python nr_audit/import_return_numbers.py
+python nr_audit/make_numbers.py
+powershell -NoProfile -ExecutionPolicy Bypass -File paper/build.ps1
+~~~
+
+实际运行时使用同一环境的python。完整测试含无回流闭式/状态积分/完整方程比较，轻量命令跳过slow项；二者都不是重新求解36条回流矩阵。回流数字默认读取固定本地JSON，可显式指定 `--source-json`，SHA-256必须一致；无Git历史只跳过额外历史blob核对。缺文件、字节变化、缺行明确失败。`new_no_git_snapshot.json`记录了真实无Git发现环境中的导入和宏生成。
+
+`r7_return/` 仅作为已归档来源，结果JSON不修改、不解析重写；核心JSON和冻结xian_loader由精确gitattributes保护字节。LF/CRLF配置测试是同一Windows主机上的检出模拟，不是Linux实测。论文的历史来源核对、数值复现、终点适用性和最终PDF视觉验收分别记录。
+
+完整图表来源清单为results/figure_table_sources.csv。旧绘图历史代码如不在当前目录，清单指向历史Git对象；这不等同于可分发快照中已有独立入口。本轮只针对已知图7错误做局部重绘。
+
 本目录是无回流主稿分支 `paper/no-return-focus` 的计算核验模块（NR 计划第 5.2 节）。NR-2 只建立代码与测试；正式回归表、固定人口初值诊断、权重转折加密、收敛表与拟合误差重建由 NR-3 用本模块完成（`NR_3_numbers.md`）。`theory_checks.py` 是 NR-1 的代数核对（G-N1 已确认），与本模块的数值路径无关。
 
 **范围**：只实现稿件式 (2.1) 的无回流 SIQR 模型（隔离易感者不返回 $S$），阈值策略 $\mathcal A(\eta)$ 及其能力约束子类。不实现回流（$\omega>0$）与立即返回对照模型，不实现退出时的释放（释放注记只有公式，不模拟）。

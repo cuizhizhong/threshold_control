@@ -1,0 +1,22 @@
+{
+  "real_windows": true,
+  "linux_run": false,
+  "git_discovery_exit": 128,
+  "commands": [
+    {
+      "command": "import_return_numbers.py",
+      "exit_code": 0,
+      "stdout": "导入18条；SHA-256正确；历史核对: not_available\n",
+      "stderr": ""
+    },
+    {
+      "command": "make_numbers.py",
+      "exit_code": 0,
+      "stdout": "写出 paper\\generated\\nr_numbers.tex：101 个宏\n",
+      "stderr": ""
+    }
+  ],
+  "imported_rows": 18,
+  "old_values_unchanged": true,
+  "macros_byte_equal": true
+}

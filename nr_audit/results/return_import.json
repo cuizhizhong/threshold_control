@@ -1,15 +1,18 @@
 {
- "generated": "2026-10-16T21:27:53",
- "git_head": "d9681db808bb50af0fbc1bcfb99261cae04cd8a1",
- "description": "NR-7：自回流分支按固定提交导入的指数回流数值（不重算）。平均停留 7、14、30 d，三种控制律，两组参数，共 18 条；终点为退出后 I 首次 <1 的截断；迁移律 = ω=0 成本最优律原样用于 ω>0，不称成本最优。",
+ "generated": "2026-10-19T11:58:45",
+ "git_head": "101b3e044418930e7242187f15044ee290c9f9f9",
+ "description": "NEW-1：自固定本地JSON导入18条指数回流结果，不重算；终点为退出后首次向下I=1。",
  "source": {
   "branch": "research/return-effects",
   "commit": "bb52b965a8cd98dd07a5c41b9997dae433128756",
+  "archived_commit": "9887340091911eda76753c1d2cc2afa23430cc62",
   "path": "r7_return/results/r7_3_exponential_return.json",
-  "blob": "582def57c4a957e242d884dff50d6c8937e9137a",
+  "input_file": "r7_return/results/r7_3_exponential_return.json",
   "sha256": "3ca0a3d245314230df83c0717e07ed73ab67129803c284ea46eab8921cdfb05f",
-  "acceptance": "回流分支 R7-3 的 G2（作者 2026-10-15 通过；终点按作者 10-15 决定取首次 I<1 截断）",
-  "use": "N10 复用：模型（含回流，ω>0）、参数（AGENTS 第 8 节）、控制律、初值（S_q(0)=0）、终点均同回流分支记录；本分支不重算，只在补充材料的小表中引用"
+  "blob": "582def57c4a957e242d884dff50d6c8937e9137a",
+  "history_check": "matched",
+  "acceptance": "来源G2于2026-10-15通过，NR-7 G-N3于2026-10-16接收",
+  "use": "固定参数、初值、控制律与首次I=1终点；无Git快照仅历史核对未执行"
  },
  "runs": {
   "base|7|q_only": {

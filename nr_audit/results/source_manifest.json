@@ -34,13 +34,13 @@
     },
     "table1": {
       "path": "paper/sections/06_numerics.tex",
-      "sha256": "d2510ff6550bf8053b5ba63d212eb170c6ba933e07c68a6c7876336720d82d45",
+      "sha256": "81aaca8dde71060176ffe572a2090cbb8486e89c7fb50fe481be486de3b4ae8d",
       "use": "稿件表 1（tab:xian_initial_fit）与图 6 图注（能力代表点）",
       "pinned": false
     },
     "model_section": {
       "path": "paper/sections/02_model.tex",
-      "sha256": "deb2bcaf4a9d1763c98148b735ac4d5857f9df8d68e472ee4c2122877123214f",
+      "sha256": "27358868c4a5f90b9a75a81ff4ffcb5e13e1c9c62c5e57d61e9eab8f77af7867",
       "use": "默认权重 w_c = 1、w_q = 2（式 2.13 之后）",
       "pinned": false
     },
@@ -100,7 +100,7 @@
     },
     "xian_loader": {
       "path": "xian_control_comparison/xian_control_comparison.py",
-      "sha256": "569fc207501058eeb7e4efd3dacd8772748d0c7a82aa38ce22de4b691e0983de",
+      "sha256": "c029a604c8f7147a24d59e6c0d39a927ff360f0dbb1b7338f23bd86573ff15a2",
       "use": "N5：观测数据的处理规则（load_observed_data），只读",
       "pinned": true
     },
@@ -118,7 +118,7 @@
     },
     "numerics_S1": {
       "path": "paper/supplement_sections/S1_baseline.tex",
-      "sha256": "be93227b49fdd686f7954f400eeeb8b98f6967a5d8c5d9317f735f020be9ebf2",
+      "sha256": "e6d628064c9e7f4efd94f47548fe6f90bcd98a226983f5c96a2fa6cde29e1708",
       "use": "N1：补充表 S1",
       "pinned": false
     },
@@ -130,25 +130,25 @@
     },
     "xian_S3": {
       "path": "paper/supplement_sections/S3_xian.tex",
-      "sha256": "2a93d18da95f6e8e60cf57672a726b3e7087d4717ac2c617d1cfe112ca69d9c4",
+      "sha256": "8e02dc26dbd77bcf3fc91a48fb2a3b6b931234110fce23bbdf9c904ea1c25739",
       "use": "N1、N5：补充表 S2、S3",
       "pinned": false
     },
     "contact_S5": {
       "path": "paper/supplement_sections/S5_contact.tex",
-      "sha256": "85b32618e964497350bdfe071d0d845297ad40f45c717d2850af63ffa8bc629c",
+      "sha256": "1ef13b898ef72bcb6976bde170e31ca1e94c236010b1315f2c30a14965c4544c",
       "use": "N1：补充 S5",
       "pinned": false
     },
     "numerics_S6": {
       "path": "paper/supplement_sections/S6_numerics.tex",
-      "sha256": "af034bdf17e8309bd65750aa62a4eb8f33defc1f8471edd5fe36cf1a69563f44",
+      "sha256": "a536fe6e76a56fcf55152c6e8319515d4ed4738718903e45d7745ad625c5b07f",
       "use": "N1、N3：补充 S6 与表 S5",
       "pinned": false
     },
     "xian_chapter": {
       "path": "paper/sections/07_xian.tex",
-      "sha256": "154d3a683beb6a1c8cd99967febf0fe66044ab275f6b63e4bb1a7fcc643170ab",
+      "sha256": "e6165ac65394fce196edce4e0d3fb0816d4ea44cd22c11121e185cdc19129028",
       "use": "N1：第 7 章与表 3",
       "pinned": false
     }

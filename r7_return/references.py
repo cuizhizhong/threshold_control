@@ -77,6 +77,8 @@ PLAN_IMMEDIATE_STATE = {
 }
 PLAN_IMMEDIATE_SWITCH_Z = 3.000
 PLAN_IMMEDIATE_TERMINAL_SHARE = 0.667
+# 执行计划第 3 节 R3：成本最优控制比仅减少接触低“约 40%（西安）、约 37%（基准）”（R7-3 增补）
+PLAN_IR_COST_GAP = {'base': 0.37, 'xian': 0.40}
 
 # 执行计划第 5 节：无回流全程对照（ω = 0）与 R2 下界
 PLAN_NORETURN_INF = {'base': 286.590, 'xian': 2.37795e6}     # 仅隔离控制，t→∞
@@ -93,6 +95,12 @@ PLAN_OMEGA14_OLD = {
     ('xian', 'c_only'): dict(dt=857.25, J=299.48, C_end=1.045e7),
 }
 PLAN_XIAN_QONLY_DT_OTHER = {7: 407.1, 30: 452.1}      # 平均停留 7、30 天，西安仅隔离
+# 超出下界的幅度（百分数；旧实现在退出后首次 I<1 时停止；R7-3 增补）
+PLAN_OMEGA14_EXCESS = {
+    ('base', 'q_only'): 5.6, ('base', 'opt_noreturn'): 5.7, ('base', 'c_only'): 13.5,
+    ('xian', 'q_only'): 2.6, ('xian', 'opt_noreturn'): 2.6, ('xian', 'c_only'): 2.6,
+}
+PLAN_REGROWTH_RANGE_BASE = (10.0, 12.0)               # 基准 120、365 天：I<1 后回升到 10–12 人
 
 # 执行计划第 5 节：在 t2 释放（ω = 0，仅隔离控制）
 PLAN_RELEASE = {'base': dict(Sq_over_Sc=2.215, Re=3.22), 'xian': dict(Sq_over_Sc=2.714, Re=3.71)}

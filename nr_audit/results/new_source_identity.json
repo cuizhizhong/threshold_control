@@ -1,0 +1,16 @@
+[
+  {
+    "path": "r7_return/results/r7_3_exponential_return.json",
+    "source": "9887340091911eda76753c1d2cc2afa23430cc62",
+    "sha256": "3ca0a3d245314230df83c0717e07ed73ab67129803c284ea46eab8921cdfb05f",
+    "before_sha256": "3ca0a3d245314230df83c0717e07ed73ab67129803c284ea46eab8921cdfb05f",
+    "pure_line_ending_difference": false
+  },
+  {
+    "path": "xian_control_comparison/xian_control_comparison.py",
+    "source": "101b3e044418930e7242187f15044ee290c9f9f9",
+    "sha256": "c029a604c8f7147a24d59e6c0d39a927ff360f0dbb1b7338f23bd86573ff15a2",
+    "before_sha256": "569fc207501058eeb7e4efd3dacd8772748d0c7a82aa38ce22de4b691e0983de",
+    "pure_line_ending_difference": true
+  }
+]

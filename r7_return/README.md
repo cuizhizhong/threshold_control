@@ -16,6 +16,8 @@ R7-b 回流修订的计算代码与测试（执行计划 `ai/R7_回流修订_分
 | `check_references.py` | 生成 `results/r7_1_reference_check.{json,md}`（与参考值的对照、网格报告） |
 | `tests/` | pytest：`test_a_noreturn.py` … `test_e_pointwise.py` 对应提示词中的 (a)–(e) |
 | `theory_checks.py` | R7-2：SymPy 核对引理 R1、命题 R2（含有限时间退出的常数 k）、命题 R3 与释放注记的代数，并用两组参数数值抽检；生成 `results/r7_2_theory_checks.{md,json}`。只核对代数，不代替存在性与量词论证（见 `paper/revision_notes/R7_2_return_theory.md`） |
+| `r7_3_numerics.py` | R7-3：端点小表、指数回流表（含反馈重放与退出后稠密采样核对）、释放用数、无回流 t→∞ 对照、收敛（立即返回端 N_x/N_z、迁移律状态范围上的 N_x、全部事件法轨迹的三档积分容差）、与执行计划第 5 节参考值的对照；生成 `results/r7_3_*.json`（全精度）与 `results/r7_3_numerics.md` |
+| `make_numbers.py` | R7-3：由 `results/r7_3_*.json` 生成 `paper/generated/r7_numbers.tex`（只含 `\newcommand`，宏名前缀 `\rs`）与 `results/r7_numbers_full.json`（每个宏的全精度值、单位、来源字段） |
 
 复制来源（原文件未改动）：`replay_feedback.py` 来自 `ai/R7_回流检验/fast_return.py` 的 `simulate`（一次性退出版本），J 的累计按 `ai/数值工作汇总_20261004/02_隔离易感者返回检验/sq_return.py` 补上；启动状态的首次积分写法与求积的被积函数来自同目录 `joint_cost_optimal.py`（`basic_quantities`、`solve_allocation`）和 `fast_return.py` 的 `limit_quantities`、`limit_policy`。旧的“细网格 + 有界局部搜索”的逐状态最小化不再使用，改为根法。
 
@@ -61,6 +63,7 @@ numpy.roots 求全部根。候选集为两个端点，加上虚部不超过 1e-4
 
 - **ω = 0 与立即返回**：清零事件 I = 1 只在退出之后、方向向下时触发（基准 I0 = 1，常规阶段不设此事件）。t→∞ 的值按首次积分 I + κ(S − S_c ln S) = 常数解析补尾（ω = 0 时 κ = β(1−q0)/(β+(1−β)q0)，即定理 3.5 的 S_∞；Lambert W 主支与 brentq 交叉核对）。在 t2 释放时，ω = 0 下 S 单调下降、I 单峰，首次 I < 1 已在释放引起的波之后，再解析补尾。
 - **ω > 0**：U < S_c 后用尾部误差上界 B(T) = βc0U(T)I(T)/(Nγ[1 − U(T)/S_c])。积分到 B ≤ ε_tail（默认 1e-6·U(0)，基准 7.62e-4 人、西安 13.16 人）为止，用事件 ε_tail·γ(1 − U/S_c) − βc0UI/N = 0（方向向上）实现。输出“最终规模估计 = 终止时累计感染 + [0, B]”。到积分上限（默认 1e5 d）仍未满足的，记为 `not_reached`，标记最终规模未可靠估计。I < 1 不当作尾部感染为零。
+- **ω > 0，截断终点**（`Config.return_endpoint = 'first_below_one'`；R7-3 起正式结果采用，作者 2026-10-15 决定）：退出后 I 首次由上方降到 1 时截断（方向向下的终止事件），假设此时传播结束，与 Zhou 等（2024）Remark 3.1 及第 3–7 章清零时间 t_end 的约定相同。截断值不是 t→∞ 的估计；命题 R2 的下界只针对不截断的 t→∞ 累计感染，截断值可以低于它。默认仍为尾部判据（R7-1 的测试与记录不变）。
 
 退出后峰值：İ = 0 用两个非终止事件定位，事件函数为 İ/I = βc0(1−q0)s − γ，由正变负为极大、由负变正为极小。内部极大与端点 t2（I = η）、终止时刻比较，得到未取整的 e = max I/η − 1。t2 处本来就有 İ = 0；紧邻 t2（t − t2 ≤ 1e-9·(1+t2)）的伪事件剔除，个数记为 `n_guarded_events`。判据为绝对判据，容限 e_tol = 1e-8：
 
@@ -98,7 +101,24 @@ conda run --no-capture-output -n thesis python r7_return/check_references.py
 conda run --no-capture-output -n thesis python r7_return/theory_checks.py
 ```
 
-第一条在仓库根目录运行，约 30 s，84 项测试。第二条生成 `results/r7_1_reference_check.json`（全精度）与 `.md`，约 30 s。conda run 在 GBK 控制台转发中文输出会报编码错误，所以第二、三条加了 `--no-capture-output`。第三条（R7-2）约 5 s，83 项核对，任一不通过时退出码为 1。
+```bash
+conda run --no-capture-output -n thesis python r7_return/r7_3_numerics.py
+```
+
+```bash
+conda run --no-capture-output -n thesis python r7_return/make_numbers.py
+```
+
+第一条在仓库根目录运行，约 30 s（R7-3 起含 `test_f_numbers.py`，核对生成的宏）。第二条生成 `results/r7_1_reference_check.json`（全精度）与 `.md`，约 30 s。conda run 在 GBK 控制台转发中文输出会报编码错误，所以第二、三条加了 `--no-capture-output`。第三条（R7-2）约 5 s，83 项核对，任一不通过时退出码为 1。第四条（R7-3）约 7 分钟，第五条在其后运行，约 1 s。
+
+R7-3 的范围（`paper/revision_notes/R7_3_numerics.md`）：执行计划 R7-3 第 1–4、7、8 项与第 6 项中回流部分。第 5 项（固定人口初值诊断、四项拟合误差）与第 6 项中 ω = 0 的部分（ω = 0 端的逐状态最小化网格、表 S5 权重转折、ω = 0 的积分容差收敛表）按无回流分支 NR-0 的登记（作者 2026-10-14 确认）由无回流分支 NR-3 产出，本目录不重复执行。
+
+R7-3 的附加诊断：
+
+- 退出后峰值的独立核对：在退出后阶段每个积分步内取 8 个等分点（连续解），稠密采样的最大 I/η − 1 与 İ = 0 事件给出的值对照；
+- 指数回流的正式终点为退出后首次 I < 1 截断；同一轨迹不截断、积分到尾部判据的结果只作诊断（JSON 的 `diagnostic_tail`），不进表与宏；
+- 反馈重放同样在退出后首次 I < 1 时停止，积分上限取截断时刻之后 10 d；
+- 积分容差三档：基准（rtol 1e-11、atol×1、max_step 1 d）、收紧（1e-12、×0.1、0.5 d）、放宽（1e-10、×10、2 d）。
 
 ## 与参考值的对照（摘要；完整表见 `results/r7_1_reference_check.md`）
 
