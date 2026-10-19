@@ -39,7 +39,7 @@ z_\eta=-e^{-1}\exp\!\left[-\frac{I_{\max}^{0}-\eta}{\rho_1}\right]\in(-e^{-1},0)
 \frac{\bar S}{S_c}=(1-\beta)(1-q_0)<1.
 \label{eq:s1:barS}
 \end{equation}
-下面的定理表明，阈值控制期内 $S$ 以指数速率 $c_0\eta/N$ 趋向 $\bar S$；由于 $\bar S<S_c$，$S$ 在有限时间内降到 $S_c$。
+下面的定理表明，阈值控制期内 $S$ 以指数速率 $c_0\eta/N$ 趋向 $\bar S$；由于 $\bar S<S_c$，$S$ 在有限时间内降到 $S_c$。$S$ 的下降速度与 $S-\bar S$ 成正比：易感者越多，维持阈值所需的隔离比例越高，每名感染者的接触中被追踪隔离的未感染者也越多。
 \begin{theorem}
 \label{thm:s1:qc-structure}\label{thm:s1:platform}
 在条件\eqref{eq:model:trigger}下，固定 $c(t)=c_0$。阈值控制期内保持 $I(t)=\eta$ 所需的隔离比例唯一为
@@ -113,7 +113,7 @@ $q_c(S)$ 关于 $S$ 严格增加，$S^*>S_c$ 给出启动时的跳升。沿控�
 \end{equation}
 又 $q_c(S_c)=q_0$，故退出时连续。隔离比例在启动时取得最大值，因此全时段的能力约束等价于检查这一最大值；由式\eqref{eq:s1:qmax}整理即得上述等价式。$q_{\rm cap}=q_{\max}$ 时，控制只在启动时恰好达到能力上限，随后严格低于上限。
 \end{proof}
-隔离比例在启动时最高，所以能力约束只需在启动时检验。若 $q_{\rm cap}<q_{\max}$，启动状态上即使取 $q=q_{\rm cap}$ 也有 $\dot I>0$，因此只有同时减少接触才能维持 $I=\eta$；这时能否实施由推论~\ref{cor:joint:feasibility}判断。
+追踪隔离的需求在启动时最大：此时社区易感者最多，常规措施下的有效再生数最高，需要隔离的接触比例也最高；随着易感者减少，所需隔离逐步放松，退出时恰好回到常规水平。若 $q_{\rm cap}<q_{\max}$，启动状态上即使取 $q=q_{\rm cap}$ 也有 $\dot I>0$，因此只有同时减少接触才能维持 $I=\eta$；这时能否实施由推论~\ref{cor:joint:feasibility}判断。
 
 \subsection{隔离比例的拐点}
 \label{sec:s1:shape}
@@ -184,7 +184,7 @@ S(t_2^+)=S_c+\xi S_q(t_2^-),\qquad
 R_e(t_2^+)=1+\frac{\xi S_q(t_2^-)}{S_c},\qquad
 \dot I(t_2^+)=\gamma\eta\,\frac{\xi S_q(t_2^-)}{S_c}.
 \]
-因此 $\xi S_q(t_2^-)>0$ 时，$I$ 在 $t_2$ 之后立即超过 $\eta$。这一释放不属于 $\mathcal A(\eta)$ 中的退出；定理~\ref{thm:s1:tend}只涉及不释放（$\xi=0$）的情形。
+因此 $\xi S_q(t_2^-)>0$ 时，$I$ 在 $t_2$ 之后立即超过 $\eta$：退出时一次性解除对未感染接触者的隔离，会使社区感染重新增长。$\mathcal A(\eta)$ 中的退出不作这种释放（$\xi=0$），定理~\ref{thm:s1:tend}针对的正是这一情形。
 \end{remarkn}
 
 累计新增感染可以分三段计算：前后两个常规阶段的感染流入与 $-\dot S$ 成正比，阈值控制期内则可以把时间积分换成对 $S$ 的积分。
@@ -243,7 +243,7 @@ R_e(t_2^+)=1+\frac{\xi S_q(t_2^-)}{S_c},\qquad
 \end{equation}
 且 $\partial\Itcum/\partial\eta>0$。计算至无限时刻的累计新增感染也随 $\eta$ 严格增加。
 \end{proposition}
-证明见附录~\ref{sec:proof:threshold-tradeoff}。命题没有涉及清零时间：它还包含退出后的下降过程，需由式\eqref{eq:s1:tend}单独判断。
+证明见附录~\ref{sec:proof:threshold-tradeoff}。阈值越高，干预启动越晚、持续越短、强度越低，代价是更多的人被感染。清零时间还包含退出后的下降过程，需由式\eqref{eq:s1:tend}单独判断。
 
 常规接触率首先决定控制是否被触发。
 \begin{lemma}

@@ -9,7 +9,7 @@
 \dot S=-\frac{\eta}{N}\bigl[c_c(S)S-c_0\bar S\bigr],
 \label{eq:joint:Sdot}
 \end{equation}
-因此接触率越高，$S$ 下降越快。状态函数 $c_c$ 的两个极端是仅隔离控制 $c_c\equiv c_0$ 和仅减少接触 $c_c=c_0S_c/S$。
+因此接触率越高，$S$ 下降越快：有效再生数固定为 $1$ 时，保留的接触越多，所需的隔离比例越高，被追踪隔离的未感染接触者也越多。状态函数 $c_c$ 的两个极端是仅隔离控制 $c_c\equiv c_0$ 和仅减少接触 $c_c=c_0S_c/S$。
 \begin{theorem}
 \label{thm:joint:representation}
 在几乎处处相等的意义下，$\mathcal A(\eta)$ 中的控制与满足
@@ -184,7 +184,7 @@ S^*-S_c=\Itcum(t_2)-\Itcum(t_1)+S_q(t_2)-S_q(t_1),
 \]
 代入前式得到式\eqref{eq:joint:quarantine}。
 \end{proof}
-被追踪的接触者中比例 $\beta$ 已感染、$1-\beta$ 未感染，追踪隔离因而也把未感染者移出社区，加快 $S$ 的下降。控制越快，未被追踪的感染越少、被追踪的接触者越多，因而控制期感染越少、被隔离的未感染者越多；不考虑能力约束时，两端分别是仅隔离控制与仅减少接触。式\eqref{eq:joint:cumulative}与\eqref{eq:joint:quarantine}用到了各控制在同一状态 $(S^*,\eta)$ 进入、$(S_c,\eta)$ 退出，以及隔离易感者不返回社区；隔离易感者返回的情形不在本定理范围内。
+被追踪的接触者中比例 $\beta$ 已感染、$1-\beta$ 未感染，追踪隔离因而也把未感染者移出社区，加快 $S$ 的下降。控制越快，未被追踪的感染越少、被追踪的接触者越多，因而控制期感染越少、被隔离的未感染者越多；不考虑能力约束时，两端分别是仅隔离控制与仅减少接触。这一同序与反序依赖于各控制在同一状态 $(S^*,\eta)$ 进入、$(S_c,\eta)$ 退出，以及隔离易感者不返回社区；隔离易感者返回的情形不在本定理范围内。
 \begin{corollaryn}
 \label{cor:joint:capped-comparison}
 若式\eqref{eq:joint:feasibility}成立，则 $\mathcal A(\eta;c_{\min},q_{\rm cap})$ 中的任一控制满足
