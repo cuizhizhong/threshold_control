@@ -33,14 +33,12 @@
 
 ### 3.2 命令
 
+在本机三个 worktree 上执行的完整步骤（含检查、备份与预期输出）见 `ai/SUB_投稿准备_分步执行计划.md` 第 3 节（SUB-0）。核心只有三条：
+
 ```bash
-git fetch origin --tags
-git checkout main
-git merge --ff-only origin/paper/no-return-focus        # 纯快进，无冲突
-git checkout origin/research/return-effects -- r7_return/ \
-    paper/revision_notes/R7_2_return_theory.md paper/revision_notes/R7_3_numerics.md
-git commit -m "引入回流分支的 r7_return 计算目录与 R7-2、R7-3 记录（补充 S5 回流数字的来源，源提交 9887340）"
-git push origin main
+git merge --ff-only paper/no-return-focus
+git checkout research/return-effects -- r7_return paper/revision_notes/R7_2_return_theory.md paper/revision_notes/R7_3_numerics.md
+git commit -m "SUB-0: 引入回流分支的 r7_return 计算目录与 R7-2、R7-3 记录（补充 S5 回流数字的来源，源提交 9887340）"
 ```
 
 `main` 上不需要运行 `r7_return/make_numbers.py`（它会生成稿件不用的 `paper/generated/r7_numbers.tex`）。回流分支此后不再提交，保留不删（`nr_audit/tests/test_sources.py` 与 `nr_audit/import_return_numbers.py` 用 `git show bb52b96:…` 读取来源）。第二篇论文从合并后的 `main` 新开分支，按需要移植第 8 章的内容。
