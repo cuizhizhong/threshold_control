@@ -27,3 +27,6 @@
 /nr_audit/results/new4a_*.json text eol=lf
 /nr_audit/results/new4b_*.json text eol=lf
 /nr_audit/vendor/LICENSE.nature-skills text eol=lf
+
+# 主稿与补充材料 PDF 入库，按二进制处理。
+/paper/*.pdf binary

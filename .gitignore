@@ -73,5 +73,4 @@ xian_control_comparison/effective_population_sensitivity/*_note.tex
 xian_control_comparison/effective_population_sensitivity/*_note.pdf
 xian_control_comparison/effective_population_sensitivity/*_table.tex
 
-# 论文编译产物（PDF 不入库）
-paper/*.pdf
+# 论文编译产物：主稿与补充材料 PDF 入库（作者 2026-10-19 决定），其他编译中间文件仍不入库
