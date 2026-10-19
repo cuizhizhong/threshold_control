@@ -7,10 +7,11 @@
 ~~~powershell
 python -m venv .venv
 .\.venv\Scripts\python -m pip install -r nr_audit/requirements.txt
-python -m pytest nr_audit/tests -q -m "not slow"
-python -m pytest nr_audit/tests -q
-python nr_audit/import_return_numbers.py
-python nr_audit/make_numbers.py
+.\.venv\Scripts\python -m pytest nr_audit/tests -q -m "not slow"
+.\.venv\Scripts\python -m pytest nr_audit/tests -q
+.\.venv\Scripts\python nr_audit/import_return_numbers.py
+.\.venv\Scripts\python nr_audit/audit_return_endpoint.py
+.\.venv\Scripts\python nr_audit/make_numbers.py
 powershell -NoProfile -ExecutionPolicy Bypass -File paper/build.ps1
 ~~~
 
@@ -18,11 +19,11 @@ powershell -NoProfile -ExecutionPolicy Bypass -File paper/build.ps1
 
 `r7_return/` 仅作为已归档来源，结果JSON不修改、不解析重写；核心JSON和冻结xian_loader由精确gitattributes保护字节。LF/CRLF配置测试是同一Windows主机上的检出模拟，不是Linux实测。论文的历史来源核对、数值复现、终点适用性和最终PDF视觉验收分别记录。
 
-完整图表来源清单为results/figure_table_sources.csv。旧绘图历史代码如不在当前目录，清单指向历史Git对象；这不等同于可分发快照中已有独立入口。本轮只针对已知图7错误做局部重绘。
+完整图表来源清单为results/figure_table_sources.csv。旧绘图历史代码如不在当前目录，清单指向历史Git对象；这不等同于可分发快照中已有独立入口。本轮只针对已知图7错误做局部重绘。`plot_figure7.py --reuse-data`校验固定输入后直接重绘已存局部数据；不加该选项将复算局部分支分类。首次构建需要固定r7_3_exponential_return.json及r7_3_convergence.json，不能仅复制宏生成器。
 
 本目录是无回流主稿分支 `paper/no-return-focus` 的计算核验模块（NR 计划第 5.2 节）。NR-2 只建立代码与测试；正式回归表、固定人口初值诊断、权重转折加密、收敛表与拟合误差重建由 NR-3 用本模块完成（`NR_3_numbers.md`）。`theory_checks.py` 是 NR-1 的代数核对（G-N1 已确认），与本模块的数值路径无关。
 
-**范围**：只实现稿件式 (2.1) 的无回流 SIQR 模型（隔离易感者不返回 $S$），阈值策略 $\mathcal A(\eta)$ 及其能力约束子类。不实现回流（$\omega>0$）与立即返回对照模型，不实现退出时的释放（释放注记只有公式，不模拟）。
+**范围**：只实现稿件式 (2.1) 的无回流 SIQR 模型（隔离易感者不返回 $S$），阈值策略 $\mathcal A(\eta)$ 及其能力约束子类。不实现回流（$\omega>0$）与立即返回对照模型的轨迹求解；NEW入口只读归档回流JSON并派生终点尾界，不实现退出时的释放（释放注记只有公式，不模拟）。
 
 ## 1 运行入口与环境
 

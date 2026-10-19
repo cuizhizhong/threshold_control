@@ -1,0 +1,42 @@
+{
+  "status": "中文审阅版，NEW0–4完成待作者审阅",
+  "build_script": "paper/build.ps1",
+  "final_build_log": "tmp/new4_build_pass3.log",
+  "log_checks": {
+    "flatten_curve_analysis_cn": {
+      "undefined": 0,
+      "multiply_defined": 0,
+      "missing_character": 0,
+      "overfull": 0,
+      "rerun": 0
+    },
+    "flatten_curve_supplement_cn": {
+      "undefined": 0,
+      "multiply_defined": 0,
+      "missing_character": 0,
+      "overfull": 0,
+      "rerun": 0
+    }
+  },
+  "pdf_pages": {
+    "main": 35,
+    "supp": 19
+  },
+  "tests": {
+    "passed": 261,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 169.867
+  },
+  "original_numeric_macros_unchanged": 101,
+  "current_macros": 108,
+  "no_git_snapshot_byte_equal": true,
+  "full_return_matrix_recomputed": false,
+  "linux_tested": false,
+  "all_original_worktree_refs_unchanged": true,
+  "public_release_created": false,
+  "main_updated": false,
+  "english_started": false,
+  "author_accepted": false
+}

@@ -1,0 +1,111 @@
+{
+  "main": {
+    "path": "paper\\flatten_curve_analysis_cn.pdf",
+    "pages": 35,
+    "sha256": "e4ab148870d70de1344d9f4764baa1e44eeff66221ef8bb6ce31a7352120b7a8",
+    "text_blocks_outside_page": [],
+    "text_replacement_chars": 0,
+    "contact_sheets": [
+      "tmp\\new4_pdf_qa\\main_contact_1.png",
+      "tmp\\new4_pdf_qa\\main_contact_2.png",
+      "tmp\\new4_pdf_qa\\main_contact_3.png",
+      "tmp\\new4_pdf_qa\\main_contact_4.png",
+      "tmp\\new4_pdf_qa\\main_contact_5.png"
+    ],
+    "section_page_hits": {
+      "基本方程": [
+        4
+      ],
+      "参数与方法": [
+        17
+      ],
+      "基准与西安": [
+        20,
+        21,
+        23
+      ],
+      "成本权重与时长": [
+        22
+      ],
+      "隔离易感者回流": [
+        28
+      ],
+      "截断后的剩余感染": [
+        1
+      ],
+      "参考文献": [
+        34
+      ]
+    },
+    "selected_pages_rendered": [
+      1,
+      3,
+      4,
+      18,
+      23,
+      28
+    ],
+    "full_document_contact_reviewed": true,
+    "changed_pages_after_last_method_sync": [],
+    "changed_pages_require_individual_review": [],
+    "selected_pages_visually_reviewed": [
+      1,
+      3,
+      4,
+      18,
+      23,
+      28
+    ]
+  },
+  "supp": {
+    "path": "paper\\flatten_curve_supplement_cn.pdf",
+    "pages": 19,
+    "sha256": "a2df5c10fa18b6c234c3d99e848c4acd351f8113c309eb5a874e2e5649764572",
+    "text_blocks_outside_page": [],
+    "text_replacement_chars": 0,
+    "contact_sheets": [
+      "tmp\\new4_pdf_qa\\supp_contact_1.png",
+      "tmp\\new4_pdf_qa\\supp_contact_2.png",
+      "tmp\\new4_pdf_qa\\supp_contact_3.png"
+    ],
+    "section_page_hits": {
+      "基本方程": [],
+      "参数与方法": [],
+      "基准与西安": [],
+      "成本权重与时长": [
+        18
+      ],
+      "隔离易感者回流": [
+        1,
+        14
+      ],
+      "截断后的剩余感染": [
+        17
+      ],
+      "参考文献": [
+        18
+      ]
+    },
+    "selected_pages_rendered": [
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "full_document_contact_reviewed": true,
+    "changed_pages_after_last_method_sync": [
+      17,
+      18
+    ],
+    "changed_pages_require_individual_review": [],
+    "selected_pages_visually_reviewed": [
+      14,
+      15,
+      16,
+      17,
+      18
+    ]
+  },
+  "visual_status": "通过：全54页联系表快速翻阅，主1/3/4/18/23/28和补14–18逐页细查；最终同步后仅补17/18发生像素变化，已再次细查。无截断、碰撞或缺字。"
+}

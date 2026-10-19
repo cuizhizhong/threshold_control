@@ -34,13 +34,13 @@
     },
     "table1": {
       "path": "paper/sections/06_numerics.tex",
-      "sha256": "81aaca8dde71060176ffe572a2090cbb8486e89c7fb50fe481be486de3b4ae8d",
+      "sha256": "736be73cd5b1cf16e05660884af563f9aef680e9b5f43f9233e292edf4d20e0d",
       "use": "稿件表 1（tab:xian_initial_fit）与图 6 图注（能力代表点）",
       "pinned": false
     },
     "model_section": {
       "path": "paper/sections/02_model.tex",
-      "sha256": "27358868c4a5f90b9a75a81ff4ffcb5e13e1c9c62c5e57d61e9eab8f77af7867",
+      "sha256": "0dd016bbac42d4935faedc68325c20674bbc853df00f35daa6236787aef06973",
       "use": "默认权重 w_c = 1、w_q = 2（式 2.13 之后）",
       "pinned": false
     },
@@ -142,7 +142,7 @@
     },
     "numerics_S6": {
       "path": "paper/supplement_sections/S6_numerics.tex",
-      "sha256": "a536fe6e76a56fcf55152c6e8319515d4ed4738718903e45d7745ad625c5b07f",
+      "sha256": "961bcd5882c4365c64c6167c89aa4eb8a23f35ab1381bc022c06d47c9fb97ee2",
       "use": "N1、N3：补充 S6 与表 S5",
       "pinned": false
     },

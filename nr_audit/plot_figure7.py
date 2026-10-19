@@ -109,6 +109,8 @@ def refine_background(d,arrays):
         counts[case]=len(extra)
     d['background_refinement']=dict(added_weight_rows=counts,
         purpose='填补背景颜色网格间隙；不新增分类转折或ODE轨迹',script_sha256=sha(__file__))
+    d['data_scope']=('原全域网格完整保留；已有加密权重及两处纠错点作局部分类；'
+        f'另加西安{counts["xian"]}行仅填补背景颜色，不新增分类转折或ODE；非连续参数分类')
     np.savez_compressed(NPZ,**arrays)
     DATA.write_text(json.dumps(d,ensure_ascii=False,indent=1),encoding='utf-8')
 

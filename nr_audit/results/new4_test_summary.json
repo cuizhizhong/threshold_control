@@ -1,0 +1,14 @@
+{
+  "name": "pytest",
+  "errors": "0",
+  "failures": "0",
+  "skipped": "0",
+  "tests": "261",
+  "time": "169.867",
+  "timestamp": "2026-10-19T12:21:19.962583+08:00",
+  "hostname": "DESKTOP-501",
+  "warnings": 152,
+  "warning_reason": "record_property 与JUnit xunit2格式不兼容，非数值失败",
+  "command": "python -m pytest nr_audit/tests -q --basetemp=tmp/new4_pytest --junitxml=tmp/new4_tests.xml",
+  "new_full_return_matrix_solves": 0
+}

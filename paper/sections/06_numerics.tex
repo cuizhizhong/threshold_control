@@ -36,7 +36,7 @@ $\eta$ & 阈值（人） & $0.05N=38.15$ & $0.002N=\num{26326}$ & 设计情景�
 
 $\delta_q$ 不影响无回流模型中闭合的 $(S,I)$ 子系统，因而不改变本文控制律、时长、累计感染流量与 $J$；它影响 $I_q,R$ 及含这些仓室的派生指标，包括 $\max(I+I_q)/\eta$。
 
-表与图中的指标都由第~\ref{sec:s1}--\ref{sec:joint:cost}~节的闭式解或对 $S$ 的一维积分（式\eqref{eq:joint:duration}、\eqref{eq:joint:cost}）得到，成本最优控制按定理~\ref{thm:joint:cost-minimum}逐状态求取。完整仓室方程的直接数值积分只用于核对，输入的是按名义模型预先算出的开环控制；求解器与误差见补充材料第~\ref{sec:sup:numerics}~节。第~\ref{sec:joint:capacity-numerics}、\ref{sec:joint:weights-numerics}~节只在有限个代表点、网格点和乘子点上计算。
+控制时长、累计感染、隔离增量与成本由第~\ref{sec:s1}--\ref{sec:joint:cost}~节的闭式解或对 $S$ 的一维积分（式\eqref{eq:joint:duration}、\eqref{eq:joint:cost}）得到，成本最优控制按定理~\ref{thm:joint:cost-minimum}逐状态选取。两感染仓室人数之和的峰值由完整仓室方程直接积分计算，该积分同时核对其余指标；输入是按名义模型预先算出的开环控制，求解器与误差见补充材料第~\ref{sec:sup:numerics}~节。第~\ref{sec:joint:capacity-numerics}、\ref{sec:joint:weights-numerics}~节只在有限个代表点、网格点和乘子点上计算。
 
 \subsection{阈值与接触率}
 图~\ref{fig:scenario1:single-sim}给出基准参数下仅隔离控制的三阶段轨迹。常规控制下非隔离感染者的峰值约为 $300.4$ 人，远高于阈值 $\eta=38.15$ 人。仅隔离控制在非隔离感染者首次达到阈值时（$t_1\approx3.175$ d）启动，隔离比例跳升至 $q_{\max}\approx0.7565$，此后随易感者减少而下降，约 $5.903$ d 后回到 $q_0$。

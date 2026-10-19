@@ -1,0 +1,32 @@
+{
+  "snapshot": "E:\\work\\draft\\tmp\\submission-ready\\tmp\\new4_no_git_snapshot",
+  "git_discovery_exit_code": 128,
+  "no_git_history": true,
+  "generated_from_removed_intermediates": true,
+  "runs": [
+    {
+      "script": "import_return_numbers.py",
+      "exit_code": 0,
+      "stdout": "导入18条；SHA-256正确；历史核对: not_available"
+    },
+    {
+      "script": "audit_return_endpoint.py",
+      "exit_code": 0,
+      "stdout": "{\"n_rows\": 18, \"groups\": {\"base\": {\"7\": {\"B_max_persons\": 1.5808579958267366, \"B_display_up\": \"1.581\"}, \"14\": {\"B_max_persons\": 4.43413849397868, \"B_display_up\": \"4.435\"}, \"30\": {\"B_max_persons\": 22.373442158207126, \"B_display_up\": \"22.374\"}}, \"xian\": {\"7\": {\"B_max_persons\": 10.73765660462089, \"B_display_up\": \"10.738\"}, \"14\": {\"B_max_persons\": 15.358045638527248, \"B_display_up\": \"15.359\"}, \"30\": {\"B_max_persons\": 37.43929991233286, \"B_display_up\": \"37.440\"}}}, \"U_over_Sc_range\": [0.5108077820446641, 0.9620441589468742]}"
+    },
+    {
+      "script": "make_numbers.py",
+      "exit_code": 0,
+      "stdout": "写出 paper\\generated\\nr_numbers.tex：108 个宏"
+    }
+  ],
+  "source_sha256": "3ca0a3d245314230df83c0717e07ed73ab67129803c284ea46eab8921cdfb05f",
+  "n_imported_rows": 18,
+  "n_endpoint_rows": 18,
+  "n_macros": 108,
+  "macros_byte_equal": true,
+  "endpoint_rows_and_groups_equal": true,
+  "history_check": "not_available",
+  "new_ode_solves": 0,
+  "platform": "Windows 11; Python3.10.20; Linux未实测"
+}
