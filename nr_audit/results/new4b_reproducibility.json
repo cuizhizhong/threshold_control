@@ -1,0 +1,47 @@
+{
+  "stage": "NEW-4b",
+  "base_commit": "505cbf5c92be20d165f64ac26b225227b966fc19",
+  "tests": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "51",
+    "time": "4.365",
+    "timestamp": "2026-10-19T15:23:23.685714+08:00",
+    "hostname": "DESKTOP-501"
+  },
+  "actual_text_eol_cli_runs": [
+    {
+      "mode": "LF",
+      "arguments": [
+        "nr_audit/plot_figure7.py",
+        "--reuse-data"
+      ],
+      "exit_code": 0,
+      "scientific_source_hashes_match": true,
+      "npz_byte_equal": true,
+      "reclassification": false
+    },
+    {
+      "mode": "CRLF",
+      "arguments": [
+        "nr_audit/plot_figure7.py",
+        "--reuse-data"
+      ],
+      "exit_code": 0,
+      "scientific_source_hashes_match": true,
+      "npz_byte_equal": true,
+      "reclassification": false
+    }
+  ],
+  "all_108_macros_byte_equal": true,
+  "cases_equal": true,
+  "cache_npz_byte_equal": true,
+  "compute_and_background_identities_preserved": true,
+  "frozen_raw_bytes_unchanged": true,
+  "new_weight_classifications": 0,
+  "new_background_calculations": 0,
+  "new_return_ode_solves": 0,
+  "platform": "Windows实际运行；未声称Linux系统实测"
+}

@@ -1,0 +1,67 @@
+{
+ "generated": "2026-10-19T15:27:40",
+ "git_head": "505cbf5c92be20d165f64ac26b225227b966fc19",
+ "base_commit": "101b3e044418930e7242187f15044ee290c9f9f9",
+ "checked_source_files": 17,
+ "original_display_environments": 84,
+ "original_numbered_statements": 35,
+ "original_proofs": 32,
+ "original_tables": 13,
+ "original_macros_unchanged": 101,
+ "current_macros": 108,
+ "original_r7_subtree_equal_to": "9887340091911eda76753c1d2cc2afa23430cc62",
+ "pinned_sources_verified": 16,
+ "author_assets": [
+  {
+   "path": "E:\\work\\draft\\ai\\NR_no_return_revision_plan_20261014.md",
+   "sha256": "942c9e7cf0d2af48c891692a440e25fc51ab5ebbfd804f299e43607de131e1f3",
+   "unchanged": true
+  },
+  {
+   "path": "E:\\work\\draft\\paper\\revision_notes\\20261019_submission_assessment\\R1_数学评阅.md",
+   "sha256": "5c278f119008315adba70a2c3349a041d4604752672cefff1dbb91271626be43",
+   "unchanged": true
+  },
+  {
+   "path": "E:\\work\\draft\\paper\\revision_notes\\20261019_submission_assessment\\R2_生物学评阅.md",
+   "sha256": "a536739fbb55c5865c24c111d900973a8a79a154ebc807e729f1918104d8bc23",
+   "unchanged": true
+  },
+  {
+   "path": "E:\\work\\draft\\paper\\revision_notes\\20261019_submission_assessment\\R3_交付评阅.md",
+   "sha256": "a31eb26c6289dfdbabcf84fb468ab3bdf2c2570ab3befba41149ad7266e62836",
+   "unchanged": true
+  },
+  {
+   "path": "E:\\work\\draft\\paper\\revision_notes\\20261019_submission_assessment\\投稿路线建议.md",
+   "sha256": "a3f91faa6b1bc911dfec9e40fb8eecbe6e91c8293cb4ca1696174ce77c43ec02",
+   "unchanged": true
+  },
+  {
+   "path": "E:\\work\\draft-nr\\ai\\CODEX_new_manuscript_plan_20261019.md",
+   "sha256": "f7b7e7d71abc78de5667ecd15250e134f1542c742a82a8a840e9678816106e10",
+   "unchanged": true
+  }
+ ],
+ "unchanged_refs": {
+  "refs/heads/main": "2b5545af423c9791aee9699296405b01b94ce244",
+  "refs/remotes/origin/main": "b4835d9aae6fe0192093da7b6353a5455b42097a",
+  "refs/heads/paper/no-return-focus": "101b3e044418930e7242187f15044ee290c9f9f9",
+  "refs/heads/research/return-effects": "9887340091911eda76753c1d2cc2afa23430cc62"
+ },
+ "main_chapter_inputs": [
+  "sections/01_introduction",
+  "sections/02_model",
+  "sections/03_single_control",
+  "sections/04_joint_control",
+  "sections/05_quadratic_cost",
+  "sections/06_numerics",
+  "sections/07_xian",
+  "sections/08_discussion",
+  "sections/09_conclusion"
+ ],
+ "allowed_tracked_scope": true,
+ "english_files_changed": false,
+ "registered_proof_wording": "附录A：均随eta减小→均随eta增大而减小；NEW-2已登记，公式和逻辑不变",
+ "added_math": "eq:return:cut和eq:return:tail及环境外逻辑修正另见NEW_2；本收据不把原环境保持等同无新增数学"
+}

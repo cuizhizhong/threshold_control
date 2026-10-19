@@ -1,0 +1,42 @@
+{
+  "stage": "NEW-4b",
+  "base_commit": "505cbf5c92be20d165f64ac26b225227b966fc19",
+  "previous_identity": {
+    "stage": "NEW-4a",
+    "base_commit": "505cbf5c92be20d165f64ac26b225227b966fc19",
+    "record_sha256": "44788474db5264ee491b8abbfb2cb985b8c1f5d8904541992305cac643a40d45",
+    "source_hashes": {
+      "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/phase.json": "2385cab466e9e15003b559dd418351bd194f507e45397a14f46f49c77b04cb01",
+      "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/phase_baseline.npz": "6b3321c9efb629728346d9f212f44c20328d861f4620a0ca9aa0032f752dcaeb",
+      "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/phase_xian.npz": "43d23e7f3a52303157e2106a352eba8a8b4628a3a4f65ba0e00d76bde52090d7",
+      "nr_audit/results/weight_brackets.json": "a17871f0c81b8248f0316759d5f146063eeb967ffaf78cd6873016354192f9da",
+      "nr_audit/allocation.py": "ad1ba61f6d665519a7742ea994a1c3a267d19aab7aff3bc38c02c32bb9776801",
+      "nr_audit/audit_weights.py": "47334a9b51c6eeca417f67c48a1de9eb7e0b86fe2997a2334462a57571673697",
+      "nr_audit/params.py": "0db269fb16f92f2ee01f7a5d2586c38c683a906aecc732032c46c4620c74395f"
+    },
+    "input_identity_policy": "NEW-4a: raw SHA256; named mutable texts UTF-8/LF; frozen inputs retain original bytes",
+    "compute_script_sha256": "6aefe8f88ea955cf6d45532ed18ee010fca5477f7ea923da950b18ac90c49f9f",
+    "background_refinement_script_sha256": "263b854c0002896d33aa0f0021305ee94aa5c6a661093daecfd28a3d1d317776"
+  },
+  "source_hashes": {
+    "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/phase.json": "366fd4596de315cabc23236e936e7f5525568c0ee6e6484f3f95e2cd7bebfaea",
+    "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/phase_baseline.npz": "6b3321c9efb629728346d9f212f44c20328d861f4620a0ca9aa0032f752dcaeb",
+    "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/phase_xian.npz": "43d23e7f3a52303157e2106a352eba8a8b4628a3a4f65ba0e00d76bde52090d7",
+    "nr_audit/results/weight_brackets.json": "a17871f0c81b8248f0316759d5f146063eeb967ffaf78cd6873016354192f9da",
+    "nr_audit/allocation.py": "ad1ba61f6d665519a7742ea994a1c3a267d19aab7aff3bc38c02c32bb9776801",
+    "nr_audit/audit_weights.py": "47334a9b51c6eeca417f67c48a1de9eb7e0b86fe2997a2334462a57571673697",
+    "nr_audit/params.py": "0db269fb16f92f2ee01f7a5d2586c38c683a906aecc732032c46c4620c74395f"
+  },
+  "frozen_source_hashes": {
+    "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/phase.json": "2385cab466e9e15003b559dd418351bd194f507e45397a14f46f49c77b04cb01",
+    "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/phase_baseline.npz": "6b3321c9efb629728346d9f212f44c20328d861f4620a0ca9aa0032f752dcaeb",
+    "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/phase_xian.npz": "43d23e7f3a52303157e2106a352eba8a8b4628a3a4f65ba0e00d76bde52090d7"
+  },
+  "normalization": "only CRLF to LF for .py/.json; no whitespace trimming or semantic JSON rewriting",
+  "frozen_phase_and_npz_require_raw_sha256": true,
+  "local_cache_npz_sha256": "719d07962df7bb607ad6fd8a73cbc454be10254dc15d7543f0819ed36ecd963f",
+  "historical_calculation_identities_preserved": true,
+  "new_weight_classifications": 0,
+  "new_background_calculations": 0,
+  "cases_equal_to_previous": true
+}

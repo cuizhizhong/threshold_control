@@ -52,7 +52,7 @@ def test_fixed_paths_ignore_autocrlf(tmp_path):
         'nr_audit/results/new_figure7.json', 'nr_audit/results/new_figure7_render.json',
         'nr_audit/results/new_return_endpoint.json', 'nr_audit/results/nr_numbers_map.json',
         'nr_audit/results/new_figure7_alignment.json', 'nr_audit/results/new_figure7_collisions.json',
-        'nr_audit/results/new4a_identity_migration.json']
+        'nr_audit/results/new4a_identity_migration.json', 'nr_audit/results/new4b_identity_migration.json']
     frozen_paths = [
         IR.SOURCE_PATH, IR.CONVERGENCE_PATH, 'xian_control_comparison/xian_control_comparison.py',
         'nr_audit/results/new_figure7.npz',

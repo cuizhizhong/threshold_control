@@ -138,3 +138,39 @@ def test_migration_keeps_historical_calculation_identity():
     assert data['identity_history'][0] == history
     assert data['cache_npz_sha256'] == migration['local_cache_npz_sha256']
     assert all(p['lf_only_content_change'] for p in migration['eol_only_input_migrations'])
+
+
+
+@pytest.mark.parametrize('newline', [b'\n', b'\r\n'], ids=['LF', 'CRLF'])
+def test_reuse_accepts_text_checkout_eol(cached_root, monkeypatch, newline):
+    """同一文本内容的两种行尾均能复用；二进制/冻结源不改写。"""
+    root, data = cached_root
+    for rel in data['source_hashes']:
+        if rel.startswith('nr_audit/') and (rel.endswith('.py') or rel.endswith('.json')):
+            p = root / rel
+            p.write_bytes(p.read_bytes().replace(b'\r\n', b'\n').replace(b'\n', newline))
+    # 元数据JSON本身也允许两种检出行尾。
+    F.DATA.write_bytes(F.DATA.read_bytes().replace(b'\r\n', b'\n').replace(b'\n', newline))
+    F.validate_cached_inputs(data)
+    def forbidden(*args, **kwargs):
+        raise AssertionError('换行验收禁止重算')
+    monkeypatch.setattr(F.AW, 'classify', forbidden)
+    monkeypatch.setattr(F.AL, 'make_law_opt', forbidden)
+    monkeypatch.setattr(F, 'refine_background', forbidden)
+    seen = []
+    monkeypatch.setattr(F, 'render', lambda d, a, reuse_data=False: seen.append(reuse_data))
+    monkeypatch.setattr(sys, 'argv', ['plot_figure7.py', '--reuse-data'])
+    F.main()
+    assert seen == [True]
+
+
+def test_frozen_json_still_requires_raw_bytes(cached_root):
+    root, data = cached_root
+    path = F.RES / 'phase.json'
+    before = path.read_bytes()
+    assert b'\r\n' in before
+    path.write_bytes(before.replace(b'\r\n', b'\n'))
+    # 文本规范化身份相同，但历史冻结原字节的单独校验仍应拒绝。
+    assert F.inputs() == data['source_hashes']
+    with pytest.raises(ValueError, match='冻结图7输入原始字节'):
+        F.validate_cached_inputs(data)

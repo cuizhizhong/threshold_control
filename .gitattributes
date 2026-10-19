@@ -25,3 +25,5 @@
 /nr_audit/results/new_figure7_alignment.json text eol=lf
 /nr_audit/results/new_figure7_collisions.json text eol=lf
 /nr_audit/results/new4a_*.json text eol=lf
+/nr_audit/results/new4b_*.json text eol=lf
+/nr_audit/vendor/LICENSE.nature-skills text eol=lf

@@ -1,0 +1,66 @@
+{
+  "main": {
+    "pages": 35,
+    "sha256": "2db2fb583ea5e8daa699e62b31045f34fbd436ae59fe7284efcfb9361c32f013",
+    "log_flags": {
+      "undefined": 0,
+      "multiply defined": 0,
+      "Missing character": 0,
+      "Overfull": 0,
+      "Rerun to get": 0
+    },
+    "changed_pages_vs_NEW4a": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      23
+    ],
+    "contact_sheets": [
+      "tmp/new4b_pdf_qa/main_contact_1.png",
+      "tmp/new4b_pdf_qa/main_contact_2.png",
+      "tmp/new4b_pdf_qa/main_contact_3.png",
+      "tmp/new4b_pdf_qa/main_contact_4.png",
+      "tmp/new4b_pdf_qa/main_contact_5.png"
+    ],
+    "selected_pages_rendered": [
+      1,
+      2,
+      3,
+      4,
+      23
+    ],
+    "visual_review": "completed: inspected all 35 pages in contact sheets and pages 1,2,3,4,23 at high resolution; no clipping, overlap or abnormal floats"
+  },
+  "supp": {
+    "pages": 19,
+    "sha256": "0585a5bb43099537585c815da60386d96b58f6276e0944f6d5f476f1846b039d",
+    "log_flags": {
+      "undefined": 0,
+      "multiply defined": 0,
+      "Missing character": 0,
+      "Overfull": 0,
+      "Rerun to get": 0
+    },
+    "changed_pages_vs_NEW4a": [],
+    "contact_sheets": [],
+    "selected_pages_rendered": [],
+    "visual_review": "all 19 pages pixel-identical to the previously reviewed NEW-4a PDF at 0.8 scale; no new visual differences"
+  }
+}

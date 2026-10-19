@@ -30,11 +30,25 @@ def sha(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+def source_sha(path):
+    """文本按CRLF→LF的内容身份计算；二进制保留原始字节。"""
+    path=Path(path);raw=path.read_bytes()
+    if path.suffix in ('.py','.json'):
+        raw=raw.replace(b'\r\n',b'\n')
+    return hashlib.sha256(raw).hexdigest()
+
+
+def frozen_inputs():
+    """原phase及NPZ另外保持严格原始字节校验。"""
+    paths=[RES/'phase.json',RES/'phase_baseline.npz',RES/'phase_xian.npz']
+    return {p.relative_to(ROOT).as_posix():sha(p) for p in paths}
+
+
 def inputs():
     files=[RES/'phase.json',RES/'phase_baseline.npz',RES/'phase_xian.npz',
            RESULTS/'weight_brackets.json',ROOT/'nr_audit/allocation.py',
            ROOT/'nr_audit/audit_weights.py',ROOT/'nr_audit/params.py']
-    return {p.relative_to(ROOT).as_posix():sha(p) for p in files}
+    return {p.relative_to(ROOT).as_posix():source_sha(p) for p in files}
 
 
 def compute():
@@ -68,7 +82,9 @@ def compute():
         cases[case]=dict(samples=samples,z_sw=AL.z_sw_formula(P.z_bar),
             local_shape=[len(weights),len(z)],parameters=vars(P),
             counts={k:sum(s['class']==k for s in samples) for k in ('A',"A'",'B','C')})
-    receipt=dict(description=__doc__,source_hashes=inputs(),compute_script_sha256=sha(__file__),
+    receipt=dict(description=__doc__,source_hashes=inputs(),frozen_source_hashes=frozen_inputs(),
+        input_identity_policy='NEW-4b: text CRLF-to-LF SHA256; binary raw; frozen sources additionally raw',
+        compute_script_sha256=sha(__file__),
         new_ode_solves=0,N_z=4001,N_local=4001,cases=cases,
         data_scope='原全域网格完整保留；仅已有加密权重及两处旧网格纠错点局部计算；非连续参数分类')
     np.savez_compressed(NPZ,**arrays)
@@ -118,15 +134,16 @@ def refine_background(d,arrays):
 
 
 def render(d,arrays,reuse_data=False):
-    plt.rcParams.update({'font.family':'sans-serif',
-        'font.sans-serif':['Arial','Helvetica','DejaVu Sans','sans-serif'],
+    plt.rcParams.update({'font.family':'serif',
+        'font.serif':['Times New Roman','STIXGeneral','DejaVu Serif'],
+        'mathtext.fontset':'stix',
         'font.size':8,'axes.titlesize':8,
         'axes.labelsize':9,'xtick.labelsize':8,'ytick.labelsize':8,
         'pdf.fonttype':42,'svg.fonttype':'none','axes.linewidth':.65,
         'axes.spines.top':False,'axes.spines.right':False,'legend.frameon':False})
     cmap=LinearSegmentedColormap.from_list('contact_share',['#f5f9fd','#a6cbe6','#206fb6','#062e5c'])
     fig=plt.figure(figsize=(174/25.4,145/25.4))
-    gs=fig.add_gridspec(2,3,width_ratios=[1,1,.035],left=.095,right=.945,
+    gs=fig.add_gridspec(2,2,left=.095,right=.89,
                        bottom=.20,top=.94,hspace=.48,wspace=.39)
     axs=[fig.add_subplot(gs[i,j]) for i in range(2) for j in range(2)]
     summary=json.loads((RES/'phase.json').read_text(encoding='utf-8'))
@@ -171,7 +188,7 @@ def render(d,arrays,reuse_data=False):
                     transform=local.transAxes,va='center',fontsize=7,clip_on=False)
         top.plot([z[0],z[-1],z[-1],z[0],z[0]],[r[0],r[0],r[-1],r[-1],r[0]],
                  color='#555555',lw=.7)
-    cax=fig.add_subplot(gs[:,2]);cax.set_label('_colorbar')
+    cax=fig.add_axes([.92,.20,.012,.74]);cax.set_label('_colorbar')
     cb=fig.colorbar(pc,cax=cax);cb.set_label(r'$y$',rotation=0,labelpad=5)
     handles=[Line2D([],[],c=colors['continuous'],lw=1.1,label='Continuous entry'),
         Line2D([],[],c=colors['endpoint'],lw=1.1,label='Endpoint-to-interior jump'),
@@ -191,18 +208,21 @@ def render(d,arrays,reuse_data=False):
     svg=OUT.with_suffix('.svg')
     svg.write_text('\n'.join(line.rstrip() for line in svg.read_text(encoding='utf-8').splitlines())+'\n',
                    encoding='utf-8',newline='\n')
-    fig.savefig(ROOT/'paper/revision_notes/NEW_2_figure7_after.png',dpi=300)
+    fig.savefig(ROOT/'paper/revision_notes/NEW_4b_figure7_after.png',dpi=300)
     plt.close(fig)
     (RESULTS/'new_figure7_render.json').write_text(json.dumps(dict(
         render_script_sha256=sha(__file__),data_sha256=sha(DATA),npz_sha256=sha(NPZ),
         pdf_sha256=sha(OUT.with_suffix('.pdf')),width_mm=174,height_mm=145,
-        source_hashes_unchanged=inputs()==d['source_hashes'],reuse_data=reuse_data),indent=2),encoding='utf-8',newline='\n')
+        source_hashes_unchanged=inputs()==d['source_hashes'],reuse_data=reuse_data,
+        font_family='Times New Roman',mathtext_fontset='stix',colorbar_gap_figure_fraction=.03),indent=2),encoding='utf-8',newline='\n')
 
 
 def validate_cached_inputs(d):
-    """源码/JSON/冻结源均按记录的原字节比较，不在校验时忽略任何换行。"""
+    """文本内容允许CRLF/LF等价；冻结来源和缓存另作原始字节校验。"""
     if inputs()!=d['source_hashes']:
         raise ValueError('图7输入已变，不能复用')
+    if frozen_inputs()!=d.get('frozen_source_hashes'):
+        raise ValueError('冻结图7输入原始字节不符，不能复用')
     if sha(NPZ)!=d.get('cache_npz_sha256'):
         raise ValueError('图7缓存NPZ身份不符，不能复用')
     if 'background_refinement' not in d:
