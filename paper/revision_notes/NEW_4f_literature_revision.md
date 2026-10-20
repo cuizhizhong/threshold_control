@@ -53,7 +53,30 @@ F1实际验证：Windows标准入口在沙箱内的biber启动时报 `Illegal Sy
 
 ## 3 综合人数代价推导（F2）
 
-待核验现有恒等式后登记。
+第5.4节末仅新增 `remarkn` 注记 `rem:joint:headcount-cost`，不新增小节、定理、图表或全局记号。固定无回流模型、阈值和同一非空允许类，局部记
+
+\[
+D=S^*-S_c,\quad C=I_{t_{\rm cum}}(t_2)-I_{t_{\rm cum}}(t_1),\quad Q=S_q(t_2)-S_q(t_1).
+\]
+
+由已有 `eq:joint:cumulative`、`eq:joint:quarantine`，
+
+\[
+C=\beta D+(1-\beta)\gamma\eta\Delta t,\qquad Q=(1-\beta)D-(1-\beta)\gamma\eta\Delta t.
+\]
+
+因此 `C+Q=D`，对非负人数权重有
+
+\[
+J+a_IC+a_QQ=[\beta a_I+(1-\beta)a_Q]D+J+\kappa\Delta t,\qquad
+\kappa=(1-\beta)\gamma\eta(a_I-a_Q).
+\]
+
+`C`为进入两个感染仓室的总新增感染，不是仅社区累计；`Q`为同一阈值控制期的新增人数，不是存量或人天。J单位为天，a_I、a_Q为时间/人数，kappa无量纲，未作货币化。a_I>a_Q惩罚较长控制期，a_I<a_Q偏重减少隔离人数，二者相等时人数项为常数。原J的定义、权重、数值均不变。
+
+已独立检查符号展开，人数代价恒等式与C+Q=D的残差均为0，无数值求解。任意有限正负kappa均可调用现有存在性和逐状态最小化论证；原允许时长有有限上下界，不会因负kappa使目标无界。时长前沿只在内点T保证有限匹配乘子，不扩大到端点。未将原J的驻点方程系数、连续结构、切换位置、能力截断或阈值单调性外推到kappa非零。
+
+F2实际验证：标准入口构建主稿40页/补充20页；两份undefined=0、multiply defined=0、Overfull=0、缺字0。statement_diff：既有40条带标签陈述与24条配对证明均未变，仅新增 `rem:joint:headcount-cost`。已对短注记加局部 `Needspace`，避免注记开头与公式分处两页；该排版指令不改变内容。已目视主稿第19页注记、公式与后续标题，排版正常。最终本步日志与阶段报告留 `paper/tmp/NEW_4f_QA/F2/`。
 
 ## 4 生物学解释与一致性（F3）
 
@@ -65,7 +88,38 @@ F1实际验证：Windows标准入口在沙箱内的biber启动时报 `Illegal Sy
 
 ## 6 暂缓与搁置事项
 
-每日处理能力换算仅留本记录；有效人口比较本轮整体搁置。具体核验与来源指针在相应步骤补齐。
+### 6.1 每日处理能力仅留记录
+
+进入两个隔离仓室的总接触者流量为
+
+\[
+B_q=\frac{cqSI}{N}=\dot S_q+\left(\text{进入 }I_q\text{ 的流量}\right),
+\]
+
+这里S_q等式指无回流时的新增流入；正回流时应把S_q的净变化加回回流量，仍以进入隔离仓室的流入定义B_q。在阈值期I=eta、平衡关系成立时，
+
+\[
+B_q=\frac{\gamma\eta q}{\beta(1-q)},\qquad
+B_q\le K_{\rm d}\iff q\le\frac{\beta K_{\rm d}}{\beta K_{\rm d}+\gamma\eta}.
+\]
+
+两隔离流量分别是(1-beta)cqSI/N和beta cqSI/N，相加才得B_q（人/天）；它不是全部电话联系、排查或检测量，也不是隔离床位存量。对K_d非负、q<1，比例上限不低于q_0的必要条件为
+
+\[
+K_{\rm d}\ge\frac{\gamma\eta q_0}{\beta(1-q_0)}.
+\]
+
+若另有c_min，仍须检查原完整可行性条件，不能把上述必要条件当充分条件。该代换已符号核验，无数值模拟。固定K_d时比例上限随eta变化，会引出新的跨阈值可行性与成本问题；原固定能力参数的阈值单调性不能直接沿用，也不能只凭比例上限下降就断言可行性对所有参数变差。全过程限制须另查启动前轨迹。本轮正文与补充仍采用原固定c_min、q_cap，不加入上述公式或额外限定。有限能力背景仅留[Contreras等DOI指针](https://doi.org/10.1038/s41467-020-20699-8)，未据该文作本文已复现的动力学临界点判断。
+
+### 6.2 有效人口整体搁置
+
+- 已有结果位置：`reproducibility/results/20261003_release_final/population/critical.json`、`representative_summary.csv` 等；原S4文本在 `paper/revision_notes/archive/NR_6_removed/S4_population.tex`。
+- 不恢复原S4，不重新引用 `fig_dom_combined.pdf`、`population_threshold_levers.pdf`、`fig_panel_B_trajectory_decomposition.pdf`、`critical_population_cases.pdf`；不运行 `xian_dom/`、`reproducibility/population.py` 或新的有效人口计算。第7.4节、补充S3.1与 `prop:dom:floor` 保持原样。
+- 后续讨论方向仅留指针：将TDINN拟合结果作为固定实际结局参照，只比较可观测或人口无关指标（总累计感染、清零时间、社区日新增峰值；阈值期社区日新增为gamma eta），约束N_eff>=N_floor，考察数据允许的全部有效人口上的界；J^T与非隔离感染者峰值不宜作固定参照。
+- 已知相容性风险：沿用全市人口下重构的c(t)、q(t)，N_eff在10^4量级时不能重现观测曲线。严格比较须在N_eff下重新估计参数，属于冻结的西安重新拟合。
+- F3b核读中另记录补充S3.1的一处证据界限：其“0.1倍与10倍初值并不与观测相符”不能仅由六条阈值轨迹证明；现有表本身没有这些初值下TDINN观测残差。本轮按冻结要求原样保留，不重算、不判为已发现模型错误，随未来初值/有效人口任务再核。
+
+隔离人天核算、线性成本、其他退出目标与综合成本扫描均不扩展；没有把新增人数乘外加停留天数当作人天结果。
 
 ## 7 验证与交付（F4）
 

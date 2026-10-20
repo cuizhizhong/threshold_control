@@ -159,4 +159,18 @@ V(T)=\inf\{J[c_c]:\Delta t[c_c]=T\}.
 \end{proposition}
 证明见附录~\ref{sec:proof:duration-frontier}。$-\kappa$ 是 $V$ 在 $T$ 处的次梯度，即控制时长的边际成本；由式\eqref{eq:joint:cumulative}与\eqref{eq:joint:quarantine}，$V$ 同时给出 $J$ 与累计新增感染、新增隔离易感者人数之间的取舍。
 
+\Needspace{12\baselineskip}
+\begin{remarkn}[综合人数代价]
+\label{rem:joint:headcount-cost}
+在无回流模型中，固定阈值 $\eta$ 与同一允许控制类，局部记阈值控制期内的总新增感染为 $C=\Itcum(t_2)-\Itcum(t_1)$、新增隔离易感者人数为 $Q=S_q(t_2)-S_q(t_1)$。由式\eqref{eq:joint:cumulative}与\eqref{eq:joint:quarantine}，对非负人数权重 $a_I,a_Q$，有
+\[
+\begin{aligned}
+J+a_IC+a_QQ
+&=\bigl[\beta a_I+(1-\beta)a_Q\bigr](S^*-S_c)+J+\kappa\Delta t,\\
+\kappa&=(1-\beta)\gamma\eta(a_I-a_Q).
+\end{aligned}
+\]
+按 $J$ 的时间量纲，$a_I,a_Q$ 的单位为时间/人数，$\kappa$ 无量纲。这两项人数代价可接到注记~\ref{rem:joint:duration-constraint}的逐状态最小化及命题~\ref{prop:joint:duration-frontier}的时长前沿；$a_I=a_Q$ 时，人数代价之和与组合无关，原 $J$ 的最优控制不变。这里两项均计新增人数，不计隔离人天。
+\end{remarkn}
+
 \FloatBarrier
