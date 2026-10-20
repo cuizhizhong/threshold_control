@@ -1,0 +1,40 @@
+{
+  "base": "da90a214915d61d702149f9f7b18e14b7698352b",
+  "existing_statement_count": 41,
+  "statement_changes": [
+    "rem:joint:headcount-cost optional title removed only"
+  ],
+  "all_proofs_checked": 34,
+  "proof_changes": [],
+  "numbered_equation_changes": [],
+  "figure_table_changes": [],
+  "bibliography_unchanged": true,
+  "scientific_recomputation": false,
+  "build": {
+    "flatten_curve_analysis_cn": {
+      "pages": 40,
+      "undefined": 0,
+      "multiply_defined": 0,
+      "overfull": 0,
+      "missing_characters": 0,
+      "sha256": "7f31eadf12d51f4484c1096aac0c8ccb294e807d14c988f72afe3f21297ab1e6"
+    },
+    "flatten_curve_supplement_cn": {
+      "pages": 20,
+      "undefined": 0,
+      "multiply_defined": 0,
+      "overfull": 0,
+      "missing_characters": 0,
+      "sha256": "e3f4394adf6c223d80f3303c80b75e5a2006dbb7c942a3bc43467d9f0121e8cf"
+    }
+  },
+  "visual_review": {
+    "main_final_pages": [
+      2,
+      3,
+      19
+    ],
+    "result": "normal paragraphs, references and note formula layout"
+  },
+  "supplement_pdf_text_identical_to_base": true
+}

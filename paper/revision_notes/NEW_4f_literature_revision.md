@@ -236,3 +236,7 @@ K_{\rm d}\ge\frac{\gamma\eta q_0}{\beta(1-q_0)}.
 云端审查应以[最终执行计划](../../ai/NEW_4f_focused_revision_plan_20261020.md)和本记录中的实际处理为准。此前[第一轮综合审阅](NEW_literature_review_20261020.md)、R1–R3及[来源记录](NEW_literature_review_20261020_sources.md)，以及[第二轮补读](NEW_literature_followup_20261020.md)和四份分主题备忘录，针对的是 `7743c38` 基准，也包含未采纳或暂缓的建议；不应将其中全部建议视为本轮待办。两份audit JSON保留当时的输入身份核对，不表示针对最终稿重新执行科学计算。`paper/tmp/`中的原文缓存和渲染中间文件未纳入此次上传范围。
 
 历史报告里的 `E:/work/draft-submission-ready/` 绝对路径链接原样保留。在GitHub审查时，可在[审阅基准的仓库目录](https://github.com/cuizhizhong/threshold_control/tree/7743c3809026fe96d118234ea4d05fb5bad6c226)下按同名路径定位；其中原文PDF见[基准refs目录](https://github.com/cuizhizhong/threshold_control/tree/7743c3809026fe96d118234ea4d05fb5bad6c226/refs)，稿件源文件见[基准paper目录](https://github.com/cuizhizhong/threshold_control/tree/7743c3809026fe96d118234ea4d05fb5bad6c226/paper)。备忘录另列公开DOI、作者稿或期刊入口，供核对外部文献。
+
+## 9 作者复核后小修
+
+作者确认补回引言中单一传播率到两种措施的衔接与He等实践依据各一句；Angulo充分非必要论证不补，三条未引用bib保留，仅去掉新注记的可选标题。小修以 `da90a21` 为基准，实际取舍、来源与核验见[作者复核后记录](NEW_4f_author_followup.md)。两份PDF仍为主40页/补20页，数字不变，数学陈述只作注记去标题的体例调整，证明未变。本次小修本地提交，尚未推送。
