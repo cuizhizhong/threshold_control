@@ -228,3 +228,11 @@ K_{\rm d}\ge\frac{\gamma\eta q_0}{\beta(1-q_0)}.
 交付：`paper/flatten_curve_analysis_cn.pdf`、`paper/flatten_curve_supplement_cn.pdf`及相应源文件，本记录、check/metrics/statements报告、scope JSON和更新的STATUS。源码未夹带初始未跟踪计划及既有审阅记录；这些本地文件继续保留。
 
 删除存疑：无。因篇幅删去的机制句：无。移出：He历史背景日期和时长仅移入本记录；原S4仍为归档，没有恢复。新增作者待裁决事项：无，`NEW_author_inputs.md`原有后续事项保持。本轮完成交作者集中定稿复核，不代表作者验收；未推送、未更新main、未英译或公开发布。
+
+## 8 云端审查材料补充（2026-10-20）
+
+作者在F4完成并推送后，另行授权上传完整计划与此前文献审阅备忘录。本次将 `ai/NEW_4f_focused_revision_plan_20261020.md` 和本目录下12份 `NEW_literature*20261020*` 文件（10份Markdown、2份JSON）原样入库，内容哈希与F0留存的初始副本一致；稿件、PDF、图表和计算文件不变，无需重新构建。
+
+云端审查应以[最终执行计划](../../ai/NEW_4f_focused_revision_plan_20261020.md)和本记录中的实际处理为准。此前[第一轮综合审阅](NEW_literature_review_20261020.md)、R1–R3及[来源记录](NEW_literature_review_20261020_sources.md)，以及[第二轮补读](NEW_literature_followup_20261020.md)和四份分主题备忘录，针对的是 `7743c38` 基准，也包含未采纳或暂缓的建议；不应将其中全部建议视为本轮待办。两份audit JSON保留当时的输入身份核对，不表示针对最终稿重新执行科学计算。`paper/tmp/`中的原文缓存和渲染中间文件未纳入此次上传范围。
+
+历史报告里的 `E:/work/draft-submission-ready/` 绝对路径链接原样保留。在GitHub审查时，可在[审阅基准的仓库目录](https://github.com/cuizhizhong/threshold_control/tree/7743c3809026fe96d118234ea4d05fb5bad6c226)下按同名路径定位；其中原文PDF见[基准refs目录](https://github.com/cuizhizhong/threshold_control/tree/7743c3809026fe96d118234ea4d05fb5bad6c226/refs)，稿件源文件见[基准paper目录](https://github.com/cuizhizhong/threshold_control/tree/7743c3809026fe96d118234ea4d05fb5bad6c226/paper)。备忘录另列公开DOI、作者稿或期刊入口，供核对外部文献。

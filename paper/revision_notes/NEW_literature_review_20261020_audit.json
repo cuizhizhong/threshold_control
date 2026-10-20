@@ -1,0 +1,132 @@
+{
+  "head": "7743c3809026fe96d118234ea4d05fb5bad6c226",
+  "stage": "三份报告全部冻结后的单独一致性核查",
+  "checks": [
+    {
+      "audit_id": "AUD-01",
+      "status": "passed",
+      "check": "21个稿件输入与19个refs PDF的SHA-256",
+      "result": "全部与本轮固定输入相同，稿件源文件与原文未改"
+    },
+    {
+      "audit_id": "AUD-02",
+      "status": "passed",
+      "check": "三份独立报告冻结身份",
+      "result": {
+        "R1": "582214f7c0c014a3ed7f85b5337e489705d7f3346217d8424a1c1e2bee75a916",
+        "R2": "1e3b99053e5421d20c07e8b131b810f1dfe05f2126bffb93e41389b62162c0fe",
+        "R3": "e168960dbd0ce8ee98c318b1655331119600893e79b9269a6fbed5fc8f90c9a5"
+      }
+    },
+    {
+      "audit_id": "AUD-03",
+      "status": "passed",
+      "location": "paper/sections/06_numerics.tex 表2",
+      "check": "共同前后阶段时间与感染隔离计数相消关系，允许表中显示舍入",
+      "result": {
+        "base": {
+          "t_end_minus_duration": [
+            "27.87",
+            "27.87",
+            "27.87",
+            "27.87"
+          ],
+          "C_total_plus_Q_phase": [
+            "669.5",
+            "669.6",
+            "669.6",
+            "669.6"
+          ],
+          "C_units": "人"
+        },
+        "xian": {
+          "t_end_minus_duration": [
+            "173.04",
+            "173.03",
+            "173.03",
+            "173.03"
+          ],
+          "C_total_plus_Q_phase": [
+            "10.3570",
+            "10.3570",
+            "10.3570",
+            "10.3570"
+          ],
+          "C_units": "10^6人"
+        }
+      },
+      "limitation": "只做已给定表值的确定性算术，不是重跑ODE或优化"
+    },
+    {
+      "audit_id": "AUD-04",
+      "status": "passed",
+      "check": "两组权重闭式宏与默认权重适用性",
+      "result": {
+        "base": {
+          "b": 0.8321052999999999,
+          "r_cont": 3.1358196310216817,
+          "r_hat": 3.205114772545149,
+          "default_2_strictly_below_r_cont": true,
+          "at_critical_E": -8.326672684688674e-17,
+          "at_critical_E_p": 0.0,
+          "at_critical_E_zeta": -0.4427061406157081
+        },
+        "xian": {
+          "b": 0.5755854000000001,
+          "r_cont": 2.5476956241561206,
+          "r_hat": 2.7089548638662406,
+          "default_2_strictly_below_r_cont": true,
+          "at_critical_E": 1.1102230246251565e-16,
+          "at_critical_E_p": 0.0,
+          "at_critical_E_zeta": -0.39903756278044505
+        }
+      }
+    },
+    {
+      "audit_id": "AUD-05",
+      "status": "confirmed_internal_error",
+      "location": "paper/supplement_sections/S7_return.tex:83",
+      "claim_pointer": "默认权重成本最优状态函数连续性未证",
+      "evidence_pointer": "paper/sections/05_quadratic_cost.tex:105-110；默认r=2，所有参数2<r_cont<4",
+      "check": "将默认权重代入连续结构定理条件",
+      "result": "该连续性现在已经由正文定理覆盖，旧表述过时",
+      "impact": "补充条件说明须同步，未见这推翻回流共同下界",
+      "resolution_test": "删除未证的旧理由，区分连续状态函数、含回流解的存在唯一性与重新优化",
+      "reviewer_overlap": [
+        "R1-m3",
+        "R2-m2"
+      ]
+    },
+    {
+      "audit_id": "AUD-06",
+      "status": "confirmed_internal_error",
+      "location": "paper/sections/05_quadratic_cost.tex:110",
+      "claim_pointer": "平滑调整的反馈规则",
+      "evidence_pointer": "附录A.10中E=0，临界权重处p=2、zeta=b+sqrt(b^2-8b+8)",
+      "check": "在上述临界点E=E_p=0、E_zeta<0。若p*(zeta)有有限导数，链式法则将迫使E_zeta=0，与公式矛盾",
+      "result": "定理仅保证连续，不能在整个含边界权重范围概括为可微的平滑规则",
+      "resolution_test": "将平滑调整改成连续调整",
+      "reviewer_overlap": [
+        "R1-m4",
+        "R3-m1"
+      ]
+    },
+    {
+      "audit_id": "AUD-07",
+      "status": "provenance_gap",
+      "location": "主稿与补充材料的数据代码定位",
+      "check": "稿件是否含稳定仓库、归档版本或匿名复现包标识",
+      "result": "稿件尚无该出口；本地README与NEW_author_inputs.md明确将公开范围和归档链接留给后续投稿准备",
+      "impact": "投稿交付事项，非本轮已经缺少计算代码或中心数学错误",
+      "reviewer_overlap": [
+        "R3-M1"
+      ]
+    },
+    {
+      "audit_id": "AUD-08",
+      "status": "not_assessable",
+      "check": "数值求解和原始病例数据的本轮独立重现",
+      "result": "本轮未运行求解器、参数扫描、权重分类、长时矩阵或重新拟合；不对既有289项测试作本轮通过声明"
+    }
+  ]
+}

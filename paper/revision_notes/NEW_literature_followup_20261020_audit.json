@@ -1,0 +1,273 @@
+{
+  "checked_utc": "2026-10-20T03:50:21.240444+00:00",
+  "head": "7743c3809026fe96d118234ea4d05fb5bad6c226",
+  "tracked_diff_empty": true,
+  "verification_type": "input_identity_only_no_scientific_rerun",
+  "input_count": 40,
+  "unchanged_count": 40,
+  "changed_inputs": [],
+  "inputs": [
+    {
+      "group": "manuscript",
+      "path": "paper/sections/01_introduction.tex",
+      "sha256": "2f6d17a4e2e0a583dab3d9142e6243eee890223759c78b5f2c416363cad9ff8b",
+      "unchanged": true
+    },
+    {
+      "group": "manuscript",
+      "path": "paper/sections/02_model.tex",
+      "sha256": "f8361f2275f2015b77df1a73add96d773915d37fbb7708ef1dedfb5c27b6bc91",
+      "unchanged": true
+    },
+    {
+      "group": "manuscript",
+      "path": "paper/sections/03_single_control.tex",
+      "sha256": "dfd6deef9301ea6a3a1dc40be602e5e15060bd882b03fb553af1d8cfc8a83a23",
+      "unchanged": true
+    },
+    {
+      "group": "manuscript",
+      "path": "paper/sections/04_joint_control.tex",
+      "sha256": "e8ea65916791ca1033ed80acd80282a865dbc1aaa5b67a51bf14292aca15cc6a",
+      "unchanged": true
+    },
+    {
+      "group": "manuscript",
+      "path": "paper/sections/05_quadratic_cost.tex",
+      "sha256": "dbf26a00419f3b0dfbcbe6489d05d5446a8486c1488421320d91bdc427451126",
+      "unchanged": true
+    },
+    {
+      "group": "manuscript",
+      "path": "paper/sections/06_numerics.tex",
+      "sha256": "afea4c527d7f9428c8e62161438a6b73b52e3036de3c8e59fe8391604ab85b2b",
+      "unchanged": true
+    },
+    {
+      "group": "manuscript",
+      "path": "paper/sections/07_xian.tex",
+      "sha256": "e53e0ade9acbeaf25e478d68f932eab97198586567f7a336ab352cef03161a00",
+      "unchanged": true
+    },
+    {
+      "group": "manuscript",
+      "path": "paper/sections/08_discussion.tex",
+      "sha256": "fa55ee0be9a9ca31e6431b33fc657f5c0577c57cc67b42e0065e67daeb501dfb",
+      "unchanged": true
+    },
+    {
+      "group": "manuscript",
+      "path": "paper/sections/09_conclusion.tex",
+      "sha256": "e1e87f79c7c4b904a55b4c9815997d3d7eae22b486558933b837da31b4cd2578",
+      "unchanged": true
+    },
+    {
+      "group": "manuscript",
+      "path": "paper/appendices/A_proofs_sensitivity.tex",
+      "sha256": "92e482c9647da9cf92bd0665fef8521e883c24055a1e5127454c1aaaa549ca81",
+      "unchanged": true
+    },
+    {
+      "group": "manuscript",
+      "path": "paper/appendices/B_control_cost.tex",
+      "sha256": "69aad56d528800ce94bd53220a08b289f0219d6520a5018906d342b9182f20fe",
+      "unchanged": true
+    },
+    {
+      "group": "manuscript",
+      "path": "paper/supplement_sections/S1_baseline.tex",
+      "sha256": "e6d628064c9e7f4efd94f47548fe6f90bcd98a226983f5c96a2fa6cde29e1708",
+      "unchanged": true
+    },
+    {
+      "group": "manuscript",
+      "path": "paper/supplement_sections/S2_inflection.tex",
+      "sha256": "62ce527e3c45aae50e5f9a9654a2de4141a0da6c094ceef0d6113a25f6fbdcf1",
+      "unchanged": true
+    },
+    {
+      "group": "manuscript",
+      "path": "paper/supplement_sections/S3_xian.tex",
+      "sha256": "5ce6506ebbffb4dd0efc21bc05f18917d66e96560040ad4166ec8c3bc789877b",
+      "unchanged": true
+    },
+    {
+      "group": "manuscript",
+      "path": "paper/supplement_sections/S5_contact.tex",
+      "sha256": "1ef13b898ef72bcb6976bde170e31ca1e94c236010b1315f2c30a14965c4544c",
+      "unchanged": true
+    },
+    {
+      "group": "manuscript",
+      "path": "paper/supplement_sections/S6_numerics.tex",
+      "sha256": "d7e1738ad7ee7de019776d272f412eb437ae625c5c9fe9be297b6c14e7447368",
+      "unchanged": true
+    },
+    {
+      "group": "manuscript",
+      "path": "paper/supplement_sections/S7_return.tex",
+      "sha256": "47d5ea255edb8c1900a39e1cdf8f54940bb0241933097ba9590826e429725b09",
+      "unchanged": true
+    },
+    {
+      "group": "manuscript",
+      "path": "paper/flatten_curve_analysis_cn.tex",
+      "sha256": "0a80a7b1edc7f2cad85a4f1a726d42ce96c891bdd6a0200225eb7cd5a0e727cd",
+      "unchanged": true
+    },
+    {
+      "group": "manuscript",
+      "path": "paper/flatten_curve_supplement_cn.tex",
+      "sha256": "22948d1645b30031e8ba1b33e7a9de14aef51de0298c47153845e834286440ce",
+      "unchanged": true
+    },
+    {
+      "group": "manuscript",
+      "path": "paper/references.bib",
+      "sha256": "62a6d2b4dc65ad2303624f153167c40d29b8782e7ff936faed70346440bb1c24",
+      "unchanged": true
+    },
+    {
+      "group": "manuscript",
+      "path": "paper/generated/nr_numbers.tex",
+      "sha256": "49e5b256aafe1eb8cd776efae8a400bacf8d740a8ef4a21f075aad11b85cc719",
+      "unchanged": true
+    },
+    {
+      "group": "refs",
+      "path": "refs/2025.09_zhangyangyang.pdf",
+      "sha256": "959ab70e7a78c62e31a1619d43af1a3a9c9a68c4eb6d336935c23f2235c25da0",
+      "unchanged": true
+    },
+    {
+      "group": "refs",
+      "path": "refs/angulo-et-al-a-simple-criterion-to-design-optimal-non-pharmaceutical-interventions-for-mitigating-ep.pdf",
+      "sha256": "8feb19cfd786b7943130314da480b173894276802d06afbc9c3c3a3c70007fd4",
+      "unchanged": true
+    },
+    {
+      "group": "refs",
+      "path": "refs/Calculus of Variations and Optimal Control Theory A Concise Introduction (Daniel Liberzon) (Z-Library).pdf",
+      "sha256": "b054058ed6921fc755814e3e731a8043ad113ec65d306623dd8d9b9c2a4db1d7",
+      "unchanged": true
+    },
+    {
+      "group": "refs",
+      "path": "refs/COVID-19 pandemic control balancing detection policy and lockdown intervention under ICU sustainability.pdf",
+      "sha256": "1bf6da667450d4f388ffbb027eb768abb6169e70b94abb74f2eb909b5b3157ab",
+      "unchanged": true
+    },
+    {
+      "group": "refs",
+      "path": "refs/Estimation of the Transmission Risk of the 2019-nCoV and Its Implication for Public Health Interventions.pdf",
+      "sha256": "7547c17f9d44d8a982aeaf25d580e91e959f23631d98100e591a63acdc426291",
+      "unchanged": true
+    },
+    {
+      "group": "refs",
+      "path": "refs/He_Tang2023PCB.pdf",
+      "sha256": "3a6e484195be068854574268623e9b4c0eed195e166ee62357e548e72551e94d",
+      "unchanged": true
+    },
+    {
+      "group": "refs",
+      "path": "refs/How Much Testing and Social Distancing is Required to Control COVID-19 Some Insight Based on an Age-Differentiated Compartmental Model.pdf",
+      "sha256": "b24397388373b70d5c03d45124bb3ea754e3b12e0e3485ee95384551823f2d65",
+      "unchanged": true
+    },
+    {
+      "group": "refs",
+      "path": "refs/Optimal control for an SIR model with limited hospitalised patients.pdf",
+      "sha256": "a87db957eb3ef4421ea7e5b11642f1f716c1a8266f7b36c0510799710a62a1c9",
+      "unchanged": true
+    },
+    {
+      "group": "refs",
+      "path": "refs/Optimal control of a SIR epidemic with ICU constraints and target objectives.pdf",
+      "sha256": "c5979cd4ac42a4aba7f3d10f0c38f927d3d15b26728b837163ff020876b5da8b",
+      "unchanged": true
+    },
+    {
+      "group": "refs",
+      "path": "refs/Optimal control of an SIR epidemic through finite-time non-pharmaceutical intervention.pdf",
+      "sha256": "71a36f158028b881fd80a386983fc8e5f3c4ca7611cb815f003a13828d377583",
+      "unchanged": true
+    },
+    {
+      "group": "refs",
+      "path": "refs/Optimal Control with State-Space Constraint I_soner.pdf",
+      "sha256": "0f2eb601125339c7c70782a7cf7063f9d111e733dcb074792023318d6a6c45fe",
+      "unchanged": true
+    },
+    {
+      "group": "refs",
+      "path": "refs/Optimal Control with State-Space Constraint. II.pdf",
+      "sha256": "d3aefb7c07de4c4714f987a4f07aee719f746e23016ee51609d04c2839ab2d38",
+      "unchanged": true
+    },
+    {
+      "group": "refs",
+      "path": "refs/Optimal epidemic suppression under an ICU constraint An analytical.pdf",
+      "sha256": "9831c65883c530a2a50bac9ad1e0e0eca70e52dc7d90168de3b376000efe2c0c",
+      "unchanged": true
+    },
+    {
+      "group": "refs",
+      "path": "refs/Optimal epidemic suppression under an ICU constraint.pdf",
+      "sha256": "0287811319959a6aaebad2b1f3297535f7ffaff811381d475268ed34124b1f24",
+      "unchanged": true
+    },
+    {
+      "group": "refs",
+      "path": "refs/supplementary material.pdf",
+      "sha256": "43d8edfc1202a62f6b73bb2e83c45f946f5e2b21ba35f412c217b7c1378a936c",
+      "unchanged": true
+    },
+    {
+      "group": "refs",
+      "path": "refs/Tang_Zhang_2026_BMB.pdf",
+      "sha256": "887b3766d745a6f47b92fe3353f2508024afc942fcf96a591a6929be2503a629",
+      "unchanged": true
+    },
+    {
+      "group": "refs",
+      "path": "refs/Tang_Zhou_2024_JMB.pdf",
+      "sha256": "e3ac3540f63137f8ca267e0edd14c86a1cd0a7b5857e556696bfeb364167d9b6",
+      "unchanged": true
+    },
+    {
+      "group": "refs",
+      "path": "refs/Timing social distancing to avert unmanageableCOVID-19 hospital surges.pdf",
+      "sha256": "1302a8d9366741d445d3b20ca0385b44b8a68e4e6802a2c3c8f962e7d32bd600",
+      "unchanged": true
+    },
+    {
+      "group": "refs",
+      "path": "refs/一种自适应测试策略，有助于在疫情期间有效利用医疗资源.pdf",
+      "sha256": "6f13e4dcc10fbbde01acdbd07db2773ef09ddce3063951d8e86a841d54c1c33d",
+      "unchanged": true
+    }
+  ],
+  "reports": [
+    {
+      "path": "paper/revision_notes/NEW_literature_followup_20261020.md",
+      "sha256": "9593732bfaa1c72e61b781eb1b4792dc222d45493df04bc9dba4396553560900"
+    },
+    {
+      "path": "paper/revision_notes/NEW_literature_followup_20261020_capacity.md",
+      "sha256": "d6887bd30ca9a8d8949ad7384bd0ca944a06c204710537c5ed15f77bcb5d2ae1"
+    },
+    {
+      "path": "paper/revision_notes/NEW_literature_followup_20261020_cost.md",
+      "sha256": "6002c2019a2a5dc7f1f5eab1266a00ad51c4f57d756e8e00b6b122f7e194883f"
+    },
+    {
+      "path": "paper/revision_notes/NEW_literature_followup_20261020_mechanisms.md",
+      "sha256": "02db7fc551c3078e5faf6c9995624ae1aee92f7f34e9fed25432f93441209400"
+    },
+    {
+      "path": "paper/revision_notes/NEW_literature_followup_20261020_tracing.md",
+      "sha256": "011f7b0b4d1f7e24e63db3adc17f817b9570c4ca42e1e1ea29f2d4bee6ba0dd1"
+    }
+  ]
+}
