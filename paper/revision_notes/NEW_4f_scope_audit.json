@@ -1,0 +1,153 @@
+{
+  "baseline": "7743c3809026fe96d118234ea4d05fb5bad6c226",
+  "tracked_inputs_hashed": 862,
+  "tracked_raw_changed": [
+    "AGENTS.md",
+    "paper/flatten_curve_analysis_cn.pdf",
+    "paper/flatten_curve_supplement_cn.pdf",
+    "paper/references.bib",
+    "paper/revision_notes/STATUS.md",
+    "paper/sections/01_introduction.tex",
+    "paper/sections/02_model.tex",
+    "paper/sections/05_quadratic_cost.tex",
+    "paper/sections/06_numerics.tex",
+    "paper/sections/07_xian.tex",
+    "paper/sections/08_discussion.tex",
+    "paper/supplement_sections/S6_numerics.tex",
+    "paper/supplement_sections/S7_return.tex"
+  ],
+  "unexpected_tracked_changes": [],
+  "existing_untracked_count": 13,
+  "existing_untracked_changed": [],
+  "section_7_4_unchanged": true,
+  "numbered_equation_environment_changes": [],
+  "all_existing_statement_environments_checked": 40,
+  "existing_statement_changes": [],
+  "all_existing_proofs_checked": 34,
+  "proof_changes": [],
+  "new_statement_labels": [
+    "rem:joint:headcount-cost"
+  ],
+  "scientific_recomputation": false,
+  "protected_float_environments": {
+    "figure": 21,
+    "table": 13,
+    "changed": []
+  },
+  "numbers_and_bibliography": {
+    "defined_nr_macros": 114,
+    "used_nr_macros": 103,
+    "undefined_nr_macros": [],
+    "duplicate_bib_keys": [],
+    "duplicate_dois": [],
+    "main_sections": 9
+  },
+  "final_build": {
+    "flatten_curve_analysis_cn": {
+      "pages": 40,
+      "undefined": 0,
+      "multiply_defined": 0,
+      "overfull": 0,
+      "missing_characters": 0,
+      "biber_warnings": 0,
+      "biber_errors": 0,
+      "sha256": "e3dbfb0ebaf59ae0880e4149fd483883609a91a18929e7ac49c401b8ba424f06"
+    },
+    "flatten_curve_supplement_cn": {
+      "pages": 20,
+      "undefined": 0,
+      "multiply_defined": 0,
+      "overfull": 0,
+      "missing_characters": 0,
+      "biber_warnings": 0,
+      "biber_errors": 0,
+      "sha256": "e98e31b9d36085b369173e6a00089848e3ee9cdedb218f2a8a45a8666aa38ba1"
+    }
+  },
+  "visual_review": {
+    "rendered_main_pages": 40,
+    "rendered_supplement_pages": 20,
+    "main_contact_sheet_geometry_review": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40
+    ],
+    "main_final_full_page_detail_review": [
+      5,
+      24,
+      27,
+      30,
+      31
+    ],
+    "additional_stage_detail_pages": {
+      "F1_main": [
+        2,
+        29
+      ],
+      "F2_main": [
+        18,
+        19
+      ],
+      "F3_main": [
+        31
+      ],
+      "F3_supplement": [
+        16
+      ],
+      "F3b_main": [
+        18
+      ],
+      "F3b_supplement": [
+        19
+      ]
+    },
+    "supplement_final_full_page_detail_review": [
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "result": "no_new_obvious_glyph_formula_table_reference_or_pagination_defects",
+    "review_limit": "contact sheets assess geometry; detailed text/formula review focuses on affected pages, not a new scientific proof or recomputation"
+  }
+}
