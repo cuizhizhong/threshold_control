@@ -80,7 +80,7 @@ S_q(t)=e^{-\omega t}S_q(0)+\int_0^te^{-\omega(t-u)}A_q(u)\,du.
 \begin{proof}
 设 $\omega>0$。由上面的有限时间退出，实施 $\pi$ 的阈值策略在有限时刻后恒为 $(c_0,q_0)$；又 $I(0)>0$，命题~\ref{prop:return:final-size}给出 $C_\pi(\omega)\ge L$（对任一个解）。对 $\omega\downarrow0$ 取下极限，再用前提 $C_\pi(0)<L$。
 \end{proof}
-$C_\pi(0)$ 须取 $t\to\infty$ 的值：仅隔离控制由定理~\ref{thm:s1:Itcum}将 $S_{\rm end}$ 换为 $S_\infty$ 得到，其余控制由推论~\ref{cor:joint:whole-epidemic}的第二式（对无限时刻同样成立）得到，不能用表~\ref{tab:joint:compare}中计至清零时间的数。两组参数的取值见表~\ref{tab:sup:return:cinf}：仅隔离控制、$\alpha=0.5$ 的控制与成本最优控制都满足 $C_\pi(0)<L$，成本最优控制在 $\omega>0$ 时的平台解只有数值实现（其 $c_c^*$ 的连续性未证）；仅减少接触在西安参数下满足这一前提，在基准参数下不满足，推论不适用。仅隔离控制、仅减少接触与 $\alpha$ 族的 $c_c$ 在 $S>0$ 上光滑，平台解存在。
+$C_\pi(0)$ 须取 $t\to\infty$ 的值：仅隔离控制由定理~\ref{thm:s1:Itcum}将 $S_{\rm end}$ 换为 $S_\infty$ 得到，其余控制由推论~\ref{cor:joint:whole-epidemic}的第二式（对无限时刻同样成立）得到，不能用表~\ref{tab:joint:compare}中计至清零时间的数。两组参数的取值见表~\ref{tab:sup:return:cinf}：仅隔离控制、$\alpha=0.5$ 的控制与成本最优控制都满足 $C_\pi(0)<L$，默认权重下所沿用的无回流成本最优反馈的连续性已由主稿定理~\ref{thm:joint:cost-structure}给出，本节数值考察该反馈向正回流模型的迁移，未对正回流模型重新求解成本最优控制；仅减少接触在西安参数下满足这一前提，在基准参数下不满足，推论不适用。仅隔离控制、仅减少接触与 $\alpha$ 族的 $c_c$ 在 $S>0$ 上光滑，平台解存在。
 \begin{table}[htbp]
 \centering\small
 \renewcommand{\arraystretch}{1.2}
@@ -104,7 +104,7 @@ $C_\pi(0)$ 须取 $t\to\infty$ 的值：仅隔离控制由定理~\ref{thm:s1:Itc
 无回流模型可以作为解析基准，但在这些情景中，$t\to\infty$ 的累计感染对是否允许正回流非常敏感：$\omega=0$ 时被隔离的未感染者永久离开传播，$\omega>0$ 时他们终将返回，总易感者仍要由感染降到 $S_c$ 以下。因此定理~\ref{thm:s1:Itcum}与推论~\ref{cor:joint:whole-epidemic}中计至无限时刻的结论只在无回流模型中得到证明。推论只涉及 $t\to\infty$ 的累计感染；控制时长与成本等有限时间量随 $\omega$ 的依赖，本节只给数值观察。
 
 \subsection{有限回流的数值}
-数值取所考察的指数回流情景：平均停留 $1/\omega=7,14,30$ d，控制律取仅隔离、仅减少接触和无回流最优律迁移（简称迁移律）。迁移律把 $\omega=0$ 时的成本最优控制律（定理~\ref{thm:joint:cost-minimum}，默认权重）原样用于 $\omega>0$，不重新优化，因此不称成本最优。两组参数的初值同表~\ref{tab:xian_initial_fit}（$S_q(0)=0$）。记退出后首次向下到达 $I=1$ 的时刻为
+数值取所考察的指数回流情景：平均停留 $1/\omega=7,14,30$ d。其中 $7$、$14$ d 与既有隔离时长研究涉及的时间尺度相近\cite{Ashcroft2021,Wells2021}，$30$ d 用作较长停留的敏感性情景；指数停留是简化的回流机制，与固定期限或检测后解除不同。控制律取仅隔离、仅减少接触和无回流最优律迁移（简称迁移律）。迁移律把 $\omega=0$ 时的成本最优控制律（定理~\ref{thm:joint:cost-minimum}，默认权重）原样用于 $\omega>0$，不重新优化，因此不称成本最优。两组参数的初值同表~\ref{tab:xian_initial_fit}（$S_q(0)=0$）。记退出后首次向下到达 $I=1$ 的时刻为
 \begin{equation}
 T_{\rm cut}=\inf\{t>t_2:I(t)=1,\ \dot I(t)<0\}.
 \label{eq:return:cut}

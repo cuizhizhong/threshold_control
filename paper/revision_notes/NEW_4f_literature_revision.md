@@ -80,7 +80,35 @@ F2实际验证：标准入口构建主稿40页/补充20页；两份undefined=0�
 
 ## 4 生物学解释与一致性（F3）
 
-待执行。
+| 文献 | 拟支持的正文句 | 模型、控制、目标或终点 | 核对的原文位置与版本 | 使用限度与入稿位置 |
+| --- | --- | --- | --- | --- |
+| Britton, Ball & Trapman (2020), Science 369(6505), 846–849; DOI 10.1126/science.abc6810 | 接触活动度等人群异质性会改变解除干预所需的免疫积累条件 | 年龄与活动度结构的 SEIR，结构化接触矩阵；比例干预后恢复原传播水平，比较能否再起疫情 | [期刊 DOI](https://doi.org/10.1126/science.abc6810)；[PubMed 正式元数据](https://pubmed.ncbi.nlm.nih.gov/32576668/)；[期刊全文 JATS](https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7331793/fullTextXML)。已核正文关于 next-generation matrix 的段落及恢复干预的设定；本地 `NEW_4f_F3_sources/Britton2020.txt` 段 010、013、015–020、040–041 | 只作讨论局限一句；年龄/活动度会改变结构化临界条件，不得据该文示例降低本文标量 S_c 或校正西安数值；本文退出下界在结构化模型中须另推 |
+| Ashcroft et al. (2021), eLife 10, e63704; DOI 10.7554/eLife.63704 | 隔离时长与检测释放规则影响传播；7 d 量级在已有研究中出现，指数停留与固定期限不同 | 感染后传染性分布，暴露时刻 t_E、进入 t_Q、释放 t_R；固定期限与阴性检测后释放 | [期刊页面](https://elifesciences.org/articles/63704)；[期刊 XML](https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7963476/fullTextXML)。正文 Results / Model description 与 Quarantining traced contacts、Materials and methods / Traced contacts，式 (1)–(4)、图 2；现有本地 `literature_followup_20261020/root/Ashcroft2021_fulltext.txt` 行 21、38、69–72、190。正式期刊文，eLife 页面区分 2021-02-05 accepted manuscript 与 2021-03-16 version of record | 其主要直接比较为 10 d 与 7 d（以及检测方案），全文正文不直接给出 14 d 的采用说明。不能单独用它支持明确的“7、14 d”；也不能把从末次暴露起计算的期限作为进入 S_q 后指数均值的经验校准 |
+| Wells et al. (2021), Nature Communications 12, 356; DOI 10.1038/s41467-020-20742-8 | 7、14 d 是已有隔离及检测研究涉及的时间尺度 | 根据感染时间信息区分旅行隔离、追踪接触者与已知暴露时刻，比较检测时间与隔离后传播概率；终点为隔离结束后的传播事件概率 | [出版社正式全文](https://www.nature.com/articles/s41467-020-20742-8)，Version of Record 2021-01-07；Introduction 第 1–3 段及 Results / Accounting for the prevalence of the disease and contact tracing，图 3 明确画 1–14 d，相关正文明确比较 7 d 检测释放与 14 d 无检测；作者表、About this article 已核 | 计划允许“按需 Wells”，此处 Ashcroft 对 14 d 的直接支撑不足，加入它有具体用途。只援引时间尺度与不同释放机制，不引入其百分比、最优天数或临床结论。用于补充 S5 数值段 |
+| Allen (2017), Infectious Disease Modelling 2(2), 128–142; DOI 10.1016/j.idm.2017.03.001 | I=1 是确定性模型的操作性终点，低人数阶段的随机灭绝另需随机模型描述 | SIR 的 ODE、CTMC、SDE；分枝过程近似灭绝概率，CTMC 在 I=0 吸收 | [期刊 DOI](https://doi.org/10.1016/j.idm.2017.03.001)；[正式元数据](https://pubmed.ncbi.nlm.nih.gov/29928733/)；[期刊全文 JATS](https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6002090/fullTextXML)。Introduction 第二段；3.3 Branching process approximation；3.4 Numerical simulation 的 I=0 吸收句。本地 `NEW_4f_F3_sources/Allen2017.txt` 段 009、066–068、077 | 支持低感染数下随机性与灭绝的解释；不支持把 I=1 解释为灭绝已发生，也不据初期分枝近似给本文尾部估计概率。入稿讨论既有局限句 |
+| Hellewell et al. (2020), 已有 Hellewell2020 | 从出现症状到隔离的延迟会降低控制效果 | 分枝过程，病例出现症状后隔离，延迟改变隔离前可发生的继发感染；Methods 明言只隔离症状者、no quarantine | [期刊全文](https://pmc.ncbi.nlm.nih.gov/articles/PMC7097845/)；[JATS](https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7097845/fullTextXML)，Methods / Model structure，第 2 段与最后数段；图 1、图 4 及 Results 对长短延迟的比较 | 可以支持病例隔离及时性，单独用它支持本文未感染接触者进入 S_q 的追踪过程不够准确；与 Ferretti 现有引文合用即可 |
+| Ferretti et al. (2020), 已有 Ferretti2020 | 病例发现及接触者追踪隔离的延迟会削弱及时隔离效果 | 传染性核与传播路径，病例隔离和接触者追踪隔离；图 3 比较从出现症状至隔离/接触者隔离的延迟 | [期刊 DOI](https://doi.org/10.1126/science.abb6936)；[JATS](https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7164555/fullTextXML)，Modeling case isolation and contract tracing with quarantine 及图 3；本地 `NEW_4f_F3_sources/Ferretti2020.txt` 段 066–071 | 足以和 Hellewell 支持一条定性的延迟局限，不需新增 Kretzschmar。不得移植其特定 3 d 场景作本文通用临界值 |
+
+上述 JATS 下载收据及 SHA-256 位于 `paper/tmp/NEW_4f_F3_sources/receipts.json`。Ashcroft 的现有 XML 在本轮重新逐段核对，没有仅采信旧补读记录。Wells 本轮直接读取出版社 HTML 并核对所需段落；未声称完整通读独立补充材料。
+
+本步修改映射：
+
+- 模型章命题后恢复“启动前保持常规控制”的条件，去掉医疗资源已接近饱和的推断，用达到所选I阈值及S降到S_c的阶段解释（兼F3b-1）。
+- 讨论8.1用“易感水平较高的控制前段”替换“疫情压力最大/一举两得”，保留追踪同时维持阈值并较快减少社区易感者的机制（兼F3b-10）；退出解释仅加一处尾部感染说明。
+- 讨论局限补异质性一句、在已有延迟和低人数终点句后给依据；展望将笼统“反馈控制”改为观测、状态估计和执行误差下的阈值跟踪与纠偏。解析c_c^*(S)本来就是状态反馈，没有把它说成不存在。
+- 补充S5保留7/14/30d和18条原数值；7/14d为文献涉及的时间尺度，30d为较长停留情景，指数停留与固定期限或检测释放区分。Ashcroft直接涉及7/10d，单独不足以准确支持14d，故按计划“按需Wells”补足。
+- 补充S5旧“连续性未证”改成默认无回流反馈连续性已有定理，正回流中只作迁移、不重新优化；条件性右不连续推论的有解假设原样保留，不由连续性推唯一性。
+
+无回流且退出后永久采用常规控制时，
+
+\[
+F=\frac{\beta c_0SI}{N},\qquad -\dot S=\frac{c_0[\beta+(1-\beta)q_0]SI}{N},\qquad
+C_{\rm post}=\frac{\beta}{\beta+(1-\beta)q_0}(S_c-S_\infty).
+\]
+
+该分解即 `thm:s1:Itcum` / `eq:s1:cumulative` 常规阶段第一项的退出后贡献，不新增编号公式或命题。q_0=0时比例为1；q_0>0时比例小于1，其余S减少进入未感染S_q。因此不能把全部S_c-S_infty称为感染，也不把此比例式用于正回流模型。
+
+本步没有新增隔离人天说明公式、医疗新仓室或优化结果；已有Hellewell/Ferretti足够支持采用的定性延迟句，未新增Kretzschmar。四篇新来源均实际被引用。F3实际验证：标准入口构建主稿40页/补充20页；两份undefined=0、multiply defined=0、Overfull=0、缺字0。已目视主稿第31页和补充第16页，文献引用、连续性说明、回流场景与原表排版正常。check_tex标签缺失/悬空/重复/缺bib均为0；新增数字字面量14、30是原场景在解释句中再次出现。范围核对：既有40条定理类环境与全部34段证明未变、编号公式未变、初始13份未跟踪文件未变；日志留 `paper/tmp/NEW_4f_QA/F3/`。
 
 ## 5 NEW-4e解释句复核（F3b）
 
