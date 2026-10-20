@@ -45,15 +45,13 @@ $\eta$ & 阈值（人） & $0.05N=38.15$ & $0.002N=\num{26326}$ & 设计情景�
 \label{fig:scenario1:single-sim}
 \end{figure}
 
-阈值决定了干预负担与感染规模之间的取舍（命题~\ref{prop:threshold-tradeoff}）。阈值越低，阈值控制期内易感者下降越慢（$\dot S=-(c_0\eta/N)(S-\bar S)$），维持 $I=\eta$ 直到 $S=S_c$ 所需的时间越长，社区中维持的非隔离感染者则越少。在基准参数下把 $\eta/N$ 从 $0.2\%$ 提高到 $2\%$，控制时长由 $152.1$ d 缩短至 $15.04$ d，总累计新增感染由 $173.0$ 人增至 $233.8$ 人，二次干预强度成本随之下降；清零时间在这组数值中也缩短（图~\ref{fig:scenario1_summary_eta}，补充表~\ref*{tab:sup:baseline}）。
+阈值决定了干预负担与感染规模之间的取舍（命题~\ref{prop:threshold-tradeoff}）。阈值越低，阈值控制期内易感者下降越慢（$\dot S=-(c_0\eta/N)(S-\bar S)$），维持 $I=\eta$ 直到 $S=S_c$ 所需的时间越长，社区中维持的非隔离感染者则越少。在基准参数下把 $\eta/N$ 从 $0.2\%$ 提高到 $2\%$，控制时长由 $152.1$ d 缩短至 $15.04$ d，总累计新增感染由 $173.0$ 人增至 $233.8$ 人，二次干预强度成本随之下降；清零时间在这组数值中也缩短（图~\ref{fig:scenario1_summary_eta}，补充表~\ref*{tab:sup:baseline}）。常规接触率的数值结果见补充材料第~\ref{sec:sup:baseline-contact-scan}~节。
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/layout_v5/eta_sensitivity_selected_c0.pdf}
 \caption{基准参数下各指标随阈值比例 $\eta/N$ 的变化，$c_0=5,8,10,12\ \mathrm d^{-1}$，其余参数见表~\ref{tab:xian_initial_fit}。(a) 启动时间；(b) 控制时长；(c) 清零时间；(d) 最大隔离比例；(e) 成本 $J$；(f) 总累计新增感染。时间与成本以天计，累计新增感染以人计。}
 \label{fig:scenario1_summary_eta}
 \end{figure}
-
-常规接触率越高，控制期要消耗的易感者更多，易感者也下降得更快，两种作用方向相反；相应数值结果见补充材料第~\ref{sec:sup:baseline-contact-scan}~节。
 
 \FloatBarrier
 \subsection{四种控制的比较}

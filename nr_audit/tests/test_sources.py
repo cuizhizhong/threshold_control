@@ -1,7 +1,6 @@
 """数字来源测试：参数、初值与能力代表点逐位取自来源字段；来源文件未变；参照数据的列存在；
 复用代码的来源 blob 与回流分支提交一致；稿件表 1 的显示值与未取整参数一致。"""
 import copy
-import hashlib
 import json
 import re
 import subprocess
@@ -9,6 +8,7 @@ import subprocess
 import pytest
 
 from conftest import CASE_FILE, PR, SRC
+from text_identity import require_content, require_policy, validate_current_texts
 
 MANIFEST = SRC.OUT
 
@@ -22,8 +22,11 @@ def test_manifest_current(manifest):
     """独立迁移收据只投影稿件路径/哈希；历史清单中的科学来源与参数逐字段保持。"""
     receipt_path = SRC.HERE / 'manuscript_path_migration_NEW4g.json'
     receipt = json.loads(receipt_path.read_text(encoding='utf-8'))
+    require_policy(receipt)
     assert receipt['historical_manifest']['path'] == MANIFEST.relative_to(SRC.ROOT).as_posix()
-    assert receipt['historical_manifest']['sha256'] == hashlib.sha256(MANIFEST.read_bytes()).hexdigest()
+    require_content(MANIFEST.read_bytes(), receipt['historical_manifest']['content_sha256'],
+                    name=receipt['historical_manifest']['path'])
+    current_content = validate_current_texts(receipt, SRC.ROOT)
     projected = copy.deepcopy(manifest)
     fresh = json.loads(json.dumps(SRC.build(), ensure_ascii=False))
     rows = receipt['manifest_manuscript_locations']
@@ -34,9 +37,10 @@ def test_manifest_current(manifest):
         assert old['path'] == migration['historical_path']
         assert old['sha256'] == migration['historical_manifest_sha256']
         assert fresh['files'][fid]['path'] == migration['current_path']
-        assert fresh['files'][fid]['sha256'] == migration['current_sha256']
+        # 只投影点名的可变稿件文本；fresh 中 pinned 科学来源仍保留 raw SHA。
+        fresh['files'][fid]['sha256'] = current_content[migration['current_path']]
         old['path'] = migration['current_path']
-        old['sha256'] = migration['current_sha256']
+        old['sha256'] = migration['current_content_sha256']
     assert fresh == projected
 
 

@@ -10,16 +10,45 @@ import re
 import subprocess
 import sys
 
+from text_identity import content_sha256, require_policy
+
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'paper' / 'tools'))
 import statement_diff as sd
 
 DOCS = ['paper/flatten_curve_analysis_cn.tex', 'paper/flatten_curve_supplement_cn.tex']
 ENV = '|'.join(sd.ENVS)
+MACROS = 'paper/generated/nr_numbers.tex'
+
+
+def generated_macro_identity(old, current, baseline):
+    """两份文本都须匹配独立基线的内容身份；raw 快照仅保留为原始来源。"""
+    require_policy(baseline)
+    expected = baseline['text_identity']['content_sha256'][MACROS]
+    old_digest, current_digest = content_sha256(old), content_sha256(current)
+    return {
+        'unchanged': (old.replace(b'\r\n', b'\n') == current.replace(b'\r\n', b'\n')
+                      and old_digest == expected and current_digest == expected),
+        'baseline_raw_sha256': baseline['files'][MACROS],
+        'current_raw_sha256': hashlib.sha256(current).hexdigest(),
+        'baseline_content_sha256': expected,
+        'base_git_content_sha256': old_digest,
+        'current_content_sha256': current_digest,
+        'policy': baseline['text_identity']['policy'],
+    }
 
 
 def norm(text):
     return re.sub(r'\s+', '', text)
+
+
+def table_reference_norm(text):
+    """仅登记两个补充命题的引用前缀；其余内容按原去空白判据保持一致。"""
+    text = norm(text)
+    text = text.replace(r'、补充命题\ref{prop:contact-effects}',
+                        r'、\ref{prop:contact-effects}')
+    return text.replace(r'补充命题\ref{prop:s1:lambda-sensitivity}',
+                        r'命题\ref{prop:s1:lambda-sensitivity}')
 
 
 def environments(text, names):
@@ -62,6 +91,8 @@ def main():
     new_proofs = Counter(norm(body) for _, body in environments(new, 'proof'))
     old_tables = Counter(norm(body) for _, body in environments(old, r'tabular|tabularx|tabular\*'))
     new_tables = Counter(norm(body) for _, body in environments(new, r'tabular|tabularx|tabular\*'))
+    old_tables_refs = Counter(table_reference_norm(body) for body in old_tables.elements())
+    new_tables_refs = Counter(table_reference_norm(body) for body in new_tables.elements())
     ol = Counter(re.findall(r'\\label\{([^}]+)\}', old))
     nl = Counter(re.findall(r'\\label\{([^}]+)\}', new))
     old_assets, new_assets = assets(old), assets(new)
@@ -78,10 +109,10 @@ def main():
             images[rel] = {'sha256': hashlib.sha256(current).hexdigest(), 'unchanged': prior == current}
         else:
             images[name] = {'unchanged': False, 'error': 'asset not found'}
-    macros = ROOT / 'paper/generated/nr_numbers.tex'
-    macro_old = subprocess.check_output(['git', 'show', args.base + ':paper/generated/nr_numbers.tex'], cwd=ROOT)
+    macros = ROOT / MACROS
+    macro_old = subprocess.check_output(['git', 'show', args.base + ':' + MACROS], cwd=ROOT)
     baseline = json.loads((ROOT / 'paper/revision_notes/NEW_4g_baseline.json').read_text(encoding='utf-8'))
-    macro_raw_sha = hashlib.sha256(macros.read_bytes()).hexdigest()
+    macro_identity = generated_macro_identity(macro_old, macros.read_bytes(), baseline)
     aux = {}
     for doc in DOCS:
         aux.update(aux_labels((ROOT / doc).with_suffix('.aux')))
@@ -96,19 +127,24 @@ def main():
                    'added_exact_blocks': sum((new_proofs - old_proofs).values())},
         'tables': {'old_count': sum(old_tables.values()), 'new_count': sum(new_tables.values()),
                    'missing_exact_blocks': sum((old_tables - new_tables).values()),
-                   'added_exact_blocks': sum((new_tables - old_tables).values())},
+                   'added_exact_blocks': sum((new_tables - old_tables).values()),
+                   'reference_wording_only': old_tables != new_tables and old_tables_refs == new_tables_refs,
+                   'missing_after_registered_reference_prefixes': sum((old_tables_refs - new_tables_refs).values()),
+                   'added_after_registered_reference_prefixes': sum((new_tables_refs - old_tables_refs).values()),
+                   'registered_reference_labels': ['prop:contact-effects', 'prop:s1:lambda-sensitivity'],
+                   'old_exact_block_deltas': list((old_tables - new_tables).elements()),
+                   'new_exact_block_deltas': list((new_tables - old_tables).elements())},
         'labels': {'lost': sorted(ol.keys() - nl.keys()), 'added': sorted(nl.keys() - ol.keys()),
                    'duplicates': sorted(k for k, count in nl.items() if count > 1)},
         'figure_occurrences_unchanged': old_assets == new_assets,
         'figure_assets': images,
-        'generated_number_macros_unchanged': (
-            macro_old.replace(b'\r\n', b'\n') == macros.read_bytes().replace(b'\r\n', b'\n')
-            and baseline['files']['paper/generated/nr_numbers.tex'] == macro_raw_sha),
-        'generated_number_macros_raw_sha256': macro_raw_sha,
+        'generated_number_macros_unchanged': macro_identity['unchanged'],
+        'generated_number_macros_raw_sha256': macro_identity['current_raw_sha256'],
+        'generated_number_macros_content_identity': macro_identity,
         'current_label_numbers': {k: aux[k] for k in sorted(nl) if k in aux},
     }
     report['static_pass'] = (
-        os_ == ns and old_proofs == new_proofs and old_tables == new_tables
+        os_ == ns and old_proofs == new_proofs and old_tables_refs == new_tables_refs
         and not report['labels']['lost'] and not report['labels']['duplicates']
         and old_assets == new_assets and all(a['unchanged'] for a in images.values())
         and report['generated_number_macros_unchanged'])

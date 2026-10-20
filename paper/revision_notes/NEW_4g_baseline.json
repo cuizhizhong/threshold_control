@@ -5,5 +5,13 @@
     "paper/flatten_curve_analysis_cn.pdf": "7f31eadf12d51f4484c1096aac0c8ccb294e807d14c988f72afe3f21297ab1e6",
     "paper/flatten_curve_supplement_cn.pdf": "e3f4394adf6c223d80f3303c80b75e5a2006dbb7c942a3bc43467d9f0121e8cf",
     "paper/generated/nr_numbers.tex": "49e5b256aafe1eb8cd776efae8a400bacf8d740a8ef4a21f075aad11b85cc719"
+  },
+  "text_identity": {
+    "introduced_by": "NEW-4h",
+    "policy": "sha256(bytes.replace(CRLF, LF)); preserve all other bytes",
+    "scope": "仅点名数字宏TeX文本；files中的PDF与原raw SHA不改。",
+    "content_sha256": {
+      "paper/generated/nr_numbers.tex": "3f926bb7caa3f961b3c53a013ab0c0fe18a5693c93863e7580e0fa0605a2b827"
+    }
   }
 }
