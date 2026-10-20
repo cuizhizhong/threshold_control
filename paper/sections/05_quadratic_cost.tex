@@ -107,7 +107,7 @@ $b$ 只依赖传播概率与常规隔离比例。由 $0<b<1$，$r_{\rm cont}$ �
 \label{thm:joint:cost-structure}
 设 $0<r\le r_{\rm cont}$，不考虑能力约束。对每个 $S>S_c$，$f(S,\cdot)$ 在 $[c_0S_c/S,c_0]$ 上的最小点 $c_c^*(S)$ 唯一；$c_c^*$ 在 $(S_c,\infty)$ 上连续，且 $S\downarrow S_c$ 时 $c_c^*(S)\to c_0$；$S\ge S_{\rm sw}$ 时 $c_c^*(S)=c_0$，$S_c<S<S_{\rm sw}$ 时 $c_0S_c/S<c_c^*(S)<c_0$。因此，成本最优控制几乎处处唯一，可取为连续的状态反馈 $c_c^*$：若 $S^*>S_{\rm sw}$，它在 $S\ge S_{\rm sw}$ 上为仅隔离控制，并在 $S_{\rm sw}$ 处连续地转为两种措施并用；若 $S^*\le S_{\rm sw}$，整个阈值控制期两种措施并用。
 \end{theorem}
-证明见附录~\ref{sec:proof:cost-structure}。定理说明，只要隔离的成本权重不超过接触的 $r_{\rm cont}$ 倍，成本最优控制就是一条随易感者减少而平滑调整的反馈规则：易感者较多时只加强追踪隔离，降到 $S_{\rm sw}$ 以下后逐步加入接触限制，退出时两者都回到常规水平。默认权重 $r=2$ 对一切参数都满足这一条件，两组算例的启动状态又都高于 $S_{\rm sw}$，所以算例中“先仅隔离、后两者并用”的结构（第~\ref{sec:joint:compare-numerics}~节）是定理的结论；两组参数下 $r_{\rm cont}$ 分别约为 $\nrCostRcontBase$ 与 $\nrCostRcontXian$。$r_{\rm cont}$ 是每个状态上的成本保持单峰的界：隔离的相对权重更大时，后段可能出现两个局部最优，成本最优控制随 $S$ 跳变（第~\ref{sec:joint:weights-numerics}~节）。
+证明见附录~\ref{sec:proof:cost-structure}。定理说明，不考虑能力约束时，只要隔离的成本权重不超过接触的 $r_{\rm cont}$ 倍，成本最优控制就是一条随易感者减少而连续调整的反馈规则：在 $S\ge S_{\rm sw}$ 上只加强追踪隔离，在 $S_c<S<S_{\rm sw}$ 上两种措施并用，退出时两者都回到常规水平。默认权重 $r=2$ 对一切参数都满足这一条件，两组算例的启动状态又都高于 $S_{\rm sw}$，所以算例中“先仅隔离、后两者并用”的结构（第~\ref{sec:joint:compare-numerics}~节）是定理的结论；两组参数下 $r_{\rm cont}$ 分别约为 $\nrCostRcontBase$ 与 $\nrCostRcontXian$。$r_{\rm cont}$ 是每个状态上的成本保持单峰的界：隔离的相对权重更大时，后段可能出现两个局部最优，成本最优控制随 $S$ 跳变（第~\ref{sec:joint:weights-numerics}~节）。
 
 单峰性也确定了能力约束下的成本最优控制。
 \begin{corollaryn}
@@ -119,7 +119,7 @@ c_{\rm cap}^*(S)=\min\bigl\{c^{+}(S),\max\{c^{-}(S),c_c^*(S)\}\bigr\},
 \end{equation}
 其中 $c^{\pm}$ 见式\eqref{eq:joint:bounds}。
 \end{corollaryn}
-单峰函数在闭子区间上的最小点，就是原最小点截断到该子区间（附录~\ref{sec:proof:cost-structure}）。因此干预能力不足时，只需在每个状态上把理想的组合推到能力边界，不必重新规划整个控制过程。第~\ref{sec:joint:capacity-numerics}~节两个代表点上的能力约束轨迹与式\eqref{eq:joint:capacity-clip}一致；隔离的相对权重更大时，仍按定理~\ref{thm:joint:cost-minimum}比较有限个候选。
+单峰函数在闭子区间上的最小点，就是原最小点截断到该子区间（附录~\ref{sec:proof:cost-structure}）。在这一权重范围内，干预能力不足时，只需在每个状态上把理想的组合推到能力边界，不必重新规划整个控制过程。第~\ref{sec:joint:capacity-numerics}~节两个代表点上的能力约束轨迹与式\eqref{eq:joint:capacity-clip}一致；隔离的相对权重更大时，仍按定理~\ref{thm:joint:cost-minimum}比较有限个候选。
 
 改变成本权重时，成本最优控制的变化方向不需要单峰性也可以确定。
 \begin{proposition}
@@ -131,7 +131,7 @@ c_{\rm cap}^*(S)=\min\bigl\{c^{+}(S),\max\{c^{-}(S),c_c^*(S)\}\bigr\},
 \item 固定 $r$，$q_r^*(S)$ 随 $S$ 不减，即隔离比例在阈值控制期内随时间不增。
 \end{enumerate}
 \end{proposition}
-证明见附录~\ref{sec:proof:cost-structure}。追踪隔离的相对代价越高（例如流调人力或隔离场所紧张），成本最优控制在每个状态上越少用追踪隔离、越多用减少接触；由定理~\ref{thm:joint:comparison}，易感者下降变慢，控制期延长，感染增加，被隔离的未感染者减少。接触率没有类似的时间单调性：在定理~\ref{thm:joint:cost-structure}的条件下，它在 $S_{\rm sw}$ 以下低于 $c_0$，退出时又回到 $c_0$。
+证明见附录~\ref{sec:proof:cost-structure}。提高追踪隔离的相对代价（例如流调人力或隔离场所紧张）时，成本最优控制在每个状态上不会多用追踪隔离，也不会少用减少接触；由定理~\ref{thm:joint:comparison}，社区易感者在同一状态上的下降速度不增，控制期不缩短，控制期累计新增感染不减少，新增隔离易感者人数不增加。接触率没有类似的时间单调性：在定理~\ref{thm:joint:cost-structure}的条件下，它在 $S_{\rm sw}$ 以下低于 $c_0$，退出时又回到 $c_0$。
 
 成本最优控制在不考虑能力约束时介于两种单控制之间：它在 $S_c<S<\min\{S_{\rm sw},S^*\}$ 上严格位于允许区间内部（命题~\ref{prop:joint:global-structure}），因此由定理~\ref{thm:joint:comparison}，其控制时长、控制期累计新增感染与新增隔离易感者人数都严格介于两者之间。与仅隔离控制相比，它以更长的控制期和更多的感染换取更低的成本（命题~\ref{prop:joint:terminal-allocation}）。对更大的权重，最优控制的完整跳变结构仍通过数值考察（第~\ref{sec:joint:weights-numerics}~节）。
 
