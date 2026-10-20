@@ -139,7 +139,7 @@ def group_A():
                -dS - (Icum_rate + Iqcum_rate + dSq))
     check_eq(g, "A5", "常规控制下 R_e = beta c0 (1-q0) S/(gamma N) = S/S_c", beta * c0 * (1 - q0) * S / (gamma * N), S / Sc)
     check_eq(g, "A6", "beta2^0/beta1^0 = rho1/S_c（式 2.3 末式）", b2 / b1, rho1 / Sc)
-    check_eq(g, "A7", "常规控制下 dI/dt = gamma I (S/S_c - 1)（附录 A.1(iii)、A.2）",
+    check_eq(g, "A7", "常规控制下 dI/dt = gamma I (S/S_c - 1)（附录 sec:proof:threshold-rationale(iii)、sec:proof:post-dynamics）",
              (b2 * S - gamma) * Ival, gamma * Ival * (S / Sc - 1))
 
     # Lambert W：三种 z_eta 写法相等；S* 满足首次积分且位于 (S_c,S0)；W0 分支给出 S<S_c
@@ -190,7 +190,7 @@ def group_B():
     # 平衡式下易感者方程
     qexpr = 1 - gamma * N / (beta * c * S)
     check_eq(g, "B3", "式(4.3) 两种写法相等：1-gamma N/(beta c S) = 1-c0(1-q0)S_c/(cS)", qexpr, 1 - c0 * (1 - q0) * Sc / (c * S))
-    check_eq(g, "B4", "平衡式下 c[beta+(1-beta)q]S = cS - c0 S̄（式 4.1、附录 A.6）",
+    check_eq(g, "B4", "平衡式下 c[beta+(1-beta)q]S = cS - c0 S̄（式 4.1、附录 sec:proof:representation）",
              c * (beta + (1 - beta) * qexpr) * S, c * S - c0 * Sbar)
     check_eq(g, "B5", "平衡式即 beta c(1-q)S/N = gamma", beta * c * (1 - qexpr) * S / N, gamma)
     # 仅隔离控制
@@ -316,14 +316,14 @@ def group_D():
              (wc * ((c0 - c) / c0) ** 2 + wq * ((qexpr - q0) / (1 - q0)) ** 2) * N / (eta * D), N / eta * f)
     quintic = (wc * c**3 / c0**2 * (c - c0) * (c + c0 - 2 * c0 * Sbar / S)
                + wq * (c - c0 * Sc / S) * (-c**2 + 3 * c0 * Sc / S * c - 2 * c0**2 * Sbar * Sc / S**2))
-    check_eq(g, "D3", "式(5.4)：∂f/∂c × c³(cS-c0S̄)²/S 恰等于五次式（附录 A.7）", sp.diff(f, c) * c**3 * D**2 / S, quintic)
+    check_eq(g, "D3", "式(5.4)：∂f/∂c × c³(cS-c0S̄)²/S 恰等于五次式（附录 sec:proof:cost-minimum）", sp.diff(f, c) * c**3 * D**2 / S, quintic)
     lead = sp.Poly(sp.expand(quintic), c).LC()
     check_eq(g, "D4", "五次式最高次系数为 w_c/c0²", lead, wc / c0**2)
-    check_eq(g, "D5", "附录 A.8：∂f/∂c·D² = n'(c)D - S n(c)", sp.diff(f, c) * D**2, sp.diff(n, c) * D - S * n)
+    check_eq(g, "D5", "附录 sec:proof:endpoint-properties：∂f/∂c·D² = n'(c)D - S n(c)", sp.diff(f, c) * D**2, sp.diff(n, c) * D - S * n)
     expr_end = sp.diff(n, c) * D - S * n
-    check_eq(g, "D6", "附录 A.8 左端点 c=c0S_c/S 处的量", expr_end.subs(c, c0 * Sc / S),
+    check_eq(g, "D6", "附录 sec:proof:endpoint-properties 左端点 c=c0S_c/S 处的量", expr_end.subs(c, c0 * Sc / S),
              -2 * wc * (1 - Sc / S) * (Sc - Sbar) - S * wc * (1 - Sc / S) ** 2)
-    check_eq(g, "D7", "附录 A.8 右端点 c=c0 处的量", expr_end.subs(c, c0),
+    check_eq(g, "D7", "附录 sec:proof:endpoint-properties 右端点 c=c0 处的量", expr_end.subs(c, c0),
              -wq / S * (1 - Sc / S) * (S**2 - 3 * Sc * S + 2 * Sc * Sbar))
     Ssw = (3 * Sc + sp.sqrt(9 * Sc**2 - 8 * Sc * Sbar)) / 2
     check_zero(g, "D8", "式(5.6)：S_sw 是 S²-3S_cS+2S_cS̄ 的较大根", (S**2 - 3 * Sc * S + 2 * Sc * Sbar).subs(S, Ssw))
@@ -336,15 +336,15 @@ def group_D():
     record(g, "D10", "5.3 节：0<S̄<S_c ⇒ 2S_c<S_sw<3S_c（比值关于 u 严格递减，u=0 处 3、u=1 处 2）", ok, "symbolic")
     small = (3 - sp.sqrt(9 - 8 * u)) / 2
     ok = sp.simplify(sp.diff(small, u) - 2 / sp.sqrt(9 - 8 * u)) == 0 and sp.simplify(small.subs(u, 1) - 1) == 0
-    record(g, "D11", "附录 A.8：较小根/S_c=(3-√(9-8u))/2 严格增、在 u=1 处为 1，故 u<1 时小于 1（较小根 < S_c）", ok, "symbolic")
+    record(g, "D11", "附录 sec:proof:endpoint-properties：较小根/S_c=(3-√(9-8u))/2 严格增、在 u=1 处为 1，故 u<1 时小于 1（较小根 < S_c）", ok, "symbolic")
 
-    # 附录 A.9：一般权重
+    # 附录 sec:proof:terminal-allocation：一般权重
     Sz = Sc / (1 - z)  # z = 1 - S_c/S
     cz = c0 * (1 - z * x)
     fz = f.subs(S, Sz).subs(c, cz)
     target = (wc * x**2 + wq * (1 - x) ** 2 / (1 - z * x) ** 2) / (c0 * (Sz * (1 - z * x) - Sbar))
-    check_eq(g, "D12", "附录 A.9：f(S,c0(1-zx))/z² 的表达（一般权重）", fz / z**2, target)
-    check_eq(g, "D13", "附录 A.9：(q-q0)/(1-q0)=z(1-x)/(1-zx)", ((qexpr - q0) / (1 - q0)).subs(S, Sz).subs(c, cz),
+    check_eq(g, "D12", "附录 sec:proof:terminal-allocation：f(S,c0(1-zx))/z² 的表达（一般权重）", fz / z**2, target)
+    check_eq(g, "D13", "附录 sec:proof:terminal-allocation：(q-q0)/(1-q0)=z(1-x)/(1-zx)", ((qexpr - q0) / (1 - q0)).subs(S, Sz).subs(c, cz),
              z * (1 - x) / (1 - z * x))
     lim = sp.limit(target, z, 0)
     check_eq(g, "D14", "z→0 的极限函数 = [w_c x²+w_q(1-x)²]/(c0(S_c-S̄))", lim, (wc * x**2 + wq * (1 - x) ** 2) / (c0 * (Sc - Sbar)))
@@ -372,7 +372,7 @@ def group_D():
              sampler=_ordered_sampler)
     check_eq(g, "D22", "式(B.2) = (2N/(c0 eta))∫J 被积函数（默认权重 w_q=2）", J_closed,
              2 * N / (c0 * eta) * sp.integrate(pf2, (S, Sc, Ss)), sampler=_ordered_sampler)
-    check_eq(g, "D23", "式(A.5)：仅隔离控制 f(S,c0)=w_q(1-S_c/S)²/(c0(S-S̄))", f.subs(c, c0),
+    check_eq(g, "D23", "式 eq:cost:state：仅隔离控制 f(S,c0)=w_q(1-S_c/S)²/(c0(S-S̄))", f.subs(c, c0),
              wq * (1 - Sc / S) ** 2 / (c0 * (S - Sbar)))
     Jc_closed = N / (c0 * eta * (Sc - Sbar)) * (Ss - Sc**2 / Ss - 2 * Sc * sp.log(Ss / Sc))
     check_eq(g, "D24", "式(B.3)：仅减少接触的 J（w_c=1）", Jc_closed,
@@ -402,16 +402,16 @@ def _ordered_sampler_theta(theta):
     return smp
 
 
-# ============================================================ S 参数敏感性（附录 A.3–A.5，补充 S2、S4）
+# ============================================================ S 参数敏感性（附录敏感性证明、补充 S2/S3/S6）
 def group_S():
     g = "S"
     Fexpr = I0 + b2 / b1 * (S0 - S) + rho1 * sp.log(S / S0) - eta
-    check_eq(g, "S1", "附录 A.3：∂F/∂S = rho1(1/S - 1/S_c)", sp.diff(Fexpr, S), rho1 * (1 / S - 1 / Sc))
-    check_eq(g, "S2", "附录 A.3：∂F/∂c0 = -(rho1/c0) ln(S/S0)", sp.diff(Fexpr, c0), -rho1 / c0 * sp.log(S / S0))
+    check_eq(g, "S1", "附录 sec:proof:start-sensitivity：∂F/∂S = rho1(1/S - 1/S_c)", sp.diff(Fexpr, S), rho1 * (1 / S - 1 / Sc))
+    check_eq(g, "S2", "附录 sec:proof:start-sensitivity：∂F/∂c0 = -(rho1/c0) ln(S/S0)", sp.diff(Fexpr, c0), -rho1 / c0 * sp.log(S / S0))
     dFb = q0 * (1 - q0) / (beta + q0 * (1 - beta)) ** 2 * (S0 - S) - rho1 * (1 - q0) / (beta + q0 * (1 - beta)) * sp.log(S / S0)
-    check_eq(g, "S3", "附录 A.3：∂F/∂beta", sp.diff(Fexpr, beta), dFb)
+    check_eq(g, "S3", "附录 sec:proof:start-sensitivity：∂F/∂beta", sp.diff(Fexpr, beta), dFb)
     dFq = -beta / (beta + q0 * (1 - beta)) ** 2 * ((S0 - S) - Sbar * sp.log(S0 / S))
-    check_eq(g, "S4", "附录 A.3：∂F/∂q0", sp.diff(Fexpr, q0), dFq)
+    check_eq(g, "S4", "附录 sec:proof:start-sensitivity：∂F/∂q0", sp.diff(Fexpr, q0), dFq)
     # S*>bar S 时 (S0-S*) - S̄ ln(S0/S*) > 0（ln x < x-1）：数值抽查
     worst = mp.mpf(1)
     for _ in range(2000):
@@ -420,62 +420,62 @@ def group_S():
         Sbv = Sv * mp.mpf(random.uniform(0, 0.999999))
         val = (S0v - Sv) - Sbv * mp.log(S0v / Sv)
         worst = min(worst, val / (S0v - Sv))
-    record(g, "S5", "附录 A.3：S̄<S*<S0 ⇒ (S0-S*)-S̄ln(S0/S*)>0（另有 ln x<x-1 的证明）", worst > 0, "numeric",
+    record(g, "S5", "附录 sec:proof:start-sensitivity：S̄<S*<S0 ⇒ (S0-S*)-S̄ln(S0/S*)>0（另有 ln x<x-1 的证明）", worst > 0, "numeric",
            f"2000 点最小相对值 {mp.nstr(worst, 3)}")
     # ∂S*/∂p 的闭式
     dS_deta = -sp.diff(Fexpr, eta) / sp.diff(Fexpr, S)
-    check_eq(g, "S6", "式(A.2)：∂S*/∂eta = 1/[rho1(1/S*-1/S_c)]", dS_deta, 1 / (rho1 * (1 / S - 1 / Sc)))
+    check_eq(g, "S6", "式 eq:s1:Sstar-eta-sign：∂S*/∂eta = 1/[rho1(1/S*-1/S_c)]", dS_deta, 1 / (rho1 * (1 / S - 1 / Sc)))
     dS_dc0 = -sp.diff(Fexpr, c0) / sp.diff(Fexpr, S)
-    check_eq(g, "S7", "式(A.2)：∂S*/∂c0 = ln(S*/S0)/[c0(1/S*-1/S_c)]", dS_dc0, sp.log(S / S0) / (c0 * (1 / S - 1 / Sc)))
+    check_eq(g, "S7", "式 eq:s1:Sstar-eta-sign：∂S*/∂c0 = ln(S*/S0)/[c0(1/S*-1/S_c)]", dS_dc0, sp.log(S / S0) / (c0 * (1 / S - 1 / Sc)))
     dS_db = -sp.diff(Fexpr, beta) / sp.diff(Fexpr, S)
-    check_eq(g, "S8", "式(A.3)：∂S*/∂beta", dS_db, dFb / (rho1 * (1 / Sc - 1 / S)))
+    check_eq(g, "S8", "式 eq:s1:Sstar-beta-sign：∂S*/∂beta", dS_db, dFb / (rho1 * (1 / Sc - 1 / S)))
     dS_dq = -sp.diff(Fexpr, q0) / sp.diff(Fexpr, S)
-    check_eq(g, "S9", "式(A.4)：∂S*/∂q0", dS_dq,
+    check_eq(g, "S9", "式 eq:s1:Sstar-q0-sign：∂S*/∂q0", dS_dq,
              -beta * ((S0 - S) - Sbar * sp.log(S0 / S)) / ((beta + q0 * (1 - beta)) ** 2 * rho1 * (1 / Sc - 1 / S)))
-    # 阈值取舍（附录 A.4）
+    # 阈值取舍（附录 sec:proof:threshold-tradeoff）
     Sst = sp.Function("Sst")(eta)
     Dt = N / (c0 * eta) * sp.log((Sst - Sbar) / (Sc - Sbar))
-    _check_func_eq(g, "S10", "附录 A.4：∂Δt/∂eta = -Δt/eta + N/(c0 eta (S*-S̄))·∂S*/∂eta",
+    _check_func_eq(g, "S10", "附录 sec:proof:threshold-tradeoff：∂Δt/∂eta = -Δt/eta + N/(c0 eta (S*-S̄))·∂S*/∂eta",
                    sp.diff(Dt, eta) - (-Dt / eta + N / (c0 * eta * (Sst - Sbar)) * sp.diff(Sst, eta)))
     Send = sp.Function("Send")(eta)
     Itc = kappa0 * (S0 - Sst + Sc - Send) + beta * (Sst - Sc + Sbar * sp.log((Sst - Sbar) / (Sc - Sbar)))
     target = (beta * Sst / (Sst - Sbar) - kappa0) * sp.diff(Sst, eta) - kappa0 * sp.diff(Send, eta)
-    _check_func_eq(g, "S11", "式(A.6)：∂Itcum/∂eta 的表达", sp.diff(Itc, eta) - target)
-    check_eq(g, "S12", "附录 A.4：beta S_c/(S_c-S̄) = beta/(beta+q0(1-beta))", beta * Sc / (Sc - Sbar), kappa0)
+    _check_func_eq(g, "S11", "式 eq:cumulative-eta：∂Itcum/∂eta 的表达", sp.diff(Itc, eta) - target)
+    check_eq(g, "S12", "附录 sec:proof:threshold-tradeoff：beta S_c/(S_c-S̄) = beta/(beta+q0(1-beta))", beta * Sc / (Sc - Sbar), kappa0)
     post = eta + b2 / b1 * (Sc - S) + rho1 * sp.log(S / Sc) - 1
-    check_eq(g, "S13", "附录 A.4：∂S_end/∂eta = -1/[rho1(1/S_end-1/S_c)]", -sp.diff(post, eta) / sp.diff(post, S),
+    check_eq(g, "S13", "附录 sec:proof:threshold-tradeoff：∂S_end/∂eta = -1/[rho1(1/S_end-1/S_c)]", -sp.diff(post, eta) / sp.diff(post, S),
              -1 / (rho1 * (1 / S - 1 / Sc)))
     check_zero(g, "S14", "S/(S-S̄) 关于 S 的导数 = -S̄/(S-S̄)² <0", sp.diff(S / (S - Sbar), S) + Sbar / (S - Sbar) ** 2)
-    # 接触率（附录 A.5）
-    check_eq(g, "S15", "附录 A.5：∂S̄/∂beta = -gamma N/(c0 beta²)", sp.diff(Sbar, beta), -gamma * N / (c0 * beta**2))
-    check_eq(g, "S16", "附录 A.5：∂(S_c-S̄)/∂beta = -q0 S_c/beta", sp.diff(Sc - Sbar, beta), -q0 * Sc / beta)
-    check_eq(g, "S17", "附录 A.5：∂S̄/∂c0=-S̄/c0，∂S_c/∂c0=-S_c/c0，∂S_c/∂q0=S_c/(1-q0)",
+    # 接触率（补充 S2 sec:proof:contact-effects）
+    check_eq(g, "S15", "补充 S2 sec:proof:contact-effects：∂S̄/∂beta = -gamma N/(c0 beta²)", sp.diff(Sbar, beta), -gamma * N / (c0 * beta**2))
+    check_eq(g, "S16", "补充 S2 sec:proof:contact-effects：∂(S_c-S̄)/∂beta = -q0 S_c/beta", sp.diff(Sc - Sbar, beta), -q0 * Sc / beta)
+    check_eq(g, "S17", "补充 S2 sec:proof:contact-effects：∂S̄/∂c0=-S̄/c0，∂S_c/∂c0=-S_c/c0，∂S_c/∂q0=S_c/(1-q0)",
              sp.diff(Sbar, c0) + Sbar / c0 + sp.diff(Sc, c0) + Sc / c0 + sp.diff(Sc, q0) - Sc / (1 - q0), 0)
-    # 式 (3.24)
+    # 补充 S2 式 eq:duration-c0
     Sst_c = sp.Function("Sc0")(c0)
     Dt_c = N / (c0 * eta) * sp.log((Sst_c - Sbar) / (Sc - Sbar))
     dSdc0 = (sp.log(Sst_c / S0) / (c0 * (1 / Sst_c - 1 / Sc)))
     lhs = sp.diff(Dt_c, c0).subs(sp.Derivative(Sst_c, c0), dSdc0)
     rhs = N / (c0**2 * eta) * (Sst_c / (Sst_c - Sbar) * (1 + Sc / (Sst_c - Sc) * sp.log(S0 / Sst_c))
                                - sp.log((Sst_c - Sbar) / (Sc - Sbar)))
-    _check_func_eq(g, "S18", "式(3.24)：∂Δt/∂c0 的表达（代入 ∂S*/∂c0）", lhs - rhs, func=Sst_c)
-    # 引理 3.10
+    _check_func_eq(g, "S18", "补充 S2 式 eq:duration-c0：∂Δt/∂c0 的表达（代入 ∂S*/∂c0）", lhs - rhs, func=Sst_c)
+    # 补充 S2 引理 lem:s1:trigger-boundary
     Imax = I0 + b2 / b1 * (S0 - Sc) + rho1 * sp.log(Sc / S0)
-    check_eq(g, "S19", "式(3.23)：dI_max^0/dc0 = -(rho1/c0)ln(S_c/S0)", sp.diff(Imax, c0), -rho1 / c0 * sp.log(Sc / S0))
-    # 补充 S2：lambda 的偏导
+    check_eq(g, "S19", "补充 S2 式 eq:s1:Imax-no-c0-derivative：dI_max^0/dc0 = -(rho1/c0)ln(S_c/S0)", sp.diff(Imax, c0), -rho1 / c0 * sp.log(Sc / S0))
+    # 补充 S3：lambda 的偏导
     A = sp.log((S - Sbar) / Sbar)
     Bq = sp.log(Sbar / (Sc - Sbar))
-    check_zero(g, "S20", "补充 S2：∂B/∂c0 = 0，∂B/∂eta = 0", sp.diff(Bq, c0) + sp.diff(Bq, eta))
-    check_eq(g, "S21", "补充 S2：∂B/∂beta = -1/[(1-beta)(beta+q0(1-beta))]", sp.diff(Bq, beta),
+    check_zero(g, "S20", "补充 S3：∂B/∂c0 = 0，∂B/∂eta = 0", sp.diff(Bq, c0) + sp.diff(Bq, eta))
+    check_eq(g, "S21", "补充 S3：∂B/∂beta = -1/[(1-beta)(beta+q0(1-beta))]", sp.diff(Bq, beta),
              -1 / ((1 - beta) * (beta + q0 * (1 - beta))))
-    check_eq(g, "S22", "补充 S2：∂B/∂q0 = -1/[(1-q0)(beta+q0(1-beta))]", sp.diff(Bq, q0), -1 / ((1 - q0) * (beta + q0 * (1 - beta))))
+    check_eq(g, "S22", "补充 S3：∂B/∂q0 = -1/[(1-q0)(beta+q0(1-beta))]", sp.diff(Bq, q0), -1 / ((1 - q0) * (beta + q0 * (1 - beta))))
     Sf = sp.Function("Sx")
     for par, name, extra in ((c0, "c0", S / c0), (beta, "beta", S / (beta * (1 - beta)))):
         Sfun = Sf(par)
         Af = A.subs(S, Sfun)
         tgt = (sp.diff(Sfun, par) + extra.subs(S, Sfun)) / (Sfun - Sbar)
-        _check_func_eq(g, f"S23{name}", f"补充 S2：∂A/∂{name} 的表达", sp.diff(Af, par) - tgt, func=Sfun)
-    # 补充 S2.3 的构造（精确有理数）
+        _check_func_eq(g, f"S23{name}", f"补充 S3：∂A/∂{name} 的表达", sp.diff(Af, par) - tgt, func=Sfun)
+    # 补充 S3 app:lambda 的构造（精确有理数）
     pars = {N: sp.Integer(10**6), beta: sp.Rational(1, 6), q0: sp.Rational(1, 10), gamma: sp.Rational(1, 10),
             c0: sp.Rational(20, 3), I0: sp.Integer(100)}
     ok = (sp.simplify(Sc.subs(pars) - pars[N] / 10) == 0 and sp.simplify(Sbar.subs(pars) - 3 * pars[N] / 40) == 0
@@ -498,13 +498,13 @@ def group_S():
         signs.append(float(sp.N(dl)))
         detail.append(f"r={r}: eta={float(sp.N(etav)):.1f}, Imax={float(sp.N(Imaxv)):.1f}, dλ/dq0={float(sp.N(dl)):.4g}")
     ok &= signs[0] > 0 > signs[1]
-    record(g, "S24", "补充 S2.3：构造点满足触发与拐点条件，闭式与一般式一致，两点导数一正一负", ok, "symbolic+example", "; ".join(detail))
-    # 补充 S4：prop:reference-population
+    record(g, "S24", "补充 S3 app:lambda：构造点满足触发与拐点条件，闭式与一般式一致，两点导数一正一负", ok, "symbolic+example", "; ".join(detail))
+    # 补充 S6：prop:reference-population
     sN, ssc, rN = sp.symbols("s_end s_c rhoN", positive=True)  # rhoN=rho1/N，beta2/beta1=rhoN/s_c
     th = sp.Symbol("theta", positive=True)
     Fn = th + rN / ssc * (ssc - sN) + rN * sp.log(sN / ssc) - 1 / N
     dsdN = -sp.diff(Fn, N) / sp.diff(Fn, sN)
-    check_eq(g, "S25", "补充 S4 命题：∂s_end/∂N = -1/[N²(rho1/N)(1/s_end-1/s_c)]", dsdN, -1 / (N**2 * rN * (1 / sN - 1 / ssc)))
+    check_eq(g, "S25", "补充 S6 prop:reference-population：∂s_end/∂N = -1/[N²(rho1/N)(1/s_end-1/s_c)]", dsdN, -1 / (N**2 * rN * (1 / sN - 1 / ssc)))
 
 
 def _check_func_eq(group, cid, desc, expr, func=None):

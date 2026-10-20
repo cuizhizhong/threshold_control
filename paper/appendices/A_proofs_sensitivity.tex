@@ -1,5 +1,17 @@
 \section{证明}
 \label{sec:appendix:proofs}
+\subsection{解的适定性}
+\label{sec:proof:model-positive}
+本小节证明命题\ref{prop:model:positive}。
+\begin{proof}
+方程右端关于状态局部 Lipschitz，关于时间可测且在有界状态集上局部可积，故有唯一局部绝对连续解。前两式给出
+\begin{align*}
+S(t)&=S_0\exp\!\left[-\int_0^t\frac{c(s)[\beta+(1-\beta)q(s)]}{N}I(s)\,ds\right],\\
+I(t)&=I_0\exp\!\left[\int_0^t\left(\frac{\beta c(s)(1-q(s))}{N}S(s)-\gamma\right)ds\right],
+\end{align*}
+由此得 $S,I$ 的严格正性。$S_q$ 的流入非负，$I_q$ 由常数变易公式保持非负，$\dot R\ge0$。五式相加得总人数守恒，因此各分量有界，局部解可以延拓至任意有限时刻。
+\end{proof}
+
 \subsection{触发与退出}
 \label{sec:proof:threshold-rationale}
 本小节证明命题\ref{prop:model:threshold-rationale}。
@@ -125,36 +137,28 @@ J=\frac{2N}{c_0\eta}\int_{S_c}^{S^*}\frac{(1-S_c/S)^2}{S-\bar S}\,dS.
 其中使用 $\beta S_c/(S_c-\bar S)=\beta/[\beta+q_0(1-\beta)]$，以及 $S/(S-\bar S)$ 在 $S>\bar S$ 上非增。因此方括号非正，其与 $\partial S^*/\partial\eta<0$ 的乘积非负，最后一项严格为正。将终点替换为 $I=0,S=S_\infty$，同样的隐式微分给出无限时刻的结论。
 \end{proof}
 
-\subsection{接触率的影响}
-\label{sec:proof:contact-effects}
-本小节证明命题\ref{prop:contact-effects}。
+\subsection{人口缩放}
+\label{sec:proof:scaling}
+本小节证明命题\ref{prop:scaling}。
 \begin{proof}
-写 $I(S;c_0)=I_0+\frac{\beta_2^0}{\beta_1^0}(S_0-S)+\rho_1\ln(S/S_0)$。在 $S<S_0$ 时，
+常规阶段的归一化系统为
 \[
-\frac{\partial I(S;c_0)}{\partial c_0}=-\frac{\rho_1}{c_0}\ln\frac{S}{S_0}>0.
+\dot s=-c_0[\beta+q_0(1-\beta)]si,\qquad
+\dot i=[\beta c_0(1-q_0)s-\gamma]i.
 \]
-式\eqref{eq:s1:t1}中的前置系数 $1/\beta_1^0$ 随 $c_0$ 下降，下限 $S^*$ 随 $c_0$ 上升，被积函数也下降；逐项求导均给出负项，故 $\partial t_1/\partial c_0<0$。同时
+它不含 $N$，触发条件为 $i=\theta$，所以 $t_1$ 与 $s^*=S^*/N$ 仅依赖上述固定量和 $\theta$。又
 \[
-\frac{\partial q_{\max}}{\partial c_0}
-=\frac{\gamma N}{\beta c_0^2(S^*)^2}
-\left(S^*+c_0\frac{\partial S^*}{\partial c_0}\right)>0.
+s_c=\frac{\gamma}{\beta c_0(1-q_0)},\qquad
+\bar s=\frac{(1-\beta)\gamma}{\beta c_0},\qquad
+\Delta t=\frac1{c_0\theta}\ln\frac{s^*-\bar s}{s_c-\bar s}.
 \]
-对 $\Delta t$ 的对数因子求导时，
-\[
-\frac{\partial\bar S}{\partial\beta}=-\frac{\gamma N}{c_0\beta^2}<0,
-\qquad
-\frac{\partial(S_c-\bar S)}{\partial\beta}=-\frac{q_0S_c}{\beta}\le0.
-\]
-结合 $\partial S^*/\partial\beta>0$ 得 $\partial\Delta t/\partial\beta>0$。
-由于 $\bar S$ 不含 $q_0$，而 $\partial S^*/\partial q_0<0$、$\partial S_c/\partial q_0=S_c/(1-q_0)>0$，得到 $\partial\Delta t/\partial q_0<0$。
-利用 $\partial\bar S/\partial c_0=-\bar S/c_0$、$\partial S_c/\partial c_0=-S_c/c_0$ 及式\eqref{eq:s1:Sstar-eta-sign}，直接整理得到式\eqref{eq:duration-c0}。
-
-当 $c_0\downarrow c_{0,\min}$ 时，$S^*\to S_c$，所以 $\Delta t\to0$。当 $c_0\to\infty$ 时，启动方程给出
-$S^*\to S_0-\frac{\beta_1^0}{\beta_2^0}(\eta-I_0)>0$，而 $S_c,\bar S$ 均为 $O(c_0^{-1})$，故
-\[
-\Delta t=\frac{N}{c_0\eta}[\ln c_0+O(1)]\longrightarrow0.
-\]
-$\Delta t$ 在内部为正且连续，两端趋零，因此在内部达到正的最大值；中值定理同时保证其导数取正、负两种符号。
+例如，二次干预强度成本的归一化表达为
+\begin{equation}
+J=\frac{2}{c_0\theta}\int_{s_c}^{s^*}
+\frac{(1-s_c/s)^2}{s-\bar s}\,ds,
+\label{eq:dom:Jtheta}
+\end{equation}
+其中只含归一化状态和固定参数。代入控制表达可得其余结论。无限时间的终点为 $i\to0$，同样不含 $N$；有限的终点 $I=1$ 却对应 $i=1/N$，因而保留绝对人口尺度。
 \end{proof}
 
 \subsection{状态参数化}

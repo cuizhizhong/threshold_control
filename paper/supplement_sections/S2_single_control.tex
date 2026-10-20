@@ -1,0 +1,212 @@
+\section{仅隔离控制的补充结果}
+\label{sec:sup:single-control}
+
+\subsection{参数影响}
+\label{sec:sup:contact-theory}
+参数与偏导数的约定同正文第~\ref{sec:scaling-theory}~节。
+常规接触率首先决定控制是否被触发。
+\begin{lemma}
+\label{lem:s1:trigger-boundary}
+固定其余参数，设 $I_0<\eta<I_0+\beta_2^0S_0/\beta_1^0$。则存在唯一的触发边界 $c_{0,\min}(\eta)$，满足
+\begin{equation}
+I_{\max}^{0}\bigl(c_{0,\min}(\eta)\bigr)=\eta,
+\qquad c_{0,\min}(\eta)>\frac{\gamma N}{\beta(1-q_0)S_0},
+\label{eq:s1:c0-min-def}
+\end{equation}
+且控制恰在 $c_0>c_{0,\min}(\eta)$ 时被触发。
+\end{lemma}
+\begin{proof}
+当 $c_0\le\gamma N/[\beta(1-q_0)S_0]$，即 $S_0\le S_c$ 时，常规峰值为 $I_0$；$c_0$ 超过这一值后，由式\eqref{eq:s1:Imax-no}，
+\begin{equation}
+\frac{dI_{\max}^{0}}{dc_0}
+=-\frac{\rho_1}{c_0}\ln\frac{S_c}{S_0}>0,
+\label{eq:s1:Imax-no-c0-derivative}
+\end{equation}
+峰值随 $c_0$ 严格增加，$c_0\to\infty$ 时趋于 $I_0+\beta_2^0S_0/\beta_1^0$。由连续性与严格单调性，$I_{\max}^{0}=\eta$ 恰有一个根；触发条件\eqref{eq:model:trigger}即 $I_{\max}^{0}>\eta$，恰在 $c_0$ 大于该根时成立。
+\end{proof}
+\begin{proposition}
+\label{prop:contact-effects}\label{cor:s1:duration-sensitivity}
+在触发条件内部，对于仅隔离控制，
+\[
+\frac{\partial t_1}{\partial c_0}<0,\qquad
+\frac{\partial q_{\max}}{\partial c_0}>0,\qquad
+\frac{\partial\Delta t}{\partial\beta}>0,\qquad
+\frac{\partial\Delta t}{\partial q_0}<0.
+\]
+接触率对控制时长的影响由
+\begin{equation}
+\frac{\partial\Delta t}{\partial c_0}
+=\frac{N}{c_0^2\eta}
+\left\{\frac{S^*}{S^*-\bar S}
+\left[1+\frac{S_c}{S^*-S_c}\ln\frac{S_0}{S^*}\right]
+-\ln\frac{S^*-\bar S}{S_c-\bar S}\right\}
+\label{eq:duration-c0}
+\end{equation}
+确定，其符号不能统一为正或负。固定 $I_0<\eta<I_0+\beta_2^0S_0/\beta_1^0$ 时，$\Delta t$ 在 $c_0\in(c_{0,\min},\infty)$ 内至少有一个极大值。
+\end{proposition}
+证明见第~\ref{sec:proof:contact-effects}~节。接触率越高，$S^*$ 越大、$S_c$ 越小，控制期要消耗的易感者 $S^*-S_c$ 越多；但 $S$ 也下降得越快。两种作用方向相反，因此控制时长可增可减。
+
+\subsubsection{参数影响的证明}
+\label{sec:proof:contact-effects}
+本小节证明命题\ref{prop:contact-effects}。
+\begin{proof}
+写 $I(S;c_0)=I_0+\frac{\beta_2^0}{\beta_1^0}(S_0-S)+\rho_1\ln(S/S_0)$。在 $S<S_0$ 时，
+\[
+\frac{\partial I(S;c_0)}{\partial c_0}=-\frac{\rho_1}{c_0}\ln\frac{S}{S_0}>0.
+\]
+式\eqref{eq:s1:t1}中的前置系数 $1/\beta_1^0$ 随 $c_0$ 下降，下限 $S^*$ 随 $c_0$ 上升，被积函数也下降；逐项求导均给出负项，故 $\partial t_1/\partial c_0<0$。同时
+\[
+\frac{\partial q_{\max}}{\partial c_0}
+=\frac{\gamma N}{\beta c_0^2(S^*)^2}
+\left(S^*+c_0\frac{\partial S^*}{\partial c_0}\right)>0.
+\]
+对 $\Delta t$ 的对数因子求导时，
+\[
+\frac{\partial\bar S}{\partial\beta}=-\frac{\gamma N}{c_0\beta^2}<0,
+\qquad
+\frac{\partial(S_c-\bar S)}{\partial\beta}=-\frac{q_0S_c}{\beta}\le0.
+\]
+结合 $\partial S^*/\partial\beta>0$ 得 $\partial\Delta t/\partial\beta>0$。
+由于 $\bar S$ 不含 $q_0$，而 $\partial S^*/\partial q_0<0$、$\partial S_c/\partial q_0=S_c/(1-q_0)>0$，得到 $\partial\Delta t/\partial q_0<0$。
+利用 $\partial\bar S/\partial c_0=-\bar S/c_0$、$\partial S_c/\partial c_0=-S_c/c_0$ 及式\eqref{eq:s1:Sstar-eta-sign}，直接整理得到式\eqref{eq:duration-c0}。
+
+当 $c_0\downarrow c_{0,\min}$ 时，$S^*\to S_c$，所以 $\Delta t\to0$。当 $c_0\to\infty$ 时，启动方程给出
+$S^*\to S_0-\frac{\beta_1^0}{\beta_2^0}(\eta-I_0)>0$，而 $S_c,\bar S$ 均为 $O(c_0^{-1})$，故
+\[
+\Delta t=\frac{N}{c_0\eta}[\ln c_0+O(1)]\longrightarrow0.
+\]
+$\Delta t$ 在内部为正且连续，两端趋零，因此在内部达到正的最大值；中值定理同时保证其导数取正、负两种符号。
+\end{proof}
+
+\FloatBarrier
+\subsection{基准参数扫描}
+\label{sec:sup:baseline-scan}
+除 $c_0$ 与 $\eta/N$ 外，本小节参数取正文表~\ref{tab:xian_initial_fit}的基准值。
+
+\subsubsection{常规接触率}
+\label{sec:sup:baseline-contact-scan}
+常规接触率对控制时长的影响不是单调的（命题~\ref{prop:contact-effects}，图~\ref{fig:scenario1_summary_c0}）。$c_0$ 越大，常规轨迹越早触及阈值，$S^*$ 与 $q_{\max}$ 越高；控制时长则受两种相反作用：要消耗的易感者更多，易感者也下降得更快。在所考察的范围内，控制时长随 $c_0$ 先增后减，基准阈值下在 $c_0\approx5.1$ 处取得数值极大值约 $7.579$ d。当 $c_0$ 不超过触发边界 $c_{0,\min}(\eta)$（式\eqref{eq:s1:c0-min-def}）时，无需启动控制；该边界随阈值升高，基准阈值下约为 $3.327$。相应的隔离比例轨迹与二维扫描见图~\ref{fig:baseline:q-joint}、\ref{fig:scenario1_heatmaps_c0_eta}。
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/layout_v5/c0_sensitivity_selected_eta.pdf}
+\caption{基准参数下各指标随常规接触率 $c_0$ 的变化，$\eta/N=0.2\%,0.6\%,1\%,2\%$，其余参数见正文表~\ref{tab:xian_initial_fit}；红色圆点为 $\Delta t$ 的数值极大值。面板与单位同正文图~\ref{fig:scenario1_summary_eta}，$c_0$ 以 $\mathrm d^{-1}$ 计。}
+\label{fig:scenario1_summary_c0}
+\end{figure}
+
+\subsubsection{代表点与轨迹}
+表~\ref{tab:sup:baseline}列出两组代表点：固定 $\eta/N=5\%$ 改变 $c_0$，以及固定 $c_0=10$ 改变 $\eta/N$。固定阈值时，控制时长在 $c_0=5$ 附近最长（命题~\ref{prop:contact-effects}给出极大值的存在），清零时间与总累计新增感染随 $c_0$ 增大而减少；固定 $c_0$ 时，$q_{\max}$ 随阈值提高只略有下降，控制时长与成本近似与阈值成反比，总累计新增感染随阈值增加（正文命题~\ref{prop:threshold-tradeoff}）。
+\begin{table}[htbp]
+\centering\small
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{threeparttable}
+\caption{基准参数下仅隔离控制的代表性结果}
+\label{tab:sup:baseline}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lS[table-format=2.4]S[table-format=3.4]S[table-format=3.4]S[table-format=1.4]S[table-format=2.4]S[table-format=3.4]@{}}
+\toprule
+参数取值 & {$t_1$（d）} & {$\Delta t$（d）} & {$t_{\rm end}$（d）} & {$q_{\max}$} & {$J$（d）} & {\shortstack{总累计新增感染\\（人）}}\\
+\midrule
+\multicolumn{7}{@{}l}{固定 $\eta/N=5\%$，改变 $c_0$}\\
+\addlinespace[2pt]
+$c_0\approx3.3470$ & 29.9176 & 2.0432 & 71.4690 & 0.0783 & 0.0053 & 382.5525\\
+$c_0=4$ & 15.3697 & 6.8658 & 58.7277 & 0.3413 & 0.4374 & 360.7318\\
+$c_0=5$ & 9.3039 & 7.5778 & 49.9657 & 0.4946 & 1.0561 & 342.5629\\
+$c_0=8$ & 4.3073 & 6.6308 & 38.0095 & 0.6936 & 2.0006 & 303.5829\\
+$c_0=10$ & 3.1754 & 5.9026 & 33.7732 & 0.7565 & 2.2236 & 285.7244\\
+$c_0=12$ & 2.5150 & 5.3007 & 30.7687 & 0.7978 & 2.3110 & 271.9295\\
+\addlinespace[5pt]
+\multicolumn{7}{@{}l}{固定 $c_0=10$，改变 $\eta/N$}\\
+\addlinespace[2pt]
+$\eta/N=0.2\%$ & 0.3602 & 152.0574 & 180.5821 & 0.7734 & 60.8005 & 173.0314\\
+$\eta/N=0.6\%$ & 1.3001 & 50.5672 & 86.5579 & 0.7721 & 20.1265 & 195.3349\\
+$\eta/N=1\%$ & 1.7406 & 30.2685 & 64.9343 & 0.7708 & 11.9912 & 208.9166\\
+$\eta/N=2\%$ & 2.3459 & 15.0431 & 46.8029 & 0.7674 & 5.8888 & 233.7810\\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]\footnotesize
+\item 注：首行 $c_0=c_{0,\min}+0.02$；$q_{\max}=q_c(t_1)$；总累计新增感染计算至清零时间。
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+图~\ref{fig:baseline:q-joint}给出这些参数下的隔离比例轨迹，图~\ref{fig:scenario1_heatmaps_c0_eta}给出 $(\eta/N,c_0)$ 平面上的四项指标。两幅子图中的拐点都在 $\qinf=1-1/[2(1-\beta)]\approx0.4083$ 的同一水平上（正文定理~\ref{thm:s1:inflection}）。$c_0=4$ 时 $q_{\max}=0.3413<\qinf$，即 $S^*<2\bar S$，隔离比例在整个控制期内低于拐点水平，没有内部拐点。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/layout_v5/baseline_q_joint.pdf}
+\caption{不同常规接触率与阈值下仅隔离控制的隔离比例轨迹，其余参数取基准值。(a) $\eta/N=5\%$，$c_0=4,5,8,10,12$；(b) $c_0=10$，$\eta/N=0.2\%,0.6\%,1\%,2\%$。三角形与短竖线分别标出 $t_1$、$t_2$，红点为内部拐点；水平虚线为 $q_0$，点线为 $\qinf\approx0.4083$。}
+\label{fig:baseline:q-joint}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/scenario1_heatmaps_c0_eta.pdf}
+\caption{$(\eta/N,c_0)$ 平面上仅隔离控制的启动时间、控制时长、清零时间和累计新增感染，其余参数取基准值。实线为触发边界 $c_{0,\min}(\eta)$，白色区域无需加强隔离；虚线为等值线。}
+\label{fig:scenario1_heatmaps_c0_eta}
+\end{figure}
+
+\FloatBarrier
+\subsubsection{低阈值极限}
+阈值很低时，控制时长与成本按 $1/\theta$ 增长，但这一极限要求初值同时趋于零。固定 $i_0>0$ 时允许的阈值为 $\theta>i_0$，不能在这一问题中直接令 $\theta\to0$。沿同时满足 $i_0\to0$、$\theta\to0$、$0<i_0<\theta$ 的序列，且 $s_0$ 趋于某个大于 $s_c$ 的固定值时，有 $s^*\to s_0$，从而
+\begin{equation}
+\Delta t\sim\frac1{c_0\theta}\ln\frac{s_0-\bar s}{s_c-\bar s},\qquad
+J\sim\frac2{c_0\theta}\int_{s_c}^{s_0}\frac{(1-s_c/s)^2}{s-\bar s}\,ds.
+\label{eq:small-threshold}
+\end{equation}
+
+相反，固定 $i_0>0$ 而令 $\theta\downarrow i_0$ 时，控制几乎立即启动，控制时长趋于有限值
+\[
+\frac1{c_0i_0}\ln\frac{s_0-\bar s}{s_c-\bar s}.
+\]
+因此，由控制时长或成本反解阈值只能在相应的值域内进行，联合小初值极限不能用于固定正初值的问题。
+
+\FloatBarrier
+\subsection{西安人口缩放情景}
+\label{sec:sup:contact-scan}
+本小节在西安传播参数和 $N=2\times10^4$ 的人口缩放情景（第~\ref{sec:sup:xian:settings}~节）下，考察常规接触率 $c_0$ 对仅隔离控制的影响。
+
+\subsubsection{控制轨迹}
+\label{sec:dom:c0}
+取 $N_{\rm eff}=2\times10^4$、$\theta=0.002$（即 $\eta=40$），绝对初值 $I_0=1.00659\times10^{-3}$，$S_0=N_{\rm eff}-I_0$，其余初始仓室为零；除 $c_0$ 外的参数取西安值（正文表~\ref{tab:xian_initial_fit}）。图~\ref{fig:c0-panel}中各条轨迹的阈值相同。增大 $c_0$ 使启动时间提前、最大隔离比例升高，与命题~\ref{prop:contact-effects}一致。$c_0=3.43$ 时 $q_{\max}=0.383<\qinf=0.4119$，没有内部拐点；$c_0=3.59$ 时 $q_{\max}=0.423$，内部拐点出现。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=112mm]{figures/layout_v5/c0_sensitivity_panel.pdf}
+\caption{不同 $c_0$ 下的 (a) 感染人数与 (b) 隔离比例（$N_{\rm eff}=2\times10^4$，$\theta=0.002$）；内嵌图为累计新增感染。$c_0=3.43$ 接近触发边界，$c_0\approx6.61$ 为控制时长的极大值点，$c_0=12.8872$ 为西安参数的常规接触率。空心圆为隔离比例拐点，实心圆为该时刻在感染曲线水平段上的位置，短竖线为清零时间。}
+\label{fig:c0-panel}
+\end{figure}
+
+\FloatBarrier
+\subsubsection{各项指标}
+\label{app:c0_scan}
+图~\ref{fig:c0-scan}给出各项指标随 $c_0$ 的变化。控制时长随 $c_0$ 先增后减，在 $c_0\approx6.61$ 时达到约 $103.2$ 天；成本和累计新增感染的极大值分别位于 $c_0\approx18.12$ 和 $13.88$，对应 $J\approx42.80$ 和 $\Itcum\approx3610$。三个极大值并不重合。
+
+其余时间指标随 $c_0$ 增大而减小。清零时间从 $c_0=3.43$ 时约 $367$ 天降至 $c_0=30$ 时约 $102$ 天：控制时长虽在部分区间增加，启动时间和退出后的下降时间却都缩短，总时间因而减小。控制时长因此不能单独决定清零时间。
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{c0_sensitivity_scan.pdf}
+    \caption{各指标随 $c_0$ 的变化（$N_{\rm eff}=2\times10^4$，$\theta=0.002$）。(a)--(d) 依次为启动时间、控制时长、退出后的下降时间和清零时间；(e)--(h) 依次为最大隔离比例、拐点相对位置、成本和累计新增感染。竖线标出触发边界 $3.334$、拐点边界 $3.543$ 和时长极大值位置 $6.607$。}
+    \label{fig:c0-scan}
+\end{figure}
+
+\FloatBarrier
+\subsubsection{触发与拐点的边界}
+\label{app:c0_beta}
+图~\ref{fig:c0-phase}给出 $(\theta,c_0)$ 平面上的触发边界、内部拐点边界和控制时长驻点曲线，三者分别决定控制是否启动、隔离比例是否有内部拐点，以及控制时长随 $c_0$ 的变化方向。固定 $\theta=0.002$、$q_0=0.3230$ 及绝对初值，图~\ref{fig:c0-beta-existence}给出 $(c_0,\beta)$ 平面上满足 $s_c<2\bar s<s^*$ 的参数范围。西安参数 $(12.8872,0.1498)$ 位于内部拐点存在的区域内；由 $\qinf=q_0$ 得 $\beta_{\max}=0.261448$；$\beta$ 超过该值时 $\qinf<q_0$，内部拐点不再存在。
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=120mm]{figures/layout_v5/c0_phase_stationary.pdf}
+\caption{$(\theta,c_0)$ 平面上的触发边界、内部拐点边界 $s^*=2\bar s$ 和控制时长驻点曲线 $\partial\Delta t/\partial c_0=0$。灰色等值线为控制时长，水平点线为 $\theta=0.002$。}
+\label{fig:c0-phase}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{c0_beta_existence.pdf}
+    \caption{$(c_0,\beta)$ 平面上的内部拐点存在范围（$\theta=0.002$，$q_0=0.3230$）。边界为 $2\bar s=s^*$ 和 $\beta_{\max}=0.2614$，标记点为西安参数 $(12.8872,0.1498)$。}
+    \label{fig:c0-beta-existence}
+\end{figure}
+
+\FloatBarrier

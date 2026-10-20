@@ -22,11 +22,12 @@ from audit_common import RESULTS, Registry, dump, num, rel, tex_table_rows
 
 NUM = 'paper/sections/06_numerics.tex'
 XT = 'paper/sections/07_xian.tex'
-S1 = 'paper/supplement_sections/S1_baseline.tex'
-S2 = 'paper/supplement_sections/S2_inflection.tex'
-S3 = 'paper/supplement_sections/S3_xian.tex'
-S5 = 'paper/supplement_sections/S5_contact.tex'
-S6 = 'paper/supplement_sections/S6_numerics.tex'
+# 常量名与 Registry 的证据 ID 保持 NR 历史身份；字符串仅定位 NEW-4g 现稿。
+S1 = 'paper/supplement_sections/S2_single_control.tex'
+S2 = 'paper/supplement_sections/S3_inflection.tex'
+S3 = 'paper/supplement_sections/S6_xian.tex'
+S5 = 'paper/supplement_sections/S2_single_control.tex'
+S6 = 'paper/supplement_sections/S8_numerics.tex'
 TABLE_LAWS = ('c_only', 'alpha', 'q_only', 'opt')
 STRAT = {'q_only': 'quarantine_only', 'c_only': 'contact_only', 'alpha': 'alpha_0.5', 'opt': 'minimum_cost'}
 REG = Registry()
@@ -52,7 +53,7 @@ def I_peak0(P):
 
 
 def c0_trigger(P):
-    """触发边界 c_{0,min}(η)：I_max^0(c0) = η（引理 3.?，式 3.20）。"""
+    """触发边界 c_{0,min}(η)：I_max^0(c0) = η（补充 S2，lem:s1:trigger-boundary）。"""
     lo = P.gamma * P.N / (P.beta * (1 - P.q0) * P.S0) * (1 + 1e-12)
     return brentq(lambda c: I_peak0(P.with_(c0=c)) - P.eta, lo, 100.0, xtol=1e-14, rtol=1e-14)
 
@@ -190,11 +191,11 @@ def main():
         REG.add(f's62.eta{f}.dt', f'{NUM} §6.2', ddisp, s['dt'], source='仅隔离控制，η = %gN' % f)
         REG.add(f's62.eta{f}.total', f'{NUM} §6.2', tdisp, s['total_infections_to_clearance'])
     c_arg, dt_max, interior = argmax(lambda c: dt_q_closed(B.with_(c0=c)), 3.4, 12.0)
-    REG.add('s62.c0_argmax', f'{NUM} §6.2', '5.1', c_arg, source='Δt(c0) 的数值极大（式 3.6，网格 + 有界搜索）')
-    REG.add('s62.dt_max', f'{NUM} §6.2', '7.579', dt_max)
-    claim('s62.c0_interior_max', f'{NUM} §6.2', 'Δt 随 c0 先增后减（所考察的范围内取得内部极大）', interior)
+    REG.add('s62.c0_argmax', f'{S1} sec:sup:baseline-contact-scan', '5.1', c_arg, source='Δt(c0) 的数值极大（式 3.6，网格 + 有界搜索）')
+    REG.add('s62.dt_max', f'{S1} sec:sup:baseline-contact-scan', '7.579', dt_max)
+    claim('s62.c0_interior_max', f'{S1} sec:sup:baseline-contact-scan', 'Δt 随 c0 先增后减（所考察的范围内取得内部极大）', interior)
     c0min = c0_trigger(B)
-    REG.add('s62.c0min', f'{NUM} §6.2', '3.327', c0min, source='I_max^0(c0) = η')
+    REG.add('s62.c0min', f'{S1} sec:sup:baseline-contact-scan', '3.327', c0min, source='I_max^0(c0) = η')
 
     # ---------------- 第 6.3 节与表 2 表注
     for case, (dj, ddt, dtot) in (('base', ('4.7', '31.4', '7.3')), ('xian', ('6.7', '27.9', '6.6'))):
@@ -236,15 +237,15 @@ def main():
         claim(f's63.{case}.Sstar_above_Ssw', f'{NUM} §6.3', 'S* 高于 S_sw',
               SI.start_state(PR.CASES[case])['z_star'] > AL.z_sw_formula(PR.CASES[case].z_bar))
 
-    # ---------------- 第 6.4 节与补充 S6
+    # ---------------- 第 6.4 节与补充 S8（证据 ID 保留原 S6）
     REG.add('s64.base.c_only_drop_pct', f'{NUM} §6.4', '75.3', 100 * (1 - 1 / R('base', 'q_only')['state']['z_star']))
     for case, dJ, ddt in (('base', '2.361', '8.34'), ('xian', '41.62', '116.8')):
         st = runs[(case, 'opt', 'cap')]['state']
         REG.add(f's64.{case}.cap.J', f'{NUM} §6.4', dJ, st['J'], old=cap[case]['J']['old'], old_source='joint_extra/capacity.json')
         REG.add(f's64.{case}.cap.dt', f'{NUM} §6.4', ddt, st['dt'], old=cap[case]['dt']['old'], old_source='joint_extra/capacity.json')
-    REG.add('S6.base.cap_front', f'{S6} 第 2 段', '1.94', cap['base']['front_segment']['duration'])
-    REG.add('S6.base.cap_contact_drop_pct', f'{S6} 第 2 段', '39.1', 100 * cap['base']['front_segment']['contact_reduction_at_start'])
-    REG.add('S6.xian.cap_front', f'{S6} 第 2 段', '30.38', cap['xian']['front_segment']['duration'])
+    REG.add('S6.base.cap_front', f'{S6} sec:sup:numerics 能力代表点与时长前沿', '1.94', cap['base']['front_segment']['duration'])
+    REG.add('S6.base.cap_contact_drop_pct', f'{S6} sec:sup:numerics 能力代表点与时长前沿', '39.1', 100 * cap['base']['front_segment']['contact_reduction_at_start'])
+    REG.add('S6.xian.cap_front', f'{S6} sec:sup:numerics 能力代表点与时长前沿', '30.38', cap['xian']['front_segment']['duration'])
 
     # ---------------- 第 6.5 节（乘子曲线：旧的 470 个计算点，用本模块复核所用的点）
     Jmin = R('base', 'opt')['state']['J']
@@ -258,9 +259,9 @@ def main():
     REG.add('s65.longest_within_110', f'{NUM} §6.5', '11.09', chk['dt'], old=float(best['duration']),
             old_source='joint_extra/frontier_baseline.csv（470 点中 J ≤ 1.10 J_min 的最长者）',
             note=f"κ = {best['kappa']}；本模块复算该点 J/J_min = {chk['J'] / Jmin!r}")
-    claim('s65.frontier_points', f'{S6} 第 2 段', '乘子曲线由 470 个点构成', len(fr) == 470, n=len(fr))
+    claim('s65.frontier_points', f'{S6} sec:sup:numerics 能力代表点与时长前沿', '乘子曲线由 470 个点构成', len(fr) == 470, n=len(fr))
 
-    # ---------------- 补充表 S1（基准，仅隔离控制）
+    # ---------------- 补充 S2 的 tab:sup:baseline（证据 ID 保留原 S1）
     rows = tex_table_rows(S1, 'tab:sup:baseline')
     labels = []
     for row in rows:
@@ -276,20 +277,20 @@ def main():
         s = q_only(P)
         tag = f'S1.{kind}{v:.6g}'
         if kind == 'c0' and '\\approx' in row[0]:
-            REG.add(tag + '.c0', f'{S1} 表 S1', row[0].split('approx')[1].strip('$ '), v, note='c0 = c_{0,min} + 0.02')
+            REG.add(tag + '.c0', f'{S1} 表 tab:sup:baseline', row[0].split('approx')[1].strip('$ '), v, note='c0 = c_{0,min} + 0.02')
         for k, (name, val) in enumerate((('t1', s['t1']), ('dt', s['dt']), ('t_end', s['t_end']), ('q_max', s['q_max']),
                                          ('J', s['J']), ('total', s['total_infections_to_clearance']))):
-            REG.add(f'{tag}.{name}', f'{S1} 表 S1', row[k + 1], val)
-    REG.add('S1.q_inf', f'{S1} 正文', '0.4083', 1 - 1 / (2 * (1 - B.beta)), source='式 (3.12) 的 q_inf（公式常数）')
+            REG.add(f'{tag}.{name}', f'{S1} 表 tab:sup:baseline', row[k + 1], val)
+    REG.add('S1.q_inf', f'{S1} sec:sup:baseline-scan', '0.4083', 1 - 1 / (2 * (1 - B.beta)), source='式 (3.12) 的 q_inf（公式常数）')
 
-    # ---------------- 补充表 S3 与第 7.3 节（西安，仅隔离控制）
+    # ---------------- 补充 S6 的 tab:sup:eta 与第 7.3 节（证据 ID 保留原 S3）
     rows = tex_table_rows(S3, 'tab:sup:eta')
     for row in rows:
         f = num(row[0])
         s = q_only(X.with_(eta=f * X.N))
         for k, (name, val) in enumerate((('q_max', s['q_max']), ('dt', s['dt']), ('t_end', s['t_end']), ('J', s['J']),
                                          ('total', s['total_infections_to_clearance']))):
-            REG.add(f'S3.eta{f:g}.{name}', f'{S3} 表 S3', row[k + 1], val)
+            REG.add(f'S3.eta{f:g}.{name}', f'{S3} 表 tab:sup:eta', row[k + 1], val)
     REG.add('s73.dt_eta0.01', f'{XT} §7.3', '16.6', q_only(X.with_(eta=0.01 * X.N))['dt'])
     REG.add('s73.dt_eta0.0001', f'{XT} §7.3', '1711', q_only(X.with_(eta=0.0001 * X.N))['dt'])
     dt_low = q_only(X.with_(eta=152.55))['dt']
@@ -330,9 +331,9 @@ def main():
     REG.add('s74.floor_ratio', f'{XT} §7.4', '5.04', floor / td['total'])
     REG.add('s74.untraced_per_traced', f'{XT} §7.4', '5.7', (1 - X.beta) / X.beta, source='公式常数')
     td40, sol40 = TD.run(X, TD.tdinn, t_stop=40.0)
-    REG.add('S6.tdinn_40', f'{S6} 第 1 段', '2098.9747', td40['total'])
-    REG.add('S6.tdinn_t_end', f'{S6} 第 1 段', '45.2874', td['t_end'])
-    REG.add('S6.tdinn_total', f'{S6} 第 1 段', '2105.6330', td['total'])
+    REG.add('S6.tdinn_40', f'{S6} sec:sup:numerics TDINN 终点', '2098.9747', td40['total'])
+    REG.add('S6.tdinn_t_end', f'{S6} sec:sup:numerics TDINN 终点', '45.2874', td['t_end'])
+    REG.add('S6.tdinn_total', f'{S6} sec:sup:numerics TDINN 终点', '2105.6330', td['total'])
     tight = SM.Config(rtol=1e-13, atol_scale=0.1, max_step=0.25)
     td_t, _ = TD.run(X, TD.tdinn, cfg=tight)
     old_impl = dict(
@@ -343,41 +344,41 @@ def main():
         S6_tdinn_tolerance=dict(display='3.61e-8', meaning='旧 xian.py 收紧容差后 TDINN 总累计的变化（人）',
                                 nr_audit=abs(td_t['total'] - td['total']), nr_audit_settings=tight.__dict__))
 
-    # ---------------- 补充 S5（有效人口情景 N_eff = 2e4，仅隔离控制，扫描 c0）
+    # ---------------- 补充 S2 的西安人口缩放情景（证据 ID 保留原 S5）
     def P5(c0):
         return X.with_(name='s5', N=2e4, S0=2e4 - X.I0, eta=0.002 * 2e4, c0=c0)
     cf = lambda c: SI.closed_forms(P5(c))
     trig = c0_trigger(P5(10.0))
-    REG.add('S5.trigger', f'{S5} 图 S 注', '3.334', trig)
+    REG.add('S5.trigger', f'{S5} 图 fig:c0-scan', '3.334', trig)
     infl = brentq(lambda c: SI.start_state(P5(c))['S_star'] - 2 * P5(c).S_bar, trig * (1 + 1e-6), 6.0, xtol=1e-14)
-    REG.add('S5.inflection', f'{S5} 图 S 注', '3.543', infl)
+    REG.add('S5.inflection', f'{S5} 图 fig:c0-scan', '3.543', infl)
     # 代表点的 c0 取原程序（reproducibility/c0.py 的 reps）：触发边界 ×1.03 与拐点边界 + 0.05，稿件显示为 3.43、3.59
     c_a, c_b = trig * 1.03, infl + 0.05
-    REG.add('S5.c0_near_trigger', f'{S5} §S5.1', '3.43', c_a, note='触发边界 × 1.03（原程序 c0.py）')
-    REG.add('S5.c0_post_inflection', f'{S5} §S5.1', '3.59', c_b, note='拐点边界 + 0.05（原程序 c0.py）')
-    REG.add('S5.qmax_3.43', f'{S5} §S5.1', '0.383', cf(c_a)['q_max'])
-    REG.add('S5.qmax_3.59', f'{S5} §S5.1', '0.423', cf(c_b)['q_max'])
-    REG.add('S5.q_inf', f'{S5} §S5.1', '0.4119', 1 - 1 / (2 * (1 - X.beta)), source='公式常数')
+    REG.add('S5.c0_near_trigger', f'{S5} sec:dom:c0', '3.43', c_a, note='触发边界 × 1.03（原程序 c0.py）')
+    REG.add('S5.c0_post_inflection', f'{S5} sec:dom:c0', '3.59', c_b, note='拐点边界 + 0.05（原程序 c0.py）')
+    REG.add('S5.qmax_3.43', f'{S5} sec:dom:c0', '0.383', cf(c_a)['q_max'])
+    REG.add('S5.qmax_3.59', f'{S5} sec:dom:c0', '0.423', cf(c_b)['q_max'])
+    REG.add('S5.q_inf', f'{S5} sec:dom:c0', '0.4119', 1 - 1 / (2 * (1 - X.beta)), source='公式常数')
     cdt, dtmax, i1 = argmax(lambda c: cf(c)['dt_q_only'], trig * 1.0001, 30.0)
-    REG.add('S5.dt_argmax', f'{S5} 图 S 注', '6.607', cdt)
-    REG.add('S5.dt_argmax_text', f'{S5} §S5.2', '6.61', cdt)
-    REG.add('S5.dt_max', f'{S5} §S5.2', '103.2', dtmax)
+    REG.add('S5.dt_argmax', f'{S5} 图 fig:c0-scan', '6.607', cdt)
+    REG.add('S5.dt_argmax_text', f'{S5} app:c0_scan', '6.61', cdt)
+    REG.add('S5.dt_max', f'{S5} app:c0_scan', '103.2', dtmax)
     cJ, Jmax, i2 = argmax(lambda c: cf(c)['J_q_only'], trig * 1.0001, 30.0)
-    REG.add('S5.J_argmax', f'{S5} §S5.2', '18.12', cJ)
-    REG.add('S5.J_max', f'{S5} §S5.2', '42.80', Jmax)
+    REG.add('S5.J_argmax', f'{S5} app:c0_scan', '18.12', cJ)
+    REG.add('S5.J_max', f'{S5} app:c0_scan', '42.80', Jmax)
     cI, Imax, i3 = argmax(lambda c: cf(c)['Itcum_q_only_to_clearance'], trig * 1.0001, 30.0)
-    REG.add('S5.I_argmax', f'{S5} §S5.2', '13.88', cI)
-    REG.add('S5.I_max', f'{S5} §S5.2', '3610', Imax)
-    claim('S5.interior_maxima', f'{S5} §S5.2', '三个极大值都在扫描范围内部', i1 and i2 and i3)
-    REG.add('S5.t_end_3.43', f'{S5} §S5.2', '367', q_only(P5(c_a))['t_end'])
-    REG.add('S5.t_end_30', f'{S5} §S5.2', '102', q_only(P5(30.0))['t_end'])
-    REG.add('S5.beta_max', f'{S5} §S5.3', '0.261448', 1 - 1 / (2 * (1 - X.q0)), source='q_inf = q0（公式常数）')
+    REG.add('S5.I_argmax', f'{S5} app:c0_scan', '13.88', cI)
+    REG.add('S5.I_max', f'{S5} app:c0_scan', '3610', Imax)
+    claim('S5.interior_maxima', f'{S5} app:c0_scan', '三个极大值都在扫描范围内部', i1 and i2 and i3)
+    REG.add('S5.t_end_3.43', f'{S5} app:c0_scan', '367', q_only(P5(c_a))['t_end'])
+    REG.add('S5.t_end_30', f'{S5} app:c0_scan', '102', q_only(P5(30.0))['t_end'])
+    REG.add('S5.beta_max', f'{S5} app:c0_beta', '0.261448', 1 - 1 / (2 * (1 - X.q0)), source='q_inf = q0（公式常数）')
 
-    # ---------------- 补充 S2（λ 对 q0 的局部极大）
+    # ---------------- 补充 S3（λ 对 q0 的局部极大；证据 ID 保留原 S2）
     for beta, disp in ((0.10, '0.0736525'), (0.12, '0.1969606'), (0.155, '0.3890712')):
         Pb = B.with_(beta=beta)
         q_arg, lmax, inner = argmax(lambda q0: lam(Pb.with_(q0=q0)), 0.0, 0.39, n=800)
-        REG.add(f'S2.q0dagger.beta{beta}', f'{S2} §S2 数值结果', disp, q_arg, note=f'λ_max = {lmax!r}')
+        REG.add(f'S2.q0dagger.beta{beta}', f'{S2} sec:sup:inflection 数值结果', disp, q_arg, note=f'λ_max = {lmax!r}')
         claim(f'S2.q0dagger.beta{beta}.interior', f'{S2}', 'q0† 在 [0, 0.39] 内部', inner)
 
     dump('regression.json', dict(

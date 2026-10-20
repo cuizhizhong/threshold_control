@@ -1,4 +1,4 @@
-"""NEW-4d：成本结构定理入稿的派生核验与新增数字（第 5 章定理、截断推论、权重单调性命题，补充 S6 的 r̂ 命题）。
+"""NEW-4d：成本结构定理入稿的派生核验与新增数字（第 5 章定理、截断推论、权重单调性命题，补充 S5 的 r̂ 命题）。
 
 依据 ai/成本最优/ 专稿与 ai/NEW_4d_cost_structure_plan.md。只调用本模块已有的逐状态求解器（allocation.py，
 定理 5.1 的有限比较）与状态积分（state_integrals.py），不重算 ODE、不改旧括区与旧表值。
@@ -74,7 +74,7 @@ def symbolic_checks():
     out['Q_quadratic_lower_bound_discriminant'] = float(4 - 4 * 9 * (math.sqrt(2) - 1) * 12 * (math.sqrt(2) - 1))
     WW, SS = np.meshgrid(np.linspace(0, math.sqrt(3), 801), ss[::40])
     out['Q_min_on_box'] = float(sp.lambdify((w, s), Q)(WW, SS).min())
-    # r_cont < 27/(9-8b)，r_cont < r̂：在 b 网格上数值抽查（文字证明见附录 A 与补充 S6）
+    # r_cont < 27/(9-8b)，r_cont < r̂：在 b 网格上数值抽查（文字证明见附录 A 与补充 S5）
     bgrid = np.linspace(1e-6, 1 - 1e-6, 200001)
     rc = 16 / (bgrid + np.sqrt(bgrid ** 2 - 8 * bgrid + 8)) ** 2
     t = (3 + np.sqrt(9 - 8 * bgrid)) / 2

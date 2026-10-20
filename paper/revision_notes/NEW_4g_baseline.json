@@ -1,0 +1,9 @@
+{
+  "base": "83ddcdb",
+  "branch": "paper/submission-ready",
+  "files": {
+    "paper/flatten_curve_analysis_cn.pdf": "7f31eadf12d51f4484c1096aac0c8ccb294e807d14c988f72afe3f21297ab1e6",
+    "paper/flatten_curve_supplement_cn.pdf": "e3f4394adf6c223d80f3303c80b75e5a2006dbb7c942a3bc43467d9f0121e8cf",
+    "paper/generated/nr_numbers.tex": "49e5b256aafe1eb8cd776efae8a400bacf8d740a8ef4a21f075aad11b85cc719"
+  }
+}

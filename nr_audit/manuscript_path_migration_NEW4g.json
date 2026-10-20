@@ -1,0 +1,351 @@
+{
+  "schema_version": 1,
+  "stage": "NEW-4g",
+  "base_commit": "83ddcdbb4669132340b131e7ae76c8bbf418dba3",
+  "scope": "稿件路径、稳定label与定位说明；不运行科学计算，不覆盖历史报告和来源字段",
+  "historical_manifest": {
+    "path": "nr_audit/results/source_manifest.json",
+    "sha256": "bd5ed07bf8ae18b433be8e7d01055bd03bd0936d85c3ace137bccdfcb54e2ad0"
+  },
+  "evidence_identity_policy": "sources.FILES、Registry及理论检查的证据ID保持；use中NR历史说明保持原文。现行分拆由file_fragments记录，不把旧S6权重表归入新S8。",
+  "manifest_manuscript_locations": {
+    "table1": {
+      "historical_path": "paper/sections/06_numerics.tex",
+      "historical_manifest_sha256": "736be73cd5b1cf16e05660884af563f9aef680e9b5f43f9233e292edf4d20e0d",
+      "new4g_baseline_sha256": "4ada262f80854fc6a78bdc27ee133a5d035ec9025f629553f6a397bea8bad2b8",
+      "current_path": "paper/sections/06_numerics.tex",
+      "current_sha256": "c3bc8f0d35ab96db36723ffec28618d89ef8d8e68d60053a8ad9009d62a3f2a2"
+    },
+    "model_section": {
+      "historical_path": "paper/sections/02_model.tex",
+      "historical_manifest_sha256": "6d147f3780c322e5218b83533e9212d97859a31f6ed943c3f8714323e77e961a",
+      "new4g_baseline_sha256": "2c43997a5715c83c9ca1cc591b48d9fd6302c3d0ffc9e7f0a5e983583a2eac03",
+      "current_path": "paper/sections/02_model.tex",
+      "current_sha256": "df71ee4ba2d4fcffb2616fbe86605dc9ce9ca51d9bb635244049f1d33ac764ff"
+    },
+    "numerics_S1": {
+      "historical_path": "paper/supplement_sections/S1_baseline.tex",
+      "historical_manifest_sha256": "e6d628064c9e7f4efd94f47548fe6f90bcd98a226983f5c96a2fa6cde29e1708",
+      "new4g_baseline_sha256": "acdc0210ebf693f1ddc4675965e86c1a1cc1045f17758ead21d4352967b63686",
+      "current_path": "paper/supplement_sections/S2_single_control.tex",
+      "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1"
+    },
+    "numerics_S2": {
+      "historical_path": "paper/supplement_sections/S2_inflection.tex",
+      "historical_manifest_sha256": "feabe992515c9e9ac79dcd37bd2185eb852c900594f7ed9a5781a874d65ae4c2",
+      "new4g_baseline_sha256": "10cda56cfca71407f2c695b6bd9c491a6ff8cafdf6079405838f0a5437543f38",
+      "current_path": "paper/supplement_sections/S3_inflection.tex",
+      "current_sha256": "10cda56cfca71407f2c695b6bd9c491a6ff8cafdf6079405838f0a5437543f38"
+    },
+    "xian_S3": {
+      "historical_path": "paper/supplement_sections/S3_xian.tex",
+      "historical_manifest_sha256": "8e02dc26dbd77bcf3fc91a48fb2a3b6b931234110fce23bbdf9c904ea1c25739",
+      "new4g_baseline_sha256": "104ecd6d90f9202f84c5be060062b19a867e757a90b15d14cf30e352698d5eb0",
+      "current_path": "paper/supplement_sections/S6_xian.tex",
+      "current_sha256": "6ef1a648e304e298c4b514be7265ea4d9d9d1fb5212558ad21da8493a51e5cfa"
+    },
+    "contact_S5": {
+      "historical_path": "paper/supplement_sections/S5_contact.tex",
+      "historical_manifest_sha256": "1ef13b898ef72bcb6976bde170e31ca1e94c236010b1315f2c30a14965c4544c",
+      "new4g_baseline_sha256": "3830ad9ec1c172373ea3a648b63c08af93ec7c389212352e152066b281db121d",
+      "current_path": "paper/supplement_sections/S2_single_control.tex",
+      "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1"
+    },
+    "numerics_S6": {
+      "historical_path": "paper/supplement_sections/S6_numerics.tex",
+      "historical_manifest_sha256": "961bcd5882c4365c64c6167c89aa4eb8a23f35ab1381bc022c06d47c9fb97ee2",
+      "new4g_baseline_sha256": "2f14f06ba1180d614865ce7786e4e1299549b922e951befb75c7466d810a7ea0",
+      "current_path": "paper/supplement_sections/S8_numerics.tex",
+      "current_sha256": "161321ea36559bfcda8e8b7f8fe3537fb580a79cd2414bac41e2bb2985642446"
+    },
+    "xian_chapter": {
+      "historical_path": "paper/sections/07_xian.tex",
+      "historical_manifest_sha256": "e6165ac65394fce196edce4e0d3fb0816d4ea44cd22c11121e185cdc19129028",
+      "new4g_baseline_sha256": "011979ea924660315492a0d2aaf120579f8cbc7f3821147f53b4158762a1c3a3",
+      "current_path": "paper/sections/07_xian.tex",
+      "current_sha256": "4952f88ad903d47e8adb831b47d1d1db6357765e06ea1ab6050eea24918f1210"
+    }
+  },
+  "file_fragments": [
+    {
+      "historical_path": "paper/supplement_sections/S1_baseline.tex",
+      "new4g_baseline_sha256": "acdc0210ebf693f1ddc4675965e86c1a1cc1045f17758ead21d4352967b63686",
+      "current_fragments": [
+        {
+          "path": "paper/supplement_sections/S2_single_control.tex",
+          "labels": [
+            "sec:sup:baseline-scan",
+            "tab:sup:baseline",
+            "fig:baseline:q-joint",
+            "fig:scenario1_heatmaps_c0_eta",
+            "eq:small-threshold"
+          ],
+          "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1"
+        }
+      ]
+    },
+    {
+      "historical_path": "paper/supplement_sections/S2_inflection.tex",
+      "new4g_baseline_sha256": "10cda56cfca71407f2c695b6bd9c491a6ff8cafdf6079405838f0a5437543f38",
+      "current_fragments": [
+        {
+          "path": "paper/supplement_sections/S3_inflection.tex",
+          "labels": [
+            "sec:sup:inflection",
+            "prop:s1:lambda-sensitivity",
+            "fig:s1:lambda-sensitivity",
+            "fig:s1:inflection-scan",
+            "app:lambda"
+          ],
+          "current_sha256": "10cda56cfca71407f2c695b6bd9c491a6ff8cafdf6079405838f0a5437543f38"
+        }
+      ]
+    },
+    {
+      "historical_path": "paper/supplement_sections/S3_xian.tex",
+      "new4g_baseline_sha256": "104ecd6d90f9202f84c5be060062b19a867e757a90b15d14cf30e352698d5eb0",
+      "current_fragments": [
+        {
+          "path": "paper/supplement_sections/S1_medical.tex",
+          "labels": [
+            "sec:sup:medical-link"
+          ],
+          "current_sha256": "2d61ee3eead7a8f1b0db4352376fe64781f43a007d6a9ba0ea91c344e4a15b36"
+        },
+        {
+          "path": "paper/supplement_sections/S6_xian.tex",
+          "labels": [
+            "sec:sup:xian",
+            "sec:sup:xian:settings",
+            "prop:reference-population",
+            "tab:sup:fit",
+            "tab:sup:initial",
+            "tab:sup:ic",
+            "tab:sup:eta",
+            "fig:xian_eta_sens",
+            "fig:xian_heatmaps",
+            "sec:sup:threshold-scale"
+          ],
+          "current_sha256": "6ef1a648e304e298c4b514be7265ea4d9d9d1fb5212558ad21da8493a51e5cfa"
+        }
+      ]
+    },
+    {
+      "historical_path": "paper/supplement_sections/S5_contact.tex",
+      "new4g_baseline_sha256": "3830ad9ec1c172373ea3a648b63c08af93ec7c389212352e152066b281db121d",
+      "current_fragments": [
+        {
+          "path": "paper/supplement_sections/S2_single_control.tex",
+          "labels": [
+            "sec:sup:contact-scan",
+            "sec:dom:c0",
+            "app:c0_scan",
+            "app:c0_beta",
+            "fig:c0-panel",
+            "fig:c0-scan",
+            "fig:c0-phase",
+            "fig:c0-beta-existence"
+          ],
+          "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1"
+        }
+      ]
+    },
+    {
+      "historical_path": "paper/supplement_sections/S6_numerics.tex",
+      "new4g_baseline_sha256": "2f14f06ba1180d614865ce7786e4e1299549b922e951befb75c7466d810a7ea0",
+      "current_fragments": [
+        {
+          "path": "paper/supplement_sections/S5_weight_structure.tex",
+          "labels": [
+            "prop:sup:rhat",
+            "tab:joint:weight-transitions",
+            "fig:sup:phase-detail"
+          ],
+          "current_sha256": "5b7db9952e30df4c07d9993f321269b85034dba83d810ff376b81c9e4d90b541"
+        },
+        {
+          "path": "paper/supplement_sections/S8_numerics.tex",
+          "labels": [
+            "sec:sup:numerics",
+            "tab:sup:convergence"
+          ],
+          "current_sha256": "161321ea36559bfcda8e8b7f8fe3537fb580a79cd2414bac41e2bb2985642446"
+        }
+      ]
+    },
+    {
+      "historical_path": "paper/sections/03_single_control.tex",
+      "new4g_baseline_sha256": "1c402f3395dddb5f93f5eca47cdc3f1dedf31ec94dace1428e63683b41649b7e",
+      "current_fragments": [
+        {
+          "path": "paper/supplement_sections/S2_single_control.tex",
+          "labels": [
+            "lem:s1:trigger-boundary",
+            "prop:contact-effects",
+            "eq:s1:c0-min-def",
+            "eq:s1:Imax-no-c0-derivative",
+            "eq:duration-c0"
+          ],
+          "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1"
+        }
+      ]
+    },
+    {
+      "historical_path": "paper/sections/04_joint_control.tex",
+      "new4g_baseline_sha256": "bdb9590482e65888ceee345a2749af21fd47cad7ae71a414ef6642a7ae9ba672",
+      "current_fragments": [
+        {
+          "path": "paper/supplement_sections/S4_explicit_control.tex",
+          "labels": [
+            "thm:joint:explicit",
+            "cor:joint:allocation-range",
+            "eq:joint:explicit-S",
+            "eq:joint:explicit-duration",
+            "eq:joint:explicit-zero",
+            "eq:joint:allocation-range"
+          ],
+          "current_sha256": "5c4c5b8d2630a16705731af9517ed02bfdba03d3dd18001bb5369efd615b8ae1"
+        }
+      ]
+    },
+    {
+      "historical_path": "paper/sections/06_numerics.tex",
+      "new4g_baseline_sha256": "4ada262f80854fc6a78bdc27ee133a5d035ec9025f629553f6a397bea8bad2b8",
+      "current_fragments": [
+        {
+          "path": "paper/supplement_sections/S2_single_control.tex",
+          "labels": [
+            "sec:sup:baseline-contact-scan",
+            "fig:scenario1_summary_c0"
+          ],
+          "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1"
+        }
+      ]
+    },
+    {
+      "historical_path": "paper/appendices/A_proofs_sensitivity.tex",
+      "new4g_baseline_sha256": "4acdd18f9650bf04731bd48784bcb5fc6801c64fa49dce62171e646054a85adc",
+      "current_fragments": [
+        {
+          "path": "paper/supplement_sections/S2_single_control.tex",
+          "labels": [
+            "sec:proof:contact-effects"
+          ],
+          "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1"
+        }
+      ]
+    }
+  ],
+  "protected_original_sha256": {
+    "joint_control/threshold_control_reproducible_release_20261002/numerics/inputs/baseline_parameters.json": "5aeafe3fe2ba5809eda90a9fbfd9c722dd9161e9d026e5740dd74f94e183f9d6",
+    "nr_audit/allocation.py": "ad1ba61f6d665519a7742ea994a1c3a267d19aab7aff3bc38c02c32bb9776801",
+    "nr_audit/audit_weights.py": "47334a9b51c6eeca417f67c48a1de9eb7e0b86fe2997a2334462a57571673697",
+    "nr_audit/model.py": "93602e6613f4e1eb8b72019d507e97b6d23b9b3691324e1ac25f5a5105ad4d6b",
+    "nr_audit/params.py": "0db269fb16f92f2ee01f7a5d2586c38c683a906aecc732032c46c4620c74395f",
+    "nr_audit/results/convergence.json": "c009cf5de7feabfdd8262b9f12f0c02ee2a2ef6b867813bbf8c7222994ea2f3f",
+    "nr_audit/results/convergence.md": "4bec02143f25d2b7596dd484d44ca8f32b7cd7ecd860584efa39dc8d5f7a8676",
+    "nr_audit/results/figure_table_sources.csv": "9acbe399ceed01289b02fe2d8e503fcf4951aefaae4e2214c40eb3d12269710f",
+    "nr_audit/results/fit_reconstruction.json": "ce8430931ad4ca149d57ddff0cfb14c6977a88e6025440064bfe589e1813b4fd",
+    "nr_audit/results/fit_reconstruction.md": "c9e25d877c7802fbe047afd84a21fa45069c63767c94a4f0cdf6f553139b90ae",
+    "nr_audit/results/initial_condition.json": "b7a6801675ccf8ffe5927d9ce7cdf4c0b57ef7c516ff90f5a7db5d152b399e33",
+    "nr_audit/results/initial_condition.md": "a337f21b581c5cdfe7412f95fd43ba4810af44f6b2ed5378adbd5067ad136cfd",
+    "nr_audit/results/new1_test_summary.json": "df28fa90a6edecb7dd81feebc8fe8af76fd850572f0c9a711392ce7d6e859634",
+    "nr_audit/results/new4_no_git_snapshot.json": "731ce56e5f476dacc7d821809045230f81bcb98b02e22ec48a811c29d941eaf8",
+    "nr_audit/results/new4_pdf_qa.json": "5f2aff43d047e22027a6aa1e690043f8f95a66fe81c26c74298e8b02cc883038",
+    "nr_audit/results/new4_preservation.json": "fea48cc7719458c54bd7dbe33762be9c71454e86d56f2edfc31df80beac760ce",
+    "nr_audit/results/new4_test_summary.json": "ba60c30928eedffb2352883da809782f3fff23773023655a901d0293a2428d6a",
+    "nr_audit/results/new4_validation_summary.json": "852c6248e3a679d210687eae6674ea16ddec0cc6488ddfa3da6c28f83a17c966",
+    "nr_audit/results/new4a_identity_migration.json": "78fc263ef88c0cd87ecfd6653586c5b6fe8bb003d483656c40e4e4058115d0eb",
+    "nr_audit/results/new4a_reproducibility.json": "24b1023cb5741a3935cceed3d9c247979ad1b6716c941da676383dc6c6564677",
+    "nr_audit/results/new4a_validation.json": "7890cc2d7f078d6dbc96bae2afec38b11582ae9a3aeb4527584abb73b40f3ec9",
+    "nr_audit/results/new4b_identity_migration.json": "cc7928e034c81680fb51cd1981ea9fe65ffe5ebaccea64dadda86fd95796e20c",
+    "nr_audit/results/new4b_math_preservation.json": "8a09793bccb4e32d45f13da1415ee2ba0016612152f315b07f97efe01d861859",
+    "nr_audit/results/new4b_pdf_qa.json": "df76bfd1dd2d6fa0751a05fe48a89e1a5901ce9783b53850221a8ee503f2dae3",
+    "nr_audit/results/new4b_reproducibility.json": "45d0021376feb5a4ffe71d35c08e49fdc173325657ca67de52eb7d073c241b2b",
+    "nr_audit/results/new4d_cost_structure.json": "47f513417c2fbd0bedbbdc67fe5fb434ace27d5676b9c5d47710f46ca1857d29",
+    "nr_audit/results/new4d_cost_structure.md": "3d71f0b15e64c3dc137e9a9d29d3c79d33c93d4723f42da398b45b7cb71553ca",
+    "nr_audit/results/new4d_figure7.json": "d8f0aab4231b4fa7ca52bc60c04f134ee8ce9edae52857e039116b902ea487ec",
+    "nr_audit/results/new4d_figure7.npz": "9f6e6d68bad37f8af1a781e21ebbfedfda723f7a79316874cb56934c66b3cfd5",
+    "nr_audit/results/new4d_figure7_detail_render.json": "b878a46cb9323fec331f9aae1619678a5cfdc64b4f47af280cc17f2d5a264925",
+    "nr_audit/results/new4d_figure7_render.json": "15d3922e4375d95c9eb3592422ea16ac9f72fcd4dc241279eaed3041b5f7279b",
+    "nr_audit/results/new_figure7.json": "f786ec80f86c39fafbd2cd7a0984e543eee44001a1cbc8c52da205920a52b4fb",
+    "nr_audit/results/new_figure7.npz": "719d07962df7bb607ad6fd8a73cbc454be10254dc15d7543f0819ed36ecd963f",
+    "nr_audit/results/new_figure7_alignment.json": "1af0da497712b3c26e341e400395fc98f286f7101aa35d0fc4c4e8779a92ec5c",
+    "nr_audit/results/new_figure7_collisions.json": "17da644713c73b39651b9e7c6f9deba6df6a38fcf9d4849729ac0d12c1b6200a",
+    "nr_audit/results/new_figure7_render.json": "c348351c06315307a402085e21fb7f74cf08aec14bae3a28fb9d3aaeca6be1c1",
+    "nr_audit/results/new_figure_table_mapping_summary.json": "5d89639256ac695708060d18f3bb29a919cdaf15df4504f01afb959a6e4447d7",
+    "nr_audit/results/new_no_git_snapshot.json": "f07d403e060b1e7de86ca93d6a1f1ec37bdb54f60fdb3584929f893a51f2f7d4",
+    "nr_audit/results/new_return_endpoint.csv": "1ff4d2230335e878c7d236f8718b9ed01ab243ef46b8cd3551b1bcd1c7d77145",
+    "nr_audit/results/new_return_endpoint.json": "07d8d0cde16f72601a1a11e13d1ded41bf9c9c6b63fe09b54be9b75ff71cc602",
+    "nr_audit/results/new_source_identity.json": "adb1a9706bf6fe02a4313846caecdee35521799d0e28261cb1ce3751cb02572a",
+    "nr_audit/results/noreturn_inf_crosscheck.json": "d03ba04f5181ee09de92c3e57575fd8e0f2b3606e04c136bc0e99f6563ef19b6",
+    "nr_audit/results/noreturn_inf_crosscheck.md": "5418f2467bbb77e637f6ee7e2c700ce64114c9d1e2c0f82742a5684559de584a",
+    "nr_audit/results/nr2_test_report.json": "e56e9c6ebc0cfe4723c7688f4687762f9f99665973a9a6d916975ab9b25ee791",
+    "nr_audit/results/nr2_test_report.md": "09390a64aaf6bc5ec54ed76b4ba2b11c8b0ad12e493c0f63c20ad84158176692",
+    "nr_audit/results/nr2_test_report_smoke.json": "30ff4d9ef9e54e0edea93b4336abc80ae743b01977d7daa6783963787920bcc8",
+    "nr_audit/results/nr2_test_report_smoke.md": "3818df17ead97235cd3c486bae6ce679c1720de9cf66c14b78338bd2a5abf89b",
+    "nr_audit/results/nr_numbers_map.json": "40d09ab6d52a4cc05ee667b808eb0b0ed5b98606b352774bdaf8d9ae874d675f",
+    "nr_audit/results/population_scale.json": "87f8d289224718d93970fdcc89ca705c279aaaf103df11e3cedca16d41d7ac66",
+    "nr_audit/results/population_scale.md": "ef4f51c1e5be88b70152cb6d39b183f763f21442e626af3d19bbaa19fd381c5b",
+    "nr_audit/results/regression.json": "a632beb3f2494108e8b555260dd3cbd29968c1497f412cca731f51aa8d4a4e6f",
+    "nr_audit/results/regression.md": "6afb699e0c99369d2137e8c26379b1167cfd80d6fb8829cdb2ccdb2702882c27",
+    "nr_audit/results/return_import.json": "f71b20b241e2ac95b52e6b96e6e25630d0b5ea3c237cc44c0f2b2ae24110c215",
+    "nr_audit/results/source_manifest.json": "bd5ed07bf8ae18b433be8e7d01055bd03bd0936d85c3ace137bccdfcb54e2ad0",
+    "nr_audit/results/theory_checks.json": "61bde67460422d6b534c79b1e9afcf21ffd944e01243b3c4f05aaa8c0f706f74",
+    "nr_audit/results/theory_checks.md": "cf5329be8e046ad040b1827ad2ba9c22439a518596a4540689dfda8eef0ad569",
+    "nr_audit/results/weight_brackets.json": "a17871f0c81b8248f0316759d5f146063eeb967ffaf78cd6873016354192f9da",
+    "nr_audit/results/weight_brackets.md": "e5a77c3ae2f55383af3c4c5f463e020af8bbbe0495fcc92615d4390c92abadba",
+    "nr_audit/simulate.py": "0e51b4557ab056fa6b11d7a5034d80af17519ac51914242ee2874f007f657195",
+    "nr_audit/state_integrals.py": "f23eefebb34d742d1e887d6514413657b0b98d7b2639a4143aac5a9e6b9c254b",
+    "nr_audit/tdinn.py": "c552b1e077da5827b8b7938e320694210bebb09c1623fff30c3f78579cd6808d",
+    "reproducibility/c0.py": "eab4e61b0301cf80a6233b4de9a99f955238f53ecf6283da011459ec8bbeda4b",
+    "reproducibility/manuscript_audit_notes.md": "82bf0c64d14a8f36e41a3e00ee016452ae182f97b3a0436d4142d489416f3ddb",
+    "reproducibility/results/20261003_release_final/c0/representative_summary.csv": "4e054fbbbef349d33ee5d22baf9f05aa4ff072c264e7921625319500ff9b1f51",
+    "reproducibility/results/20261003_release_final/xian/fit.json": "bdbee6a736f2f620f5e306bc75d71825453689e798dc67c0c45fec65de879693",
+    "reproducibility/results/20261003_release_final/xian/observed.csv": "c634b0b4f637c71bbeaa91328adeba464aa74b18db0db26ae8a00489b79ce43a",
+    "reproducibility/results/20261003_release_final/xian/reference.json": "b920deaf55f771958433ab27f32ca1606393c9ae7b96d3361aee053af097bc45",
+    "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/capacity.json": "1eec6f25f630dfe669ade76a4d683cfa509ab00f71ba65351cfd9b8fdad6a7f9",
+    "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/compare_baseline.csv": "9b4ae23be6bbbca4f912a6c060e07dd7da0c81144ad191a0dfaa2f9b3c2abbf3",
+    "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/compare_xian.csv": "a610aa4f0dbaf562f723cfa984f1c2565799fafe1cf3695011d63a1fdbe72448",
+    "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/frontier_baseline.csv": "6aa3625951a90db169c9f2ecc82c9b86da283f40ecd813c3753a367383331d8a",
+    "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/input_manifest.json": "33d2edd859ed11d364e523ebd4542ee368faca5bad97c51b9e89d1c1959d1835",
+    "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/phase.json": "2385cab466e9e15003b559dd418351bd194f507e45397a14f46f49c77b04cb01",
+    "reproducibility/xian.py": "7a8a3b82137432150bd6e2bb775386124b1f12a3e85c75d6b7776bda9f008aba",
+    "xian_control_comparison/xian_control_comparison.py": "c029a604c8f7147a24d59e6c0d39a927ff360f0dbb1b7338f23bd86573ff15a2",
+    "真实数据/Xianguankong.xlsx": "5ea88fcc6041e29e267d30a858c6706e1c791b98f6da79b889fe01326d7b2bbf"
+  },
+  "historical_entry_points": [
+    {
+      "path": "nr_audit/audit_new_preservation.py",
+      "reason": "NEW-4原基准逐文件审计保留历史实现；NEW-4g由audit_layout_migration.py核对跨文件迁移，禁止用旧逐文件假设判定新稿。"
+    },
+    {
+      "path": "nr_audit/audit_weights.py",
+      "reason": "图7缓存身份输入，原字节不改；其中旧表S5为历史说明，现行结构表在S5_weight_structure.tex的tab:joint:weight-transitions。"
+    }
+  ],
+  "validation": {
+    "scientific_computations_run": 0,
+    "current_hash_status": "final_editorial_files_verified",
+    "static_test_commands": [
+      "E:/anaconda/envs/thesis/python.exe -m pytest nr_audit/tests/test_sources.py nr_audit/tests/test_numbers.py -q -p no:cacheprovider"
+    ],
+    "protected_original_files_verified": 76,
+    "location_only_ast_modules": [
+      "sources.py",
+      "audit_baseline.py",
+      "audit_fit.py",
+      "theory_checks.py",
+      "audit_cost_structure.py",
+      "figure_table_sources.py"
+    ],
+    "evidence_ids_unchanged": true,
+    "ast_check": "排除字符串和Registry/claim的where定位表达式后，其余AST逐项相同；另逐项比较原始证据ID表达式。",
+    "runtime_fallback": "conda.exe遇Windows DLL重定位错误；直接调用同一thesis环境的python.exe完成静态测试。",
+    "static_tests": {
+      "passed": 16,
+      "failed": 0,
+      "pytest_duration_seconds": 0.29
+    }
+  }
+}

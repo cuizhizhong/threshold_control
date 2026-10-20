@@ -8,7 +8,7 @@
   模型日新增为进入 I（社区）与进入 I_q（隔离）的流量在该区间上的积分，模型累计为 k+1 时刻的累计流量（自 t = 0 起，
   不含初始感染者）；四项为社区日新增、隔离日新增、社区累计、隔离累计的均方误差，等权相加。
 - 控制函数：稿件式 (7.1) 的 TDINN 函数（tdinn.py）。
-本脚本在给定的未取整 I0（fit.json）下重算四项误差，并重算补充表 S2 的拟合行与固定 I0 = 1 的对照行。
+本脚本在给定的未取整 I0（fit.json）下重算四项误差，并重算补充表 tab:sup:initial 的拟合行与固定 I0 = 1 的对照行。
 
 运行：conda run --no-capture-output -n thesis python nr_audit/audit_fit.py
 输出：results/fit_reconstruction.json、results/fit_reconstruction.md
@@ -21,7 +21,8 @@ import sources as SRC
 import tdinn as TD
 from audit_common import RESULTS, ROOT, Registry, dump, rel, tex_table_rows
 
-S3 = 'paper/supplement_sections/S3_xian.tex'
+# S3 及 S2tab 证据 ID 保留 NR 历史身份；当前稿件表格位于 NEW-4g 的 S6。
+S3 = 'paper/supplement_sections/S6_xian.tex'
 XT = 'paper/sections/07_xian.tex'
 
 
@@ -67,14 +68,14 @@ def main():
             old=fit['raw_rmse'], old_source='fit.json:raw_rmse')
     rows = tex_table_rows(S3, 'tab:sup:initial')
     obs_row, fit_row, one_row = rows
-    REG.add('S2tab.obs.cum40', f'{S3} 表 S2', obs_row[2], float(raw['community_cum'].iloc[-1] + raw['quarantine_cum'].iloc[-1]))
-    REG.add('S2tab.obs.peak_c', f'{S3} 表 S2', obs_row[3], float(raw['community_new'].max()))
-    REG.add('S2tab.obs.peak_q', f'{S3} 表 S2', obs_row[4], float(raw['quarantine_new'].max()))
-    REG.add('S2tab.fit.I0', f'{S3} 表 S2', fit_row[1], X.I0)
+    REG.add('S2tab.obs.cum40', f'{S3} 表 tab:sup:initial', obs_row[2], float(raw['community_cum'].iloc[-1] + raw['quarantine_cum'].iloc[-1]))
+    REG.add('S2tab.obs.peak_c', f'{S3} 表 tab:sup:initial', obs_row[3], float(raw['community_new'].max()))
+    REG.add('S2tab.obs.peak_q', f'{S3} 表 tab:sup:initial', obs_row[4], float(raw['quarantine_new'].max()))
+    REG.add('S2tab.fit.I0', f'{S3} 表 tab:sup:initial', fit_row[1], X.I0)
     for row, e, tag in ((fit_row, e_fit, 'fit'), (one_row, e_one, 'I0=1')):
-        REG.add(f'S2tab.{tag}.cum40', f'{S3} 表 S2', row[2], e['cumulative_40'])
-        REG.add(f'S2tab.{tag}.peak_c', f'{S3} 表 S2', row[3], e['community_daily_peak'])
-        REG.add(f'S2tab.{tag}.peak_q', f'{S3} 表 S2', row[4], e['quarantine_daily_peak'])
+        REG.add(f'S2tab.{tag}.cum40', f'{S3} 表 tab:sup:initial', row[2], e['cumulative_40'])
+        REG.add(f'S2tab.{tag}.peak_c', f'{S3} 表 tab:sup:initial', row[3], e['community_daily_peak'])
+        REG.add(f'S2tab.{tag}.peak_q', f'{S3} 表 tab:sup:initial', row[4], e['quarantine_daily_peak'])
     REG.add('s71.community_total', f'{XT} §7.1', '583', float(raw['community_cum'].iloc[-1]))
     REG.add('s71.quarantine_total', f'{XT} §7.1', '1467', float(raw['quarantine_cum'].iloc[-1]))
     REG.add('s71.total', f'{XT} §7.1', '2050', float(raw['community_cum'].iloc[-1] + raw['quarantine_cum'].iloc[-1]))

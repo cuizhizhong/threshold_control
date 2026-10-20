@@ -68,11 +68,12 @@ FILES = {
     'c0_code': ('reproducibility/c0.py', 'N1：补充 S5 代表点 c0 的取法（触发边界 ×1.03、拐点边界 +0.05），只读'),
     'c0_representative': ('reproducibility/results/20261003_release_final/c0/representative_summary.csv',
                           'N1：补充 S5 代表点的原结果（核对用）'),
-    'numerics_S1': ('paper/supplement_sections/S1_baseline.tex', 'N1：补充表 S1'),
-    'numerics_S2': ('paper/supplement_sections/S2_inflection.tex', 'N1：补充 S2 的 q0†'),
-    'xian_S3': ('paper/supplement_sections/S3_xian.tex', 'N1、N5：补充表 S2、S3'),
-    'contact_S5': ('paper/supplement_sections/S5_contact.tex', 'N1：补充 S5'),
-    'numerics_S6': ('paper/supplement_sections/S6_numerics.tex', 'N1、N3：补充 S6 与表 S5'),
+    # 证据 ID 与 use 的 NR 历史说明保持；NEW-4g 现行定位及分拆见独立路径迁移收据。
+    'numerics_S1': ('paper/supplement_sections/S2_single_control.tex', 'N1：补充表 S1'),
+    'numerics_S2': ('paper/supplement_sections/S3_inflection.tex', 'N1：补充 S2 的 q0†'),
+    'xian_S3': ('paper/supplement_sections/S6_xian.tex', 'N1、N5：补充表 S2、S3'),
+    'contact_S5': ('paper/supplement_sections/S2_single_control.tex', 'N1：补充 S5'),
+    'numerics_S6': ('paper/supplement_sections/S8_numerics.tex', 'N1、N3：补充 S6 与表 S5'),
     'xian_chapter': ('paper/sections/07_xian.tex', 'N1：第 7 章与表 3'),
 }
 

@@ -1,5 +1,7 @@
 """数字来源测试：参数、初值与能力代表点逐位取自来源字段；来源文件未变；参照数据的列存在；
 复用代码的来源 blob 与回流分支提交一致；稿件表 1 的显示值与未取整参数一致。"""
+import copy
+import hashlib
 import json
 import re
 import subprocess
@@ -17,12 +19,25 @@ def manifest():
 
 
 def test_manifest_current(manifest):
-    """results/source_manifest.json 与按当前代码重新生成的清单一致（稿件文件的哈希除外）。"""
+    """独立迁移收据只投影稿件路径/哈希；历史清单中的科学来源与参数逐字段保持。"""
+    receipt_path = SRC.HERE / 'manuscript_path_migration_NEW4g.json'
+    receipt = json.loads(receipt_path.read_text(encoding='utf-8'))
+    assert receipt['historical_manifest']['path'] == MANIFEST.relative_to(SRC.ROOT).as_posix()
+    assert receipt['historical_manifest']['sha256'] == hashlib.sha256(MANIFEST.read_bytes()).hexdigest()
+    projected = copy.deepcopy(manifest)
     fresh = json.loads(json.dumps(SRC.build(), ensure_ascii=False))
-    for fid in fresh['files']:
-        fresh['files'][fid].pop('sha256') if not fresh['files'][fid]['pinned'] else None
-        manifest['files'][fid].pop('sha256') if not manifest['files'][fid]['pinned'] else None
-    assert fresh == manifest
+    rows = receipt['manifest_manuscript_locations']
+    assert set(rows) == {fid for fid, f in manifest['files'].items() if not f['pinned']}
+    for fid, migration in rows.items():
+        old = projected['files'][fid]
+        assert old['pinned'] is False and old['path'].startswith('paper/')
+        assert old['path'] == migration['historical_path']
+        assert old['sha256'] == migration['historical_manifest_sha256']
+        assert fresh['files'][fid]['path'] == migration['current_path']
+        assert fresh['files'][fid]['sha256'] == migration['current_sha256']
+        old['path'] = migration['current_path']
+        old['sha256'] = migration['current_sha256']
+    assert fresh == projected
 
 
 def test_pinned_files_unchanged(manifest):

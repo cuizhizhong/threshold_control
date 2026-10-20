@@ -1,0 +1,58 @@
+\section{显式控制族}
+\label{sec:sup:explicit}
+正文式\eqref{eq:joint:explicit-c}--\eqref{eq:joint:explicit-q}定义了一族连接两种单控制的控制。本节给出这一族的状态轨迹、控制时长及能力约束下的允许范围。
+\begin{theorem}
+\label{thm:joint:explicit}
+固定 $0<\alpha\le1$ 时，式\eqref{eq:joint:explicit-c}--\eqref{eq:joint:explicit-q}对应的阈值控制期状态为
+\begin{equation}
+S(t)=S_c+
+\left(S^*-S_c+\frac{S_c-\bar S}{\alpha}\right)
+ e^{-\frac{c_0\eta\alpha}{N}(t-t_1)}
+-\frac{S_c-\bar S}{\alpha},\qquad I(t)=\eta,
+\label{eq:joint:explicit-S}
+\end{equation}
+控制时长为
+\begin{equation}
+\Delta t(\alpha)=\frac{N}{c_0\eta\alpha}
+\ln\!\left(1+\frac{\alpha(S^*-S_c)}{S_c-\bar S}\right).
+\label{eq:joint:explicit-duration}
+\end{equation}
+$\alpha=0$ 时，相应表达为
+\begin{equation}
+S(t)=S^*-\frac{c_0\eta}{N}(S_c-\bar S)(t-t_1),\qquad
+\Delta t(0)=\frac{N(S^*-S_c)}{c_0\eta(S_c-\bar S)}.
+\label{eq:joint:explicit-zero}
+\end{equation}
+将上述 $S(t)$ 代入式\eqref{eq:joint:explicit-c}--\eqref{eq:joint:explicit-q}，即得到两个控制的时间表达。$\alpha=0$ 对应仅减少接触，$\alpha=1$ 恢复第~\ref{sec:s1}~节的仅隔离控制。对于 $0<\alpha<1$，阈值控制期内接触率严格增加、隔离比例严格下降，并在退出时同时连续恢复为 $(c_0,q_0)$。
+\end{theorem}
+\begin{proof}
+代入式\eqref{eq:joint:Sdot}得
+\[
+\dot S=-\frac{c_0\eta}{N}\bigl[S_c-\bar S+\alpha(S-S_c)\bigr],
+\qquad S(t_1)=S^*.
+\]
+分别求解 $\alpha>0$ 和 $\alpha=0$ 的线性方程，得到状态表达；令 $S(t_2)=S_c$ 得到控制时长。两组公式在 $\alpha\downarrow0$ 时连续衔接。对于 $0<\alpha<1$，
+\[
+\frac{\partial c_c(S;\alpha)}{\partial S}
+=-\frac{c_0(1-\alpha)S_c}{S^2}<0,\qquad
+\frac{\partial q_c(S;\alpha)}{\partial S}
+=\frac{(1-q_0)S_c\alpha}{[S_c+\alpha(S-S_c)]^2}>0,
+\]
+结合 $\dot S<0$ 即得时间单调性。代入 $S=S_c$ 得到退出值，代入 $\alpha=0,1$ 分别恢复两种单控制。
+\end{proof}
+\begin{corollaryn}
+\label{cor:joint:allocation-range}
+在能力约束下，上述显式族可行当且仅当
+\begin{equation}
+\max\!\left\{0,\frac{c_{\min}S^*-c_0S_c}{c_0(S^*-S_c)}\right\}
+\le\alpha\le
+\min\!\left\{1,\frac{S_c(q_{\rm cap}-q_0)}{(1-q_{\rm cap})(S^*-S_c)}\right\}.
+\label{eq:joint:allocation-range}
+\end{equation}
+该区间非空当且仅当式\eqref{eq:joint:feasibility}成立。
+\end{corollaryn}
+\begin{proof}
+显式族中 $c$ 不减、$q$ 不增，故只需在 $S=S^*$ 处检查 $c\ge c_{\min}$ 和 $q\le q_{\rm cap}$。代入式\eqref{eq:joint:explicit-c}--\eqref{eq:joint:explicit-q}并与 $\alpha\in[0,1]$ 取交，得到式\eqref{eq:joint:allocation-range}。未截断的下界不超过 $1$，未截断的上界非负；二者的大小关系等价于
+$c_{\min}S^*\le c_0(1-q_0)S_c/(1-q_{\rm cap})$，
+即式\eqref{eq:joint:feasibility}，故该区间与 $\mathcal A(\eta;c_{\min},q_{\rm cap})$ 同时非空。
+\end{proof}

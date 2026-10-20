@@ -245,70 +245,11 @@ R_e(t_2^+)=1+\frac{\xi S_q(t_2^-)}{S_c},\qquad
 \end{proposition}
 证明见附录~\ref{sec:proof:threshold-tradeoff}。阈值越高，干预启动越晚、持续越短、强度越低，代价是更多的人被感染。清零时间还包含退出后的下降过程，需由式\eqref{eq:s1:tend}单独判断。
 
-常规接触率首先决定控制是否被触发。
-\begin{lemma}
-\label{lem:s1:trigger-boundary}
-固定其余参数，设 $I_0<\eta<I_0+\beta_2^0S_0/\beta_1^0$。则存在唯一的触发边界 $c_{0,\min}(\eta)$，满足
-\begin{equation}
-I_{\max}^{0}\bigl(c_{0,\min}(\eta)\bigr)=\eta,
-\qquad c_{0,\min}(\eta)>\frac{\gamma N}{\beta(1-q_0)S_0},
-\label{eq:s1:c0-min-def}
-\end{equation}
-且控制恰在 $c_0>c_{0,\min}(\eta)$ 时被触发。
-\end{lemma}
-\begin{proof}
-当 $c_0\le\gamma N/[\beta(1-q_0)S_0]$，即 $S_0\le S_c$ 时，常规峰值为 $I_0$；$c_0$ 超过这一值后，由式\eqref{eq:s1:Imax-no}，
-\begin{equation}
-\frac{dI_{\max}^{0}}{dc_0}
-=-\frac{\rho_1}{c_0}\ln\frac{S_c}{S_0}>0,
-\label{eq:s1:Imax-no-c0-derivative}
-\end{equation}
-峰值随 $c_0$ 严格增加，$c_0\to\infty$ 时趋于 $I_0+\beta_2^0S_0/\beta_1^0$。由连续性与严格单调性，$I_{\max}^{0}=\eta$ 恰有一个根；触发条件\eqref{eq:model:trigger}即 $I_{\max}^{0}>\eta$，恰在 $c_0$ 大于该根时成立。
-\end{proof}
-\begin{proposition}
-\label{prop:contact-effects}\label{cor:s1:duration-sensitivity}
-在触发条件内部，对于仅隔离控制，
-\[
-\frac{\partial t_1}{\partial c_0}<0,\qquad
-\frac{\partial q_{\max}}{\partial c_0}>0,\qquad
-\frac{\partial\Delta t}{\partial\beta}>0,\qquad
-\frac{\partial\Delta t}{\partial q_0}<0.
-\]
-接触率对控制时长的影响由
-\begin{equation}
-\frac{\partial\Delta t}{\partial c_0}
-=\frac{N}{c_0^2\eta}
-\left\{\frac{S^*}{S^*-\bar S}
-\left[1+\frac{S_c}{S^*-S_c}\ln\frac{S_0}{S^*}\right]
--\ln\frac{S^*-\bar S}{S_c-\bar S}\right\}
-\label{eq:duration-c0}
-\end{equation}
-确定，其符号不能统一为正或负。固定 $I_0<\eta<I_0+\beta_2^0S_0/\beta_1^0$ 时，$\Delta t$ 在 $c_0\in(c_{0,\min},\infty)$ 内至少有一个极大值。
-\end{proposition}
-证明见附录~\ref{sec:proof:contact-effects}。接触率越高，$S^*$ 越大、$S_c$ 越小，控制期要消耗的易感者 $S^*-S_c$ 越多；但 $S$ 也下降得越快。两种作用方向相反，因此控制时长可增可减。
+接触率越高，控制期要消耗的易感者 $S^*-S_c$ 越多，但 $S$ 也下降得越快，两种作用方向相反，控制时长因此可增可减；触发边界与完整参数影响见补充材料第~\ref{sec:sup:contact-theory}~节。
 
 人口规模的影响取决于初值和阈值如何随 $N$ 缩放。记 $s=S/N$、$i=I/N$，下面固定归一化初值 $s_0,i_0$；低阈值下的渐近行为与完整参数扫描见补充材料第~\ref{sec:sup:baseline-scan}~节。
 \begin{proposition}
 \label{prop:scaling}
 对于仅隔离控制，固定 $s_0,i_0$ 和 $\beta,\gamma,c_0,q_0$。控制被触发时，$t_1,\Delta t,q_{\max},J$ 以及存在内部拐点时的 $\lambda$ 对 $N,\eta$ 的依赖仅通过 $\theta=\eta/N$ 表现。计算至无限时刻的累计新增感染除以 $N$ 后亦不依赖 $N$。但是，使用绝对终点 $I=1$ 时，$t_{\rm end}$ 及计算至该终点的累计新增感染比例一般仍含 $N$。
 \end{proposition}
-\begin{proof}
-常规阶段的归一化系统为
-\[
-\dot s=-c_0[\beta+q_0(1-\beta)]si,\qquad
-\dot i=[\beta c_0(1-q_0)s-\gamma]i.
-\]
-它不含 $N$，触发条件为 $i=\theta$，所以 $t_1$ 与 $s^*=S^*/N$ 仅依赖上述固定量和 $\theta$。又
-\[
-s_c=\frac{\gamma}{\beta c_0(1-q_0)},\qquad
-\bar s=\frac{(1-\beta)\gamma}{\beta c_0},\qquad
-\Delta t=\frac1{c_0\theta}\ln\frac{s^*-\bar s}{s_c-\bar s}.
-\]
-例如，二次干预强度成本的归一化表达为
-\begin{equation}
-J=\frac{2}{c_0\theta}\int_{s_c}^{s^*}
-\frac{(1-s_c/s)^2}{s-\bar s}\,ds,
-\label{eq:dom:Jtheta}
-\end{equation}
-其中只含归一化状态和固定参数。代入控制表达可得其余结论。无限时间的终点为 $i\to0$，同样不含 $N$；有限的终点 $I=1$ 却对应 $i=1/N$，因而保留绝对人口尺度。
-\end{proof}
+证明见附录~\ref{sec:proof:scaling}。

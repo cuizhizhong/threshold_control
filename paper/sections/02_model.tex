@@ -33,14 +33,7 @@ $R$ 聚合了从两个感染仓室移出的人员，包括进入后续医疗状�
 \label{prop:model:positive}
 若 $c(t)\ge0$ 局部有界且可测，$q(t)\in[0,1]$ 可测，则式\eqref{eq:model:full}存在唯一全局绝对连续解，方程在几乎处处意义下成立。各仓室非负、总和恒为 $N$，且所有有限时刻均有 $S(t),I(t)>0$。
 \end{proposition}
-\begin{proof}
-方程右端关于状态局部 Lipschitz，关于时间可测且在有界状态集上局部可积，故有唯一局部绝对连续解。前两式给出
-\begin{align*}
-S(t)&=S_0\exp\!\left[-\int_0^t\frac{c(s)[\beta+(1-\beta)q(s)]}{N}I(s)\,ds\right],\\
-I(t)&=I_0\exp\!\left[\int_0^t\left(\frac{\beta c(s)(1-q(s))}{N}S(s)-\gamma\right)ds\right],
-\end{align*}
-由此得 $S,I$ 的严格正性。$S_q$ 的流入非负，$I_q$ 由常数变易公式保持非负，$\dot R\ge0$。五式相加得总人数守恒，因此各分量有界，局部解可以延拓至任意有限时刻。
-\end{proof}
+证明见附录~\ref{sec:proof:model-positive}。
 
 \subsection{常规轨迹}
 \label{sec:model:strategy}

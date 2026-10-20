@@ -36,7 +36,7 @@ $\eta$ & 阈值（人） & $0.05N=38.15$ & $0.002N=\num{26326}$ & 设计情景�
 
 控制时长、累计感染、隔离增量与成本由第~\ref{sec:s1}--\ref{sec:joint:cost}~节的闭式解或对 $S$ 的一维积分（式\eqref{eq:joint:duration}、\eqref{eq:joint:cost}）得到，成本最优控制按定理~\ref{thm:joint:cost-minimum}逐状态选取。两感染仓室人数之和的峰值由完整仓室方程直接积分计算，该积分同时核对其余指标；输入是按名义模型预先算出的开环控制，求解器与误差见补充材料第~\ref{sec:sup:numerics}~节。第~\ref{sec:joint:capacity-numerics}、\ref{sec:joint:weights-numerics}~节只在有限个代表点、网格点和乘子点上计算。$\delta_q$ 不影响无回流模型中闭合的 $(S,I)$ 子系统，因而不改变控制律、时长、累计感染流量与 $J$；它只影响 $I_q,R$ 及含这些仓室的派生指标，包括 $\max(I+I_q)/\eta$。
 
-\subsection{阈值与接触率}
+\subsection{阈值的影响}
 图~\ref{fig:scenario1:single-sim}给出基准参数下仅隔离控制的三阶段轨迹。常规控制下非隔离感染者的峰值约为 $300.4$ 人，远高于阈值 $\eta=38.15$ 人。仅隔离控制在非隔离感染者首次达到阈值时（$t_1\approx3.175$ d）启动，隔离比例跳升至 $q_{\max}\approx0.7565$，此后随易感者减少而下降，约 $5.903$ d 后回到 $q_0$。
 \begin{figure}[htbp]
 \centering
@@ -53,13 +53,7 @@ $\eta$ & 阈值（人） & $0.05N=38.15$ & $0.002N=\num{26326}$ & 设计情景�
 \label{fig:scenario1_summary_eta}
 \end{figure}
 
-常规接触率对控制时长的影响不是单调的（命题~\ref{prop:contact-effects}，图~\ref{fig:scenario1_summary_c0}）。$c_0$ 越大，常规轨迹越早触及阈值，$S^*$ 与 $q_{\max}$ 越高；控制时长则受两种相反作用：要消耗的易感者更多，易感者也下降得更快。在所考察的范围内，控制时长随 $c_0$ 先增后减，基准阈值下在 $c_0\approx5.1$ 处取得数值极大值约 $7.579$ d。当 $c_0$ 不超过触发边界 $c_{0,\min}(\eta)$（式\eqref{eq:s1:c0-min-def}）时，无需启动控制；该边界随阈值升高，基准阈值下约为 $3.327$。相应的隔离比例轨迹与二维扫描见补充图~\ref{fig:baseline:q-joint}、\ref{fig:scenario1_heatmaps_c0_eta}。
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth]{figures/layout_v5/c0_sensitivity_selected_eta.pdf}
-\caption{基准参数下各指标随常规接触率 $c_0$ 的变化，$\eta/N=0.2\%,0.6\%,1\%,2\%$，其余参数见表~\ref{tab:xian_initial_fit}；红色圆点为 $\Delta t$ 的数值极大值。面板与单位同图~\ref{fig:scenario1_summary_eta}，$c_0$ 以 $\mathrm d^{-1}$ 计。}
-\label{fig:scenario1_summary_c0}
-\end{figure}
+常规接触率越高，控制期要消耗的易感者更多，易感者也下降得更快，两种作用方向相反；相应数值结果见补充材料第~\ref{sec:sup:baseline-contact-scan}~节。
 
 \FloatBarrier
 \subsection{四种控制的比较}
@@ -71,7 +65,7 @@ $\eta$ & 阈值（人） & $0.05N=38.15$ & $0.002N=\num{26326}$ & 设计情景�
 在这两组参数下，追踪隔离越强的控制，两感染仓室人数之和 $I+I_q$ 越高：$I$ 维持在 $\eta$，被追踪的感染者则不断进入 $I_q$。追踪隔离把一部分感染者从社区转入隔离，控制了社区传播，隔离点的负荷则随之增加。基准参数下，$\max(I+I_q)/\eta$ 在仅隔离控制、成本最优控制与仅减少接触下分别约为 $1.92$、$1.89$ 与 $1.02$（表~\ref{tab:joint:compare}，图~\ref{fig:joint:compare}(c)）。这一峰值在基准参数下出现在后段，成本最优控制的隔离较弱，因此峰值略低；在西安参数下出现在启动后约 $7.62$ d，仍在两者相同的前段，因此峰值也相同。
 
 \begingroup
-\begin{table}[htbp]
+\begin{table}[!htbp]
 \centering\small
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.25}
@@ -102,7 +96,7 @@ $\eta$ & 阈值（人） & $0.05N=38.15$ & $0.002N=\num{26326}$ & 设计情景�
 \end{table}
 \endgroup
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/joint_v2/joint_compare_baseline.pdf}
 \caption{基准参数下不考虑能力约束时四种控制的时间轨迹（$w_c=1,w_q=2$）。(a) 接触率；(b) 隔离比例；(c) 两感染仓室人数之和与阈值之比 $(I+I_q)/\eta$；(d) 社区易感者比例。各轨迹画至自身的清零时间，$t$ 以天计。}

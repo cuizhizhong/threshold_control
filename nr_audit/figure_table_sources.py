@@ -40,7 +40,7 @@ TAB={
 'tab:xian_initial_fit':('joint_control/threshold_control_reproducible_release_20261002/numerics/inputs/baseline_parameters.json;'+f'{D}/xian/reference.json;{D}/xian/fit.json','nr_audit/sources.py'),
 'tab:joint:compare':(f'{E}/compare_baseline.csv;{E}/compare_xian.csv;{A}/regression.json','nr_audit/audit_baseline.py'),
 'tab:xian_summary':(f'{D}/xian/summary.csv;{D}/xian/reference.json;{A}/regression.json','nr_audit/audit_baseline.py'),
-'tab:sensitivity':('paper/appendices/A_proofs_sensitivity.tex:解析导数与证明','nr_audit/theory_checks.py'),
+'tab:sensitivity':('paper/appendices/A_proofs_sensitivity.tex:解析导数与证明;paper/supplement_sections/S2_single_control.tex:prop:contact-effects;paper/supplement_sections/S3_inflection.tex:prop:s1:lambda-sensitivity','nr_audit/theory_checks.py'),
 'tab:sup:baseline':(f'{D}/baseline/main_c0_summary.csv;{D}/baseline/main_eta_summary.csv;{D}/baseline/representative_cases.csv','nr_audit/audit_baseline.py'),
 'tab:sup:fit':(f'{A}/fit_reconstruction.json;真实数据/Xianguankong.xlsx','nr_audit/audit_fit.py'),
 'tab:sup:initial':(f'{D}/xian/S2_window.csv;{D}/xian/S2_difference.json;{A}/fit_reconstruction.json','nr_audit/audit_fit.py'),
