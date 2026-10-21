@@ -86,7 +86,7 @@
 固定归一化初值时，以绝对终点 $I=1$ 计的量随人口单调变化。记 $i_{\max}^{0}=I_{\max}^{0}/N$（式\eqref{eq:s1:Imax-no}），固定归一化初值 $s_0,i_0$ 时它不依赖 $N$。
 \begin{proposition}
 \label{prop:reference-population}
-固定 $s_0,i_0,\theta$ 和模型参数，且 $i_0<\theta<i_{\max}^{0}$。在 $N\theta>1$ 的范围内，仅隔离控制的清零时间和计算至该终点的累计新增感染均随 $N$ 严格增加。
+固定 $s_0,i_0,\theta$ 和模型参数，且 $i_0<\theta<i_{\max}^{0}$。在 $N\theta>1$ 的范围内，仅隔离控制的清零时间、计算至该终点的累计新增感染及其占人口的比例均随 $N$ 严格增加。
 \end{proposition}
 \begin{proof}
 归一化轨迹及启动、控制时长与 $N$ 无关。退出后 $i(t)$ 从 $\theta$ 严格下降至零，终点为 $i=1/N$。增大 $N$ 使终点更低，故清零时间严格增加。
@@ -101,7 +101,12 @@
 \frac{\partial s_{\rm end}}{\partial N}
 =-\frac1{N^2(\rho_1/N)(1/s_{\rm end}-1/s_c)}<0.
 \]
-将式\eqref{eq:s1:cumulative}除以 $N$ 后，只有 $s_{\rm end}$ 含 $N$，因而
+将式\eqref{eq:s1:cumulative}除以 $N$ 后，只有 $s_{\rm end}$ 含 $N$，因而比例满足
+\[
+\frac{\partial(\Itcum/N)}{\partial N}
+=-\frac{\beta}{\beta+q_0(1-\beta)}\frac{\partial s_{\rm end}}{\partial N}>0,
+\]
+人数满足
 \[
 \frac{\partial\Itcum}{\partial N}
 =\frac{\Itcum}{N}
@@ -176,3 +181,5 @@
 正文在这一量级附近取 $\theta=0.002$ 作为设计情景。按相同的参考系数反算，它对应每10万人 $5.04$ 张、全市约 $663$ 张的名义容量。
 
 这一比例移植只给出阈值的量级，不是当地医疗容量的临床校准。以确诊病例或全部感染者为分母的 ICU 入院风险可能不同\cite{Pung2023Undetected}；参考系数 $\rho_{\mathrm{ICU}}$ 也没有依据共同的需求函数和初始负担估计，不等同于第~\ref{sec:sup:medical-link}~节中的 $pL\beta c_0S_0/N$。
+
+\FloatBarrier

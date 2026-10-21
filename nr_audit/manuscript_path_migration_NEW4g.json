@@ -16,7 +16,7 @@
       "new4g_baseline_sha256": "4ada262f80854fc6a78bdc27ee133a5d035ec9025f629553f6a397bea8bad2b8",
       "current_path": "paper/sections/06_numerics.tex",
       "current_sha256": "c3bc8f0d35ab96db36723ffec28618d89ef8d8e68d60053a8ad9009d62a3f2a2",
-      "current_content_sha256": "e47ef927c44b15abca19586a32b6d0aec343b24d551e96d2b234667e8c4cdc7d"
+      "current_content_sha256": "402658151a7fa2b64bf1838e993fc284c60dfc0c3b4e871b55a78e2751729afd"
     },
     "model_section": {
       "historical_path": "paper/sections/02_model.tex",
@@ -24,7 +24,7 @@
       "new4g_baseline_sha256": "2c43997a5715c83c9ca1cc591b48d9fd6302c3d0ffc9e7f0a5e983583a2eac03",
       "current_path": "paper/sections/02_model.tex",
       "current_sha256": "df71ee4ba2d4fcffb2616fbe86605dc9ce9ca51d9bb635244049f1d33ac764ff",
-      "current_content_sha256": "e965238baf3d7c40f9ccc890bede759cf90108a3df02e64d4760075161e5b132"
+      "current_content_sha256": "c7d133fe2d6f456c8af69cde93b8701de1f01ce720b9a19690200ae84dbb0226"
     },
     "numerics_S1": {
       "historical_path": "paper/supplement_sections/S1_baseline.tex",
@@ -48,7 +48,7 @@
       "new4g_baseline_sha256": "104ecd6d90f9202f84c5be060062b19a867e757a90b15d14cf30e352698d5eb0",
       "current_path": "paper/supplement_sections/S6_xian.tex",
       "current_sha256": "6ef1a648e304e298c4b514be7265ea4d9d9d1fb5212558ad21da8493a51e5cfa",
-      "current_content_sha256": "f0acc914589d04fa7d0e4617a798d839aac6aa83102881dcf1c6681ee9108a2a"
+      "current_content_sha256": "f03749c9ea9db0ac2665de50fa96e3afc162365073c93a374b07553ace18cd99"
     },
     "contact_S5": {
       "historical_path": "paper/supplement_sections/S5_contact.tex",
@@ -72,7 +72,7 @@
       "new4g_baseline_sha256": "011979ea924660315492a0d2aaf120579f8cbc7f3821147f53b4158762a1c3a3",
       "current_path": "paper/sections/07_xian.tex",
       "current_sha256": "4952f88ad903d47e8adb831b47d1d1db6357765e06ea1ab6050eea24918f1210",
-      "current_content_sha256": "78e7a34211b8dd2d606a0a6fd0c226ee89426c221f80e29a4710d775e9e4fc97"
+      "current_content_sha256": "05b79b83100a4814b9f5a923486ff9c2d19c01cb2e58a0889b9c04837cf780ea"
     }
   },
   "file_fragments": [
@@ -139,7 +139,7 @@
             "sec:sup:threshold-scale"
           ],
           "current_sha256": "6ef1a648e304e298c4b514be7265ea4d9d9d1fb5212558ad21da8493a51e5cfa",
-          "current_content_sha256": "f0acc914589d04fa7d0e4617a798d839aac6aa83102881dcf1c6681ee9108a2a"
+          "current_content_sha256": "f03749c9ea9db0ac2665de50fa96e3afc162365073c93a374b07553ace18cd99"
         }
       ]
     },
@@ -176,7 +176,7 @@
             "fig:sup:phase-detail"
           ],
           "current_sha256": "5b7db9952e30df4c07d9993f321269b85034dba83d810ff376b81c9e4d90b541",
-          "current_content_sha256": "db41137252bcaf9fc5fc5ee173bfb48e61435d71d6943a854c10ddd0d1b221d9"
+          "current_content_sha256": "d287b5aec36aec31c37a3910ee11154f75c8b6d45d9821121fd7711c5342e794"
         },
         {
           "path": "paper/supplement_sections/S8_numerics.tex",
