@@ -18,7 +18,7 @@ f(S,c)=
 被积项 $\frac{N}{\eta}f(S,c)$ 是 $S$ 每减少一人所付的成本：分子是两种归一化强度 $(c_0-c)/c_0$ 与 $(q-q_0)/(1-q_0)=1-c_0S_c/(cS)$ 的平方加权和，分母与 $S$ 的下降速度成正比（式\eqref{eq:joint:Sdot}）。
 \begin{theorem}
 \label{thm:joint:cost-minimum}
-不考虑能力约束时取 $c^{-}(S)=c_0S_c/S$、$c^{+}(S)=c_0$（式\eqref{eq:joint:contact-range}）；考虑能力约束时取式\eqref{eq:joint:bounds}，并设式\eqref{eq:joint:feasibility}成立。在相应的控制类 $\mathcal A(\eta)$ 或 $\mathcal A(\eta;c_{\min},q_{\rm cap})$ 中（不另加总时长、调整次数或控制变化率等约束），二次干预强度成本的最小值可以达到，且
+不考虑能力约束时取 $c^{-}(S)=c_0S_c/S$、$c^{+}(S)=c_0$（式\eqref{eq:joint:contact-range}）；考虑能力约束时取式\eqref{eq:joint:bounds}，并设式\eqref{eq:joint:feasibility}成立。在相应的控制类 $\mathcal A(\eta)$ 或 $\mathcal A(\eta;c_{\min},q_{\rm cap})$ 中，二次干预强度成本的最小值可以达到，且
 \begin{equation}
 \min_{c_c}J[c_c]
 =\frac{N}{\eta}\int_{S_c}^{S^*}
@@ -107,7 +107,7 @@ $b$ 只依赖传播概率与常规隔离比例。由 $0<b<1$，$r_{\rm cont}$ �
 \label{thm:joint:cost-structure}
 设 $0<r\le r_{\rm cont}$，不考虑能力约束。对每个 $S>S_c$，$f(S,\cdot)$ 在 $[c_0S_c/S,c_0]$ 上的最小点 $c_c^*(S)$ 唯一；$c_c^*$ 在 $(S_c,\infty)$ 上连续，且 $S\downarrow S_c$ 时 $c_c^*(S)\to c_0$；$S\ge S_{\rm sw}$ 时 $c_c^*(S)=c_0$，$S_c<S<S_{\rm sw}$ 时 $c_0S_c/S<c_c^*(S)<c_0$。因此，成本最优控制几乎处处唯一，可取为连续的状态反馈 $c_c^*$：若 $S^*>S_{\rm sw}$，它在 $S\ge S_{\rm sw}$ 上为仅隔离控制，并在 $S_{\rm sw}$ 处连续地转为两种措施并用；若 $S^*\le S_{\rm sw}$，整个阈值控制期两种措施并用。
 \end{theorem}
-证明见附录~\ref{sec:proof:cost-structure}。定理说明，不考虑能力约束时，只要隔离的成本权重不超过接触的 $r_{\rm cont}$ 倍，成本最优控制就是一条随易感者减少而连续调整的反馈规则：在 $S\ge S_{\rm sw}$ 上只加强追踪隔离，在 $S_c<S<S_{\rm sw}$ 上两种措施并用，退出时两者都回到常规水平。默认权重 $r=2$ 对一切参数都满足这一条件，两组算例的启动状态又都高于 $S_{\rm sw}$，所以算例中“先仅隔离、后两者并用”的结构（第~\ref{sec:joint:compare-numerics}~节）是定理的结论；两组参数下 $r_{\rm cont}$ 分别约为 $\nrCostRcontBase$ 与 $\nrCostRcontXian$。$r_{\rm cont}$ 是每个状态上的成本保持单峰的界：隔离的相对权重更大时，后段可能出现两个局部最优，成本最优控制随 $S$ 跳变（第~\ref{sec:joint:weights-numerics}~节）。
+证明见附录~\ref{sec:proof:cost-structure}。定理说明，不考虑能力约束时，只要隔离的成本权重不超过接触的 $r_{\rm cont}$ 倍，成本最优控制就是一条随易感者减少而连续调整的反馈规则：在 $S\ge S_{\rm sw}$ 上只加强追踪隔离，在 $S_c<S<S_{\rm sw}$ 上两种措施并用，退出时两者都回到常规水平。$S^*/S_c$ 正是启动时常规措施下的有效再生数；由命题~\ref{prop:joint:global-structure}(ii)，无论权重如何，只有这一再生数超过 $S_{\rm sw}/S_c$（介于 2 与 3 之间）时，成本最优控制才可能有仅隔离段。默认权重 $r=2$ 对一切参数都满足这一条件，两组算例的启动状态又都高于 $S_{\rm sw}$，所以算例中“先仅隔离、后两者并用”的结构（第~\ref{sec:joint:compare-numerics}~节）是定理的结论；两组参数下 $r_{\rm cont}$ 分别约为 $\nrCostRcontBase$ 与 $\nrCostRcontXian$。$r_{\rm cont}$ 是每个状态上的成本保持单峰的界：隔离的相对权重更大时，后段可能出现两个局部最优，成本最优控制随 $S$ 跳变（第~\ref{sec:joint:weights-numerics}~节）。
 
 单峰性也确定了能力约束下的成本最优控制。
 \begin{corollaryn}

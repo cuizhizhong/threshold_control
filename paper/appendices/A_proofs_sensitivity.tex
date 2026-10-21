@@ -197,8 +197,8 @@ H(S,x)=f\!\left(S,c^{-}(S)+x[c^{+}(S)-c^{-}(S)]\right),
 $H$ 在紧集上连续，因而 $m$ 连续。取各最小化解集中最小的元素 $x_*(S)$。对于任意 $0<a\le1$，
 \[
 \{S:x_*(S)<a\}
-=\bigcup_{\substack{r\in\mathbb Q\\0\le r<a}}
-\left\{S:\min_{0\le x\le r}H(S,x)=m(S)\right\}.
+=\bigcup_{\substack{a'\in\mathbb Q\\0\le a'<a}}
+\left\{S:\min_{0\le x\le a'}H(S,x)=m(S)\right\}.
 \]
 右侧为可数个闭集的并，故 $x_*$ 可测。于是
 $c_c^*(S)=c^{-}(S)+x_*(S)[c^{+}(S)-c^{-}(S)]$
@@ -322,7 +322,7 @@ g(S,c)=\frac{N}{\eta}\Bigl(\frac{1}{cS-c_0\bar S},\ f(S,c)\Bigr).
 \]
 $g$ 在 $\{(S,c):c^-(S)\le c\le c^+(S)\}$ 上连续且有界，因为分母不小于 $c_0(S_c-\bar S)>0$。令 $\Gamma(S)=\{g(S,c):c^-(S)\le c\le c^+(S)\}$，它取紧值且可积有界。由可测选择定理，$\Gamma$ 的每个可测选择都可写成 $g(S,c_c(S))$，其中 $c_c$ 可测。因此全部允许控制的 $(\Delta t,J)$ 组成的集合 $K$ 等于 $\Gamma$ 的积分。Lebesgue 测度无原子，由 \cite{Aumann1965} 的定理 1 与定理 4，$K$ 是紧凸集。
 
-$K$ 在 $\Delta t$ 轴上的投影是 $[\Delta t_{\min},\Delta t_{\max}]$，所以对其中每个 $T$，$V(T)=\min\{J:(T,J)\in K\}$ 有定义且由紧性可以达到；$K$ 凸蕴含 $V$ 凸。对内点 $T$，凸函数 $V$ 有次梯度 $\lambda$。令 $\kappa=-\lambda$，则对任意 $(T',J')\in K$，
+$K$ 在 $\Delta t$ 轴上的投影是 $[\Delta t_{\min},\Delta t_{\max}]$，所以对其中每个 $T$，$V(T)=\min\{J:(T,J)\in K\}$ 有定义且由紧性可以达到；$K$ 凸蕴含 $V$ 凸。对内点 $T$，凸函数 $V$ 有次梯度 $\nu$。令 $\kappa=-\nu$，则对任意 $(T',J')\in K$，
 \[
 J'+\kappa T'\ge V(T')+\kappa T'\ge V(T)+\kappa T,
 \]

@@ -105,7 +105,7 @@ $\eta$ & 阈值（人） & $0.05N=38.15$ & $0.002N=\num{26326}$ & 设计情景�
 \subsection{能力约束}
 \label{sec:joint:capacity-numerics}
 \def\jointcapacitypostexitdays{1}
-能力约束把能力平面分成三个区域（图~\ref{fig:joint:capacity}(a)(b)）：至少一种单控制可行，只有联合控制可行，以及阈值策略不可行。仅隔离控制可行当且仅当 $q_{\rm cap}\ge q_{\max}$（推论~\ref{cor:s1:qc-structure}），仅减少接触可行当且仅当 $c_{\min}\le c_0S_c/S^*$（推论~\ref{cor:joint:single-endpoints}）。两者都不成立时，联合控制是否可行由推论~\ref{cor:joint:feasibility}判断。
+能力约束把能力平面分成三个区域（图~\ref{fig:joint:capacity}(a)(b)）：至少一种单控制可行，只有联合控制可行，以及阈值策略不可行。仅隔离控制可行当且仅当 $q_{\rm cap}\ge q_{\max}$（推论~\ref{cor:s1:qc-structure}），仅减少接触可行当且仅当 $c_{\min}\le c_0S_c/S^*$（其接触率 $c_0S_c/S$ 在 $S=S^*$ 处最低）。两者都不成立时，联合控制是否可行由推论~\ref{cor:joint:feasibility}判断。
 
 两个代表能力组合都落在只有联合控制可行的区域；在这两点上，能力约束下的最小成本与控制时长都高于不考虑能力约束时的值。基准代表点上，仅隔离控制需要 $q_{\max}\approx0.7565$，仅减少接触需要把接触率降低约 $75.3\%$，都超出能力；西安代表点也是如此。因此最快与最慢的控制 $c^{+}(S)$、$c^{-}(S)$（推论~\ref{cor:joint:capped-comparison}）都不是单控制。能力约束下的成本最优控制在基准参数下给出 $J\approx 2.361$ d、$\Delta t\approx 8.34$ d，在西安参数下给出 $J\approx 41.62$ d、$\Delta t\approx 116.8$ d，都高于表~\ref{tab:joint:compare}中的值：最小成本的增加与命题~\ref{prop:joint:minimum-threshold}一致，控制时长的增加则是这两个代表点上的数值结果。
 
@@ -120,7 +120,7 @@ $\eta$ & 阈值（人） & $0.05N=38.15$ & $0.002N=\num{26326}$ & 设计情景�
 \FloatBarrier
 \subsection{成本权重与时长}
 \label{sec:joint:weights-numerics}
-“先仅隔离、后两者并用”的结构在隔离的相对权重不大时保持不变。固定 $w_c=1$（最优选择只通过 $r=w_q/w_c$ 依赖权重），图~\ref{fig:joint:phase}给出 $r\in[1,20]$ 内不考虑能力约束时的成本最优控制，即加强隔离的相对代价不低于减少接触的情形；颜色与等高线 $y$ 是接触率降幅占仅减少接触时降幅的比例，$y=0$ 即仅隔离控制。$r<1$ 时成本最优控制更接近仅隔离控制：仅隔离控制的成本与 $r$ 成正比，而由命题~\ref{prop:joint:weight-monotone}(i)，$J_{\min}/w_c$ 是 $r$ 的凹函数，所以 $1-J_{\min}/J[c_0]$ 随 $r$ 不减；$r=1$ 时它在两组参数下约为 $\nrCostGapOneBase\%$ 与 $\nrCostGapOneXian\%$，所以在两组算例中，隔离的相对代价不高于接触时，直接采用仅隔离控制几乎不损失成本。
+“先仅隔离、后两者并用”的结构在隔离的相对权重不大时保持不变。固定 $w_c=1$（最优选择只通过 $r=w_q/w_c$ 依赖权重），图~\ref{fig:joint:phase}给出 $r\in[1,20]$ 内不考虑能力约束时的成本最优控制，即加强隔离的相对代价不低于减少接触的情形；颜色与等高线 $y$ 是接触率降幅占仅减少接触时降幅的比例，$y=0$ 即仅隔离控制。$r<1$ 时成本最优控制更接近仅隔离控制：仅隔离控制的成本与 $r$ 成正比；由命题~\ref{prop:joint:weight-monotone}(i)，$J_{\min}/w_c$ 是 $r$ 的凹函数，又因 $J_{\min}\le J[c_0]$，它在 $r\to0^+$ 时趋于零，所以 $J_{\min}/J[c_0]$ 随 $r$ 不增，即 $1-J_{\min}/J[c_0]$ 随 $r$ 不减；$r=1$ 时它在两组参数下约为 $\nrCostGapOneBase\%$ 与 $\nrCostGapOneXian\%$，所以在两组算例中，隔离的相对代价不高于接触时，直接采用仅隔离控制几乎不损失成本。
 
 由定理~\ref{thm:joint:cost-structure}，$r\le r_{\rm cont}$（基准约 $\nrCostRcontBase$，西安约 $\nrCostRcontXian$）时，切换发生在 $S_{\rm sw}$ 处且控制连续，默认的 $r=2$ 属于这一情形。$r_{\rm cont}<r<\hat r$（基准 $\hat r$ 约 $\nrCostRhatBase$，西安约 $\nrCostRhatXian$，见补充命题~\ref*{prop:sup:rhat}）时，控制仍在 $S_{\rm sw}$ 处连续切换，随后在 $S_{\rm sw}$ 稍下方于两个内部取值之间跳变，所算网格中只跳变一次（补充图~\ref*{fig:sup:phase-detail}）；$r=\hat r$ 时，$S_{\rm sw}$ 处仅隔离控制与一个内部取值并列最优，控制在该处跳变。图~\ref{fig:joint:phase}(c)(d) 给出基准参数下几个权重的控制：隔离比例在每个权重下都随时间不增（命题~\ref{prop:joint:weight-monotone}(ii)），接触率的时间变化形态则依赖权重：$r=1,2,3.17$ 时在 $S_{\rm sw}$ 以下先降后回升，$r=5$ 时跳入两者并用后一直回升，$r=15$ 时从启动起一直回升。权重增大时，每个状态上的接触率与隔离比例都不增（命题~\ref{prop:joint:weight-monotone}(i)），在共同的仅隔离段上则相同。
 
