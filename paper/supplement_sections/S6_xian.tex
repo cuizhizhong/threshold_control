@@ -5,7 +5,7 @@
 
 \subsection{初值与人口缩放}
 \label{sec:sup:xian:settings}
-正文第~\ref{sec:xian}~节的拟合准则是四项均方误差之和，四项等权：社区日新增、隔离日新增、社区累计与隔离累计。模型的日新增取进入 $I$ 与 $I_q$ 的流量在日区间 $[k,k+1]$ 上的积分，累计数取 $t=k+1$ 时自 $t=0$ 起的累计（不含初始感染者），观测累计数由观测日新增逐日相加。表~\ref{tab:sup:fit}给出拟合所得 $I_0$ 对应的四项误差；这里只重建给定 $I_0$ 下的误差，没有重新拟合。
+正文第~\ref{sec:xian}~节的拟合准则是四项均方误差之和，四项等权：社区日新增、隔离日新增、社区累计与隔离累计。模型的日新增取进入 $I$ 与 $I_q$ 的流量在日区间 $[k,k+1]$ 上的积分，累计数取 $t=k+1$ 时自 $t=0$ 起的累计（不含初始感染者），观测累计数由观测日新增逐日相加。表~\ref{tab:sup:fit}给出拟合所得 $I_0$ 对应的四项误差。
 \begin{table}[htbp]
 \centering\small
 \renewcommand{\arraystretch}{1.2}
@@ -159,7 +159,6 @@
     \label{fig:xian_heatmaps}
 \end{figure}
 
-\FloatBarrier
 \subsection{设计阈值的量级}
 \label{sec:sup:threshold-scale}
 正文西安算例取 $N=13{,}163{,}000$\cite{XianStat2021}、$\eta=0.002N=26{,}326$。这一阈值来自下面的量级估计，它与第~\ref{sec:sup:medical-link}~节的充分条件是两种不同的依据。

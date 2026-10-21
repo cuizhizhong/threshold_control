@@ -72,7 +72,9 @@ S_{\rm sw}=\frac{3S_c+\sqrt{9S_c^2-8S_c\bar S}}{2}
 \end{enumerate}
 因此，任一成本最优控制在几乎所有 $S\in(S_c,S^*]$ 上满足 $q_c^*(S)>q_0$；在 $S_c<S<\min\{S_{\rm sw},S^*\}$ 上还满足 $c_0S_c/S<c_c^*(S)<c_0$，即两种措施同时强于常规水平。
 \end{proposition}
-证明见附录~\ref{sec:proof:endpoint-properties}。在 $c=c_0$ 处接触项的代价与导数都为零，因此略减接触只有两个一阶效应：所需的隔离强度降低，$S$ 的下降却放慢；二者都与 $w_q$ 成正比，故 $S_{\rm sw}$ 与权重无关。$S>S_{\rm sw}$ 时后一效应占优；$S=S_{\rm sw}$ 时二者相抵，命题在此不作分类。考虑能力约束并设式\eqref{eq:joint:feasibility}成立。若 $c_{\min}<c_0$、$q_{\rm cap}>q_0$，则由式\eqref{eq:joint:bounds}，对 $S\in(S_c,S^*)$ 有 $c^{-}(S)<c_0$、$c^{+}(S)>c_0S_c/S$：两种单控制的取值只要可行，允许区间就在其内侧延伸，(i)(ii) 中的单侧比较照样适用；取值不可行时自然不会被选中。因此，命题最后的结论在 $\mathcal A(\eta;c_{\min},q_{\rm cap})$ 中同样成立。
+证明见附录~\ref{sec:proof:endpoint-properties}。在 $c=c_0$ 处接触项的代价与导数都为零，因此略减接触只有两个一阶效应：所需的隔离强度降低，$S$ 的下降却放慢；二者都与 $w_q$ 成正比，故 $S_{\rm sw}$ 与权重无关。$S>S_{\rm sw}$ 时后一效应占优；$S=S_{\rm sw}$ 时二者相抵，命题在此不作分类。
+
+命题最后的结论在能力约束下同样成立。设式\eqref{eq:joint:feasibility}成立，且 $c_{\min}<c_0$、$q_{\rm cap}>q_0$，则由式\eqref{eq:joint:bounds}，对 $S\in(S_c,S^*)$ 有 $c^{-}(S)<c_0$、$c^{+}(S)>c_0S_c/S$。两种单控制的取值只要可行，允许区间就在其内侧延伸，(i)(ii) 中的单侧比较照样适用；不可行的取值不会被选中。因此，这一结论在 $\mathcal A(\eta;c_{\min},q_{\rm cap})$ 中同样成立。
 \begin{proposition}
 \label{prop:joint:terminal-allocation}
 设 $w_c,w_q>0$，不考虑能力约束。任一逐状态最小化选择在充分接近退出状态的 $S>S_c$ 上满足
@@ -162,7 +164,7 @@ V(T)=\inf\{J[c_c]:\Delta t[c_c]=T\}.
 \Needspace{12\baselineskip}
 \begin{remarkn}
 \label{rem:joint:headcount-cost}
-在无回流模型中，固定阈值 $\eta$ 与同一允许控制类，局部记阈值控制期内的总新增感染为 $C=\Itcum(t_2)-\Itcum(t_1)$、新增隔离易感者人数为 $Q=S_q(t_2)-S_q(t_1)$。由式\eqref{eq:joint:cumulative}与\eqref{eq:joint:quarantine}，对非负人数权重 $a_I,a_Q$，有
+在无回流模型中，固定阈值 $\eta$ 与同一允许控制类，局部记阈值控制期内的总新增感染为 $C=\Itcum(t_2)-\Itcum(t_1)$、新增隔离易感者人数为 $Q=S_q(t_2)-S_q(t_1)$。由式\eqref{eq:joint:cumulative}与\eqref{eq:joint:quarantine}，对非负人数权重 $a_I,a_Q$（以天/人计，与 $J$ 的量纲一致），有
 \[
 \begin{aligned}
 J+a_IC+a_QQ
@@ -170,7 +172,7 @@ J+a_IC+a_QQ
 \kappa&=(1-\beta)\gamma\eta(a_I-a_Q).
 \end{aligned}
 \]
-按 $J$ 的时间量纲，$a_I,a_Q$ 的单位为时间/人数，$\kappa$ 无量纲。这两项人数代价可接到注记~\ref{rem:joint:duration-constraint}的逐状态最小化及命题~\ref{prop:joint:duration-frontier}的时长前沿；$a_I=a_Q$ 时，人数代价之和与组合无关，原 $J$ 的最优控制不变。这里两项均计新增人数，不计隔离人天。
+这两项人数代价可接到注记~\ref{rem:joint:duration-constraint}的逐状态最小化及命题~\ref{prop:joint:duration-frontier}的时长前沿；$a_I=a_Q$ 时，人数代价之和与组合无关，原 $J$ 的最优控制不变。
 \end{remarkn}
 
 \FloatBarrier
