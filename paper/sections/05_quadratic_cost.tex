@@ -134,12 +134,12 @@ c_{\rm cap}^*(S)=\min\bigl\{c^{+}(S),\max\{c^{-}(S),c_c^*(S)\}\bigr\},
 \item 固定 $r$，$q_r^*(S)$ 随 $S$ 不减，即隔离比例在阈值控制期内随时间不增。
 \end{enumerate}
 \end{proposition}
-证明见附录~\ref{sec:proof:cost-structure}。提高追踪隔离的相对代价（例如流调人力或隔离场所紧张）时，成本最优控制在每个状态上不会多用追踪隔离，也不会少用减少接触；由定理~\ref{thm:joint:comparison}，社区易感者在同一状态上的下降速度不增，控制期不缩短，控制期累计新增感染不减少，新增隔离易感者人数不增加。接触率没有类似的时间单调性：在定理~\ref{thm:joint:cost-structure}的条件下，它在 $S_{\rm sw}$ 以下低于 $c_0$，退出时又回到 $c_0$。
+证明见附录~\ref{sec:proof:cost-structure}。提高追踪隔离的相对代价（例如流调人力或隔离场所紧张）时，成本最优控制在每个状态上不会多用追踪隔离，也不会少用减少接触，社区易感者在同一状态上的下降因而不会加快（定理~\ref{thm:joint:comparison}）。接触率没有类似的时间单调性：在定理~\ref{thm:joint:cost-structure}的条件下，它在 $S_{\rm sw}$ 以下低于 $c_0$，退出时又回到 $c_0$。不考虑能力约束时，仅隔离控制的成本 $J[c_0]$ 与 $r$ 成正比；由命题~\ref{prop:joint:weight-monotone}(i) 的凹性，且 $J_{\min}\le J[c_0]$ 使 $J_{\min}/w_c$ 在 $r\to0^+$ 时趋于零，比值 $J_{\min}/J[c_0]$ 随 $r$ 不增：隔离的相对代价越低，仅隔离控制越接近成本最优。
 
 成本最优控制在不考虑能力约束时介于两种单控制之间：它在 $S_c<S<\min\{S_{\rm sw},S^*\}$ 上严格位于允许区间内部（命题~\ref{prop:joint:global-structure}），因此由定理~\ref{thm:joint:comparison}，其控制时长、控制期累计新增感染与新增隔离易感者人数都严格介于两者之间。与仅隔离控制相比，它以更长的控制期和更多的感染换取更低的成本（命题~\ref{prop:joint:terminal-allocation}）。对更大的权重，最优控制的完整跳变结构仍通过数值考察（第~\ref{sec:joint:weights-numerics}~节）。
 
 \subsection{时长约束}
-时长约束可以用乘子化为同样的逐状态问题。乘子 $\kappa$ 是控制时长的价格：$\kappa>0$ 惩罚长控制期，使控制组合偏向仅隔离控制；$\kappa<0$ 则偏向仅减少接触。
+给定控制时长后有两个问题：最小成本能否仍逐状态求出（注记~\ref{rem:joint:duration-constraint}），以及最短与最长之间的每个时长是否都有对应的乘子（命题~\ref{prop:joint:duration-frontier}）。时长约束可以用乘子化为同样的逐状态问题。乘子 $\kappa$ 是控制时长的价格：$\kappa>0$ 惩罚长控制期，使控制组合偏向仅隔离控制；$\kappa<0$ 则偏向仅减少接触。
 \begin{remarkn}
 \label{rem:joint:duration-constraint}
 固定同一允许控制类。对 $\kappa\in\mathbb R$，把 $f(S,c)$ 换为

@@ -113,7 +113,7 @@ $q_c(S)$ 关于 $S$ 严格增加，$S^*>S_c$ 给出启动时的跳升。沿控�
 \end{equation}
 又 $q_c(S_c)=q_0$，故退出时连续。隔离比例在启动时取得最大值，因此全时段的能力约束等价于检查这一最大值；由式\eqref{eq:s1:qmax}整理即得上述等价式。$q_{\rm cap}=q_{\max}$ 时，控制只在启动时恰好达到能力上限，随后严格低于上限。
 \end{proof}
-追踪隔离的需求在启动时最大：此时社区易感者最多，常规措施下的有效再生数最高，需要隔离的接触比例也最高；随着易感者减少，所需隔离逐步放松，退出时恰好回到常规水平。若 $q_{\rm cap}<q_{\max}$，启动状态上即使取 $q=q_{\rm cap}$ 也有 $\dot I>0$，因此只有同时减少接触才能维持 $I=\eta$；这时能否实施由推论~\ref{cor:joint:feasibility}判断。
+追踪隔离的需求在启动时最大：此时社区易感者最多，常规措施下的有效再生数最高，需要隔离的接触比例也最高。若 $q_{\rm cap}<q_{\max}$，启动状态上即使取 $q=q_{\rm cap}$ 也有 $\dot I>0$，因此只有同时减少接触才能维持 $I=\eta$；这时能否实施由推论~\ref{cor:joint:feasibility}判断。
 
 \subsection{隔离比例的拐点}
 \label{sec:s1:shape}
@@ -143,7 +143,7 @@ S(t_{\rm inf})=2\bar S,\quad
 \frac{(S-\bar S)(2\bar S-S)}{S^3}.
 \label{eq:s1:qsecond}
 \end{equation}
-由于 $S>\bar S$，其符号由 $2\bar S-S$ 决定。$S$ 从 $S^*$ 严格下降至 $S_c$，所以恰在式\eqref{eq:s1:inflection-condition}成立时穿过 $2\bar S$，且只穿过一次。将该状态代入式\eqref{eq:s1:S-analytic}及\eqref{eq:s1:q-control}，即得时间和隔离比例。条件\eqref{eq:s1:inflection-condition}蕴含 $\beta<1/2$，故 $\qinf$ 的表达式有定义。二阶导数先负后正，而一阶导数始终为负，故 $|dq_c/dt|$ 在该时刻唯一达到最大值。
+由于 $S>\bar S$，其符号由 $2\bar S-S$ 决定。$S$ 从 $S^*$ 严格下降至 $S_c$，所以恰在式\eqref{eq:s1:inflection-condition}成立时穿过 $2\bar S$，且只穿过一次。将该状态代入式\eqref{eq:s1:S-analytic}及\eqref{eq:s1:q-control}，即得时间和隔离比例。由于 $q_c(S)$ 关于 $S$ 严格增加且 $S_c<2\bar S<S^*$，有 $q_0=q_c(S_c)<\qinf<q_c(S^*)=q_{\max}$。二阶导数先负后正，而一阶导数始终为负，故 $|dq_c/dt|$ 在该时刻唯一达到最大值。
 \end{proof}
 拐点存在时，拐点前的时长占控制时长的比例为
 \begin{equation}

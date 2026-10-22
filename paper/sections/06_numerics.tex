@@ -51,7 +51,7 @@ $\eta$ & 阈值（人） & $0.05N=38.15$ & $0.002N=\num{26326}$ & 设计情景�
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/layout_v5/eta_sensitivity_selected_c0.pdf}
-\caption{基准参数下各指标随阈值比例 $\eta/N$ 的变化，$c_0=5,8,10,12\ \mathrm d^{-1}$，其余参数见表~\ref{tab:xian_initial_fit}。(a) 启动时间；(b) 控制时长；(c) 清零时间；(d) 最大隔离比例；(e) 成本 $J$；(f) 总累计新增感染。时间与成本以天计，累计新增感染以人计。}
+\caption{基准参数下仅隔离控制的各指标随阈值比例 $\eta/N$ 的变化（横轴为对数刻度），$c_0=5,8,10,12\ \mathrm d^{-1}$，其余参数见表~\ref{tab:xian_initial_fit}。(a) 启动时间；(b) 控制时长；(c) 清零时间；(d) 最大隔离比例；(e) 成本 $J$；(f) 总累计新增感染。时间与成本以天计，累计新增感染以人计。}
 \label{fig:scenario1_summary_eta}
 \end{figure}
 
@@ -60,7 +60,9 @@ $\eta$ & 阈值（人） & $0.05N=38.15$ & $0.002N=\num{26326}$ & 设计情景�
 \label{sec:joint:compare-numerics}
 成本最低的控制不是最快的控制。表~\ref{tab:joint:compare}比较不考虑能力约束时的四种控制。两组参数下，控制时长从长到短依次为仅减少接触、$\alpha=0.5$、成本最优控制与仅隔离控制；由定理~\ref{thm:joint:comparison}(iii)与推论~\ref{cor:joint:whole-epidemic}，这一排序同时决定了清零时间、累计新增感染与新增隔离易感者人数的排序。与最快的仅隔离控制相比，成本最优控制在基准参数下使 $J$ 降低约 $4.7\%$，控制时长与总累计新增感染分别增加约 $31.4\%$ 与 $7.3\%$；西安参数下相应为 $6.7\%$、$27.9\%$ 与 $6.6\%$。
 
-两组参数下，成本最优控制都先仅隔离、后两者并用：默认权重满足定理~\ref{thm:joint:cost-structure}的条件，两组参数的启动状态 $S^*$ 又都高于 $S_{\rm sw}$（比值见表~\ref{tab:joint:compare}注）；在 $S$ 的有限网格上逐点比较全部候选，结果与之一致（方法见补充材料第~\ref{sec:sup:numerics}~节）。前段较短，基准与西安参数下分别约 $1.61$ d 与 $25.46$ d，却完成了阈值控制期 $S$ 下降的一半以上：$S$ 越大，下降越快，所以控制期的大部分时间落在两者并用的后段。成本最优控制与仅隔离控制在 $S\ge S_{\rm sw}$ 上相同，$J$ 与 $\Delta t$ 的差别全部来自 $S<S_{\rm sw}$ 一段。成本最优控制在这里取 $c_c(S)<c_0$，于是 $S$ 下降变慢，控制期延长；同时接触减少分担了维持 $I=\eta$ 所需的干预，隔离强度降低，二次干预强度成本因而下降。后段的接触减少并不大：接触率最多降低约 $19.8\%$（基准）与 $28.2\%$（西安）。
+两组参数下，成本最优控制都先仅隔离、后两者并用：默认权重满足定理~\ref{thm:joint:cost-structure}的条件，两组参数的启动状态 $S^*$ 又都高于 $S_{\rm sw}$（比值见表~\ref{tab:joint:compare}注；逐点数值核对见补充材料第~\ref{sec:sup:numerics}~节）。前段较短，基准与西安参数下分别约 $1.61$ d 与 $25.46$ d，却完成了阈值控制期 $S$ 下降的一半以上：$S$ 越大，下降越快，所以控制期的大部分时间落在两者并用的后段。
+
+成本最优控制与仅隔离控制在 $S\ge S_{\rm sw}$ 上相同，$J$ 与 $\Delta t$ 的差别全部来自 $S<S_{\rm sw}$ 一段。成本最优控制在这里取 $c_c(S)<c_0$，于是 $S$ 下降变慢，控制期延长；同时接触减少分担了维持 $I=\eta$ 所需的干预，隔离强度降低，二次干预强度成本因而下降。后段的接触减少并不大：接触率最多降低约 $19.8\%$（基准）与 $28.2\%$（西安）。
 
 在这两组参数下，追踪隔离越强的控制，两感染仓室人数之和 $I+I_q$ 越高：$I$ 维持在 $\eta$，被追踪的感染者则不断进入 $I_q$。追踪隔离把一部分感染者从社区转入隔离，控制了社区传播，隔离点的负荷则随之增加。基准参数下，$\max(I+I_q)/\eta$ 在仅隔离控制、成本最优控制与仅减少接触下分别约为 $1.92$、$1.89$ 与 $1.02$（表~\ref{tab:joint:compare}，图~\ref{fig:joint:compare}(c)）。这一峰值在基准参数下出现在后段，成本最优控制的隔离较弱，因此峰值略低；在西安参数下出现在启动后约 $7.62$ d，仍在两者相同的前段，因此峰值也相同。
 
@@ -122,7 +124,7 @@ $\eta$ & 阈值（人） & $0.05N=38.15$ & $0.002N=\num{26326}$ & 设计情景�
 \FloatBarrier
 \subsection{成本权重}
 \label{sec:joint:weights-numerics}
-“先仅隔离、后两者并用”的结构在隔离的相对权重不大时保持不变。固定 $w_c=1$（最优选择只通过 $r=w_q/w_c$ 依赖权重），图~\ref{fig:joint:phase}给出 $r\in[1,20]$ 内不考虑能力约束时的成本最优控制，即加强隔离的相对代价不低于减少接触的情形；颜色与等高线 $y$ 是接触率降幅占仅减少接触时降幅的比例，$y=0$ 即仅隔离控制。$r<1$ 时成本最优控制更接近仅隔离控制：仅隔离控制的成本与 $r$ 成正比；由命题~\ref{prop:joint:weight-monotone}(i)，$J_{\min}/w_c$ 是 $r$ 的凹函数，又因 $J_{\min}\le J[c_0]$，它在 $r\to0^+$ 时趋于零，所以 $J_{\min}/J[c_0]$ 随 $r$ 不增，即 $1-J_{\min}/J[c_0]$ 随 $r$ 不减；$r=1$ 时它在两组参数下约为 $\nrCostGapOneBase\%$ 与 $\nrCostGapOneXian\%$，所以在两组算例中，隔离的相对代价不高于接触时，直接采用仅隔离控制几乎不损失成本。
+“先仅隔离、后两者并用”的结构在隔离的相对权重不大时保持不变。固定 $w_c=1$（最优选择只通过 $r=w_q/w_c$ 依赖权重），图~\ref{fig:joint:phase}给出 $r\in[1,20]$ 内不考虑能力约束时的成本最优控制，即加强隔离的相对代价不低于减少接触的情形；颜色与等高线 $y$ 是接触率降幅占仅减少接触时降幅的比例，$y=0$ 即仅隔离控制。$r=1$ 时，成本最优控制只比仅隔离控制节省约 $\nrCostGapOneBase\%$（基准）与 $\nrCostGapOneXian\%$（西安）；由于 $J_{\min}/J[c_0]$ 随 $r$ 不增（第~\ref{sec:joint:cost-structure}~节），$r<1$ 时节省不超过这一比例。因此在两组算例中，隔离的相对代价不高于接触时，直接采用仅隔离控制几乎不损失成本。
 
 成本最优控制的结构按权重分为三档。$r\le r_{\rm cont}$（基准约 $\nrCostRcontBase$，西安约 $\nrCostRcontXian$）时，由定理~\ref{thm:joint:cost-structure}，切换发生在 $S_{\rm sw}$ 处且控制连续，默认的 $r=2$ 属于这一档。$r_{\rm cont}<r\le\hat r$（基准 $\hat r$ 约 $\nrCostRhatBase$，西安约 $\nrCostRhatXian$，见补充命题~\ref*{prop:sup:rhat}）时，控制仍在 $S_{\rm sw}$ 处切换：$r<\hat r$ 时切换连续，随后在 $S_{\rm sw}$ 稍下方于两个内部取值之间跳变，所算网格中只跳变一次（补充图~\ref*{fig:sup:phase-detail}）；$r=\hat r$ 时，$S_{\rm sw}$ 处仅隔离控制与一个内部取值并列最优，控制在该处跳变。$r>\hat r$ 时切换提前：仅隔离控制仍是局部最优，但另一个内部局部最优的成本更低，因此接触率在切换处由 $c_0$ 跳到内部值；$r$ 越大，切换越早，超过约 $\nrWtBaseBToCApx$（基准）或 $\nrWtXianBToCApx$（西安）后仅隔离段消失，整个阈值控制期都两者并用（各转折所在的括区与闭式值见补充表~\ref*{tab:joint:weight-transitions}）。
 
@@ -130,14 +132,14 @@ $\eta$ & 阈值（人） & $0.05N=38.15$ & $0.002N=\num{26326}$ & 设计情景�
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/joint_v2/joint_phase_contour.pdf}
-\caption{固定 $w_c=1$、改变 $r=w_q/w_c$ 时不考虑能力约束的成本最优控制。(a)(b) 基准与西安参数，颜色与等高线为 $y=(1-c_c^*/c_0)/(1-S_c/S)$：$y=0$ 为仅隔离控制，$y=1$ 为仅减少接触，等高线只画在两者并用的区域。黑线为在 $S_{\rm sw}$ 处的连续切换，红线为由仅隔离控制跳入两者并用，紫线为两个内部取值之间的跳变（很短，放大见补充图~\ref*{fig:sup:phase-detail}）；菱形为 $(S_{\rm sw}/S_c,\hat r)$，三角为仅隔离段在 $S^*$ 处消失的权重。(a) 中彩色虚线为 (c)(d) 所用的权重，(b) 中点线为默认权重 $r=2$。(c)(d) 基准参数下这些权重的接触率与隔离比例，竖直虚线为 $S_{\rm sw}/S_c$，竖直点线连接跳变两侧。随时间推进，$S$ 从左向右减小。}
+\caption{固定 $w_c=1$、改变 $r=w_q/w_c$ 时不考虑能力约束的成本最优控制。(a)(b) 基准与西安参数，纵轴 $r$ 为对数刻度，颜色与等高线为 $y=(1-c_c^*/c_0)/(1-S_c/S)$：$y=0$ 为仅隔离控制，$y=1$ 为仅减少接触，等高线只画在两者并用的区域。黑线为在 $S_{\rm sw}$ 处的连续切换，红线为由仅隔离控制跳入两者并用，紫线为两个内部取值之间的跳变（很短，放大见补充图~\ref*{fig:sup:phase-detail}）；菱形为 $(S_{\rm sw}/S_c,\hat r)$，三角为仅隔离段在 $S^*$ 处消失的权重。(a) 中彩色虚线为 (c)(d) 所用的权重，(b) 中点线为默认权重 $r=2$。(c)(d) 基准参数下这些权重的接触率与隔离比例，竖直虚线为 $S_{\rm sw}/S_c$，竖直点线连接跳变两侧。随时间推进，$S$ 从左向右减小。}
 \label{fig:joint:phase}
 \end{figure}
 
 \FloatBarrier
 \subsection{成本与控制时长}
 \label{sec:joint:duration-numerics}
-在基准参数下，成本在最小值附近对控制时长不敏感（图~\ref{fig:joint:frontier}）。图中每个计算点都使 $J+\kappa\Delta t$ 最小；由注记~\ref{rem:joint:duration-constraint}，它在自身的时长 $T$ 下使 $J$ 最小：$\kappa\ge0$ 的点对应时长上限 $\Delta t\le T$，$\kappa<0$ 的点对应时长下限，即新增隔离易感者人数上限。由命题~\ref{prop:joint:duration-frontier}，最短与最长之间的每个时长都有匹配的乘子，图中曲线是凸函数 $V(T)$ 的采样。缩短控制期时，仅隔离控制始终满足时长上限，所以最小成本至多升到它的成本 $J[c_0]\approx1.05J_{\min}$（$J_{\min}$ 为不考虑时长约束的最小成本）；延长控制期时，成本不超过 $1.10J_{\min}$ 的计算点最长约 $11.09$ d，而仅减少接触的 $36.26$ d 对应约 $5.64J_{\min}$。
+在基准参数下，成本在最小值附近对控制时长不敏感，缩短与延长控制期的代价则不对称（图~\ref{fig:joint:frontier}）。缩短控制期时，仅隔离控制始终满足时长上限，所以最小成本至多升到它的成本 $J[c_0]\approx1.05J_{\min}$（$J_{\min}$ 为不考虑时长约束的最小成本）；延长控制期时，成本不超过 $1.10J_{\min}$ 的计算点最长约 $11.09$ d，而仅减少接触的 $36.26$ d 对应约 $5.64J_{\min}$。图中每个计算点都使 $J+\kappa\Delta t$ 最小，因而在自身的时长下使 $J$ 最小：$\kappa\ge0$ 的点对应时长上限，$\kappa<0$ 的点对应时长下限，即新增隔离易感者人数上限（注记~\ref{rem:joint:duration-constraint}）；由命题~\ref{prop:joint:duration-frontier}，曲线是凸函数 $V(T)$ 的采样。
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.6\textwidth]{figures/joint_v2/joint_frontier_baseline.pdf}
