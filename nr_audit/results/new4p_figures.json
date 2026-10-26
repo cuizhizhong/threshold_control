@@ -1,0 +1,223 @@
+{
+ "generated": "2026-10-27T01:46:47",
+ "git_head": "50edb4e69cd976258109fcc57bb0307e86beb9be",
+ "script": "nr_audit/plot_new4p_figures.py",
+ "style_module": "nr_audit/plot_xian_fig2_style.py",
+ "style": {
+  "tick": 5.5,
+  "label": 6.5,
+  "title": 7.0,
+  "legend": 5.0,
+  "note": 5.5,
+  "lw_main": 1.5,
+  "lw_ref": 1.0,
+  "lw_vline": 0.6,
+  "lw_axes": 0.4,
+  "ref_alpha": 0.7
+ },
+ "inputs": {
+  "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/capacity.json": {
+   "sha256": "1eec6f25f630dfe669ade76a4d683cfa509ab00f71ba65351cfd9b8fdad6a7f9",
+   "content_sha256": "a6e467fce31d34ebfde7e1223dcc0c62468377055e0471f58d217371bed7de3a"
+  },
+  "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/capacity_baseline.npz": {
+   "sha256": "4e3c239113f61238ddeeddf72bfeade58b5f5d2ef73fac4ef415d5568fae3c15"
+  },
+  "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/capacity_xian.npz": {
+   "sha256": "7337f70b5f2264940ef39c07e0c9db94ed3f713de09855b330dcf46fe8b14c0a"
+  },
+  "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/capacity_traj_baseline.csv": {
+   "sha256": "f4eb0dbfdd7a0d7d4f08c2201241e28087a487940a66228a561825d3433bf45a",
+   "content_sha256": "9b51862a8c57830ac8d367bd91ee888864639b390a4e7346aff99e346ce7609e"
+  },
+  "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/input_manifest.json": {
+   "sha256": "33d2edd859ed11d364e523ebd4542ee368faca5bad97c51b9e89d1c1959d1835",
+   "content_sha256": "56e63c1042e3d3a4643ee537be0ed0b425da779755ba4e4673e549a344272fed"
+  },
+  "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/trajectories_xian.csv": {
+   "sha256": "9a1f0ba1d2ea54d16926c20060c54a8780d16800505620d1d1b1686dbc49664b",
+   "content_sha256": "e6be743380b165a360843f5a6e6d7eb9a3f9a1caef61a2880663817f5ab5ba99"
+  },
+  "reproducibility/results/20261003_release_final/xian/timeseries.csv": {
+   "sha256": "29014ddcba1d811e8f0cd8b164f7ed008bd143f1392e81fc4368bd52cd909bbe",
+   "content_sha256": "e29e2b52c8a400348f762aa9296be9c6e47f521f2ff5a6ac2594b3f9022b4456"
+  },
+  "reproducibility/results/20261003_release_final/xian/observed.csv": {
+   "sha256": "c634b0b4f637c71bbeaa91328adeba464aa74b18db0db26ae8a00489b79ce43a",
+   "content_sha256": "a0f71b961267689f6de51c3f973156abba83f92b1be5c150754cb24dad707467"
+  },
+  "reproducibility/results/20261003_release_final/xian/summary.csv": {
+   "sha256": "6f4a7c5c053ce1c9bdd1a0cf2786b0559aca971148a6896c630b6aa367ee212f",
+   "content_sha256": "2355bae463c15aa903636c52bc679c5b3228d7a686b37c3aab1ce6c61822163d"
+  },
+  "nr_audit/results/new4d_figure7.json": {
+   "sha256": "d8f0aab4231b4fa7ca52bc60c04f134ee8ce9edae52857e039116b902ea487ec",
+   "content_sha256": "052178ddad781e7443ef9099122e765a420f29cc6621815854de4f5342036076"
+  },
+  "nr_audit/results/new4d_figure7.npz": {
+   "sha256": "9f6e6d68bad37f8af1a781e21ebbfedfda723f7a79316874cb56934c66b3cfd5"
+  },
+  "nr_audit/results/new4d_figure7_render.json": {
+   "sha256": "15d3922e4375d95c9eb3592422ea16ac9f72fcd4dc241279eaed3041b5f7279b",
+   "content_sha256": "b8bb3c5a57a77b5f27252d1424ff02fa9f219133f54d9276d252c77d7e0b8325"
+  }
+ },
+ "outputs": {
+  "paper/figures/new4p/joint_capacity_baseline.pdf": {
+   "sha256": "0d64351e291d05e56013ecb6c5ea0d6e4ae91517436a85b01c2b1c6bf47b92c6",
+   "size_mm": [
+    127.84,
+    50.0
+   ],
+   "fonts": [
+    "CGMMQU+Cmr10",
+    "CGMMQU+Cmsy10",
+    "GYUURQ+Cmmi10"
+   ]
+  },
+  "paper/figures/new4p/joint_phase_baseline.pdf": {
+   "sha256": "4143643e66a2350534281ef37e2272a9036d392afcd41458da74c67d1a2f575e",
+   "size_mm": [
+    159.8,
+    112.0
+   ],
+   "fonts": [
+    "CGMMQU+Cmr10",
+    "CGMMQU+Cmsy10",
+    "GYUURQ+Cmmi10"
+   ]
+  },
+  "paper/figures/new4p/xian_joint.pdf": {
+   "sha256": "60de479afd8fa05c97f24283fd16f3cde58be36c7a3c8e6d3626238b777dd057",
+   "size_mm": [
+    159.8,
+    60.0
+   ],
+   "fonts": [
+    "CGMMQU+Cmr10",
+    "CGMMQU+Cmsy10",
+    "GYUURQ+Cmmi10"
+   ]
+  },
+  "paper/figures/new4p/xian_strategy_process.pdf": {
+   "sha256": "bb1e6c8e17dcef19dae8d542b47d2174c03cb960900b145b77e255caa3ad9ff9",
+   "size_mm": [
+    135.0,
+    125.0
+   ],
+   "fonts": [
+    "CGMMQU+Cmr10",
+    "GYUURQ+Cmmi10"
+   ]
+  }
+ },
+ "checks": {
+  "joint_capacity_baseline": {
+   "point": {
+    "u_max": 0.5,
+    "q_cap": 0.6,
+    "c_min": 5.0
+   },
+   "q_required_quarantine_only": 0.756493306057348,
+   "u_required_contact_only": 0.7527198103634949,
+   "J": 2.3611264994384706,
+   "duration": 8.338312428867143,
+   "t1": 3.175406795635812,
+   "t2": 11.513719224509092,
+   "post_exit_days": 1.0,
+   "q_max_on_path": 0.6,
+   "u_max_on_path": 0.3912332651433701
+  },
+  "joint_phase_baseline": {
+   "r_cont": 3.1358196310216817,
+   "r_hat": 3.205114772545149,
+   "r_C": 13.101741705655332,
+   "z_sw": 2.26536879999122,
+   "z_star": 4.043995604621511,
+   "gamma_points": 70,
+   "profile_jumps": [
+    {
+     "r": 1.0,
+     "jumps": []
+    },
+    {
+     "r": 2.0,
+     "jumps": []
+    },
+    {
+     "r": 3.17,
+     "jumps": [
+      {
+       "z": 2.26206662953636,
+       "x_left": 0.8166700593686136,
+       "x_right": 0.9637793221078712,
+       "kind": "internal"
+      }
+     ]
+    },
+    {
+     "r": 5.0,
+     "jumps": [
+      {
+       "z": 2.5483426624871512,
+       "x_left": 0.5374057944726714,
+       "x_right": 1.0,
+       "kind": "endpoint"
+      }
+     ]
+    },
+    {
+     "r": 15.0,
+     "jumps": []
+    }
+   ]
+  },
+  "xian_joint": {
+   "capacity": {
+    "point": {
+     "u_max": 0.5,
+     "q_cap": 0.75,
+     "c_min": 6.4436
+    },
+    "q_required_quarantine_only": 0.8453598505859461,
+    "u_required_contact_only": 0.77158028151543,
+    "J": 41.61659631787002,
+    "duration": 116.75128552327438
+   },
+   "phase": {
+    "r_cont": 2.5476956241561206,
+    "r_hat": 2.7089548638662406,
+    "r_C": 7.453561846589592,
+    "z_sw": 2.548250542570811,
+    "z_star": 4.377905754522463,
+    "gamma_points": 54
+   }
+  },
+  "xian_strategy_process": {
+   "t1": 16.896725724327304,
+   "t2": 101.96780289071071,
+   "eta": 26326.0,
+   "t_obs_end": 39.0,
+   "Re_formula_max_rel_err": {
+    "情景一阈值控制": 1.1102230246251565e-15,
+    "常规控制": 1.9984014443252818e-15,
+    "TDINN控制": 9.992007221626409e-15
+   },
+   "quarantine_only_cross_check": {
+    "t1_diff": 1.9539925233402755e-12,
+    "t2_diff": 1.9468870959826745e-12,
+    "Itcum_end_rel_diff": -1.5543122344752192e-15
+   },
+   "cost_optimal": {
+    "t1": 16.896725724329258,
+    "t2": 125.70412023859802,
+    "duration": 108.80739451426876,
+    "t_end": 281.8406510339936,
+    "Itcum_end": 2534828.6166340606,
+    "I_max": 26326.0000019438,
+    "c_min": 9.25014414718534,
+    "I_end": 0.999999999999997
+   }
+  }
+ }
+}

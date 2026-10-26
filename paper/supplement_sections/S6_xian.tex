@@ -3,81 +3,9 @@
 \label{sec:sup:xian}
 西安参数见正文表~\ref{tab:xian_initial_fit}，计算使用 $I_0$ 的未取整值。
 
-\subsection{初值与人口缩放}
+\subsection{人口缩放}
 \label{sec:sup:xian:settings}
-正文第~\ref{sec:xian}~节的拟合准则是四项均方误差之和，四项等权：社区日新增、隔离日新增、社区累计与隔离累计。模型的日新增取进入 $I$ 与 $I_q$ 的流量在日区间 $[k,k+1]$ 上的积分，累计数取 $t=k+1$ 时自 $t=0$ 起的累计（不含初始感染者），观测累计数由观测日新增逐日相加。表~\ref{tab:sup:fit}给出拟合所得 $I_0$ 对应的四项误差。
-\begin{table}[htbp]
-\centering\small
-\renewcommand{\arraystretch}{1.2}
-\begin{threeparttable}
-\caption{拟合初值下的四项均方误差}
-\label{tab:sup:fit}
-\begin{tabular*}{0.6\linewidth}{@{\extracolsep{\fill}}lc@{}}
-\toprule
-误差项 & 均方误差（例$^2$）\\
-\midrule
-社区日新增 & $\nrFitMseCommNew$\\
-隔离日新增 & $\nrFitMseQuarNew$\\
-社区累计 & $\nrFitMseCommCum$\\
-隔离累计 & $\nrFitMseQuarCum$\\
-合计（拟合准则） & $\nrFitObjective$\\
-\bottomrule
-\end{tabular*}
-\begin{tablenotes}[flushleft]\footnotesize
-\item 注：$I_0\approx1.00659\times10^{-3}$（未取整值）；观测窗口 40 个日区间，起于 2021 年 12 月 9 日。
-\end{tablenotes}
-\end{threeparttable}
-\end{table}
-
-拟合得到的 $I_0$ 远小于 $1$。表~\ref{tab:sup:initial}把它与固定 $I_0=1$ 的对照放在一起：后者使观测窗口内的累计病例高出两个数量级以上，与观测数据不符（正文第~\ref{sec:xian}~节）。
-\begin{table}[htbp]
-\centering\small
-\setlength{\tabcolsep}{3.5pt}
-\renewcommand{\arraystretch}{1.25}
-\begin{threeparttable}
-\caption{不同初值下观测窗口内的模型结果}
-\label{tab:sup:initial}
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lS[table-format=1.6]S[table-format=7.0]S[table-format=5.2]S[table-format=5.2]@{}}
-\toprule
-数据或初值设定 & {$I_0$（人）} & {\shortstack{40日累计新增病例\\（例）}} & {\shortstack{社区日新增峰值\\（例）}} & {\shortstack{隔离日新增峰值\\（例）}}\\
-\midrule
-观测数据 & {---} & 2050 & 60 & 141\\
-最小二乘拟合 & 0.001007 & 2099 & 53.88 & 115.93\\
-固定 $I_0=1$ & 1 & 1083553 & 36873.64 & 63966.50\\
-\bottomrule
-\end{tabular*}
-\begin{tablenotes}[flushleft]\footnotesize
-\item 注：观测窗口为 2021 年 12 月 9 日至 2022 年 1 月 17 日，共 40 天；拟合行使用未取整的 $I_0$。日新增峰值是病例流量的峰值，不同于现存感染者的峰值。
-\end{tablenotes}
-\end{threeparttable}
-\end{table}
-
-初值对固定人口下的控制有多大影响，由六条前向轨迹给出：固定西安 $N$、$\eta=0.002N$、传播参数与默认权重，$I_0$ 取拟合值的 $0.1$、$1$、$10$ 倍，$S_0=N-I_0$，其余初始仓室为零，分别计算仅隔离控制与成本最优控制（表~\ref{tab:sup:ic}）。$I_0$ 每放大 $10$ 倍，启动时刻与清零时间都提前约 $\nrICtOneShift$ d，与初期近似指数增长一致（$\ln10/g\approx2.28$ d，初期增长率 $g=\beta c_0(1-q_0)-\gamma$）；$S^*$、控制时长、$J$ 与计至清零的总累计新增感染的相对变化不超过 $\nrICMaxRelTotal$。$0.1$ 倍与 $10$ 倍的初值并不与观测相符，这组计算只说明初值误差主要使整个过程平移，而不是置信区间。
-\begin{table}[htbp]
-\centering\small
-\renewcommand{\arraystretch}{1.2}
-\begin{threeparttable}
-\caption{固定西安人口下 $I_0$ 取拟合值的 $0.1$、$1$、$10$ 倍}
-\label{tab:sup:ic}
-\begin{tabular*}{0.8\linewidth}{@{\extracolsep{\fill}}lccccc@{}}
-\toprule
-控制 & $I_0$ 倍数 & $t_1$（d） & $\Delta t$（d） & $J$（d） & $t_{\rm end}$（d）\\
-\midrule
-仅隔离控制 & $0.1$ & \nrICtabQLowTOne & \nrICtabQLowDt & \nrICtabQLowJ & \nrICtabQLowTend\\
- & $1$ & \nrICtabQFitTOne & \nrICtabQFitDt & \nrICtabQFitJ & \nrICtabQFitTend\\
- & $10$ & \nrICtabQHighTOne & \nrICtabQHighDt & \nrICtabQHighJ & \nrICtabQHighTend\\
-成本最优控制 & $0.1$ & \nrICtabOLowTOne & \nrICtabOLowDt & \nrICtabOLowJ & \nrICtabOLowTend\\
- & $1$ & \nrICtabOFitTOne & \nrICtabOFitDt & \nrICtabOFitJ & \nrICtabOFitTend\\
- & $10$ & \nrICtabOHighTOne & \nrICtabOHighDt & \nrICtabOHighJ & \nrICtabOHighTend\\
-\bottomrule
-\end{tabular*}
-\begin{tablenotes}[flushleft]\footnotesize
-\item 注：$N$、$\eta=0.002N$ 与传播参数固定；$t_{\rm end}$ 为清零时间。
-\end{tablenotes}
-\end{threeparttable}
-\end{table}
-
-人口缩放情景与上述诊断不同：取 $N=N_{\rm eff}$、$S_0=N-I_0$，沿用全市拟合的绝对初值 $I_0$ 与传播参数，其余初始仓室为零，不重新拟合。它同时改变 $N$、$i_0=I_0/N$ 与 $\eta=\theta N$。固定 $\theta=0.002$、取 $N\in\{5\times10^4,10^5,5\times10^5,10^6,5\times10^6,1.3163\times10^7\}$ 的六个人口规模，仅隔离控制的控制时长均约为 $85.07$ 天，$\Delta t$ 和 $J$ 的相对极差分别为 $4.71\times10^{-8}$ 和 $1.17\times10^{-7}$；以 $t-t_1$ 为时间变量时，归一化感染轨迹和隔离比例近似重合。启动时间由 $11.39$ 天增加至 $16.90$ 天，这是固定绝对初值时，初始感染比例 $i_0=I_0/N$ 随 $N$ 增大而减小的结果：初期近似指数增长，$t_1\approx g^{-1}\ln(\theta/i_0)$，$g$ 为上述初期增长率。固定绝对阈值 $\eta=100$、把 $N$ 从 $1.3163\times10^7$ 降到 $5\times10^4$ 时，$\theta=\eta/N$ 增大，控制时长由约 $2.25\times10^4$ 天缩短到约 $85$ 天。两组结果都符合
+人口缩放情景取 $N=N_{\rm eff}$、$S_0=N-I_0$，沿用全市拟合的绝对初值 $I_0$ 与传播参数，其余初始仓室为零，不重新拟合。它同时改变 $N$、$i_0=I_0/N$ 与 $\eta=\theta N$。固定 $\theta=0.002$、取 $N\in\{5\times10^4,10^5,5\times10^5,10^6,5\times10^6,1.3163\times10^7\}$ 的六个人口规模，仅隔离控制的控制时长均约为 $85.07$ 天，$\Delta t$ 和 $J$ 的相对极差分别为 $4.71\times10^{-8}$ 和 $1.17\times10^{-7}$；以 $t-t_1$ 为时间变量时，归一化感染轨迹和隔离比例近似重合。启动时间由 $11.39$ 天增加至 $16.90$ 天，这是固定绝对初值时，初始感染比例 $i_0=I_0/N$ 随 $N$ 增大而减小的结果：初期近似指数增长，$t_1\approx g^{-1}\ln(\theta/i_0)$，其中 $g=\beta c_0(1-q_0)-\gamma$ 为初期增长率。固定绝对阈值 $\eta=100$、把 $N$ 从 $1.3163\times10^7$ 降到 $5\times10^4$ 时，$\theta=\eta/N$ 增大，控制时长由约 $2.25\times10^4$ 天缩短到约 $85$ 天。两组结果都符合
 \[
 \Delta t=\frac1{c_0\theta}\ln\frac{s^*-\bar s}{s_c-\bar s},
 \]

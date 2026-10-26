@@ -37,9 +37,9 @@ def test_outputs_registered(receipt, name, width_mm):
 
 
 def test_manuscript_uses_new_figures():
-    main = (ROOT / 'paper' / 'sections' / '07_xian.tex').read_text(encoding='utf-8')
+    # NEW-4p 起，策略过程图改用 paper/figures/new4p/ 中加入成本最优控制的版本（见 test_new4p_figures.py）；
+    # 这里只核对仍在稿件中使用的图 S11，NEW-4o 的策略过程图作为历史输出由 test_outputs_registered 核对。
     sup = (ROOT / 'paper' / 'supplement_sections' / 'S6_xian.tex').read_text(encoding='utf-8')
-    assert r'\includegraphics[width=135mm]{figures/new4o/xian_strategy_process.pdf}' in main
     assert r'\includegraphics[width=0.7\textwidth]{new4o/xian_eta_sensitivity.pdf}' in sup
 
 

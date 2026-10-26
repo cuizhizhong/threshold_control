@@ -50,7 +50,7 @@ $b$ 只依赖传播概率与常规隔离比例；由 $0<b<1$，$r_{\rm cont}$ �
 \end{theorem}
 证明见附录~\ref{sec:proof:cost-structure}。权重条件保证每个状态上的成本单峰，成本最优控制因而唯一，并随易感者减少连续调整；启动状态决定有没有仅隔离段。$S^*/S_c$ 正是启动时常规措施下的有效再生数，所以仅隔离段要求这一再生数超过 $S_{\rm sw}/S_c$，即介于 2 与 3 之间的某个值，而不只是超过 1；例如初始时常规措施下的有效再生数 $S_0/S_c$ 不超过 2 时，成本最优控制从启动起就两者并用。
 
-默认权重 $r=2$ 对所有允许参数都满足 $r\le r_{\rm cont}$；两组参数下 $r_{\rm cont}$ 分别约为 $\nrCostRcontBase$ 与 $\nrCostRcontXian$。两组算例的启动状态又都满足 $S^*>S_{\rm sw}$（比值见表~\ref{tab:joint:compare}注），所以算例中“先仅隔离、后两者并用”的结构（第~\ref{sec:joint:compare-numerics}~节）是定理的结论。
+默认权重 $r=2$ 对所有允许参数都满足 $r\le r_{\rm cont}$；两组参数下 $r_{\rm cont}$ 分别约为 $\nrCostRcontBase$ 与 $\nrCostRcontXian$。两组算例的启动状态又都满足 $S^*>S_{\rm sw}$（比值见表~\ref{tab:joint:compare}与表~\ref{tab:xian:joint-compare}的注），所以算例中“先仅隔离、后两者并用”的结构（第~\ref{sec:joint:compare-numerics}、\ref{sec:xian:joint}~节）是定理的结论。
 
 下面的命题对任意权重成立，给出定理中不依赖 $r\le r_{\rm cont}$ 的部分。
 \begin{proposition}

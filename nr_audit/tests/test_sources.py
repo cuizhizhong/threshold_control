@@ -76,20 +76,22 @@ def test_audit_notes_I0():
 
 
 def test_manuscript_table1_display():
-    """稿件表 1 的显示值是未取整参数的舍入（西安 I0 显示为 ≈1.00659×10^-3）。"""
-    text = (SRC.ROOT / SRC.FILES['table1'][0]).read_text(encoding='utf-8')
+    """稿件中参数的显示值是未取整参数的舍入（西安 I0 显示为 ≈1.00659×10^-3）。
+    NEW-4p 起，基准参数写在第 3 章图 2 的图注中，西安参数为第 7 章的参数表（tab:xian_initial_fit）。"""
+    B, X = PR.BASE, PR.XIAN
+    s1 = (SRC.ROOT / 'paper/sections/03_single_control.tex').read_text(encoding='utf-8')
+    assert (r'$N=763$，$S_0=762$，$I_0=1$，$S_q(0)=I_q(0)=R(0)=0$，$\beta=0.155$，$\gamma=\delta_q=0.3504$，'
+            r'$c_0=10$，$q_0=0.01526$，$\eta=0.05N=38.15$') in s1
+    text = (SRC.ROOT / 'paper/sections/07_xian.tex').read_text(encoding='utf-8')
     rows = {m.group(1): m.group(0) for m in re.finditer(r'^\$(N|\\beta|\\gamma|\\delta_q|c_0|q_0|I_0|S_0|\\eta)\$\s*&.*$',
                                                          text, flags=re.M)}
-    B, X = PR.BASE, PR.XIAN
-    assert '763' in rows['N'] and r'\num{13163000}' in rows['N']
-    assert '0.155' in rows[r'\beta'] and '0.1498' in rows[r'\beta']
-    assert '0.3504' in rows[r'\gamma'] and '0.2953' in rows[r'\gamma']
-    assert '0.3504' in rows[r'\delta_q'] and '0.3531' in rows[r'\delta_q']
-    assert '& 10 &' in rows['c_0'] and '12.8872' in rows['c_0']
-    assert '0.01526' in rows['q_0'] and '0.3230' in rows['q_0']
+    assert r'\num{13163000}' in rows['N']
+    assert '0.1498' in rows[r'\beta'] and '0.2953' in rows[r'\gamma'] and '0.3531' in rows[r'\delta_q']
+    assert '12.8872' in rows['c_0'] and '0.3230' in rows['q_0']
     assert r'\approx1.00659\times10^{-3}' in rows['I_0'] and f'{X.I0:.5e}' == '1.00659e-03'
-    assert '762' in rows['S_0'] and B.S0 == 762.0
-    assert '0.05N=38.15' in rows[r'\eta'] and r'\num{26326}' in rows[r'\eta']
+    assert '$N-I_0$' in rows['S_0'] and B.S0 == 762.0
+    assert r'0.002N=\num{26326}' in rows[r'\eta']
+    assert (B.N, B.S0, B.I0) == (763.0, 762.0, 1.0)
     assert (B.beta, B.gamma, B.delta_q, B.c0, B.q0) == (0.155, 0.3504, 0.3504, 10.0, 0.01526)
     assert (X.beta, X.gamma, X.delta_q, X.c0, X.q0) == (0.1498, 0.2953, 0.3531, 12.8872, 0.3230)
 
@@ -100,14 +102,16 @@ def test_default_weights_in_manuscript():
 
 
 def test_capacity_points():
-    """能力代表点与 capacity.json 的 point 字段、图 6 图注一致。"""
+    """能力代表点与 capacity.json 的 point 字段、图注一致（NEW-4p 起基准在第 6 章图 5，西安在第 7 章控制组合图）。"""
     cap = SRC.load_json('capacity')
     for case, key in (('base', 'baseline'), ('xian', 'xian')):
         C, pt = PR.REP_CAPACITY[case], cap[key]['point']
         assert C.c_min == pt['c_min'] and C.q_cap == pt['q_cap']
         assert pt['u_max'] == 0.5 and C.c_min / PR.CASES[case].c0 == 0.5
-    text = (SRC.ROOT / SRC.FILES['table1'][0]).read_text(encoding='utf-8')
-    assert r'基准 $c_{\min}/c_0=0.5$、$q_{\rm cap}=0.6$，西安 $c_{\min}/c_0=0.5$、$q_{\rm cap}=0.75$' in text
+    num = (SRC.ROOT / 'paper/sections/06_numerics.tex').read_text(encoding='utf-8')
+    xian = (SRC.ROOT / 'paper/sections/07_xian.tex').read_text(encoding='utf-8')
+    assert r'红点为代表能力组合 $c_{\min}/c_0=0.5$、$q_{\rm cap}=0.6$' in num
+    assert r'红点为代表能力组合 $c_{\min}/c_0=0.5$、$q_{\rm cap}=0.75$' in xian
 
 
 def test_reference_columns():

@@ -19,12 +19,13 @@ FIG={
 'fig:scenario1_summary_eta':(f'{D}/baseline/eta_sensitivity_c0_10.csv;{D}/baseline/main_eta_summary.csv',f'{L}/layout_matlab.m'),
 'fig:scenario1_summary_c0':(f'{D}/baseline/c0_sensitivity_selected_eta.csv;{D}/baseline/main_c0_summary.csv',f'{L}/layout_matlab.m'),
 'fig:joint:compare':(f'{E}/trajectories_baseline.csv;{E}/compare_baseline.csv','reproducibility/joint_extra/figures.py:fig_compare'),
-'fig:joint:capacity':(f'{E}/capacity_baseline.npz;{E}/capacity_xian.npz;{E}/capacity.json;{E}/capacity_traj_baseline.csv','paper/tools/replot_joint_figs.py:fig_capacity'),
-'fig:joint:phase':(f'{A}/new4d_cost_structure.json;nr_audit/allocation.py;nr_audit/params.py','nr_audit/plot_figure7_contour.py'),
+'fig:joint:capacity':(f'{E}/capacity_baseline.npz;{E}/capacity.json;{E}/capacity_traj_baseline.csv;{E}/input_manifest.json','nr_audit/plot_new4p_figures.py:capacity_baseline'),
+'fig:joint:phase':(f'{A}/new4d_cost_structure.json;nr_audit/allocation.py;nr_audit/params.py','nr_audit/plot_figure7_contour.py；NEW-4p版面：nr_audit/plot_new4p_figures.py:phase_baseline'),
+'fig:xian:joint':(f'{E}/capacity_xian.npz;{E}/capacity.json;{A}/new4d_figure7.json;{A}/new4d_figure7.npz','nr_audit/plot_new4p_figures.py:xian_joint'),
 'fig:sup:phase-detail':(f'{E}/phase_baseline.npz;{E}/phase_xian.npz;{E}/phase.json;{A}/weight_brackets.json;{A}/new_figure7.json;{A}/new_figure7.npz;{A}/new4d_cost_structure.json','nr_audit/plot_figure7_detail.py'),
 'fig:joint:frontier':(f'{E}/frontier_baseline.csv;{E}/alpha_family_baseline.csv','reproducibility/joint_extra/figures.py:fig_duration'),
 'fig:xian:observed-fit':(f'{D}/xian/observed.csv;{D}/xian/timeseries.csv;{D}/xian/fit.json;真实数据/Xianguankong.xlsx',f'reproducibility/figures.py:run_python_figures;{L}/layout_python.py'),
-'fig:xian:strategy-process':(f'{D}/xian/timeseries.csv;{D}/xian/reference.json;{D}/xian/summary.csv',f'{L}/layout_python.py'),
+'fig:xian:strategy-process':(f'{D}/xian/timeseries.csv;{D}/xian/observed.csv;{D}/xian/summary.csv;{E}/trajectories_xian.csv;{E}/input_manifest.json','nr_audit/plot_new4p_figures.py:strategy_process'),
 'fig:baseline:q-joint':(f'{D}/baseline/main_c0_summary.csv;{D}/baseline/main_eta_summary.csv;scenario1_threshold_landscape/common/compute_trajectory.m',f'{L}/layout_matlab.m'),
 'fig:scenario1_heatmaps_c0_eta':(f'{D}/baseline/landscape_summary.csv','scenario1_threshold_landscape/scripts/plot_heatmaps.m'),
 'fig:s1:lambda-sensitivity':('scenario1_inflection/inflection_analysis.py:解析式;scenario1_inflection/fig_lambda_sensitivity.py:BASE与specs','scenario1_inflection/fig_lambda_sensitivity.py'),
@@ -38,7 +39,8 @@ FIG={
 }
 TAB={
 'tab:xian_initial_fit':('joint_control/threshold_control_reproducible_release_20261002/numerics/inputs/baseline_parameters.json;'+f'{D}/xian/reference.json;{D}/xian/fit.json','nr_audit/sources.py'),
-'tab:joint:compare':(f'{E}/compare_baseline.csv;{E}/compare_xian.csv;{A}/regression.json','nr_audit/audit_baseline.py'),
+'tab:joint:compare':(f'{E}/compare_baseline.csv;{A}/regression.json','nr_audit/audit_baseline.py'),
+'tab:xian:joint-compare':(f'{E}/compare_xian.csv;{A}/regression.json','nr_audit/audit_baseline.py'),
 'tab:xian_summary':(f'{D}/xian/summary.csv;{D}/xian/reference.json;{A}/regression.json','nr_audit/audit_baseline.py'),
 'tab:sensitivity':('paper/appendices/A_proofs_sensitivity.tex:解析导数与证明;paper/supplement_sections/S2_single_control.tex:prop:contact-effects;paper/supplement_sections/S3_inflection.tex:prop:s1:lambda-sensitivity','nr_audit/theory_checks.py'),
 'tab:sup:baseline':(f'{D}/baseline/main_c0_summary.csv;{D}/baseline/main_eta_summary.csv;{D}/baseline/representative_cases.csv','nr_audit/audit_baseline.py'),
@@ -84,11 +86,13 @@ def main():
                         status='NEW-4d逐状态精确求解与重绘（等高线相图与基准剖面）；见new4d_figure7.json'
                     if label=='fig:sup:phase-detail':
                         status='NEW-4d由NEW-2已验证缓存重绘局部加密面板并叠加闭式点；见new4d_figure7_detail_render.json'
+                    if artifact.startswith('paper/figures/new4p/'):
+                        status='NEW-4p只读既有数据按图2风格重绘（相图复用NEW-4d缓存）；见new4p_figures.json'
                 rows.append(dict(labels='|'.join(labels),kind=kind,tex=file.relative_to(ROOT).as_posix(),
                     artifact=artifact,inputs=inputs,generation_or_audit_entry=entry,
                     historical_report=H if kind=='figure' else 'nr_audit/results/regression.json或所列理论/专项结果',
                     old_pdf_hash_matches=same,status=status))
-    assert len(rows)==34,(len(rows),rows)
+    assert len(rows)==26,(len(rows),rows)      # NEW-4p：正文 9 图 5 表，补充 7 图 5 表
     with open(RESULTS/'figure_table_sources.csv','w',encoding='utf-8-sig',newline='') as fh:
         w=csv.DictWriter(fh,fieldnames=list(rows[0]));w.writeheader();w.writerows(rows)
     receipt=dict(formal_figures=sum(r['kind']=='figure' for r in rows),

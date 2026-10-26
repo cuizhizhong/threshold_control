@@ -2,7 +2,7 @@
 \label{sec:sup:weight-structure}
 
 \subsection{网格与分类}
-正文图~\ref{fig:joint:phase}在 $r\in[0.9,20]$ 的 $300$ 个对数等距点与 $S\in(S_c,S^*]$ 的 $300$ 个等距点上逐状态求解，正文讨论其中 $r\ge1$ 的部分，跳变位置在 $S$ 上二分定位；默认的 $r=2$ 由正文第~\ref{sec:joint:compare-numerics}~节单独计算。表~\ref{tab:joint:weight-transitions}给出成本最优控制的结构转折所在的 $r$ 括区。括区由 $r\in[0.1,20]$ 内 $161$ 个对数等距点的原网格出发确定：对全部网格点重新分类，在类别不同的相邻网格点之间取 $20$ 个细分点，找出每个改变区间，再在 $\log r$ 上二分到宽度小于 $10^{-3}$，不假定结构类别对 $r$ 单调；各括区在 $N_z=8001$ 与 $16001$ 下类别不变。结构 A$'$ 中的内部跳变另用不依赖根法的 $2\times10^{5}$ 点网格逐点核对：两个内部局部极小在跳变处交换全局最优。
+正文图~\ref{fig:joint:phase}与图~\ref{fig:xian:joint}(b) 在 $r\in[0.9,20]$ 的 $300$ 个对数等距点与 $S\in(S_c,S^*]$ 的 $300$ 个等距点上逐状态求解，正文讨论其中 $r\ge1$ 的部分，跳变位置在 $S$ 上二分定位；默认的 $r=2$ 由正文第~\ref{sec:joint:compare-numerics}、\ref{sec:xian:joint}~节单独计算。表~\ref{tab:joint:weight-transitions}给出成本最优控制的结构转折所在的 $r$ 括区。括区由 $r\in[0.1,20]$ 内 $161$ 个对数等距点的原网格出发确定：对全部网格点重新分类，在类别不同的相邻网格点之间取 $20$ 个细分点，找出每个改变区间，再在 $\log r$ 上二分到宽度小于 $10^{-3}$，不假定结构类别对 $r$ 单调；各括区在 $N_z=8001$ 与 $16001$ 下类别不变。结构 A$'$ 中的内部跳变另用不依赖根法的 $2\times10^{5}$ 点网格逐点核对：两个内部局部极小在跳变处交换全局最优。
 
 \subsection{结构边界}
 表~\ref{tab:joint:weight-transitions}的前两个转折可以与闭式比较。正文定理~\ref{thm:joint:cost-structure}的权重界 $r_{\rm cont}$（式\eqref{eq:joint:rcont}）保证控制连续，两组参数下的值都落在 A$\to$A$'$ 的括区内；A$'\to$B 的转折由命题~\ref{prop:sup:rhat}给出，其证明用到下面的上集性。
@@ -112,11 +112,11 @@ $1<\zeta<\zeta_0$ 时两端点都不是全局最小点。由引理~\ref{lem:sup:
 
 对一次疫情，阈值控制期只经过 $S\in[S_c,S^*]$。$r_{\rm cont}<r<\hat r$ 时，控制期内部有跳变当且仅当 $S^*>S_{\rm jump}$；$r\ge\hat r$ 时，当且仅当 $S^*>S_c\zeta_0$，这也是存在仅隔离段的条件。由正文命题~\ref{prop:joint:weight-monotone}(i)，存在仅隔离段的权重构成一个区间；由 (iii) 证明中与 $p=1$ 的比较，$r\ge(S^*-\bar S)/(S_c-\bar S)$ 时没有仅隔离段。两组算例中仅隔离段消失处的权重见表~\ref{tab:joint:weight-transitions}的 B$\to$C 括区。
 
-图~\ref{fig:sup:phase-detail}放大正文图~\ref{fig:joint:phase}的转折区。由命题~\ref{prop:sup:jump}(ii)，两个内部取值之间的跳变（紫线）位于曲线 $S/S_c=\zeta_{\rm j}(r)$ 上：它从 $r=r_{\rm cont}$、$S/S_c=b+\sqrt{b^2-8b+8}$ 处（空心圆，两个最小点在此重合）延伸到 $(S_{\rm sw}/S_c,\hat r)$（空心菱形），在那里与 $S_{\rm sw}$ 处的连续切换（黑线）及由仅隔离控制出发的跳变（红线）相接。
+图~\ref{fig:sup:phase-detail}放大正文图~\ref{fig:joint:phase}(a) 与图~\ref{fig:xian:joint}(b) 的转折区。由命题~\ref{prop:sup:jump}(ii)，两个内部取值之间的跳变（紫线）位于曲线 $S/S_c=\zeta_{\rm j}(r)$ 上：它从 $r=r_{\rm cont}$、$S/S_c=b+\sqrt{b^2-8b+8}$ 处（空心圆，两个最小点在此重合）延伸到 $(S_{\rm sw}/S_c,\hat r)$（空心菱形），在那里与 $S_{\rm sw}$ 处的连续切换（黑线）及由仅隔离控制出发的跳变（红线）相接。
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/joint_v2/joint_phase_detail.pdf}
-\caption{正文图~\ref{fig:joint:phase}转折区的局部加密。(a) 基准参数；(b) 西安参数。颜色为 $y$；点为表~\ref{tab:joint:weight-transitions}所涉加密权重及西安两处补充计算点上的局部分类，黑线为连续进入内部分支的边界，红线为端点到内部的跳变，紫线为两个内部取值之间的跳变。空心圆位于 $r=r_{\rm cont}$（正文式\eqref{eq:joint:rcont}）、$S/S_c=b+\sqrt{b^2-8b+8}$，空心菱形为 $(S_{\rm sw}/S_c,\hat r)$（命题~\ref{prop:sup:rhat}）。随时间推进，$S$ 从左向右减小。}
+\caption{正文图~\ref{fig:joint:phase}(a) 与图~\ref{fig:xian:joint}(b) 转折区的局部加密。(a) 基准参数；(b) 西安参数。颜色为 $y$；点为表~\ref{tab:joint:weight-transitions}所涉加密权重及西安两处补充计算点上的局部分类，黑线为连续进入内部分支的边界，红线为端点到内部的跳变，紫线为两个内部取值之间的跳变。空心圆位于 $r=r_{\rm cont}$（正文式\eqref{eq:joint:rcont}）、$S/S_c=b+\sqrt{b^2-8b+8}$，空心菱形为 $(S_{\rm sw}/S_c,\hat r)$（命题~\ref{prop:sup:rhat}）。随时间推进，$S$ 从左向右减小。}
 \label{fig:sup:phase-detail}
 \end{figure}
 \FloatBarrier
