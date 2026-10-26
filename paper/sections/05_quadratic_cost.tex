@@ -1,9 +1,9 @@
 \section{成本最优控制}
 \label{sec:joint:cost}
-以控制时长、感染或隔离人数为目标时，最优控制取允许区间的一端；二次干预强度成本 $J$（式\eqref{eq:cost:J}）则同时计入两种干预的强度，最优控制不再只由控制时长决定。与控制时长一样，$J$ 可以写成对 $S$ 的积分，最小化 $J$ 因而化为在每个状态上选取接触率。
+以控制时长、感染或隔离人数为目标时，最优控制取允许区间的一端（第~\ref{sec:joint:objectives}~节）。二次干预强度成本 $J$（式\eqref{eq:cost:J}）同时计入两种干预的强度，最优控制一般落在区间内部。本节先把最小化 $J$ 约化为逐状态问题，再给出最优组合的结构，然后讨论它随阈值、能力约束与成本权重的变化，最后讨论给定控制时长时的最小成本。
 
-\subsection{存在性}
-由式\eqref{eq:joint:q}与\eqref{eq:joint:time}把时间换成 $S$，成本写为
+\subsection{逐状态约化}
+与控制时长一样，$J$ 可以写成对 $S$ 的积分。由式\eqref{eq:joint:q}与\eqref{eq:joint:time}，
 \begin{equation}
 J[c_c]=\frac{N}{\eta}\int_{S_c}^{S^*}f(S,c_c(S))\,dS,
 \label{eq:joint:cost}
@@ -27,40 +27,32 @@ f(S,c)=
 \end{equation}
 允许函数 $c_c^*(S)$ 达到该值，当且仅当它几乎处处属于相应的一维最小化解集。对每个 $S>S_c$，只需比较 $c^{-}(S)$、$c^{+}(S)$ 与区间内 $f(S,\cdot)$ 的全部驻点处的 $f$ 值。驻点方程可化为关于 $c$ 的五次多项式方程（附录式\eqref{eq:joint:stationary}），故候选至多七个，重复的端点与重根只计一次。$S=S_c$ 时允许区间退化为 $c=c_0$，无需求根。
 \end{theorem}
-证明见附录~\ref{sec:proof:cost-minimum}。在 $S$ 坐标下，成本是同一被积函数的积分，约束只限制每个状态上的接触率，因此各状态的选择互不影响；总时长等跨状态约束会打破这种分离（时长约束见注记~\ref{rem:joint:duration-constraint}）。这一有限比较不需要 $f(S,\cdot)$ 凸或单峰；成本最优控制一般没有已知的初等时间表达，两种单控制的成本则有闭式（附录~\ref{app:cost}）。
+证明见附录~\ref{sec:proof:cost-minimum}。在 $S$ 坐标下，约束只限制每个状态上的接触率，各状态的选择因而互不影响；总时长等跨状态约束会打破这种分离（第~\ref{sec:joint:duration}~节）。这一有限比较不需要 $f(S,\cdot)$ 凸或单峰；成本最优控制一般没有初等的时间表达，两种单控制的成本则有闭式（附录~\ref{app:cost}）。
 
-\subsection{阈值与能力约束的影响}
-
-阈值只通过系数 $N/\eta$ 与积分上限 $S^*(\eta)$ 进入式\eqref{eq:joint:minimum-cost}，二者都随 $\eta$ 增大而减小，所以提高阈值降低最小成本。每个状态上的最优选择则与阈值无关：成本最优控制可以取成同一个状态反馈 $c_c^*(S)$，阈值只决定从哪个 $S^*$ 开始使用它。
-\begin{proposition}
-\label{prop:joint:minimum-threshold}
-固定 $N,S_0,I_0,\beta,\gamma,c_0,q_0$ 及能力约束。在控制被触发且满足式\eqref{eq:joint:feasibility}的阈值范围内，记 $J_{\min}(\eta)$ 为式\eqref{eq:joint:minimum-cost}的最小值，则 $J_{\min}$ 随 $\eta$ 严格下降。对于任意两个可行阈值，可以选取成本最优控制，使二者在共同经过的易感者状态上采用相同的 $c_c^*(S),q_c^*(S)$。
-
-固定阈值时，降低 $c_{\min}$ 或提高 $q_{\rm cap}$ 不会增大最小成本。
-\end{proposition}
-\begin{proof}
-记 $m(S)=\min_{c^{-}(S)\le c\le c^{+}(S)}f(S,c)$。被积函数与允许界限都不含 $\eta$，且 $m$ 连续；对 $S>S_c$，两项强度不能同时为零，故 $m(S)>0$。因此
-\[
-J_{\min}(\eta)=\frac{N}{\eta}\int_{S_c}^{S^*(\eta)}m(S)\,dS.
-\]
-由 $\partial S^*/\partial\eta<0$（引理~\ref{lem:s1:Sstar-sensitivity}），在可行区间内部有
-\begin{equation}
-\frac{dJ_{\min}}{d\eta}
-=-\frac{J_{\min}}{\eta}
-+\frac{N}{\eta}m(S^*)\frac{\partial S^*}{\partial\eta}<0.
-\label{eq:joint:mincost-eta}
-\end{equation}
-端点处的严格比较可直接由两个积分的上下限和正系数得到。把较低阈值下的逐状态最小化选择限制到较高阈值经过的区间上，它在每个状态仍达到 $m(S)$，即得兼容的成本最优控制。最后，放宽任一能力约束使每个状态的允许区间包含原区间，最小被积函数值不增，积分即得最后的结论。
-\end{proof}
-
-\subsection{控制组合的结构}
+\subsection{最优组合的结构}
 \label{sec:joint:cost-structure}
-成本最优控制在不考虑能力约束时从不单独减少接触；仅隔离控制取值的局部最优性以状态
+最优组合的结构由两个与阈值无关的量决定。一是状态
 \begin{equation}
-S_{\rm sw}=\frac{3S_c+\sqrt{9S_c^2-8S_c\bar S}}{2}
+S_{\rm sw}=\frac{3S_c+\sqrt{9S_c^2-8S_c\bar S}}{2},
 \label{eq:joint:ssw}
 \end{equation}
-为分界，退出附近的控制组合则由成本权重决定。由 $0<\bar S<S_c$，有 $2S_c<S_{\rm sw}<3S_c$，即 $S_{\rm sw}$ 介于常规传播临界值的两倍与三倍之间。
+由 $0<\bar S<S_c$，它介于常规传播临界值的两倍与三倍之间。二是隔离与接触的成本权重之比 $r$ 的一个界：
+\begin{equation}
+b=\frac{\bar S}{S_c}=(1-\beta)(1-q_0),\qquad
+r=\frac{w_q}{w_c},\qquad
+r_{\rm cont}(b)=\frac{16}{\bigl(b+\sqrt{b^2-8b+8}\bigr)^2}.
+\label{eq:joint:rcont}
+\end{equation}
+$b$ 只依赖传播概率与常规隔离比例；由 $0<b<1$，$r_{\rm cont}$ 随 $b$ 严格增，且 $2<r_{\rm cont}<4$。
+\begin{theorem}
+\label{thm:joint:cost-structure}
+设 $0<r\le r_{\rm cont}$，不考虑能力约束。对每个 $S>S_c$，$f(S,\cdot)$ 在 $[c_0S_c/S,c_0]$ 上的最小点 $c_c^*(S)$ 唯一；$c_c^*$ 在 $(S_c,\infty)$ 上连续，且 $S\downarrow S_c$ 时 $c_c^*(S)\to c_0$；$S\ge S_{\rm sw}$ 时 $c_c^*(S)=c_0$，$S_c<S<S_{\rm sw}$ 时 $c_0S_c/S<c_c^*(S)<c_0$。因此，成本最优控制几乎处处唯一，可取为连续的状态反馈 $c_c^*$：若 $S^*>S_{\rm sw}$，它在 $S\ge S_{\rm sw}$ 上为仅隔离控制，并在 $S_{\rm sw}$ 处连续地转为两种措施并用；若 $S^*\le S_{\rm sw}$，整个阈值控制期两种措施并用。
+\end{theorem}
+证明见附录~\ref{sec:proof:cost-structure}。权重条件保证每个状态上的成本单峰，成本最优控制因而唯一，并随易感者减少连续调整；启动状态决定有没有仅隔离段。$S^*/S_c$ 正是启动时常规措施下的有效再生数，所以仅隔离段要求这一再生数超过 $S_{\rm sw}/S_c$，即介于 2 与 3 之间的某个值，而不只是超过 1；例如初始时常规措施下的有效再生数 $S_0/S_c$ 不超过 2 时，成本最优控制从启动起就两者并用。
+
+默认权重 $r=2$ 对所有允许参数都满足 $r\le r_{\rm cont}$；两组参数下 $r_{\rm cont}$ 分别约为 $\nrCostRcontBase$ 与 $\nrCostRcontXian$。两组算例的启动状态又都满足 $S^*>S_{\rm sw}$（比值见表~\ref{tab:joint:compare}注），所以算例中“先仅隔离、后两者并用”的结构（第~\ref{sec:joint:compare-numerics}~节）是定理的结论。
+
+下面的命题对任意权重成立，给出定理中不依赖 $r\le r_{\rm cont}$ 的部分。
 \begin{proposition}
 \label{prop:joint:global-structure}
 设 $w_c,w_q>0$，不考虑能力约束。对每个 $S\in(S_c,S^*]$，在允许区间 $[c_0S_c/S,c_0]$ 上：
@@ -71,9 +63,9 @@ S_{\rm sw}=\frac{3S_c+\sqrt{9S_c^2-8S_c\bar S}}{2}
 \end{enumerate}
 因此，任一成本最优控制在几乎所有 $S\in(S_c,S^*]$ 上满足 $q_c^*(S)>q_0$；在 $S_c<S<\min\{S_{\rm sw},S^*\}$ 上还满足 $c_0S_c/S<c_c^*(S)<c_0$，即两种措施同时强于常规水平。
 \end{proposition}
-证明见附录~\ref{sec:proof:endpoint-properties}。在 $c=c_0$ 处接触项的代价与导数都为零，因此略减接触只有两个一阶效应：所需的隔离强度降低，$S$ 的下降却放慢；二者都与 $w_q$ 成正比，故 $S_{\rm sw}$ 与权重无关。$S>S_{\rm sw}$ 时后一效应占优；$S=S_{\rm sw}$ 时二者相抵，命题在此不作分类。
+证明见附录~\ref{sec:proof:endpoint-properties}。在 $c=c_0$ 处接触项的代价与导数都为零，因此略减接触只有两个一阶效应：所需的隔离强度降低，$S$ 的下降却放慢。二者都与 $w_q$ 成正比，故 $S_{\rm sw}$ 与权重无关；$S>S_{\rm sw}$ 时后一效应占优，$S=S_{\rm sw}$ 时二者相抵，命题在此不作分类。所以，无论权重如何，成本最优控制都不单独减少接触，仅隔离段也都要求启动时 $S^*>S_{\rm sw}$；定理~\ref{thm:joint:cost-structure}进一步在 $r\le r_{\rm cont}$ 时把 (ii) 中的局部最优加强为全局最优。权重更大时，$S_{\rm sw}$ 以上可能出现成本更低的内部局部最优，仅隔离段因而提前结束（第~\ref{sec:joint:weights-numerics}~节）。
 
-命题最后的结论在能力约束下同样成立。设式\eqref{eq:joint:feasibility}成立，且 $c_{\min}<c_0$、$q_{\rm cap}>q_0$，则由式\eqref{eq:joint:bounds}，对 $S\in(S_c,S^*)$ 有 $c^{-}(S)<c_0$、$c^{+}(S)>c_0S_c/S$。两种单控制的取值只要可行，允许区间就在其内侧延伸，(i)(ii) 中的单侧比较照样适用；不可行的取值不会被选中。因此，这一结论在 $\mathcal A(\eta;c_{\min},q_{\rm cap})$ 中同样成立。
+退出附近的组合则由权重直接决定。
 \begin{proposition}
 \label{prop:joint:terminal-allocation}
 设 $w_c,w_q>0$，不考虑能力约束。任一逐状态最小化选择在充分接近退出状态的 $S>S_c$ 上满足
@@ -94,25 +86,22 @@ S_{\rm sw}=\frac{3S_c+\sqrt{9S_c^2-8S_c\bar S}}{2}
 \end{equation}
 因此，最小成本严格小于仅减少接触与仅隔离控制各自的成本。加入满足 $c_{\min}<c_0$、$q_{\rm cap}>q_0$ 的能力约束后，式\eqref{eq:joint:terminal-interior}--\eqref{eq:joint:terminal-ratio}仍成立；与某一种单控制的严格成本比较，在该单控制整段可行时仍成立。
 \end{proposition}
-证明见附录~\ref{sec:proof:terminal-allocation}。退出附近，无论怎样组合，两种归一化强度之和都近似等于 $1-S_c/S$，而组合对 $S$ 下降速度的影响是高阶小量，因此最优做法是按二次代价分担这一总强度。两种归一化强度之比因而趋于 $w_q/w_c$，即权重的反比；默认权重 $w_c=1$、$w_q=2$ 下，两者分别占总强度的 $2/3$ 与 $1/3$。
+证明见附录~\ref{sec:proof:terminal-allocation}。退出附近，无论怎样组合，两种归一化强度之和都近似等于 $1-S_c/S$，而组合对 $S$ 下降速度的影响是高阶小量，因此最优做法是按二次代价分担这一总强度：两种归一化强度之比趋于 $w_q/w_c$，即权重的反比。默认权重下，两者分别占总强度的 $2/3$ 与 $1/3$。
 
-命题~\ref{prop:joint:global-structure}只刻画端点的局部性质；隔离的相对权重不太大时，全局结构也可以确定。记隔离相对于接触的成本权重为 $r$，并记
-\begin{equation}
-b=\frac{\bar S}{S_c}=(1-\beta)(1-q_0),\qquad
-r=\frac{w_q}{w_c},\qquad
-r_{\rm cont}(b)=\frac{16}{\bigl(b+\sqrt{b^2-8b+8}\bigr)^2}.
-\label{eq:joint:rcont}
-\end{equation}
-$b$ 只依赖传播概率与常规隔离比例。由 $0<b<1$，$r_{\rm cont}$ 随 $b$ 严格增，且 $2<r_{\rm cont}<4$。
-\begin{theorem}
-\label{thm:joint:cost-structure}
-设 $0<r\le r_{\rm cont}$，不考虑能力约束。对每个 $S>S_c$，$f(S,\cdot)$ 在 $[c_0S_c/S,c_0]$ 上的最小点 $c_c^*(S)$ 唯一；$c_c^*$ 在 $(S_c,\infty)$ 上连续，且 $S\downarrow S_c$ 时 $c_c^*(S)\to c_0$；$S\ge S_{\rm sw}$ 时 $c_c^*(S)=c_0$，$S_c<S<S_{\rm sw}$ 时 $c_0S_c/S<c_c^*(S)<c_0$。因此，成本最优控制几乎处处唯一，可取为连续的状态反馈 $c_c^*$：若 $S^*>S_{\rm sw}$，它在 $S\ge S_{\rm sw}$ 上为仅隔离控制，并在 $S_{\rm sw}$ 处连续地转为两种措施并用；若 $S^*\le S_{\rm sw}$，整个阈值控制期两种措施并用。
-\end{theorem}
-证明见附录~\ref{sec:proof:cost-structure}。定理含两个条件。权重条件 $r\le r_{\rm cont}$ 保证每个状态上的成本单峰，成本最优控制因而唯一，并随易感者减少连续调整，退出时两种措施都回到常规水平；隔离的相对权重更大时，后段可能出现两个局部最优，成本最优控制随 $S$ 跳变（第~\ref{sec:joint:weights-numerics}~节）。启动状态条件 $S^*>S_{\rm sw}$ 决定有没有仅隔离段：$S^*/S_c$ 正是启动时常规措施下的有效再生数，由命题~\ref{prop:joint:global-structure}(ii)，无论权重如何，仅隔离段都要求它超过 $S_{\rm sw}/S_c$，后者介于 2 与 3 之间，而不是 1。例如初始时常规措施下的有效再生数 $S_0/S_c$ 不超过 2 时，成本最优控制从启动起就两者并用。
+由命题~\ref{prop:joint:global-structure}与定理~\ref{thm:joint:comparison}，不考虑能力约束时，成本最优控制的控制时长、控制期累计新增感染与新增隔离易感者人数都严格介于两种单控制之间：与仅隔离控制相比，它以更长的控制期和更多的感染换取更低的成本。
 
-默认权重 $r=2$ 对所有允许参数都满足 $r\le r_{\rm cont}$；两组参数下 $r_{\rm cont}$ 分别约为 $\nrCostRcontBase$ 与 $\nrCostRcontXian$。两组算例的启动状态又都满足 $S^*>S_{\rm sw}$（比值见表~\ref{tab:joint:compare}注），所以算例中“先仅隔离、后两者并用”的结构（第~\ref{sec:joint:compare-numerics}~节）是定理的结论。
+\subsection{参数与约束的影响}
+\label{sec:joint:cost-sensitivity}
+阈值只通过系数 $N/\eta$ 与积分上限 $S^*(\eta)$ 进入式\eqref{eq:joint:minimum-cost}，二者都随 $\eta$ 增大而减小；每个状态上的最优选择则与阈值无关。
+\begin{proposition}
+\label{prop:joint:minimum-threshold}
+固定 $N,S_0,I_0,\beta,\gamma,c_0,q_0$ 及能力约束。在控制被触发且满足式\eqref{eq:joint:feasibility}的阈值范围内，记 $J_{\min}(\eta)$ 为式\eqref{eq:joint:minimum-cost}的最小值，则 $J_{\min}$ 随 $\eta$ 严格下降。对于任意两个可行阈值，可以选取成本最优控制，使二者在共同经过的易感者状态上采用相同的 $c_c^*(S),q_c^*(S)$。
 
-单峰性也确定了能力约束下的成本最优控制。
+固定阈值时，降低 $c_{\min}$ 或提高 $q_{\rm cap}$ 不会增大最小成本。
+\end{proposition}
+证明见附录~\ref{sec:proof:minimum-threshold}。成本最优控制因而可以取成同一个状态反馈，阈值只决定从哪个 $S^*$ 开始使用它。
+
+能力约束下，单峰性给出成本最优控制的显式形式。
 \begin{corollaryn}
 \label{cor:joint:capacity-clip}
 设 $0<r\le r_{\rm cont}$，式\eqref{eq:joint:feasibility}成立，$c_c^*$ 为定理~\ref{thm:joint:cost-structure}中不考虑能力约束的成本最优控制。则 $\mathcal A(\eta;c_{\min},q_{\rm cap})$ 中的成本最优控制几乎处处唯一，为
@@ -122,9 +111,9 @@ c_{\rm cap}^*(S)=\min\bigl\{c^{+}(S),\max\{c^{-}(S),c_c^*(S)\}\bigr\},
 \end{equation}
 其中 $c^{\pm}$ 见式\eqref{eq:joint:bounds}。
 \end{corollaryn}
-单峰函数在闭子区间上的最小点，就是原最小点截断到该子区间（附录~\ref{sec:proof:cost-structure}）。在这一权重范围内，干预能力不足时，只需在每个状态上把理想的组合推到能力边界，不必重新规划整个控制过程。第~\ref{sec:joint:capacity-numerics}~节两个代表点上的能力约束轨迹与式\eqref{eq:joint:capacity-clip}一致；隔离的相对权重更大时，仍按定理~\ref{thm:joint:cost-minimum}比较有限个候选。
+单峰函数在闭子区间上的最小点，就是原最小点截断到该子区间（附录~\ref{sec:proof:cost-structure}）。干预能力不足时，只需在每个状态上把理想的组合推到能力边界，不必重新规划整个控制过程；第~\ref{sec:joint:capacity-numerics}~节两个代表点上的轨迹与式\eqref{eq:joint:capacity-clip}一致。命题~\ref{prop:joint:global-structure}最后的结论在 $c_{\min}<c_0$、$q_{\rm cap}>q_0$ 的能力约束下同样成立：由式\eqref{eq:joint:bounds}，对 $S\in(S_c,S^*)$ 有 $c^{-}(S)<c_0$、$c^{+}(S)>c_0S_c/S$，两种单控制的取值只要可行，允许区间就在其内侧延伸，(i)(ii) 中的单侧比较照样适用。
 
-改变成本权重时，成本最优控制的变化方向不需要单峰性也可以确定。
+成本权重的影响不需要单峰性也可以确定。
 \begin{proposition}
 \label{prop:joint:weight-monotone}
 固定 $w_c>0$ 与允许控制类 $\mathcal A(\eta)$ 或 $\mathcal A(\eta;c_{\min},q_{\rm cap})$（后者设式\eqref{eq:joint:feasibility}成立），记 $c_r^*$、$q_r^*$ 为 $r=w_q/w_c$ 时的任一逐状态最小化选择。
@@ -134,12 +123,11 @@ c_{\rm cap}^*(S)=\min\bigl\{c^{+}(S),\max\{c^{-}(S),c_c^*(S)\}\bigr\},
 \item 固定 $r$，$q_r^*(S)$ 随 $S$ 不减，即隔离比例在阈值控制期内随时间不增。
 \end{enumerate}
 \end{proposition}
-证明见附录~\ref{sec:proof:cost-structure}。提高追踪隔离的相对代价（例如流调人力或隔离场所紧张）时，成本最优控制在每个状态上不会多用追踪隔离，也不会少用减少接触，社区易感者在同一状态上的下降因而不会加快（定理~\ref{thm:joint:comparison}）。接触率没有类似的时间单调性：在定理~\ref{thm:joint:cost-structure}的条件下，它在 $S_{\rm sw}$ 以下低于 $c_0$，退出时又回到 $c_0$。不考虑能力约束时，仅隔离控制的成本 $J[c_0]$ 与 $r$ 成正比；由命题~\ref{prop:joint:weight-monotone}(i) 的凹性，且 $J_{\min}\le J[c_0]$ 使 $J_{\min}/w_c$ 在 $r\to0^+$ 时趋于零，比值 $J_{\min}/J[c_0]$ 随 $r$ 不增：隔离的相对代价越低，仅隔离控制越接近成本最优。
-
-成本最优控制在不考虑能力约束时介于两种单控制之间：它在 $S_c<S<\min\{S_{\rm sw},S^*\}$ 上严格位于允许区间内部（命题~\ref{prop:joint:global-structure}），因此由定理~\ref{thm:joint:comparison}，其控制时长、控制期累计新增感染与新增隔离易感者人数都严格介于两者之间。与仅隔离控制相比，它以更长的控制期和更多的感染换取更低的成本（命题~\ref{prop:joint:terminal-allocation}）。对更大的权重，最优控制的完整跳变结构仍通过数值考察（第~\ref{sec:joint:weights-numerics}~节）。
+证明见附录~\ref{sec:proof:cost-structure}。追踪隔离的相对代价提高时（例如流调人力或隔离场所紧张），成本最优控制在每个状态上不多用追踪隔离、不少减少接触，社区易感者的下降因而不会加快。接触率没有类似的时间单调性：在定理~\ref{thm:joint:cost-structure}的条件下，它在 $S_{\rm sw}$ 以下低于 $c_0$，退出时又回到 $c_0$。不考虑能力约束时，仅隔离控制的成本 $J[c_0]$ 与 $r$ 成正比，而 $J_{\min}/w_c$ 是凹函数且在 $r\to0^+$ 时趋于零，所以比值 $J_{\min}/J[c_0]$ 随 $r$ 不增：隔离的相对代价越低，仅隔离控制越接近成本最优。
 
 \subsection{时长约束}
-给定控制时长后有两个问题：最小成本能否仍逐状态求出（注记~\ref{rem:joint:duration-constraint}），以及最短与最长之间的每个时长是否都有对应的乘子（命题~\ref{prop:joint:duration-frontier}）。时长约束可以用乘子化为同样的逐状态问题。乘子 $\kappa$ 是控制时长的价格：$\kappa>0$ 惩罚长控制期，使控制组合偏向仅隔离控制；$\kappa<0$ 则偏向仅减少接触。
+\label{sec:joint:duration}
+给定控制时长时，成本可以用乘子化为同样的逐状态问题。乘子 $\kappa$ 是控制时长的价格：$\kappa>0$ 惩罚长控制期，使控制组合偏向仅隔离控制；$\kappa<0$ 则偏向仅减少接触。注记~\ref{rem:joint:duration-constraint}说明，用某个 $\kappa$ 得到的控制在它自己的时长下成本最小；命题~\ref{prop:joint:duration-frontier}说明，最短与最长之间的每个时长都有这样的 $\kappa$。
 \begin{remarkn}
 \label{rem:joint:duration-constraint}
 固定同一允许控制类。对 $\kappa\in\mathbb R$，把 $f(S,c)$ 换为

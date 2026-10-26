@@ -311,6 +311,24 @@ s_2\ge\frac{bpw}{X}\ge\frac{p^2}{bw}>\frac{p^2}{\sqrt{2p-3}}\ge4>s_c;
 \]
 而左侧等于 $\int_{\zeta_1}^{\zeta_2}\int_{p_2}^{p_1}G_{p\zeta}\,dp\,d\zeta<0$，矛盾。故 $p^*$ 随 $\zeta$ 不减，$q^*=1-(1-q_0)/p^*$ 亦然；阈值控制期内 $S$ 严格减，所以隔离比例随时间不增。
 
+\subsection{阈值与能力约束的影响}
+\label{sec:proof:minimum-threshold}
+本小节证明命题\ref{prop:joint:minimum-threshold}。
+\begin{proof}
+记 $m(S)=\min_{c^{-}(S)\le c\le c^{+}(S)}f(S,c)$。被积函数与允许界限都不含 $\eta$，且 $m$ 连续；对 $S>S_c$，两项强度不能同时为零，故 $m(S)>0$。因此
+\[
+J_{\min}(\eta)=\frac{N}{\eta}\int_{S_c}^{S^*(\eta)}m(S)\,dS.
+\]
+由 $\partial S^*/\partial\eta<0$（引理~\ref{lem:s1:Sstar-sensitivity}），在可行区间内部有
+\begin{equation}
+\frac{dJ_{\min}}{d\eta}
+=-\frac{J_{\min}}{\eta}
++\frac{N}{\eta}m(S^*)\frac{\partial S^*}{\partial\eta}<0.
+\label{eq:joint:mincost-eta}
+\end{equation}
+端点处的严格比较可直接由两个积分的上下限和正系数得到。把较低阈值下的逐状态最小化选择限制到较高阈值经过的区间上，它在每个状态仍达到 $m(S)$，即得兼容的成本最优控制。最后，放宽任一能力约束使每个状态的允许区间包含原区间，最小被积函数值不增，积分即得最后的结论。
+\end{proof}
+
 \subsection{给定时长的最小成本}
 \label{sec:proof:duration-frontier}
 本小节证明命题\ref{prop:joint:duration-frontier}。
