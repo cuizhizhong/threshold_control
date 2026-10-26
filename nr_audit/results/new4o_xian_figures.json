@@ -1,0 +1,109 @@
+{
+ "generated": "2026-10-27T01:11:09",
+ "git_head": "4a396df6d6c3526bfa735737a706114461138c57",
+ "script": "nr_audit/plot_xian_fig2_style.py",
+ "style_reference": "code/scenario1_q_control_with_quarantine_panels.m",
+ "style": {
+  "tick": 5.5,
+  "label": 6.5,
+  "title": 7.0,
+  "legend": 5.0,
+  "note": 5.5,
+  "lw_main": 1.5,
+  "lw_ref": 1.0,
+  "lw_vline": 0.6,
+  "lw_axes": 0.4,
+  "ref_alpha": 0.7
+ },
+ "inputs_sha256": {
+  "reproducibility/results/20261003_release_final/xian/timeseries.csv": "29014ddcba1d811e8f0cd8b164f7ed008bd143f1392e81fc4368bd52cd909bbe",
+  "reproducibility/results/20261003_release_final/xian/observed.csv": "c634b0b4f637c71bbeaa91328adeba464aa74b18db0db26ae8a00489b79ce43a",
+  "reproducibility/results/20261003_release_final/xian/summary.csv": "6f4a7c5c053ce1c9bdd1a0cf2786b0559aca971148a6896c630b6aa367ee212f",
+  "reproducibility/results/20261003_release_final/xian/eta_scan.csv": "092073fa5644a0152c42ab74c92dfe2ed89771e0378cf47f58c208082334441e",
+  "reproducibility/results/20261003_release_final/xian/reference.json": "b920deaf55f771958433ab27f32ca1606393c9ae7b96d3361aee053af097bc45"
+ },
+ "outputs": {
+  "paper/figures/new4o/xian_strategy_process.pdf": {
+   "sha256": "793cece42bd17afa95ab832abf2af7cf6dac925e5000ca18be81847db94f1a7f",
+   "size_mm": [
+    135.0,
+    125.0
+   ],
+   "fonts": [
+    "CGMMQU+Cmr10",
+    "GYUURQ+Cmmi10"
+   ]
+  },
+  "paper/figures/new4o/xian_eta_sensitivity.pdf": {
+   "sha256": "338bf2a7ebf28be78a4289674223c1165e053f272eed395396b7098b5f7f14cc",
+   "size_mm": [
+    111.86,
+    84.0
+   ],
+   "fonts": [
+    "CGMMQU+Cmr10",
+    "GYUURQ+Cmmi10"
+   ]
+  }
+ },
+ "checks": {
+  "xian_strategy_process": {
+   "t1": 16.896725724327304,
+   "t2": 101.96780289071071,
+   "eta": 26326.0,
+   "t_obs_end": 39.0,
+   "observed_points": 40,
+   "strategies": {
+    "Threshold control": {
+     "points": 2848,
+     "t_last": 258.1043336927783,
+     "I_max": 26326.000001207467,
+     "Itcum_last": 2377943.1317495555
+    },
+    "Routine control": {
+     "points": 2475,
+     "t_last": 75.57218992805235,
+     "I_max": 1377540.7591926386,
+     "Itcum_last": 4587182.8431671625
+    },
+    "TDINN control": {
+     "points": 2445,
+     "t_last": 45.28741935927593,
+     "I_max": 152.546113123826,
+     "Itcum_last": 2105.633048755997
+    }
+   },
+   "peak_rel_diff_vs_summary": {
+    "Threshold control": 4.586597768252432e-11,
+    "Routine control": -8.518076174413025e-06,
+    "TDINN control": -1.2040008544600411e-06
+   },
+   "peak_matches_summary": {
+    "Threshold control": true,
+    "Routine control": true,
+    "TDINN control": true
+   }
+  },
+  "xian_eta_sensitivity": {
+   "scan_points": 11,
+   "eta_percent": [
+    0.01,
+    0.019999999999989998,
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.74999999999999,
+    1.0
+   ],
+   "tdinn": {
+    "J": 49.389404357321155,
+    "cum_total_infections": 2105.633048755997,
+    "clear_time": 45.28741935927593
+   }
+  }
+ }
+}
