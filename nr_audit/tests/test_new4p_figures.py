@@ -18,6 +18,7 @@ USES = {
     'joint_phase_baseline': ('paper/sections/06_numerics.tex', r'\textwidth', TEXT_WIDTH_MM),
     'xian_joint': ('paper/sections/07_xian.tex', r'\textwidth', TEXT_WIDTH_MM),
     'xian_strategy_process': ('paper/sections/07_xian.tex', '135mm', 135.0),
+    'xian_observed_fit': ('paper/sections/07_xian.tex', r'\textwidth', TEXT_WIDTH_MM),
 }
 
 
@@ -79,6 +80,14 @@ def test_capacity_points_match_text(receipt):
     assert f"J\\approx {xian['J']:.2f}$ d、$\\Delta t\\approx {xian['duration']:.1f}$ d" in xt
     assert base['q_required_quarantine_only'] > base['point']['q_cap'] and xian['q_required_quarantine_only'] > xian['point']['q_cap']
     assert base['u_required_contact_only'] > base['point']['u_max'] and xian['u_required_contact_only'] > xian['point']['u_max']
+
+
+def test_observed_fit_matches_text(receipt):
+    """图 7 的观测病例数与第 7.1 节一致；模型 40 日累计与补充 S8 记录的 TDINN 拟合轨迹在 t=40 d 的值一致。"""
+    of = receipt['checks']['xian_observed_fit']
+    assert (of['observed_days'], of['observed_community'], of['observed_quarantine'], of['observed_total']) == (40, 583, 1467, 2050)
+    s8 = (ROOT / 'paper/supplement_sections/S8_numerics.tex').read_text(encoding='utf-8')
+    assert f"在 $t=40$ d 为 ${of['model_total_40d']:.4f}$" in s8
 
 
 def test_phase_panels_reuse_new4d_cache(receipt):

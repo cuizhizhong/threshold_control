@@ -3,7 +3,8 @@
 - 图 5（fig:joint:capacity）：基准参数的能力可行区域与代表点上能力约束下的成本最优控制（原图 (a)(c)）；
 - 图 6（fig:joint:phase）：基准参数的权重相图与几个权重的控制（原图 (a)(c)(d)）；
 - 西安控制组合图（fig:xian:joint）：西安参数的能力可行区域与权重相图（原图 5(b)、6(b)）；
-- 策略过程图（fig:xian:strategy-process）：在 NEW-4o 版上加入成本最优控制。
+- 策略过程图（fig:xian:strategy-process）：在 NEW-4o 版上加入成本最优控制；
+- 图 7（fig:xian:observed-fit）：西安拟合图改为同一风格（P4），数据与原图相同。
 
 只读既有数据，使用前记录原字节 SHA-256，不求解模型、不重算相图背景：
 - 能力约束与西安各控制的轨迹取自 reproducibility/results/20261005_sec7_v2_refinement/joint_extra/；
@@ -314,12 +315,45 @@ def strategy_process():
     return fig, checks
 
 
+def observed_fit():
+    """图 7（fig:xian:observed-fit）：观测窗口内的日新增病例与 TDINN 重构。
+    模型日新增与原图（restore_figures.xian）相同：累计流量在整数日上插值后取相邻日之差；只改字体、配色与线型。"""
+    ts = pd.read_csv(XI / 'timeseries.csv')
+    obs = pd.read_csv(XI / 'observed.csv')
+    td = ts[ts.strategy == 'TDINN控制']
+    fig, axes = plt.subplots(1, 2, figsize=(TEXT_WIDTH_IN, 58 * MM))
+    fig.subplots_adjust(left=.07, right=.985, bottom=.19, top=.89, wspace=.22)
+    days = np.arange(len(obs) + 1)
+    model = {}
+    for ax, col, obs_col, title in zip(axes, ('Cc', 'Cq'), ('community_new', 'quarantine_new'),
+                                       ('(a) Community-detected cases', '(b) Quarantine-detected cases')):
+        y = np.diff(np.interp(days, td.t, td[col]))
+        model[col] = y
+        ax.plot(obs.t, y, color=GREEN, lw=STYLE['lw_main'], zorder=3)
+        ax.scatter(obs.t, obs[obs_col], s=6, facecolors='none', edgecolors=BLACK, linewidths=0.5, zorder=4)
+        ax.set(xlim=(-.5, len(obs) - .5), ylim=(0, None))
+        ax.set_xticks([0, 12, 24, 39], ['Dec 09', 'Dec 21', 'Jan 02', 'Jan 17'])
+        ax.set_xlabel('Date')
+        ax.set_ylabel('Daily new cases')
+        ax.set_title(title)
+    F2.frame_legend(axes[1].legend(handles=[
+        Line2D([], [], ls='none', marker='o', ms=2.4, mfc='none', mec=BLACK, mew=0.5, label='Observed data'),
+        Line2D([], [], color=GREEN, lw=STYLE['lw_main'], label='Model (fitted $I_0$, TDINN control)')],
+        loc='upper right'))
+    checks = dict(observed_days=int(len(obs)), observed_total=int(obs.total_new.sum()),
+                  observed_community=int(obs.community_new.sum()), observed_quarantine=int(obs.quarantine_new.sum()),
+                  model_total_40d=float(model['Cc'].sum() + model['Cq'].sum()),
+                  model_peak_community=float(model['Cc'].max()), model_peak_quarantine=float(model['Cq'].max()))
+    return fig, checks
+
+
 def embedded_fonts(path):
     return sorted(set(re.findall(rb'/BaseFont\s*/([A-Za-z0-9+\-]+)', path.read_bytes())))
 
 
 FIGURES = (('joint_capacity_baseline', capacity_baseline), ('joint_phase_baseline', phase_baseline),
-           ('xian_joint', xian_joint), ('xian_strategy_process', strategy_process))
+           ('xian_joint', xian_joint), ('xian_strategy_process', strategy_process),
+           ('xian_observed_fit', observed_fit))
 
 
 def main():

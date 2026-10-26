@@ -24,7 +24,7 @@ FIG={
 'fig:xian:joint':(f'{E}/capacity_xian.npz;{E}/capacity.json;{A}/new4d_figure7.json;{A}/new4d_figure7.npz','nr_audit/plot_new4p_figures.py:xian_joint'),
 'fig:sup:phase-detail':(f'{E}/phase_baseline.npz;{E}/phase_xian.npz;{E}/phase.json;{A}/weight_brackets.json;{A}/new_figure7.json;{A}/new_figure7.npz;{A}/new4d_cost_structure.json','nr_audit/plot_figure7_detail.py'),
 'fig:joint:frontier':(f'{E}/frontier_baseline.csv;{E}/alpha_family_baseline.csv','reproducibility/joint_extra/figures.py:fig_duration'),
-'fig:xian:observed-fit':(f'{D}/xian/observed.csv;{D}/xian/timeseries.csv;{D}/xian/fit.json;真实数据/Xianguankong.xlsx',f'reproducibility/figures.py:run_python_figures;{L}/layout_python.py'),
+'fig:xian:observed-fit':(f'{D}/xian/observed.csv;{D}/xian/timeseries.csv;{D}/xian/fit.json;真实数据/Xianguankong.xlsx','nr_audit/plot_new4p_figures.py:observed_fit'),
 'fig:xian:strategy-process':(f'{D}/xian/timeseries.csv;{D}/xian/observed.csv;{D}/xian/summary.csv;{E}/trajectories_xian.csv;{E}/input_manifest.json','nr_audit/plot_new4p_figures.py:strategy_process'),
 'fig:baseline:q-joint':(f'{D}/baseline/main_c0_summary.csv;{D}/baseline/main_eta_summary.csv;scenario1_threshold_landscape/common/compute_trajectory.m',f'{L}/layout_matlab.m'),
 'fig:scenario1_heatmaps_c0_eta':(f'{D}/baseline/landscape_summary.csv','scenario1_threshold_landscape/scripts/plot_heatmaps.m'),

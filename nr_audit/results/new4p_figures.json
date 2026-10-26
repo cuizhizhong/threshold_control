@@ -1,6 +1,6 @@
 {
- "generated": "2026-10-27T01:46:47",
- "git_head": "50edb4e69cd976258109fcc57bb0307e86beb9be",
+ "generated": "2026-10-27T02:06:46",
+ "git_head": "5ab02f477cfdee45d91c6ffe5038ac017134e93d",
  "script": "nr_audit/plot_new4p_figures.py",
  "style_module": "nr_audit/plot_xian_fig2_style.py",
  "style": {
@@ -104,6 +104,17 @@
    "size_mm": [
     135.0,
     125.0
+   ],
+   "fonts": [
+    "CGMMQU+Cmr10",
+    "GYUURQ+Cmmi10"
+   ]
+  },
+  "paper/figures/new4p/xian_observed_fit.pdf": {
+   "sha256": "16eb5e851532987ddb1cb95040e81609adfe0041d4ab91085bf3e084c159d50e",
+   "size_mm": [
+    159.8,
+    58.0
    ],
    "fonts": [
     "CGMMQU+Cmr10",
@@ -218,6 +229,15 @@
     "c_min": 9.25014414718534,
     "I_end": 0.999999999999997
    }
+  },
+  "xian_observed_fit": {
+   "observed_days": 40,
+   "observed_total": 2050,
+   "observed_community": 583,
+   "observed_quarantine": 1467,
+   "model_total_40d": 2098.9746855202184,
+   "model_peak_community": 53.88177981387565,
+   "model_peak_quarantine": 115.9334786504046
   }
  }
 }
