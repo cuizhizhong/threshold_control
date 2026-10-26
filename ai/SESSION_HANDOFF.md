@@ -4,7 +4,7 @@
 
 ## 1. 当前状态
 
-- 工作树 `E:\work\draft-submission-ready`，分支 `paper/submission-ready`。最近一轮为 NEW-4l（第 5 章重排，N22），已本地提交，**尚未推送**；此前的 NEW-4k（`fd5fdaf`）及文档提交均已推送。
+- 工作树 `E:\work\draft-submission-ready`，分支 `paper/submission-ready`。最近一轮为 NEW-4l（第 5 章重排，N22，`c4bdb83`），与此前各轮均已推送。
 - NEW-4l 后第 5 章编号有变：连续结构定理为定理 5.2（原 5.5），阈值单调性为命题 5.5（原 5.2），其证明在附录 A.12；与外部审阅或旧记录对照时注意换算。主稿 37 页。
 - 2026-10-26 清理了 `paper/tmp/` 与 `tmp/` 中的测试临时目录、截图和编译日志（均未入库）；文献核实证据、测试 XML、基准快照仍保留在原处。
 - 中文稿：主稿 `paper/flatten_curve_analysis_cn.pdf` 37 页，补充材料 `paper/flatten_curve_supplement_cn.pdf` 22 页；`nr_audit` 既有全量测试 353 项通过。
