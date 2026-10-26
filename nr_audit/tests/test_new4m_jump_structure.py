@@ -1,4 +1,4 @@
-"""NEW-4m：跳变结构入稿的派生核验结果（results/new4m_jump_structure.json）与补充 S5.3 的恒等式。
+"""NEW-4m：跳变结构入稿的派生核验结果（results/new4m_jump_structure.json）与补充 S5.3 节的恒等式。
 符号部分只核对代数；图件与求解器部分是命题结论的抽查，不代替证明。"""
 import json
 import math

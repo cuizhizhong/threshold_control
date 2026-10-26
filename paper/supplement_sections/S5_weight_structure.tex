@@ -2,24 +2,29 @@
 \label{sec:sup:weight-structure}
 
 \subsection{网格与分类}
-正文图~\ref{fig:joint:phase}在 $r\in[0.9,20]$ 的 $300$ 个对数等距点与 $S\in(S_c,S^*]$ 的 $300$ 个等距点上逐状态求解，正文讨论其中 $r\ge1$ 的部分，跳变位置在 $S$ 上二分定位；默认的 $r=2$ 由正文第~\ref{sec:joint:compare-numerics}~节单独计算。表~\ref{tab:joint:weight-transitions}给出成本最优控制的结构转折所在的 $r$ 括区。括区由 $r\in[0.1,20]$ 内 $161$ 个对数等距点的原网格出发确定：对全部网格点重新分类，在类别不同的相邻网格点之间取 $20$ 个细分点，找出每个改变区间，再在 $\log r$ 上二分到宽度小于 $10^{-3}$，不假定结构类别对 $r$ 单调；各括区在 $N_z=8001$ 与 $16001$ 下类别不变。结构 A$'$ 中的内部跳变另用不依赖根法的 $2\times10^{5}$ 点网格逐点核对：两个内部局部极小在跳变处交换全局最优，两个分支的成本相对只差约 $10^{-5}$。
+正文图~\ref{fig:joint:phase}在 $r\in[0.9,20]$ 的 $300$ 个对数等距点与 $S\in(S_c,S^*]$ 的 $300$ 个等距点上逐状态求解，正文讨论其中 $r\ge1$ 的部分，跳变位置在 $S$ 上二分定位；默认的 $r=2$ 由正文第~\ref{sec:joint:compare-numerics}~节单独计算。表~\ref{tab:joint:weight-transitions}给出成本最优控制的结构转折所在的 $r$ 括区。括区由 $r\in[0.1,20]$ 内 $161$ 个对数等距点的原网格出发确定：对全部网格点重新分类，在类别不同的相邻网格点之间取 $20$ 个细分点，找出每个改变区间，再在 $\log r$ 上二分到宽度小于 $10^{-3}$，不假定结构类别对 $r$ 单调；各括区在 $N_z=8001$ 与 $16001$ 下类别不变。结构 A$'$ 中的内部跳变另用不依赖根法的 $2\times10^{5}$ 点网格逐点核对：两个内部局部极小在跳变处交换全局最优。
 
 \subsection{结构边界}
-表~\ref{tab:joint:weight-transitions}的前两个转折可以与闭式比较。正文定理~\ref{thm:joint:cost-structure}的权重界 $r_{\rm cont}$（式\eqref{eq:joint:rcont}）保证控制连续，两组参数下的值都落在 A$\to$A$'$ 的括区内；A$'\to$B 的转折由下面的命题给出。
+表~\ref{tab:joint:weight-transitions}的前两个转折可以与闭式比较。正文定理~\ref{thm:joint:cost-structure}的权重界 $r_{\rm cont}$（式\eqref{eq:joint:rcont}）保证控制连续，两组参数下的值都落在 A$\to$A$'$ 的括区内；A$'\to$B 的转折由命题~\ref{prop:sup:rhat}给出，其证明用到下面的上集性。
+\begin{lemma}
+\label{lem:sup:upper-set}
+设 $w_c,w_q>0$，不考虑能力约束。若 $c=c_0$ 是 $f(S,\cdot)$ 在 $[c_0S_c/S,c_0]$ 上的全局最小点，则对任意 $S'>S$，$c=c_0$ 是 $f(S',\cdot)$ 在 $[c_0S_c/S',c_0]$ 上的唯一全局最小点。
+\end{lemma}
+\begin{proof}
+沿用正文附录~\ref{sec:proof:cost-structure}的记号 $\zeta,p,G=A+rB$，并记 $\zeta=S/S_c$、$\zeta'=S'/S_c$。由正文命题~\ref{prop:joint:global-structure}，$\zeta\ge\zeta_{\rm sw}$。对固定 $p<\zeta$，$A$ 关于 $\zeta$ 严格增；$B$ 与 $\zeta$ 无关，且 $B'(p)=-(p-1)(p^2-3p+2b)/[p^3(p-b)^2]$，故 $B$ 在 $[\zeta_{\rm sw},\infty)$ 上严格减。$p\le\zeta$ 时，$G(p;\zeta')>G(p;\zeta)\ge rB(\zeta)\ge rB(\zeta')=G(\zeta';\zeta')$；$\zeta<p<\zeta'$ 时，$G(p;\zeta')\ge rB(p)>rB(\zeta')$。
+\end{proof}
 \begin{proposition}
 \label{prop:sup:rhat}
 设 $w_c,w_q>0$，$r=w_q/w_c$，不考虑能力约束。对一切 $S>S_{\rm sw}$，$c=c_0$ 都是 $f(S,\cdot)$ 在 $[c_0S_c/S,c_0]$ 上的唯一全局最小点，当且仅当
 \[
 r\le\hat r=\Bigl(\frac{S_{\rm sw}}{S_{\rm sw}-S_c}\Bigr)^2 .
 \]
-此外 $9/4<\hat r<4$，且 $r_{\rm cont}<\hat r$。
+$r<\hat r$ 时 $c_0$ 在 $S=S_{\rm sw}$ 处也是唯一全局最小点；$r=\hat r$ 时它在该处与 $c=c_0S_c/(S_{\rm sw}-S_c)$ 并列全局最优。此外 $9/4<\hat r<4$，且 $r_{\rm cont}<\hat r$。
 \end{proposition}
 \begin{proof}
-沿用正文附录~\ref{sec:proof:cost-structure}的记号 $\zeta,p,G=A+rB$。先证上集性：若 $p=\zeta_0$ 是 $G(\cdot;\zeta_0)$ 的全局最小点，则对任意 $\zeta_1>\zeta_0$，$p=\zeta_1$ 是 $G(\cdot;\zeta_1)$ 的唯一全局最小点。由正文命题~\ref{prop:joint:global-structure}，$\zeta_0\ge\zeta_{\rm sw}$。对固定 $p<\zeta$，$A$ 关于 $\zeta$ 严格增；$B$ 与 $\zeta$ 无关，且 $B'(p)=-(p-1)(p^2-3p+2b)/[p^3(p-b)^2]$，故 $B$ 在 $[\zeta_{\rm sw},\infty)$ 上严格减。$p\le\zeta_0$ 时，$G(p;\zeta_1)>G(p;\zeta_0)\ge rB(\zeta_0)\ge rB(\zeta_1)=G(\zeta_1;\zeta_1)$；$\zeta_0<p<\zeta_1$ 时，$G(p;\zeta_1)\ge rB(p)>rB(\zeta_1)$。
+先看 $S_{\rm sw}$ 处。令 $x=c/c_0\in[\sigma,1]$，$\sigma=S_c/S$，$a=(1-\sigma)^2$，$d=1-b\sigma$。利用恒等式 $d(x-\sigma)^2-ax^2(x-b\sigma)=(1-x)P(x)$，$P(x)=ax^2-d\sigma(2-\sigma)x+d\sigma^2$，对 $x\in[\sigma,1)$，$f(S,c_0x)\ge f(S,c_0)$ 等价于 $d(1-x)x^2+rP(x)\ge0$。在 $\sigma=S_c/S_{\rm sw}$ 上 $2b\sigma^2-3\sigma+1=0$，即 $2\sigma d=1-\sigma$，于是 $P(x)=a(x-1)(x-x_2)$，$x_2=\sigma/[2(1-\sigma)]<\sigma$。条件化为：对一切 $x\in[\sigma,1)$ 有 $r(x-x_2)\le(d/a)x^2$。比值 $(d/a)x^2/(x-x_2)$ 在 $x=2x_2=\sigma/(1-\sigma)\in(\sigma,1)$ 取最小值 $4x_2d/a=1/(1-\sigma)^2=\hat r$。
 
-再看 $S_{\rm sw}$ 处。令 $x=c/c_0\in[\sigma,1]$，$\sigma=S_c/S$，$a=(1-\sigma)^2$，$d=1-b\sigma$。利用恒等式 $d(x-\sigma)^2-ax^2(x-b\sigma)=(1-x)P(x)$，$P(x)=ax^2-d\sigma(2-\sigma)x+d\sigma^2$，对 $x\in[\sigma,1)$，$f(S,c_0x)\ge f(S,c_0)$ 等价于 $d(1-x)x^2+rP(x)\ge0$。在 $\sigma=S_c/S_{\rm sw}$ 上 $2b\sigma^2-3\sigma+1=0$，即 $2\sigma d=1-\sigma$，于是 $P(x)=a(x-1)(x-x_2)$，$x_2=\sigma/[2(1-\sigma)]<\sigma$。条件化为：对一切 $x\in[\sigma,1)$ 有 $r(x-x_2)\le(d/a)x^2$。比值 $(d/a)x^2/(x-x_2)$ 在 $x=2x_2=\sigma/(1-\sigma)\in(\sigma,1)$ 取最小值 $4x_2d/a=1/(1-\sigma)^2=\hat r$。
-
-若 $r<\hat r$，$c_0$ 是 $S_{\rm sw}$ 处的唯一全局最小点；若 $r=\hat r$，它与 $x=2x_2$ 并列。两种情形下，由上集性，对一切 $S>S_{\rm sw}$，$c_0$ 都是唯一全局最小点。若 $r>\hat r$，则在 $S_{\rm sw}$ 处存在 $x<1$ 使 $f(S,c_0x)<f(S,c_0)$；由连续性，这一严格不等式在 $S_{\rm sw}$ 稍上方仍成立。最后，$S_{\rm sw}/S_c\in(2,3)$ 给出 $9/4<\hat r<4$；由 $\zeta_{\rm sw}=S_{\rm sw}/S_c$ 得 $b=\zeta_{\rm sw}(3-\zeta_{\rm sw})/2$，不等式 $r_{\rm cont}<\hat r$ 化为 $(\zeta_{\rm sw}-1)(\zeta_{\rm sw}-2)^2>0$。
+若 $r<\hat r$，$c_0$ 是 $S_{\rm sw}$ 处的唯一全局最小点；若 $r=\hat r$，它与 $x=2x_2$ 并列。两种情形下，由引理~\ref{lem:sup:upper-set}，对一切 $S>S_{\rm sw}$，$c_0$ 都是唯一全局最小点。若 $r>\hat r$，则在 $S_{\rm sw}$ 处存在 $x<1$ 使 $f(S,c_0x)<f(S,c_0)$；由连续性，这一严格不等式在 $S_{\rm sw}$ 稍上方仍成立。最后，$S_{\rm sw}/S_c\in(2,3)$ 给出 $9/4<\hat r<4$；由 $\zeta_{\rm sw}=S_{\rm sw}/S_c$ 得 $b=\zeta_{\rm sw}(3-\zeta_{\rm sw})/2$，不等式 $r_{\rm cont}<\hat r$ 化为 $(\zeta_{\rm sw}-1)(\zeta_{\rm sw}-2)^2>0$。
 \end{proof}
 $\hat r$ 的含义是：隔离的相对权重超过它以后，在 $S_{\rm sw}$ 稍上方同时减少接触已经更省；若存在仅隔离段，它就会在到达 $S_{\rm sw}$ 前结束。
 \begin{table}[htbp]
@@ -93,17 +98,17 @@ r+\frac{2\sqrt r}{\zeta}=1+r+\frac{2b(\sqrt r-1)}{\zeta},
 s-(s-1)\zeta_{\rm j}=\bigl[\zeta_{\rm sw}-(\zeta_{\rm sw}-1)s\bigr]\bigl[(\zeta_{\rm sw}-2)s+3-\zeta_{\rm sw}\bigr].
 \label{eq:sup:jump-factor}
 \end{equation}
-由 $\zeta_{\rm sw}\in(2,3)$，第二个因子为正；$s<\sqrt{\hat r}=\zeta_{\rm sw}/(\zeta_{\rm sw}-1)$ 时第一个因子也为正，故该值为正。又 $s>\sqrt{r_{\rm cont}}>1$ 给出 $\zeta_{\rm j}>2>p_-$，所以 $p_+<\zeta_{\rm j}$。由式\eqref{eq:sup:jump-square}，$p_\pm$ 是 $\zeta_{\rm j}$ 上仅有的两个全局最小点。$\zeta_{\rm j}$ 关于 $s$ 严格增：$s=\sqrt{r_{\rm cont}}$ 时由 $(1-b)s^2+bs=2$ 得 $\zeta_{\rm j}=4/s=b+\sqrt{b^2-8b+8}$；$s=\sqrt{\hat r}$ 时代入 $2(1-b)=(\zeta_{\rm sw}-1)(\zeta_{\rm sw}-2)$ 得 $\zeta_{\rm j}=\zeta_{\rm sw}$。这给出 $\zeta_{\rm j}$ 的范围。其余状态上：$\zeta\ge\zeta_{\rm sw}$ 时，由命题~\ref{prop:sup:rhat}及其证明（含 $\zeta=\zeta_{\rm sw}$），右端点是唯一全局最小点；$1<\zeta<\zeta_{\rm sw}$ 时两端点都不是最小点，而由引理~\ref{lem:sup:interior-tie}，$\zeta\ne\zeta_{\rm j}$ 时内部全局最小点至多一个。由第三个事实，最小点在 $\zeta\ne\zeta_{\rm j}$ 处连续。最后，由第二个事实，$\zeta>\zeta_{\rm j}$ 时最小点不小于 $p_+$，$\zeta<\zeta_{\rm j}$ 时不大于 $p_-$；由第三个事实，两侧的极限点都是 $\zeta_{\rm j}$ 上的最小点，故两侧极限分别为 $p_+$ 与 $p_-$。
+由 $\zeta_{\rm sw}\in(2,3)$，第二个因子为正；$s<\sqrt{\hat r}=\zeta_{\rm sw}/(\zeta_{\rm sw}-1)$ 时第一个因子也为正，故该值为正。又 $s>\sqrt{r_{\rm cont}}>1$ 给出 $\zeta_{\rm j}>2>p_-$，所以 $p_+<\zeta_{\rm j}$。由式\eqref{eq:sup:jump-square}，$p_\pm$ 是 $\zeta_{\rm j}$ 上仅有的两个全局最小点。$\zeta_{\rm j}$ 关于 $s$ 严格增：$s=\sqrt{r_{\rm cont}}$ 时由 $(1-b)s^2+bs=2$ 得 $\zeta_{\rm j}=4/s=b+\sqrt{b^2-8b+8}$；$s=\sqrt{\hat r}$ 时代入 $2(1-b)=(\zeta_{\rm sw}-1)(\zeta_{\rm sw}-2)$ 得 $\zeta_{\rm j}=\zeta_{\rm sw}$。这给出 $\zeta_{\rm j}$ 的范围。其余状态上：$\zeta\ge\zeta_{\rm sw}$ 时，由命题~\ref{prop:sup:rhat}，右端点是唯一全局最小点；$1<\zeta<\zeta_{\rm sw}$ 时两端点都不是最小点，而由引理~\ref{lem:sup:interior-tie}，$\zeta\ne\zeta_{\rm j}$ 时内部全局最小点至多一个。由第三个事实，最小点在 $\zeta\ne\zeta_{\rm j}$ 处连续。最后，由第二个事实，$\zeta>\zeta_{\rm j}$ 时最小点不小于 $p_+$，$\zeta<\zeta_{\rm j}$ 时不大于 $p_-$；由第三个事实，两侧的极限点都是 $\zeta_{\rm j}$ 上的最小点，故两侧极限分别为 $p_+$ 与 $p_-$。
 
-(iii) 记 $\Omega$ 为使 $p=\zeta$ 成为 $G(\cdot;\zeta)$ 全局最小点的 $\zeta>1$ 的集合。由 $G$ 连续，$\Omega$ 是 $(1,\infty)$ 中的闭集；由第一个事实，$\Omega\subset[\zeta_{\rm sw},\infty)$；由命题~\ref{prop:sup:rhat}证明中的上集性，$\zeta\in\Omega$ 蕴含 $\zeta'>\zeta$ 时 $p=\zeta'$ 是唯一全局最小点。$\Omega$ 非空：$\zeta\to\infty$ 时 $G(\zeta;\zeta)=rB(\zeta)\le r/(\zeta-b)\to0$，而 $p<\zeta_{\rm sw}$ 时 $G(p;\zeta)\ge A(p;\zeta)\ge(1-\zeta_{\rm sw}/\zeta)^2/(\zeta_{\rm sw}-b)$，$\zeta_{\rm sw}\le p<\zeta$ 时 $G(p;\zeta)\ge rB(p)>rB(\zeta)$。于是 $\zeta_0=\min\Omega$ 存在且不小于 $\zeta_{\rm sw}$。由命题~\ref{prop:sup:rhat}，$\zeta_{\rm sw}\in\Omega$ 当且仅当 $r\le\hat r$，在本情形即 $r=\hat r$。与 $p=1$ 比较，$G(\zeta;\zeta)\le G(1;\zeta)$ 等价于 $r/(\zeta-b)\le1/(1-b)$，故 $\zeta_0\ge b+r(1-b)$。
+(iii) 记 $\Omega$ 为使 $p=\zeta$ 成为 $G(\cdot;\zeta)$ 全局最小点的 $\zeta>1$ 的集合。由 $G$ 连续，$\Omega$ 是 $(1,\infty)$ 中的闭集；由第一个事实，$\Omega\subset[\zeta_{\rm sw},\infty)$；由引理~\ref{lem:sup:upper-set}，$\zeta\in\Omega$ 蕴含 $\zeta'>\zeta$ 时 $p=\zeta'$ 是唯一全局最小点。$\Omega$ 非空：$\zeta\to\infty$ 时 $G(\zeta;\zeta)=rB(\zeta)\le r/(\zeta-b)\to0$，而 $p<\zeta_{\rm sw}$ 时 $G(p;\zeta)\ge A(p;\zeta)\ge(1-\zeta_{\rm sw}/\zeta)^2/(\zeta_{\rm sw}-b)$，$\zeta_{\rm sw}\le p<\zeta$ 时 $G(p;\zeta)\ge rB(p)>rB(\zeta)$。于是 $\zeta_0=\min\Omega$ 存在且不小于 $\zeta_{\rm sw}$。由命题~\ref{prop:sup:rhat}与引理~\ref{lem:sup:upper-set}，$\zeta_{\rm sw}\in\Omega$ 当且仅当 $r\le\hat r$，在本情形即 $r=\hat r$。与 $p=1$ 比较，$G(\zeta;\zeta)\le G(1;\zeta)$ 等价于 $r/(\zeta-b)\le1/(1-b)$，故 $\zeta_0\ge b+r(1-b)$。
 
 $1<\zeta<\zeta_0$ 时两端点都不是全局最小点。由引理~\ref{lem:sup:interior-tie}，两个内部全局最小点只可能出现在 $\zeta_{\rm j}$，且须是 $p^2-kp+k$ 的两根；但 $s\ge\sqrt{\hat r}$ 时式\eqref{eq:sup:jump-factor}的第一个因子不为正，该二次式在 $\zeta_{\rm j}$ 处的值不为正，较大的根不小于 $\zeta_{\rm j}$，不在内部。所以 $1<\zeta<\zeta_0$ 时最小点唯一且在内部，并由第三个事实连续。
 
-再看 $\zeta_0$。$r=\hat r$ 时 $\zeta_0=\zeta_{\rm sw}=\zeta_{\rm j}$，$k=\zeta_{\rm sw}^2/(\zeta_{\rm sw}-1)$，由式\eqref{eq:sup:jump-square}，全局最小点恰为 $\zeta_{\rm sw}$ 与 $a_0=\zeta_{\rm sw}/(\zeta_{\rm sw}-1)$。$r>\hat r$ 时 $\zeta_0>\zeta_{\rm sw}$，故 $E(\zeta_0,\zeta_0)=r\varphi(\zeta_0)<0$，即 $G_p(\zeta_0;\zeta_0)<0$；由连续性，存在 $\varepsilon>0$，使 $|\zeta-\zeta_0|<\varepsilon$、$\zeta-\varepsilon\le p\le\zeta$ 时 $G_p(p;\zeta)<0$。对 $\zeta_0-\varepsilon<\zeta<\zeta_0$，$G(\cdot;\zeta)$ 在 $[\zeta-\varepsilon,\zeta]$ 上的最小值在 $p=\zeta$ 处取得，而 $p=\zeta$ 不是全局最小点，所以全局最小点小于 $\zeta-\varepsilon$。令 $\zeta\uparrow\zeta_0$，其极限点是 $\zeta_0$ 上的全局最小点，不大于 $\zeta_0-\varepsilon$，由第一个事实也不等于 $1$；由上一段，这样的内部点只有一个，记为 $a_0$。两种情形下，$\zeta>\zeta_0$ 时最小点为 $p=\zeta$，极限为 $\zeta_0$；由第二个事实，$\zeta<\zeta_0$ 时最小点不大于 $a_0$，其极限点是 $\zeta_0$ 上不大于 $a_0$ 的最小点，只能是 $a_0$。
+再看 $\zeta_0$。$r=\hat r$ 时 $\zeta_0=\zeta_{\rm sw}=\zeta_{\rm j}$，$k=\zeta_{\rm sw}^2/(\zeta_{\rm sw}-1)$，由式\eqref{eq:sup:jump-square}，全局最小点恰为 $\zeta_{\rm sw}$ 与 $p_0=\zeta_{\rm sw}/(\zeta_{\rm sw}-1)$。$r>\hat r$ 时 $\zeta_0>\zeta_{\rm sw}$，故 $E(\zeta_0,\zeta_0)=r\varphi(\zeta_0)<0$，即 $G_p(\zeta_0;\zeta_0)<0$；由连续性，存在 $\varepsilon>0$，使 $|\zeta-\zeta_0|<\varepsilon$、$\zeta-\varepsilon\le p\le\zeta$ 时 $G_p(p;\zeta)<0$。对 $\zeta_0-\varepsilon<\zeta<\zeta_0$，$G(\cdot;\zeta)$ 在 $[\zeta-\varepsilon,\zeta]$ 上的最小值在 $p=\zeta$ 处取得，而 $p=\zeta$ 不是全局最小点，所以全局最小点小于 $\zeta-\varepsilon$。令 $\zeta\uparrow\zeta_0$，其极限点是 $\zeta_0$ 上的全局最小点，不大于 $\zeta_0-\varepsilon$，由第一个事实也不等于 $1$；由上一段，这样的内部点只有一个，记为 $p_0$。两种情形下，$\zeta>\zeta_0$ 时最小点为 $p=\zeta$，极限为 $\zeta_0$；由第二个事实，$\zeta<\zeta_0$ 时最小点不大于 $p_0$，其极限点是 $\zeta_0$ 上不大于 $p_0$ 的最小点，只能是 $p_0$。
 
 在 (ii)(iii) 的跳变处，$\zeta$ 连续而最小点 $p$ 下降，故 $c/c_0=p/\zeta$ 与 $q=1-(1-q_0)/p$ 同时下降。
 \end{proof}
-因此，无论权重多大，成本最优控制在阈值控制期内部至多突变一次，而且方向固定：减少接触突然加强，追踪隔离突然放松，控制由偏重隔离转向偏重减少接触。$r>r_{\rm cont}$ 时整条状态反馈恰有一次跳变，所以正文定理~\ref{thm:joint:cost-structure}的权重界不能放宽。最优选择本身是五次方程的根，两个内部取值之间的跳变状态却有闭式\eqref{eq:sup:jump-state}。
+因此，无论权重多大，成本最优控制在阈值控制期内部至多跳变一次，而且方向固定：减少接触突然加强，追踪隔离突然放松，控制由偏重隔离转向偏重减少接触。$r>r_{\rm cont}$ 时整条状态反馈恰有一次跳变，所以正文定理~\ref{thm:joint:cost-structure}的权重界不能放宽。最优选择本身是五次方程的根，两个内部取值之间的跳变状态却有闭式\eqref{eq:sup:jump-state}。
 
 对一次疫情，阈值控制期只经过 $S\in[S_c,S^*]$。$r_{\rm cont}<r<\hat r$ 时，控制期内部有跳变当且仅当 $S^*>S_{\rm jump}$；$r\ge\hat r$ 时，当且仅当 $S^*>S_c\zeta_0$，这也是存在仅隔离段的条件。由正文命题~\ref{prop:joint:weight-monotone}(i)，存在仅隔离段的权重构成一个区间；由 (iii) 证明中与 $p=1$ 的比较，$r\ge(S^*-\bar S)/(S_c-\bar S)$ 时没有仅隔离段。两组算例中仅隔离段消失处的权重见表~\ref{tab:joint:weight-transitions}的 B$\to$C 括区。
 
