@@ -4,11 +4,12 @@
 
 ## 1. 当前状态
 
-- 工作树 `E:\work\draft-submission-ready`，分支 `paper/submission-ready`。最近一轮为 NEW-4l（第 5 章重排，N22，`c4bdb83`），与此前各轮均已推送。
-- NEW-4l 后第 5 章编号有变：连续结构定理为定理 5.2（原 5.5），阈值单调性为命题 5.5（原 5.2），其证明在附录 A.12；与外部审阅或旧记录对照时注意换算。主稿 37 页。
+- 工作树 `E:\work\draft-submission-ready`，分支 `paper/submission-ready`。最近一轮为 NEW-4m（成本最优控制跳变结构入稿，N23，M0 `0c8512d` 与 M1–M4 两次本地提交，**未推送**）；NEW-4l 及此前各轮已推送。
+- NEW-4l 后第 5 章编号有变：连续结构定理为定理 5.2（原 5.5），阈值单调性为命题 5.5（原 5.2），其证明在附录 A.12；与外部审阅或旧记录对照时注意换算。
+- NEW-4m 在补充 S5.3 新增引理 S5.2 与命题 S5.3：任意权重下成本最优状态反馈至多跳变一次，$(r_{\rm cont},\hat r)$ 内跳变状态为 $2[\bar S+(S_c-\bar S)\sqrt r]$；正文只加引用句。$r>\hat r$ 时仅隔离段结束的位置（相切方程）与 $r_C$ 仍不入稿。来源推导在 `ai/成本最优/补充推导_20261026/`。
 - 2026-10-26 清理了 `paper/tmp/` 与 `tmp/` 中的测试临时目录、截图和编译日志（均未入库）；文献核实证据、测试 XML、基准快照仍保留在原处。
-- 中文稿：主稿 `paper/flatten_curve_analysis_cn.pdf` 37 页，补充材料 `paper/flatten_curve_supplement_cn.pdf` 22 页；`nr_audit` 既有全量测试 353 项通过。
-- 近几轮：NEW-4i（审稿意见中回流与医疗负担以外部分）、NEW-4j（外部审阅意见收尾）、NEW-4k（理论与数值收尾）、NEW-4l（第 5 章重排，记录见 `paper/revision_notes/NEW_4l_section5_restructure.md`）。结论：理论已闭环，数值不需新计算，正文 9 幅图全部保留；中文稿进入定稿阶段。
+- 中文稿：主稿 `paper/flatten_curve_analysis_cn.pdf` 38 页，补充材料 `paper/flatten_curve_supplement_cn.pdf` 24 页；`nr_audit` 全量测试 363 项通过（既有 353 项＋NEW-4m 新增 10 项）。
+- 近几轮：NEW-4j（外部审阅意见收尾）、NEW-4k（理论与数值收尾）、NEW-4l（第 5 章重排）、NEW-4m（跳变结构入稿，记录见 `paper/revision_notes/NEW_4m_jump_structure.md`）。结论：理论已闭环，数值不需新计算，正文 9 幅图全部保留；中文稿进入定稿阶段。
 - 理论重开条件（NEW-4k 计划 0.2 节）：实际使用的假设未写入陈述；证明步骤不成立或有反例；正文结论超出已证明范围；公式、证明与报告数值实质矛盾。
 
 ## 2. 读取顺序
@@ -36,7 +37,7 @@
 
 ## 4. 工作约定与易踩的坑
 
-- **授权**：每轮改稿前，由作者授权并在 `AGENTS.md` 末尾加一条 N 条款（下一条为 N23），计划写在 `ai/NEW_<轮次>_*_plan_<日期>.md`。推送只在作者明确要求时进行。
+- **授权**：每轮改稿前，由作者授权并在 `AGENTS.md` 末尾加一条 N 条款（下一条为 N24），计划写在 `ai/NEW_<轮次>_*_plan_<日期>.md`。推送只在作者明确要求时进行。
 - **Python**：用 `E:/anaconda/envs/thesis/python.exe`，并设 `PYTHONIOENCODING=utf-8`；`conda run` 遇中文输出会报 gbk 编码错误。
 - **编译**：`powershell -NoProfile -ExecutionPolicy Bypass -File paper\build.ps1`（用 PowerShell，不用 Git Bash）。Acrobat 打开 PDF 时会锁文件。
 - **检查**（`--old` 用上一轮提交，如 `fd5fdaf:paper/flatten_curve_analysis_cn.tex`）：

@@ -40,12 +40,74 @@ B$\to$C & 仅隔离段消失 & — & $[\nrWtBaseBToCLo,\nrWtBaseBToCHi]$ & — &
 \bottomrule
 \end{tabular*}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：$w_c=1$，$r=w_q/w_c$，不考虑能力约束。结构 A：在 $S_{\rm sw}$ 处连续切换，此后控制连续；A$'$：在 $S_{\rm sw}$ 处连续切换，随后在 $S_{\rm sw}$ 稍下方于两个内部取值之间跳变一次；B：切换提前到 $S_{\rm sw}$ 以上，接触率在切换处跳变；C：没有仅隔离段。括区是所检验网格与精度下含该转折的 $r$ 括区，宽度小于 $10^{-3}$；闭式列中 $r_{\rm cont}$ 为正文定理~\ref{thm:joint:cost-structure}的连续界（充分条件），$\hat r$ 见命题~\ref{prop:sup:rhat}。
+\item 注：$w_c=1$，$r=w_q/w_c$，不考虑能力约束。结构 A：在 $S_{\rm sw}$ 处连续切换，此后控制连续；A$'$：在 $S_{\rm sw}$ 处连续切换，随后在 $S_{\rm jump}$（命题~\ref{prop:sup:jump}）处于两个内部取值之间跳变一次；B：切换提前到 $S_{\rm sw}$ 以上，接触率在切换处跳变，此后连续；C：没有仅隔离段。括区是所检验网格与精度下含该转折的 $r$ 括区，宽度小于 $10^{-3}$；闭式列中 $r_{\rm cont}$ 为状态反馈在 $(S_c,\infty)$ 上连续的最大权重比（正文定理~\ref{thm:joint:cost-structure}、命题~\ref{prop:sup:jump}），$\hat r$ 见命题~\ref{prop:sup:rhat}。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
-图~\ref{fig:sup:phase-detail}放大正文图~\ref{fig:joint:phase}的转折区。数值上，内部跳变从 $r=r_{\rm cont}$ 处开始（空心圆），连续切换与由仅隔离控制出发的跳变在 $(S_{\rm sw},\hat r)$ 处相接（空心菱形）。
+\subsection{跳变的次数与位置}
+\label{sec:sup:weight-jumps}
+命题~\ref{prop:sup:rhat}确定了仅隔离段何时离开 $S_{\rm sw}$；本节确定成本最优控制全部可能的跳变位置。记 $s=\sqrt r$ 及
+\begin{equation}
+\zeta_{\rm j}(r)=2\bigl[b+(1-b)\sqrt r\bigr],\qquad
+S_{\rm jump}=S_c\zeta_{\rm j}=2\bigl[\bar S+(S_c-\bar S)\sqrt r\bigr].
+\label{eq:sup:jump-state}
+\end{equation}
+\begin{lemma}
+\label{lem:sup:interior-tie}
+设 $w_c,w_q>0$，不考虑能力约束，$\zeta>1$。若 $G(\cdot;\zeta)$ 在 $(1,\zeta)$ 内有两个不同的全局最小点 $p_1<p_2$，则 $\zeta=\zeta_{\rm j}(r)$，且 $p_1+p_2=p_1p_2=\sqrt r\,\zeta_{\rm j}$。此外，对任意 $r>0$ 与 $p>b$，记 $k=\sqrt r\,\zeta_{\rm j}$，有
+\begin{equation}
+G(p;\zeta_{\rm j})-\frac{2(\sqrt r-1)}{\zeta_{\rm j}}
+=\frac{(p^2-kp+k)^2}{\zeta_{\rm j}^2\,p^2(p-b)}.
+\label{eq:sup:jump-square}
+\end{equation}
+\end{lemma}
+\begin{proof}
+记两个最小点处的共同最小值为 $m$，令
+\[
+\Pi(p)=p^2(p-b)\bigl[G(p;\zeta)-m\bigr]
+=\frac{p^4}{\zeta^2}-\Bigl(\frac2\zeta+m\Bigr)p^3+(1+r+mb)p^2-2rp+r.
+\]
+$p_1,p_2$ 是内部最小点，$G-m$ 与 $G_p$ 在这两点都为零，所以 $\Pi(p_i)=\Pi'(p_i)=0$。$\Pi$ 是首项系数为 $\zeta^{-2}$ 的四次多项式，有两个不同的二重根，故 $\Pi(p)=\zeta^{-2}(p^2-\ell p+k)^2$，其中 $\ell=p_1+p_2$，$k=p_1p_2$。比较常数项得 $k^2=r\zeta^2$，即 $k=\sqrt r\,\zeta$；比较一次项得 $k\ell=r\zeta^2=k^2$，即 $\ell=k$；比较三次项得 $m=2(\ell-\zeta)/\zeta^2=2(\sqrt r-1)/\zeta$；比较二次项得
+\[
+r+\frac{2\sqrt r}{\zeta}=1+r+\frac{2b(\sqrt r-1)}{\zeta},
+\]
+即 $\zeta=2[\sqrt r-b(\sqrt r-1)]=\zeta_{\rm j}$。反过来，取 $\zeta=\zeta_{\rm j}$、$m=2(\sqrt r-1)/\zeta_{\rm j}$、$\ell=k=\sqrt r\,\zeta_{\rm j}$，上述四个系数等式都成立，$\Pi(p)=\zeta_{\rm j}^{-2}(p^2-kp+k)^2$ 对一切 $p$ 成立；除以 $p^2(p-b)$ 即得式\eqref{eq:sup:jump-square}。
+\end{proof}
+\begin{proposition}
+\label{prop:sup:jump}
+设 $w_c,w_q>0$，不考虑能力约束。$G(\cdot;\zeta)$ 在 $[1,\zeta]$ 上的最小点除至多一个状态外唯一，并在其余状态上随 $\zeta$ 连续变化；因此成本最优控制几乎处处唯一，可取为除该状态外连续的状态反馈。具体地：
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\roman{enumi})}
+\item 若 $0<r\le r_{\rm cont}$，最小点处处唯一，没有跳变；
+\item 若 $r_{\rm cont}<r<\hat r$，则 $b+\sqrt{b^2-8b+8}<\zeta_{\rm j}<\zeta_{\rm sw}$；在 $\zeta_{\rm j}$ 上恰有两个全局最小点 $p_\pm=\bigl(k\pm\sqrt{k(k-4)}\bigr)/2$，$k=\sqrt r\,\zeta_{\rm j}$，满足 $1<p_-<2<p_+<\zeta_{\rm j}$；其余状态上最小点唯一；随 $S$ 减小，最优选择在 $S_{\rm jump}$ 处由 $p_+$ 跳到 $p_-$；
+\item 若 $r\ge\hat r$，记 $\zeta_0$ 为仅隔离控制取全局最小的最小状态，则 $\zeta_0\ge\max\{\zeta_{\rm sw},\,b+r(1-b)\}$，且 $\zeta_0=\zeta_{\rm sw}$ 当且仅当 $r=\hat r$；$\zeta>\zeta_0$ 时仅隔离控制唯一最优，$1<\zeta<\zeta_0$ 时最小点唯一且在 $(1,\zeta)$ 内；在 $\zeta_0$ 处仅隔离控制恰与一个内部取值并列；随 $S$ 减小，最优选择在 $S_c\zeta_0$ 处由 $p=\zeta_0$ 跳到该内部取值。
+\end{enumerate}
+在 (ii)(iii) 的跳变处，沿时间方向接触率与隔离比例同时下降。
+\end{proposition}
+\begin{proof}
+沿用正文附录~\ref{sec:proof:cost-structure}的记号，先列三个事实。第一，左端点 $p=1$ 从不是局部最小点；$1<\zeta<\zeta_{\rm sw}$ 时右端点 $p=\zeta$ 也不是（正文命题~\ref{prop:joint:global-structure}）。第二，若 $\zeta<\zeta'$，则 $\zeta$ 上的任一最小点不大于 $\zeta'$ 上的任一最小点（正文命题~\ref{prop:joint:weight-monotone}(ii) 的证明）。第三，把允许区间写成 $p=1+x(\zeta-1)$、$x\in[0,1]$，由 $G$ 连续与 $[0,1]$ 紧，若 $\zeta_n\to\zeta$，$\zeta_n$ 上最小点的任一极限点都是 $\zeta$ 上的最小点；所以在最小点唯一的状态上，最小点随 $\zeta$ 连续。(i) 即正文定理~\ref{thm:joint:cost-structure}。
+
+(ii) 由式\eqref{eq:joint:rcont}，$\sqrt{r_{\rm cont}}$ 是 $(1-b)s^2+bs=2$ 的正根，而 $k=2[(1-b)s^2+bs]$，故 $r>r_{\rm cont}$ 等价于 $k>4$。二次式 $p^2-kp+k$ 在 $p=1,2$ 处的值分别为 $1$ 与 $4-k<0$，所以两根满足 $1<p_-<2<p_+$。该二次式在 $\zeta_{\rm j}$ 处的值为 $\zeta_{\rm j}[s-(s-1)\zeta_{\rm j}]$；利用 $b=\zeta_{\rm sw}(3-\zeta_{\rm sw})/2$ 可得
+\begin{equation}
+s-(s-1)\zeta_{\rm j}=\bigl[\zeta_{\rm sw}-(\zeta_{\rm sw}-1)s\bigr]\bigl[(\zeta_{\rm sw}-2)s+3-\zeta_{\rm sw}\bigr].
+\label{eq:sup:jump-factor}
+\end{equation}
+由 $\zeta_{\rm sw}\in(2,3)$，第二个因子为正；$s<\sqrt{\hat r}=\zeta_{\rm sw}/(\zeta_{\rm sw}-1)$ 时第一个因子也为正，故该值为正。又 $s>\sqrt{r_{\rm cont}}>1$ 给出 $\zeta_{\rm j}>2>p_-$，所以 $p_+<\zeta_{\rm j}$。由式\eqref{eq:sup:jump-square}，$p_\pm$ 是 $\zeta_{\rm j}$ 上仅有的两个全局最小点。$\zeta_{\rm j}$ 关于 $s$ 严格增：$s=\sqrt{r_{\rm cont}}$ 时由 $(1-b)s^2+bs=2$ 得 $\zeta_{\rm j}=4/s=b+\sqrt{b^2-8b+8}$；$s=\sqrt{\hat r}$ 时代入 $2(1-b)=(\zeta_{\rm sw}-1)(\zeta_{\rm sw}-2)$ 得 $\zeta_{\rm j}=\zeta_{\rm sw}$。这给出 $\zeta_{\rm j}$ 的范围。其余状态上：$\zeta\ge\zeta_{\rm sw}$ 时，由命题~\ref{prop:sup:rhat}及其证明（含 $\zeta=\zeta_{\rm sw}$），右端点是唯一全局最小点；$1<\zeta<\zeta_{\rm sw}$ 时两端点都不是最小点，而由引理~\ref{lem:sup:interior-tie}，$\zeta\ne\zeta_{\rm j}$ 时内部全局最小点至多一个。由第三个事实，最小点在 $\zeta\ne\zeta_{\rm j}$ 处连续。最后，由第二个事实，$\zeta>\zeta_{\rm j}$ 时最小点不小于 $p_+$，$\zeta<\zeta_{\rm j}$ 时不大于 $p_-$；由第三个事实，两侧的极限点都是 $\zeta_{\rm j}$ 上的最小点，故两侧极限分别为 $p_+$ 与 $p_-$。
+
+(iii) 记 $\Omega$ 为使 $p=\zeta$ 成为 $G(\cdot;\zeta)$ 全局最小点的 $\zeta>1$ 的集合。由 $G$ 连续，$\Omega$ 是 $(1,\infty)$ 中的闭集；由第一个事实，$\Omega\subset[\zeta_{\rm sw},\infty)$；由命题~\ref{prop:sup:rhat}证明中的上集性，$\zeta\in\Omega$ 蕴含 $\zeta'>\zeta$ 时 $p=\zeta'$ 是唯一全局最小点。$\Omega$ 非空：$\zeta\to\infty$ 时 $G(\zeta;\zeta)=rB(\zeta)\le r/(\zeta-b)\to0$，而 $p<\zeta_{\rm sw}$ 时 $G(p;\zeta)\ge A(p;\zeta)\ge(1-\zeta_{\rm sw}/\zeta)^2/(\zeta_{\rm sw}-b)$，$\zeta_{\rm sw}\le p<\zeta$ 时 $G(p;\zeta)\ge rB(p)>rB(\zeta)$。于是 $\zeta_0=\min\Omega$ 存在且不小于 $\zeta_{\rm sw}$。由命题~\ref{prop:sup:rhat}，$\zeta_{\rm sw}\in\Omega$ 当且仅当 $r\le\hat r$，在本情形即 $r=\hat r$。与 $p=1$ 比较，$G(\zeta;\zeta)\le G(1;\zeta)$ 等价于 $r/(\zeta-b)\le1/(1-b)$，故 $\zeta_0\ge b+r(1-b)$。
+
+$1<\zeta<\zeta_0$ 时两端点都不是全局最小点。由引理~\ref{lem:sup:interior-tie}，两个内部全局最小点只可能出现在 $\zeta_{\rm j}$，且须是 $p^2-kp+k$ 的两根；但 $s\ge\sqrt{\hat r}$ 时式\eqref{eq:sup:jump-factor}的第一个因子不为正，该二次式在 $\zeta_{\rm j}$ 处的值不为正，较大的根不小于 $\zeta_{\rm j}$，不在内部。所以 $1<\zeta<\zeta_0$ 时最小点唯一且在内部，并由第三个事实连续。
+
+再看 $\zeta_0$。$r=\hat r$ 时 $\zeta_0=\zeta_{\rm sw}=\zeta_{\rm j}$，$k=\zeta_{\rm sw}^2/(\zeta_{\rm sw}-1)$，由式\eqref{eq:sup:jump-square}，全局最小点恰为 $\zeta_{\rm sw}$ 与 $a_0=\zeta_{\rm sw}/(\zeta_{\rm sw}-1)$。$r>\hat r$ 时 $\zeta_0>\zeta_{\rm sw}$，故 $E(\zeta_0,\zeta_0)=r\varphi(\zeta_0)<0$，即 $G_p(\zeta_0;\zeta_0)<0$；由连续性，存在 $\varepsilon>0$，使 $|\zeta-\zeta_0|<\varepsilon$、$\zeta-\varepsilon\le p\le\zeta$ 时 $G_p(p;\zeta)<0$。对 $\zeta_0-\varepsilon<\zeta<\zeta_0$，$G(\cdot;\zeta)$ 在 $[\zeta-\varepsilon,\zeta]$ 上的最小值在 $p=\zeta$ 处取得，而 $p=\zeta$ 不是全局最小点，所以全局最小点小于 $\zeta-\varepsilon$。令 $\zeta\uparrow\zeta_0$，其极限点是 $\zeta_0$ 上的全局最小点，不大于 $\zeta_0-\varepsilon$，由第一个事实也不等于 $1$；由上一段，这样的内部点只有一个，记为 $a_0$。两种情形下，$\zeta>\zeta_0$ 时最小点为 $p=\zeta$，极限为 $\zeta_0$；由第二个事实，$\zeta<\zeta_0$ 时最小点不大于 $a_0$，其极限点是 $\zeta_0$ 上不大于 $a_0$ 的最小点，只能是 $a_0$。
+
+在 (ii)(iii) 的跳变处，$\zeta$ 连续而最小点 $p$ 下降，故 $c/c_0=p/\zeta$ 与 $q=1-(1-q_0)/p$ 同时下降。
+\end{proof}
+因此，无论权重多大，成本最优控制在阈值控制期内部至多突变一次，而且方向固定：减少接触突然加强，追踪隔离突然放松，控制由偏重隔离转向偏重减少接触。$r>r_{\rm cont}$ 时整条状态反馈恰有一次跳变，所以正文定理~\ref{thm:joint:cost-structure}的权重界不能放宽。最优选择本身是五次方程的根，两个内部取值之间的跳变状态却有闭式\eqref{eq:sup:jump-state}。
+
+对一次疫情，阈值控制期只经过 $S\in[S_c,S^*]$。$r_{\rm cont}<r<\hat r$ 时，控制期内部有跳变当且仅当 $S^*>S_{\rm jump}$；$r\ge\hat r$ 时，当且仅当 $S^*>S_c\zeta_0$，这也是存在仅隔离段的条件。由正文命题~\ref{prop:joint:weight-monotone}(i)，存在仅隔离段的权重构成一个区间；由 (iii) 证明中与 $p=1$ 的比较，$r\ge(S^*-\bar S)/(S_c-\bar S)$ 时没有仅隔离段。两组算例中仅隔离段消失处的权重见表~\ref{tab:joint:weight-transitions}的 B$\to$C 括区。
+
+图~\ref{fig:sup:phase-detail}放大正文图~\ref{fig:joint:phase}的转折区。由命题~\ref{prop:sup:jump}(ii)，两个内部取值之间的跳变（紫线）位于曲线 $S/S_c=\zeta_{\rm j}(r)$ 上：它从 $r=r_{\rm cont}$、$S/S_c=b+\sqrt{b^2-8b+8}$ 处（空心圆，两个最小点在此重合）延伸到 $(S_{\rm sw}/S_c,\hat r)$（空心菱形），在那里与 $S_{\rm sw}$ 处的连续切换（黑线）及由仅隔离控制出发的跳变（红线）相接。
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/joint_v2/joint_phase_detail.pdf}

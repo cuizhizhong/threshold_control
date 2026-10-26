@@ -16,7 +16,7 @@
       "new4g_baseline_sha256": "4ada262f80854fc6a78bdc27ee133a5d035ec9025f629553f6a397bea8bad2b8",
       "current_path": "paper/sections/06_numerics.tex",
       "current_sha256": "c3bc8f0d35ab96db36723ffec28618d89ef8d8e68d60053a8ad9009d62a3f2a2",
-      "current_content_sha256": "c4f5093e0fd796b9718ddbb352c1ab4009d8f0c69d42e700d35740df66ca35cc"
+      "current_content_sha256": "3a9599d3d8d785135895664cf09d47af868f4cbda339b59902289cc509237d8d"
     },
     "model_section": {
       "historical_path": "paper/sections/02_model.tex",
@@ -64,7 +64,7 @@
       "new4g_baseline_sha256": "2f14f06ba1180d614865ce7786e4e1299549b922e951befb75c7466d810a7ea0",
       "current_path": "paper/supplement_sections/S8_numerics.tex",
       "current_sha256": "161321ea36559bfcda8e8b7f8fe3537fb580a79cd2414bac41e2bb2985642446",
-      "current_content_sha256": "1601668bb0e0e058c15e3730f561250c311f30370808baa3cc2ab20b47066757"
+      "current_content_sha256": "738b52abac8eb3654f9eabe3b0a09a8cbc7017f44a79488fbe0e808b78ba94b5"
     },
     "xian_chapter": {
       "historical_path": "paper/sections/07_xian.tex",
@@ -176,7 +176,7 @@
             "fig:sup:phase-detail"
           ],
           "current_sha256": "5b7db9952e30df4c07d9993f321269b85034dba83d810ff376b81c9e4d90b541",
-          "current_content_sha256": "d287b5aec36aec31c37a3910ee11154f75c8b6d45d9821121fd7711c5342e794"
+          "current_content_sha256": "eb3bf73d34e07e146ab82fde34dd5026b738932890a22adc9e2d9119114edb28"
         },
         {
           "path": "paper/supplement_sections/S8_numerics.tex",
@@ -185,7 +185,7 @@
             "tab:sup:convergence"
           ],
           "current_sha256": "161321ea36559bfcda8e8b7f8fe3537fb580a79cd2414bac41e2bb2985642446",
-          "current_content_sha256": "1601668bb0e0e058c15e3730f561250c311f30370808baa3cc2ab20b47066757"
+          "current_content_sha256": "738b52abac8eb3654f9eabe3b0a09a8cbc7017f44a79488fbe0e808b78ba94b5"
         }
       ]
     },
