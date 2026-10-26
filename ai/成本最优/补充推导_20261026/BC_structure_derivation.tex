@@ -1,0 +1,262 @@
+\documentclass[UTF8,zihao=-4]{ctexart}
+\usepackage[a4paper,margin=24mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[hidelinks]{hyperref}
+\allowdisplaybreaks
+\newtheorem{theorem}{定理}
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{proposition}[theorem]{命题}
+\newtheorem{corollary}[theorem]{推论}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{注记}
+\newcommand{\rhat}{\hat r}
+\newcommand{\zglob}{z_{\mathrm{glob}}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+\title{较大隔离权重下 B/C 结构的补充推导}
+\author{研究推导记录}
+\date{2026年10月26日}
+\begin{document}
+\maketitle
+
+\section{问题、变量与前置结果}
+
+本文件只讨论无回流模型、二次干预强度成本、不考虑额外能力约束的阈值控制期。
+新增论证的目标是：在 $r\ge\rhat$ 时，排除两个严格内部取值并列全局最优，
+从而证明仅隔离段结束以后不会再有内部跳变；由此区分一次疫情中的 B 型与 C 型。
+这里的“内部”指接触控制与追踪隔离同时严格强于常规水平。
+
+采用无量纲变量
+\begin{equation}
+ z=\frac{S}{S_c},\qquad p=\frac{cS}{c_0S_c},\qquad
+ b=\frac{\bar S}{S_c}=(1-\beta)(1-q_0)\in(0,1),\qquad
+ r=\frac{w_q}{w_c}>0.
+\end{equation}
+逐状态成本除去一个正常数后为
+\begin{equation}\label{eq:G}
+ G(p;z)=\frac{(1-p/z)^2+r(1-1/p)^2}{p-b},
+ \qquad 1\le p\le z,\quad z>1.
+\end{equation}
+其中 $p=z$ 为仅隔离控制，$p=1$ 为仅减少接触，$1<p<z$ 为两者并用。
+控制可由
+\[
+ \frac{c}{c_0}=\frac pz,\qquad q=1-\frac{1-q_0}{p}
+\]
+恢复。阈值控制期内 $z$ 严格下降。
+记
+\begin{equation}\label{eq:t}
+ t=\frac{S_{\rm sw}}{S_c}=\frac{3+\sqrt{9-8b}}2\in(2,3),
+ \qquad \rhat=\left(\frac{t}{t-1}\right)^2.
+\end{equation}
+特别地，$t^2-3t+2b=0$。
+
+\paragraph{沿用的旧结果。}
+以下上集边界与相切定位来自原专稿
+\texttt{cost\_optimal\_analysis.tex} 的“上集性”“第一个权重阈值”
+及“$r>\hat r$ 时的切换状态”结果，本文件不把它们列为新增结论：
+\begin{enumerate}
+\item 存在有限、连续且随 $r$ 不减的边界 $\zglob(r)\ge t$。
+当 $z>\zglob(r)$ 时，$p=z$ 是唯一全局最小点；
+当 $1<z<\zglob(r)$ 时，$p=z$ 不是全局最小点。
+\item $\zglob(r)=t$ 当且仅当 $r\le\rhat$。
+若 $r=\rhat$，在 $z=t$ 处，$p=t$ 与 $p=t/(t-1)$ 并列全局最优。
+若 $r>\rhat$，则 $\zglob(r)>t$，且 $\zglob$ 在该权重范围严格递增。
+\item 对 $r>\rhat$，$z=\zglob(r)$ 可由端点与内部取值 $a$ 的相切等值条件定位：
+\begin{equation}\label{eq:tangent-abstract}
+ G_p(a;z)=0,\qquad G(a;z)=G(z;z),\qquad 1<a<z.
+\end{equation}
+其代数形式为
+\begin{align}
+ r&=\frac{a^3}{(2z-1)a-2z},\label{eq:tangent-r}\\
+ (z-1)^2a^3
+ &=2(z-b)\bigl[(2z-1)a^2-z(z+1)a+z^2\bigr],\label{eq:tangent-cubic}
+ \end{align}
+其中取满足全局端点比较的合格根，且 $a>2z/(2z-1)$。
+不能只取任意一个相切解，便把它认作全局切换边界。
+此外 $\zglob(r)\ge b+r(1-b)$。
+\end{enumerate}
+本文件新增的是这些切换结果之后的唯一性与连续性论证，
+并不重复宣称上述隐式定位公式为本轮新结果。
+
+\section{内部并列最优的唯一候选}
+
+\begin{lemma}[两个内部全局最小点的必要条件]\label{lem:double}
+固定 $b,r$，令 $s=\sqrt r$。若某个 $z>1$ 上存在两个不同的严格内部全局最小点
+$1<a<d<z$，则必有
+\begin{equation}\label{eq:zJ}
+ z=z_J:=2\bigl[b+(1-b)s\bigr],
+ \qquad a+d=ad=sz_J.
+\end{equation}
+\end{lemma}
+\begin{proof}
+记共同最小值为 $m$，将 $G-m$ 乘以正数 $p^2(p-b)$，得到四次多项式
+\begin{align}\label{eq:H}
+ H(p)&=p^2\bigl[(1-p/z)^2-m(p-b)\bigr]+r(p-1)^2\\
+ &=z^{-2}p^4+(-2/z-m)p^3+(1+mb+r)p^2-2rp+r.\notag
+\end{align}
+因为 $a,d$ 都是内部最小点，$H(a)=H'(a)=H(d)=H'(d)=0$。
+四次最高项系数为 $z^{-2}>0$，因此
+\[
+ H(p)=z^{-2}(p-a)^2(p-d)^2.
+\]
+记 $k=ad$、$\ell=a+d$。比较常数项与一次项，依次得到
+\[
+ k=sz,\qquad k\ell=rz^2=k^2,
+\]
+故 $\ell=k$。比较三次项，得 $m=2(s-1)/z$。
+最后比较二次项，得
+\[
+ 1+s^2+\frac{2b(s-1)}z=s^2+\frac{2s}z,
+\]
+即 $z=2[s-b(s-1)]=z_J$。
+\end{proof}
+
+\begin{lemma}[较大权重排除内部并列]\label{lem:no-interior-tie}
+若 $r\ge\rhat$，则任意状态 $z>1$ 都不可能有两个不同的严格内部全局最小点。
+\end{lemma}
+\begin{proof}
+由引理\ref{lem:double}，两个内部最小点只能是二次式
+\[
+ P(p)=p^2-kp+k,\qquad k=sz_J
+\]
+的两个根 $p_-<p_+$。令 $s_H=t/(t-1)=\sqrt{\rhat}$。
+当 $s=s_H$ 时，利用 $t^2-3t+2b=0$，得到 $z_J=t$，
+两个根为 $p_-=s_H$、$p_+=t$。
+当 $s\ge s_H$ 时，$z_J>2$、$k>4$，所以 $1<p_-<2<p_+$。
+而
+\[
+ P(z_J)=z_J\bigl[s-(s-1)z_J\bigr].
+\]
+二次式
+\[
+ (s-1)z_J-s=2(1-b)s^2+(4b-3)s-2b
+\]
+有且只有一个正根；由上述代入，该正根为 $s_H$。
+故 $s\ge s_H$ 时 $P(z_J)\le0$，进而 $p_+\ge z_J$。
+等号仅在 $s=s_H$ 时成立。较大的根因此不可能是严格内部点，与假设矛盾。
+\end{proof}
+
+\begin{remark}
+引理排除的是两个不同的内部\emph{全局}最小点。
+它没有断言 $G(\cdot;z)$ 只有一个内部驻点，
+也没有排除较高成本的其他局部极小点。
+\end{remark}
+
+\section{切换后的唯一性、连续性与跳变次数}
+
+\begin{theorem}[较大权重下的完整反馈结构]\label{thm:BC}
+固定 $b\in(0,1)$ 与 $r\ge\rhat$，采用上一节的无约束逐状态问题。
+令 $z_0=\zglob(r)$。则：
+\begin{enumerate}
+\item $z>z_0$ 时，仅隔离取值 $p=z$ 唯一全局最优。
+\item $1<z<z_0$ 时，全局最小点唯一且严格内部，并随 $z$ 连续变化。
+\item 在 $z=z_0$ 处，端点 $p=z_0$ 恰与一个内部点 $a_0<z_0$ 并列全局最优。
+最优反馈在该处发生一次且仅一次从端点到内部的跳变；
+跳变两侧的极限分别为 $z_0$ 与 $a_0$。
+\end{enumerate}
+这里的方向按时间理解，即 $z$ 从大到小经过 $z_0$。
+\end{theorem}
+\begin{proof}
+第一项是前置上集结果。
+先注意
+\[
+ G_p(1;z)=-\frac{(z-1)(z+1-2b)}{z^2(1-b)^2}<0,
+\]
+故左端点从不最优。
+对于 $1<z<z_0$，右端点也不最优，故最小点必在内部；
+由引理\ref{lem:no-interior-tie}，它唯一。
+将区间写成 $p=1+y(z-1)$、$0\le y\le1$，目标是 $(y,z)$ 的连续函数。
+若 $z_n\to z$，相应最小点的任意收敛子列极限仍为 $z$ 处的最小点；
+由唯一性，全部最小点均收敛。因此内部最优分支连续。
+
+对于 $r>\rhat$，前置相切结果给出 $z_0>t$ 处端点与至少一个内部点并列。
+引理\ref{lem:no-interior-tie}保证此内部点只有一个，记为 $a_0$。
+又
+\[
+ G_p(z_0;z_0)
+ =\frac{r(z_0-1)(3z_0-z_0^2-2b)}{z_0^3(z_0-b)^2}<0.
+\]
+此不等式在端点附近的小邻域内保持，所以 $z<z_0$、充分接近 $z_0$ 时，
+全局最小点不能落在端点附近的单调递减区间内。
+最小点的任何聚点都是 $z_0$ 处的全局最小点，故只能为 $a_0$。
+上侧最优点为 $p=z$，极限是 $z_0$，从而得到非零跳幅。
+
+对于 $r=\rhat$，$z_0=t$。
+直接代入可得恒等式
+\begin{equation}\label{eq:hat-square}
+ G(p;t)-\frac{2(s_H-1)}t
+ =\frac{(p-t)^2(p-s_H)^2}{t^2p^2(p-b)}.
+\end{equation}
+因此仅有两个全局最小点 $a_0=s_H$ 与 $t$。
+为确定下侧极限，使用严格交叉导数
+\begin{equation}\label{eq:cross}
+ G_{pz}(p;z)
+ =-\frac{2\bigl[(p-b)^2+b(z-b)\bigr]}{z^3(p-b)^2}<0.
+\end{equation}
+若 $z<t$ 且足够接近 $t$，则 $a_0<z$。设该状态最优点为 $p_z$。
+假如 $p_z>a_0$，两点在状态 $z,t$ 上都允许；最优性给出
+\[
+ G(p_z;z)-G(a_0;z)\le0,\qquad
+ G(p_z;t)-G(a_0;t)\ge0.
+\]
+但式\eqref{eq:cross}又给出
+\[
+ [G(p_z;t)-G(a_0;t)]-[G(p_z;z)-G(a_0;z)]
+ =\int_z^t\!\int_{a_0}^{p_z}G_{pz}(p;u)\,dp\,du<0,
+\]
+与前述两个最优性不等式矛盾。
+故 $p_z\le a_0$。任意下侧聚点只能是 $a_0$，因此下侧极限为 $a_0$。
+
+综上，$z_0$ 两侧各自唯一且连续，在 $z_0$ 恰有一次非零跳变。
+各连续区间不存在其他并列全局最小点，因此不存在后续内部跳变。
+\end{proof}
+
+\section{一次疫情中的 B/C 分类与边界}
+
+设启动状态 $z^*=S^*/S_c>t$。前置结果中 $\zglob$ 在 $r>\rhat$ 上
+连续严格递增，$\zglob(\rhat)=t$，且因 $\zglob(r)\ge b+r(1-b)$ 而趋于无穷。
+所以存在唯一 $r_C>\rhat$，使
+\begin{equation}\label{eq:rC}
+ \zglob(r_C)=z^*.
+\end{equation}
+沿用旧专稿的记号，也可写作 $r_C=r_g(z^*,b)$，
+其中 $r_g$ 由式\eqref{eq:tangent-r}--\eqref{eq:tangent-cubic}的合格相切根确定。
+
+\begin{corollary}[有限控制期的分类]
+在 $z^*>t$ 的前提下：
+\begin{enumerate}
+\item 若 $\rhat\le r<r_C$，则 $z^*>\zglob(r)$。
+控制先有正时长的仅隔离段，再在 $S=S_c\zglob(r)$ 处跳入联合控制；
+之后最优控制连续直到退出。这是 B 型，其中 $r=\rhat$ 是切换恰在 $S_{\rm sw}$ 的边界情形。
+\item 若 $r>r_C$，则 $z^*<\zglob(r)$。
+从启动状态开始，最优控制一直在唯一的内部连续分支上；
+控制期内没有仅隔离段，也没有内部跳变。这是 C 型。
+\item 若 $r=r_C$，则切换边界恰等于启动状态。
+没有正时长的仅隔离段，且开控制期内没有跳变；
+可在启动点选择内部最优值，使控制从启动时向退出连续延伸。
+\end{enumerate}
+\end{corollary}
+\begin{proof}
+由 $\zglob$ 的严格单调性，三种权重关系分别等价于
+$z^*>\zglob$、$z^*<\zglob$、$z^*=\zglob$。
+将定理\ref{thm:BC}的完整反馈限制到实际经过的 $1\le z\le z^*$ 即得。
+退出时允许区间 $[1,z]$ 收缩到 $\{1\}$，故 $p\to1$、$c/c_0\to1$、$q\to q_0$。
+\end{proof}
+
+\paragraph{控制代表与启动时刻。}
+上述连续性与跳变次数指逐状态全局最小化选择的自然代表。
+成本最优控制只在几乎处处相等的意义下区分；
+对零测集任意改值可制造与优化无关的不连续，不应计入结构分类。
+特别是 $r=r_C$ 时，在启动点选端点或内部最优值都不改变成本，
+但选择内部值可得到控制期内向后的连续代表。
+启动前采用常规措施，启动时仍可有强化干预的初始跳变；
+这里“C 型连续”只指阈值控制期内部及其退出处。
+
+若 $z^*\le t$，则上述 $r_C>\rhat$ 的分类前提不成立。
+此时对 $r\ge\rhat$ 有 $z^*\le t\le\zglob(r)$，
+所以控制期内部同样没有端点到内部的跳变，
+可直接应用定理\ref{thm:BC}的内部连续分支。
+
+本补充推导未增加数值计算。新增理论内容是：
+利用清分母后的四次多项式，排除 $r\ge\rhat$ 的内部并列全局最优；
+结合原有上集边界，得到 B 型恰一次切换、跳后连续及 C 型无内部跳变。
+\end{document}

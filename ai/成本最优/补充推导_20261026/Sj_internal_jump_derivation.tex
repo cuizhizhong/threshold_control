@@ -1,0 +1,176 @@
+\documentclass[11pt,a4paper]{ctexart}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\newtheorem{theorem}{定理}
+\newtheorem{lemma}{引理}
+\newtheorem{remark}{注记}
+\renewcommand{\proofname}{证明}
+\newcommand{\rcont}{r_{\mathrm{cont}}}
+\newcommand{\Sj}{S_j}
+\newcommand{\Ssw}{S_{\mathrm{sw}}}
+\title{成本最优控制的内部跳变：闭式位置与唯一性}
+\author{独立补充推导}
+\date{2026年10月26日}
+\begin{document}
+\maketitle
+
+本文件整理本轮对话中得到的补充推导，独立于正式稿保存，尚未接入正文或补充材料。分析对象为无回流模型、无额外能力约束下的二次干预强度成本。证明使用现稿已有的逐状态约化、端点性质与 $\hat r$ 边界；本轮新增的是内部并列最优的完全平方恒等式、跳变位置的闭式与唯一性。没有新增优化、拟合或参数扫描。
+
+\section{状态变量与已有结果}
+
+令
+\[
+ z=\frac{S}{S_c},\qquad p=\frac{cS}{c_0S_c},\qquad
+ b=\frac{\bar S}{S_c}\in(0,1),\qquad r=\frac{w_q}{w_c}>0.
+\]
+给定 $z>1$，允许区间为 $1\le p\le z$，且
+\[
+ \frac{c}{c_0}=\frac pz,\qquad q=1-\frac{1-q_0}{p}.
+\]
+$p=1$ 对应仅减少接触，$p=z$ 对应仅隔离。原成本被积函数与
+\begin{equation}
+ G(p;z)=\frac{(1-p/z)^2+r(1-1/p)^2}{p-b}
+ \label{eq:G}
+\end{equation}
+只相差正因子 $w_c/(c_0S_c)$，因而有相同的逐状态最小化点。
+
+记
+\begin{equation}
+ t=\frac{\Ssw}{S_c}=\frac{3+\sqrt{9-8b}}2\in(2,3),\qquad
+ \rcont=\frac{16}{\bigl(b+\sqrt{b^2-8b+8}\bigr)^2},\qquad
+ \hat r=\left(\frac{t}{t-1}\right)^2.
+ \label{eq:bounds}
+\end{equation}
+现稿已证明：左端点 $p=1$ 在 $z>1$ 时不是局部最小点；右端点 $p=z$ 在 $1<z<t$ 时也不是局部最小点。补充S5还证明，$r<\hat r$ 时，对每个 $z\ge t$，右端点都是唯一全局最小点。下面在这些已有结论上补充内部结构。
+
+\section{闭式跳变状态}
+
+\begin{theorem}\label{thm:jump}
+设 $0<b<1$ 且 $\rcont<r<\hat r$。令
+\begin{equation}
+ s=\sqrt r,\qquad z_j=2[b+(1-b)s],\qquad
+ K=sz_j,\qquad m_j=\frac{2(s-1)}{z_j}.
+ \label{eq:jump-def}
+\end{equation}
+则在 $z=z_j$ 恰有两个逐状态全局最小点
+\begin{equation}
+ p_\pm=\frac{K\pm\sqrt{K(K-4)}}2,
+ \qquad 1<p_-<2<p_+<z_j<t.
+ \label{eq:two-roots}
+\end{equation}
+其余每个 $z>1$ 的全局最小点均唯一，并随 $z$ 连续变化。随 $z$ 下降，最优反馈在 $z_j$ 从 $p_+$ 跳至 $p_-$，且只有这一次跳变。因此
+\begin{equation}
+ \boxed{\Sj(r)=2S_c[b+(1-b)\sqrt r]
+ =2[\bar S+(S_c-\bar S)\sqrt r].}
+ \label{eq:Sj}
+\end{equation}
+这里的反馈与控制均按几乎处处相等的意义理解；跳变指最优反馈连续分支的两个单侧极限不同。
+\end{theorem}
+
+\begin{proof}
+\emph{第一步：构造两个并列的全局最小点。}
+直接展开得精确恒等式
+\begin{equation}
+ \boxed{
+ G(p;z_j)-m_j
+ =\frac{(p^2-Kp+K)^2}{z_j^2p^2(p-b)}.}
+ \label{eq:square}
+\end{equation}
+在允许区间上分母严格为正，所以只需证明二次式的两根都在内部。
+
+记 $s_c=\sqrt{\rcont}$。它是
+\[
+ (1-b)s_c^2+bs_c=2
+\]
+的唯一正根。因而 $s>s_c$ 等价于
+\[
+ K=2[(1-b)s^2+bs]>4.
+\]
+对于 $Q(p)=p^2-Kp+K$，有 $Q(1)=1>0$、$Q(2)=4-K<0$，从而 $1<p_-<2<p_+$。
+
+又 $s>1$，故 $z_j>2$。由 $b=t(3-t)/2$，可验证
+\begin{equation}
+ s-(s-1)z_j
+ =[t-(t-1)s][(t-2)s+3-t].
+ \label{eq:feasible-factor}
+\end{equation}
+当 $s<t/(t-1)=\sqrt{\hat r}$ 时，右边两因子均正。于是
+\[
+ Q(z_j)=z_j[s-(s-1)z_j]>0.
+\]
+结合 $z_j>2>p_-$，得到 $p_+<z_j$。最后，$z_j$ 关于 $s$ 严格增，且
+\[
+ z_j\bigl(t/(t-1)\bigr)=t,
+\]
+所以 $z_j<t$。式\eqref{eq:square}遂证明两根均为全局最小点，且没有第三个最小点。
+
+\emph{第二步：排除其他内部并列状态。}
+若某状态 $z$ 有两个不同的内部全局最小点 $a<d$，共同最小值为 $m$，定义
+\begin{equation}
+ H(p)=p^2\bigl[(1-p/z)^2-m(p-b)\bigr]+r(p-1)^2.
+ \label{eq:H}
+\end{equation}
+因为 $H=p^2(p-b)(G-m)$，在 $a,d$ 处均有 $H=H'=0$。$H$ 是首项系数为 $z^{-2}$ 的四次多项式，故
+\[
+ H(p)=z^{-2}(p-a)^2(p-d)^2.
+\]
+令 $A=a+d$、$P=ad$，比较常数项与一次项，依次得到
+\[
+ P^2=rz^2,\qquad PA=rz^2.
+\]
+因 $P>0$，故 $P=A=sz$。再比较三次项、二次项，得到
+\[
+ m=\frac{2(s-1)}z,\qquad
+ s^2z^2+2sz=z^2(1+r+bm),
+\]
+即 $z=2[b+(1-b)s]=z_j$。因此内部并列全局最小只能发生在 $z_j$。
+
+当 $1<z<t$ 时，两端点都不是局部最小点；当 $z\ge t$ 时，由已有的 $\hat r$ 结论，上端点唯一全局最优。因此除 $z_j$ 外，每个状态都只有一个全局最小点。把允许区间重参数化为 $p=1+x(z-1)$、$x\in[0,1]$，由目标函数连续及固定区间紧性可知，这个唯一最小点随 $z$ 连续变化。
+
+\emph{第三步：确认分支交换的方向。}
+在 $z_j$ 的两个最小点处，由式\eqref{eq:square}有
+\[
+ G_{pp}(p_\pm;z_j)
+ =\frac{2(p_+-p_-)^2}{z_j^2p_\pm^2(p_\pm-b)}>0.
+\]
+所以两个局部极小分支可在 $z_j$ 附近光滑延拓为 $p_-(z)$、$p_+(z)$。记二者成本差
+\[
+ D(z)=G(p_+(z);z)-G(p_-(z);z).
+\]
+因两分支满足 $G_p=0$，有
+\[
+ D'(z_j)=G_z(p_+;z_j)-G_z(p_-;z_j)
+ =\int_{p_-}^{p_+}G_{pz}(p;z_j)\,dp<0,
+\]
+其中
+\begin{equation}
+ G_{pz}(p;z)
+ =-\frac{2[(p-b)^2+b(z-b)]}{z^3(p-b)^2}<0.
+ \label{eq:cross}
+\end{equation}
+在 $z_j$ 处仅有这两个非退化全局最小点；由紧性，其邻近状态的全局最小点必在这两条分支附近。因此 $z>z_j$ 一侧高根分支获胜，$z<z_j$ 一侧低根分支获胜。随 $z$ 下降，确实从 $p_+$ 跳至 $p_-$。第二步已排除其他并列状态，故跳变恰有一次。
+\end{proof}
+
+\section{实际轨迹与临界边界}
+
+一次疫情的阈值控制期只经过 $S\in[S_c,S^*]$。定理\ref{thm:jump}中的跳变落在控制期内部，当且仅当
+\[
+ S^*>\Sj(r).
+\]
+若 $S^*<\Sj(r)$，实际控制期不经过跳变；若 $S^*=\Sj(r)$，并列发生在启动状态，向退出方向可以选择低根分支，不能据此宣称控制期内部存在跳变。若要求完整的“先仅隔离、连续进入联合控制、随后内部跳变”过程，$S^*>\Ssw$ 是足够的启动条件。
+
+在两个临界权重处，式\eqref{eq:square}还给出：$r=\rcont$ 时 $K=4$，两个根合并为 $p=2$，跳幅降为零；$r=\hat r$ 时 $z_j=t$、$p_+=t$，高根到达仅隔离端点，低根为 $p_-=t/(t-1)$。
+
+这项推导确定的是内部跳变位置与唯一性，没有据此断言接触率随时间恰有一个谷值。原有参数、初值和表值均未改动。
+
+\section*{来源与核验}
+本文件使用的原目标函数、交叉偏导、端点性质及 $\hat r$ 结果见：
+\begin{itemize}
+\item \path{paper/appendices/A_proofs_sensitivity.tex}；
+\item \path{paper/sections/05_quadratic_cost.tex}；
+\item \path{paper/supplement_sections/S5_weight_structure.tex}。
+\end{itemize}
+本轮已对式\eqref{eq:square}作符号恒等式核验，余式由文中的代数与极值论证得到。新推导仍作为独立研究记录供作者审阅。
+
+\end{document}
