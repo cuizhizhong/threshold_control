@@ -32,7 +32,7 @@
       "new4g_baseline_sha256": "acdc0210ebf693f1ddc4675965e86c1a1cc1045f17758ead21d4352967b63686",
       "current_path": "paper/supplement_sections/S2_single_control.tex",
       "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-      "current_content_sha256": "7f4a2ec69a1d912db855b5324b6a90597545b1eb93feb605f47dfca5fc301a47"
+      "current_content_sha256": "0425559e838ed8823ea450f37a073e2fd9baa1d4c77766de2ed99752451787fa"
     },
     "numerics_S2": {
       "historical_path": "paper/supplement_sections/S2_inflection.tex",
@@ -40,7 +40,7 @@
       "new4g_baseline_sha256": "10cda56cfca71407f2c695b6bd9c491a6ff8cafdf6079405838f0a5437543f38",
       "current_path": "paper/supplement_sections/S3_inflection.tex",
       "current_sha256": "10cda56cfca71407f2c695b6bd9c491a6ff8cafdf6079405838f0a5437543f38",
-      "current_content_sha256": "791a03921ee4bfb0744f354d926779fc50c50caa7ea5f94b58bbcab7fe831ca0"
+      "current_content_sha256": "5171c816792b49692665cdb5cdadf9ee4bb27e3a61ffa2d7c9b078841109a7b8"
     },
     "xian_S3": {
       "historical_path": "paper/supplement_sections/S3_xian.tex",
@@ -56,7 +56,7 @@
       "new4g_baseline_sha256": "3830ad9ec1c172373ea3a648b63c08af93ec7c389212352e152066b281db121d",
       "current_path": "paper/supplement_sections/S2_single_control.tex",
       "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-      "current_content_sha256": "7f4a2ec69a1d912db855b5324b6a90597545b1eb93feb605f47dfca5fc301a47"
+      "current_content_sha256": "0425559e838ed8823ea450f37a073e2fd9baa1d4c77766de2ed99752451787fa"
     },
     "numerics_S6": {
       "historical_path": "paper/supplement_sections/S6_numerics.tex",
@@ -90,7 +90,7 @@
             "eq:small-threshold"
           ],
           "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-          "current_content_sha256": "7f4a2ec69a1d912db855b5324b6a90597545b1eb93feb605f47dfca5fc301a47"
+          "current_content_sha256": "0425559e838ed8823ea450f37a073e2fd9baa1d4c77766de2ed99752451787fa"
         }
       ]
     },
@@ -108,7 +108,7 @@
             "app:lambda"
           ],
           "current_sha256": "10cda56cfca71407f2c695b6bd9c491a6ff8cafdf6079405838f0a5437543f38",
-          "current_content_sha256": "791a03921ee4bfb0744f354d926779fc50c50caa7ea5f94b58bbcab7fe831ca0"
+          "current_content_sha256": "5171c816792b49692665cdb5cdadf9ee4bb27e3a61ffa2d7c9b078841109a7b8"
         }
       ]
     },
@@ -160,7 +160,7 @@
             "fig:c0-beta-existence"
           ],
           "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-          "current_content_sha256": "7f4a2ec69a1d912db855b5324b6a90597545b1eb93feb605f47dfca5fc301a47"
+          "current_content_sha256": "0425559e838ed8823ea450f37a073e2fd9baa1d4c77766de2ed99752451787fa"
         }
       ]
     },
@@ -203,7 +203,7 @@
             "eq:duration-c0"
           ],
           "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-          "current_content_sha256": "7f4a2ec69a1d912db855b5324b6a90597545b1eb93feb605f47dfca5fc301a47"
+          "current_content_sha256": "0425559e838ed8823ea450f37a073e2fd9baa1d4c77766de2ed99752451787fa"
         }
       ]
     },
@@ -237,7 +237,7 @@
             "fig:scenario1_summary_c0"
           ],
           "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-          "current_content_sha256": "7f4a2ec69a1d912db855b5324b6a90597545b1eb93feb605f47dfca5fc301a47"
+          "current_content_sha256": "0425559e838ed8823ea450f37a073e2fd9baa1d4c77766de2ed99752451787fa"
         }
       ]
     },
@@ -251,7 +251,7 @@
             "sec:proof:contact-effects"
           ],
           "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-          "current_content_sha256": "7f4a2ec69a1d912db855b5324b6a90597545b1eb93feb605f47dfca5fc301a47"
+          "current_content_sha256": "0425559e838ed8823ea450f37a073e2fd9baa1d4c77766de2ed99752451787fa"
         }
       ]
     }

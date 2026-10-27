@@ -42,32 +42,32 @@ I(t)&=I_0\exp\!\left[\int_0^t\left(\frac{\beta c(s)(1-q(s))}{N}S(s)-\gamma\right
 
 \subsection{退出后的动态}
 \label{sec:proof:post-dynamics}
-本小节证明定理\ref{thm:s1:tend}。
+本小节证明定理~\ref{thm:s1:tend}。
 \begin{proof}
-由正性，恢复常规后 $\dot S<0$，故所有 $t>t_2$ 均有 $S<S_c$ 和 $\dot I<0$。任取 $t_a>t_2$，令 $\varepsilon=\gamma-\beta_2^0S(t_a)>0$，则
+由命题~\ref{prop:model:positive}，$S,I>0$，故恢复常规后 $\dot S<0$；又 $\dot I=\gamma I(S/S_c-1)$，所以对一切 $t>t_2$ 有 $S<S_c$ 和 $\dot I<0$。任取 $t_a>t_2$，令 $\varepsilon=\gamma-\beta_2^0S(t_a)$。由 $S(t_a)<S_c=\gamma/\beta_2^0$，$\varepsilon>0$；又 $S$ 递减，故 $t\ge t_a$ 时 $\dot I\le-\varepsilon I$，从而
 \[
 I(t)\le I(t_a)e^{-\varepsilon(t-t_a)},\qquad t\ge t_a.
 \]
-因此 $I\to0$、$\int_{t_a}^{\infty}I(t)dt<\infty$。将其代入 $S$ 的指数表示，得到严格正的下界，故 $S_\infty\in(0,S_c)$。$I$ 从 $\eta>1$ 严格下降至零，故存在唯一有限的 $t_{\rm end}$。
+因此 $I\to0$、$\int_{t_a}^{\infty}I(t)dt<\infty$。将其代入附录~\ref{sec:proof:model-positive}中 $S$ 的指数表示，得到严格正的下界，故 $S_\infty\in(0,S_c)$。$I$ 从 $\eta>1$ 严格下降至零，故存在唯一有限的 $t_{\rm end}$。
 
 退出后的首次积分为
 \begin{equation}
 I(t)=\eta+\frac{\beta_2^0}{\beta_1^0}(S_c-S(t))+\rho_1\ln\frac{S(t)}{S_c}.
 \label{eq:s1:post-orbit}
 \end{equation}
-分别令 $I=1$ 和 $I=0$，并使用 $0<S<S_c$ 选择 $W_0$ 分支，得到式\eqref{eq:s1:Send}和\eqref{eq:s1:Sinfty}。最后沿常规易感者方程积分即得式\eqref{eq:s1:tend}。
+分别令 $I=1$ 和 $I\to0$，并由 $0<S<S_c$ 选择 $W_0$ 分支，得到式\eqref{eq:s1:Send}和\eqref{eq:s1:Sinfty}。最后沿常规易感者方程分离变量积分，即得式\eqref{eq:s1:tend}。
 \end{proof}
 
 \subsection{启动状态的导数}
 \label{sec:proof:start-sensitivity}
-本小节证明引理\ref{lem:s1:Sstar-sensitivity}。
+本小节证明引理~\ref{lem:s1:Sstar-sensitivity}。
 \begin{proof}
 令
 \[
 F(S;\eta,c_0,\beta,q_0)
 =I_0+\frac{\beta_2^0}{\beta_1^0}(S_0-S)+\rho_1\ln(S/S_0)-\eta.
 \]
-在 $S=S^*>S_c$ 处，
+$F(S^*)=0$ 即启动条件 $I(S^*)=\eta$。利用 $\beta_2^0/\beta_1^0=\rho_1/S_c$，在 $S=S^*>S_c$ 处
 \[
 \frac{\partial F}{\partial S}=\rho_1\left(\frac1{S^*}-\frac1{S_c}\right)<0.
 \]
@@ -106,9 +106,9 @@ $\partial S^*/\partial p=-(\partial F/\partial p)/(\partial F/\partial S)$ 即�
 
 \subsection{阈值的取舍}
 \label{sec:proof:threshold-tradeoff}
-本小节证明命题\ref{prop:threshold-tradeoff}。
+本小节证明命题~\ref{prop:threshold-tradeoff}。
 \begin{proof}
-由式\eqref{eq:s1:t1}及 $I(S^*)=\eta$，
+式\eqref{eq:s1:t1}的被积函数不含 $\eta$，$\eta$ 只通过下限 $S^*$ 进入。由 $I(S^*)=\eta$，
 \[
 \frac{\partial t_1}{\partial\eta}
 =-\frac1{\beta_1^0 S^*\eta}\frac{\partial S^*}{\partial\eta}>0.
@@ -128,9 +128,9 @@ J_q=\frac{N}{c_0\eta}\int_{S_c}^{S^*}\frac{1-S_c/S}{S-\bar S}\,dS,
 J=\frac{2N}{c_0\eta}\int_{S_c}^{S^*}\frac{(1-S_c/S)^2}{S-\bar S}\,dS.
 \label{eq:cost:state}
 \end{equation}
-被积函数不含 $\eta$ 且在区间内部为正，系数 $1/\eta$ 和上限 $S^*$ 均随 $\eta$ 增大而减小，故两个成本严格下降。两积分的初等表达列于附录\ref{app:cost}。
+被积函数不含 $\eta$ 且在区间内部为正，系数 $1/\eta$ 和上限 $S^*$ 均随 $\eta$ 增大而减小，故两个成本严格下降。两积分的初等表达列于附录~\ref{app:cost}。
 
-对累计新增感染，把退出后 $I=1$ 的条件对 $\eta$ 求导得
+对累计新增感染，把式\eqref{eq:s1:post-orbit}中 $I=1$ 的条件对 $\eta$ 求导得
 \[
 \frac{\partial S_{\rm end}}{\partial\eta}
 =-\frac1{\rho_1(1/S_{\rm end}-1/S_c)}<0.
@@ -147,9 +147,9 @@ J=\frac{2N}{c_0\eta}\int_{S_c}^{S^*}\frac{(1-S_c/S)^2}{S-\bar S}\,dS.
 
 \subsection{人口缩放}
 \label{sec:proof:scaling}
-本小节证明命题\ref{prop:scaling}。
+本小节证明命题~\ref{prop:scaling}。
 \begin{proof}
-常规阶段的归一化系统为
+(i) 常规阶段的归一化系统为
 \[
 \dot s=-c_0[\beta+q_0(1-\beta)]si,\qquad
 \dot i=[\beta c_0(1-q_0)s-\gamma]i.
@@ -160,13 +160,17 @@ s_c=\frac{\gamma}{\beta c_0(1-q_0)},\qquad
 \bar s=\frac{(1-\beta)\gamma}{\beta c_0},\qquad
 \Delta t=\frac1{c_0\theta}\ln\frac{s^*-\bar s}{s_c-\bar s}.
 \]
-例如，二次干预强度成本的归一化表达为
+$q_{\max}=1-\gamma/(\beta c_0s^*)$，式\eqref{eq:s1:lambda}中的 $\lambda$ 也只含 $s^*,s_c,\bar s$。二次干预强度成本的归一化表达为
 \begin{equation}
 J=\frac{2}{c_0\theta}\int_{s_c}^{s^*}
 \frac{(1-s_c/s)^2}{s-\bar s}\,ds,
 \label{eq:dom:Jtheta}
 \end{equation}
-其中只含归一化状态和固定参数。代入控制表达可得其余结论。无限时间的终点为 $i\to0$，同样不含 $N$；有限的终点 $I=1$ 却对应 $i=1/N$，因而保留绝对人口尺度。
+其中只含归一化状态和固定参数。
+
+(ii) 无限时间的终点为 $i\to0$。由式\eqref{eq:s1:Sinfty}，$S_\infty/N=-s_cW_0\bigl(-e^{-1-\theta N/\rho_1}\bigr)$，其中 $\rho_1/N=\gamma/\{c_0[\beta+q_0(1-\beta)]\}$ 不含 $N$；将式\eqref{eq:s1:cumulative}（$S_{\rm end}$ 换为 $S_\infty$）除以 $N$ 即得结论。
+
+(iii) 有限的终点 $I=1$ 却对应 $i=1/N$，因而保留绝对人口尺度。
 \end{proof}
 
 \subsection{状态参数化}
@@ -369,10 +373,10 @@ J_{\min}(\eta)=\frac{N}{\eta}\int_{S_c}^{S^*(\eta)}m(S)\,dS.
 \toprule
 分析量 & $\beta$ & $q_0$ & $c_0$ & $\eta$ & 依据\\
 \midrule
-启动状态 $S^*$ & $>0$ & $<0$ & $>0$ & $<0$ & 引理\ref{lem:s1:Sstar-sensitivity}\\
-控制时长 $\Delta t$ & $>0$ & $<0$ & 不定 & $<0$ & 命题\ref{prop:threshold-tradeoff}、补充命题\ref{prop:contact-effects}\\
-拐点处隔离比例 $\qinf$ & $<0$ & $=0$ & $=0$ & $=0$ & 定理\ref{thm:s1:inflection}\\
-拐点相对位置 $\lambda$ & $>0$ & 不定 & $>0$ & $<0$ & 补充命题\ref{prop:s1:lambda-sensitivity}\\
+启动状态 $S^*$ & $>0$ & $<0$ & $>0$ & $<0$ & 引理~\ref{lem:s1:Sstar-sensitivity}\\
+控制时长 $\Delta t$ & $>0$ & $<0$ & 不定 & $<0$ & 命题~\ref{prop:threshold-tradeoff}、补充命题~\ref{prop:contact-effects}\\
+拐点处隔离比例 $\qinf$ & $<0$ & $=0$ & $=0$ & $=0$ & 定理~\ref{thm:s1:inflection}\\
+拐点相对位置 $\lambda$ & $>0$ & 不定 & $>0$ & $<0$ & 补充命题~\ref{prop:s1:lambda-sensitivity}\\
 \bottomrule
 \end{tabularx}
 \begin{tablenotes}[flushleft]\footnotesize

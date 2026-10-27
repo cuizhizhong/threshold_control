@@ -1,36 +1,42 @@
 \section{仅隔离控制}
 \label{sec:s1}
-仅隔离控制保持常规接触率 $c=c_0$，只靠提高隔离比例维持 $I=\eta$。它是后文比较的基准：控制函数、控制时长和累计新增感染都有闭式表达；只要追踪隔离能力足以实施，它还是控制时长最短、累计新增感染最少的控制（定理~\ref{thm:joint:comparison}、推论~\ref{cor:joint:capped-comparison}）。此外，由于 $\mathcal A(\eta)$ 中的控制都从 $(S^*,\eta)$ 启动、在 $(S_c,\eta)$ 退出，本节关于启动状态与退出后动态的结论（定理~\ref{thm:s1:start}、\ref{thm:s1:tend}）对它们全部成立。
+仅隔离控制保持常规接触率 $c=c_0$，只靠提高隔离比例维持 $I=\eta$。它是后文比较的基准，控制函数、控制时长和累计新增感染都有闭式表达。由定理~\ref{thm:joint:comparison}与推论~\ref{cor:joint:single-endpoints}，只要追踪隔离能力足以实施，它在全部控制中控制时长最短、累计新增感染最少。$\mathcal A(\eta)$ 中的控制都从 $(S^*,\eta)$ 启动、在 $(S_c,\eta)$ 退出，所以定理~\ref{thm:s1:start}的启动状态与定理~\ref{thm:s1:tend}的退出后动态对它们全部成立。
 
 \subsection{控制轨迹}
 常规轨迹在 $I$ 上升和下降时各经过 $I=\eta$ 一次，阈值策略在第一次经过时启动。把 $I=\eta$ 代入首次积分\eqref{eq:model:first-integral}，启动状态可以用 Lambert $W$ 函数写出。
 \begin{theorem}
 \label{thm:s1:start}\label{thm:s1:trigger}
-设条件\eqref{eq:model:trigger}成立，并令
+设条件\eqref{eq:model:trigger}成立。令
 \begin{equation}
 z_\eta=-\frac{1}{S_c}\exp\!\left[-\frac{C_0-\eta}{\rho_1}\right]
-=-\frac{S_0}{S_c}\exp\!\left[-\frac{S_0}{S_c}+\frac{\eta-I_0}{\rho_1}\right].
+=-\frac{S_0}{S_c}\exp\!\left[-\frac{S_0}{S_c}+\frac{\eta-I_0}{\rho_1}\right],
 \label{eq:s1:lambert-argument}
 \end{equation}
-则 $z_\eta\in(-e^{-1},0)$，唯一的启动状态及相应时间为
+并记 $W_{-1}$ 为 Lambert $W$ 函数的下实分支，则
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\roman{enumi})}
+\item $z_\eta\in(-e^{-1},0)$，启动状态唯一，为
 \begin{equation}
-S^*=-S_cW_{-1}(z_\eta),\qquad S_c<S^*<S_0,
+S^*=-S_cW_{-1}(z_\eta),\qquad S_c<S^*<S_0;
 \label{eq:s1:Sstar-lambert}
 \end{equation}
+\item 启动时刻为
 \begin{equation}
 t_1=\frac{1}{\beta_1^0}\int_{S^*}^{S_0}
-\frac{dS}{S[I_0+\frac{\beta_2^0}{\beta_1^0}(S_0-S)+\rho_1\ln(S/S_0)]}>0,
+\frac{dS}{S[I_0+\frac{\beta_2^0}{\beta_1^0}(S_0-S)+\rho_1\ln(S/S_0)]}>0.
 \label{eq:s1:t1}
 \end{equation}
-其中 $W_{-1}$ 为 Lambert $W$ 函数的下实分支。
+\end{enumerate}
 \end{theorem}
 \begin{proof}
-将 $I=\eta$ 代入式\eqref{eq:model:first-integral}，得
-$(-S/S_c)e^{-S/S_c}=z_\eta$。由式\eqref{eq:s1:Imax-no}，
+(i) 将 $I=\eta$ 代入式\eqref{eq:model:first-integral}，并利用 $\beta_2^0/\beta_1^0=\rho_1/S_c$，得
+$(-S/S_c)e^{-S/S_c}=z_\eta$。由式\eqref{eq:s1:Imax-no}（$S_0>S_c$），
 \[
-z_\eta=-e^{-1}\exp\!\left[-\frac{I_{\max}^{0}-\eta}{\rho_1}\right]\in(-e^{-1},0).
+z_\eta=-e^{-1}\exp\!\left[-\frac{I_{\max}^{0}-\eta}{\rho_1}\right],
 \]
-在此区间上 $W_0(z)\in(-1,0)$、$W_{-1}(z)<-1$\cite{Corless1996}。前者给出小于 $S_c$ 的状态，即感染人数下降时的交点。式\eqref{eq:model:routine-orbit}在 $S\in(S_c,S_0)$ 上关于 $S$ 严格递减，端点处的感染人数分别为 $I_{\max}^{0}$ 与 $I_0$，故该区间恰有一个交点，由 $W_{-1}$ 给出。沿常规易感者方程分离变量即得式\eqref{eq:s1:t1}；积分区间上 $I(S)\ge I_0>0$，所以 $t_1$ 有限。
+再由触发条件\eqref{eq:model:trigger}中的 $\eta<I_{\max}^{0}$，得 $z_\eta\in(-e^{-1},0)$。在此区间上 $W_0(z)\in(-1,0)$、$W_{-1}(z)<-1$\cite{Corless1996}。前者给出小于 $S_c$ 的状态，即 $I$ 下降时的交点。式\eqref{eq:model:routine-orbit}在 $S\in(S_c,S_0)$ 上关于 $S$ 严格递减，端点处的值分别为 $I_{\max}^{0}$ 与 $I_0$；由触发条件中的 $I_0<\eta<I_{\max}^{0}$，该区间上恰有一个交点，由 $W_{-1}$ 给出。
+
+(ii) 沿常规易感者方程分离变量即得式\eqref{eq:s1:t1}。积分区间上 $I(S)\ge I_0>0$，所以 $t_1$ 有限。
 \end{proof}
 
 启动时 $S^*>S_c$，常规隔离比例不足以阻止 $I$ 上升，因此隔离比例必须立即提高。记
@@ -42,39 +48,43 @@ z_\eta=-e^{-1}\exp\!\left[-\frac{I_{\max}^{0}-\eta}{\rho_1}\right]\in(-e^{-1},0)
 下面的定理表明，阈值控制期内 $S$ 以指数速率 $c_0\eta/N$ 趋向 $\bar S$；由于 $\bar S<S_c$，$S$ 在有限时间内降到 $S_c$。$S$ 的下降速度与 $S-\bar S$ 成正比：易感者越多，维持阈值所需的隔离比例越高，每名感染者的接触中被追踪隔离的未感染者也越多。
 \begin{theorem}
 \label{thm:s1:qc-structure}\label{thm:s1:platform}
-在条件\eqref{eq:model:trigger}下，固定 $c(t)=c_0$。阈值控制期内保持 $I(t)=\eta$ 所需的隔离比例唯一为
+设条件\eqref{eq:model:trigger}成立，并固定 $c(t)=c_0$，则
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\roman{enumi})}
+\item 阈值控制期内保持 $I(t)=\eta$ 所需的隔离比例唯一，为
 \begin{equation}
-q_c(S)=1-\frac{\gamma N}{\beta c_0S},\qquad S_c\le S\le S^*.
+q_c(S)=1-\frac{\gamma N}{\beta c_0S},\qquad S_c\le S\le S^*;
 \label{eq:s1:q-control}
 \end{equation}
-相应的状态轨迹和控制时长为
+\item 相应的状态轨迹和控制时长为
 \begin{equation}
 S(t)=\bar S+(S^*-\bar S)e^{-c_0\eta(t-t_1)/N},\qquad I(t)=\eta,
 \label{eq:s1:S-analytic}
 \end{equation}
 \begin{equation}
-\Delta t=t_2-t_1=\frac{N}{c_0\eta}\ln\frac{S^*-\bar S}{S_c-\bar S}.
+\Delta t=t_2-t_1=\frac{N}{c_0\eta}\ln\frac{S^*-\bar S}{S_c-\bar S};
 \label{eq:s1:t2}
 \end{equation}
-以式\eqref{eq:s1:S-analytic}代入式\eqref{eq:s1:q-control}定义 $q_c(t)$，则完整控制为
+\item 以式\eqref{eq:s1:S-analytic}代入式\eqref{eq:s1:q-control}定义 $q_c(t)$，则完整控制
 \begin{equation}
 c(t)=c_0,\qquad q(t)=\begin{cases}
 q_0,&t<t_1,\\
 q_c(t),&t_1\le t\le t_2,\\
-q_0,&t>t_2.
+q_0,&t>t_2
 \end{cases}
 \label{eq:s1:q-piecewise}
 \end{equation}
-它满足 $I(t)\le\eta$ 对所有 $t\ge0$ 成立。
+使 $I(t)\le\eta$ 对一切 $t\ge0$ 成立。
+\end{enumerate}
 \end{theorem}
 \begin{proof}
-由 $I=\eta>0$ 和 $\dot I=0$，式\eqref{eq:model:balance}唯一解出式\eqref{eq:s1:q-control}。代入 $S$ 的方程得
+(i)(ii) 由命题~\ref{prop:model:threshold-rationale}(ii)，维持 $I=\eta$ 时式\eqref{eq:model:balance}几乎处处成立；取 $c=c_0$，即唯一解出式\eqref{eq:s1:q-control}。利用 $\beta+(1-\beta)q_c(S)=1-\bar S/S$，代入 $S$ 的方程得
 \[
 \dot S=-\frac{c_0\eta}{N}(S-\bar S),\qquad S(t_1)=S^*,
 \]
-故有式\eqref{eq:s1:S-analytic}。由 $S^*>S_c>\bar S$，轨迹严格下降，并在式\eqref{eq:s1:t2}给出的有限时刻首次到达 $S_c$。该区间上 $q_c(S_c)=q_0$、$q_0\le q_c(S)<1$，控制满足界限。
+故有式\eqref{eq:s1:S-analytic}。由定理~\ref{thm:s1:start}与式\eqref{eq:s1:barS}，$S^*>S_c>\bar S$，所以轨迹严格下降，并在式\eqref{eq:s1:t2}给出的有限时刻首次到达 $S_c$。该区间上 $q_c(S_c)=q_0$、$q_0\le q_c(S)<1$，控制满足界限。
 
-反过来，把所得的时间函数 $q_c(t)$ 代回原方程，式\eqref{eq:s1:S-analytic}与 $I=\eta$ 满足前两个方程及启动初值，其余仓室由线性方程或积分确定。由命题~\ref{prop:model:positive}的解唯一性，该控制确实使 $I\equiv\eta$，而不只是形式上满足 $\dot I=0$。启动前 $I<\eta$；退出后 $S<S_c$，故 $\dot I<0$。因此全程不超过阈值。
+(iii) 反过来，把所得的时间函数 $q_c(t)$ 代回原方程，式\eqref{eq:s1:S-analytic}与 $I=\eta$ 满足前两个方程及启动初值，其余仓室由线性方程或积分确定。由命题~\ref{prop:model:positive}中解的唯一性，该控制确实使 $I\equiv\eta$，而不只是形式上满足 $\dot I=0$。由 $t_1$ 的定义，启动前 $I<\eta$；由命题~\ref{prop:model:threshold-rationale}(iii)，退出后 $S<S_c$、$\dot I<0$。因此全程不超过阈值。
 \end{proof}
 
 将式\eqref{eq:s1:S-analytic}代入式\eqref{eq:s1:q-control}，隔离比例可以写成时间的显式函数：
@@ -91,31 +101,38 @@ q_c(t)
 两种写法分别以启动时刻和退出时刻为参照。
 \begin{corollaryn}
 \label{cor:s1:qc-structure}
-上述控制在 $t_1$ 从 $q_0$ 跳升至
+对定理~\ref{thm:s1:qc-structure}中的仅隔离控制，
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\roman{enumi})}
+\item 隔离比例在 $t_1$ 从 $q_0$ 跳升至
 \begin{equation}
 q_{\max}=1-\frac{\gamma N}{\beta c_0S^*}>q_0,
 \label{eq:s1:qmax}
 \end{equation}
-在 $(t_1,t_2)$ 上严格递减，并在 $t_2$ 连续恢复为 $q_0$。若隔离比例受能力约束 $q\le q_{\rm cap}$（$q_0\le q_{\rm cap}<1$），则上述仅隔离控制可实施，当且仅当
+在 $(t_1,t_2)$ 上严格递减，并在 $t_2$ 连续恢复为 $q_0$。
+\item 设隔离比例受能力约束 $q\le q_{\rm cap}$，其中 $q_0\le q_{\rm cap}<1$，则上述仅隔离控制可实施，当且仅当
 \[
 q_{\max}\le q_{\rm cap}
 \quad\Longleftrightarrow\quad
 \frac{\beta c_0(1-q_{\rm cap})S^*}{N}\le\gamma.
 \]
 该条件成立时，能力约束不改变上述控制轨迹、控制时长及成本公式。
+\end{enumerate}
 \end{corollaryn}
 \begin{proof}
-$q_c(S)$ 关于 $S$ 严格增加，$S^*>S_c$ 给出启动时的跳升。沿控制轨迹，
+(i) 由式\eqref{eq:s1:q-control}，$q_c(S)$ 关于 $S$ 严格增加，$S^*>S_c$ 给出启动时的跳升。由链式法则与式\eqref{eq:s1:S-analytic}，沿控制轨迹
 \begin{equation}
 \frac{dq_c(t)}{dt}=-\frac{\gamma\eta}{\beta}
 \frac{S(t)-\bar S}{S(t)^2}<0.
 \label{eq:s1:qprime}
 \end{equation}
-又 $q_c(S_c)=q_0$，故退出时连续。隔离比例在启动时取得最大值，因此全时段的能力约束等价于检查这一最大值；由式\eqref{eq:s1:qmax}整理即得上述等价式。$q_{\rm cap}=q_{\max}$ 时，控制只在启动时恰好达到能力上限，随后严格低于上限。
-\end{proof}
-追踪隔离的需求在启动时最大：此时社区易感者最多，常规措施下的有效再生数最高，需要隔离的接触比例也最高。若 $q_{\rm cap}<q_{\max}$，启动状态上即使取 $q=q_{\rm cap}$ 也有 $\dot I>0$，因此只有同时减少接触才能维持 $I=\eta$；这时能否实施由推论~\ref{cor:joint:feasibility}判断。
+又 $q_c(S_c)=q_0$，故退出时连续。
 
-图~\ref{fig:scenario1:single-sim}给出基准参数下仅隔离控制的三阶段轨迹。基准参数取自文献\cite{Zhou2024SPCI}图3的示例（取值见图注）：该例的两个移出率 $\gamma_I=0.1$、$\delta_I=0.2504$ 之和即本模型的 $\gamma$；它没有给出 $\delta_q$，本文取 $\delta_q=\gamma$。常规控制下非隔离感染者的峰值约为 $300.4$ 人，远高于阈值 $\eta=38.15$ 人。仅隔离控制在非隔离感染者首次达到阈值时（$t_1\approx3.175$ d）启动，隔离比例跳升至 $q_{\max}\approx0.7565$，此后随易感者减少而下降，约 $5.903$ d 后回到 $q_0$。
+(ii) 由 (i)，隔离比例在启动时取得最大值，因此全时段的能力约束等价于检查这一最大值；由式\eqref{eq:s1:qmax}整理即得上述等价式。$q_{\rm cap}=q_{\max}$ 时，控制只在启动时恰好达到能力上限，随后严格低于上限。
+\end{proof}
+追踪隔离的需求在启动时最大。此时社区易感者最多，常规措施下的有效再生数最高，需要隔离的接触比例也最高。若 $q_{\rm cap}<q_{\max}$，启动状态上即使取 $q=q_{\rm cap}$ 也有 $\dot I>0$，因此只有同时减少接触才能维持 $I=\eta$；这时能否实施由推论~\ref{cor:joint:feasibility}判断。
+
+图~\ref{fig:scenario1:single-sim}给出基准参数下仅隔离控制的三阶段轨迹。基准参数取自文献\cite{Zhou2024SPCI}图3的示例，取值见图注。该例的两个移出率 $\gamma_I=0.1$、$\delta_I=0.2504$ 之和即本模型的 $\gamma$；该例没有给出 $\delta_q$，本文取 $\delta_q=\gamma$。常规控制下非隔离感染者的峰值约为 $300.4$ 人，远高于阈值 $\eta=38.15$ 人。仅隔离控制在非隔离感染者首次达到阈值时（$t_1\approx3.175$ d）启动，隔离比例跳升至 $q_{\max}\approx0.7565$，此后随易感者减少而下降，约 $5.903$ d 后回到 $q_0$。
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.7\textwidth]{figures/optimal_control_with_quarantine_panels.pdf}
@@ -128,30 +145,36 @@ $q_c(S)$ 关于 $S$ 严格增加，$S^*>S_c$ 给出启动时的跳升。沿控�
 拐点是隔离比例下降最快的时刻，也就是放松隔离最急的时刻。由式\eqref{eq:s1:qprime}，下降速度与 $(S-\bar S)/S^2$ 成正比；作为 $S$ 的函数，它在 $S=2\bar S$ 处取最大值，所以拐点出现在 $S$ 经过 $2\bar S$ 之时。
 \begin{theorem}
 \label{thm:s1:inflection}
-在条件\eqref{eq:model:trigger}下，$q_c(t)$ 在 $(t_1,t_2)$ 内存在唯一拐点，当且仅当
+设条件\eqref{eq:model:trigger}成立，则
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\roman{enumi})}
+\item $q_c(t)$ 在 $(t_1,t_2)$ 内存在唯一拐点，当且仅当
 \begin{equation}
 S_c<2\bar S<S^*,
 \label{eq:s1:inflection-condition}
 \end{equation}
-等价地，$\frac12<(1-\beta)(1-q_0)<-\frac12W_{-1}(z_\eta)$。
-内部拐点存在时，
+等价地，$\frac12<(1-\beta)(1-q_0)<-\frac12W_{-1}(z_\eta)$；
+\item 内部拐点存在时，
 \begin{equation}
 S(t_{\rm inf})=2\bar S,\quad
  t_{\rm inf}=t_1+\frac{N}{c_0\eta}\ln\frac{S^*-\bar S}{\bar S},\quad
-\qinf=1-\frac1{2(1-\beta)}.
+\qinf=1-\frac1{2(1-\beta)},
 \label{eq:s1:inflection-values}
 \end{equation}
-此时 $q_0<\qinf<q_{\max}$，且隔离比例的下降速度在 $t_{\rm inf}$ 唯一达到最大值。
+且 $q_0<\qinf<q_{\max}$，隔离比例的下降速度在 $t_{\rm inf}$ 唯一达到最大值。
+\end{enumerate}
 \end{theorem}
 \begin{proof}
-对式\eqref{eq:s1:qprime}求导，得
+(i) 由链式法则与式\eqref{eq:s1:S-analytic}，对式\eqref{eq:s1:qprime}求导，得
 \begin{equation}
 \frac{d^2q_c(t)}{dt^2}
 =\frac{\gamma c_0\eta^2}{\beta N}
 \frac{(S-\bar S)(2\bar S-S)}{S^3}.
 \label{eq:s1:qsecond}
 \end{equation}
-由于 $S>\bar S$，其符号由 $2\bar S-S$ 决定。$S$ 从 $S^*$ 严格下降至 $S_c$，所以恰在式\eqref{eq:s1:inflection-condition}成立时穿过 $2\bar S$，且只穿过一次。将该状态代入式\eqref{eq:s1:S-analytic}及\eqref{eq:s1:q-control}，即得时间和隔离比例。由于 $q_c(S)$ 关于 $S$ 严格增加且 $S_c<2\bar S<S^*$，有 $q_0=q_c(S_c)<\qinf<q_c(S^*)=q_{\max}$。二阶导数先负后正，而一阶导数始终为负，故 $|dq_c/dt|$ 在该时刻唯一达到最大值。
+由式\eqref{eq:s1:barS}，阈值控制期内 $S\ge S_c>\bar S$，故其符号由 $2\bar S-S$ 决定。$S$ 从 $S^*$ 严格下降至 $S_c$，所以恰在式\eqref{eq:s1:inflection-condition}成立时穿过 $2\bar S$，且只穿过一次。
+
+(ii) 将 $S=2\bar S$ 代入式\eqref{eq:s1:S-analytic}及\eqref{eq:s1:q-control}，即得时间和隔离比例。由于 $q_c(S)$ 关于 $S$ 严格增加且 $S_c<2\bar S<S^*$，有 $q_0=q_c(S_c)<\qinf<q_c(S^*)=q_{\max}$。二阶导数先负后正，而一阶导数始终为负，故 $|dq_c/dt|$ 在该时刻唯一达到最大值。
 \end{proof}
 拐点存在时，拐点前的时长占控制时长的比例为
 \begin{equation}
@@ -183,22 +206,22 @@ t_{\rm end}=t_2+\frac{1}{\beta_1^0}\int_{S_{\rm end}}^{S_c}
 \label{eq:s1:tend}
 \end{equation}
 \end{theorem}
-证明见附录~\ref{sec:proof:post-dynamics}。其余仓室也有极限：流入 $I_q$ 的感染随 $I\to0$ 趋于零，且 $\delta_q>0$，故 $I_q\to0$；$S_q$ 与 $R$ 单调有界。
+证明见附录~\ref{sec:proof:post-dynamics}。其余仓室也有极限。流入 $I_q$ 的感染随 $I\to0$ 趋于零，且 $\delta_q>0$，故 $I_q\to0$；$S_q$ 与 $R$ 单调有界。
 \begin{remarkn}
 \label{rem:release-at-exit}
-若在 $t_2$ 恢复常规控制的同时，另把比例 $\xi\in[0,1]$ 的隔离易感者一次性转回 $S$（$S_q(t_2^-)$ 为转回前的人数，$I,I_q,R$ 连续，总人口不变），则
+设在 $t_2$ 恢复常规控制的同时，另把比例 $\xi\in[0,1]$ 的隔离易感者一次性转回 $S$。记 $S_q(t_2^-)$ 为转回前的隔离易感者人数，转回时 $I,I_q,R$ 连续，总人口不变，则
 \[
 S(t_2^+)=S_c+\xi S_q(t_2^-),\qquad
 R_e(t_2^+)=1+\frac{\xi S_q(t_2^-)}{S_c},\qquad
 \dot I(t_2^+)=\gamma\eta\,\frac{\xi S_q(t_2^-)}{S_c}.
 \]
-因此 $\xi S_q(t_2^-)>0$ 时，$I$ 在 $t_2$ 之后立即超过 $\eta$：退出时一次性解除对未感染接触者的隔离，会使社区感染重新增长。$\mathcal A(\eta)$ 中的退出不作这种释放（$\xi=0$），定理~\ref{thm:s1:tend}针对的正是这一情形。
+因此 $\xi S_q(t_2^-)>0$ 时，$I$ 在 $t_2$ 之后立即超过 $\eta$，即退出时一次性解除对未感染接触者的隔离，会使社区感染重新增长。$\mathcal A(\eta)$ 中的退出不作这种释放（$\xi=0$），定理~\ref{thm:s1:tend}针对的正是这一情形。
 \end{remarkn}
 
 累计新增感染可以分三段计算：前后两个常规阶段的感染流入与 $-\dot S$ 成正比，阈值控制期内则可以把时间积分换成对 $S$ 的积分。
 \begin{theorem}
 \label{thm:s1:Itcum}
-仅隔离控制下，
+设条件\eqref{eq:model:trigger}成立，则仅隔离控制下统计至 $t_{\rm end}$ 的总累计新增感染为
 \begin{equation}
 \begin{split}
 \Itcum={}&\frac{\beta}{\beta+q_0(1-\beta)}(S_0-S^*+S_c-S_{\rm end})\\
@@ -209,7 +232,7 @@ R_e(t_2^+)=1+\frac{\xi S_q(t_2^-)}{S_c},\qquad
 将 $S_{\rm end}$ 替换为 $S_\infty$，即得计算至无限时刻的累计新增感染。
 \end{theorem}
 \begin{proof}
-前后常规阶段均有
+由式\eqref{eq:model:full}，常规控制下总新增感染的流入为 $\beta c_0SI/N$，而 $-\dot S=c_0[\beta+(1-\beta)q_0]SI/N$，故前后常规阶段均有
 \[
 \frac{\beta c_0SI}{N}=\frac{\beta}{\beta+q_0(1-\beta)}(-\dot S),
 \]
@@ -221,7 +244,7 @@ R_e(t_2^+)=1+\frac{\xi S_q(t_2^-)}{S_c},\qquad
 \]
 三段相加即得结论；无限时刻的表达由极限得到。
 \end{proof}
-式中第一项来自启动前和退出后，对 $\mathcal A(\eta)$ 中的全部控制相同；第二项是阈值控制期的新增感染，由式\eqref{eq:s1:t2}可写成 $\beta(S^*-S_c)+(1-\beta)\gamma\eta\Delta t$；第~\ref{sec:joint}~节对全部控制证明了同一形式（式\eqref{eq:joint:cumulative}）。
+式中第一项来自启动前和退出后，对 $\mathcal A(\eta)$ 中的全部控制相同。第二项是阈值控制期的新增感染，由式\eqref{eq:s1:t2}可写成 $\beta(S^*-S_c)+(1-\beta)\gamma\eta\Delta t$；第~\ref{sec:joint}~节对全部控制证明了同一形式（式\eqref{eq:joint:cumulative}）。
 
 \subsection{参数的影响}
 \label{sec:scaling-theory}
@@ -237,10 +260,10 @@ R_e(t_2^+)=1+\frac{\xi S_q(t_2^-)}{S_c},\qquad
 \label{eq:s1:Sstar-signs}
 \end{equation}
 \end{lemma}
-证明见附录~\ref{sec:proof:start-sensitivity}。提高阈值使 $S^*$ 减小，也使阈值控制期内 $S$ 的下降速率 $c_0\eta(S-\bar S)/N$ 增大，两者都减轻干预负担；代价是社区中始终维持更多的感染者。
+证明见附录~\ref{sec:proof:start-sensitivity}。提高阈值使 $S^*$ 减小，也使阈值控制期内 $S$ 的下降速率 $c_0\eta(S-\bar S)/N$ 增大，两者都减轻干预负担；代价是社区中维持的非隔离感染者更多。
 \begin{proposition}
 \label{prop:threshold-tradeoff}\label{prop:s1:sensitivity}
-对于仅隔离控制，在触发区间内有
+设条件\eqref{eq:model:trigger}成立，则仅隔离控制满足
 \begin{equation}
 \frac{\partial t_1}{\partial\eta}>0,\quad
 \frac{\partial q_{\max}}{\partial\eta}<0,\quad
@@ -249,11 +272,11 @@ R_e(t_2^+)=1+\frac{\xi S_q(t_2^-)}{S_c},\qquad
 \frac{\partial J}{\partial\eta}<0,
 \label{eq:threshold-tradeoff}
 \end{equation}
-且 $\partial\Itcum/\partial\eta>0$。计算至无限时刻的累计新增感染也随 $\eta$ 严格增加。
+且 $\partial\Itcum/\partial\eta>0$；计算至无限时刻的累计新增感染也随 $\eta$ 严格增加。
 \end{proposition}
-证明见附录~\ref{sec:proof:threshold-tradeoff}。阈值越高，干预启动越晚、持续越短、强度越低，代价是更多的人被感染。清零时间还包含退出后的下降过程，需由式\eqref{eq:s1:tend}单独判断。接触率越高，控制期要消耗的易感者 $S^*-S_c$ 越多，但 $S$ 也下降得越快，两种作用方向相反，控制时长因此可增可减；触发边界与完整参数影响见补充材料第~\ref{sec:sup:contact-theory}~节。
+证明见附录~\ref{sec:proof:threshold-tradeoff}。阈值越高，干预启动越晚、持续越短、强度越低，代价是更多的人被感染。清零时间还包含退出后的下降过程，需由式\eqref{eq:s1:tend}单独判断。常规接触率的影响则不单调。接触率越高，控制期要消耗的易感者 $S^*-S_c$ 越多，但 $S$ 也下降得越快；两种作用方向相反，控制时长因此可增可减。触发边界与完整的参数影响见补充材料第~\ref{sec:sup:contact-theory}~节。
 
-图~\ref{fig:scenario1_summary_eta}以总累计新增感染为横轴画出基准参数下的这一取舍：每条曲线对应一个常规接触率，沿曲线向左阈值降低。取舍并不对称。$c_0=10$ 时把 $\eta/N$ 从 $2\%$ 降到 $0.2\%$，控制时长由 $15.04$ d 增至 $152.1$ d，二次干预强度成本也增大约十倍，总累计新增感染却只由 $233.8$ 人减至 $173.0$ 人。原因在于控制时长含因子 $N/(c_0\eta)$（式\eqref{eq:s1:t2}），而累计新增感染只通过 $S^*$ 与 $S_{\rm end}$ 依赖阈值（式\eqref{eq:s1:cumulative}）。四个常规接触率下取舍的形态相同；在所算范围内清零时间也随阈值提高而缩短，各指标随阈值与常规接触率的完整扫描见补充材料第~\ref{sec:sup:baseline-contact-scan}~节。
+这一取舍并不对称（图~\ref{fig:scenario1_summary_eta}）。图中以总累计新增感染为横轴，每条曲线对应一个常规接触率，沿曲线向左阈值降低。$c_0=10$ 时把 $\eta/N$ 从 $2\%$ 降到 $0.2\%$，控制时长由 $15.04$ d 增至 $152.1$ d，二次干预强度成本也增大约十倍，总累计新增感染却只由 $233.8$ 人减至 $173.0$ 人。原因在于控制时长含因子 $N/(c_0\eta)$（式\eqref{eq:s1:t2}），而累计新增感染只通过 $S^*$ 与 $S_{\rm end}$ 依赖阈值（式\eqref{eq:s1:cumulative}）。因此在这一范围内，降低阈值换来的感染减少有限，代价却是控制期成倍延长。四个常规接触率下取舍的形态相同。在所算范围内，清零时间也随阈值提高而缩短；各指标随阈值与常规接触率的完整扫描见补充材料第~\ref{sec:sup:baseline-contact-scan}~节。
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.9\textwidth]{figures/new4r/threshold_tradeoff.pdf}
@@ -261,9 +284,15 @@ R_e(t_2^+)=1+\frac{\xi S_q(t_2^-)}{S_c},\qquad
 \label{fig:scenario1_summary_eta}
 \end{figure}
 
-人口规模的影响取决于初值和阈值如何随 $N$ 缩放。记 $s=S/N$、$i=I/N$，下面固定归一化初值 $s_0,i_0$；低阈值下的渐近行为与完整参数扫描见补充材料第~\ref{sec:sup:baseline-scan}~节。
+人口规模的影响取决于初值和阈值如何随 $N$ 缩放。记 $s=S/N$、$i=I/N$，下面固定归一化初值 $s_0,i_0$。低阈值下的渐近行为与完整参数扫描见补充材料第~\ref{sec:sup:baseline-scan}~节。
 \begin{proposition}
 \label{prop:scaling}
-对于仅隔离控制，固定 $s_0,i_0$ 和 $\beta,\gamma,c_0,q_0$。控制被触发时，$t_1,\Delta t,q_{\max},J$ 以及存在内部拐点时的 $\lambda$ 对 $N,\eta$ 的依赖仅通过 $\theta=\eta/N$ 表现。计算至无限时刻的累计新增感染除以 $N$ 后亦不依赖 $N$。但是，使用绝对终点 $I=1$ 时，$t_{\rm end}$ 及计算至该终点的累计新增感染比例一般仍含 $N$。
+对于仅隔离控制，固定 $s_0,i_0$ 和 $\beta,\gamma,c_0,q_0$，并设控制被触发，则
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\roman{enumi})}
+\item $t_1,\Delta t,q_{\max},J$ 以及存在内部拐点时的 $\lambda$ 对 $N,\eta$ 的依赖仅通过 $\theta=\eta/N$ 表现；
+\item 计算至无限时刻的累计新增感染除以 $N$ 后亦不依赖 $N$；
+\item 使用绝对终点 $I=1$ 时，$t_{\rm end}$ 及计算至该终点的累计新增感染比例一般仍含 $N$。
+\end{enumerate}
 \end{proposition}
 证明见附录~\ref{sec:proof:scaling}；二者随 $N$ 的单调性见补充命题~\ref{prop:reference-population}。

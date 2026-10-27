@@ -22,18 +22,21 @@ I_{\max}^{0}\bigl(c_{0,\min}(\eta)\bigr)=\eta,
 =-\frac{\rho_1}{c_0}\ln\frac{S_c}{S_0}>0,
 \label{eq:s1:Imax-no-c0-derivative}
 \end{equation}
-峰值随 $c_0$ 严格增加，$c_0\to\infty$ 时趋于 $I_0+\beta_2^0S_0/\beta_1^0$。由连续性与严格单调性，$I_{\max}^{0}=\eta$ 恰有一个根；触发条件\eqref{eq:model:trigger}即 $I_{\max}^{0}>\eta$，恰在 $c_0$ 大于该根时成立。
+峰值随 $c_0$ 严格增加，$c_0\to\infty$ 时趋于 $I_0+\beta_2^0S_0/\beta_1^0$（$\beta_2^0/\beta_1^0$ 不含 $c_0$）。由 $I_0<\eta<I_0+\beta_2^0S_0/\beta_1^0$ 以及连续性与严格单调性，$I_{\max}^{0}=\eta$ 恰有一个根，且该根大于 $\gamma N/[\beta(1-q_0)S_0]$。触发条件\eqref{eq:model:trigger}即 $I_{\max}^{0}>\eta$，恰在 $c_0$ 大于该根时成立。
 \end{proof}
 \begin{proposition}
 \label{prop:contact-effects}\label{cor:s1:duration-sensitivity}
-在触发条件内部，对于仅隔离控制，
+在触发条件内部，对于仅隔离控制：
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\roman{enumi})}
+\item 有
 \[
 \frac{\partial t_1}{\partial c_0}<0,\qquad
 \frac{\partial q_{\max}}{\partial c_0}>0,\qquad
 \frac{\partial\Delta t}{\partial\beta}>0,\qquad
-\frac{\partial\Delta t}{\partial q_0}<0.
+\frac{\partial\Delta t}{\partial q_0}<0;
 \]
-接触率对控制时长的影响由
+\item 接触率对控制时长的影响由
 \begin{equation}
 \frac{\partial\Delta t}{\partial c_0}
 =\frac{N}{c_0^2\eta}
@@ -42,12 +45,14 @@ I_{\max}^{0}\bigl(c_{0,\min}(\eta)\bigr)=\eta,
 -\ln\frac{S^*-\bar S}{S_c-\bar S}\right\}
 \label{eq:duration-c0}
 \end{equation}
-确定，其符号不能统一为正或负。固定 $I_0<\eta<I_0+\beta_2^0S_0/\beta_1^0$ 时，$\Delta t$ 在 $c_0\in(c_{0,\min},\infty)$ 内至少有一个极大值。
+确定，其符号不能统一为正或负；
+\item 固定 $I_0<\eta<I_0+\beta_2^0S_0/\beta_1^0$ 时，$\Delta t$ 在 $c_0\in(c_{0,\min},\infty)$ 内至少有一个极大值。
+\end{enumerate}
 \end{proposition}
 \phantomsection
 \label{sec:proof:contact-effects}
 \begin{proof}
-写 $I(S;c_0)=I_0+\frac{\beta_2^0}{\beta_1^0}(S_0-S)+\rho_1\ln(S/S_0)$。在 $S<S_0$ 时，
+(i) 写 $I(S;c_0)=I_0+\frac{\beta_2^0}{\beta_1^0}(S_0-S)+\rho_1\ln(S/S_0)$。在 $S<S_0$ 时，
 \[
 \frac{\partial I(S;c_0)}{\partial c_0}=-\frac{\rho_1}{c_0}\ln\frac{S}{S_0}>0.
 \]
@@ -65,9 +70,10 @@ I_{\max}^{0}\bigl(c_{0,\min}(\eta)\bigr)=\eta,
 \]
 结合 $\partial S^*/\partial\beta>0$ 得 $\partial\Delta t/\partial\beta>0$。
 由于 $\bar S$ 不含 $q_0$，而 $\partial S^*/\partial q_0<0$、$\partial S_c/\partial q_0=S_c/(1-q_0)>0$，得到 $\partial\Delta t/\partial q_0<0$。
-利用 $\partial\bar S/\partial c_0=-\bar S/c_0$、$\partial S_c/\partial c_0=-S_c/c_0$ 及式\eqref{eq:s1:Sstar-eta-sign}，直接整理得到式\eqref{eq:duration-c0}。
 
-当 $c_0\downarrow c_{0,\min}$ 时，$S^*\to S_c$，所以 $\Delta t\to0$。当 $c_0\to\infty$ 时，启动方程给出
+(ii) 利用 $\partial\bar S/\partial c_0=-\bar S/c_0$、$\partial S_c/\partial c_0=-S_c/c_0$ 及式\eqref{eq:s1:Sstar-eta-sign}，直接整理得到式\eqref{eq:duration-c0}。符号不定由 (iii) 的证明得到。
+
+(iii) 当 $c_0\downarrow c_{0,\min}$ 时，$S^*\to S_c$，所以 $\Delta t\to0$。当 $c_0\to\infty$ 时，启动方程给出
 $S^*\to S_0-\frac{\beta_1^0}{\beta_2^0}(\eta-I_0)>0$，而 $S_c,\bar S$ 均为 $O(c_0^{-1})$，故
 \[
 \Delta t=\frac{N}{c_0\eta}[\ln c_0+O(1)]\longrightarrow0.
