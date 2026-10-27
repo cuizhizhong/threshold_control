@@ -5,15 +5,43 @@
 
 \subsection{人口缩放}
 \label{sec:sup:xian:settings}
-人口缩放情景取 $N=N_{\rm eff}$、$S_0=N-I_0$，沿用全市拟合的绝对初值 $I_0$ 与传播参数，其余初始仓室为零，不重新拟合。它同时改变 $N$、$i_0=I_0/N$ 与 $\eta=\theta N$。
-
-固定 $\theta=0.002$、取 $N\in\{5\times10^4,10^5,5\times10^5,10^6,5\times10^6,1.3163\times10^7\}$ 的六个人口规模，仅隔离控制的控制时长均约为 $85.07$ d，$\Delta t$ 和 $J$ 的相对极差分别为 $4.71\times10^{-8}$ 和 $1.17\times10^{-7}$；以 $t-t_1$ 为时间变量时，归一化感染轨迹和隔离比例近似重合。启动时间由 $11.39$ d 增加至 $16.90$ d，这是固定绝对初值时，初始感染比例 $i_0=I_0/N$ 随 $N$ 增大而减小的结果。初期近似指数增长，$t_1\approx g^{-1}\ln(\theta/i_0)$，其中 $g=\beta c_0(1-q_0)-\gamma$ 为初期增长率。
-
-固定绝对阈值 $\eta=100$、把 $N$ 从 $1.3163\times10^7$ 降到 $5\times10^4$ 时，$\theta=\eta/N$ 增大，控制时长由约 $2.25\times10^4$ d 缩短到约 $85$ d。两组结果都符合
+人口规模的影响取决于初值和阈值如何随 $N$ 缩放。本小节先在固定归一化初值下给出两条一般结论，再给出西安参数下固定绝对初值或绝对阈值的数值结果。记 $s=S/N$、$i=I/N$，下面固定归一化初值 $s_0,i_0$。
+\begin{proposition}
+\label{prop:scaling}
+固定 $s_0,i_0$ 和 $\beta,\gamma,c_0,q_0$，并设条件\eqref{eq:model:trigger}成立，则仅隔离控制满足：
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\roman{enumi})}
+\item $t_1,\Delta t,q_{\max},J$ 以及存在内部拐点时的 $\lambda$ 只通过 $\theta=\eta/N$ 依赖于 $N$ 和 $\eta$；
+\item 计算至无限时刻的累计新增感染除以 $N$ 后亦不依赖 $N$；
+\item 使用绝对终点 $I=1$ 时，终点条件 $i=1/N$ 含 $N$，$t_{\rm end}$ 及计算至该终点的累计新增感染比例的表达式因而仍含 $N$。
+\end{enumerate}
+\end{proposition}
+\phantomsection
+\label{sec:proof:scaling}
+\begin{proof}
+(i) 常规阶段的归一化系统为
 \[
+\dot s=-c_0[\beta+q_0(1-\beta)]si,\qquad
+\dot i=[\beta c_0(1-q_0)s-\gamma]i.
+\]
+它不含 $N$，触发条件为 $i=\theta$，所以 $t_1$ 与 $s^*=S^*/N$ 仅依赖上述固定量和 $\theta$。又
+\[
+s_c=\frac{\gamma}{\beta c_0(1-q_0)},\qquad
+\bar s=\frac{(1-\beta)\gamma}{\beta c_0},\qquad
 \Delta t=\frac1{c_0\theta}\ln\frac{s^*-\bar s}{s_c-\bar s},
 \]
-其中对数因子在 $\theta\in[5\times10^{-4},8\times10^{-3}]$ 内仅由 $2.20$ 变到 $2.15$，因此 $\Delta t$ 近似与 $\theta$ 成反比。
+且 $q_{\max}=1-\gamma/(\beta c_0s^*)$，正文式\eqref{eq:s1:lambda}中的 $\lambda$ 也只含 $s^*,s_c,\bar s$。由正文式\eqref{eq:cost:state}，二次干预强度成本的归一化表达为
+\begin{equation}
+J=\frac{w_q}{c_0\theta}\int_{s_c}^{s^*}
+\frac{(1-s_c/s)^2}{s-\bar s}\,ds,
+\label{eq:dom:Jtheta}
+\end{equation}
+其中只含归一化状态和固定参数。
+
+(ii) 无限时间的终点为 $i\to0$。由正文式\eqref{eq:s1:Sinfty}，$S_\infty/N=-s_cW_0\bigl(-e^{-1-\theta N/\rho_1}\bigr)$，其中 $\rho_1/N=\gamma/\{c_0[\beta+q_0(1-\beta)]\}$ 不含 $N$；将正文式\eqref{eq:s1:cumulative}（$S_{\rm end}$ 换为 $S_\infty$）除以 $N$ 即得结论。
+
+(iii) 有限的终点 $I=1$ 对应 $i=1/N$。由正文式\eqref{eq:s1:Send}，$S_{\rm end}/N=-s_cW_0\bigl(-e^{-1-(\theta-1/N)/(\rho_1/N)}\bigr)$，其中 $\rho_1/N$ 不含 $N$，故它含 $N$。正文式\eqref{eq:s1:tend}化为归一化变量后只经积分下限 $S_{\rm end}/N$ 含 $N$；正文式\eqref{eq:s1:cumulative}除以 $N$ 后也只经 $S_{\rm end}/N$ 含 $N$。
+\end{proof}
 
 固定归一化初值时，以绝对终点 $I=1$ 计的量随人口单调变化。记 $i_{\max}^{0}=I_{\max}^{0}/N$（式\eqref{eq:s1:Imax-no}），固定归一化初值 $s_0,i_0$ 时它不依赖 $N$。
 \begin{proposition}
@@ -21,7 +49,7 @@
 固定 $s_0,i_0,\theta$ 和模型参数，设 $i_0<\theta<i_{\max}^{0}$，则在 $N\theta>1$ 的范围内，仅隔离控制的清零时间、计算至该终点的累计新增感染及其占人口的比例均随 $N$ 严格增加。
 \end{proposition}
 \begin{proof}
-由正文命题~\ref{prop:scaling}的证明，归一化轨迹及启动、控制时长与 $N$ 无关。由正文定理~\ref{thm:s1:tend}，退出后 $i(t)$ 从 $\theta$ 严格下降至零，终点为 $i=1/N$。增大 $N$ 使终点更低，故清零时间严格增加。
+由命题~\ref{prop:scaling}的证明，归一化轨迹及启动、控制时长与 $N$ 无关。由正文定理~\ref{thm:s1:tend}，退出后 $i(t)$ 从 $\theta$ 严格下降至零，终点为 $i=1/N$。增大 $N$ 使终点更低，故清零时间严格增加。
 
 记 $s_{\rm end}=S_{\rm end}/N$。归一化的退出后首次积分为
 \[
@@ -45,7 +73,13 @@
 -\frac{N\beta}{\beta+q_0(1-\beta)}\frac{\partial s_{\rm end}}{\partial N}>0.\qedhere
 \]
 \end{proof}
-命题不适用于固定绝对阈值或固定绝对 $I_0$ 的比较，这两种情形的数值结果见本小节开头。
+两条命题都以固定归一化初值为前提，不适用于固定绝对阈值或固定绝对 $I_0$ 的比较。下面给出西安参数下这两种情形的数值结果。
+
+人口缩放情景取 $N=N_{\rm eff}$、$S_0=N-I_0$，沿用全市拟合的绝对初值 $I_0$ 与传播参数，其余初始仓室为零，不重新拟合。它同时改变 $N$、$i_0=I_0/N$ 与 $\eta=\theta N$。
+
+固定 $\theta=0.002$、取 $N\in\{5\times10^4,10^5,5\times10^5,10^6,5\times10^6,1.3163\times10^7\}$ 的六个人口规模，仅隔离控制的控制时长均约为 $85.07$ d，$\Delta t$ 和 $J$ 的相对极差分别为 $4.71\times10^{-8}$ 和 $1.17\times10^{-7}$；以 $t-t_1$ 为时间变量时，归一化感染轨迹和隔离比例近似重合。启动时间由 $11.39$ d 增加至 $16.90$ d，这是固定绝对初值时，初始感染比例 $i_0=I_0/N$ 随 $N$ 增大而减小的结果。初期近似指数增长，$t_1\approx g^{-1}\ln(\theta/i_0)$，其中 $g=\beta c_0(1-q_0)-\gamma$ 为初期增长率。
+
+固定绝对阈值 $\eta=100$、把 $N$ 从 $1.3163\times10^7$ 降到 $5\times10^4$ 时，$\theta=\eta/N$ 增大，控制时长由约 $2.25\times10^4$ d 缩短到约 $85$ d。两组结果都符合命题~\ref{prop:scaling}证明中的控制时长表达式，其中对数因子在 $\theta\in[5\times10^{-4},8\times10^{-3}]$ 内仅由 $2.20$ 变到 $2.15$，因此 $\Delta t$ 近似与 $\theta$ 成反比。
 
 \FloatBarrier
 \subsection{阈值扫描}
