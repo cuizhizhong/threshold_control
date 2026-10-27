@@ -4,7 +4,7 @@
 
 ## 1. 当前状态
 
-- 工作树 `E:\work\draft-submission-ready`，分支 `paper/submission-ready`。最近四轮为 NEW-4m（跳变结构入稿，N23，`0c8512d`、`332091f`）、NEW-4n（删去时长约束、整理第 5 章与补充 S5，N24，`705c20e`、`4a396df`）、NEW-4o（图 8、图 S11 改为图 2 风格，N25，`697d2bc`）与 NEW-4p（数值部分与图表重排，N26，`50edb4e`、`5ab02f4`、`dd0e888` 及记录提交），均为本地提交、**未推送**；NEW-4l 及此前各轮已推送。
+- 工作树 `E:\work\draft-submission-ready`，分支 `paper/submission-ready`。最近五轮为 NEW-4m（跳变结构入稿，N23，`0c8512d`、`332091f`）、NEW-4n（删去时长约束、整理第 5 章与补充 S5，N24，`705c20e`、`4a396df`）、NEW-4o（图 8、图 S11 改为图 2 风格，N25，`697d2bc`）、NEW-4p（数值部分与图表重排，N26，`50edb4e`、`5ab02f4`、`dd0e888` 及记录提交）与 NEW-4q（第 5 章陈述与证明的整理润色，N27，记录见 `paper/revision_notes/NEW_4q_section5_polish.md`），均为本地提交、**未推送**；NEW-4l 及此前各轮已推送。
 - NEW-4p 后的结构（记录见 `paper/revision_notes/NEW_4p_numerics_layout.md`）：
   - 基准参数演示机制，西安参数做应用。图 2、图 3 在第 3 章（3.1 节末、3.4 节），基准参数写在图 2 图注；第 6 章“联合控制的数值结果”只用基准参数；西安参数的全部内容在第 7 章（7.1 参数表与拟合、7.2 控制组合、7.3 TDINN 参照、7.4 低阈值与退出、7.5 有效人口），策略过程图与对照表含成本最优控制。
   - 正文 9 幅图、5 张表：图 1 模型，图 2–3 第 3 章，图 4–6 第 6 章，图 7 拟合、图 8 西安控制组合、图 9 策略过程；表 1 四种控制（基准）、表 2 西安参数、表 3 西安控制组合、表 4 策略对照、表 5 附录敏感性。
@@ -49,7 +49,7 @@
 
 ## 4. 工作约定与易踩的坑
 
-- **授权**：每轮改稿前，由作者授权并在 `AGENTS.md` 末尾加一条 N 条款（下一条为 N27），计划写在 `ai/NEW_<轮次>_*_plan_<日期>.md`。推送只在作者明确要求时进行。
+- **授权**：每轮改稿前，由作者授权并在 `AGENTS.md` 末尾加一条 N 条款（下一条为 N28），计划写在 `ai/NEW_<轮次>_*_plan_<日期>.md`。推送只在作者明确要求时进行。
 - **Python**：用 `E:/anaconda/envs/thesis/python.exe`，并设 `PYTHONIOENCODING=utf-8`；`conda run` 遇中文输出会报 gbk 编码错误。
 - **编译**：`powershell -NoProfile -ExecutionPolicy Bypass -File paper\build.ps1`（用 PowerShell，不用 Git Bash）。Acrobat 打开 PDF 时会锁文件。
 - **检查**（`--old` 用上一轮提交，如 `fd5fdaf:paper/flatten_curve_analysis_cn.tex`）：
