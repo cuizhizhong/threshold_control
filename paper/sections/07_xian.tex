@@ -72,8 +72,7 @@ $\eta$ & 阈值（人） & $0.002N=\num{26326}$ & 设计情景（第~\ref{sec:xi
 \bottomrule
 \end{tabular*}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：$\Delta t$ 为控制时长，$t_{\rm end}$ 为清零时间，$\Itcum$ 为总累计新增感染，$\Delta S_q=S_q(t_2)-S_q(t_1)$ 为阈值控制期新增隔离易感者人数，$J$ 为二次干预强度成本（式\eqref{eq:cost:J}）；$\max_t(I+I_q)/\eta$ 为两感染仓室人数之和的峰值与阈值之比。$\Itcum$ 与峰值均统计至清零时间，$\Itcum$ 与 $\Delta S_q$ 以 $10^6$ 人计。
-\item[] $\eta=0.002N$；四种控制采用同一完整初值（表~\ref{tab:xian_initial_fit}）。$S^*/S_c\approx 4.378$，$S_{\rm sw}/S_c\approx 2.548$。
+\item 注：$\eta=0.002N$；$\Itcum$ 与 $\Delta S_q$ 以 $10^6$ 人计，峰值统计至 $t_{\rm end}$。四种控制采用同一完整初值（表~\ref{tab:xian_initial_fit}）。$S^*/S_c\approx 4.378$，$S_{\rm sw}/S_c\approx 2.548$。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -111,7 +110,7 @@ TDINN 重构是外部参照：它与阈值策略完成的是不同的控制任�
 \label{tab:xian_summary}
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lS[table-format=7.0]S[table-format=7.0]S[table-format=3.2]@{}}
 \toprule
-策略 & {\shortstack{非隔离感染者峰值\\（人）}} & {\shortstack{总累计新增感染\\（人）}} & {\shortstack{清零时间\\（d）}}\\
+策略 & {$\max_t I$（人）} & {$\Itcum$（人）} & {$t_{\rm end}$（d）}\\
 \midrule
 TDINN 控制 & 153 & 2106 & 45.29\\
 仅隔离控制 & 26326 & 2377943 & 258.10\\
