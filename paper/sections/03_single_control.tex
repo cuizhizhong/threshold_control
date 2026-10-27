@@ -3,16 +3,15 @@
 仅隔离控制保持常规接触率 $c=c_0$，只靠提高隔离比例维持 $I=\eta$。它是后文比较的基准，控制函数、控制时长和累计新增感染都有闭式表达。由定理~\ref{thm:joint:comparison}与推论~\ref{cor:joint:single-endpoints}，只要追踪隔离能力足以实施，它在全部控制中控制时长最短、累计新增感染最少。$\mathcal A(\eta)$ 中的控制都从 $(S^*,\eta)$ 启动、在 $(S_c,\eta)$ 退出，所以定理~\ref{thm:s1:start}的启动状态与定理~\ref{thm:s1:tend}的退出后动态对它们全部成立。
 
 \subsection{控制轨迹}
-常规轨迹在 $I$ 上升和下降时各经过 $I=\eta$ 一次，阈值策略在第一次经过时启动。把 $I=\eta$ 代入首次积分\eqref{eq:model:first-integral}，启动状态可以用 Lambert $W$ 函数写出。
-\begin{theorem}
-\label{thm:s1:start}\label{thm:s1:trigger}
-设条件\eqref{eq:model:trigger}成立。令
+常规轨迹在 $I$ 上升和下降时各经过 $I=\eta$ 一次，阈值策略在第一次经过时启动。把 $I=\eta$ 代入首次积分\eqref{eq:model:first-integral}，启动状态可以用 Lambert $W$ 函数写出。记
 \begin{equation}
 z_\eta=-\frac{1}{S_c}\exp\!\left[-\frac{C_0-\eta}{\rho_1}\right]
-=-\frac{S_0}{S_c}\exp\!\left[-\frac{S_0}{S_c}+\frac{\eta-I_0}{\rho_1}\right],
+=-\frac{S_0}{S_c}\exp\!\left[-\frac{S_0}{S_c}+\frac{\eta-I_0}{\rho_1}\right].
 \label{eq:s1:lambert-argument}
 \end{equation}
-并记 $W_{-1}$ 为 Lambert $W$ 函数的下实分支，则
+\begin{theorem}
+\label{thm:s1:start}\label{thm:s1:trigger}
+设条件\eqref{eq:model:trigger}成立，记 $W_{-1}$ 为 Lambert $W$ 函数的下实分支，则
 \begin{enumerate}
 \renewcommand{\labelenumi}{(\roman{enumi})}
 \item $z_\eta\in(-e^{-1},0)$，启动状态唯一，为
@@ -109,14 +108,14 @@ q_c(t)
 q_{\max}=1-\frac{\gamma N}{\beta c_0S^*}>q_0,
 \label{eq:s1:qmax}
 \end{equation}
-在 $(t_1,t_2)$ 上严格递减，并在 $t_2$ 连续恢复为 $q_0$。
+在 $(t_1,t_2)$ 上严格递减，并在 $t_2$ 连续恢复为 $q_0$；
 \item 设隔离比例受能力约束 $q\le q_{\rm cap}$，其中 $q_0\le q_{\rm cap}<1$，则上述仅隔离控制可实施，当且仅当
 \[
 q_{\max}\le q_{\rm cap}
 \quad\Longleftrightarrow\quad
-\frac{\beta c_0(1-q_{\rm cap})S^*}{N}\le\gamma.
+\frac{\beta c_0(1-q_{\rm cap})S^*}{N}\le\gamma,
 \]
-该条件成立时，能力约束不改变上述控制轨迹、控制时长及成本公式。
+且该条件成立时，能力约束不改变上述控制轨迹、控制时长及成本公式。
 \end{enumerate}
 \end{corollaryn}
 \begin{proof}
@@ -128,7 +127,7 @@ q_{\max}\le q_{\rm cap}
 \end{equation}
 又 $q_c(S_c)=q_0$，故退出时连续。
 
-(ii) 由 (i)，隔离比例在启动时取得最大值，因此全时段的能力约束等价于检查这一最大值；由式\eqref{eq:s1:qmax}整理即得上述等价式。$q_{\rm cap}=q_{\max}$ 时，控制只在启动时恰好达到能力上限，随后严格低于上限。
+(ii) 由 (i)，隔离比例在启动时取得最大值，因此全时段的能力约束等价于检查这一最大值；由式\eqref{eq:s1:qmax}整理即得上述等价式。该条件成立时，原控制满足能力约束，故控制轨迹、控制时长与成本公式都不变。$q_{\rm cap}=q_{\max}$ 时，控制只在启动时恰好达到能力上限，随后严格低于上限。
 \end{proof}
 追踪隔离的需求在启动时最大。此时社区易感者最多，常规措施下的有效再生数最高，需要隔离的接触比例也最高。若 $q_{\rm cap}<q_{\max}$，启动状态上即使取 $q=q_{\rm cap}$ 也有 $\dot I>0$，因此只有同时减少接触才能维持 $I=\eta$；这时能否实施由推论~\ref{cor:joint:feasibility}判断。
 
@@ -172,7 +171,7 @@ S(t_{\rm inf})=2\bar S,\quad
 \frac{(S-\bar S)(2\bar S-S)}{S^3}.
 \label{eq:s1:qsecond}
 \end{equation}
-由式\eqref{eq:s1:barS}，阈值控制期内 $S\ge S_c>\bar S$，故其符号由 $2\bar S-S$ 决定。$S$ 从 $S^*$ 严格下降至 $S_c$，所以恰在式\eqref{eq:s1:inflection-condition}成立时穿过 $2\bar S$，且只穿过一次。
+由式\eqref{eq:s1:barS}，阈值控制期内 $S\ge S_c>\bar S$，故其符号由 $2\bar S-S$ 决定。$S$ 从 $S^*$ 严格下降至 $S_c$，所以恰在式\eqref{eq:s1:inflection-condition}成立时穿过 $2\bar S$，且只穿过一次。由式\eqref{eq:s1:barS}与\eqref{eq:s1:Sstar-lambert}，$2\bar S/S_c=2(1-\beta)(1-q_0)$，$S^*/S_c=-W_{-1}(z_\eta)$，即得等价形式。
 
 (ii) 将 $S=2\bar S$ 代入式\eqref{eq:s1:S-analytic}及\eqref{eq:s1:q-control}，即得时间和隔离比例。由于 $q_c(S)$ 关于 $S$ 严格增加且 $S_c<2\bar S<S^*$，有 $q_0=q_c(S_c)<\qinf<q_c(S^*)=q_{\max}$。二阶导数先负后正，而一阶导数始终为负，故 $|dq_c/dt|$ 在该时刻唯一达到最大值。
 \end{proof}
@@ -189,13 +188,16 @@ $\lambda$ 越大，下降最快的时刻在控制期内越靠后；其参数敏�
 退出后 $S<S_c$，常规控制下的有效再生数小于 $1$，$I$ 从 $\eta$ 开始下降。由常规控制下的首次积分，剩余易感者人数可由 Lambert $W$ 函数写出，清零时间可化为一维积分。
 \begin{theorem}
 \label{thm:s1:tend}\label{thm:s1:post}
-从 $(S_c,\eta)$ 恢复常规控制后，$S(t)$ 和 $I(t)$ 对 $t>t_2$ 均严格递减，且
+设 $t_2$ 时 $(S,I)=(S_c,\eta)$，此后恢复常规控制，则
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\roman{enumi})}
+\item $S(t)$ 和 $I(t)$ 对 $t>t_2$ 均严格递减，且
 \begin{equation}
 I(t)\to0,\qquad
-S(t)\to S_\infty=-S_cW_0\!\left(-e^{-1-\eta/\rho_1}\right)\in(0,S_c).
+S(t)\to S_\infty=-S_cW_0\!\left(-e^{-1-\eta/\rho_1}\right)\in(0,S_c);
 \label{eq:s1:Sinfty}
 \end{equation}
-存在唯一的 $t_{\rm end}>t_2$ 满足 $I(t_{\rm end})=1$、$\dot I(t_{\rm end})<0$。记 $S_{\rm end}=S(t_{\rm end})$，有
+\item 存在唯一的 $t_{\rm end}>t_2$，满足 $I(t_{\rm end})=1$、$\dot I(t_{\rm end})<0$；记 $S_{\rm end}=S(t_{\rm end})$，则
 \begin{equation}
 S_{\rm end}=-S_cW_0\!\left(-e^{-1-(\eta-1)/\rho_1}\right),
 \label{eq:s1:Send}
@@ -205,6 +207,7 @@ t_{\rm end}=t_2+\frac{1}{\beta_1^0}\int_{S_{\rm end}}^{S_c}
 \frac{dS}{S[\eta+\frac{\beta_2^0}{\beta_1^0}(S_c-S)+\rho_1\ln(S/S_c)]}.
 \label{eq:s1:tend}
 \end{equation}
+\end{enumerate}
 \end{theorem}
 证明见附录~\ref{sec:proof:post-dynamics}。其余仓室也有极限。流入 $I_q$ 的感染随 $I\to0$ 趋于零，且 $\delta_q>0$，故 $I_q\to0$；$S_q$ 与 $R$ 单调有界。
 \begin{remarkn}
@@ -287,10 +290,10 @@ R_e(t_2^+)=1+\frac{\xi S_q(t_2^-)}{S_c},\qquad
 人口规模的影响取决于初值和阈值如何随 $N$ 缩放。记 $s=S/N$、$i=I/N$，下面固定归一化初值 $s_0,i_0$。低阈值下的渐近行为与完整参数扫描见补充材料第~\ref{sec:sup:baseline-scan}~节。
 \begin{proposition}
 \label{prop:scaling}
-对于仅隔离控制，固定 $s_0,i_0$ 和 $\beta,\gamma,c_0,q_0$，并设控制被触发，则
+固定 $s_0,i_0$ 和 $\beta,\gamma,c_0,q_0$，并设条件\eqref{eq:model:trigger}成立，则仅隔离控制满足：
 \begin{enumerate}
 \renewcommand{\labelenumi}{(\roman{enumi})}
-\item $t_1,\Delta t,q_{\max},J$ 以及存在内部拐点时的 $\lambda$ 对 $N,\eta$ 的依赖仅通过 $\theta=\eta/N$ 表现；
+\item $t_1,\Delta t,q_{\max},J$ 以及存在内部拐点时的 $\lambda$ 只通过 $\theta=\eta/N$ 依赖于 $N$ 和 $\eta$；
 \item 计算至无限时刻的累计新增感染除以 $N$ 后亦不依赖 $N$；
 \item 使用绝对终点 $I=1$ 时，$t_{\rm end}$ 及计算至该终点的累计新增感染比例一般仍含 $N$。
 \end{enumerate}

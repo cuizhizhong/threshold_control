@@ -17,9 +17,9 @@
 
 设非负可测函数 $h(a)$ 表示一例新感染者在感染后第 $a$ 天所需的平均 ICU 床位数，并假定它对两类病例、不同感染时点及所比较的控制共同适用。令
 \[
-\int_0^\infty h(a)\,da=pL<\infty,
+\int_0^\infty h(a)\,da=p_{\rm ICU}L<\infty,
 \]
-其中 $p\in(0,1]$ 为需要 ICU 的概率，$L>0$ 为需要 ICU 者累计占用时长的均值；$h$ 可包含感染至入院的延迟。由既往流入与停留过程计算床位占用的方法可参见文献\cite{Baas2021Occupancy}。
+其中 $p_{\rm ICU}\in(0,1]$ 为需要 ICU 的概率，$L>0$ 为需要 ICU 者累计占用时长的均值；$h$ 可包含感染至入院的延迟。由既往流入与停留过程计算床位占用的方法可参见文献\cite{Baas2021Occupancy}。
 
 初始时刻之前已经感染者此后的平均需求记为 $D_0(t)$，并假定各策略均满足 $0\le D_0(t)\le D_{\mathrm{init}}<\infty$。该项包括初始病例以后才发生的入院和后续占用，也包括已从传播模型移出但仍需救治的病例。不受容量拒收限制的平均需求为
 \[
@@ -32,12 +32,12 @@ D(t)=D_0(t)+\int_0^t h(t-u)
 D(t)
 &\le D_{\mathrm{init}}+
 \frac{\beta c_0S_0}{N}\eta\int_0^t h(a)\,da\\
-&\le D_{\mathrm{init}}+pL\frac{\beta c_0S_0}{N}\eta,
+&\le D_{\mathrm{init}}+p_{\rm ICU}L\frac{\beta c_0S_0}{N}\eta,
 \qquad t\ge0.
 \end{aligned}
 \]
 设 $C>D_{\mathrm{init}}$ 为全过程固定的本病可用容量，其中已扣除其他病种的占用和安全预留；本病初始病例的未来负担由 $D_{\mathrm{init}}$ 单独计入。于是
 \[
-\eta\le\frac{C-D_{\mathrm{init}}}{pL\,\beta c_0S_0/N}
+\eta\le\frac{C-D_{\mathrm{init}}}{p_{\rm ICU}L\,\beta c_0S_0/N}
 \]
 是平均需求满足 $D(t)\le C$ 的充分条件。该条件对 $\mathcal A(\eta)$ 中的全部控制同时成立，因而可能偏保守；它约束的是平均需求，不给出随机超载的概率。按此选取的阈值还须满足触发条件\eqref{eq:model:trigger}与能力约束下的可行条件（正文推论~\ref{cor:joint:feasibility}）。

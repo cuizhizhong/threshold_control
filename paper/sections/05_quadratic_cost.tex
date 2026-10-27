@@ -15,7 +15,7 @@ f(S,c)=
 {cS-c_0\bar S}.
 \label{eq:joint:cost-integrand}
 \end{equation}
-被积项 $\frac{N}{\eta}f(S,c)$ 是 $S$ 每减少一人所付的成本：分子是两种归一化强度 $(c_0-c)/c_0$ 与 $(q-q_0)/(1-q_0)=1-c_0S_c/(cS)$ 的平方加权和，分母与 $S$ 的下降速度成正比（式\eqref{eq:joint:Sdot}）。
+被积项 $(N/\eta)f(S,c)$ 是 $S$ 每减少一人所付的成本：分子是两种归一化强度 $(c_0-c)/c_0$ 与 $(q-q_0)/(1-q_0)=1-c_0S_c/(cS)$ 的平方加权和，分母与 $S$ 的下降速度成正比（式\eqref{eq:joint:Sdot}）。
 
 下文记 $[c^{-}(S),c^{+}(S)]$ 为状态 $S$ 上的允许区间：不考虑能力约束时 $c^{-}(S)=c_0S_c/S$、$c^{+}(S)=c_0$（式\eqref{eq:joint:contact-range}），考虑能力约束时由式\eqref{eq:joint:bounds}给出。对每个 $S$ 取 $f(S,\cdot)$ 在允许区间上的一个最小点，所得函数称为\emph{逐状态最小化选择}，记为 $c_c^*$，相应的隔离比例记为 $q_c^*$（式\eqref{eq:joint:q}）。
 \begin{theorem}
@@ -55,10 +55,10 @@ $b$ 只依赖传播概率与常规隔离比例。由 $0<b<1$，$S_{\rm sw}$ 介�
 设条件\eqref{eq:model:trigger}成立，$0<r\le r_{\rm cont}$，不考虑能力约束，则
 \begin{enumerate}
 \renewcommand{\labelenumi}{(\roman{enumi})}
-\item 对每个 $S>S_c$，$f(S,\cdot)$ 在 $[c_0S_c/S,c_0]$ 上有唯一最小点 $c_c^*(S)$；$c_c^*$ 在 $(S_c,\infty)$ 上连续，且 $S\downarrow S_c$ 时 $c_c^*(S)\to c_0$。
-\item $S\ge S_{\rm sw}$ 时 $c_c^*(S)=c_0$；$S_c<S<S_{\rm sw}$ 时 $c_0S_c/S<c_c^*(S)<c_0$。
+\item 对每个 $S>S_c$，$f(S,\cdot)$ 在 $[c_0S_c/S,c_0]$ 上有唯一最小点 $c_c^*(S)$，$c_c^*$ 在 $(S_c,\infty)$ 上连续，且 $S\downarrow S_c$ 时 $c_c^*(S)\to c_0$；
+\item $S\ge S_{\rm sw}$ 时 $c_c^*(S)=c_0$，$S_c<S<S_{\rm sw}$ 时 $c_0S_c/S<c_c^*(S)<c_0$；
+\item 成本最优控制几乎处处等于连续的状态反馈 $c_c^*$，且 $S^*>S_{\rm sw}$ 时它在 $S\ge S_{\rm sw}$ 上为仅隔离控制，并在 $S_{\rm sw}$ 处连续地转为两种措施并用；$S^*\le S_{\rm sw}$ 时整个阈值控制期两种措施并用。
 \end{enumerate}
-因此，成本最优控制几乎处处等于连续的状态反馈 $c_c^*$：若 $S^*>S_{\rm sw}$，它在 $S\ge S_{\rm sw}$ 上为仅隔离控制，并在 $S_{\rm sw}$ 处连续地转为两种措施并用；若 $S^*\le S_{\rm sw}$，整个阈值控制期两种措施并用。
 \end{theorem}
 证明见附录~\ref{sec:proof:cost-structure}。权重条件保证每个状态上的成本单峰，成本最优控制因而唯一，并随易感者减少连续调整。
 
@@ -102,11 +102,11 @@ $b$ 只依赖传播概率与常规隔离比例。由 $0<b<1$，$S_{\rm sw}$ 介�
 \lim_{S\downarrow S_c}
 \frac{(c_0-c_c^*(S))/c_0}{1-S_c/S}&=\frac{w_q}{w_c+w_q},\\
 \lim_{S\downarrow S_c}
-\frac{(q_c^*(S)-q_0)/(1-q_0)}{1-S_c/S}&=\frac{w_c}{w_c+w_q}.
+\frac{(q_c^*(S)-q_0)/(1-q_0)}{1-S_c/S}&=\frac{w_c}{w_c+w_q};
 \end{aligned}
 \label{eq:joint:terminal-ratio}
 \end{equation}
-\item 不考虑能力约束时，最小成本严格小于仅减少接触与仅隔离控制各自的成本。
+\item 不考虑能力约束时，最小成本严格小于仅减少接触与仅隔离控制各自的成本；
 \item 考虑满足 $c_{\min}<c_0$、$q_{\rm cap}>q_0$ 的能力约束时，(i) 仍成立；(ii) 中与某一种单控制的严格成本比较，在该单控制整段可行时仍成立。
 \end{enumerate}
 \end{proposition}
@@ -122,7 +122,7 @@ $b$ 只依赖传播概率与常规隔离比例。由 $0<b<1$，$S_{\rm sw}$ 介�
 固定 $N,S_0,I_0,\beta,\gamma,c_0,q_0$ 与能力约束，记 $J_{\min}(\eta)$ 为阈值 $\eta$ 下式\eqref{eq:joint:minimum-cost}的最小值。
 \begin{enumerate}
 \renewcommand{\labelenumi}{(\roman{enumi})}
-\item 在控制被触发且式\eqref{eq:joint:feasibility}成立的阈值范围内，$J_{\min}$ 随 $\eta$ 严格下降；对其中任意两个阈值，可以选取成本最优控制，使二者在共同经过的易感者状态上取相同的 $c_c^*(S)$ 与 $q_c^*(S)$。
+\item 在控制被触发且式\eqref{eq:joint:feasibility}成立的阈值范围内，$J_{\min}$ 随 $\eta$ 严格下降；对其中任意两个阈值，可以选取成本最优控制，使二者在共同经过的易感者状态上取相同的 $c_c^*(S)$ 与 $q_c^*(S)$；
 \item 固定阈值时，降低 $c_{\min}$ 或提高 $q_{\rm cap}$ 不会增大最小成本。
 \end{enumerate}
 \end{proposition}
@@ -146,7 +146,7 @@ c_{\rm cap}^*(S)=\min\bigl\{c^{+}(S),\max\{c^{-}(S),c_c^*(S)\}\bigr\},
 固定 $w_c>0$ 与控制类 $\mathcal A(\eta)$ 或 $\mathcal A(\eta;c_{\min},q_{\rm cap})$（后者设式\eqref{eq:joint:feasibility}成立）。对 $r=w_q/w_c$，记 $c_r^*$ 为任一逐状态最小化选择，$q_r^*$ 为相应的隔离比例。
 \begin{enumerate}
 \renewcommand{\labelenumi}{(\roman{enumi})}
-\item 若 $0<r_1<r_2$，则对每个 $S\in(S_c,S^*]$ 有 $c_{r_2}^*(S)\le c_{r_1}^*(S)$、$q_{r_2}^*(S)\le q_{r_1}^*(S)$。因此，成本最优控制的控制时长与阈值控制期累计新增感染随 $r$ 不减，新增隔离易感者人数随 $r$ 不增；最小成本 $J_{\min}/w_c$ 是 $r$ 的凹且不减的函数。
+\item 若 $0<r_1<r_2$，则对每个 $S\in(S_c,S^*]$ 有 $c_{r_2}^*(S)\le c_{r_1}^*(S)$、$q_{r_2}^*(S)\le q_{r_1}^*(S)$；因此，成本最优控制的控制时长与阈值控制期累计新增感染随 $r$ 不减，新增隔离易感者人数随 $r$ 不增；最小成本 $J_{\min}/w_c$ 是 $r$ 的凹且不减的函数；
 \item 固定 $r$，$q_r^*(S)$ 随 $S$ 不减，即隔离比例在阈值控制期内随时间不增。
 \end{enumerate}
 \end{proposition}

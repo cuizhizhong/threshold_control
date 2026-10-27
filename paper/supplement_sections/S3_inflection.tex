@@ -3,7 +3,12 @@
 
 \subsection{参数敏感性}
 \label{sec:s1:inflection-position}
-内部拐点的相对位置为 $\lambda=(t_{\rm inf}-t_1)/(t_2-t_1)$，定义及存在条件见正文定理\ref{thm:s1:inflection}和式\eqref{eq:s1:lambda}。下列偏导固定其余参数，启动状态 $S^*$ 随所考察的参数变化。
+内部拐点的相对位置为 $\lambda=(t_{\rm inf}-t_1)/(t_2-t_1)$，定义及存在条件见正文定理~\ref{thm:s1:inflection}和式\eqref{eq:s1:lambda}。记
+\[
+\Lambda_1=\ln\frac{S^*-\bar S}{\bar S},\qquad
+\Lambda_2=\ln\frac{\bar S}{S_c-\bar S},
+\]
+由式\eqref{eq:s1:lambda}，$\lambda=\Lambda_1/(\Lambda_1+\Lambda_2)$。下列偏导固定其余参数，启动状态 $S^*$ 随所考察的参数变化。
 \begin{proposition}
 \label{prop:s1:lambda-sensitivity}
 设触发条件与 $S_c<2\bar S<S^*$ 成立，并固定其余参数，则
@@ -25,24 +30,24 @@
 \end{enumerate}
 \end{proposition}
 \begin{proof}
-(i) 记 $A=\ln[(S^*-\bar S)/\bar S]>0$、$B=\ln[\bar S/(S_c-\bar S)]>0$，则
+(i) 由 $S_c<2\bar S<S^*$，$\Lambda_1,\Lambda_2>0$。记 $\kappa$ 为 $\eta,c_0,\beta,q_0$ 中的任一参数，则
 \[
-\frac{\partial\lambda}{\partial p}
-=\frac{B\,\partial A/\partial p-A\,\partial B/\partial p}{(A+B)^2}.
+\frac{\partial\lambda}{\partial\kappa}
+=\frac{\Lambda_2\,\partial\Lambda_1/\partial\kappa-\Lambda_1\,\partial\Lambda_2/\partial\kappa}{(\Lambda_1+\Lambda_2)^2}.
 \]
-关于 $\eta$，$\partial A/\partial\eta=(\partial S^*/\partial\eta)/(S^*-\bar S)<0$，且 $\partial B/\partial\eta=0$。
+关于 $\eta$，$\partial\Lambda_1/\partial\eta=(\partial S^*/\partial\eta)/(S^*-\bar S)<0$，且 $\partial\Lambda_2/\partial\eta=0$。
 关于 $c_0$，
 \[
-\frac{\partial A}{\partial c_0}=
+\frac{\partial\Lambda_1}{\partial c_0}=
 \frac{\partial S^*/\partial c_0+S^*/c_0}{S^*-\bar S}>0,
-\qquad \frac{\partial B}{\partial c_0}=0.
+\qquad \frac{\partial\Lambda_2}{\partial c_0}=0.
 \]
 关于 $\beta$，
 \[
-\frac{\partial A}{\partial\beta}
+\frac{\partial\Lambda_1}{\partial\beta}
 =\frac{\partial S^*/\partial\beta+S^*/[\beta(1-\beta)]}{S^*-\bar S}>0,
 \qquad
-\frac{\partial B}{\partial\beta}
+\frac{\partial\Lambda_2}{\partial\beta}
 =-\frac1{(1-\beta)[\beta+q_0(1-\beta)]}<0.
 \]
 这些符号给出 (i) 的三个结论。
@@ -50,15 +55,15 @@
 (ii) 由 $\bar S$ 不含 $q_0$、$\partial S_c/\partial q_0=S_c/(1-q_0)$，得
 \begin{equation}
 \frac{\partial\lambda}{\partial q_0}
-=\frac1{(A+B)^2}\left[
-\frac{B}{S^*-\bar S}\frac{\partial S^*}{\partial q_0}
-+\frac{A}{(1-q_0)[\beta+q_0(1-\beta)]}\right].
+=\frac1{(\Lambda_1+\Lambda_2)^2}\left[
+\frac{\Lambda_2}{S^*-\bar S}\frac{\partial S^*}{\partial q_0}
++\frac{\Lambda_1}{(1-q_0)[\beta+q_0(1-\beta)]}\right].
 \label{eq:lambda-q0-sign}
 \end{equation}
-令方括号为零得到驻点条件。两项异号本身不足以说明导数能取两种符号；第\ref{app:lambda}节给出两个满足全部条件的参数点，并分别证明其导数为正和负。
+令方括号为零得到驻点条件。两项异号本身不足以说明导数能取两种符号；第~\ref{app:lambda}~节给出两个满足全部条件的参数点，并分别证明其导数为正和负。
 \end{proof}
 
-拐点总出现在 $S=2\bar S$ 处，$A$、$B$ 分别与 $S$ 从 $S^*$ 降到 $2\bar S$、从 $2\bar S$ 降到 $S_c$ 所需的时间成正比，$\lambda=A/(A+B)$。提高 $\eta$ 使 $S^*$ 减小、前一段缩短，拐点因而在控制期中提前。符号结果汇总于正文附录表~\ref{tab:sensitivity}。
+拐点总出现在 $S=2\bar S$ 处，$\Lambda_1$、$\Lambda_2$ 分别与 $S$ 从 $S^*$ 降到 $2\bar S$、从 $2\bar S$ 降到 $S_c$ 所需的时间成正比。提高 $\eta$ 使 $S^*$ 减小、前一段缩短，拐点因而在控制期中提前。符号结果汇总于正文附录表~\ref{tab:sensitivity}。
 
 \subsection{数值结果}
 图~\ref{fig:s1:lambda-sensitivity}中，$\lambda$ 随 $\eta$ 增大而减小，随 $c_0$ 和 $\beta$ 增大而增大，与命题~\ref{prop:s1:lambda-sensitivity}一致。$\lambda$ 对 $q_0$ 的依赖不单调：取 $c_0=10$、$\eta/N=0.05$，其余参数取基准值，在 $q_0\in[0,0.39]$ 内 $\lambda$ 有局部极大值，其位置 $q_0^\dagger$ 随 $\beta$ 增大而增大：
@@ -98,9 +103,9 @@ S_0=mS^*,\qquad
 两组参数均有 $S_0+I_0<N$、$I_0<\eta<I_{\max}^{0}$ 和 $S_c<2\bar S<S^*$，余下的初始人数置于不参与社区传播的仓室（如 $R(0)>0$）；正文第~\ref{sec:model}~节只要求初始仓室非负、总和为 $N$，因而允许这种初值。在每个构造出的参数点求偏导时，固定该点的 $S_0,\eta$；以上关系只用于构造参数点，不作为求导时的约束。
 
 代入式\eqref{eq:lambda-q0-sign}，得到
-\begin{equation}
+\[
 \frac{\partial\lambda}{\partial q_0}
 =\frac{40}{9(\ln5)^2}
 \left[\ln\frac53-\ln3\left(\frac{16}{5}(m-1)-\frac65\ln m\right)\right].
-\end{equation}
+\]
 当 $m=21/20$ 时，圆括号中的量在 $0$ 与 $4/25$ 之间。结合 $\ln(5/3)>2/5$、$\ln3<2$，方括号大于 $2/25>0$。当 $m=2$ 时，圆括号中的量大于 $2$；由 $\ln3>2/3$、$\ln(5/3)<2/3$，方括号严格为负。这些估计均可由 $(x-1)/x<\ln x<x-1$（$x>1$）得到，故两种符号都在允许参数域中出现。

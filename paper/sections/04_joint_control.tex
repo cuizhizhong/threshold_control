@@ -62,13 +62,10 @@ c^{+}(S)=\min\!\left\{c_0,
 \item 能力约束等价于 $c^{-}(S)\le c_c(S)\le c^{+}(S)$；
 \item $\mathcal A(\eta;c_{\min},q_{\rm cap})$ 非空，即从 $S^*$ 到 $S_c$ 的整段阈值控制可行，当且仅当
 \begin{equation}
-\frac{\beta c_{\min}(1-q_{\rm cap})S^*}{N}\le\gamma.
+\frac{\beta c_{\min}(1-q_{\rm cap})S^*}{N}\le\gamma,
 \label{eq:joint:feasibility}
 \end{equation}
-利用式\eqref{eq:s1:qmax}，该条件也可写为
-\[
-c_{\min}(1-q_{\rm cap})\le c_0(1-q_{\max}).
-\]
+或等价地 $c_{\min}(1-q_{\rm cap})\le c_0(1-q_{\max})$，其中 $q_{\max}$ 由式\eqref{eq:s1:qmax}给出。
 \end{enumerate}
 \end{corollaryn}
 \begin{proof}
@@ -78,7 +75,7 @@ c_{\min}(1-q_{\rm cap})\le c_0(1-q_{\max}).
 \[
 c_{\min}\le\frac{c_0(1-q_0)S_c}{(1-q_{\rm cap})S}.
 \]
-其最严格处为 $S=S^*$，即式\eqref{eq:joint:feasibility}。条件成立时取 $c_c=(c^{-}+c^{+})/2$，由定理~\ref{thm:joint:representation}得到可行控制；条件不成立时，启动状态附近不存在允许控制。
+其最严格处为 $S=S^*$，即式\eqref{eq:joint:feasibility}。由式\eqref{eq:s1:qmax}，$\beta c_0(1-q_{\max})S^*/N=\gamma$，故该式等价于 $c_{\min}(1-q_{\rm cap})\le c_0(1-q_{\max})$。条件成立时取 $c_c=(c^{-}+c^{+})/2$，由定理~\ref{thm:joint:representation}得到可行控制；条件不成立时，启动状态附近不存在允许控制。
 \end{proof}
 减少接触扩大了可行范围：仅隔离控制的条件 $q_{\max}\le q_{\rm cap}$ 即 $c_0(1-q_{\rm cap})\le c_0(1-q_{\max})$，而推论中的条件只是把左端的 $c_0$ 换成 $c_{\min}$。当 $q_{\rm cap}<q_{\max}$ 而式\eqref{eq:joint:feasibility}成立时，启动后的一段时间内必须同时减少接触：由式\eqref{eq:joint:bounds}，只要 $S>(1-q_0)S_c/(1-q_{\rm cap})$，就有 $c^{+}(S)<c_0$。易感者降到这一水平以下后，$c_c=c_0$ 重新落入允许区间。若式\eqref{eq:joint:feasibility}不成立，等到 $I=\eta$ 才启动的阈值策略不可行；提前干预会改变启动状态，其可行性需另行分析。
 
@@ -101,29 +98,29 @@ q_c(S;\alpha)&=1-\frac{(1-q_0)S_c}{S_c+\alpha(S-S_c)}.
 设 $c_c$、$c_c^{(1)}$、$c_c^{(2)}$ 是 $\mathcal A(\eta)$ 中控制的状态函数。
 \begin{enumerate}
 \renewcommand{\labelenumi}{(\roman{enumi})}
-\item 若 $c_c^{(1)}(S)\ge c_c^{(2)}(S)$ 几乎处处成立，则 $\Delta t[c_c^{(1)}]\le\Delta t[c_c^{(2)}]$；若前一不等式在正测度集合上严格成立，则后一不等式严格。特别地，
+\item 若 $c_c^{(1)}(S)\ge c_c^{(2)}(S)$ 几乎处处成立，则 $\Delta t[c_c^{(1)}]\le\Delta t[c_c^{(2)}]$，且前一不等式在正测度集合上严格成立时后一不等式严格；特别地，
 \begin{equation}
 \frac{N}{c_0\eta}\ln\frac{S^*-\bar S}{S_c-\bar S}
 \le\Delta t[c_c]\le
 \frac{N(S^*-S_c)}{c_0\eta(S_c-\bar S)},
 \label{eq:joint:duration-bounds}
 \end{equation}
-左侧等号当且仅当 $c_c(S)=c_0$ 几乎处处，即仅隔离控制；右侧等号当且仅当 $c_c(S)=c_0S_c/S$ 几乎处处，即仅减少接触。
-\item 显式族的 $\Delta t(\alpha)$ 在 $[0,1]$ 上严格递减。
+左侧等号成立当且仅当 $c_c(S)=c_0$ 几乎处处（仅隔离控制），右侧等号成立当且仅当 $c_c(S)=c_0S_c/S$ 几乎处处（仅减少接触）；
+\item 显式族的 $\Delta t(\alpha)$ 在 $[0,1]$ 上严格递减；
 \item 沿 $c_c$ 对应的控制，阈值控制期累计新增感染与新增隔离易感者人数分别满足
 \begin{align}
 \Itcum(t_2)-\Itcum(t_1)
 &=\beta(S^*-S_c)+\gamma\eta(1-\beta)\Delta t,
 \label{eq:joint:cumulative}\\
 S_q(t_2)-S_q(t_1)
-&=(1-\beta)\bigl[S^*-S_c-\gamma\eta\Delta t\bigr].
+&=(1-\beta)\bigl[S^*-S_c-\gamma\eta\Delta t\bigr];
 \label{eq:joint:quarantine}
 \end{align}
 \item 阈值控制期累计新增感染是控制时长的严格增函数，新增隔离易感者人数是控制时长的严格减函数。
 \end{enumerate}
 \end{theorem}
 \begin{proof}
-(i) 式\eqref{eq:joint:duration}的被积函数关于 $c_c(S)$ 严格递减，故得到一般排序。由式\eqref{eq:joint:contact-range}又有
+(i) 式\eqref{eq:joint:duration}的被积函数关于 $c_c(S)$ 严格递减。$c_c^{(1)}\ge c_c^{(2)}$ 几乎处处成立时，两被积函数之差几乎处处非负，积分即得 $\Delta t[c_c^{(1)}]\le\Delta t[c_c^{(2)}]$；差在正测度集合上为正时，不等式严格。由式\eqref{eq:joint:contact-range}又有
 \[
 \frac1{c_0(S-\bar S)}\le
 \frac1{c_c(S)S-c_0\bar S}\le
@@ -149,15 +146,22 @@ S^*-S_c=\Itcum(t_2)-\Itcum(t_1)+S_q(t_2)-S_q(t_1),
 被追踪的接触者中比例 $\beta$ 已感染、$1-\beta$ 未感染，追踪隔离因而也把未感染者移出社区，加快 $S$ 的下降。控制越快，未被追踪的感染越少、被追踪的接触者越多，因而控制期感染越少、被隔离的未感染者越多；不考虑能力约束时，两端分别是仅隔离控制与仅减少接触。这一同序与反序依赖于各控制在同一状态 $(S^*,\eta)$ 进入、$(S_c,\eta)$ 退出，以及隔离易感者不返回社区；隔离易感者返回的情形不在本定理范围内。
 \begin{corollaryn}
 \label{cor:joint:capped-comparison}
-设式\eqref{eq:joint:feasibility}成立，则 $\mathcal A(\eta;c_{\min},q_{\rm cap})$ 中的任一控制满足
+设式\eqref{eq:joint:feasibility}成立，则
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\roman{enumi})}
+\item $\mathcal A(\eta;c_{\min},q_{\rm cap})$ 中的任一控制满足
 \begin{equation}
 \Delta t[c^{+}]\le\Delta t[c_c]\le\Delta t[c^{-}],
 \label{eq:joint:capped-duration}
 \end{equation}
-其中两端由式\eqref{eq:joint:duration}分别代入 $c^{+}(S)$、$c^{-}(S)$ 计算，且均可达到；达到左、右等号分别要求 $c_c=c^{+}$、$c_c=c^{-}$ 几乎处处成立。这两个控制分别使阈值控制期累计新增感染在该控制类中最少和最多。
+其中两端由式\eqref{eq:joint:duration}分别代入 $c^{+}(S)$、$c^{-}(S)$ 计算，均可达到，且达到左、右等号分别要求 $c_c=c^{+}$、$c_c=c^{-}$ 几乎处处成立；
+\item $c^{+}$ 与 $c^{-}$ 对应的控制分别使阈值控制期累计新增感染在该控制类中最少和最多。
+\end{enumerate}
 \end{corollaryn}
 \begin{proof}
-由推论~\ref{cor:joint:feasibility}(i)，可行控制满足 $c^{-}\le c_c\le c^{+}$；按定理~\ref{thm:joint:comparison}(i) 的方式在式\eqref{eq:joint:duration}中比较，即得式\eqref{eq:joint:capped-duration}及等号条件。两个边界函数连续且满足能力约束，由定理~\ref{thm:joint:representation}对应可行控制，故两端均可达到。感染的结论由定理~\ref{thm:joint:comparison}(iv) 得到。
+(i) 由推论~\ref{cor:joint:feasibility}(i)，可行控制满足 $c^{-}\le c_c\le c^{+}$；按定理~\ref{thm:joint:comparison}(i) 的方式在式\eqref{eq:joint:duration}中比较，即得式\eqref{eq:joint:capped-duration}及等号条件。两个边界函数连续且满足能力约束，由定理~\ref{thm:joint:representation}对应可行控制，故两端均可达到。
+
+(ii) 由 (i) 与定理~\ref{thm:joint:comparison}(iv) 得到。
 \end{proof}
 \begin{corollaryn}
 \label{cor:joint:whole-epidemic}
@@ -187,8 +191,8 @@ t_{\rm end}^{(1)}-t_{\rm end}^{(2)}
 对能力约束下的控制类 $\mathcal A(\eta;c_{\min},q_{\rm cap})$，
 \begin{enumerate}
 \renewcommand{\labelenumi}{(\roman{enumi})}
-\item 若 $q_{\rm cap}\ge q_{\max}$，则 $c^{+}(S)\equiv c_0$。因此无论 $c_{\min}$ 取何值，仅隔离控制都是该控制类中控制时长最短、累计新增感染最少的控制。
-\item 若 $c_{\min}\le c_0S_c/S^*$，则 $c^{-}(S)=c_0S_c/S$。因此无论 $q_{\rm cap}$ 取何值，仅减少接触都使该控制类中的新增隔离易感者人数最少。
+\item 若 $q_{\rm cap}\ge q_{\max}$，则 $c^{+}(S)\equiv c_0$，因此无论 $c_{\min}$ 取何值，仅隔离控制都是该控制类中控制时长最短、累计新增感染最少的控制；
+\item 若 $c_{\min}\le c_0S_c/S^*$，则 $c^{-}(S)=c_0S_c/S$，因此无论 $q_{\rm cap}$ 取何值，仅减少接触都使该控制类中的新增隔离易感者人数最少。
 \end{enumerate}
 \end{corollaryn}
 \begin{proof}
@@ -200,7 +204,7 @@ t_{\rm end}^{(1)}-t_{\rm end}^{(2)}
 在常规传播临界值退出，还给退出时刻的累计新增感染设定了与控制组合无关的下界。易感者的每次移出要么是感染，要么是未感染接触者被隔离；感染在移出者中所占的比例至少为 $\beta$，全部接触者都被追踪时恰为 $\beta$。
 \begin{proposition}
 \label{prop:exit-infection-lower-bound}
-对于模型\eqref{eq:model:full}，设控制满足命题~\ref{prop:model:positive}的条件，且某一有限时刻 $T$ 满足 $S(T)=S_c<S_0$，则
+设控制满足命题~\ref{prop:model:positive}的条件，模型\eqref{eq:model:full}的解在某一有限时刻 $T$ 满足 $S(T)=S_c<S_0$，则
 \begin{enumerate}
 \renewcommand{\labelenumi}{(\roman{enumi})}
 \item 退出时刻的累计新增感染满足
@@ -222,6 +226,6 @@ t_{\rm end}^{(1)}-t_{\rm end}^{(2)}
 \frac{d\Itcum}{dt}
 =\frac{\beta}{\beta+(1-\beta)q(t)}(-\dot S).
 \]
-$-\dot S\ge0$。由 $q\le1$，比例系数不小于 $\beta$；若 $q\le q_{\rm cap}$，它不小于 $\beta/[\beta+(1-\beta)q_{\rm cap}]$。在 $[0,T]$ 上积分即得 (i)(ii)。
+又 $-\dot S\ge0$，而由 $q\le1$，比例系数不小于 $\beta$；若 $q\le q_{\rm cap}$，它不小于 $\beta/[\beta+(1-\beta)q_{\rm cap}]$。在 $[0,T]$ 上积分即得 (i)(ii)。
 \end{proof}
 由定理~\ref{thm:s1:tend}，在常规传播临界值退出后保持常规控制，$S$、$I$ 严格递减，非隔离感染者不再上升；代价就是这一下界。控制组合只改变式\eqref{eq:joint:cumulative}中与 $\Delta t$ 成正比的一项，因此不能绕开它；西安参数下的下界见第~\ref{sec:xian:threshold-scale}~节。
