@@ -9,7 +9,7 @@
       "label": "fig:joint:phase",
       "tex": "paper/sections/06_numerics.tex",
       "width": "\\textwidth",
-      "sha256": "c5792d01167928cc9e426e9297926e50fe5d403494b44ac4db533eab696a4163",
+      "sha256": "302cfa6358074f14d3c6335686f4a020f53b8cd34185eef93b21838d932fb5f0",
       "approved_preview_sha256": "c5792d01167928cc9e426e9297926e50fe5d403494b44ac4db533eab696a4163",
       "size_mm": [
         159.79700916666667,
@@ -19,14 +19,22 @@
         "CGMMQU+Cmr10",
         "CGMMQU+Cmsy10",
         "GYUURQ+Cmmi10"
-      ]
+      ],
+      "author_approved_colorbar_cleanup": true,
+      "colorbar_cleanup": {
+        "authorization": "作者点名去除正文色柱辅助线并缩短补充S4/S6/S8色柱间隙",
+        "base_commit": "9b45450bde7ccd53762674ddfe8dc92db4e4c050",
+        "previous_receipt": "nr_audit/results/new4t_figures/Main6.receipt.json",
+        "previous_pdf_sha256": "c5792d01167928cc9e426e9297926e50fe5d403494b44ac4db533eab696a4163",
+        "new_scientific_solves": 0
+      }
     },
     "paper/figures/new4t/Main8.pdf": {
       "figure": "Main8",
       "label": "fig:xian:joint",
       "tex": "paper/sections/07_xian.tex",
       "width": "\\textwidth",
-      "sha256": "a79e2c4757bff8780ced9f5ba687e7bdd9ed960e7f05f69120b28fa7d8ac65c4",
+      "sha256": "588f8539df80ed2304b48db7117a95e4fb422201c6e2a4af3bfc7c1bbe621e0a",
       "approved_preview_sha256": "a79e2c4757bff8780ced9f5ba687e7bdd9ed960e7f05f69120b28fa7d8ac65c4",
       "size_mm": [
         159.79700916666667,
@@ -36,7 +44,15 @@
         "CGMMQU+Cmr10",
         "CGMMQU+Cmsy10",
         "GYUURQ+Cmmi10"
-      ]
+      ],
+      "author_approved_colorbar_cleanup": true,
+      "colorbar_cleanup": {
+        "authorization": "作者点名去除正文色柱辅助线并缩短补充S4/S6/S8色柱间隙",
+        "base_commit": "9b45450bde7ccd53762674ddfe8dc92db4e4c050",
+        "previous_receipt": "nr_audit/results/new4t_figures/Main8.receipt.json",
+        "previous_pdf_sha256": "a79e2c4757bff8780ced9f5ba687e7bdd9ed960e7f05f69120b28fa7d8ac65c4",
+        "new_scientific_solves": 0
+      }
     },
     "paper/figures/new4t/S1.pdf": {
       "figure": "S1",
@@ -91,7 +107,7 @@
       "label": "fig:scenario1_heatmaps_c0_eta",
       "tex": "paper/supplement_sections/S2_single_control.tex",
       "width": "0.8\\textwidth",
-      "sha256": "5b1848d38baa271282f268681c142452a7540cee7515de041b2f3d78c503b0be",
+      "sha256": "91dfa0e213722b6e9a192c77748e82635fe6d405b7afc34b4efffcd5c5bc0ba2",
       "approved_preview_sha256": "5b1848d38baa271282f268681c142452a7540cee7515de041b2f3d78c503b0be",
       "size_mm": [
         127.83760733333332,
@@ -100,7 +116,15 @@
       "fonts": [
         "CGMMQU+Cmr10",
         "GYUURQ+Cmmi10"
-      ]
+      ],
+      "author_approved_colorbar_cleanup": true,
+      "colorbar_cleanup": {
+        "authorization": "作者点名去除正文色柱辅助线并缩短补充S4/S6/S8色柱间隙",
+        "base_commit": "9b45450bde7ccd53762674ddfe8dc92db4e4c050",
+        "previous_receipt": "nr_audit/results/new4t_figures/S4.receipt.json",
+        "previous_pdf_sha256": "5b1848d38baa271282f268681c142452a7540cee7515de041b2f3d78c503b0be",
+        "new_scientific_solves": 0
+      }
     },
     "paper/figures/new4t/S5.pdf": {
       "figure": "S5",
@@ -123,7 +147,7 @@
       "label": "fig:sup:phase-detail",
       "tex": "paper/supplement_sections/S5_weight_structure.tex",
       "width": "\\textwidth",
-      "sha256": "df64148eeacb9a2526953e1df4121d426d3507009bf4601cd4500e70af18144d",
+      "sha256": "b2cd01a69b9112b71cf11d6b30dc0e14dc051a6ab0ec76401514155244b358bb",
       "approved_preview_sha256": "df64148eeacb9a2526953e1df4121d426d3507009bf4601cd4500e70af18144d",
       "size_mm": [
         159.79700916666667,
@@ -133,14 +157,22 @@
         "CGMMQU+Cmr10",
         "CGMMQU+Cmsy10",
         "GYUURQ+Cmmi10"
-      ]
+      ],
+      "author_approved_colorbar_cleanup": true,
+      "colorbar_cleanup": {
+        "authorization": "作者点名去除正文色柱辅助线并缩短补充S4/S6/S8色柱间隙",
+        "base_commit": "9b45450bde7ccd53762674ddfe8dc92db4e4c050",
+        "previous_receipt": "nr_audit/results/new4t_figures/S6.receipt.json",
+        "previous_pdf_sha256": "df64148eeacb9a2526953e1df4121d426d3507009bf4601cd4500e70af18144d",
+        "new_scientific_solves": 0
+      }
     },
     "paper/figures/new4t/S8.pdf": {
       "figure": "S8",
       "label": "fig:xian_heatmaps",
       "tex": "paper/supplement_sections/S6_xian.tex",
       "width": "0.8\\textwidth",
-      "sha256": "60ec03a3dd6029f78d05f2504c44e526100dec56bcfacad0aeeaac669957bcad",
+      "sha256": "a4294da0a542f4f41b9390f3c0b30aaf8a1a830287ba2a74e5c116af81c29e41",
       "approved_preview_sha256": "9efd92093b83d7ef6e558dbb99064bbb1447b810f5affac850fbf10839ac2809",
       "size_mm": [
         127.83760733333332,
@@ -164,6 +196,14 @@
           "field": "I_peak_T",
           "value": 152.54629678969766
         },
+        "new_scientific_solves": 0
+      },
+      "author_approved_colorbar_cleanup": true,
+      "colorbar_cleanup": {
+        "authorization": "作者点名去除正文色柱辅助线并缩短补充S4/S6/S8色柱间隙",
+        "base_commit": "9b45450bde7ccd53762674ddfe8dc92db4e4c050",
+        "previous_receipt": "nr_audit/results/new4t_figures/S8_reference_corrected.receipt.json",
+        "previous_pdf_sha256": "60ec03a3dd6029f78d05f2504c44e526100dec56bcfacad0aeeaac669957bcad",
         "new_scientific_solves": 0
       }
     }
@@ -261,15 +301,15 @@
     }
   },
   "figure_receipts": {
-    "Main6": "nr_audit/results/new4t_figures/Main6.receipt.json",
-    "Main8": "nr_audit/results/new4t_figures/Main8.receipt.json",
+    "Main6": "nr_audit/results/new4t_figures/Main6_colorbar_cleanup.receipt.json",
+    "Main8": "nr_audit/results/new4t_figures/Main8_colorbar_cleanup.receipt.json",
     "S1": "nr_audit/results/new4t_figures/S1.receipt.json",
     "S2": "nr_audit/results/new4t_figures/S2.receipt.json",
     "S3": "nr_audit/results/new4t_figures/S3.receipt.json",
-    "S4": "nr_audit/results/new4t_figures/S4.receipt.json",
+    "S4": "nr_audit/results/new4t_figures/S4_colorbar_cleanup.receipt.json",
     "S5": "nr_audit/results/new4t_figures/S5.receipt.json",
-    "S6": "nr_audit/results/new4t_figures/S6.receipt.json",
-    "S8": "nr_audit/results/new4t_figures/S8_reference_corrected.receipt.json"
+    "S6": "nr_audit/results/new4t_figures/S6_colorbar_cleanup.receipt.json",
+    "S8": "nr_audit/results/new4t_figures/S8_colorbar_cleanup.receipt.json"
   },
   "materials": {
     "nr_audit/results/new4t_figures/parula256.json": {
@@ -343,6 +383,21 @@
     },
     "nr_audit/results/new4t_figures/S8_reference_corrected.receipt.json": {
       "sha256": "d3d84deb66b1d6bce871a4da255f7c464dbeb7827f7cc8f419395ef08a21074d"
+    },
+    "nr_audit/results/new4t_figures/Main6_colorbar_cleanup.receipt.json": {
+      "sha256": "498b8c14bf8fe0adc480c47ab643cec3f9225017d0a6c1f2b94835b6e2828213"
+    },
+    "nr_audit/results/new4t_figures/Main8_colorbar_cleanup.receipt.json": {
+      "sha256": "15b2fcaf0f0727058ef830eafbd85beffee5fb9972bfbd5166bbe75a114c3cde"
+    },
+    "nr_audit/results/new4t_figures/S4_colorbar_cleanup.receipt.json": {
+      "sha256": "b64a2f3c36717157bd30f9af8b92c328df27027301553804296d43124c941a20"
+    },
+    "nr_audit/results/new4t_figures/S6_colorbar_cleanup.receipt.json": {
+      "sha256": "f5825eb60f9fa3cd0d11c6c92864730e98851c8eab63df18b2026bd67c83a1ef"
+    },
+    "nr_audit/results/new4t_figures/S8_colorbar_cleanup.receipt.json": {
+      "sha256": "8b6f77ae854f513af5880e2fc31684a348f2d1763c4cc88e2df6521968db9801"
     }
   },
   "style_reference_inputs": {

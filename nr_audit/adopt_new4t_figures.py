@@ -75,8 +75,9 @@ def remap_cache_paths(value):
 def adopt():
     if MANIFEST.exists():
         current_manifest = json.loads(MANIFEST.read_text(encoding='utf-8'))
-        if any(row.get('author_approved_reference_fix') for row in current_manifest['outputs'].values()):
-            raise ValueError('S8已接收作者确认的参照线纠错，不能用旧九图预览覆盖；请运行默认核验。')
+        if any(row.get('author_approved_reference_fix') or row.get('author_approved_colorbar_cleanup')
+               for row in current_manifest['outputs'].values()):
+            raise ValueError('已接收作者确认的后续修正，不能用旧九图预览覆盖；请运行默认核验。')
     ASSETS.mkdir(parents=True, exist_ok=True)
     MATERIALS.mkdir(parents=True, exist_ok=True)
     imported = {}
@@ -164,14 +165,20 @@ def verify(manifest):
         require(path, rec)
     for path, rec in manifest['outputs'].items():
         assert digest((ROOT / path).read_bytes()) == rec['sha256'], path
+        if rec.get('author_approved_colorbar_cleanup'):
+            receipt = json.loads((ROOT / manifest['figure_receipts'][rec['figure']]).read_text(encoding='utf-8'))
+            assert receipt['author_approved_colorbar_cleanup'] is True
+            assert receipt['output_sha256'][rec['figure'] + '.pdf'] == rec['sha256']
+            previous = json.loads((ROOT / rec['colorbar_cleanup']['previous_receipt']).read_text(encoding='utf-8'))
+            assert previous['output_sha256'][rec['figure'] + '.pdf'] == rec['colorbar_cleanup']['previous_pdf_sha256']
+        elif not rec.get('author_approved_reference_fix'):
+            assert rec['sha256'] == rec['approved_preview_sha256'], path
         if rec.get('author_approved_reference_fix'):
             assert rec['figure'] == 'S8'
             assert rec['reference_fix']['previous_pdf_sha256'] == rec['approved_preview_sha256']
             receipt = json.loads((ROOT / manifest['figure_receipts']['S8']).read_text(encoding='utf-8'))
             reference = json.loads((ROOT / receipt['checks']['reference_fix_source']['path']).read_text(encoding='utf-8'))
             assert receipt['checks']['reference_positions'][0] == reference['I_peak_T']
-        else:
-            assert rec['sha256'] == rec['approved_preview_sha256'], path
         assert f"\\includegraphics[width={rec['width']}]{{{path.removeprefix('paper/')}}}" in (ROOT / rec['tex']).read_text(encoding='utf-8'), path
     return dict(figures=len(manifest['outputs']), portable_inputs=len(manifest['inputs']),
                 materials=len(manifest['materials']), new_scientific_solves=0)
@@ -225,14 +232,80 @@ def adopt_s8_reference_fix(preview_dir):
     return manifest
 
 
+def adopt_colorbar_cleanup(preview_dir):
+    """接收点名五图的色柱整理；既有科学检查、批准历史和其他图件保持。"""
+    manifest = json.loads(MANIFEST.read_text(encoding='utf-8'))
+    verify(manifest)
+    staged = []
+    for name in ('Main6', 'Main8', 'S4', 'S6', 'S8'):
+        relative = f'paper/figures/new4t/{name}.pdf'
+        current = manifest['outputs'][relative]
+        assert not current.get('author_approved_colorbar_cleanup'), f'{name}色柱整理已接收'
+        previous_path = manifest['figure_receipts'][name]
+        previous = json.loads((ROOT / previous_path).read_text(encoding='utf-8'))
+        receipt = json.loads((preview_dir / f'{name}.receipt.json').read_text(encoding='utf-8'))
+        checks = copy.deepcopy(receipt['checks'])
+        style = checks.pop('colorbar_style' if name.startswith('Main') else 'colorbar_layout')
+        assert checks == previous['checks'], f'{name}色柱之外的检查发生变化'
+        axes = copy.deepcopy(previous['axes'])
+        if name.startswith('Main'):
+            index = 1 if name == 'Main6' else len(axes) - 1
+            assert axes[index]['lines'] == style['auxiliary_lines_before'] == 9
+            axes[index]['lines'] = 0
+            assert style['auxiliary_lines_after'] == 0
+        else:
+            assert all(row['after_gap_mm'] < row['before_gap_mm'] for row in style['pairs'])
+        assert axes == receipt['axes'], f'{name}绘图区内容或坐标变化'
+        inputs = {}
+        for path, expected in receipt['inputs'].items():
+            if Path(path).is_absolute():
+                assert previous['style_reference_inputs'][path] == expected
+                continue
+            raw = raw_input(path)
+            assert digest(raw) == expected, path
+            inputs[path] = record(raw, text=path.startswith('nr_audit/') and Path(path).suffix in {'.json', '.py'})
+        assert all(inputs[path] == identity for path, identity in previous['inputs'].items())
+        extra = inputs.keys() - previous['inputs'].keys()
+        assert extra <= {'nr_audit/results/new4t_figures/style_reference_sha256.json'}
+        assert all(inputs[path] == manifest['inputs'][path] for path in extra)
+        raw_pdf = (preview_dir / f'{name}.pdf').read_bytes()
+        actual = digest(raw_pdf)
+        assert actual == receipt['output_sha256'][f'{name}.pdf']
+        change = dict(authorization='作者点名去除正文色柱辅助线并缩短补充S4/S6/S8色柱间隙',
+                      base_commit='9b45450bde7ccd53762674ddfe8dc92db4e4c050',
+                      previous_receipt=previous_path, previous_pdf_sha256=current['sha256'],
+                      new_scientific_solves=0)
+        receipt.update(preview_only=False, inputs=inputs, formal_pdf=relative,
+                       style_reference_inputs=previous['style_reference_inputs'],
+                       approved_preview_sha256=current['approved_preview_sha256'],
+                       author_approved_colorbar_cleanup=True, colorbar_cleanup=change)
+        if current.get('author_approved_reference_fix'):
+            receipt.update(author_approved_reference_fix=True, reference_fix=current['reference_fix'])
+        staged.append((name, relative, current, receipt, raw_pdf, actual, change))
+    for name, relative, current, receipt, raw_pdf, actual, change in staged:
+        final_receipt = MATERIALS / f'{name}_colorbar_cleanup.receipt.json'
+        write_json(final_receipt, receipt)
+        receipt_rel = final_receipt.relative_to(ROOT).as_posix()
+        manifest['materials'][receipt_rel] = record(final_receipt.read_bytes())
+        manifest['figure_receipts'][name] = receipt_rel
+        current.update(sha256=actual, author_approved_colorbar_cleanup=True, colorbar_cleanup=change)
+        (ROOT / relative).write_bytes(raw_pdf)
+    write_json(MANIFEST, manifest)
+    return manifest
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument('--adopt', action='store_true', help='逐字节接收当前已确认的九图')
     mode.add_argument('--fix-s8-reference', type=Path, metavar='PREVIEW_DIR',
                       help='仅接收作者批准的S8参照线修正预览')
+    mode.add_argument('--colorbar-cleanup', type=Path, metavar='PREVIEW_DIR',
+                      help='接收正文6/8与补充S4/S6/S8的色柱整理')
     args = parser.parse_args()
-    if args.fix_s8_reference:
+    if args.colorbar_cleanup:
+        manifest = adopt_colorbar_cleanup(args.colorbar_cleanup)
+    elif args.fix_s8_reference:
         manifest = adopt_s8_reference_fix(args.fix_s8_reference)
     else:
         manifest = adopt() if args.adopt else json.loads(MANIFEST.read_text(encoding='utf-8'))

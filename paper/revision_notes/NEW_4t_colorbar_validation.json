@@ -1,0 +1,328 @@
+{
+  "phase": "NEW-4t colorbar cleanup",
+  "figure_base_commit": "9b45450bde7ccd53762674ddfe8dc92db4e4c050",
+  "build_base_commit": "d2e0ba74a887801b25058d80777cf9c2d503820d",
+  "new_scientific_solves": 0,
+  "original_scientific_checks_identical": true,
+  "other_four_figures_byte_identical": true,
+  "all_existing_materials_preserved": true,
+  "changes": {
+    "Main6": {
+      "auxiliary_lines_before": 9,
+      "auxiliary_lines_after": 0,
+      "plot_geometry_unchanged": true,
+      "position_unchanged": true
+    },
+    "Main8": {
+      "auxiliary_lines_before": 9,
+      "auxiliary_lines_after": 0,
+      "plot_geometry_unchanged": true,
+      "position_unchanged": true
+    },
+    "S4": {
+      "gap_to_panel_width": 0.031349999999999996,
+      "panel_geometry_unchanged": true,
+      "colorbar_width_height_unchanged": true,
+      "pairs": [
+        {
+          "panel_bounds": [
+            0.10950598136894064,
+            0.5800862068965517,
+            0.28153983840215524,
+            0.3599137931034483
+          ],
+          "before_bounds": [
+            0.42936886642769,
+            0.5800862068965517,
+            0.014874831051301662,
+            0.3599137931034483
+          ],
+          "after_bounds": [
+            0.39987209370500343,
+            0.5800862068965517,
+            0.014874831051301662,
+            0.3599137931034483
+          ],
+          "before_gap_mm": 4.899126590302694,
+          "after_gap_mm": 1.1283297413793096
+        },
+        {
+          "panel_bounds": [
+            0.6052622838899491,
+            0.5800862068965517,
+            0.28153983840215513,
+            0.3599137931034483
+          ],
+          "before_bounds": [
+            0.9251251689486983,
+            0.5800862068965517,
+            0.014874831051301607,
+            0.3599137931034483
+          ],
+          "after_bounds": [
+            0.8956283962260118,
+            0.5800862068965517,
+            0.014874831051301607,
+            0.3599137931034483
+          ],
+          "before_gap_mm": 4.899126590302694,
+          "after_gap_mm": 1.1283297413793096
+        },
+        {
+          "panel_bounds": [
+            0.10950598136894067,
+            0.10499999999999998,
+            0.28153983840215513,
+            0.35991379310344823
+          ],
+          "before_bounds": [
+            0.42936886642769,
+            0.10499999999999998,
+            0.014874831051301662,
+            0.35991379310344823
+          ],
+          "after_bounds": [
+            0.3998720937050034,
+            0.10499999999999998,
+            0.014874831051301662,
+            0.35991379310344823
+          ],
+          "before_gap_mm": 4.899126590302701,
+          "after_gap_mm": 1.1283297413793096
+        },
+        {
+          "panel_bounds": [
+            0.6052622838899491,
+            0.10499999999999998,
+            0.28153983840215513,
+            0.35991379310344823
+          ],
+          "before_bounds": [
+            0.9251251689486983,
+            0.10499999999999998,
+            0.014874831051301607,
+            0.35991379310344823
+          ],
+          "after_bounds": [
+            0.8956283962260118,
+            0.10499999999999998,
+            0.014874831051301607,
+            0.35991379310344823
+          ],
+          "before_gap_mm": 4.899126590302694,
+          "after_gap_mm": 1.1283297413793096
+        }
+      ]
+    },
+    "S6": {
+      "gap_to_panel_width": 0.031349999999999996,
+      "panel_geometry_unchanged": true,
+      "colorbar_width_height_unchanged": true,
+      "pairs": [
+        {
+          "panel_bounds": [
+            0.49947995934177636,
+            0.135,
+            0.3564462514766077,
+            0.775
+          ],
+          "before_bounds": [
+            0.9239599186835525,
+            0.135,
+            0.016040081316447408,
+            0.775
+          ],
+          "after_bounds": [
+            0.8671008008021757,
+            0.135,
+            0.016040081316447408,
+            0.775
+          ],
+          "before_gap_mm": 10.871583039372652,
+          "after_gap_mm": 1.7856660580736905
+        }
+      ]
+    },
+    "S8": {
+      "gap_to_panel_width": 0.031349999999999996,
+      "panel_geometry_unchanged": true,
+      "colorbar_width_height_unchanged": true,
+      "pairs": [
+        {
+          "panel_bounds": [
+            0.085,
+            0.5800862068965517,
+            0.30080213903743325,
+            0.3599137931034483
+          ],
+          "before_bounds": [
+            0.4612433155080215,
+            0.5800862068965517,
+            0.013536096256684504,
+            0.3599137931034483
+          ],
+          "after_bounds": [
+            0.3952322860962568,
+            0.5800862068965517,
+            0.013536096256684504,
+            0.3599137931034483
+          ],
+          "before_gap_mm": 9.644219494411765,
+          "after_gap_mm": 1.2055274368014741
+        },
+        {
+          "panel_bounds": [
+            0.5502205882352942,
+            0.5800862068965517,
+            0.30080213903743325,
+            0.3599137931034483
+          ],
+          "before_bounds": [
+            0.9264639037433157,
+            0.5800862068965517,
+            0.013536096256684504,
+            0.3599137931034483
+          ],
+          "after_bounds": [
+            0.8604528743315509,
+            0.5800862068965517,
+            0.013536096256684504,
+            0.3599137931034483
+          ],
+          "before_gap_mm": 9.644219494411765,
+          "after_gap_mm": 1.205527436801467
+        },
+        {
+          "panel_bounds": [
+            0.085,
+            0.10499999999999998,
+            0.30080213903743325,
+            0.35991379310344823
+          ],
+          "before_bounds": [
+            0.4612433155080215,
+            0.10499999999999998,
+            0.013536096256684504,
+            0.35991379310344823
+          ],
+          "after_bounds": [
+            0.3952322860962568,
+            0.10499999999999998,
+            0.013536096256684504,
+            0.35991379310344823
+          ],
+          "before_gap_mm": 9.644219494411765,
+          "after_gap_mm": 1.2055274368014741
+        },
+        {
+          "panel_bounds": [
+            0.5502205882352942,
+            0.10499999999999998,
+            0.30080213903743325,
+            0.35991379310344823
+          ],
+          "before_bounds": [
+            0.9264639037433157,
+            0.10499999999999998,
+            0.013536096256684504,
+            0.35991379310344823
+          ],
+          "after_bounds": [
+            0.8604528743315509,
+            0.10499999999999998,
+            0.013536096256684504,
+            0.35991379310344823
+          ],
+          "before_gap_mm": 9.644219494411765,
+          "after_gap_mm": 1.205527436801467
+        }
+      ]
+    }
+  },
+  "build": {
+    "flatten_curve_analysis_cn": {
+      "pages": 36,
+      "warnings": {
+        "undefined": 0,
+        "duplicate_labels": 0,
+        "overfull": 0,
+        "missing_characters": 0,
+        "unstable_cross_references": 0
+      },
+      "pdf_sha256": "9e52e5555e366bfdacc1e4b4c74a456aaa9668618080bdb25e848656a07ab73a"
+    },
+    "flatten_curve_supplement_cn": {
+      "pages": 20,
+      "warnings": {
+        "undefined": 0,
+        "duplicate_labels": 0,
+        "overfull": 0,
+        "missing_characters": 0,
+        "unstable_cross_references": 0
+      },
+      "pdf_sha256": "88fefdbfd4ebb4f680d02799b26142bb4b466f76ab4577e1c561922dbc1e59b1"
+    }
+  },
+  "pytest": {
+    "passed": 31,
+    "failed": 0,
+    "errors": 0,
+    "report": "paper/revision_notes/NEW_4t_colorbar_pytest.xml",
+    "initial_attempt": {
+      "passed": 29,
+      "failed": 2,
+      "cause": "历史测试未适配作者确认的当前图替代链"
+    }
+  },
+  "build_passes": 2,
+  "initial_supplement_undefined": 101,
+  "uncommitted_text_edits_excluded": true,
+  "push_performed": false,
+  "inspected_pages": {
+    "main": [
+      21,
+      23
+    ],
+    "supplement": [
+      5,
+      11,
+      14
+    ]
+  },
+  "page_inspection_passed": true,
+  "earlier_isolated_build": {
+    "base_commit": "21643f3d315ab5aa831217b44d6b11b44421391f",
+    "build": {
+      "flatten_curve_analysis_cn": {
+        "pages": 37,
+        "warnings": {
+          "undefined": 0,
+          "duplicate_labels": 0,
+          "overfull": 0,
+          "missing_characters": 0,
+          "unstable_cross_references": 0
+        },
+        "pdf_sha256": "c10a4c15941b7212a67da9dcb36468d9eb75bde68ba60a3f1556560b4bb61288"
+      },
+      "flatten_curve_supplement_cn": {
+        "pages": 20,
+        "warnings": {
+          "undefined": 0,
+          "duplicate_labels": 0,
+          "overfull": 0,
+          "missing_characters": 0,
+          "unstable_cross_references": 0
+        },
+        "pdf_sha256": "2acf429b75d8020429d1bcec193f29d648ff8f6bef1ca44cd3ee1f018e0a268f"
+      }
+    }
+  },
+  "final_build_source": "git archive d2e0ba7 paper + five corrected figure PDFs",
+  "final_pages_pixel_identical_to_previously_inspected": {
+    "main_21": true,
+    "main_23": false,
+    "supp_5": true,
+    "supp_11": true,
+    "supp_14": true
+  }
+}

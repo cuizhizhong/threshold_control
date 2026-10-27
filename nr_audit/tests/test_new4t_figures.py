@@ -52,7 +52,10 @@ def test_approved_bytes_and_current_manuscript_use(adopted, name):
     assert out['figure'] == name and out['label'] == LABELS[name]
     actual = digest((ROOT / rel).read_bytes())
     assert actual == out['sha256']
-    if out.get('author_approved_reference_fix'):
+    if out.get('author_approved_colorbar_cleanup'):
+        previous = json.loads((ROOT / out['colorbar_cleanup']['previous_receipt']).read_text(encoding='utf-8'))
+        assert previous['output_sha256'][name + '.pdf'] == out['colorbar_cleanup']['previous_pdf_sha256']
+    elif out.get('author_approved_reference_fix'):
         assert name == 'S8'
         assert out['reference_fix']['previous_pdf_sha256'] == out['approved_preview_sha256']
     else:
@@ -87,6 +90,30 @@ def test_exactly_nine_adopted_figures_and_no_new_solves(adopted):
     import figure_table_sources as mapping
     for label in LABELS.values():
         assert 'adopt_new4t_figures.py' in mapping.FIG[label][1]
+
+
+@pytest.mark.parametrize('name', ['Main6', 'Main8', 'S4', 'S6', 'S8'])
+def test_colorbar_cleanup_preserves_scientific_content(adopted, name):
+    out = adopted['outputs'][f'paper/figures/new4t/{name}.pdf']
+    if not out.get('author_approved_colorbar_cleanup'):
+        pytest.skip('尚未接收色柱整理')
+    receipt = figure_receipt(adopted, name)
+    previous = json.loads((ROOT / out['colorbar_cleanup']['previous_receipt']).read_text(encoding='utf-8'))
+    current_checks = dict(receipt['checks'])
+    style = current_checks.pop('colorbar_style' if name.startswith('Main') else 'colorbar_layout')
+    assert current_checks == previous['checks']
+    assert receipt['output_sha256'][name + '.pdf'] == out['sha256']
+    if name.startswith('Main'):
+        assert style['auxiliary_lines_before'] == 9 and style['auxiliary_lines_after'] == 0
+        assert style['plot_geometry_unchanged'] and style['position_unchanged']
+    else:
+        assert style['panel_geometry_unchanged'] and style['colorbar_width_height_unchanged']
+        assert len(style['pairs']) == (1 if name == 'S6' else 4)
+        for row in style['pairs']:
+            assert row['after_gap_mm'] < row['before_gap_mm']
+            panel_width = row['panel_bounds'][2]
+            assert abs((row['after_bounds'][0] - sum(row['panel_bounds'][::2])) / panel_width
+                       - style['gap_to_panel_width']) < 1e-12
 
 
 def test_portable_scientific_inputs_and_archived_blobs(adopted):

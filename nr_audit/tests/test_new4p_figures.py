@@ -58,7 +58,11 @@ def test_outputs_registered_and_used(receipt, name):
         # 保留以上NEW-4p历史图件校验，正式引用改核对已批准入稿的新图。
         current_rel = f'paper/figures/new4t/{ADOPTED_NEW4T[name]}.pdf'
         current = json.loads(adopted.read_text(encoding='utf-8'))['outputs'][current_rel]
-        assert sha((ROOT / current_rel).read_bytes()) == current['sha256'] == current['approved_preview_sha256']
+        assert sha((ROOT / current_rel).read_bytes()) == current['sha256']
+        if current.get('author_approved_colorbar_cleanup'):
+            assert current['colorbar_cleanup']['previous_pdf_sha256'] == current['approved_preview_sha256']
+        else:
+            assert current['sha256'] == current['approved_preview_sha256']
         assert f'\\includegraphics[width={width}]{{figures/new4t/{ADOPTED_NEW4T[name]}.pdf}}' in text
     else:
         assert f'\\includegraphics[width={width}]{{figures/new4p/{name}.pdf}}' in text

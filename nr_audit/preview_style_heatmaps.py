@@ -66,6 +66,30 @@ def math_colorbar(fig, artist, axis, label):
     return cb
 
 
+def tighten_colorbars(fig, pairs):
+    """仅平移色柱；间隙相对绘图区宽度与正文图6/8的子网格一致。"""
+    fig.canvas.draw()
+    width_mm = float(fig.get_figwidth() / MM)
+    # 正文子网格width_ratios=[1,.045]、wspace=.06的间隙比例。
+    gap_ratio = .06 * (1 + .045) / 2
+    rows = []
+    for ax, cax in pairs:
+        panel = ax.get_position().frozen()
+        before = cax.get_position().frozen()
+        gap = panel.width * gap_ratio
+        cax.set_position([panel.x1 + gap, before.y0, before.width, before.height])
+        after = cax.get_position().frozen()
+        assert np.array_equal(ax.get_position().bounds, panel.bounds)
+        assert np.allclose([after.width, after.height, after.y0],
+                           [before.width, before.height, before.y0], rtol=0, atol=1e-14)
+        rows.append(dict(panel_bounds=list(panel.bounds), before_bounds=list(before.bounds),
+                         after_bounds=list(after.bounds),
+                         before_gap_mm=float((before.x0 - panel.x1) * width_mm),
+                         after_gap_mm=float((after.x0 - panel.x1) * width_mm)))
+    return dict(gap_to_panel_width=gap_ratio, panel_geometry_unchanged=True,
+                colorbar_width_height_unchanged=True, pairs=rows)
+
+
 def four_panel_grid(height_mm, grouped=False):
     fig = plt.figure(figsize=(.8 * TEXT_WIDTH_IN, height_mm * MM))
     axes, cbaxes = [], []
@@ -229,6 +253,7 @@ def preview_s4():
                 color_limits=list(limits), contour_levels=levels,
                 background_rasterized=True, background_dpi=600,
                 text_contours_and_boundary_vector=True)
+        checks['colorbar_layout'] = tighten_colorbars(fig, zip(axes, cbaxes))
         save(fig, 'S4', checks, inputs, ROOT / 'paper/figures/scenario1_heatmaps_c0_eta.pdf')
         plt.close(fig)
 
@@ -349,6 +374,7 @@ def preview_s6():
         F2.frame_legend(legend)
         checks['legend'] = dict(panel='b', position='upper right', entries=5,
                                 fallback='若遮挡边界则删除图内图例，由现有图注说明')
+        checks['colorbar_layout'] = tighten_colorbars(fig, [(axes[1], cax)])
         save(fig, 'S6', checks, inputs, ROOT / 'paper/figures/joint_v2/joint_phase_detail.pdf')
         plt.close(fig)
 
@@ -591,6 +617,7 @@ def preview_s8():
                 contour_paths_and_inline_gaps=path_check,
                 xlim=list(ax.get_xlim()), ylim=list(ax.get_ylim()),
                 xscale=ax.get_xscale(), yscale=ax.get_yscale())
+        checks['colorbar_layout'] = tighten_colorbars(fig, zip(axes, cbaxes))
         save(fig, 'S8', checks, inputs, ROOT / 'paper/figures/xian_heatmaps.pdf')
         plt.close(fig)
 

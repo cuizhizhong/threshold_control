@@ -69,17 +69,25 @@ def main_figures():
                 elif t.get_text() == r'$r=2$':
                     t.set_color('white')
                     t.set_path_effects([pe.withStroke(linewidth=.6, foreground='#222222', alpha=.7)])
-            for line in fig.axes[-1 if name == 'Main8' else 1].lines:
-                line.set_color(P.RED)
-                line.set_linestyle('-.')
+            # 色柱只保留连续色带及数值刻度；等高线只显示在相图内。
+            colorbar_index = len(fig.axes) - 1 if name == 'Main8' else 1
+            colorbar_axis = fig.axes[colorbar_index]
+            auxiliary_count = len(colorbar_axis.lines)
+            for line in list(colorbar_axis.lines):
+                line.remove()
             fig.canvas.draw()
             after = geometry(fig)
-            assert before == after, f'{name}: geometry changed while changing color map'
+            expected = [dict(item) for item in before]
+            expected[colorbar_index]['lines'] = []
+            assert expected == after, f'{name}: geometry changed outside colorbar auxiliary lines'
             if categorical_colors is not None:
                 assert np.array_equal(categorical_colors, fig.axes[0].collections[0].get_facecolors())
             checks = dict(cached_checks=checks, geometry_unchanged=True,
                           category_colors_unchanged=name == 'Main8',
                           palette='MATLAB parula(256)', contour_style='F4: red dash-dot lines, black labels, no text halo',
+                          colorbar_style=dict(auxiliary_lines_before=auxiliary_count,
+                                              auxiliary_lines_after=len(colorbar_axis.lines),
+                                              plot_geometry_unchanged=True, position_unchanged=True),
                           geometry_sha256=hashlib.sha256(json.dumps(before, sort_keys=True).encode()).hexdigest())
             save(fig, name, checks, inputs, ROOT / f'paper/figures/new4p/{old}.pdf')
 

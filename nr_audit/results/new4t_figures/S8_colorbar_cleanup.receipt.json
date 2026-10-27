@@ -1,0 +1,2352 @@
+{
+  "figure": "S8",
+  "preview_only": false,
+  "style": {
+    "tick": 5.5,
+    "label": 6.5,
+    "title": 7.0,
+    "legend": 5.0,
+    "note": 5.5,
+    "lw_main": 1.5,
+    "lw_ref": 1.0,
+    "lw_vline": 0.6,
+    "lw_axes": 0.4,
+    "ref_alpha": 0.7
+  },
+  "old_pdf": "paper/figures/xian_heatmaps.pdf",
+  "old_pdf_sha256": "133eb77e23f013d3bb3822999145584a503c99bc1371521b1f6cf147f4862289",
+  "inputs": {
+    "reproducibility/results/20261003_release_final/xian/heatmap.csv": {
+      "sha256": "431ea0cb1b56a3387fe12ffaddd4a25ccff0df0f8a4acda56d1aa6ac27b4d2eb"
+    },
+    "reproducibility/results/20261003_release_final/xian/reference.json": {
+      "sha256": "b920deaf55f771958433ab27f32ca1606393c9ae7b96d3361aee053af097bc45"
+    },
+    "xian_control_comparison/threshold_landscape_analysis/threshold_landscape_analysis.py": {
+      "sha256": "fddf38a8dc0f1fb9a2c50289a4503ce5f71c98da2614f313be9bd499e89507bc"
+    },
+    "nr_audit/results/new4t_figures/style_reference_sha256.json": {
+      "sha256": "efc56469845f4ebdb1a06fd9634d81aa15a28beba1de61bff21d8c612b696b37",
+      "content_sha256": "ca6e78913101788af1023d98bae48912309aa6dead0ab468a21f83d24ebdad09"
+    }
+  },
+  "checks": {
+    "x": {
+      "shape": [
+        98
+      ],
+      "sha256": "0445ad979f67f15f8ca7807d08d3cece5169f1559ad07db1e27fb96a4e43e950",
+      "finite_count": 98,
+      "nan_count": 0,
+      "min": 50.0,
+      "max": 40000.0
+    },
+    "y": {
+      "shape": [
+        47
+      ],
+      "sha256": "ecc90f6ac142a4ed96f7243775b2f7e83ae5cb7b107cb51814171ec7eeb9ab35",
+      "finite_count": 47,
+      "nan_count": 0,
+      "min": 6.0,
+      "max": 13.0
+    },
+    "metrics": {
+      "control_duration": {
+        "source": {
+          "shape": [
+            47,
+            98
+          ],
+          "sha256": "8927472d4fbf955bd98854f87244ab0a155d99080dcf06c689655d27149e92b8",
+          "finite_count": 4606,
+          "nan_count": 0,
+          "min": 55.592305615094936,
+          "max": 55158.018512809416
+        },
+        "plotted": {
+          "shape": [
+            47,
+            98
+          ],
+          "sha256": "8927472d4fbf955bd98854f87244ab0a155d99080dcf06c689655d27149e92b8",
+          "finite_count": 4606,
+          "nan_count": 0,
+          "min": 55.592305615094936,
+          "max": 55158.018512809416
+        },
+        "exact_match": true,
+        "normalization": "log",
+        "color_limits": [
+          55.592305615094936,
+          55158.018512809416
+        ],
+        "contour_levels": [
+          160.0,
+          640.0,
+          2560.0,
+          10240.0,
+          40960.0
+        ],
+        "contour_paths_and_inline_gaps": {
+          "raw_paths": [
+            {
+              "level": 160.0,
+              "vertices": {
+                "shape": [
+                  50,
+                  2
+                ],
+                "sha256": "05685510a6d8e8c58d23348dd02f1fb3371acadbae5ae22d539fee80934598f6",
+                "finite_count": 100,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 17087.999503214658
+              },
+              "codes_sha256": "c6aa686fecf77dd0caabbd52c7750e18d8e67378f2d9fde3274ffb8b500ef73c"
+            },
+            {
+              "level": 640.0,
+              "vertices": {
+                "shape": [
+                  50,
+                  2
+                ],
+                "sha256": "ba0b70eb4d12566eafe578218979d1faa5252e83953eb76de69de1ab61fe6d63",
+                "finite_count": 100,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 4303.866770357399
+              },
+              "codes_sha256": "c6aa686fecf77dd0caabbd52c7750e18d8e67378f2d9fde3274ffb8b500ef73c"
+            },
+            {
+              "level": 2560.0,
+              "vertices": {
+                "shape": [
+                  49,
+                  2
+                ],
+                "sha256": "0f500f18c53ccc5beba7d31601efd0653d027abdd97ce4186a294c876cd34e5e",
+                "finite_count": 98,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 1077.3412662910941
+              },
+              "codes_sha256": "1182c16574167a7337405522060ab26dfa5d14d5d68f008c093b0a0ecb3969b5"
+            },
+            {
+              "level": 10240.0,
+              "vertices": {
+                "shape": [
+                  50,
+                  2
+                ],
+                "sha256": "13b893f5602cb6c325fdd4618407aa44c4844b10054ec7c4de8b112e241ba98e",
+                "finite_count": 100,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 269.66425256642106
+              },
+              "codes_sha256": "c6aa686fecf77dd0caabbd52c7750e18d8e67378f2d9fde3274ffb8b500ef73c"
+            },
+            {
+              "level": 40960.0,
+              "vertices": {
+                "shape": [
+                  49,
+                  2
+                ],
+                "sha256": "a8b00075cfa27af21205e6393c7b87c27083f0f451fd914220aaf2e767576512",
+                "finite_count": 98,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 67.34422694895343
+              },
+              "codes_sha256": "1182c16574167a7337405522060ab26dfa5d14d5d68f008c093b0a0ecb3969b5"
+            }
+          ],
+          "final_paths": [
+            {
+              "level": 160.0,
+              "vertices": {
+                "shape": [
+                  47,
+                  2
+                ],
+                "sha256": "6c61646ecf42313d59acff029011f106a94b380c154c824ce9f6e3f288497572",
+                "finite_count": 94,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 17087.999503214658
+              },
+              "codes_sha256": "77d5b198751000805cb7e8816c87bac5a3839a6742c049babe804e5e26db86f5"
+            },
+            {
+              "level": 640.0,
+              "vertices": {
+                "shape": [
+                  47,
+                  2
+                ],
+                "sha256": "2c9673b6a653b20da256bd68a983ed5b69fe2d3b5233ffd2f1aaac6f34f0a82c",
+                "finite_count": 94,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 4303.866770357399
+              },
+              "codes_sha256": "77d5b198751000805cb7e8816c87bac5a3839a6742c049babe804e5e26db86f5"
+            },
+            {
+              "level": 2560.0,
+              "vertices": {
+                "shape": [
+                  45,
+                  2
+                ],
+                "sha256": "5d47bf2583bf518267f09a62e98a46f27f80714057103bd400786b707bd8a28b",
+                "finite_count": 90,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 1077.3412662910941
+              },
+              "codes_sha256": "f1322dfa4a545b412912aded4d9d4a33cedf8cd957563ea8278ca644f47e62bd"
+            },
+            {
+              "level": 10240.0,
+              "vertices": {
+                "shape": [
+                  44,
+                  2
+                ],
+                "sha256": "6bcbd0c0b586482cd55b2adb7aa462d44f7769b48971b3050ef99cb712310c9b",
+                "finite_count": 88,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 269.66425256642106
+              },
+              "codes_sha256": "e79597a05de55aa4ab0523fe15b799ea6fb3f3b4dba7392aec69c1c4d30f01f7"
+            },
+            {
+              "level": 40960.0,
+              "vertices": {
+                "shape": [
+                  49,
+                  2
+                ],
+                "sha256": "a8b00075cfa27af21205e6393c7b87c27083f0f451fd914220aaf2e767576512",
+                "finite_count": 98,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 67.34422694895343
+              },
+              "codes_sha256": "1182c16574167a7337405522060ab26dfa5d14d5d68f008c093b0a0ecb3969b5"
+            }
+          ],
+          "label_positions": [
+            [
+              15922.13198101612,
+              9.5
+            ],
+            [
+              3995.4552189138417,
+              9.5
+            ],
+            [
+              999.177579348292,
+              9.5
+            ],
+            [
+              250.03557424069348,
+              9.5
+            ]
+          ],
+          "labeled_levels": [
+            160.0,
+            640.0,
+            2560.0,
+            10240.0
+          ],
+          "hidden_after_inline_cut": 0,
+          "gap_metrics": [
+            {
+              "level": 160.0,
+              "before_length_px": 144.64277290037333,
+              "after_length_px": 129.01777391338962,
+              "removed_length_px": 15.624998986983712,
+              "label_count": 1,
+              "label_gap_upper_bound_px": 20.848166843279365,
+              "pass_": true
+            },
+            {
+              "level": 640.0,
+              "before_length_px": 144.64414519371303,
+              "after_length_px": 129.01914644415214,
+              "removed_length_px": 15.624998749560888,
+              "label_count": 1,
+              "label_gap_upper_bound_px": 20.888005392782695,
+              "pass_": true
+            },
+            {
+              "level": 2560.0,
+              "before_length_px": 144.64543113237465,
+              "after_length_px": 125.14543108305804,
+              "removed_length_px": 19.50000004931661,
+              "label_count": 1,
+              "label_gap_upper_bound_px": 24.186446807942435,
+              "pass_": true
+            },
+            {
+              "level": 10240.0,
+              "before_length_px": 144.64530640712795,
+              "after_length_px": 121.27030890373074,
+              "removed_length_px": 23.37499750339721,
+              "label_count": 1,
+              "label_gap_upper_bound_px": 27.7259403749599,
+              "pass_": true
+            },
+            {
+              "level": 40960.0,
+              "before_length_px": 144.6451353046093,
+              "after_length_px": 144.6451353046093,
+              "removed_length_px": 0.0,
+              "label_count": 0,
+              "label_gap_upper_bound_px": 2.0,
+              "pass_": true
+            }
+          ],
+          "coordinate_order": "log坐标、范围、刻度固定后生成等高线，再内域选点inline标注"
+        },
+        "xlim": [
+          48.049985865980304,
+          41447.134034381204
+        ],
+        "ylim": [
+          5.920454545454545,
+          13.0564
+        ],
+        "xscale": "log",
+        "yscale": "linear"
+      },
+      "clear_time": {
+        "source": {
+          "shape": [
+            47,
+            98
+          ],
+          "sha256": "cb6a787615b2074e0ea4898fcc108347e034facbef5dd457c6206d2b0bf252dc",
+          "finite_count": 4606,
+          "nan_count": 0,
+          "min": 206.10216730094706,
+          "max": 57334.61553101378
+        },
+        "plotted": {
+          "shape": [
+            47,
+            98
+          ],
+          "sha256": "cb6a787615b2074e0ea4898fcc108347e034facbef5dd457c6206d2b0bf252dc",
+          "finite_count": 4606,
+          "nan_count": 0,
+          "min": 206.10216730094706,
+          "max": 57334.61553101378
+        },
+        "exact_match": true,
+        "normalization": "log",
+        "color_limits": [
+          206.10216730094706,
+          57334.61553101378
+        ],
+        "contour_levels": [
+          400.0,
+          800.0,
+          1600.0,
+          3200.0,
+          6400.0,
+          12800.0,
+          25600.0,
+          51200.0
+        ],
+        "contour_paths_and_inline_gaps": {
+          "raw_paths": [
+            {
+              "level": 400.0,
+              "vertices": {
+                "shape": [
+                  57,
+                  2
+                ],
+                "sha256": "9f07c864867e4ea2f7df5ac87333dd7e3b7df1488fd6ff788beb7c09b0b00280",
+                "finite_count": 114,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 23751.82519047501
+              },
+              "codes_sha256": "ab105a7f31aa53474d7d104faa73f15eabd21eeae8cfb77c55da4e586f8ccc28"
+            },
+            {
+              "level": 800.0,
+              "vertices": {
+                "shape": [
+                  54,
+                  2
+                ],
+                "sha256": "7c7e6ac06f6680b9fdf3d5653b2f61ffd2660526125d89dc477c20d937dd7d33",
+                "finite_count": 108,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 7182.350240239191
+              },
+              "codes_sha256": "47b1de6ec72b93731e6ed0808ee5c7b2c260d18cc9b63f125679737fccc65e3b"
+            },
+            {
+              "level": 1600.0,
+              "vertices": {
+                "shape": [
+                  52,
+                  2
+                ],
+                "sha256": "806b802674cf07825d95a4986df2bdee21971a59688dd132cd2c52b9a23a3b8d",
+                "finite_count": 104,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 2703.434831022044
+              },
+              "codes_sha256": "122e19777084cd28dffafb37ec70c6499f1caed5158a3ff95a3f3f742223880b"
+            },
+            {
+              "level": 3200.0,
+              "vertices": {
+                "shape": [
+                  51,
+                  2
+                ],
+                "sha256": "0ea016ede32d7dcf4eaa84397edf50ba73a6c6f7b91f3b288bf341da332fae28",
+                "finite_count": 102,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 1141.0436298699315
+              },
+              "codes_sha256": "2089fd22610e63564d303fa8a720731a51f064b7aa6dcc7fdfbd001faac91831"
+            },
+            {
+              "level": 6400.0,
+              "vertices": {
+                "shape": [
+                  50,
+                  2
+                ],
+                "sha256": "9a8dae455c9b1ab91480ee55398314446b2eeb6cd1045e2127bd44a164af2584",
+                "finite_count": 100,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 512.9438714362516
+              },
+              "codes_sha256": "c6aa686fecf77dd0caabbd52c7750e18d8e67378f2d9fde3274ffb8b500ef73c"
+            },
+            {
+              "level": 12800.0,
+              "vertices": {
+                "shape": [
+                  50,
+                  2
+                ],
+                "sha256": "bd9971704b5ca0541be2d87e0b2e810526e01fa9346dd28b4597d3b12ecbc1e4",
+                "finite_count": 100,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 240.333777979153
+              },
+              "codes_sha256": "c6aa686fecf77dd0caabbd52c7750e18d8e67378f2d9fde3274ffb8b500ef73c"
+            },
+            {
+              "level": 25600.0,
+              "vertices": {
+                "shape": [
+                  51,
+                  2
+                ],
+                "sha256": "925be345e132933ee51a076e739e3e6a7b7f093ea5af399668da7378a3769b42",
+                "finite_count": 102,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 115.35515577538166
+              },
+              "codes_sha256": "2089fd22610e63564d303fa8a720731a51f064b7aa6dcc7fdfbd001faac91831"
+            },
+            {
+              "level": 51200.0,
+              "vertices": {
+                "shape": [
+                  31,
+                  2
+                ],
+                "sha256": "82834cce34eedcdba5a350f55a57fc1f0379946a0a07807b9ab3870ed249efe5",
+                "finite_count": 62,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 56.248950657253204
+              },
+              "codes_sha256": "dd5518324c8aaa7e86684006e11c97391559fef92af57ede9ccdf67830f9fc94"
+            }
+          ],
+          "final_paths": [
+            {
+              "level": 400.0,
+              "vertices": {
+                "shape": [
+                  52,
+                  2
+                ],
+                "sha256": "2e97f6ce79b02871b94d52d525c7df534a97a5cc7335d680dfea77beab5b1e23",
+                "finite_count": 104,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 23751.82519047501
+              },
+              "codes_sha256": "cbba0274b06c63d37fdaa9e58f9ccac41926b0daab2e96f331be126718dac769"
+            },
+            {
+              "level": 800.0,
+              "vertices": {
+                "shape": [
+                  50,
+                  2
+                ],
+                "sha256": "24dd7c09f944acffc40751d639ca0b983e0e5cd19a9aa87c51488085b1ff199d",
+                "finite_count": 100,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 7182.350240239191
+              },
+              "codes_sha256": "a4affba7b60900adcdac69a8108b086728ddf4efa3eef46ec4547fb872f12b63"
+            },
+            {
+              "level": 1600.0,
+              "vertices": {
+                "shape": [
+                  47,
+                  2
+                ],
+                "sha256": "089cface8227d666028afacf22967041ddd1e62df4a550cbce1be54f0eb82195",
+                "finite_count": 94,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 2703.434831022044
+              },
+              "codes_sha256": "890316075a4d053385a85c8d89e3b7cf851dcbec6bd7b9140860f35384a4e5cd"
+            },
+            {
+              "level": 3200.0,
+              "vertices": {
+                "shape": [
+                  46,
+                  2
+                ],
+                "sha256": "0bc9527a91038fa4056c77d55f2871d368d5de355a1936d089a19364e402730b",
+                "finite_count": 92,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 1141.0436298699315
+              },
+              "codes_sha256": "a251730ec3c8bbe4a1dcb9613334807aa7b4c8d94d347cc14f34fe55403e6adf"
+            },
+            {
+              "level": 6400.0,
+              "vertices": {
+                "shape": [
+                  47,
+                  2
+                ],
+                "sha256": "c5192162b4bae10c2a2ac9722982f8751368376416cc2fb6803c0ef9ff569200",
+                "finite_count": 94,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 512.9438714362516
+              },
+              "codes_sha256": "77d5b198751000805cb7e8816c87bac5a3839a6742c049babe804e5e26db86f5"
+            },
+            {
+              "level": 12800.0,
+              "vertices": {
+                "shape": [
+                  44,
+                  2
+                ],
+                "sha256": "ea7164e244c9134993ae5cfc93a6fba50068205c105cb3c3a6efc82c01dff7bb",
+                "finite_count": 88,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 240.333777979153
+              },
+              "codes_sha256": "e79597a05de55aa4ab0523fe15b799ea6fb3f3b4dba7392aec69c1c4d30f01f7"
+            },
+            {
+              "level": 25600.0,
+              "vertices": {
+                "shape": [
+                  44,
+                  2
+                ],
+                "sha256": "ceb4492623e89571aa4072376550f99e36d78c024bdadbc18576fddccc28f4c8",
+                "finite_count": 88,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 115.35515577538166
+              },
+              "codes_sha256": "e79597a05de55aa4ab0523fe15b799ea6fb3f3b4dba7392aec69c1c4d30f01f7"
+            },
+            {
+              "level": 51200.0,
+              "vertices": {
+                "shape": [
+                  31,
+                  2
+                ],
+                "sha256": "82834cce34eedcdba5a350f55a57fc1f0379946a0a07807b9ab3870ed249efe5",
+                "finite_count": 62,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 56.248950657253204
+              },
+              "codes_sha256": "dd5518324c8aaa7e86684006e11c97391559fef92af57ede9ccdf67830f9fc94"
+            }
+          ],
+          "label_positions": [
+            [
+              16241.724066561655,
+              9.370772810515694
+            ],
+            [
+              5675.005506478747,
+              9.393206659995613
+            ],
+            [
+              2300.077003336975,
+              9.34090909090909
+            ],
+            [
+              1007.869843063441,
+              9.34090909090909
+            ],
+            [
+              461.28838853042714,
+              9.5
+            ],
+            [
+              218.83916797654052,
+              9.5
+            ],
+            [
+              105.69395865025972,
+              9.5
+            ]
+          ],
+          "labeled_levels": [
+            400.0,
+            800.0,
+            1600.0,
+            3200.0,
+            6400.0,
+            12800.0,
+            25600.0
+          ],
+          "hidden_after_inline_cut": 0,
+          "gap_metrics": [
+            {
+              "level": 400.0,
+              "before_length_px": 145.32015181318357,
+              "after_length_px": 129.6951848630785,
+              "removed_length_px": 15.624966950105062,
+              "label_count": 1,
+              "label_gap_upper_bound_px": 21.554317233168934,
+              "pass_": true
+            },
+            {
+              "level": 800.0,
+              "before_length_px": 144.8985024627276,
+              "after_length_px": 129.2735160457501,
+              "removed_length_px": 15.624986416977492,
+              "label_count": 1,
+              "label_gap_upper_bound_px": 21.258975768684213,
+              "pass_": true
+            },
+            {
+              "level": 1600.0,
+              "before_length_px": 144.7611569773403,
+              "after_length_px": 125.26115685982467,
+              "removed_length_px": 19.50000011751564,
+              "label_count": 1,
+              "label_gap_upper_bound_px": 24.452302788034388,
+              "pass_": true
+            },
+            {
+              "level": 3200.0,
+              "before_length_px": 144.70622749024966,
+              "after_length_px": 125.20622745993067,
+              "removed_length_px": 19.500000030318986,
+              "label_count": 1,
+              "label_gap_upper_bound_px": 24.355273828014354,
+              "pass_": true
+            },
+            {
+              "level": 6400.0,
+              "before_length_px": 144.67848193752755,
+              "after_length_px": 125.17848215236783,
+              "removed_length_px": 19.499999785159716,
+              "label_count": 1,
+              "label_gap_upper_bound_px": 24.293805870787473,
+              "pass_": true
+            },
+            {
+              "level": 12800.0,
+              "before_length_px": 144.66509684006277,
+              "after_length_px": 121.29009961364693,
+              "removed_length_px": 23.374997226415843,
+              "label_count": 1,
+              "label_gap_upper_bound_px": 27.766790248908283,
+              "pass_": true
+            },
+            {
+              "level": 25600.0,
+              "before_length_px": 144.6572312588971,
+              "after_length_px": 121.28223258749968,
+              "removed_length_px": 23.37499867139742,
+              "label_count": 1,
+              "label_gap_upper_bound_px": 27.76003838599215,
+              "pass_": true
+            },
+            {
+              "level": 51200.0,
+              "before_length_px": 90.59276172482369,
+              "after_length_px": 90.59276172482369,
+              "removed_length_px": 0.0,
+              "label_count": 0,
+              "label_gap_upper_bound_px": 2.0,
+              "pass_": true
+            }
+          ],
+          "coordinate_order": "log坐标、范围、刻度固定后生成等高线，再内域选点inline标注"
+        },
+        "xlim": [
+          48.049985865980304,
+          41447.134034381204
+        ],
+        "ylim": [
+          5.920454545454545,
+          13.0564
+        ],
+        "xscale": "log",
+        "yscale": "linear"
+      },
+      "cum_total_infections": {
+        "source": {
+          "shape": [
+            47,
+            98
+          ],
+          "sha256": "bd5aad7ad485ef1c05ed5cbd875ad6ec1948b79630d8b3349ede21facc80ac45",
+          "finite_count": 4606,
+          "nan_count": 0,
+          "min": 1722809.384406438,
+          "max": 2444936.621381559
+        },
+        "plotted": {
+          "shape": [
+            47,
+            98
+          ],
+          "sha256": "bd5aad7ad485ef1c05ed5cbd875ad6ec1948b79630d8b3349ede21facc80ac45",
+          "finite_count": 4606,
+          "nan_count": 0,
+          "min": 1722809.384406438,
+          "max": 2444936.621381559
+        },
+        "exact_match": true,
+        "normalization": "linear",
+        "color_limits": [
+          1722809.384406438,
+          2444936.621381559
+        ],
+        "contour_levels": [
+          1722809.38440644,
+          1867234.83180146,
+          2011660.27919649,
+          2156085.72659151,
+          2300511.17398653
+        ],
+        "contour_paths_and_inline_gaps": {
+          "raw_paths": [
+            {
+              "level": 1722809.38440644,
+              "vertices": {
+                "shape": [
+                  2,
+                  2
+                ],
+                "sha256": "ccc58f81b5cc4407883c4b2cf9306dd288dd8661769ba76e2f1297513a59b3de",
+                "finite_count": 4,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 50.000000000010296
+              },
+              "codes_sha256": "a12871fee210fb8619291eaea194581cbd2531e4b23759d225f6806923f63222"
+            },
+            {
+              "level": 1867234.83180146,
+              "vertices": {
+                "shape": [
+                  71,
+                  2
+                ],
+                "sha256": "5fd8937eeb62f062257aa6e39c6e8538e75249637384038fefe40f46818f4eab",
+                "finite_count": 142,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 3927.435328529459
+              },
+              "codes_sha256": "33b436a29163a45e7da35b4a3ddac3348869ca6164530152b9f977250823fb5d"
+            },
+            {
+              "level": 2011660.27919649,
+              "vertices": {
+                "shape": [
+                  103,
+                  2
+                ],
+                "sha256": "0bc549561918bd9b39595497e39f3f3a11341732d61a41312e12ab7e010a7835",
+                "finite_count": 206,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 13880.434955351297
+              },
+              "codes_sha256": "7d5c3fc52c3e7ff491f151cd023bbd087c7184f27e4abf425c81b072d107a848"
+            },
+            {
+              "level": 2156085.72659151,
+              "vertices": {
+                "shape": [
+                  94,
+                  2
+                ],
+                "sha256": "54a31f3d7f099d4bd52d480fb233b708f590befce5c1763373abd4bfdb6d987a",
+                "finite_count": 188,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 29723.74840809548
+              },
+              "codes_sha256": "83e9e6e7042ff2bbe2dbf36ae63582fa6db622b965b4aed6e846298b7247e4ce"
+            },
+            {
+              "level": 2300511.17398653,
+              "vertices": {
+                "shape": [
+                  59,
+                  2
+                ],
+                "sha256": "ce38de86f0eaf9c55d14c29ffc090106dfcebfdf462bca91f13e906b9ad182e1",
+                "finite_count": 118,
+                "nan_count": 0,
+                "min": 6.683087031244247,
+                "max": 40000.0
+              },
+              "codes_sha256": "2fd391ba8e2b0dd9519ebee02e3a251a523c64efbee3ae071e5c2e14b9ac93bd"
+            }
+          ],
+          "final_paths": [
+            {
+              "level": 1722809.38440644,
+              "vertices": {
+                "shape": [
+                  2,
+                  2
+                ],
+                "sha256": "ccc58f81b5cc4407883c4b2cf9306dd288dd8661769ba76e2f1297513a59b3de",
+                "finite_count": 4,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 50.000000000010296
+              },
+              "codes_sha256": "a12871fee210fb8619291eaea194581cbd2531e4b23759d225f6806923f63222"
+            },
+            {
+              "level": 1867234.83180146,
+              "vertices": {
+                "shape": [
+                  49,
+                  2
+                ],
+                "sha256": "317bf3330d486868abaf5895174cd4a8fb860415df37f4d6699e647489e5aeb5",
+                "finite_count": 98,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 3927.435328529459
+              },
+              "codes_sha256": "651a8fe3ec55304b43097db5afb02bd02b2ccdec17425b64b8f8200ee6847ae3"
+            },
+            {
+              "level": 2011660.27919649,
+              "vertices": {
+                "shape": [
+                  79,
+                  2
+                ],
+                "sha256": "59d9ba5c444e041e5f684a06d2b59b140628336e78dd9a2dcf12910f8d6fb4b7",
+                "finite_count": 158,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 13880.434955351297
+              },
+              "codes_sha256": "e678aa125e3df8f8656c78dcd136833c8aff102ded345ce2a9c5fe87578c7daa"
+            },
+            {
+              "level": 2156085.72659151,
+              "vertices": {
+                "shape": [
+                  75,
+                  2
+                ],
+                "sha256": "7e096ad4490f709736f5713f0f0152ef53b95be090884d1bc0c00e44597d6e36",
+                "finite_count": 150,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 29723.74840809548
+              },
+              "codes_sha256": "00c1a0d75cacc5936c8f1e751db75aa3d6445eebdd63ec70e844244de2e90454"
+            },
+            {
+              "level": 2300511.17398653,
+              "vertices": {
+                "shape": [
+                  48,
+                  2
+                ],
+                "sha256": "83744142692e5a524ee51037acc01d10d8f85ccdd17d4031934b0b592dda5a7a",
+                "finite_count": 96,
+                "nan_count": 0,
+                "min": 6.683087031244247,
+                "max": 40000.0
+              },
+              "codes_sha256": "dfb8a78991fcb0e108cb3fd2620b67d44885d5b60d00f002cb77bcab298ca7eb"
+            }
+          ],
+          "label_positions": [
+            [
+              123.13963664224426,
+              6.998298820286082
+            ],
+            [
+              867.9437332821235,
+              8.274213792898744
+            ],
+            [
+              5675.005506478747,
+              9.260222553837398
+            ],
+            [
+              17508.587726187397,
+              10.375209451510958
+            ]
+          ],
+          "labeled_levels": [
+            1867234.83180146,
+            2011660.27919649,
+            2156085.72659151,
+            2300511.17398653
+          ],
+          "hidden_after_inline_cut": 0,
+          "gap_metrics": [
+            {
+              "level": 1722809.38440644,
+              "before_length_px": 4.624841831067094e-12,
+              "after_length_px": 4.624841831067094e-12,
+              "removed_length_px": 0.0,
+              "label_count": 0,
+              "label_gap_upper_bound_px": 2.0,
+              "pass_": true
+            },
+            {
+              "level": 1867234.83180146,
+              "before_length_px": 100.89795214779787,
+              "after_length_px": 66.02412252547215,
+              "removed_length_px": 34.873829622325715,
+              "label_count": 1,
+              "label_gap_upper_bound_px": 39.84093254272585,
+              "pass_": true
+            },
+            {
+              "level": 2011660.27919649,
+              "before_length_px": 145.24156515170085,
+              "after_length_px": 110.37979494091883,
+              "removed_length_px": 34.861770210782026,
+              "label_count": 1,
+              "label_gap_upper_bound_px": 43.96484226568058,
+              "pass_": true
+            },
+            {
+              "level": 2156085.72659151,
+              "before_length_px": 161.03325468681533,
+              "after_length_px": 126.15926454418921,
+              "removed_length_px": 34.87399014262611,
+              "label_count": 1,
+              "label_gap_upper_bound_px": 43.88344872578425,
+              "pass_": true
+            },
+            {
+              "level": 2300511.17398653,
+              "before_length_px": 133.0643193132101,
+              "after_length_px": 102.0641838133341,
+              "removed_length_px": 31.000135499875995,
+              "label_count": 1,
+              "label_gap_upper_bound_px": 36.45708929028475,
+              "pass_": true
+            }
+          ],
+          "coordinate_order": "log坐标、范围、刻度固定后生成等高线，再内域选点inline标注"
+        },
+        "xlim": [
+          48.049985865980304,
+          41447.134034381204
+        ],
+        "ylim": [
+          5.920454545454545,
+          13.0564
+        ],
+        "xscale": "log",
+        "yscale": "linear"
+      },
+      "J": {
+        "source": {
+          "shape": [
+            47,
+            98
+          ],
+          "sha256": "fe21ad959106057e4fc59fc9842119eed1bcd48b700f0f853e95e5d6d1dacfaa",
+          "finite_count": 4606,
+          "nan_count": 0,
+          "min": 11.792684989287704,
+          "max": 21825.270228532918
+        },
+        "plotted": {
+          "shape": [
+            47,
+            98
+          ],
+          "sha256": "fe21ad959106057e4fc59fc9842119eed1bcd48b700f0f853e95e5d6d1dacfaa",
+          "finite_count": 4606,
+          "nan_count": 0,
+          "min": 11.792684989287704,
+          "max": 21825.270228532918
+        },
+        "exact_match": true,
+        "normalization": "log",
+        "color_limits": [
+          11.792684989287704,
+          21825.270228532918
+        ],
+        "contour_levels": [
+          40.0,
+          160.0,
+          640.0,
+          2560.0,
+          10240.0
+        ],
+        "contour_paths_and_inline_gaps": {
+          "raw_paths": [
+            {
+              "level": 40.0,
+              "vertices": {
+                "shape": [
+                  59,
+                  2
+                ],
+                "sha256": "9c1546c46fb01fe1e2aa3c3bae3d4c8bf93f85b7dd2dae4b159592ca6ba661e2",
+                "finite_count": 118,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 26907.118013713225
+              },
+              "codes_sha256": "2fd391ba8e2b0dd9519ebee02e3a251a523c64efbee3ae071e5c2e14b9ac93bd"
+            },
+            {
+              "level": 160.0,
+              "vertices": {
+                "shape": [
+                  59,
+                  2
+                ],
+                "sha256": "ef8c8b826e846f3c3fc9c67a3bc2ffc99436ec804cdc37b54c94594477e4a02d",
+                "finite_count": 118,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 6805.458363139362
+              },
+              "codes_sha256": "2fd391ba8e2b0dd9519ebee02e3a251a523c64efbee3ae071e5c2e14b9ac93bd"
+            },
+            {
+              "level": 640.0,
+              "vertices": {
+                "shape": [
+                  58,
+                  2
+                ],
+                "sha256": "f4714efa3503a2998cfde306e4946bc750c7955c74460dcfcc048801d35aca4f",
+                "finite_count": 116,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 1703.8089496498392
+              },
+              "codes_sha256": "d47a6868b68bbe38c9fad71a7643525d7c1a75b992fed9e979d8bf78833ff89f"
+            },
+            {
+              "level": 2560.0,
+              "vertices": {
+                "shape": [
+                  57,
+                  2
+                ],
+                "sha256": "20a62a8dd47dea9c55f7c2d4af88d7e14131f66a98675410a05b818765675c2e",
+                "finite_count": 114,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 426.7880504204285
+              },
+              "codes_sha256": "ab105a7f31aa53474d7d104faa73f15eabd21eeae8cfb77c55da4e586f8ccc28"
+            },
+            {
+              "level": 10240.0,
+              "vertices": {
+                "shape": [
+                  58,
+                  2
+                ],
+                "sha256": "3c3d8052f36ed2bf1f3dcbfe5092b5a3517328f1ebb5fc53aa67c6d4a8a46f94",
+                "finite_count": 116,
+                "nan_count": 0,
+                "min": 6.001513013487858,
+                "max": 106.60876857480056
+              },
+              "codes_sha256": "d47a6868b68bbe38c9fad71a7643525d7c1a75b992fed9e979d8bf78833ff89f"
+            }
+          ],
+          "final_paths": [
+            {
+              "level": 40.0,
+              "vertices": {
+                "shape": [
+                  57,
+                  2
+                ],
+                "sha256": "68e2aeb3cfde41bcea0a91f4423d26c08097cd446535405e0bd2bb586e19fa2f",
+                "finite_count": 114,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 26907.118013713225
+              },
+              "codes_sha256": "e4ec4109419793df78b7bccbd893812fc3fc06c65de3063fdd1289aef2c88fdc"
+            },
+            {
+              "level": 160.0,
+              "vertices": {
+                "shape": [
+                  54,
+                  2
+                ],
+                "sha256": "125994b80f01fa5675a5d7badbede9a55fc15f68602ec4cf4575f9e7ed6bedd4",
+                "finite_count": 108,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 6805.458363139362
+              },
+              "codes_sha256": "7998571a4c417f07124687dbd4c0d067015391c9edb8180edaae6037cdd6449f"
+            },
+            {
+              "level": 640.0,
+              "vertices": {
+                "shape": [
+                  53,
+                  2
+                ],
+                "sha256": "e6b093b0c83dbb83bb937ebda72efa3bea05bae78adbb50786d81ab2ab76a03c",
+                "finite_count": 106,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 1703.8089496498392
+              },
+              "codes_sha256": "6976de590701da7b00c06b7ea45a2953a84c5d8ea81c8e3d37ad472e291da9e1"
+            },
+            {
+              "level": 2560.0,
+              "vertices": {
+                "shape": [
+                  52,
+                  2
+                ],
+                "sha256": "9d56fcf95fd0308c3847b0ab7b308838903d0ba1f01cdcae9d16ffc810b15c36",
+                "finite_count": 104,
+                "nan_count": 0,
+                "min": 6.0,
+                "max": 426.7880504204285
+              },
+              "codes_sha256": "e329c9332627125088a7faa510116e054cf9af011962e08ab0481788738191ae"
+            },
+            {
+              "level": 10240.0,
+              "vertices": {
+                "shape": [
+                  52,
+                  2
+                ],
+                "sha256": "243d1f9acf1357fa51f2bc217b7d3ca28c926735f0202b728c8c479cc04187d7",
+                "finite_count": 104,
+                "nan_count": 0,
+                "min": 6.001513013487858,
+                "max": 106.60876857480056
+              },
+              "codes_sha256": "eb84990adf5b12b1d0d60b64b0d2444233b86858a3714e4d040c288f17facadc"
+            }
+          ],
+          "label_positions": [
+            [
+              20253.118686871676,
+              8.227272727272727
+            ],
+            [
+              5761.089254311192,
+              9.34090909090909
+            ],
+            [
+              1426.869745945894,
+              9.181818181818182
+            ],
+            [
+              356.8277108749035,
+              9.181818181818182
+            ],
+            [
+              96.55942149873525,
+              10.295454545454545
+            ]
+          ],
+          "labeled_levels": [
+            40.0,
+            160.0,
+            640.0,
+            2560.0,
+            10240.0
+          ],
+          "hidden_after_inline_cut": 0,
+          "gap_metrics": [
+            {
+              "level": 40.0,
+              "before_length_px": 146.1725435513625,
+              "after_length_px": 134.42260217378532,
+              "removed_length_px": 11.749941377577187,
+              "label_count": 1,
+              "label_gap_upper_bound_px": 18.887435775176947,
+              "pass_": true
+            },
+            {
+              "level": 160.0,
+              "before_length_px": 146.1600379964059,
+              "after_length_px": 130.5350480262066,
+              "removed_length_px": 15.624989970199294,
+              "label_count": 1,
+              "label_gap_upper_bound_px": 21.527466319771356,
+              "pass_": true
+            },
+            {
+              "level": 640.0,
+              "before_length_px": 146.15058084598337,
+              "after_length_px": 130.52566372598298,
+              "removed_length_px": 15.62491712000039,
+              "label_count": 1,
+              "label_gap_upper_bound_px": 21.556494232903994,
+              "pass_": true
+            },
+            {
+              "level": 2560.0,
+              "before_length_px": 146.14328643868038,
+              "after_length_px": 126.643294465506,
+              "removed_length_px": 19.499991973174374,
+              "label_count": 1,
+              "label_gap_upper_bound_px": 24.972176318311206,
+              "pass_": true
+            },
+            {
+              "level": 10240.0,
+              "before_length_px": 146.1197262526429,
+              "after_length_px": 122.74474732008922,
+              "removed_length_px": 23.374978932553674,
+              "label_count": 1,
+              "label_gap_upper_bound_px": 28.046044082171072,
+              "pass_": true
+            }
+          ],
+          "coordinate_order": "log坐标、范围、刻度固定后生成等高线，再内域选点inline标注"
+        },
+        "xlim": [
+          48.049985865980304,
+          41447.134034381204
+        ],
+        "ylim": [
+          5.920454545454545,
+          13.0564
+        ],
+        "xscale": "log",
+        "yscale": "linear"
+      }
+    },
+    "new_ode_solves": 0,
+    "new_optimization_solves": 0,
+    "reference_positions": [
+      152.54629678969766,
+      26326.0
+    ],
+    "author_approved_reference_fix": true,
+    "reference_fix_source": {
+      "path": "reproducibility/results/20261003_release_final/xian/reference.json",
+      "field": "I_peak_T",
+      "value": 152.54629678969766
+    },
+    "plotted_reference_positions": {
+      "control_duration": [
+        152.54629678969766,
+        26326.0
+      ],
+      "clear_time": [
+        152.54629678969766,
+        26326.0
+      ],
+      "cum_total_infections": [
+        152.54629678969766,
+        26326.0
+      ],
+      "J": [
+        152.54629678969766,
+        26326.0
+      ]
+    },
+    "contour_style": {
+      "line_color": "red",
+      "linestyle": "-.",
+      "label_color": "black",
+      "inline_gap": true,
+      "label_path_effects": []
+    },
+    "removed_annotation": "删除Δt约1.48×10^4 d≈40 yr的整段数值说明及箭头，仅预览",
+    "existing_reference_discrepancy": {
+      "original_plot_source": 151.9,
+      "current_manuscript_caption": 152.55,
+      "disposition": "作者2026-10-27确认按既有I_peak_T修正参照线，图注仍取152.55"
+    },
+    "colorbar_layout": {
+      "gap_to_panel_width": 0.031349999999999996,
+      "panel_geometry_unchanged": true,
+      "colorbar_width_height_unchanged": true,
+      "pairs": [
+        {
+          "panel_bounds": [
+            0.085,
+            0.5800862068965517,
+            0.30080213903743325,
+            0.3599137931034483
+          ],
+          "before_bounds": [
+            0.4612433155080215,
+            0.5800862068965517,
+            0.013536096256684504,
+            0.3599137931034483
+          ],
+          "after_bounds": [
+            0.3952322860962568,
+            0.5800862068965517,
+            0.013536096256684504,
+            0.3599137931034483
+          ],
+          "before_gap_mm": 9.644219494411765,
+          "after_gap_mm": 1.2055274368014741
+        },
+        {
+          "panel_bounds": [
+            0.5502205882352942,
+            0.5800862068965517,
+            0.30080213903743325,
+            0.3599137931034483
+          ],
+          "before_bounds": [
+            0.9264639037433157,
+            0.5800862068965517,
+            0.013536096256684504,
+            0.3599137931034483
+          ],
+          "after_bounds": [
+            0.8604528743315509,
+            0.5800862068965517,
+            0.013536096256684504,
+            0.3599137931034483
+          ],
+          "before_gap_mm": 9.644219494411765,
+          "after_gap_mm": 1.205527436801467
+        },
+        {
+          "panel_bounds": [
+            0.085,
+            0.10499999999999998,
+            0.30080213903743325,
+            0.35991379310344823
+          ],
+          "before_bounds": [
+            0.4612433155080215,
+            0.10499999999999998,
+            0.013536096256684504,
+            0.35991379310344823
+          ],
+          "after_bounds": [
+            0.3952322860962568,
+            0.10499999999999998,
+            0.013536096256684504,
+            0.35991379310344823
+          ],
+          "before_gap_mm": 9.644219494411765,
+          "after_gap_mm": 1.2055274368014741
+        },
+        {
+          "panel_bounds": [
+            0.5502205882352942,
+            0.10499999999999998,
+            0.30080213903743325,
+            0.35991379310344823
+          ],
+          "before_bounds": [
+            0.9264639037433157,
+            0.10499999999999998,
+            0.013536096256684504,
+            0.35991379310344823
+          ],
+          "after_bounds": [
+            0.8604528743315509,
+            0.10499999999999998,
+            0.013536096256684504,
+            0.35991379310344823
+          ],
+          "before_gap_mm": 9.644219494411765,
+          "after_gap_mm": 1.205527436801467
+        }
+      ]
+    }
+  },
+  "axes": [
+    {
+      "xlim": [
+        48.049985865980304,
+        41447.134034381204
+      ],
+      "ylim": [
+        5.920454545454545,
+        13.0564
+      ],
+      "xscale": "log",
+      "yscale": "linear",
+      "title": "(a)",
+      "lines": 2,
+      "patches": 0,
+      "collections": 2
+    },
+    {
+      "xlim": [
+        0.0,
+        1.0
+      ],
+      "ylim": [
+        55.59230561509495,
+        55158.01851280942
+      ],
+      "xscale": "linear",
+      "yscale": "log",
+      "title": "$\\Delta t$",
+      "lines": 0,
+      "patches": 0,
+      "collections": 2
+    },
+    {
+      "xlim": [
+        48.049985865980304,
+        41447.134034381204
+      ],
+      "ylim": [
+        5.920454545454545,
+        13.0564
+      ],
+      "xscale": "log",
+      "yscale": "linear",
+      "title": "(b)",
+      "lines": 2,
+      "patches": 0,
+      "collections": 2
+    },
+    {
+      "xlim": [
+        0.0,
+        1.0
+      ],
+      "ylim": [
+        206.10216730094703,
+        57334.61553101381
+      ],
+      "xscale": "linear",
+      "yscale": "log",
+      "title": "$t_{\\rm end}$",
+      "lines": 0,
+      "patches": 0,
+      "collections": 2
+    },
+    {
+      "xlim": [
+        48.049985865980304,
+        41447.134034381204
+      ],
+      "ylim": [
+        5.920454545454545,
+        13.0564
+      ],
+      "xscale": "log",
+      "yscale": "linear",
+      "title": "(c)",
+      "lines": 2,
+      "patches": 0,
+      "collections": 2
+    },
+    {
+      "xlim": [
+        0.0,
+        1.0
+      ],
+      "ylim": [
+        1722809.384406438,
+        2444936.621381559
+      ],
+      "xscale": "linear",
+      "yscale": "linear",
+      "title": "$I_{t_{\\rm cum}}$",
+      "lines": 0,
+      "patches": 0,
+      "collections": 2
+    },
+    {
+      "xlim": [
+        48.049985865980304,
+        41447.134034381204
+      ],
+      "ylim": [
+        5.920454545454545,
+        13.0564
+      ],
+      "xscale": "log",
+      "yscale": "linear",
+      "title": "(d)",
+      "lines": 2,
+      "patches": 0,
+      "collections": 2
+    },
+    {
+      "xlim": [
+        0.0,
+        1.0
+      ],
+      "ylim": [
+        11.792684989287705,
+        21825.27022853291
+      ],
+      "xscale": "linear",
+      "yscale": "log",
+      "title": "$J$",
+      "lines": 0,
+      "patches": 0,
+      "collections": 2
+    }
+  ],
+  "fonts": [
+    "CGMMQU+Cmr10",
+    "CGMMQU+Cmsy10",
+    "GYUURQ+Cmmi10"
+  ],
+  "size_mm": [
+    127.83760733333332,
+    104.0
+  ],
+  "output_sha256": {
+    "S8.pdf": "a4294da0a542f4f41b9390f3c0b30aaf8a1a830287ba2a74e5c116af81c29e41",
+    "S8.png": "61dded10e285124e3f6e0812188c59c22f80ac4dfbac8c8029ad6159f351aec0"
+  },
+  "text_bounds_px": [
+    {
+      "text": "160",
+      "bounds": [
+        168.32526091289716,
+        305.47424051060557,
+        177.16916489447416,
+        317.40124436616406
+      ]
+    },
+    {
+      "text": "640",
+      "bounds": [
+        137.3449775058192,
+        305.46214982919764,
+        146.22314603607572,
+        317.413335047572
+      ]
+    },
+    {
+      "text": "2560",
+      "bounds": [
+        106.24551828794523,
+        303.5352700094602,
+        115.24277150981601,
+        319.34021486730944
+      ]
+    },
+    {
+      "text": "10240",
+      "bounds": [
+        75.12942729817054,
+        301.5918439365119,
+        84.30818625238543,
+        321.2836409402577
+      ]
+    },
+    {
+      "text": "$I_{\\rm peak}^{\\rm T}$",
+      "bounds": [
+        52.39747400830528,
+        363.649812215368,
+        68.65233511941639,
+        379.69016255716485
+      ]
+    },
+    {
+      "text": "$\\eta=0.002N$",
+      "bounds": [
+        172.79004280750948,
+        341.14189595560237,
+        184.00879280750948,
+        379.69016255716485
+      ]
+    },
+    {
+      "text": "$c_0$",
+      "bounds": [
+        18.245123715277778,
+        306.7873282886995,
+        27.78041017361111,
+        315.61017374768386
+      ]
+    },
+    {
+      "text": "$\\mathdefault{6}$",
+      "bounds": [
+        34.50252388888889,
+        233.15832627628788,
+        40.00252388888889,
+        243.15832627628788
+      ]
+    },
+    {
+      "text": "$\\mathdefault{8}$",
+      "bounds": [
+        34.50252388888889,
+        274.4608497974861,
+        40.00252388888889,
+        284.4608497974861
+      ]
+    },
+    {
+      "text": "$\\mathdefault{10}$",
+      "bounds": [
+        30.683187951388888,
+        315.76337331868433,
+        40.00252388888889,
+        325.76337331868433
+      ]
+    },
+    {
+      "text": "$\\mathdefault{12}$",
+      "bounds": [
+        30.761312951388888,
+        357.0658968398826,
+        40.00252388888889,
+        367.0658968398826
+      ]
+    },
+    {
+      "text": "$\\mathdefault{13}$",
+      "bounds": [
+        30.558187951388888,
+        377.7171586004817,
+        40.00252388888889,
+        387.7171586004817
+      ]
+    },
+    {
+      "text": "(a)",
+      "bounds": [
+        112.16430901960786,
+        387.0485564304462,
+        124.78930901960786,
+        396.0485564304462
+      ]
+    },
+    {
+      "text": "$\\mathdefault{10^{0}}$",
+      "bounds": [
+        208.509950823121,
+        143.90409609671232,
+        220.997528948121,
+        156.69472109671233
+      ]
+    },
+    {
+      "text": "$\\mathdefault{10^{1}}$",
+      "bounds": [
+        208.509950823121,
+        193.0820224232631,
+        220.763153948121,
+        205.87264742326312
+      ]
+    },
+    {
+      "text": "$\\mathdefault{10^{2}}$",
+      "bounds": [
+        208.509950823121,
+        242.25994874981393,
+        220.841278948121,
+        255.05057374981394
+      ]
+    },
+    {
+      "text": "$\\mathdefault{10^{3}}$",
+      "bounds": [
+        208.509950823121,
+        291.4378750763647,
+        220.997528948121,
+        304.22850007636475
+      ]
+    },
+    {
+      "text": "$\\mathdefault{10^{4}}$",
+      "bounds": [
+        208.509950823121,
+        340.6158014029155,
+        221.106903948121,
+        353.40642640291554
+      ]
+    },
+    {
+      "text": "$\\mathdefault{10^{5}}$",
+      "bounds": [
+        208.509950823121,
+        390.49372772946634,
+        220.841278948121,
+        402.58435272946633
+      ]
+    },
+    {
+      "text": "$\\mathdefault{10^{6}}$",
+      "bounds": [
+        208.509950823121,
+        438.97165405601714,
+        220.841278948121,
+        451.7622790560172
+      ]
+    },
+    {
+      "text": "$\\Delta t$",
+      "bounds": [
+        196.0737245015702,
+        388.43744531933504,
+        208.57793592735146,
+        398.43744531933504
+      ]
+    },
+    {
+      "text": "400",
+      "bounds": [
+        402.60900750842154,
+        302.5938565862306,
+        412.0644464978857,
+        314.9442192572851
+      ]
+    },
+    {
+      "text": "800",
+      "bounds": [
+        379.18816925754,
+        303.14498015531774,
+        388.38671597860053,
+        315.31967028401334
+      ]
+    },
+    {
+      "text": "1600",
+      "bounds": [
+        358.92130431884846,
+        300.1778306774035,
+        368.20127811378643,
+        316.12679818463
+      ]
+    },
+    {
+      "text": "3200",
+      "bounds": [
+        340.4942830221763,
+        300.2039396936472,
+        349.6708528300496,
+        316.1006891683863
+      ]
+    },
+    {
+      "text": "6400",
+      "bounds": [
+        323.02318875458866,
+        303.5060111457496,
+        332.13438450727574,
+        319.36947373102004
+      ]
+    },
+    {
+      "text": "12800",
+      "bounds": [
+        306.26331622458855,
+        301.5814314644736,
+        315.49400924744435,
+        321.294053412296
+      ]
+    },
+    {
+      "text": "25600",
+      "bounds": [
+        289.968301326987,
+        301.58314908691307,
+        299.1904068386566,
+        321.29233578985657
+      ]
+    },
+    {
+      "text": "(b)",
+      "bounds": [
+        346.05874556372555,
+        387.0485564304462,
+        359.18374556372555,
+        396.0485564304462
+      ]
+    },
+    {
+      "text": "$\\mathdefault{10^{1}}$",
+      "bounds": [
+        442.6543873672386,
+        150.4956817019507,
+        454.90759049223857,
+        163.2863067019507
+      ]
+    },
+    {
+      "text": "$\\mathdefault{10^{2}}$",
+      "bounds": [
+        442.6543873672386,
+        210.78460156187907,
+        454.98571549223857,
+        223.57522656187908
+      ]
+    },
+    {
+      "text": "$\\mathdefault{10^{3}}$",
+      "bounds": [
+        442.6543873672386,
+        271.0735214218074,
+        455.14196549223857,
+        283.86414642180745
+      ]
+    },
+    {
+      "text": "$\\mathdefault{10^{4}}$",
+      "bounds": [
+        442.6543873672386,
+        331.36244128173576,
+        455.25134049223857,
+        344.1530662817358
+      ]
+    },
+    {
+      "text": "$\\mathdefault{10^{5}}$",
+      "bounds": [
+        442.6543873672386,
+        392.35136114166414,
+        454.98571549223857,
+        404.44198614166413
+      ]
+    },
+    {
+      "text": "$\\mathdefault{10^{6}}$",
+      "bounds": [
+        442.6543873672386,
+        451.94028100159255,
+        454.98571549223857,
+        464.7309060015926
+      ]
+    },
+    {
+      "text": "$t_{\\rm end}$",
+      "bounds": [
+        429.0053932539398,
+        386.9021588610017,
+        443.93514026321714,
+        398.43744531933504
+      ]
+    },
+    {
+      "text": "1.87e+06",
+      "bounds": [
+        48.03180034250859,
+        59.260433768379855,
+        79.68085414264635,
+        71.24150671354245
+      ]
+    },
+    {
+      "text": "2.01e+06",
+      "bounds": [
+        91.90534672689557,
+        80.90903113990362,
+        123.27607833142605,
+        102.29141750940221
+      ]
+    },
+    {
+      "text": "2.16e+06",
+      "bounds": [
+        139.06912798985658,
+        96.24688759943018,
+        160.21688415804843,
+        127.67821109065193
+      ]
+    },
+    {
+      "text": "2.3e+06",
+      "bounds": [
+        168.79120337854778,
+        121.02765100068427,
+        180.95756102310713,
+        148.94922025638783
+      ]
+    },
+    {
+      "text": "$\\eta$",
+      "bounds": [
+        115.22680901960786,
+        19.795945428696406,
+        121.72680901960786,
+        29.014695428696406
+      ]
+    },
+    {
+      "text": "100",
+      "bounds": [
+        53.38220181328435,
+        31.792473206474185,
+        65.00720181328435,
+        40.214348206474185
+      ]
+    },
+    {
+      "text": "1000",
+      "bounds": [
+        103.01257111470323,
+        31.792473206474185,
+        118.51257111470323,
+        40.214348206474185
+      ]
+    },
+    {
+      "text": "10000",
+      "bounds": [
+        152.64294041612212,
+        31.792473206474185,
+        172.01794041612212,
+        40.214348206474185
+      ]
+    },
+    {
+      "text": "30000",
+      "bounds": [
+        177.24706692043466,
+        31.792473206474185,
+        196.62206692043466,
+        40.214348206474185
+      ]
+    },
+    {
+      "text": "$c_0$",
+      "bounds": [
+        18.245123715277778,
+        112.26384200034761,
+        27.78041017361111,
+        121.08668745933198
+      ]
+    },
+    {
+      "text": "$\\mathdefault{6}$",
+      "bounds": [
+        34.50252388888889,
+        38.63483998793599,
+        40.00252388888889,
+        48.63483998793599
+      ]
+    },
+    {
+      "text": "$\\mathdefault{8}$",
+      "bounds": [
+        34.50252388888889,
+        79.93736350913423,
+        40.00252388888889,
+        89.93736350913423
+      ]
+    },
+    {
+      "text": "$\\mathdefault{10}$",
+      "bounds": [
+        30.683187951388888,
+        121.23988703033245,
+        40.00252388888889,
+        131.23988703033245
+      ]
+    },
+    {
+      "text": "$\\mathdefault{12}$",
+      "bounds": [
+        30.761312951388888,
+        162.5424105515307,
+        40.00252388888889,
+        172.5424105515307
+      ]
+    },
+    {
+      "text": "$\\mathdefault{13}$",
+      "bounds": [
+        30.558187951388888,
+        183.19367231212982,
+        40.00252388888889,
+        193.19367231212982
+      ]
+    },
+    {
+      "text": "(c)",
+      "bounds": [
+        112.41430901960786,
+        192.52507014209428,
+        124.53930901960786,
+        201.52507014209428
+      ]
+    },
+    {
+      "text": "$\\times\\mathdefault{10^{6}}\\mathdefault{}$",
+      "bounds": [
+        187.46670185393697,
+        191.72507014209427,
+        205.73217304534322,
+        204.51569514209427
+      ]
+    },
+    {
+      "text": "$\\mathdefault{1.7}$",
+      "bounds": [
+        208.509950823121,
+        32.33735892973374,
+        220.13159388952724,
+        42.33735892973374
+      ]
+    },
+    {
+      "text": "$\\mathdefault{1.8}$",
+      "bounds": [
+        208.509950823121,
+        52.744604349318024,
+        219.94409388952724,
+        62.744604349318024
+      ]
+    },
+    {
+      "text": "$\\mathdefault{1.9}$",
+      "bounds": [
+        208.509950823121,
+        73.15184976890225,
+        219.94409388952724,
+        83.15184976890225
+      ]
+    },
+    {
+      "text": "$\\mathdefault{2.0}$",
+      "bounds": [
+        208.509950823121,
+        93.55909518848654,
+        219.94409388952724,
+        103.55909518848654
+      ]
+    },
+    {
+      "text": "$\\mathdefault{2.1}$",
+      "bounds": [
+        208.509950823121,
+        113.96634060807077,
+        219.69409388952724,
+        123.96634060807077
+      ]
+    },
+    {
+      "text": "$\\mathdefault{2.2}$",
+      "bounds": [
+        208.509950823121,
+        134.373586027655,
+        219.86596888952724,
+        144.373586027655
+      ]
+    },
+    {
+      "text": "$\\mathdefault{2.3}$",
+      "bounds": [
+        208.509950823121,
+        154.78083144723928,
+        220.06909388952724,
+        164.78083144723928
+      ]
+    },
+    {
+      "text": "$\\mathdefault{2.4}$",
+      "bounds": [
+        208.509950823121,
+        175.1880768668235,
+        220.06909388952724,
+        185.1880768668235
+      ]
+    },
+    {
+      "text": "$\\mathdefault{2.5}$",
+      "bounds": [
+        208.509950823121,
+        195.09532228640774,
+        219.81909388952724,
+        206.09532228640774
+      ]
+    },
+    {
+      "text": "$I_{t_{\\rm cum}}$",
+      "bounds": [
+        194.1276740102372,
+        205.46126371848314,
+        210.52398641868447,
+        218.07125069764982
+      ]
+    },
+    {
+      "text": "40",
+      "bounds": [
+        407.58225372398863,
+        86.2203251883326,
+        416.9777694789793,
+        95.04133899384453
+      ]
+    },
+    {
+      "text": "160",
+      "bounds": [
+        379.40860373418496,
+        107.46158883602081,
+        388.8406155900921,
+        119.79606744930888
+      ]
+    },
+    {
+      "text": "640",
+      "bounds": [
+        348.13960906872273,
+        104.16757527283268,
+        357.5969481178979,
+        116.51922499776099
+      ]
+    },
+    {
+      "text": "2560",
+      "bounds": [
+        316.90888275075775,
+        102.2325619840192,
+        326.7476170285094,
+        118.45423828657447
+      ]
+    },
+    {
+      "text": "10240",
+      "bounds": [
+        287.7614455826644,
+        123.41524121191553,
+        297.34861666309945,
+        143.26755116183068
+      ]
+    },
+    {
+      "text": "$\\eta$",
+      "bounds": [
+        349.37124556372555,
+        19.795945428696406,
+        355.87124556372555,
+        29.014695428696406
+      ]
+    },
+    {
+      "text": "100",
+      "bounds": [
+        287.526638357402,
+        31.792473206474185,
+        299.151638357402,
+        40.214348206474185
+      ]
+    },
+    {
+      "text": "1000",
+      "bounds": [
+        337.15700765882093,
+        31.792473206474185,
+        352.65700765882093,
+        40.214348206474185
+      ]
+    },
+    {
+      "text": "10000",
+      "bounds": [
+        386.78737696023984,
+        31.792473206474185,
+        406.16237696023984,
+        40.214348206474185
+      ]
+    },
+    {
+      "text": "30000",
+      "bounds": [
+        411.39150346455233,
+        31.792473206474185,
+        430.76650346455233,
+        40.214348206474185
+      ]
+    },
+    {
+      "text": "(d)",
+      "bounds": [
+        346.05874556372555,
+        192.52507014209428,
+        359.18374556372555,
+        201.52507014209428
+      ]
+    },
+    {
+      "text": "$\\mathdefault{10^{0}}$",
+      "bounds": [
+        442.6543873672386,
+        -13.13584829134333,
+        455.14196549223857,
+        -0.34522329134332796
+      ]
+    },
+    {
+      "text": "$\\mathdefault{10^{1}}$",
+      "bounds": [
+        442.6543873672386,
+        31.9668850762153,
+        454.90759049223857,
+        44.7575100762153
+      ]
+    },
+    {
+      "text": "$\\mathdefault{10^{2}}$",
+      "bounds": [
+        442.6543873672386,
+        77.06961844377393,
+        454.98571549223857,
+        89.86024344377392
+      ]
+    },
+    {
+      "text": "$\\mathdefault{10^{3}}$",
+      "bounds": [
+        442.6543873672386,
+        122.17235181133256,
+        455.14196549223857,
+        134.96297681133257
+      ]
+    },
+    {
+      "text": "$\\mathdefault{10^{4}}$",
+      "bounds": [
+        442.6543873672386,
+        167.2750851788912,
+        455.25134049223857,
+        180.0657101788912
+      ]
+    },
+    {
+      "text": "$\\mathdefault{10^{5}}$",
+      "bounds": [
+        442.6543873672386,
+        213.07781854644983,
+        454.98571549223857,
+        225.16844354644985
+      ]
+    },
+    {
+      "text": "$\\mathdefault{10^{6}}$",
+      "bounds": [
+        442.6543873672386,
+        257.4805519140084,
+        454.98571549223857,
+        270.27117691400844
+      ]
+    },
+    {
+      "text": "$J$",
+      "bounds": [
+        432.6108917585785,
+        193.91395903098316,
+        440.3296417585785,
+        203.91395903098316
+      ]
+    }
+  ],
+  "formal_pdf": "paper/figures/new4t/S8.pdf",
+  "style_reference_inputs": {
+    "D:\\重要论文\\周浩师兄-结构化防控\\F4\\Fig4a.eps": "30d5755b4c1363c4afaa4e7b309cf20b35b0900cb0ec909a1c0d89579eaa9ac1",
+    "D:\\重要论文\\周浩师兄-结构化防控\\F4\\Fig4b1.eps": "9f8aab0a219d5f5c38bfa9988391e4582b8efa257c848cec64e3ffd31a1e53c3",
+    "D:\\重要论文\\周浩师兄-结构化防控\\F4\\Fig4c.eps": "18048c37b81a177facad6b6538e46305d93099b010a680d0e9470ee562bbdbca"
+  },
+  "approved_preview_sha256": "9efd92093b83d7ef6e558dbb99064bbb1447b810f5affac850fbf10839ac2809",
+  "author_approved_colorbar_cleanup": true,
+  "colorbar_cleanup": {
+    "authorization": "作者点名去除正文色柱辅助线并缩短补充S4/S6/S8色柱间隙",
+    "base_commit": "9b45450bde7ccd53762674ddfe8dc92db4e4c050",
+    "previous_receipt": "nr_audit/results/new4t_figures/S8_reference_corrected.receipt.json",
+    "previous_pdf_sha256": "60ec03a3dd6029f78d05f2504c44e526100dec56bcfacad0aeeaac669957bcad",
+    "new_scientific_solves": 0
+  },
+  "author_approved_reference_fix": true,
+  "reference_fix": {
+    "authorization": "作者2026-10-27确认按既有结果修正参照线，图注仍保留152.55",
+    "base_commit": "73fd5aa2aa240198339d94face4b5bcbcc9f4481",
+    "previous_pdf_sha256": "9efd92093b83d7ef6e558dbb99064bbb1447b810f5affac850fbf10839ac2809",
+    "previous_receipt": "nr_audit/results/new4t_figures/S8.receipt.json",
+    "original_position": 151.9,
+    "corrected_position": 152.54629678969766,
+    "source": {
+      "path": "reproducibility/results/20261003_release_final/xian/reference.json",
+      "field": "I_peak_T",
+      "value": 152.54629678969766
+    },
+    "new_scientific_solves": 0
+  }
+}
