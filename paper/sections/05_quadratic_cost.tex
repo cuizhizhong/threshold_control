@@ -20,7 +20,7 @@ f(S,c)=
 下文记 $[c^{-}(S),c^{+}(S)]$ 为状态 $S$ 上的允许区间：不考虑能力约束时 $c^{-}(S)=c_0S_c/S$、$c^{+}(S)=c_0$（式\eqref{eq:joint:contact-range}），考虑能力约束时由式\eqref{eq:joint:bounds}给出。对每个 $S$ 取 $f(S,\cdot)$ 在允许区间上的一个最小点，所得函数称为\emph{逐状态最小化选择}，记为 $c_c^*$，相应的隔离比例记为 $q_c^*$（式\eqref{eq:joint:q}）。
 \begin{theorem}
 \label{thm:joint:cost-minimum}
-考虑能力约束时设式\eqref{eq:joint:feasibility}成立。在 $\mathcal A(\eta)$ 或 $\mathcal A(\eta;c_{\min},q_{\rm cap})$ 中：
+设条件\eqref{eq:model:trigger}成立；考虑能力约束时另设式\eqref{eq:joint:feasibility}成立。在 $\mathcal A(\eta)$ 或 $\mathcal A(\eta;c_{\min},q_{\rm cap})$ 中：
 \begin{enumerate}
 \renewcommand{\labelenumi}{(\roman{enumi})}
 \item 二次干预强度成本的最小值可以达到，且
@@ -52,7 +52,7 @@ b=\frac{\bar S}{S_c}=(1-\beta)(1-q_0).
 $b$ 只依赖传播概率与常规隔离比例。由 $0<b<1$，$S_{\rm sw}$ 介于常规传播临界值的两倍与三倍之间；$r_{\rm cont}$ 随 $b$ 严格增，且 $2<r_{\rm cont}<4$。
 \begin{theorem}
 \label{thm:joint:cost-structure}
-设 $0<r\le r_{\rm cont}$，不考虑能力约束。
+设条件\eqref{eq:model:trigger}成立，$0<r\le r_{\rm cont}$，不考虑能力约束，则
 \begin{enumerate}
 \renewcommand{\labelenumi}{(\roman{enumi})}
 \item 对每个 $S>S_c$，$f(S,\cdot)$ 在 $[c_0S_c/S,c_0]$ 上有唯一最小点 $c_c^*(S)$；$c_c^*$ 在 $(S_c,\infty)$ 上连续，且 $S\downarrow S_c$ 时 $c_c^*(S)\to c_0$。
@@ -71,13 +71,14 @@ $b$ 只依赖传播概率与常规隔离比例。由 $0<b<1$，$S_{\rm sw}$ 介�
 下面的命题对任意权重成立，给出定理中不依赖 $r\le r_{\rm cont}$ 的部分。
 \begin{proposition}
 \label{prop:joint:global-structure}
-设 $w_c,w_q>0$，不考虑能力约束，$S\in(S_c,S^*]$。在允许区间 $[c_0S_c/S,c_0]$ 上：
+设条件\eqref{eq:model:trigger}成立，$w_c,w_q>0$，则
 \begin{enumerate}
 \renewcommand{\labelenumi}{(\roman{enumi})}
-\item 仅减少接触的取值 $c=c_0S_c/S$ 不是 $f(S,\cdot)$ 的局部最小点；
-\item 仅隔离控制的取值 $c=c_0$ 在 $S>S_{\rm sw}$ 时是严格局部最小点，在 $S<S_{\rm sw}$ 时不是局部最小点。
+\item 不考虑能力约束时，对每个 $S\in(S_c,S^*]$，仅减少接触的取值 $c=c_0S_c/S$ 不是 $f(S,\cdot)$ 在允许区间 $[c_0S_c/S,c_0]$ 上的局部最小点；
+\item 不考虑能力约束时，对 $S\in(S_c,S^*]$，仅隔离控制的取值 $c=c_0$ 在 $S>S_{\rm sw}$ 时是严格局部最小点，在 $S<S_{\rm sw}$ 时不是局部最小点；
+\item 因此，$\mathcal A(\eta)$ 中的任一成本最优控制在几乎所有 $S\in(S_c,S^*]$ 上满足 $q_c^*(S)>q_0$，在几乎所有 $S\in(S_c,\min\{S_{\rm sw},S^*\})$ 上满足 $c_0S_c/S<c_c^*(S)<c_0$，即两种措施同时强于常规水平；
+\item 考虑满足 $c_{\min}<c_0$、$q_{\rm cap}>q_0$ 与式\eqref{eq:joint:feasibility}的能力约束时，$\mathcal A(\eta;c_{\min},q_{\rm cap})$ 中的成本最优控制同样满足 (iii) 的两条结论。
 \end{enumerate}
-因此，任一成本最优控制在几乎所有 $S\in(S_c,S^*]$ 上满足 $q_c^*(S)>q_0$，在几乎所有 $S\in(S_c,\min\{S_{\rm sw},S^*\})$ 上满足 $c_0S_c/S<c_c^*(S)<c_0$，即两种措施同时强于常规水平。考虑满足 $c_{\min}<c_0$、$q_{\rm cap}>q_0$ 与式\eqref{eq:joint:feasibility}的能力约束时，$\mathcal A(\eta;c_{\min},q_{\rm cap})$ 中的成本最优控制同样满足这两条结论。
 \end{proposition}
 证明见附录~\ref{sec:proof:endpoint-properties}。在 $c=c_0$ 处接触项的代价与导数都为零，因此略减接触只有两个一阶效应：所需的隔离强度降低，$S$ 的下降却放慢。二者都与 $w_q$ 成正比，故 $S_{\rm sw}$ 与权重无关；$S>S_{\rm sw}$ 时后一效应占优，$S=S_{\rm sw}$ 时二者相抵，命题在此不作分类。所以，无论权重如何，成本最优控制都不单独减少接触，仅隔离段也都要求启动时 $S^*>S_{\rm sw}$；定理~\ref{thm:joint:cost-structure}进一步在 $r\le r_{\rm cont}$ 时把 (ii) 中的局部最优加强为全局最优。
 
@@ -111,7 +112,7 @@ $b$ 只依赖传播概率与常规隔离比例。由 $0<b<1$，$S_{\rm sw}$ 介�
 \end{proposition}
 证明见附录~\ref{sec:proof:terminal-allocation}。退出附近，无论怎样组合，两种归一化强度之和都近似等于 $1-S_c/S$，而组合对 $S$ 下降速度的影响是高阶小量，因此最优做法是按二次代价分担这一总强度：两种归一化强度之比趋于 $w_q/w_c$，即权重的反比。默认权重下，两者分别占总强度的 $2/3$ 与 $1/3$。
 
-由命题~\ref{prop:joint:global-structure}与定理~\ref{thm:joint:comparison}，不考虑能力约束时，成本最优控制的控制时长、控制期累计新增感染与新增隔离易感者人数都严格介于两种单控制之间：与仅隔离控制相比，它以更长的控制期和更多的感染换取更低的成本。
+由命题~\ref{prop:joint:global-structure}(iii)、命题~\ref{prop:joint:terminal-allocation}(ii) 与定理~\ref{thm:joint:comparison}，不考虑能力约束时，成本最优控制的控制时长、控制期累计新增感染与新增隔离易感者人数都严格介于两种单控制之间：与仅隔离控制相比，它以更长的控制期和更多的感染换取更低的成本。
 
 \subsection{参数与约束的影响}
 \label{sec:joint:cost-sensitivity}

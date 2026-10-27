@@ -199,7 +199,7 @@ c(t)(1-q(t))S(t)=\frac{\gamma N}{\beta}
 
 \subsection{最小值的存在性}
 \label{sec:proof:cost-minimum}
-本小节证明定理\ref{thm:joint:cost-minimum}。
+本小节证明定理~\ref{thm:joint:cost-minimum}。
 \begin{proof}
 (i) 式\eqref{eq:joint:cost-integrand}的分母满足
 $cS-c_0\bar S\ge c_0(S_c-\bar S)>0$，所以 $f$ 在允许区域上连续有限。每个状态上的允许区间紧且非空，故逐状态最小值存在，任意允许控制的成本均不小于式\eqref{eq:joint:minimum-cost}右侧。为证明这一下界可以达到，将允许区间写为
@@ -216,7 +216,7 @@ $H$ 在紧集上连续，因而 $m$ 连续。取各最小化解集中最小的�
 \]
 右侧为可数个闭集的并，故 $x_*$ 可测。于是
 $c_c^*(S)=c^{-}(S)+x_*(S)[c^{+}(S)-c^{-}(S)]$
-是可测的逐状态最小化选择，由定理\ref{thm:joint:representation}产生可行时间控制并达到下界。
+是可测的逐状态最小化选择，由定理~\ref{thm:joint:representation}产生可行时间控制并达到下界。
 
 (ii) 任意允许控制与逐状态最小值之差非负，因此二者的积分差为零，当且仅当逐点差几乎处处为零。
 
@@ -237,9 +237,9 @@ $c^3(cS-c_0\bar S)^2/S$，驻点方程化为
 
 \subsection{端点的局部性质}
 \label{sec:proof:endpoint-properties}
-本小节证明命题\ref{prop:joint:global-structure}。
+本小节证明命题~\ref{prop:joint:global-structure}。
 \begin{proof}
-记 $n(c)=w_c(1-c/c_0)^2+w_q(1-c_0S_c/(cS))^2$。$f$ 关于 $c$ 的导数与
+(i)(ii) 记 $n(c)=w_c(1-c/c_0)^2+w_q(1-c_0S_c/(cS))^2$。$f$ 关于 $c$ 的导数与
 \[
 n'(c)(cS-c_0\bar S)-S n(c)
 \]
@@ -253,14 +253,16 @@ n'(c)(cS-c_0\bar S)-S n(c)
 -\frac{w_q}{S}\left(1-\frac{S_c}{S}\right)
 \bigl(S^2-3S_cS+2S_c\bar S\bigr).
 \]
-括号内二次式的较小根小于 $S_c$，较大根为 $S_{\rm sw}$，所以该量在 $S>S_{\rm sw}$ 时为负，在 $S_c<S<S_{\rm sw}$ 时为正；前者表示 $f(S,\cdot)$ 向 $c_0$ 严格减，后者表示严格增，得 (ii)。由定理\ref{thm:joint:cost-minimum}，成本最优控制几乎处处取逐状态最小点；它不取左端点，在 $S_c<S<\min\{S_{\rm sw},S^*\}$ 上也不取右端点，故得到命题的两条结论。
+括号内二次式的较小根小于 $S_c$，较大根为 $S_{\rm sw}$，所以该量在 $S>S_{\rm sw}$ 时为负，在 $S_c<S<S_{\rm sw}$ 时为正；前者表示 $f(S,\cdot)$ 向 $c_0$ 严格减，后者表示严格增，得 (ii)。
 
-考虑能力约束时，由式\eqref{eq:joint:bounds}及 $c_{\min}<c_0$、$q_{\rm cap}>q_0$，对 $S\in(S_c,S^*)$ 有 $c^{-}(S)<c_0$、$c^{+}(S)>c_0S_c/S$，允许区间 $[c^-(S),c^+(S)]$ 不退化。若 $c^{-}(S)=c_0S_c/S$，左端点处向区间内部的单侧比较照旧，它不是最小点；若 $c^{-}(S)>c_0S_c/S$，区间内处处有 $q>q_0$。同理，$S<S_{\rm sw}$ 时，若 $c^{+}(S)=c_0$，右端点不是最小点；若 $c^{+}(S)<c_0$，区间内处处有 $c<c_0$。再由定理\ref{thm:joint:cost-minimum}，两条结论对 $\mathcal A(\eta;c_{\min},q_{\rm cap})$ 中的成本最优控制成立。
+(iii) 由定理~\ref{thm:joint:cost-minimum}(ii)，成本最优控制几乎处处取逐状态最小点；由 (i)(ii)，它不取左端点，在 $S_c<S<\min\{S_{\rm sw},S^*\}$ 上也不取右端点，故得 (iii) 的两条结论。
+
+(iv) 考虑能力约束时，由式\eqref{eq:joint:bounds}及 $c_{\min}<c_0$、$q_{\rm cap}>q_0$，对 $S\in(S_c,S^*)$ 有 $c^{-}(S)<c_0$、$c^{+}(S)>c_0S_c/S$，允许区间 $[c^-(S),c^+(S)]$ 不退化。若 $c^{-}(S)=c_0S_c/S$，左端点处向区间内部的单侧比较照旧，它不是最小点；若 $c^{-}(S)>c_0S_c/S$，区间内处处有 $q>q_0$。同理，$S<S_{\rm sw}$ 时，若 $c^{+}(S)=c_0$，右端点不是最小点；若 $c^{+}(S)<c_0$，区间内处处有 $c<c_0$。再由定理~\ref{thm:joint:cost-minimum}，两条结论对 $\mathcal A(\eta;c_{\min},q_{\rm cap})$ 中的成本最优控制成立。
 \end{proof}
 
 \subsection{退出附近的控制组合}
 \label{sec:proof:terminal-allocation}
-本小节证明命题\ref{prop:joint:terminal-allocation}。
+本小节证明命题~\ref{prop:joint:terminal-allocation}。
 \begin{proof}
 令 $\epsilon=1-S_c/S$，则 $S\downarrow S_c$ 等价于 $\epsilon\downarrow0$。把允许接触率写为
 $c=c_0(1-\epsilon x)$、$0\le x\le1$，于是
@@ -276,12 +278,12 @@ $c=c_0(1-\epsilon x)$、$0\le x\le1$，于是
 \]
 该函数严格凸，唯一最小点为 $x=w_q/(w_c+w_q)$。由一致收敛和紧性，原问题最小点的任一序列都趋于 $w_q/(w_c+w_q)$：否则可取收敛子列，其极限将是极限函数的另一个最小点，矛盾。因此存在 $\delta>0$，使 $S_c<S<S_c+\delta$ 时所有最小点都位于 $x\in(0,1)$，即得式\eqref{eq:joint:terminal-interior}；比值的极限给出式\eqref{eq:joint:terminal-ratio}。这证明了 (i)。
 
-在 $(S_c,S_c+\delta)$ 上，两种单控制分别对应 $x=0$ 和 $x=1$，均达不到逐状态最小值，其非负成本差的积分严格为正，得 (ii)。考虑满足 $c_{\min}<c_0$、$q_{\rm cap}>q_0$ 的能力约束时，充分接近 $S_c$ 处的允许区间仍为 $[c_0S_c/S,c_0]$，同一论证给出 (iii)。
+在 $(S_c,S_c+\delta)$ 上，两种单控制分别对应 $x=0$ 和 $x=1$，均达不到逐状态最小值，其非负成本差的积分严格为正，得 (ii)。考虑满足 $c_{\min}<c_0$、$q_{\rm cap}>q_0$ 的能力约束时，由式\eqref{eq:joint:bounds}，$S_c<S<\min\{c_0S_c/c_{\min},\,(1-q_0)S_c/(1-q_{\rm cap})\}$ 时允许区间仍为 $[c_0S_c/S,c_0]$；这一上限大于 $S_c$（$c_{\min}=0$ 时第一项理解为 $+\infty$），同一论证给出 (iii)。
 \end{proof}
 
 \subsection{连续结构}
 \label{sec:proof:cost-structure}
-本小节证明定理\ref{thm:joint:cost-structure}与推论\ref{cor:joint:capacity-clip}。令 $\zeta=S/S_c$、$p=cS/(c_0S_c)$，则允许区间 $[c_0S_c/S,c_0]$ 对应 $p\in[1,\zeta]$：$p=1$ 为仅减少接触，$p=\zeta$ 为仅隔离控制。由 $c/c_0=p/\zeta$、$(q-q_0)/(1-q_0)=1-1/p$ 与 $cS-c_0\bar S=c_0S_c(p-b)$，
+本小节证明定理~\ref{thm:joint:cost-structure}与推论~\ref{cor:joint:capacity-clip}。令 $\zeta=S/S_c$、$p=cS/(c_0S_c)$，则允许区间 $[c_0S_c/S,c_0]$ 对应 $p\in[1,\zeta]$：$p=1$ 为仅减少接触，$p=\zeta$ 为仅隔离控制。由 $c/c_0=p/\zeta$、$(q-q_0)/(1-q_0)=1-1/p$ 与 $cS-c_0\bar S=c_0S_c(p-b)$，
 \[
 f(S,c)=\frac{w_c}{c_0S_c}\,G(p;\zeta),\qquad
 G(p;\zeta)=\frac{(1-p/\zeta)^2+r(1-1/p)^2}{p-b}.
@@ -298,7 +300,7 @@ E_p=2(p-b)\Bigl[\frac1{\zeta^2}-r\psi(p)\Bigr],\quad
 E_\zeta=-\frac{2[(p-b)^2+b(\zeta-b)]}{\zeta^3}<0.
 \label{eq:proof:cost-E}
 \end{equation}
-两端的值为 $E(1,\zeta)=-(\zeta-1)(\zeta+1-2b)/\zeta^2<0$ 与 $E(\zeta,\zeta)=r\varphi(\zeta)$；后者在 $1<\zeta<\zeta_{\rm sw}$ 时为正，在 $\zeta>\zeta_{\rm sw}$ 时为负（命题\ref{prop:joint:global-structure}）。下面的引理用于排除内部驻点曲线的折叠。
+两端的值为 $E(1,\zeta)=-(\zeta-1)(\zeta+1-2b)/\zeta^2<0$ 与 $E(\zeta,\zeta)=r\varphi(\zeta)$；后者在 $1<\zeta<\zeta_{\rm sw}$ 时为正，在 $\zeta>\zeta_{\rm sw}$ 时为负（命题~\ref{prop:joint:global-structure}）。下面的引理用于排除内部驻点曲线的折叠。
 \begin{lemma}
 \label{lem:proof:fold-free}
 设 $0<b<1$，$s_c=\sqrt{r_{\rm cont}}$。对 $p>3/2$ 与 $s>0$，记
@@ -331,7 +333,7 @@ s_2\ge\frac{bpw}{X}\ge\frac{p^2}{bw}>\frac{p^2}{\sqrt{2p-3}}\ge4>s_c;
 
 \emph{第二步：曲线单调。}$p\le3/2$ 时 $\psi(p)\le0$，故 $E_p>0$。若曲线上某点 $p>3/2$ 处 $E_p=0$，则 $1/\zeta=\sqrt{r\psi(p)}$；代入 $E=0$ 并乘以 $-p^3$，得 $F(p;\sqrt r)=0$。由引理~\ref{lem:proof:fold-free}，$r<r_{\rm cont}$ 时曲线上处处 $E_p\ne0$；$p$ 接近 $1$ 时 $E_p>0$，由连续性曲线上处处 $E_p>0$。令 $r\uparrow r_{\rm cont}$ 取极限，$r=r_{\rm cont}$ 时曲线上 $E_p\ge0$，零点只可能在 $p=2$。两种情形下 $\zeta_s$ 都在 $(1,\zeta_{\rm sw})$ 上严格增，是该区间到自身的连续双射。
 
-\emph{第三步：单峰性。}对 $1<\zeta<\zeta_{\rm sw}$，$E(\cdot,\zeta)$ 在 $(1,\zeta)$ 内恰有一个零点 $p^*(\zeta)=\zeta_s^{-1}(\zeta)$；又 $E(1,\zeta)<0<E(\zeta,\zeta)$，所以 $E$ 在 $p^*$ 处由负变正，$G(\cdot;\zeta)$ 先严格减、后严格增，最小点唯一且在内部。对 $\zeta\ge\zeta_{\rm sw}$，$E(\cdot,\zeta)$ 在 $(1,\zeta)$ 内没有零点且 $E(1,\zeta)<0$，所以 $G$ 严格减，最小点为 $p=\zeta$。$p^*=\zeta_s^{-1}$ 连续，且 $\zeta\uparrow\zeta_{\rm sw}$ 时 $p^*\to\zeta_{\rm sw}$，$\zeta\downarrow1$ 时 $p^*\to1$。回到原变量，$c_c^*(S)=c_0S_cp^*(S/S_c)/S$（$S<S_{\rm sw}$）与 $c_c^*(S)=c_0$（$S\ge S_{\rm sw}$）即定理所述；由定理\ref{thm:joint:cost-minimum}，成本最优控制几乎处处等于它。
+\emph{第三步：单峰性。}对 $1<\zeta<\zeta_{\rm sw}$，$E(\cdot,\zeta)$ 在 $(1,\zeta)$ 内恰有一个零点 $p^*(\zeta)=\zeta_s^{-1}(\zeta)$；又 $E(1,\zeta)<0<E(\zeta,\zeta)$，所以 $E$ 在 $p^*$ 处由负变正，$G(\cdot;\zeta)$ 先严格减、后严格增，最小点唯一且在内部。对 $\zeta\ge\zeta_{\rm sw}$，$E(\cdot,\zeta)$ 在 $(1,\zeta)$ 内没有零点且 $E(1,\zeta)<0$，所以 $G$ 严格减，最小点为 $p=\zeta$。$p^*=\zeta_s^{-1}$ 连续，且 $\zeta\uparrow\zeta_{\rm sw}$ 时 $p^*\to\zeta_{\rm sw}$，$\zeta\downarrow1$ 时 $p^*\to1$。回到原变量，$c_c^*(S)=c_0S_cp^*(S/S_c)/S$（$S<S_{\rm sw}$）与 $c_c^*(S)=c_0$（$S\ge S_{\rm sw}$）即定理所述；由定理~\ref{thm:joint:cost-minimum}，成本最优控制几乎处处等于它。
 \end{proof}
 
 \begin{proof}[\normalfont\bfseries 推论~\ref{cor:joint:capacity-clip}的证明]
@@ -340,7 +342,7 @@ s_2\ge\frac{bpw}{X}\ge\frac{p^2}{bw}>\frac{p^2}{\sqrt{2p-3}}\ge4>s_c;
 
 \subsection{权重单调性}
 \label{sec:proof:weight-monotone}
-本小节证明命题\ref{prop:joint:weight-monotone}，沿用上一小节的记号。
+本小节证明命题~\ref{prop:joint:weight-monotone}，沿用上一小节的记号。
 \begin{proof}
 (i) 由于 $A_p=-(\zeta-p)(\zeta+p-2b)/[\zeta^2(p-b)^2]$，$A$ 在 $[1,\zeta]$ 上严格减。固定 $S$，设 $p_1$、$p_2$ 分别是 $r_1<r_2$ 下的最小点，二者属于同一允许区间。两个最优性不等式相加，得 $(r_2-r_1)[B(p_2)-B(p_1)]\le0$，即 $B(p_2)\le B(p_1)$。若 $p_2>p_1$，则 $A(p_2)<A(p_1)$，于是 $A(p_2)+r_1B(p_2)<A(p_1)+r_1B(p_1)$，与 $p_1$ 在 $r_1$ 下最优矛盾。故 $p_2\le p_1$，而 $c$、$q$ 都随 $p$ 增，即得逐状态结论。由式\eqref{eq:joint:duration}，接触率处处不增时控制时长不减；再由式\eqref{eq:joint:cumulative}与\eqref{eq:joint:quarantine}得到感染与隔离的结论。对任一允许控制，$J/w_c$ 是 $r$ 的仿射函数，斜率为非负的隔离强度积分，所以其下确界 $J_{\min}/w_c$ 是 $r$ 的凹且不减的函数。
 
@@ -353,7 +355,7 @@ s_2\ge\frac{bpw}{X}\ge\frac{p^2}{bw}>\frac{p^2}{\sqrt{2p-3}}\ge4>s_c;
 
 \subsection{阈值与能力约束的影响}
 \label{sec:proof:minimum-threshold}
-本小节证明命题\ref{prop:joint:minimum-threshold}。
+本小节证明命题~\ref{prop:joint:minimum-threshold}。
 \begin{proof}
 记 $m(S)=\min_{c^{-}(S)\le c\le c^{+}(S)}f(S,c)$。被积函数与允许界限都不含 $\eta$，$m$ 连续；对 $S>S_c$，两项强度不能同时为零，故 $m(S)>0$。因此
 \[
