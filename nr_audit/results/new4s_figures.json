@@ -1,0 +1,85 @@
+{
+ "generated": "2026-10-27T09:54:52",
+ "git_head": "0940c1da15c5ffcbf74c645ad53a0480e509a901",
+ "script": "nr_audit/plot_new4s_figures.py",
+ "style_module": "nr_audit/plot_xian_fig2_style.py",
+ "style": {
+  "tick": 5.5,
+  "label": 6.5,
+  "title": 7.0,
+  "legend": 5.0,
+  "note": 5.5,
+  "lw_main": 1.5,
+  "lw_ref": 1.0,
+  "lw_vline": 0.6,
+  "lw_axes": 0.4,
+  "ref_alpha": 0.7
+ },
+ "inputs_sha256": {
+  "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/trajectories_baseline.csv": "919241c537662145ad9e3f38a736b7d2b8a8e698bc7f61a3de58af98c3cdeed7",
+  "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/compare_baseline.csv": "9b4ae23be6bbbca4f912a6c060e07dd7da0c81144ad191a0dfaa2f9b3c2abbf3",
+  "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/input_manifest.json": "33d2edd859ed11d364e523ebd4542ee368faca5bad97c51b9e89d1c1959d1835"
+ },
+ "outputs": {
+  "paper/figures/new4s/joint_compare_baseline.pdf": {
+   "sha256": "b637d4577894d1c37d2b743c30f772868e2c7e8fb084c983f2eea09921354423",
+   "size_mm": [
+    135.83,
+    100.0
+   ],
+   "fonts": [
+    "CGMMQU+Cmr10",
+    "GYUURQ+Cmmi10"
+   ]
+  }
+ },
+ "checks": {
+  "eta": 38.15,
+  "N": 763.0,
+  "q0": 0.01526,
+  "Sc_over_N": 0.22956771952904548,
+  "tmax": 64.13139751316481,
+  "laws": {
+   "contact_only": {
+    "points": 3937,
+    "t_last": 64.13139751316481,
+    "t_end": 64.13139751316481,
+    "peak_ratio": 1.0154964758222094,
+    "peak_ratio_table": 1.0154964758222094
+   },
+   "alpha_0.5": {
+    "points": 3802,
+    "t_last": 37.106959670443416,
+    "t_end": 37.106959670443416,
+    "peak_ratio": 1.640507426024843,
+    "peak_ratio_table": 1.6405078547925211
+   },
+   "quarantine_only": {
+    "points": 3785,
+    "t_last": 33.77318271911462,
+    "t_end": 33.77318271911462,
+    "peak_ratio": 1.9150146248585744,
+    "peak_ratio_table": 1.915014703344174
+   },
+   "minimum_cost": {
+    "points": 5003,
+    "t_last": 35.62422477780614,
+    "t_end": 35.62422477780614,
+    "peak_ratio": 1.8916875425550326,
+    "peak_ratio_table": 1.891687623871188
+   }
+  },
+  "peak_matches_table": {
+   "contact_only": true,
+   "alpha_0.5": true,
+   "quarantine_only": true,
+   "minimum_cost": true
+  },
+  "ends_at_clearance": {
+   "contact_only": true,
+   "alpha_0.5": true,
+   "quarantine_only": true,
+   "minimum_cost": true
+  }
+ }
+}

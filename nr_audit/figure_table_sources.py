@@ -19,7 +19,7 @@ FIG={
 'fig:scenario1_summary_eta':(f'{D}/baseline/landscape_summary.csv;{D}/baseline/eta_sensitivity_c0_10.csv','nr_audit/plot_new4r_tradeoff.py'),
 'fig:sup:eta-summary':(f'{D}/baseline/eta_sensitivity_c0_10.csv;{D}/baseline/main_eta_summary.csv',f'{L}/layout_matlab.m'),
 'fig:scenario1_summary_c0':(f'{D}/baseline/c0_sensitivity_selected_eta.csv;{D}/baseline/main_c0_summary.csv',f'{L}/layout_matlab.m'),
-'fig:joint:compare':(f'{E}/trajectories_baseline.csv;{E}/compare_baseline.csv','reproducibility/joint_extra/figures.py:fig_compare'),
+'fig:joint:compare':(f'{E}/trajectories_baseline.csv;{E}/compare_baseline.csv;{E}/input_manifest.json','nr_audit/plot_new4s_figures.py:joint_compare'),
 'fig:joint:capacity':(f'{E}/capacity_baseline.npz;{E}/capacity.json;{E}/capacity_traj_baseline.csv;{E}/input_manifest.json','nr_audit/plot_new4p_figures.py:capacity_baseline'),
 'fig:joint:phase':(f'{A}/new4d_cost_structure.json;nr_audit/allocation.py;nr_audit/params.py','nr_audit/plot_figure7_contour.py；NEW-4p版面：nr_audit/plot_new4p_figures.py:phase_baseline'),
 'fig:xian:joint':(f'{E}/capacity_xian.npz;{E}/capacity.json;{A}/new4d_figure7.json;{A}/new4d_figure7.npz','nr_audit/plot_new4p_figures.py:xian_joint'),
@@ -91,6 +91,8 @@ def main():
                         status='NEW-4p只读既有数据按图2风格重绘（相图复用NEW-4d缓存）；见new4p_figures.json'
                     if artifact.startswith('paper/figures/new4r/'):
                         status='NEW-4r只读既有基准扫描按图2风格绘制阈值取舍图；见new4r_tradeoff.json'
+                    if artifact.startswith('paper/figures/new4s/'):
+                        status='NEW-4s只读既有轨迹按图2风格重绘；见new4s_figures.json'
                 rows.append(dict(labels='|'.join(labels),kind=kind,tex=file.relative_to(ROOT).as_posix(),
                     artifact=artifact,inputs=inputs,generation_or_audit_entry=entry,
                     historical_report=H if kind=='figure' else 'nr_audit/results/regression.json或所列理论/专项结果',

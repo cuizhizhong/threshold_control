@@ -65,8 +65,7 @@ def threshold_tradeoff():
     cs = curves()
     fig, axes = plt.subplots(1, 2, figsize=(WIDTH_FRAC * F2.TEXT_WIDTH_PT / 72, 58 * MM))
     fig.subplots_adjust(left=.085, right=.985, bottom=.17, top=.9, wspace=.28)
-    for ax, col, ylabel, title in ((axes[0], 'Delta_t', r'$\Delta t$', '(a) Control duration'),
-                                   (axes[1], 'J', r'$J$', '(b) Intervention cost')):
+    for ax, col, ylabel, title in ((axes[0], 'Delta_t', r'$\Delta t$', '(a)'), (axes[1], 'J', r'$J$', '(b)')):
         for (c0, s), color in zip(cs.items(), COLORS):
             ax.plot(s.I_t_cum, s[col], color=color, lw=STYLE['lw_ref'] + .2, zorder=3, label=f'$c_0={c0}$')
             for m, shape in zip(MARKS, SHAPES):
@@ -74,7 +73,7 @@ def threshold_tradeoff():
                 ax.plot(r.I_t_cum, r[col], shape, ms=3.2, mfc=color, mec='k', mew=.4, zorder=4)
         ax.set_ylim(bottom=0)
         ax.set_xlim(160, 355)
-        ax.set_xlabel(r'Total cumulative new infections $I_{t_{\rm cum}}$')
+        ax.set_xlabel(r'$I_{t_{\rm cum}}$')
         ax.set_ylabel(ylabel)
         ax.set_title(title)
     F2.frame_legend(axes[0].legend(loc='upper right'))

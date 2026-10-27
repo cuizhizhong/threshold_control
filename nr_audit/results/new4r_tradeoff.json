@@ -1,6 +1,6 @@
 {
- "generated": "2026-10-27T09:39:30",
- "git_head": "14bc66cd4f08f7d67c1108e3bccf24c45310ed32",
+ "generated": "2026-10-27T09:51:43",
+ "git_head": "0940c1da15c5ffcbf74c645ad53a0480e509a901",
  "script": "nr_audit/plot_new4r_tradeoff.py",
  "style_module": "nr_audit/plot_xian_fig2_style.py",
  "style": {
@@ -21,7 +21,7 @@
  },
  "outputs": {
   "paper/figures/new4r/threshold_tradeoff.pdf": {
-   "sha256": "909a9f1108069c90b09ddbdef9727746f79a0a61992d75c85c6c87b557f568d7",
+   "sha256": "609ccfbf94688a0d699116954f99fffc0ad941974ce2f74fc9a0265f6643cd06",
    "size_mm": [
     143.82,
     58.0
