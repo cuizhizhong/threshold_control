@@ -31,6 +31,10 @@
 # 主稿与补充材料 PDF 入库，按二进制处理。
 /paper/*.pdf binary
 
+# 作者补入的参考文献PDF按原字节保存。
+/refs/tang2023.pdf binary
+/refs/zhao2020.pdf binary
+
 # NEW-4t：已确认图件和来源材料按原字节保存；新入口统一LF。
 /paper/figures/new4t/*.pdf binary
 /nr_audit/results/new4t_figures/** -text whitespace=cr-at-eol
