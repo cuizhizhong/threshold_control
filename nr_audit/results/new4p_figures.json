@@ -1,6 +1,6 @@
 {
- "generated": "2026-10-27T08:49:42",
- "git_head": "c2a7c19ff1df41b9ec95aeac715b816783a00e0d",
+ "generated": "2026-10-27T08:55:38",
+ "git_head": "27ec5c0d61e6fc63ad7be9e5cddd7d1f0ed71725",
  "script": "nr_audit/plot_new4p_figures.py",
  "style_module": "nr_audit/plot_xian_fig2_style.py",
  "style": {
@@ -76,7 +76,7 @@
    ]
   },
   "paper/figures/new4p/joint_phase_baseline.pdf": {
-   "sha256": "2e2dd46f8a382712acd69d3c0ffb836af5078c12f64894462e4cfc9e907f04ac",
+   "sha256": "4cda1ecc411ca54ea1cca797a8ec6e44cb9bf0756f0144ecf827ff06397ddd96",
    "size_mm": [
     159.8,
     90.0
@@ -88,7 +88,7 @@
    ]
   },
   "paper/figures/new4p/xian_joint.pdf": {
-   "sha256": "59244c14da3f2b55d707aaf0ec5e529f4faa1e9157fca83df7105c130a49538b",
+   "sha256": "3f0cde5a49e121144ea0f827d49b3df45c177752efc61ba8b0ac7d6a9f0d2213",
    "size_mm": [
     159.8,
     68.0
@@ -146,6 +146,17 @@
    "z_sw": 2.26536879999122,
    "z_star": 4.043995604621511,
    "gamma_points": 70,
+   "endpoint_tail": {
+    "last_sample": {
+     "z": 4.016695995414436,
+     "r": 12.952144919763242
+    },
+    "endpoint": {
+     "z": 4.043995604621511,
+     "r": 13.101741705655332
+    },
+    "z_extrapolated_at_r_C": 4.04402969087843
+   },
    "profile_jumps": [
     {
      "r": 1.0,
@@ -201,7 +212,18 @@
     "r_C": 7.453561846589592,
     "z_sw": 2.548250542570811,
     "z_star": 4.377905754522463,
-    "gamma_points": 54
+    "gamma_points": 54,
+    "endpoint_tail": {
+     "last_sample": {
+      "z": 4.288158774536717,
+      "r": 7.236990724182648
+     },
+     "endpoint": {
+      "z": 4.377905754522463,
+      "r": 7.453561846589592
+     },
+     "z_extrapolated_at_r_C": 4.377727993270394
+    }
    }
   },
   "xian_strategy_process": {

@@ -111,6 +111,10 @@ def phase_panel(ax, data, arrays, case, rep_lines):
         ax.clabel(cs, fmt=lambda v: f'{v:g}', fontsize=STYLE['legend'], inline=True, inline_spacing=1, manual=pos)
     for kind in ('internal', 'endpoint'):
         pts = [(p['z'], p['r']) for p in c['gamma'] if p['kind'] == kind]
+        if kind == 'endpoint' and pts:
+            # 缓存只在离散权重上定位跳变，最后一个采样点之后到三角 (S*/S_c, r_C) 没有点；r_C 处跳变恰在 S*，
+            # 把这一终点（同在缓存中）接上，免得红线在三角前断开
+            pts.append((c['z_star'], c['r_C']))
         if pts:
             ax.plot(*zip(*pts), color=JUMP[kind], lw=STYLE['lw_ref'])
     ax.plot([c['z_sw'], c['z_sw']], [0.9, c['r_hat']], color=JUMP['continuous'], lw=STYLE['lw_ref'])
@@ -125,8 +129,12 @@ def phase_panel(ax, data, arrays, case, rep_lines):
     ax.minorticks_off()
     ax.set_xlabel(r'$S/S_c$ (time $\rightarrow$)')
     ax.set_ylabel(r'$r=w_q/w_c$')
+    ep = [p for p in c['gamma'] if p['kind'] == 'endpoint']
+    slope = (ep[-1]['z'] - ep[-2]['z']) / (ep[-1]['r'] - ep[-2]['r'])
+    tail = dict(last_sample=dict(z=ep[-1]['z'], r=ep[-1]['r']), endpoint=dict(z=c['z_star'], r=c['r_C']),
+                z_extrapolated_at_r_C=ep[-1]['z'] + slope * (c['r_C'] - ep[-1]['r']))
     return pc, dict(r_cont=c['r_cont'], r_hat=c['r_hat'], r_C=c['r_C'], z_sw=c['z_sw'], z_star=c['z_star'],
-                    gamma_points=len(c['gamma']))
+                    gamma_points=len(c['gamma']), endpoint_tail=tail)
 
 
 def colorbar(fig, pc, cax):

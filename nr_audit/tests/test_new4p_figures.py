@@ -96,3 +96,7 @@ def test_phase_panels_reuse_new4d_cache(receipt):
     assert 2 < ph['xian_joint']['phase']['r_cont'] < 4 and 2 < ph['joint_phase_baseline']['r_cont'] < 4
     render = json.loads((SRC.HERE / 'results' / 'new4d_figure7_render.json').read_text(encoding='utf-8'))
     assert ph['joint_phase_baseline']['profile_jumps'] == render['profile_jumps']
+    # 红线接到三角 (S*/S_c, r_C)：按最后两个采样点外推到 r_C，应落在 S*/S_c 附近，接上的一段不改变曲线走势
+    for tail in (ph['joint_phase_baseline']['endpoint_tail'], ph['xian_joint']['phase']['endpoint_tail']):
+        assert tail['last_sample']['r'] < tail['endpoint']['r'] and tail['last_sample']['z'] < tail['endpoint']['z']
+        assert abs(tail['z_extrapolated_at_r_C'] - tail['endpoint']['z']) < 0.01
