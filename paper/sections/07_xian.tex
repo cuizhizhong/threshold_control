@@ -61,18 +61,19 @@ $\eta$ & 阈值（人） & $0.002N=\num{26326}$ & 设计情景（第~\ref{sec:xi
 \begin{threeparttable}
 \caption{西安参数下不考虑能力约束时四种控制的比较（$w_c=1,w_q=2$）}
 \label{tab:xian:joint-compare}
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}Xcccccc@{}}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccccc@{}}
 \toprule
-控制 & \shortstack{控制时长\\$\Delta t$（d）} & \shortstack{清零时间\\$t_{\rm end}$（d）} & \shortstack{总累计\\新增感染} & \shortstack{阈值控制期\\新增隔离易感者} & $J$（d） & \shortstack{两感染仓室峰值\\$\max(I+I_q)/\eta$}\\
+控制 & $\Delta t$（d） & $t_{\rm end}$（d） & $\Itcum$ & $\Delta S_q$ & $J$（d） & $\max_t(I+I_q)/\eta$\\
 \midrule
 仅减少接触 & 308.79 & 481.83 & 3.857 & 6.500 & 109.36 & 1.46\\
 显式族 $\alpha=0.5$ & 124.57 & 297.60 & 2.639 & 7.718 & 44.53 & 3.20\\
 仅隔离控制 & 85.07 & 258.10 & 2.378 & 7.979 & 40.77 & 4.73\\
 成本最优控制 & 108.81 & 281.84 & 2.535 & 7.822 & 38.02 & 4.73\\
 \bottomrule
-\end{tabularx}
+\end{tabular*}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：$\eta=0.002N$；四种控制采用同一完整初值（表~\ref{tab:xian_initial_fit}），总累计新增感染与两感染仓室峰值都计至清零时间，新增人数以 $10^6$ 人计。$J$ 见式\eqref{eq:cost:J}。$S^*/S_c\approx 4.378$，$S_{\rm sw}/S_c\approx 2.548$。
+\item 注：$\Delta t$ 为控制时长，$t_{\rm end}$ 为清零时间，$\Itcum$ 为总累计新增感染，$\Delta S_q=S_q(t_2)-S_q(t_1)$ 为阈值控制期新增隔离易感者人数，$J$ 为二次干预强度成本（式\eqref{eq:cost:J}）；$\max_t(I+I_q)/\eta$ 为两感染仓室人数之和的峰值与阈值之比。$\Itcum$ 与峰值均统计至清零时间，$\Itcum$ 与 $\Delta S_q$ 以 $10^6$ 人计。
+\item[] $\eta=0.002N$；四种控制采用同一完整初值（表~\ref{tab:xian_initial_fit}）。$S^*/S_c\approx 4.378$，$S_{\rm sw}/S_c\approx 2.548$。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}

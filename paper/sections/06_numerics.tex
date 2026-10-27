@@ -29,18 +29,19 @@
 \begin{threeparttable}
 \caption{基准参数下不考虑能力约束时四种控制的比较（$w_c=1,w_q=2$）}
 \label{tab:joint:compare}
-\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}Xcccccc@{}}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccccc@{}}
 \toprule
-控制 & \shortstack{控制时长\\$\Delta t$（d）} & \shortstack{清零时间\\$t_{\rm end}$（d）} & \shortstack{总累计\\新增感染} & \shortstack{阈值控制期\\新增隔离易感者} & $J$（d） & \shortstack{两感染仓室峰值\\$\max(I+I_q)/\eta$}\\
+控制 & $\Delta t$（d） & $t_{\rm end}$（d） & $\Itcum$ & $\Delta S_q$ & $J$（d） & $\max_t(I+I_q)/\eta$\\
 \midrule
 仅减少接触 & 36.26 & 64.13 & 628.6 & 40.9 & 11.94 & 1.02\\
 显式族 $\alpha=0.5$ & 9.24 & 37.11 & 323.4 & 346.2 & 2.55 & 1.64\\
 仅隔离控制 & 5.90 & 33.77 & 285.7 & 383.9 & 2.22 & 1.92\\
 成本最优控制 & 7.75 & 35.62 & 306.6 & 363.0 & 2.12 & 1.89\\
 \bottomrule
-\end{tabularx}
+\end{tabular*}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：四种控制采用同一完整初值（图~\ref{fig:scenario1:single-sim}），总累计新增感染与两感染仓室峰值都计至清零时间，新增人数以人计。$J$ 见式\eqref{eq:cost:J}。$S^*/S_c\approx 4.044$，$S_{\rm sw}/S_c$（式\eqref{eq:joint:ssw}）$\approx 2.265$。
+\item 注：$\Delta t$ 为控制时长，$t_{\rm end}$ 为清零时间，$\Itcum$ 为总累计新增感染，$\Delta S_q=S_q(t_2)-S_q(t_1)$ 为阈值控制期新增隔离易感者人数，$J$ 为二次干预强度成本（式\eqref{eq:cost:J}）；$\max_t(I+I_q)/\eta$ 为两感染仓室人数之和的峰值与阈值之比。$\Itcum$ 与峰值均统计至清零时间，$\Itcum$ 与 $\Delta S_q$ 以人计。
+\item[] 四种控制采用同一完整初值（图~\ref{fig:scenario1:single-sim}）。$S^*/S_c\approx 4.044$，$S_{\rm sw}/S_c$（式\eqref{eq:joint:ssw}）$\approx 2.265$。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
