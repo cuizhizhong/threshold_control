@@ -5,7 +5,7 @@
 正文图~\ref{fig:joint:phase}与图~\ref{fig:xian:joint}(b) 在 $r\in[0.9,20]$ 的 $300$ 个对数等距点与 $S\in(S_c,S^*]$ 的 $300$ 个等距点上逐状态求解，正文讨论其中 $r\ge1$ 的部分，跳变位置在 $S$ 上二分定位；默认的 $r=2$ 由正文第~\ref{sec:joint:compare-numerics}、\ref{sec:xian:joint}~节单独计算。表~\ref{tab:joint:weight-transitions}给出成本最优控制的结构转折所在的 $r$ 括区。括区由 $r\in[0.1,20]$ 内 $161$ 个对数等距点的原网格出发确定：对全部网格点重新分类，在类别不同的相邻网格点之间取 $20$ 个细分点，找出每个改变区间，再在 $\log r$ 上二分到宽度小于 $10^{-3}$，不假定结构类别对 $r$ 单调；各括区在 $N_z=8001$ 与 $16001$ 下类别不变。结构 A$'$ 中的内部跳变另用不依赖根法的 $2\times10^{5}$ 点网格逐点核对：两个内部局部极小在跳变处交换全局最优。
 
 \subsection{结构边界}
-表~\ref{tab:joint:weight-transitions}的前两个转折可以与闭式比较。正文定理~\ref{thm:joint:cost-structure}的权重界 $r_{\rm cont}$（式\eqref{eq:joint:rcont}）保证控制连续，两组参数下的值都落在 A$\to$A$'$ 的括区内；A$'\to$B 的转折由命题~\ref{prop:sup:rhat}给出，其证明用到下面的上集性。
+表~\ref{tab:joint:weight-transitions}的前两个转折可以与闭式比较。正文定理~\ref{thm:joint:cost-structure}的权重阈值 $r_{\rm cont}$（式\eqref{eq:joint:rcont}）保证控制连续，两组参数下的值都落在 A$\to$A$'$ 的括区内；A$'\to$B 的转折由命题~\ref{prop:sup:rhat}给出，其证明用到下面的上集性。
 \begin{lemma}
 \label{lem:sup:upper-set}
 设 $w_c,w_q>0$，不考虑能力约束。若 $c=c_0$ 是 $f(S,\cdot)$ 在 $[c_0S_c/S,c_0]$ 上的全局最小点，则对任意 $S'>S$，$c=c_0$ 是 $f(S',\cdot)$ 在 $[c_0S_c/S',c_0]$ 上的唯一全局最小点。
@@ -108,7 +108,7 @@ $1<\zeta<\zeta_0$ 时两端点都不是全局最小点。由引理~\ref{lem:sup:
 
 在 (ii)(iii) 的跳变处，$\zeta$ 连续而最小点 $p$ 下降，故 $c/c_0=p/\zeta$ 与 $q=1-(1-q_0)/p$ 同时下降。
 \end{proof}
-因此，无论权重多大，成本最优控制在阈值控制期内部至多跳变一次，而且方向固定：减少接触突然加强，追踪隔离突然放松，控制由偏重隔离转向偏重减少接触。$r>r_{\rm cont}$ 时整条状态反馈恰有一次跳变，所以正文定理~\ref{thm:joint:cost-structure}的权重界不能放宽。最优选择本身是五次方程的根，两个内部取值之间的跳变状态却有闭式\eqref{eq:sup:jump-state}。
+因此，无论权重多大，成本最优控制在阈值控制期内部至多跳变一次，而且方向固定：减少接触突然加强，追踪隔离突然放松，控制由偏重隔离转向偏重减少接触。$r>r_{\rm cont}$ 时整条状态反馈恰有一次跳变，所以正文定理~\ref{thm:joint:cost-structure}的权重阈值不能放宽。最优选择本身是五次方程的根，两个内部取值之间的跳变状态却有闭式\eqref{eq:sup:jump-state}。
 
 对一次疫情，阈值控制期只经过 $S\in[S_c,S^*]$。$r_{\rm cont}<r<\hat r$ 时，控制期内部有跳变当且仅当 $S^*>S_{\rm jump}$；$r\ge\hat r$ 时，当且仅当 $S^*>S_c\zeta_0$，这也是存在仅隔离段的条件。由正文命题~\ref{prop:joint:weight-monotone}(i)，存在仅隔离段的权重构成一个区间；由 (iii) 证明中与 $p=1$ 的比较，$r\ge(S^*-\bar S)/(S_c-\bar S)$ 时没有仅隔离段。两组算例中仅隔离段消失处的权重见表~\ref{tab:joint:weight-transitions}的 B$\to$C 括区。
 
