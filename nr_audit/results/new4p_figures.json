@@ -1,6 +1,6 @@
 {
- "generated": "2026-10-27T08:16:55",
- "git_head": "8886cbf960d9556c0c8803655957a571adbdac79",
+ "generated": "2026-10-27T08:49:42",
+ "git_head": "c2a7c19ff1df41b9ec95aeac715b816783a00e0d",
  "script": "nr_audit/plot_new4p_figures.py",
  "style_module": "nr_audit/plot_xian_fig2_style.py",
  "style": {
@@ -76,10 +76,10 @@
    ]
   },
   "paper/figures/new4p/joint_phase_baseline.pdf": {
-   "sha256": "4c94b63025bea3eb35c4ff87876d7d79aa05a0f62c65aa6fa0940e20bdb08f7a",
+   "sha256": "2e2dd46f8a382712acd69d3c0ffb836af5078c12f64894462e4cfc9e907f04ac",
    "size_mm": [
     159.8,
-    96.0
+    90.0
    ],
    "fonts": [
     "CGMMQU+Cmr10",
@@ -88,10 +88,10 @@
    ]
   },
   "paper/figures/new4p/xian_joint.pdf": {
-   "sha256": "c52f7440a37c878b23345b37265f31be6e6646ab6378a9a57357c02c52851c8e",
+   "sha256": "59244c14da3f2b55d707aaf0ec5e529f4faa1e9157fca83df7105c130a49538b",
    "size_mm": [
     159.8,
-    74.0
+    68.0
    ],
    "fonts": [
     "CGMMQU+Cmr10",

@@ -137,13 +137,6 @@ def colorbar(fig, pc, cax):
         cb.ax.axhline(v, color='#3d3d3a' if v <= .5 else 'white', lw=.45)
 
 
-def jump_handles(extra=()):
-    hs = [Line2D([], [], color=JUMP['continuous'], lw=STYLE['lw_ref'], label=r'Continuous switch at $S_{\rm sw}$'),
-          Line2D([], [], color=JUMP['endpoint'], lw=STYLE['lw_ref'], label='Jump from quarantine-only'),
-          Line2D([], [], color=JUMP['internal'], lw=STYLE['lw_ref'], label='Interior-to-interior jump')]
-    return hs + list(extra)
-
-
 def capacity_baseline():
     cap = json.loads((JX / 'capacity.json').read_text(encoding='utf-8'))
     man = json.loads((JX / 'input_manifest.json').read_text(encoding='utf-8'))
@@ -182,9 +175,10 @@ def capacity_baseline():
 def phase_baseline():
     data, arrays, render = load_phase()
     q0 = json.loads((JX / 'input_manifest.json').read_text(encoding='utf-8'))['cases']['baseline']['parameters']['q0']
-    # 版面：左侧相图近似正方形，色标紧贴其右；右侧上下两幅剖面共用横轴，与相图同高
-    fig = plt.figure(figsize=(TEXT_WIDTH_IN, 96 * MM))
-    outer = fig.add_gridspec(1, 2, width_ratios=[1.12, 1], left=.065, right=.985, bottom=.15, top=.945, wspace=.2)
+    # 版面：左侧相图近似正方形，色标紧贴其右；右侧上下两幅剖面共用横轴，与相图同高。
+    # 线型与标记的含义写在图注中，图内只保留 (c) 中权重的图例
+    fig = plt.figure(figsize=(TEXT_WIDTH_IN, 90 * MM))
+    outer = fig.add_gridspec(1, 2, width_ratios=[1.12, 1], left=.065, right=.985, bottom=.11, top=.945, wspace=.2)
     left = outer[0].subgridspec(1, 2, width_ratios=[1, .045], wspace=.06)
     right = outer[1].subgridspec(2, 1, hspace=.32)
     ax_a, cax = fig.add_subplot(left[0]), fig.add_subplot(left[1])
@@ -221,9 +215,6 @@ def phase_baseline():
     ax_c.axhline(q0, color=BLACK, lw=STYLE['lw_vline'], ls='-.', alpha=STYLE['ref_alpha'])
     ax_c.text(c['z_star'] - .05, q0 + .02, r'$q_0$', fontsize=STYLE['note'], va='bottom')
     F2.frame_legend(ax_c.legend(loc='upper right', ncol=2, columnspacing=1.0, handlelength=1.8))
-    sw = Line2D([], [], color=GRAY, ls='--', lw=STYLE['lw_vline'], label=r'$S_{\rm sw}/S_c$')
-    F2.frame_legend(fig.legend(handles=jump_handles([sw]), loc='lower center', bbox_to_anchor=(.5, .008), ncol=4,
-                               columnspacing=1.6))
     chk.update(profile_jumps=used)
     return fig, chk
 
@@ -231,18 +222,17 @@ def phase_baseline():
 def xian_joint():
     cap = json.loads((JX / 'capacity.json').read_text(encoding='utf-8'))
     data, arrays, _ = load_phase()
-    # 版面与图 6 一致：两幅近似正方形的面板，色标紧贴相图右侧
-    fig = plt.figure(figsize=(TEXT_WIDTH_IN, 74 * MM))
-    outer = fig.add_gridspec(1, 2, width_ratios=[1, 1.06], left=.075, right=.955, bottom=.2, top=.925, wspace=.24)
+    # 版面与图 6 一致：两幅近似正方形的面板，色标紧贴相图右侧；线型含义见图注，默认权重的点线直接标注
+    fig = plt.figure(figsize=(TEXT_WIDTH_IN, 68 * MM))
+    outer = fig.add_gridspec(1, 2, width_ratios=[1, 1.06], left=.075, right=.955, bottom=.15, top=.92, wspace=.24)
     right = outer[1].subgridspec(1, 2, width_ratios=[1, .045], wspace=.06)
     ax_r, ax_p, cax = fig.add_subplot(outer[0]), fig.add_subplot(right[0]), fig.add_subplot(right[1])
     chk = dict(capacity=region_panel(ax_r, cap, 'xian', '(a) Feasible region'))
     pc, chk['phase'] = phase_panel(ax_p, data, arrays, 'xian', [(2.0, GRAY, ':')])
+    zstar = data['cases']['xian']['z_star']
+    ax_p.text(zstar - .1, 2.0 * 1.04, r'$r=2$', fontsize=STYLE['note'], color=(.3, .3, .3), ha='left', va='bottom')
     ax_p.set_title('(b) Cost-optimal combination')
     colorbar(fig, pc, cax)
-    r2 = Line2D([], [], color=GRAY, ls=':', lw=STYLE['lw_ref'], label=r'Default weight $r=2$')
-    F2.frame_legend(fig.legend(handles=jump_handles([r2]), loc='lower center', bbox_to_anchor=(.5, .005), ncol=4,
-                               columnspacing=1.4))
     return fig, chk
 
 
