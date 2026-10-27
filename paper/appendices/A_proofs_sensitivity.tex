@@ -2,34 +2,42 @@
 \label{sec:appendix:proofs}
 \subsection{解的适定性}
 \label{sec:proof:model-positive}
-本小节证明命题\ref{prop:model:positive}。
+本小节证明命题~\ref{prop:model:positive}。
 \begin{proof}
-方程右端关于状态局部 Lipschitz，关于时间可测且在有界状态集上局部可积，故有唯一局部绝对连续解。前两式给出
+由 $c$ 局部有界可测、$q\in[0,1]$ 可测，方程右端关于时间可测，在有界状态集上关于状态 Lipschitz，且右端与 Lipschitz 常数在有限时间区间上可积。由 Carathéodory 存在唯一性定理，方程有唯一的局部绝对连续解，并几乎处处满足方程。
+
+$S$ 与 $I$ 的方程关于各自是线性的，积分得
 \begin{align*}
 S(t)&=S_0\exp\!\left[-\int_0^t\frac{c(s)[\beta+(1-\beta)q(s)]}{N}I(s)\,ds\right],\\
 I(t)&=I_0\exp\!\left[\int_0^t\left(\frac{\beta c(s)(1-q(s))}{N}S(s)-\gamma\right)ds\right],
 \end{align*}
-由此得 $S,I$ 的严格正性。$S_q$ 的流入非负，$I_q$ 由常数变易公式保持非负，$\dot R\ge0$。五式相加得总人数守恒，因此各分量有界，局部解可以延拓至任意有限时刻。
+故在解存在的区间上 $S,I>0$。$S_q$ 的初值与流入都非负；$I_q$ 的方程是以非负项为源的线性方程，由常数变易公式保持非负；$R$ 的流入 $\gamma I+\delta_qI_q\ge0$。五式相加得总人数恒为 $N$。由非负性与守恒，各分量都在 $[0,N]$ 中，解不会在有限时间内爆破，因而可以延拓到全部 $t\ge0$。
 \end{proof}
 
 \subsection{触发与退出}
 \label{sec:proof:threshold-rationale}
-本小节证明命题\ref{prop:model:threshold-rationale}。
+本小节证明命题~\ref{prop:model:threshold-rationale}。
 \begin{proof}
-(i) 常规轨迹在首次到达时满足
+(i) 由 $S^*>S_c$ 与式\eqref{eq:model:Sc}，常规轨迹在首次到达时满足
 \[
 \dot I(t_1)=\eta\left[\frac{\beta c_0(1-q_0)S^*}{N}-\gamma\right]>0.
 \]
-若其后仍维持常规控制一段正时间，由连续性 $I$ 将超过 $\eta$，故首次加强时刻不能晚于 $t_1$；$[0,t_1]$ 上 $I\le\eta$ 由首次到达的定义得到。
+设某策略在时刻 $\tau$ 首次加强干预。它在 $\tau$ 之前采用 $(c_0,q_0)$，由命题~\ref{prop:model:positive}中解的唯一性，它在 $[0,\tau]$ 上与常规轨迹重合。若 $\tau>t_1$，则它在 $t_1$ 之后的一段时间内仍沿常规轨迹运行，由 $\dot I(t_1)>0$，$I$ 立即超过 $\eta$，与 $I\le\eta$ 矛盾。故 $\tau\le t_1$。常规轨迹在 $[0,t_1]$ 上满足 $I\le\eta$，由首次到达的定义得到。
 
-(ii) 由感染者方程在 $I=\eta$ 处直接得到。对有界可测控制，若 $I$ 在一个区间上恒等于 $\eta$，则几乎处处 $\dot I=0$，故等号几乎处处成立。
+(ii) 在 $I=\eta$ 处，由式\eqref{eq:model:full}的第二式，
+\[
+\dot I=\eta\left[\frac{\beta c(1-q)S}{N}-\gamma\right],
+\]
+故 $\dot I\le0$ 当且仅当所列不等式成立。若 $I$ 在某个区间上恒等于 $\eta$，由 $I$ 绝对连续，该区间上几乎处处有 $\dot I=0$，即等号几乎处处成立。
 
 (iii) 恢复常规控制后
 \[
 \dot I=\gamma I\left(\frac{S}{S_c}-1\right),\qquad
 \dot S=-\frac{c_0[\beta+(1-\beta)q_0]}{N}SI<0.
 \]
-若恢复时 $S\le S_c$，此后 $S$ 严格下降，所有后续时刻都有 $\dot I<0$，$I$ 不再超过 $\eta$。若恢复时 $S>S_c$，则恢复后的一个右邻域内 $\dot I>0$，立即违反 $I\le\eta$。阈值控制期内 $S$ 也严格下降，故沿该轨迹首次到达 $S_c$ 时即可恢复常规控制，在此之前则不能从阈值上直接退出。
+若恢复时 $S\le S_c$，此后 $S$ 严格下降，以后各时刻都有 $\dot I<0$，$I$ 不再超过 $\eta$。若恢复时 $S>S_c$，则恢复后的一个右邻域内 $\dot I>0$，$I$ 立即超过 $\eta$。这就证明了等价性。
+
+再看沿阈值运行的轨迹。由 (ii)，在 $I\equiv\eta$ 的区间上几乎处处有 $c(1-q)=\gamma N/(\beta S)>0$，故 $c>0$，$\dot S=-c[\beta+(1-\beta)q]S\eta/N<0$，$S$ 严格下降。因此 $S$ 首次降到 $S_c$ 之前始终有 $S>S_c$，由上一段，此前不能直接恢复常规控制；首次降到 $S_c$ 时则可以恢复。
 \end{proof}
 
 \subsection{退出后的动态}
