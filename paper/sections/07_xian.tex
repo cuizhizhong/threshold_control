@@ -1,7 +1,7 @@
 % ===== 07_xian =====
 \section{西安参数情景}
 \label{sec:xian}
-本章说明在全市参数下沿设计阈值实施缓解策略意味着什么：先给出西安参数下阈值策略的控制组合，再与 TDINN 重构的实际干预对照。计算采用无回流模型~\eqref{eq:model:full}，数值方法同第~\ref{sec:num:methods}~节，参数与初值的来源见第~\ref{sec:xian:data}~节。
+本节说明在全市参数下沿设计阈值实施缓解策略意味着什么：先给出西安参数下阈值策略的控制组合，再与 TDINN 重构的实际干预对照。计算采用无回流模型\eqref{eq:model:full}，数值方法同第~\ref{sec:num:methods}~节，参数与初值的来源见第~\ref{sec:xian:data}~节。
 
 \subsection{数据与参数}
 \label{sec:xian:data}
@@ -157,7 +157,7 @@ TDINN 控制 & 153 & 2106 & 45.29\\
 TDINN 轨迹本身给出有效人口的一个必要下界。易感者离开 $S$ 只有三条去路：成为非隔离感染者、成为隔离感染者，或作为未感染接触者被隔离。记重构轨迹在其清零时间的社区与隔离累计新增感染为 $I_{\rm cum}^{\rm T}$、$I_{q_{\rm cum}}^{\rm T}$。
 \begin{proposition}
 \label{prop:dom:floor}
-设无回流模型~\eqref{eq:model:full}的总人口为 $N_{\rm eff}$，$S_q(0)=0$。若它的一条解在某一时刻的社区与隔离累计新增感染分别等于重构轨迹的 $I_{\rm cum}^{\rm T}$ 与 $I_{q_{\rm cum}}^{\rm T}$，则
+设无回流模型\eqref{eq:model:full}的总人口为 $N_{\rm eff}$，$S_q(0)=0$。若它的一条解在某一时刻的社区与隔离累计新增感染分别等于重构轨迹的 $I_{\rm cum}^{\rm T}$ 与 $I_{q_{\rm cum}}^{\rm T}$，则
 \begin{equation}
 N_{\rm eff}\ge N_{\rm floor}:=
  I_{\rm cum}^{\rm T}+\frac{I_{q_{\rm cum}}^{\rm T}}{\beta}.

@@ -6,7 +6,7 @@
 本节用基准参数展示第~\ref{sec:joint}、\ref{sec:joint:cost}~节的结果：先比较四种控制，再给出能力约束与成本权重下的计算结果。西安参数下的相应结果见第~\ref{sec:xian:joint}~节。
 \subsection{参数与方法}
 \label{sec:num:methods}
-本节采用基准参数（图~\ref{fig:scenario1:single-sim}），这是一个小人口算例，用来演示解析结果。阈值策略的比较采用无回流模型~\eqref{eq:model:full}，控制属于 $\mathcal A(\eta)$ 或其能力约束子类；各指标的统计时段见第~\ref{sec:cost}~节，成本权重取默认值。
+本节采用基准参数（图~\ref{fig:scenario1:single-sim}），这是一个小人口算例，用来演示解析结果。阈值策略的比较采用无回流模型\eqref{eq:model:full}，控制属于 $\mathcal A(\eta)$ 或其能力约束子类；各指标的统计时段见第~\ref{sec:cost}~节，成本权重取默认值。
 
 控制时长、累计新增感染、新增隔离易感者人数与成本由第~\ref{sec:s1}--\ref{sec:joint:cost}~节的闭式解或对 $S$ 的一维积分（式\eqref{eq:joint:duration}、\eqref{eq:joint:cost}）得到，成本最优控制按定理~\ref{thm:joint:cost-minimum}逐状态选取。两感染仓室人数之和的峰值由完整仓室方程直接积分得到，控制以按名义模型预先算出的开环形式输入；求解器与核验见补充材料第~\ref{sec:sup:numerics}~节。第~\ref{sec:joint:capacity-numerics}、\ref{sec:joint:weights-numerics}~节只在有限个代表点和网格点上计算。$\delta_q$ 不影响无回流模型中闭合的 $(S,I)$ 子系统，因而不改变控制律、控制时长、累计新增感染与 $J$；它只影响 $I_q,R$ 及含这些仓室的派生指标，包括 $\max(I+I_q)/\eta$。
 
