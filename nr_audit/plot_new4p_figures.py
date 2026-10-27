@@ -100,14 +100,14 @@ def phase_panel(ax, data, arrays, case, rep_lines):
     Ym = np.where(Y > 0, Y, np.nan)
     for levs, col in (([v for v in LEVELS if v <= .5], '#3d3d3a'), ([v for v in LEVELS if v > .5], 'white')):
         cs = ax.contour(z, r, Ym, levels=levs, colors=col, linewidths=.45)
-        pos = []                                     # 标注位置与 NEW-4d 图相同
-        for v in levs:
-            for zc in (1.75, 1.45, 1.2, 2.08, 2.18):
-                j = int(np.argmin(np.abs(z - zc)))
-                hit = np.flatnonzero((Y[:-1, j] - v) * (Y[1:, j] - v) < 0)
-                if hit.size:
-                    pos.append((z[j], r[hit[0]]))
-                    break
+        pos = []                     # 每条等高线取 S/S_c 最接近 1.75 的点标注，避开底边（r<1.15）与各权重参照线
+        rep_r = np.array([rv for rv, _, _ in rep_lines])
+        for segs in cs.allsegs:
+            pts = np.concatenate([s for s in segs if len(s)])
+            far = np.all(np.abs(np.log(pts[:, 1])[:, None] - np.log(rep_r)[None, :]) > .07, axis=1)
+            ok = pts[(pts[:, 1] >= 1.15) & far]
+            pts = ok if len(ok) else pts
+            pos.append(tuple(pts[np.argmin(np.abs(pts[:, 0] - 1.75))]))
         ax.clabel(cs, fmt=lambda v: f'{v:g}', fontsize=STYLE['legend'], inline=True, inline_spacing=1, manual=pos)
     for kind in ('internal', 'endpoint'):
         pts = [(p['z'], p['r']) for p in c['gamma'] if p['kind'] == kind]
@@ -116,9 +116,9 @@ def phase_panel(ax, data, arrays, case, rep_lines):
     ax.plot([c['z_sw'], c['z_sw']], [0.9, c['r_hat']], color=JUMP['continuous'], lw=STYLE['lw_ref'])
     ax.plot(c['z_sw'], c['r_hat'], 'D', ms=2.6, mfc='white', mec=BLACK, mew=.5, zorder=6)
     ax.plot(c['z_star'], c['r_C'], 'v', ms=3.0, color=BLACK, zorder=6, clip_on=False)
-    halo = [pe.Stroke(linewidth=STYLE['lw_ref'] + 1.2, foreground='white'), pe.Normal()]
+    halo = [pe.Stroke(linewidth=1.5, foreground='white', alpha=.7), pe.Normal()]   # 细白边，只为在深色背景上可辨
     for rv, col, ls in rep_lines:
-        ax.axhline(rv, color=col, lw=STYLE['lw_ref'], ls=ls, path_effects=halo)
+        ax.axhline(rv, color=col, lw=.9, ls=ls, path_effects=halo)
     ax.set(xlim=(c['z_star'], 1), ylim=(.92, 20), yscale='log')
     ax.set_yticks([1, 2, 3, 5, 10, 20])
     ax.set_yticklabels(['1', '2', '3', '5', '10', '20'])
@@ -182,12 +182,15 @@ def capacity_baseline():
 def phase_baseline():
     data, arrays, render = load_phase()
     q0 = json.loads((JX / 'input_manifest.json').read_text(encoding='utf-8'))['cases']['baseline']['parameters']['q0']
-    fig = plt.figure(figsize=(TEXT_WIDTH_IN, 112 * MM))
-    gs = fig.add_gridspec(2, 3, width_ratios=[1, 1, .03], height_ratios=[1.1, 1], left=.07, right=.94,
-                          bottom=.13, top=.955, wspace=.25, hspace=.42)
-    ax_a, cax = fig.add_subplot(gs[0, :2]), fig.add_subplot(gs[0, 2])
-    ax_b, ax_c = fig.add_subplot(gs[1, 0]), fig.add_subplot(gs[1, 1])
-    pc, chk = phase_panel(ax_a, data, arrays, 'base', [(rv, col, (0, (4, 2))) for rv, col in zip(REP, REP_COLORS)])
+    # 版面：左侧相图近似正方形，色标紧贴其右；右侧上下两幅剖面共用横轴，与相图同高
+    fig = plt.figure(figsize=(TEXT_WIDTH_IN, 96 * MM))
+    outer = fig.add_gridspec(1, 2, width_ratios=[1.12, 1], left=.065, right=.985, bottom=.15, top=.945, wspace=.2)
+    left = outer[0].subgridspec(1, 2, width_ratios=[1, .045], wspace=.06)
+    right = outer[1].subgridspec(2, 1, hspace=.32)
+    ax_a, cax = fig.add_subplot(left[0]), fig.add_subplot(left[1])
+    ax_b = fig.add_subplot(right[0])
+    ax_c = fig.add_subplot(right[1], sharex=ax_b)
+    pc, chk = phase_panel(ax_a, data, arrays, 'base', [(rv, col, (0, (3, 1.6))) for rv, col in zip(REP, REP_COLORS)])
     ax_a.set_title('(a) Cost-optimal combination')
     colorbar(fig, pc, cax)
     c = data['cases']['base']
@@ -200,7 +203,7 @@ def phase_baseline():
         cuts = [int(np.searchsorted(zp, j['z'])) for j in jumps]     # 跳变在 zp[cut-1] 与 zp[cut] 之间
         for ax, yv in ((ax_b, x), (ax_c, q(x, zp))):
             for m, (a, e) in enumerate(zip([0] + cuts, cuts + [zp.size])):
-                ax.plot(zp[a:e], yv[a:e], color=col, lw=STYLE['lw_main'], label=f'$r={rv:g}$' if m == 0 else None)
+                ax.plot(zp[a:e], yv[a:e], color=col, lw=1.2, label=f'$r={rv:g}$' if m == 0 else None)
         for j in jumps:
             ax_b.plot([j['z']] * 2, [j['x_left'], j['x_right']], color=col, lw=STYLE['lw_vline'], ls=':')
             ax_c.plot([j['z']] * 2, [q(j['x_left'], j['z']), q(j['x_right'], j['z'])], color=col,
@@ -209,15 +212,18 @@ def phase_baseline():
     for ax, title, ylabel in ((ax_b, '(b) Contact rate', r'$c_c^*/c_0$'), (ax_c, '(c) Quarantine fraction', r'$q_c^*$')):
         ax.set_xlim(c['z_star'], 1)
         ax.axvline(c['z_sw'], color=GRAY, ls='--', lw=STYLE['lw_vline'])
-        ax.set_xlabel(r'$S/S_c$ (time $\rightarrow$)')
         ax.set_ylabel(ylabel)
         ax.set_title(title)
+    ax_b.tick_params(labelbottom=False)
+    ax_c.set_xlabel(r'$S/S_c$ (time $\rightarrow$)')
+    ax_b.set_ylim(.25, 1.04)
+    ax_c.set_ylim(-.02, .8)
     ax_c.axhline(q0, color=BLACK, lw=STYLE['lw_vline'], ls='-.', alpha=STYLE['ref_alpha'])
-    ax_c.text(c['z_star'] - .05, q0 + .015, r'$q_0$', fontsize=STYLE['note'], va='bottom')
-    F2.frame_legend(ax_c.legend(loc='upper right'))
+    ax_c.text(c['z_star'] - .05, q0 + .02, r'$q_0$', fontsize=STYLE['note'], va='bottom')
+    F2.frame_legend(ax_c.legend(loc='upper right', ncol=2, columnspacing=1.0, handlelength=1.8))
     sw = Line2D([], [], color=GRAY, ls='--', lw=STYLE['lw_vline'], label=r'$S_{\rm sw}/S_c$')
-    F2.frame_legend(fig.legend(handles=jump_handles([sw]), loc='lower center', bbox_to_anchor=(.5, .005), ncol=4,
-                               columnspacing=1.4))
+    F2.frame_legend(fig.legend(handles=jump_handles([sw]), loc='lower center', bbox_to_anchor=(.5, .008), ncol=4,
+                               columnspacing=1.6))
     chk.update(profile_jumps=used)
     return fig, chk
 
@@ -225,9 +231,11 @@ def phase_baseline():
 def xian_joint():
     cap = json.loads((JX / 'capacity.json').read_text(encoding='utf-8'))
     data, arrays, _ = load_phase()
-    fig = plt.figure(figsize=(TEXT_WIDTH_IN, 60 * MM))
-    gs = fig.add_gridspec(1, 3, width_ratios=[1, 1.25, .035], left=.07, right=.94, bottom=.27, top=.9, wspace=.3)
-    ax_r, ax_p, cax = (fig.add_subplot(gs[0, k]) for k in range(3))
+    # 版面与图 6 一致：两幅近似正方形的面板，色标紧贴相图右侧
+    fig = plt.figure(figsize=(TEXT_WIDTH_IN, 74 * MM))
+    outer = fig.add_gridspec(1, 2, width_ratios=[1, 1.06], left=.075, right=.955, bottom=.2, top=.925, wspace=.24)
+    right = outer[1].subgridspec(1, 2, width_ratios=[1, .045], wspace=.06)
+    ax_r, ax_p, cax = fig.add_subplot(outer[0]), fig.add_subplot(right[0]), fig.add_subplot(right[1])
     chk = dict(capacity=region_panel(ax_r, cap, 'xian', '(a) Feasible region'))
     pc, chk['phase'] = phase_panel(ax_p, data, arrays, 'xian', [(2.0, GRAY, ':')])
     ax_p.set_title('(b) Cost-optimal combination')
