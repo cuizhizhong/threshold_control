@@ -1,7 +1,8 @@
 """NEW-4r：正文图 3（fig:scenario1_summary_eta）改为阈值取舍图，按正文图 2 的风格绘制（样式取自 plot_xian_fig2_style.py）。
 
-基准参数下的仅隔离控制：横轴为总累计新增感染，(a) 纵轴为控制时长，(b) 纵轴为成本 J；c0 = 5, 8, 10, 12 各一条曲线，
-沿 eta/N ∈ [0.2%, 5%] 变化，并在 eta/N = 0.2%, 0.5%, 1%, 2%, 5% 处标点，灰色点线连接同一阈值的点。
+基准参数下的仅隔离控制：横轴为总累计新增感染，(a) 纵轴为控制时长，(b) 纵轴为成本 J，纵轴均为线性刻度；
+c0 = 5, 8, 10, 12 各一条曲线（颜色区分），沿 eta/N ∈ [0.2%, 5%] 变化；eta/N = 0.2%, 0.5%, 1%, 2%, 5% 处的点
+用标记形状区分（c0 = 5 的曲线与其他曲线交错，以形状而非连线标识同一阈值）。
 只读 reproducibility/results/20261003_release_final/baseline/ 的既有扫描（使用前记录原字节 SHA-256），不求解模型。
 c0 = 10 的曲线另与同目录 eta_sensitivity_c0_10.csv 逐点核对；收据记录正文 3.4 节所用数字与各 c0 曲线间的相对差。
 
@@ -18,6 +19,7 @@ import matplotlib
 
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
 
 import plot_xian_fig2_style as F2
 from audit_common import ROOT, dump
@@ -28,8 +30,9 @@ OUT = ROOT / 'paper' / 'figures' / 'new4r'
 PREVIEW = ROOT / 'paper' / 'tmp' / 'new4r'
 MM, STYLE = F2.MM, F2.STYLE
 C0 = (5, 8, 10, 12)
-COLORS = tuple(plt.cm.Blues(v) for v in (.42, .6, .78, .96))     # 与原图 3、图 S1 相同的由浅到深
+COLORS = (F2.GREEN, F2.MAGENTA, F2.BLUE, F2.BLACK)                # 图 2 的配色；基准 c0 = 10 用图 2 主曲线的蓝色
 MARKS = (0.2, 0.5, 1.0, 2.0, 5.0)                                 # 标点的 eta/N（%）
+SHAPES = ('o', 's', '^', 'D', 'v')                                # 依次对应 MARKS
 ETA_RANGE = (0.2, 5.0)
 WIDTH_FRAC = 0.9
 
@@ -64,23 +67,20 @@ def threshold_tradeoff():
     fig.subplots_adjust(left=.085, right=.985, bottom=.17, top=.9, wspace=.28)
     for ax, col, ylabel, title in ((axes[0], 'Delta_t', r'$\Delta t$', '(a) Control duration'),
                                    (axes[1], 'J', r'$J$', '(b) Intervention cost')):
-        pts = {}
         for (c0, s), color in zip(cs.items(), COLORS):
-            ax.plot(s.I_t_cum, s[col], color=color, lw=1.3, zorder=3, label=f'$c_0={c0}$')
-            for m in MARKS:
+            ax.plot(s.I_t_cum, s[col], color=color, lw=STYLE['lw_ref'] + .2, zorder=3, label=f'$c_0={c0}$')
+            for m, shape in zip(MARKS, SHAPES):
                 r = s[np.isclose(s.eta_percent, m)].iloc[0]
-                pts.setdefault(m, []).append((r.I_t_cum, r[col]))
-                ax.plot(r.I_t_cum, r[col], 'o', ms=2.6, color=color, mec='white', mew=.3, zorder=4)
-        for m, xy in pts.items():                      # 同一阈值的点用灰色点线相连，阈值标在 c0=12 一端
-            ax.plot(*zip(*xy), color=F2.GRAY, lw=.5, ls=':', zorder=2)
-            ax.annotate(f'{m:g}%', xy[-1], xytext=(-4, 0), textcoords='offset points', ha='right', va='center',
-                        fontsize=STYLE['legend'], color=(.3, .3, .3))
-        ax.set_yscale('log')
-        ax.set_xlim(150, 355)                          # 左侧留出阈值标签的位置
+                ax.plot(r.I_t_cum, r[col], shape, ms=3.2, mfc=color, mec='k', mew=.4, zorder=4)
+        ax.set_ylim(bottom=0)
+        ax.set_xlim(160, 355)
         ax.set_xlabel(r'Total cumulative new infections $I_{t_{\rm cum}}$')
         ax.set_ylabel(ylabel)
         ax.set_title(title)
     F2.frame_legend(axes[0].legend(loc='upper right'))
+    marks = [Line2D([], [], ls='none', marker=shape, ms=3.2, mfc=(.8, .8, .8), mec='k', mew=.4, label=f'{m:g}%')
+             for m, shape in zip(MARKS, SHAPES)]
+    F2.frame_legend(axes[1].legend(handles=marks, loc='upper right', title=r'$\eta/N$', title_fontsize=STYLE['legend']))
     ref = pd.read_csv(SRC / 'eta_sensitivity_c0_10.csv').sort_values('eta_percent')
     s10 = cs[10]
     m10 = s10.merge(ref, on='eta_percent', suffixes=('', '_ref'))
