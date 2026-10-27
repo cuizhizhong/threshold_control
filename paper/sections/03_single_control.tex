@@ -253,11 +253,11 @@ R_e(t_2^+)=1+\frac{\xi S_q(t_2^-)}{S_c},\qquad
 \end{proposition}
 证明见附录~\ref{sec:proof:threshold-tradeoff}。阈值越高，干预启动越晚、持续越短、强度越低，代价是更多的人被感染。清零时间还包含退出后的下降过程，需由式\eqref{eq:s1:tend}单独判断。接触率越高，控制期要消耗的易感者 $S^*-S_c$ 越多，但 $S$ 也下降得越快，两种作用方向相反，控制时长因此可增可减；触发边界与完整参数影响见补充材料第~\ref{sec:sup:contact-theory}~节。
 
-图~\ref{fig:scenario1_summary_eta}给出基准参数下的数值。把 $\eta/N$ 从 $0.2\%$ 提高到 $2\%$，控制时长由 $152.1$ d 缩短至 $15.04$ d，总累计新增感染由 $173.0$ 人增至 $233.8$ 人，二次干预强度成本随之下降；清零时间在这组数值中也缩短。常规接触率的数值结果见补充材料第~\ref{sec:sup:baseline-contact-scan}~节。
+图~\ref{fig:scenario1_summary_eta}以总累计新增感染为横轴画出基准参数下的这一取舍：每条曲线对应一个常规接触率，沿曲线向左阈值降低。取舍并不对称。$c_0=10$ 时把 $\eta/N$ 从 $2\%$ 降到 $0.2\%$，控制时长由 $15.04$ d 增至 $152.1$ d，二次干预强度成本也增大约十倍，总累计新增感染却只由 $233.8$ 人减至 $173.0$ 人。原因在于控制时长含因子 $N/(c_0\eta)$（式\eqref{eq:s1:t2}），而累计新增感染只通过 $S^*$ 与 $S_{\rm end}$ 依赖阈值（式\eqref{eq:s1:cumulative}）。四个常规接触率下取舍的形态相同；在所算范围内清零时间也随阈值提高而缩短，各指标随阈值与常规接触率的完整扫描见补充材料第~\ref{sec:sup:baseline-contact-scan}~节。
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\textwidth]{figures/layout_v5/eta_sensitivity_selected_c0.pdf}
-\caption{基准参数下仅隔离控制的各指标随阈值比例 $\eta/N$ 的变化（横轴为对数刻度），$c_0=5,8,10,12\ \mathrm d^{-1}$，其余参数同图~\ref{fig:scenario1:single-sim}。(a) 启动时间；(b) 控制时长；(c) 清零时间；(d) 最大隔离比例；(e) 成本 $J$；(f) 总累计新增感染。时间与成本以天计，累计新增感染以人计。}
+\includegraphics[width=0.9\textwidth]{figures/new4r/threshold_tradeoff.pdf}
+\caption{基准参数下仅隔离控制的阈值取舍：(a) 控制时长 $\Delta t$ 与 (b) 成本 $J$ 对总累计新增感染，纵轴为对数刻度。$c_0=5,8,10,12\ \mathrm d^{-1}$ 各一条曲线，$\eta/N$ 由 $0.2\%$ 变到 $5\%$，其余参数同图~\ref{fig:scenario1:single-sim}；圆点为 $\eta/N=0.2\%,0.5\%,1\%,2\%,5\%$，灰色点线连接同一阈值的点。时间与成本以天计，累计新增感染以人计。}
 \label{fig:scenario1_summary_eta}
 \end{figure}
 

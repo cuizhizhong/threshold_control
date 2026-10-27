@@ -16,7 +16,8 @@ H='pipeline-final-20261006:reproducibility/release_reports/20261005_sec7_v2_refi
 FIG={
 'fig:model_schematic':('reproducibility/assets/SIQR模型示意图_复现修正版.pptx','reproducibility/figures.py:_export_model'),
 'fig:scenario1:single-sim':('code/scenario1_q_control_with_quarantine_panels.m:参数与轨迹方程','code/scenario1_q_control_with_quarantine_panels.m'),
-'fig:scenario1_summary_eta':(f'{D}/baseline/eta_sensitivity_c0_10.csv;{D}/baseline/main_eta_summary.csv',f'{L}/layout_matlab.m'),
+'fig:scenario1_summary_eta':(f'{D}/baseline/landscape_summary.csv;{D}/baseline/eta_sensitivity_c0_10.csv','nr_audit/plot_new4r_tradeoff.py'),
+'fig:sup:eta-summary':(f'{D}/baseline/eta_sensitivity_c0_10.csv;{D}/baseline/main_eta_summary.csv',f'{L}/layout_matlab.m'),
 'fig:scenario1_summary_c0':(f'{D}/baseline/c0_sensitivity_selected_eta.csv;{D}/baseline/main_c0_summary.csv',f'{L}/layout_matlab.m'),
 'fig:joint:compare':(f'{E}/trajectories_baseline.csv;{E}/compare_baseline.csv','reproducibility/joint_extra/figures.py:fig_compare'),
 'fig:joint:capacity':(f'{E}/capacity_baseline.npz;{E}/capacity.json;{E}/capacity_traj_baseline.csv;{E}/input_manifest.json','nr_audit/plot_new4p_figures.py:capacity_baseline'),
@@ -88,11 +89,13 @@ def main():
                         status='NEW-4d由NEW-2已验证缓存重绘局部加密面板并叠加闭式点；见new4d_figure7_detail_render.json'
                     if artifact.startswith('paper/figures/new4p/'):
                         status='NEW-4p只读既有数据按图2风格重绘（相图复用NEW-4d缓存）；见new4p_figures.json'
+                    if artifact.startswith('paper/figures/new4r/'):
+                        status='NEW-4r只读既有基准扫描按图2风格绘制阈值取舍图；见new4r_tradeoff.json'
                 rows.append(dict(labels='|'.join(labels),kind=kind,tex=file.relative_to(ROOT).as_posix(),
                     artifact=artifact,inputs=inputs,generation_or_audit_entry=entry,
                     historical_report=H if kind=='figure' else 'nr_audit/results/regression.json或所列理论/专项结果',
                     old_pdf_hash_matches=same,status=status))
-    assert len(rows)==26,(len(rows),rows)      # NEW-4p：正文 9 图 5 表，补充 7 图 5 表
+    assert len(rows)==27,(len(rows),rows)      # NEW-4r：正文 9 图 5 表，补充 8 图 5 表
     with open(RESULTS/'figure_table_sources.csv','w',encoding='utf-8-sig',newline='') as fh:
         w=csv.DictWriter(fh,fieldnames=list(rows[0]));w.writeheader();w.writerows(rows)
     receipt=dict(formal_figures=sum(r['kind']=='figure' for r in rows),

@@ -87,11 +87,19 @@ $\Delta t$ 在内部为正且连续，两端趋零，因此在内部达到正的
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/layout_v5/c0_sensitivity_selected_eta.pdf}
-\caption{基准参数下各指标随常规接触率 $c_0$ 的变化，$\eta/N=0.2\%,0.6\%,1\%,2\%$，其余参数同正文图~\ref{fig:scenario1:single-sim}；红色圆点为 $\Delta t$ 的数值极大值。面板与单位同正文图~\ref{fig:scenario1_summary_eta}，$c_0$ 以 $\mathrm d^{-1}$ 计。}
+\caption{基准参数下各指标随常规接触率 $c_0$ 的变化，$\eta/N=0.2\%,0.6\%,1\%,2\%$，其余参数同正文图~\ref{fig:scenario1:single-sim}；红色圆点为 $\Delta t$ 的数值极大值。(a) 启动时间；(b) 控制时长；(c) 清零时间；(d) 最大隔离比例；(e) 成本 $J$；(f) 总累计新增感染。时间与成本以天计，累计新增感染以人计，$c_0$ 以 $\mathrm d^{-1}$ 计。}
 \label{fig:scenario1_summary_c0}
 \end{figure}
 
-固定 $c_0$ 时，$q_{\max}$ 随阈值提高只略有下降，控制时长与成本近似与阈值成反比（正文图~\ref{fig:scenario1_summary_eta}）。图~\ref{fig:baseline:q-joint}给出 $\eta/N=5\%$ 时不同 $c_0$ 与 $c_0=10$ 时不同阈值下的隔离比例轨迹，图~\ref{fig:scenario1_heatmaps_c0_eta}给出 $(\eta/N,c_0)$ 平面上的四项指标。两幅子图中的拐点都在 $\qinf=1-1/[2(1-\beta)]\approx0.4083$ 的同一水平上（正文定理~\ref{thm:s1:inflection}）。$c_0=4$ 时 $q_{\max}=0.3413<\qinf$，即 $S^*<2\bar S$，隔离比例在整个控制期内低于拐点水平，没有内部拐点。
+图~\ref{fig:sup:eta-summary}给出同一组指标随阈值的变化，是正文图~\ref{fig:scenario1_summary_eta}的完整扫描。固定 $c_0$ 时，阈值提高使启动推迟，$q_{\max}$ 只略有下降，控制时长与成本近似与阈值成反比；在所算范围内清零时间缩短，总累计新增感染增加（正文命题~\ref{prop:threshold-tradeoff}）。
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/layout_v5/eta_sensitivity_selected_c0.pdf}
+\caption{基准参数下仅隔离控制的各指标随阈值比例 $\eta/N$ 的变化（横轴为对数刻度），$c_0=5,8,10,12\ \mathrm d^{-1}$，其余参数同正文图~\ref{fig:scenario1:single-sim}。面板与单位同图~\ref{fig:scenario1_summary_c0}。}
+\label{fig:sup:eta-summary}
+\end{figure}
+
+图~\ref{fig:baseline:q-joint}给出 $\eta/N=5\%$ 时不同 $c_0$ 与 $c_0=10$ 时不同阈值下的隔离比例轨迹，图~\ref{fig:scenario1_heatmaps_c0_eta}给出 $(\eta/N,c_0)$ 平面上的四项指标。两幅子图中的拐点都在 $\qinf=1-1/[2(1-\beta)]\approx0.4083$ 的同一水平上（正文定理~\ref{thm:s1:inflection}）。$c_0=4$ 时 $q_{\max}=0.3413<\qinf$，即 $S^*<2\bar S$，隔离比例在整个控制期内低于拐点水平，没有内部拐点。
 
 \begin{figure}[htbp]
 \centering

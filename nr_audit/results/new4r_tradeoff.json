@@ -1,0 +1,77 @@
+{
+ "generated": "2026-10-27T09:20:49",
+ "git_head": "97b9367bc5a47b9df055fbcf13ce92ee6c560dd9",
+ "script": "nr_audit/plot_new4r_tradeoff.py",
+ "style_module": "nr_audit/plot_xian_fig2_style.py",
+ "style": {
+  "tick": 5.5,
+  "label": 6.5,
+  "title": 7.0,
+  "legend": 5.0,
+  "note": 5.5,
+  "lw_main": 1.5,
+  "lw_ref": 1.0,
+  "lw_vline": 0.6,
+  "lw_axes": 0.4,
+  "ref_alpha": 0.7
+ },
+ "inputs_sha256": {
+  "reproducibility/results/20261003_release_final/baseline/landscape_summary.csv": "ba26060cae0f4b14cc0ff8aa655795ee7313e7a46d5ea6246c4f28841e2919d9",
+  "reproducibility/results/20261003_release_final/baseline/eta_sensitivity_c0_10.csv": "364694faa4198b46e657d884d67907814fe391aba921a997af3d77103801b388"
+ },
+ "outputs": {
+  "paper/figures/new4r/threshold_tradeoff.pdf": {
+   "sha256": "ac63a5ccbdbb42d5b1164f200e7548ba9b463d6cf664804727cbd9b491613293",
+   "size_mm": [
+    143.82,
+    58.0
+   ],
+   "fonts": [
+    "CGMMQU+Cmr10",
+    "GYUURQ+Cmmi10"
+   ]
+  }
+ },
+ "checks": {
+  "points_per_c0": {
+   "5": 241,
+   "8": 241,
+   "10": 241,
+   "12": 241
+  },
+  "c0_10_vs_eta_scan": {
+   "matched": 241,
+   "max_rel_diff": {
+    "Delta_t": 0.0,
+    "J": 0.0,
+    "I_t_cum": 0.0
+   }
+  },
+  "text_numbers": {
+   "dt_02": 152.057368783349,
+   "dt_2": 15.0430902445135,
+   "itcum_02": 173.031389288268,
+   "itcum_2": 233.781035577515,
+   "J_02": 60.8004719558768,
+   "J_2": 5.88875060229639,
+   "tend_02": 180.582058241729,
+   "tend_2": 46.8029281137669
+  },
+  "spread_across_c0": {
+   "J": {
+    "itcum_range": [
+     176.989953769559,
+     271.92951908173
+    ],
+    "max_rel_spread": 0.5818012173601004
+   },
+   "Delta_t": {
+    "itcum_range": [
+     176.989953769559,
+     271.92951908173
+    ],
+    "max_rel_spread": 2.4048085431852084
+   }
+  }
+ }
+}
