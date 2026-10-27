@@ -191,10 +191,10 @@ $\lambda$ 越大，下降最快的时刻在控制期内越靠后；其参数敏�
 设 $t_2$ 时 $(S,I)=(S_c,\eta)$，此后恢复常规控制，则
 \begin{enumerate}
 \renewcommand{\labelenumi}{(\roman{enumi})}
-\item $S(t)$ 和 $I(t)$ 对 $t>t_2$ 均严格递减，且
+\item $S(t)$ 和 $I(t)$ 在 $(t_2,\infty)$ 上严格递减，且
 \begin{equation}
-I(t)\to0,\qquad
-S(t)\to S_\infty=-S_cW_0\!\left(-e^{-1-\eta/\rho_1}\right)\in(0,S_c);
+\lim_{t\to\infty}I(t)=0,\qquad
+\lim_{t\to\infty}S(t)=S_\infty:=-S_cW_0\!\left(-e^{-1-\eta/\rho_1}\right)\in(0,S_c);
 \label{eq:s1:Sinfty}
 \end{equation}
 \item 存在唯一的 $t_{\rm end}>t_2$，满足 $I(t_{\rm end})=1$、$\dot I(t_{\rm end})<0$；记 $S_{\rm end}=S(t_{\rm end})$，则
