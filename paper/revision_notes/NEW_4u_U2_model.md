@@ -89,3 +89,27 @@
 - 测试：`text_identity.py --refresh-current` 刷新 `02_model.tex` 与 `S1_medical.tex` 两项，全量测试 402 passed。
 
 作者随后指示突出 $\eta$ 的现实意义：把“阈值 $\eta$ 是外生给定的设计参数，以医疗资源（如 ICU 床位）的承载能力为依据选取，并兼顾防控目标”一句从 2.2 节移回章首，紧接第一句之后。2.2 节该段改以“阈值 $\eta$ 约束的是仍在社区中传播的 $I$”开头，其余文字不变。检查：statement_diff 仍为 3 条，check_tex 标签缺失 0、数字增 3（同上）；隔离副本构建两轮，主稿 38 页、补充 20 页，0 未定义引用；渲染检查第 3 页；刷新 `02_model.tex` 一项，全量测试 402 passed。
+
+## 新增两篇文献（N31追加，作者授权）
+
+作者授权把 Tang 2023 与 Zhao 2020 作为 2.1 节第一点理由的原始出处，并在根 `AGENTS.md` 登记为“N31追加”。作者把两篇原文放在 `refs/tang2023.pdf`、`refs/zhao2020.pdf`，本步只读使用，没有提交这两个文件。
+
+元数据（Crossref API 在线核对，作者、卷期、页码与 DOI 逐项一致）：
+
+| 键 | 条目 | DOI |
+|---|---|---|
+| `Tang2023Threshold` | Tang S, Wang X, Tang B, He S, Yan D, Huang C, Shao Y, Xiao Y, Cheke RA. Threshold conditions for curbing COVID-19 with a dynamic zero-case policy derived from 101 outbreaks in China. BMC Public Health 23(1):1084, 2023（2023-06-06 在线） | 10.1186/s12889-023-16009-8 |
+| `Zhao2020Antibody` | Zhao J, Yuan Q, Wang H 等 25 位作者. Antibody responses to SARS-CoV-2 in patients with novel coronavirus disease 2019. Clin Infect Dis 71(16):2027–2034, 2020（2020-05-28 在线） | 10.1093/cid/ciaa344 |
+
+论断核对（对照原文）：
+- **Tang 2023**：摘要（第 1 页）称截至 2022 年 5 月 31 日，中国大陆共发生 101 波疫情。第 3 页写到，无论哪种毒株引起的疫情，动态清零都可以在约 40 天内实现（“within about 40 days”）；原始株/Alpha、Delta、Omicron 疫情的平均持续时间分别为 31.23、22.52、45.25 天，峰值均值的计算排除了 5 起单日新增超过 500 例的疫情。正文据此写“截至 2022 年 5 月，中国大陆的 101 波 COVID-19 疫情一般在约 40 天内实现动态清零”。原句“武汉疫情之后”出自周浩稿，Tang 2023 的数据从 2020 年 1 月起、包含原始株，所以删去这一限定。
+- **Zhao 2020**：摘要（第 1 页）称发病 1 周内抗体阳性率低于 40%，到发病第 15 天总抗体阳性率达 100%，总抗体中位转阳时间为第 11 天。第 7 页的局限一节写明“we cannot evaluate the persistence of antibodies because samples were collected during the acute phase”，全文也没有关于保护作用的结论。
+- **发现与更正**：上一次提交（`14704cc`）写的“COVID-19 感染后产生的抗体至少可提供数周保护”是照周浩稿原文转述的，而周浩稿把这一点引自 Zhao 2020。核对后发现 Zhao 2020 不支持“保护数周”。正文现改为只写该文支持的内容：“感染者在发病后约两周内普遍产生抗体”。“一波疫情内再次感染的可能性很小”是周浩稿的推断，明确归属于周浩稿：“文献 [Zhou2024SPCI] 据此认为……”。
+- **另记（未入稿）**：Tang 2023 第 4 页的模型假设中也明确写到，由于干预强、疫情持续短，隔离易感者在动态清零前不返回易感者仓室；文中给出的理由是隔离易感者一般集中隔离两周、居家隔离一周。这可以作为 2.1 节第三点的又一出处，但超出本次授权的两处论断，也涉及 X1–X5（回流），所以没有加入，留给作者决定。
+
+追加修改后的检查：
+- statement_diff 仍为 3 条（同上）。
+- check_tex：标签缺失 0，悬空引用 0，参考文献无缺失；数字缺 0，增 4。新增的 4 个是 101、40、2022 和“COVID-19”中的 19，都是文献事实；原先的 2020 已随“2020–2022”删去。
+- 新文献按首次引用排在 [28]、[29]，此后各条的编号顺延 2。
+- 隔离副本构建两轮，主稿 38 页、补充 20 页，0 未定义引用。渲染检查第 4 页与参考文献两页。
+- 刷新 `02_model.tex` 一项，全量测试 402 passed。
