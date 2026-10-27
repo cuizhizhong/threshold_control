@@ -211,7 +211,7 @@ def phase_baseline():
             ax_c.plot([j['z']] * 2, [q(j['x_left'], j['z']), q(j['x_right'], j['z'])], color=col,
                       lw=STYLE['lw_vline'], ls=':')
         used.append(dict(r=rv, jumps=jumps))
-    for ax, title, ylabel in ((ax_b, '(b) Contact rate', r'$c_c^*/c_0$'), (ax_c, '(c) Quarantine fraction', r'$q_c^*$')):
+    for ax, title, ylabel in ((ax_b, r'(b) $c(t)$', r'$c_c^*/c_0$'), (ax_c, r'(c) $q(t)$', r'$q_c^*$')):
         ax.set_xlim(c['z_star'], 1)
         ax.axvline(c['z_sw'], color=GRAY, ls='--', lw=STYLE['lw_vline'])
         ax.set_ylabel(ylabel)
