@@ -2,7 +2,17 @@
 \label{app:cost}
 取默认权重 $w_c=1$、$w_q=2$。
 \subsection{仅隔离控制}
-由 $0<\bar S<S_c$，式\eqref{eq:cost:state}的两个积分为
+仅隔离控制下 $c=c_0$，接触项为零。由式\eqref{eq:s1:q-control}，隔离项的归一化强度为 $(q_c(S)-q_0)/(1-q_0)=1-S_c/S$；由式\eqref{eq:s1:S-analytic}，$dt=-N\,dS/[c_0\eta(S-\bar S)]$。代入式\eqref{eq:cost:linear}与\eqref{eq:cost:J}，得到状态积分\eqref{eq:cost:state}。由 $0<\bar S<S_c$，两个被积函数有部分分式
+\begin{align*}
+\frac{1-S_c/S}{S-\bar S}
+&=\frac{S_c/\bar S}{S}
+ +\frac{1-S_c/\bar S}{S-\bar S},\\
+\frac{(1-S_c/S)^2}{S-\bar S}
+&=\frac{S_c(2\bar S-S_c)}{\bar S^2S}
+-\frac{S_c^2}{\bar S S^2}
++\frac{(1-S_c/\bar S)^2}{S-\bar S}.
+\end{align*}
+在 $[S_c,S^*]$ 上逐项积分，得
 \begin{equation}
 J_q=\frac{N}{c_0\eta}\left[
 \frac{S_c}{\bar S}\ln\frac{S^*}{S_c}
@@ -19,20 +29,14 @@ J=\frac{2N}{c_0\eta}\bigg[&
 \end{split}
 \label{eq:cost:closed}
 \end{equation}
-两式由下列部分分式逐项积分得到：
-\begin{align*}
-\frac{1-S_c/S}{S-\bar S}
-&=\frac{S_c/\bar S}{S}
- +\frac{1-S_c/\bar S}{S-\bar S},\\
-\frac{(1-S_c/S)^2}{S-\bar S}
-&=\frac{S_c(2\bar S-S_c)}{\bar S^2S}
--\frac{S_c^2}{\bar S S^2}
-+\frac{(1-S_c/\bar S)^2}{S-\bar S}.
-\end{align*}
 $\bar S$ 很小或 $S^*$ 接近 $S_c$ 时，闭式中有相近的量相减，数值计算宜直接用积分式\eqref{eq:cost:state}。
 
 \subsection{仅减少接触}
-仅减少接触时 $c_c(S)=c_0S_c/S$、$q\equiv q_0$，$S$ 的下降速度恒为 $c_0(S_c-\bar S)\eta/N$。由式\eqref{eq:joint:cost}，
+仅减少接触时 $c_c(S)=c_0S_c/S$、$q\equiv q_0$，隔离项为零。由式\eqref{eq:joint:Sdot}，$c_c(S)S-c_0\bar S=c_0(S_c-\bar S)$，即 $S$ 的下降速度恒为 $c_0(S_c-\bar S)\eta/N$。接触项的归一化强度为 $1-c_c/c_0=1-S_c/S$，代入式\eqref{eq:joint:cost}与\eqref{eq:joint:cost-integrand}，得
+\[
+J=\frac{N}{c_0\eta(S_c-\bar S)}\int_{S_c}^{S^*}\left(1-\frac{S_c}{S}\right)^2dS.
+\]
+展开被积函数为 $1-2S_c/S+S_c^2/S^2$ 并逐项积分，即得
 \begin{equation}
 J=\frac{N}{c_0\eta(S_c-\bar S)}
 \left[S^*-\frac{S_c^2}{S^*}-2S_c\ln\frac{S^*}{S_c}\right].

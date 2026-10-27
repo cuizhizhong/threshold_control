@@ -175,22 +175,26 @@ J=\frac{2}{c_0\theta}\int_{s_c}^{s^*}
 
 \subsection{状态参数化}
 \label{sec:proof:representation}
-本小节证明定理\ref{thm:joint:representation}。
+本小节证明定理~\ref{thm:joint:representation}。
 \begin{proof}
-在 $I=\eta>0$ 上，感染者方程给出
+(i) 由命题~\ref{prop:model:threshold-rationale}(ii)，在 $I=\eta>0$ 上几乎处处有
 \begin{equation}
 c(t)(1-q(t))S(t)=\frac{\gamma N}{\beta}
 =c_0(1-q_0)S_c.
 \label{eq:joint:balance}
 \end{equation}
-因此在 $I=\eta>0$ 上 $q<1$。由 $q\ge q_0$ 和 $c\le c_0$，可得式\eqref{eq:joint:contact-range}和\eqref{eq:joint:q}；反向代入也成立。利用式\eqref{eq:joint:balance}，易感者方程化为式\eqref{eq:joint:Sdot}，其下降速度满足
+因此在 $I=\eta>0$ 上 $q<1$。由 $q\ge q_0$ 和 $c\le c_0$，可得式\eqref{eq:joint:contact-range}和\eqref{eq:joint:q}；反之，满足式\eqref{eq:joint:contact-range}的 $c_c$ 经式\eqref{eq:joint:q}给出的 $q_c$ 满足 $q_0\le q_c<1$。
+
+(ii) 利用式\eqref{eq:joint:balance}，易感者方程化为式\eqref{eq:joint:Sdot}。由式\eqref{eq:joint:contact-range}，$c_c(S)S\in[c_0S_c,c_0S]$，故下降速度满足
 \[
 0<c_0(S_c-\bar S)\le c_c(S)S-c_0\bar S
 \le c_0(S^*-\bar S).
 \]
 因此 $S$ 在有限时间从 $S^*$ 到达 $S_c$，分离变量即得式\eqref{eq:joint:time}和\eqref{eq:joint:duration}。
 
-反之，给定满足式\eqref{eq:joint:contact-range}的可测函数，可在零测集上修改使界限处处成立。式\eqref{eq:joint:time}右侧随积分下限严格递减，且该时间变换及其逆函数均为 Lipschitz 函数，故定义唯一绝对连续的 $S(t)$。用式\eqref{eq:joint:q}构造时间控制，令 $I=\eta$，则前两个状态方程几乎处处成立；其余仓室由原模型确定。该时间变换及其逆都是 Lipschitz 的，保持零测集与可测性，所以这一对应在几乎处处相等意义下成立。最后，由 $c_0S_c/S\le c_c(S)\le c_0$，当 $S\downarrow S_c$ 时两界均趋于 $c_0$；式\eqref{eq:joint:q}继而给出 $q\to q_0$。
+反之，给定满足式\eqref{eq:joint:contact-range}的可测函数，可在零测集上修改使界限处处成立。式\eqref{eq:joint:time}右侧随积分下限严格递减；由上面的速度界，该时间变换及其逆函数均为 Lipschitz 函数，故定义唯一绝对连续的 $S(t)$，且保持零测集与可测性。用式\eqref{eq:joint:q}构造时间控制，令 $I=\eta$，则前两个状态方程几乎处处成立；其余仓室由原模型确定。所以 (i) 中的对应在几乎处处相等意义下成立。
+
+(iii) 由 $c_0S_c/S\le c_c(S)\le c_0$，当 $S\downarrow S_c$ 时两界均趋于 $c_0$，故 $c(t)\to c_0$；式\eqref{eq:joint:q}继而给出 $q\to q_0$。若 $c_c$ 连续，则 $c(t)=c_c(S(t))$ 与由式\eqref{eq:joint:q}给出的 $q(t)$ 都是连续函数的复合，在阈值控制期内部连续。
 \end{proof}
 
 \subsection{最小值的存在性}
