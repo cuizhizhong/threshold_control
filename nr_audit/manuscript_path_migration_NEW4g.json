@@ -16,7 +16,7 @@
       "new4g_baseline_sha256": "4ada262f80854fc6a78bdc27ee133a5d035ec9025f629553f6a397bea8bad2b8",
       "current_path": "paper/sections/06_numerics.tex",
       "current_sha256": "c3bc8f0d35ab96db36723ffec28618d89ef8d8e68d60053a8ad9009d62a3f2a2",
-      "current_content_sha256": "34d133e49697d5cd38b1a2f79387c2624b2431dbbafea90e29d234d21de343e9"
+      "current_content_sha256": "8974937c5c12301d17f86600d99e6ca0b9b25eac329f18f3c451c9b29776c1d5"
     },
     "model_section": {
       "historical_path": "paper/sections/02_model.tex",
@@ -64,7 +64,7 @@
       "new4g_baseline_sha256": "2f14f06ba1180d614865ce7786e4e1299549b922e951befb75c7466d810a7ea0",
       "current_path": "paper/supplement_sections/S8_numerics.tex",
       "current_sha256": "161321ea36559bfcda8e8b7f8fe3537fb580a79cd2414bac41e2bb2985642446",
-      "current_content_sha256": "52fc3fabd81915df6a560c56f834346859842c018c0431e954ccd5bf4940a8b8"
+      "current_content_sha256": "3d9bed7d5d6da8a83d3950d0fb667b20690e9ce066732ca41f34c844fdf980fd"
     },
     "xian_chapter": {
       "historical_path": "paper/sections/07_xian.tex",
@@ -185,7 +185,7 @@
             "tab:sup:convergence"
           ],
           "current_sha256": "161321ea36559bfcda8e8b7f8fe3537fb580a79cd2414bac41e2bb2985642446",
-          "current_content_sha256": "52fc3fabd81915df6a560c56f834346859842c018c0431e954ccd5bf4940a8b8"
+          "current_content_sha256": "3d9bed7d5d6da8a83d3950d0fb667b20690e9ce066732ca41f34c844fdf980fd"
         }
       ]
     },
