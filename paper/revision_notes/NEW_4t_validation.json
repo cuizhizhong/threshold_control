@@ -1,0 +1,163 @@
+{
+  "phase": "NEW-4t",
+  "base_commit": "a4472d5b775975705fd7e8d2fc2b9c948e96029b",
+  "figure_count": 9,
+  "approved_pdfs_byte_identical": true,
+  "mathematical_checks": {
+    "statements_old": 42,
+    "statements_new": 42,
+    "statement_changes": 0,
+    "proofs_old": 26,
+    "proofs_new": 26,
+    "proof_changes": 0,
+    "labels_missing": 0,
+    "dangling_references": 0,
+    "numeric_literals_old": 562,
+    "numeric_literals_new": 562,
+    "numeric_literals_missing": 0,
+    "numeric_literals_added": 0
+  },
+  "reproduction": {
+    "all_nine_pdfs_byte_identical": {
+      "Main6": true,
+      "Main8": true,
+      "S1": true,
+      "S2": true,
+      "S3": true,
+      "S4": true,
+      "S5": true,
+      "S6": true,
+      "S8": true
+    },
+    "new_root_calls": 0,
+    "materials_from_repository": true,
+    "temporary_preview_materials_required": false,
+    "external_EPS_required": false
+  },
+  "build": {
+    "flatten_curve_analysis_cn": {
+      "pages": 36,
+      "undefined": 0,
+      "duplicate_labels": 0,
+      "overfull": 0,
+      "underfull": 1,
+      "missing_characters": 0,
+      "unstable_cross_references": 0,
+      "biber_warn_error": 0,
+      "pdf_sha256": "121d8e34903e1fb36e863094ca7159aa1a2e212cddcacfb66503028e70a2b80f"
+    },
+    "flatten_curve_supplement_cn": {
+      "pages": 20,
+      "undefined": 0,
+      "duplicate_labels": 0,
+      "overfull": 0,
+      "underfull": 0,
+      "missing_characters": 0,
+      "unstable_cross_references": 0,
+      "biber_warn_error": 0,
+      "pdf_sha256": "d8f901fb84af26c0ceb7f910f43386dad10f202dcbaf5698868ce3c9d6ccf36b"
+    }
+  },
+  "page_inspection": {
+    "main": {
+      "fig:joint:phase": {
+        "figure": "6",
+        "page": 21
+      },
+      "fig:xian:joint": {
+        "figure": "8",
+        "page": 23
+      },
+      "warnings": {
+        "undefined": 0,
+        "duplicate": 0,
+        "overfull": 0,
+        "missing_characters": 0
+      }
+    },
+    "supp": {
+      "fig:scenario1_summary_c0": {
+        "figure": "S1",
+        "page": 3
+      },
+      "fig:sup:eta-summary": {
+        "figure": "S2",
+        "page": 4
+      },
+      "fig:baseline:q-joint": {
+        "figure": "S3",
+        "page": 4
+      },
+      "fig:scenario1_heatmaps_c0_eta": {
+        "figure": "S4",
+        "page": 5
+      },
+      "fig:s1:lambda-sensitivity": {
+        "figure": "S5",
+        "page": 7
+      },
+      "fig:sup:phase-detail": {
+        "figure": "S6",
+        "page": 11
+      },
+      "fig:xian_heatmaps": {
+        "figure": "S8",
+        "page": 14
+      },
+      "warnings": {
+        "undefined": 0,
+        "duplicate": 0,
+        "overfull": 0,
+        "missing_characters": 0
+      }
+    }
+  },
+  "pytest": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "397",
+    "time": "162.487",
+    "timestamp": "2026-10-27T11:56:34.793996",
+    "hostname": "DESKTOP-501",
+    "command": "python -X utf8 -m pytest nr_audit/tests -q -p no:cacheprovider --basetemp=paper/tmp/NEW_4t/pytest_final --junitxml=paper/tmp/NEW_4t/pytest_full_final.xml",
+    "report": "paper/revision_notes/NEW_4t_pytest.xml",
+    "sha256": "4450e0aa2e57d530f74700d68ef1e17ed88373da9c124121e77dd3cd00fb5959",
+    "initial_attempt": {
+      "passed": 322,
+      "failed": 1,
+      "errors": 74,
+      "causes": [
+        "pytest临时目录父目录缺失",
+        "稿件图注变化后current_content_sha256未刷新"
+      ],
+      "fixes": [
+        "创建任务临时目录父目录",
+        "仅刷新现稿current_content_sha256；全部历史raw字段不变"
+      ]
+    }
+  },
+  "historical_identity_fields_unchanged": true,
+  "scientific_activity": {
+    "current_adoption": {
+      "ode_solves": 0,
+      "optimization_solves": 0,
+      "fits": 0,
+      "classification_solves": 0,
+      "boundary_root_solves": 0
+    },
+    "preview_history": {
+      "S4_unique_threshold_points": 241,
+      "S4_actual_brentq_calls": 1205
+    }
+  },
+  "pending_S8_reference_discrepancy": {
+    "figure_line": 151.9,
+    "caption": 152.55,
+    "existing_reference_result": 152.54629678969766,
+    "disposition": "遵守已批准预览；未得到数值变更确认，不改变该数值"
+  },
+  "main_ref_before": "96378c313e2018d660ae26b23783e0826ece1585",
+  "push_performed": false
+}

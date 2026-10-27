@@ -30,3 +30,11 @@
 
 # 主稿与补充材料 PDF 入库，按二进制处理。
 /paper/*.pdf binary
+
+# NEW-4t：已确认图件和来源材料按原字节保存；新入口统一LF。
+/paper/figures/new4t/*.pdf binary
+/nr_audit/results/new4t_figures/** -text whitespace=cr-at-eol
+/nr_audit/results/new4t_figures.json text eol=lf
+/nr_audit/preview_*.py text eol=lf
+/nr_audit/adopt_new4t_figures.py text eol=lf
+/nr_audit/tests/test_new4t_figures.py text eol=lf

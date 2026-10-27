@@ -86,16 +86,16 @@ $\Delta t$ 在内部为正且连续，两端趋零，因此在内部达到正的
 常规接触率对控制时长的影响不是单调的（命题~\ref{prop:contact-effects}，图~\ref{fig:scenario1_summary_c0}）。$c_0$ 越大，常规轨迹越早触及阈值，$S^*$ 与 $q_{\max}$ 越高。在所考察的范围内，控制时长随 $c_0$ 先增后减，基准阈值 $\eta/N=5\%$ 下（图中未画出）在 $c_0\approx5.1$ 处取得数值极大值约 $7.579$ d。当 $c_0$ 不超过触发边界 $c_{0,\min}(\eta)$（式\eqref{eq:s1:c0-min-def}）时，无需启动控制；该边界随阈值升高，基准阈值下约为 $3.327$。相应的隔离比例轨迹与二维扫描见图~\ref{fig:baseline:q-joint}、\ref{fig:scenario1_heatmaps_c0_eta}。
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\textwidth]{figures/layout_v5/c0_sensitivity_selected_eta.pdf}
-\caption{基准参数下各指标随常规接触率 $c_0$ 的变化，$\eta/N=0.2\%,0.6\%,1\%,2\%$，其余参数同正文图~\ref{fig:scenario1:single-sim}；红色圆点为 $\Delta t$ 的数值极大值。(a) 启动时间；(b) 控制时长；(c) 清零时间；(d) 最大隔离比例；(e) 成本 $J$；(f) 总累计新增感染。时间与成本以天计，累计新增感染以人计，$c_0$ 以 $\mathrm d^{-1}$ 计。}
+\includegraphics[width=\textwidth]{figures/new4t/S1.pdf}
+\caption{基准参数下各指标随常规接触率 $c_0$ 的变化，$\eta/N=0.2\%,0.6\%,1\%,2\%$ 的曲线依次为绿色、品红色、蓝色和黑色，其余参数同正文图~\ref{fig:scenario1:single-sim}；红色圆点为 $\Delta t$ 的数值极大值。(a) 启动时间；(b) 控制时长；(c) 清零时间；(d) 最大隔离比例；(e) 成本 $J$；(f) 总累计新增感染。时间与成本以天计，累计新增感染以人计，$c_0$ 以 $\mathrm d^{-1}$ 计。}
 \label{fig:scenario1_summary_c0}
 \end{figure}
 
 图~\ref{fig:sup:eta-summary}给出同一组指标随阈值的变化，是正文图~\ref{fig:scenario1_summary_eta}的完整扫描。固定 $c_0$ 时，阈值提高使启动推迟，$q_{\max}$ 只略有下降，控制时长与成本近似与阈值成反比；在所算范围内清零时间缩短，总累计新增感染增加（正文命题~\ref{prop:threshold-tradeoff}）。
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\textwidth]{figures/layout_v5/eta_sensitivity_selected_c0.pdf}
-\caption{基准参数下仅隔离控制的各指标随阈值比例 $\eta/N$ 的变化（横轴为对数刻度），$c_0=5,8,10,12\ \mathrm d^{-1}$，其余参数同正文图~\ref{fig:scenario1:single-sim}。面板与单位同图~\ref{fig:scenario1_summary_c0}。}
+\includegraphics[width=\textwidth]{figures/new4t/S2.pdf}
+\caption{基准参数下仅隔离控制的各指标随阈值比例 $\eta/N$ 的变化（横轴为对数刻度），$c_0=5,8,10,12\ \mathrm d^{-1}$ 的曲线依次为绿色、品红色、蓝色和黑色，其余参数同正文图~\ref{fig:scenario1:single-sim}。面板与单位同图~\ref{fig:scenario1_summary_c0}。}
 \label{fig:sup:eta-summary}
 \end{figure}
 
@@ -103,15 +103,15 @@ $\Delta t$ 在内部为正且连续，两端趋零，因此在内部达到正的
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\textwidth]{figures/layout_v5/baseline_q_joint.pdf}
-\caption{不同常规接触率与阈值下仅隔离控制的隔离比例轨迹，其余参数取基准值。(a) $\eta/N=5\%$，$c_0=4,5,8,10,12$；(b) $c_0=10$，$\eta/N=0.2\%,0.6\%,1\%,2\%$。三角形与短竖线分别标出 $t_1$、$t_2$，红点为内部拐点；水平虚线为 $q_0$，点线为 $\qinf\approx0.4083$。}
+\includegraphics[width=\textwidth]{figures/new4t/S3.pdf}
+\caption{不同常规接触率与阈值下仅隔离控制的隔离比例轨迹，其余参数取基准值。(a) $\eta/N=5\%$，$c_0=4,5,8,10,12$ 的曲线依次为灰色、绿色、品红色、蓝色和黑色；(b) $c_0=10$，$\eta/N=0.2\%,0.6\%,1\%,2\%$ 的曲线依次为绿色、品红色、蓝色和黑色。三角形与短竖线分别标出 $t_1$、$t_2$，红点为内部拐点；红色水平虚线为 $q_0$，红色水平点线为 $\qinf\approx0.4083$。}
 \label{fig:baseline:q-joint}
 \end{figure}
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.8\textwidth]{figures/scenario1_heatmaps_c0_eta.pdf}
-\caption{$(\eta/N,c_0)$ 平面上仅隔离控制的启动时间、控制时长、清零时间和累计新增感染，其余参数取基准值。实线为触发边界 $c_{0,\min}(\eta)$，白色区域无需加强隔离；虚线为等值线。}
+\includegraphics[width=0.8\textwidth]{figures/new4t/S4.pdf}
+\caption{$(\eta/N,c_0)$ 平面上仅隔离控制的启动时间、控制时长、清零时间和累计新增感染，其余参数取基准值。黑色实线为触发边界 $c_{0,\min}(\eta)$，白色区域无需加强隔离；红色点划线为等值线，黑色数字为等值。}
 \label{fig:scenario1_heatmaps_c0_eta}
 \end{figure}
 

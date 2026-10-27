@@ -39,7 +39,15 @@ def test_output_registered_and_used(receipt):
     text = (ROOT / 'paper/sections/03_single_control.tex').read_text(encoding='utf-8')
     assert r'\includegraphics[width=0.9\textwidth]{figures/new4r/threshold_tradeoff.pdf}' in text
     sup = (ROOT / 'paper/supplement_sections/S2_single_control.tex').read_text(encoding='utf-8')
-    assert r'\label{fig:sup:eta-summary}' in sup and 'eta_sensitivity_selected_c0.pdf' in sup
+    assert r'\label{fig:sup:eta-summary}' in sup
+    adopted = SRC.HERE / 'results/new4t_figures.json'
+    if adopted.exists():
+        current_rel = 'paper/figures/new4t/S2.pdf'
+        current = json.loads(adopted.read_text(encoding='utf-8'))['outputs'][current_rel]
+        assert sha(ROOT / current_rel) == current['sha256'] == current['approved_preview_sha256']
+        assert r'\includegraphics[width=\textwidth]{figures/new4t/S2.pdf}' in sup
+    else:
+        assert 'eta_sensitivity_selected_c0.pdf' in sup
 
 
 def test_curves_and_text_numbers(receipt):

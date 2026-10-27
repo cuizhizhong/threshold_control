@@ -1,0 +1,857 @@
+{
+  "figure": "S3",
+  "preview_only": true,
+  "style": {
+    "tick": 5.5,
+    "label": 6.5,
+    "title": 7.0,
+    "legend": 5.0,
+    "note": 5.5,
+    "lw_main": 1.5,
+    "lw_ref": 1.0,
+    "lw_vline": 0.6,
+    "lw_axes": 0.4,
+    "ref_alpha": 0.7
+  },
+  "old_pdf": "paper/figures/layout_v5/baseline_q_joint.pdf",
+  "old_pdf_sha256": "13c05da34b0732491c740f94f9a7f48a52ddf4fef78fdfe3567d64252c354a22",
+  "inputs": {
+    "git:pipeline-final-20261006:latex/revision_layout_v5/qa/baseline_q_joint.matlab_geometry.json": "efe73d435cad84acf9d4226961f9494417e6f34e7eaf1f9aa0b67220460d3bf6",
+    "git:pipeline-final-20261006:latex/revision_layout_v5/layout_matlab.m": "5217fe263324f2241c770101d7c519d872ee1997808d131130857fd931ae7a15"
+  },
+  "checks": {
+    "source_artists_preserved": true,
+    "arrays_verified_after_draw": true,
+    "arrays": [
+      {
+        "panel": "a",
+        "kind": "curve",
+        "x_sha256": "2269f2f2f41e0c6375d0e670b3b1e0eab3bf3706a52b89f14efef81419061ee6",
+        "y_sha256": "bd3d963adf118dc44576a38e8352768e3c892e79c5d4227616402965087106fc",
+        "x_count": 350,
+        "y_count": 350
+      },
+      {
+        "panel": "a",
+        "kind": "|",
+        "x_sha256": "49acea826fd0c8a4473b64c6e061ad4aa9fe8493662de22e9fdf7cf19162a1d6",
+        "y_sha256": "c9c7015dec780ca90e5103a589558d1631e6fd4abf052f0cbd508a56b8738299",
+        "x_count": 1,
+        "y_count": 1
+      },
+      {
+        "panel": "a",
+        "kind": "^",
+        "x_sha256": "deccc697faf87153688030008745afaad906fd8721ddb36be886abd949f37b29",
+        "y_sha256": "f1dd1d18e5a28f5c7d0574b1b8ce94cb481b2358cc2fbc2c4b695700d1664011",
+        "x_count": 1,
+        "y_count": 1
+      },
+      {
+        "panel": "a",
+        "kind": "curve",
+        "x_sha256": "f3172c37ed5a187e0d4f33186a03e34b1635175f5093b03282c00a1755601624",
+        "y_sha256": "1af87dfbff1069383f799b821576f2648e91f27ae8c73dab706574dcc28124f2",
+        "x_count": 350,
+        "y_count": 350
+      },
+      {
+        "panel": "a",
+        "kind": "|",
+        "x_sha256": "126fa22bc5fe98dcf1e25f72df5b2b248b2bf295607794c57a4a9fbcb2ec1bbf",
+        "y_sha256": "c9c7015dec780ca90e5103a589558d1631e6fd4abf052f0cbd508a56b8738299",
+        "x_count": 1,
+        "y_count": 1
+      },
+      {
+        "panel": "a",
+        "kind": "^",
+        "x_sha256": "310cdab6cd88322d57f2e2b99cc8fb4abeafcb42018974c8941d63f9147ad62c",
+        "y_sha256": "e6e002fa14c0e4fcb8e48581f481d5d2ff5a0cff41413f6e4461b30420d5b28d",
+        "x_count": 1,
+        "y_count": 1
+      },
+      {
+        "panel": "a",
+        "kind": "curve",
+        "x_sha256": "8ca96779df5bb2c1eefd522887a75e2184cbedb0235c8431d283c69597518cf1",
+        "y_sha256": "b9fc00053a961d4d82abaacf2aab68a8cc9788a7897b913d02b27cbd07e2f39a",
+        "x_count": 350,
+        "y_count": 350
+      },
+      {
+        "panel": "a",
+        "kind": "|",
+        "x_sha256": "8a7fc6efce84f0bdb2357eb6f0d13566a710e9a6e8131e2ca8ebcdc90e897f47",
+        "y_sha256": "c9c7015dec780ca90e5103a589558d1631e6fd4abf052f0cbd508a56b8738299",
+        "x_count": 1,
+        "y_count": 1
+      },
+      {
+        "panel": "a",
+        "kind": "^",
+        "x_sha256": "db0058df60ade126355878a8ce5a5d00646647353d5a6820047e88fbb8cd8a33",
+        "y_sha256": "bcbb8b9da7d31d6664eb9983a717faa2dae4d1a48af0fb42b0a942d9af9b41b7",
+        "x_count": 1,
+        "y_count": 1
+      },
+      {
+        "panel": "a",
+        "kind": "curve",
+        "x_sha256": "8fa361ed1d2b64cb879adcaac4db6575d891e22944d1710fac9a21c4a951f0f0",
+        "y_sha256": "207bb136a948be8bada6e96bce0f9272342302352db9a206ae881014cf8f09f8",
+        "x_count": 350,
+        "y_count": 350
+      },
+      {
+        "panel": "a",
+        "kind": "|",
+        "x_sha256": "97e6070de7a1f89ea30d0da26c70f88f3bec84100f35869929e0b55f5fc6300f",
+        "y_sha256": "c9c7015dec780ca90e5103a589558d1631e6fd4abf052f0cbd508a56b8738299",
+        "x_count": 1,
+        "y_count": 1
+      },
+      {
+        "panel": "a",
+        "kind": "^",
+        "x_sha256": "8736205c0ffd0903fcf59bac8585883efb21e8ca5d11df03e311b1febc664e60",
+        "y_sha256": "444570f03279f6d11c672e448c13dbd42ce6a599ce23a8a64067d8ff87f4d82d",
+        "x_count": 1,
+        "y_count": 1
+      },
+      {
+        "panel": "a",
+        "kind": "curve",
+        "x_sha256": "419dcad7e8f855956ffe0b7dc11b5c9405c3b6e302cdda141ed246a8f24932b3",
+        "y_sha256": "f748fe353f41a5719ad9842d1bfe143181d78f4a981059a5ad465901925047d6",
+        "x_count": 350,
+        "y_count": 350
+      },
+      {
+        "panel": "a",
+        "kind": "|",
+        "x_sha256": "bed61be992239fcfdcf47f1c37143f0c25368fd0430626af05fb67ae9ec436fe",
+        "y_sha256": "c9c7015dec780ca90e5103a589558d1631e6fd4abf052f0cbd508a56b8738299",
+        "x_count": 1,
+        "y_count": 1
+      },
+      {
+        "panel": "a",
+        "kind": "^",
+        "x_sha256": "cac1bae72ff19dc922b797a129ad213758868ccdcd53d337a7390b29e80b064e",
+        "y_sha256": "1de493489bfcbb607a4fec2a64d878b911aa152341e63d07f9b2b68d973656fd",
+        "x_count": 1,
+        "y_count": 1
+      },
+      {
+        "panel": "a",
+        "kind": "inflection",
+        "x_sha256": "0c3a25af3fe19d49bf9191c6abd3e6277b09115dde46ce64148205b39dd74416",
+        "y_sha256": "ba3d35461add0b5719eb72116a75562021ddb35d10d2366c64aeb8fca8199388",
+        "x_count": 1,
+        "y_count": 1
+      },
+      {
+        "panel": "a",
+        "kind": "inflection",
+        "x_sha256": "2b20a5cde437ed24d6027387eac3b54486f7c12894532b31d8a15e55fded145a",
+        "y_sha256": "40f79b1391dc0777e3ea2ac3548f49068ee53952c8c894953bfe372482195316",
+        "x_count": 1,
+        "y_count": 1
+      },
+      {
+        "panel": "a",
+        "kind": "inflection",
+        "x_sha256": "88413976fe1a5aec8b8a95e6d4afff3b9c8839fb2ba719c41b3bfbc1438cf0c0",
+        "y_sha256": "e3da8767d68bb888d425919c054751f4245e80067aa75b90c17ff18fb48614f0",
+        "x_count": 1,
+        "y_count": 1
+      },
+      {
+        "panel": "a",
+        "kind": "inflection",
+        "x_sha256": "bb7c91711d2a5218169bdce16737fd75f6cd3efadc34dfc8971ee26a7e9f9dd8",
+        "y_sha256": "b5c27a7d9c091902f7883dff767e7751cfe7422dda04cfe3a040a08a9e229de5",
+        "x_count": 1,
+        "y_count": 1
+      },
+      {
+        "panel": "a",
+        "kind": "reference",
+        "x_sha256": "22a8b9d83aa8b8267b69fe5580dc6378eca9fb16a830e2396e91372576b42f44",
+        "y_sha256": "3f8daacbd7c00186369a997011a6684f458e4afbbdcaaa2f63c026aa1fbadb9e",
+        "x_count": 2,
+        "y_count": 2
+      },
+      {
+        "panel": "a",
+        "kind": "reference",
+        "x_sha256": "22a8b9d83aa8b8267b69fe5580dc6378eca9fb16a830e2396e91372576b42f44",
+        "y_sha256": "339770193a7f4dc28aec1b89765157a30a725a4ec4672a104de5ff87ef41ff87",
+        "x_count": 2,
+        "y_count": 2
+      },
+      {
+        "panel": "b",
+        "kind": "curve",
+        "x_sha256": "c47407a92e5b90e3b249bd52bd673d0d1ae38dbdb05406f2564b32df0fa0f153",
+        "y_sha256": "2158a863d81c64166217854104163d779dc9e31ccb3e2e43d0d8fb110bf0b02b",
+        "x_count": 1825,
+        "y_count": 1825
+      },
+      {
+        "panel": "b",
+        "kind": "|",
+        "x_sha256": "8e591eba334b2cd3696eed5ce310bda193ea6f5aab853a464c1b6b7c57a449c7",
+        "y_sha256": "c9c7015dec780ca90e5103a589558d1631e6fd4abf052f0cbd508a56b8738299",
+        "x_count": 1,
+        "y_count": 1
+      },
+      {
+        "panel": "b",
+        "kind": "^",
+        "x_sha256": "bc12b958455fb261ab21aca904eb93e53b7c785f3f63fa1745041e6169cb5384",
+        "y_sha256": "0a0e4da5a9babd0e2b0f58148860f5f8089ac2d7da2928c6877ec9fc30ebbd99",
+        "x_count": 1,
+        "y_count": 1
+      },
+      {
+        "panel": "b",
+        "kind": "curve",
+        "x_sha256": "cfb6e858c5f93cd2616e83d1a46f62c9a3dd0c07c119c71f75a31b4aca06e48b",
+        "y_sha256": "b5d8f652e831a5f253a3552c894496effb1c612ecf58a90be1b7c3e3e1df5e35",
+        "x_count": 607,
+        "y_count": 607
+      },
+      {
+        "panel": "b",
+        "kind": "|",
+        "x_sha256": "1d857b178b7e9aad7f49fd6327ea5b4b028a38e685b0bb25cee8b3549ca32495",
+        "y_sha256": "c9c7015dec780ca90e5103a589558d1631e6fd4abf052f0cbd508a56b8738299",
+        "x_count": 1,
+        "y_count": 1
+      },
+      {
+        "panel": "b",
+        "kind": "^",
+        "x_sha256": "ff299326ed676c92ec3cc06f5e2ba5cebe9094639817650a5c861cc4d3cde599",
+        "y_sha256": "05211ce4c0b1ce61d10bbe3b3aa75e172bbc5881d17e4fb9b92ce7ff5c71e770",
+        "x_count": 1,
+        "y_count": 1
+      },
+      {
+        "panel": "b",
+        "kind": "curve",
+        "x_sha256": "b6496b1c5f09f8fa627fc7ad5c63d0998e2273a604f301ab09e056e8b121de8b",
+        "y_sha256": "1c6389eb87f778a4a9e79baa6f140481588b54eb4e30c02e5cdf07238f257c35",
+        "x_count": 364,
+        "y_count": 364
+      },
+      {
+        "panel": "b",
+        "kind": "|",
+        "x_sha256": "c33cfff78610f6617d6b66bcf5507260291390a53b8731803a2958e6df2d69c3",
+        "y_sha256": "c9c7015dec780ca90e5103a589558d1631e6fd4abf052f0cbd508a56b8738299",
+        "x_count": 1,
+        "y_count": 1
+      },
+      {
+        "panel": "b",
+        "kind": "^",
+        "x_sha256": "b1be469a588b0adbd1e69df914c5abdd6158c45fe884eb773975ed4b55c552fe",
+        "y_sha256": "9dec54e78afabaf7deba62817169192f690287b782b79dc8b839df74226310f7",
+        "x_count": 1,
+        "y_count": 1
+      },
+      {
+        "panel": "b",
+        "kind": "curve",
+        "x_sha256": "0bcdde964fdb06a605fe85ac3c43b02ce83756519aec7815808fdc2dcfe8689a",
+        "y_sha256": "ed5bd65a28744f72edc10736a795937769aa82f7087ecedb4d9267d3894833e6",
+        "x_count": 350,
+        "y_count": 350
+      },
+      {
+        "panel": "b",
+        "kind": "|",
+        "x_sha256": "4a7b6103fbc9a912f9b54014a7afad37157c85c7f870194b61cbfe0ea2e8ed4d",
+        "y_sha256": "c9c7015dec780ca90e5103a589558d1631e6fd4abf052f0cbd508a56b8738299",
+        "x_count": 1,
+        "y_count": 1
+      },
+      {
+        "panel": "b",
+        "kind": "^",
+        "x_sha256": "3ab2fdb384b73f2ff6fb20e3d033b10f972091bd6ffe18c9031d3a71ae943631",
+        "y_sha256": "b9586633c506a6994edcbf623293534c9f95970ad6ab7aec29a2e082fbbd14fd",
+        "x_count": 1,
+        "y_count": 1
+      },
+      {
+        "panel": "b",
+        "kind": "inflection",
+        "x_sha256": "0f7ae1d2969f74210d7a0415bc87eaf974542a53e72ac19305e3002d17eb0a17",
+        "y_sha256": "ba3d35461add0b5719eb72116a75562021ddb35d10d2366c64aeb8fca8199388",
+        "x_count": 1,
+        "y_count": 1
+      },
+      {
+        "panel": "b",
+        "kind": "inflection",
+        "x_sha256": "0402b05de11d7359deb3a57df2fbcee6ec2f0f663663e10b1e19fbe6c952965e",
+        "y_sha256": "40f79b1391dc0777e3ea2ac3548f49068ee53952c8c894953bfe372482195316",
+        "x_count": 1,
+        "y_count": 1
+      },
+      {
+        "panel": "b",
+        "kind": "inflection",
+        "x_sha256": "059f53feed2fbaa0693f976b2220b7a8b51311128d2018e05d95ffc44869faef",
+        "y_sha256": "ba3d35461add0b5719eb72116a75562021ddb35d10d2366c64aeb8fca8199388",
+        "x_count": 1,
+        "y_count": 1
+      },
+      {
+        "panel": "b",
+        "kind": "inflection",
+        "x_sha256": "75b121cdf90845768a00393b8262c8940aaadf4a0080797a6dc5baf7da2255d8",
+        "y_sha256": "ba3d35461add0b5719eb72116a75562021ddb35d10d2366c64aeb8fca8199388",
+        "x_count": 1,
+        "y_count": 1
+      },
+      {
+        "panel": "b",
+        "kind": "reference",
+        "x_sha256": "c68072846f7c926324d47ddb34ccb17f1070d5e94ce41c31e3181812c73dc064",
+        "y_sha256": "3f8daacbd7c00186369a997011a6684f458e4afbbdcaaa2f63c026aa1fbadb9e",
+        "x_count": 2,
+        "y_count": 2
+      },
+      {
+        "panel": "b",
+        "kind": "reference",
+        "x_sha256": "c68072846f7c926324d47ddb34ccb17f1070d5e94ce41c31e3181812c73dc064",
+        "y_sha256": "339770193a7f4dc28aec1b89765157a30a725a4ec4672a104de5ff87ef41ff87",
+        "x_count": 2,
+        "y_count": 2
+      }
+    ],
+    "no_resampling": true,
+    "panel_count": 2,
+    "curve_count": 9,
+    "original_object_count": 39,
+    "drawn_object_count": 39,
+    "range_provenance": {
+      "source": "git:pipeline-final-20261006:latex/revision_layout_v5/layout_matlab.m",
+      "xmax_formula": "max(t2+0.08*Delta_t)",
+      "ymax_formula": "min(1,1.08*max(q_max)+0.02)",
+      "uses_same_original_range_formulas": true,
+      "panels": [
+        {
+          "panel": "a",
+          "xlim": [
+            0,
+            22.784819730155068
+          ],
+          "ylim": [
+            0,
+            0.8816710599918046
+          ],
+          "original_xmax_formula_error": 2.1316282072803006e-14
+        },
+        {
+          "panel": "b",
+          "xlim": [
+            0,
+            164.5821976067859
+          ],
+          "ylim": [
+            0,
+            0.8552886102394375
+          ],
+          "original_xmax_formula_error": 3.694822225952521e-13
+        }
+      ]
+    }
+  },
+  "axes": [
+    {
+      "xlim": [
+        0.0,
+        22.784819730155068
+      ],
+      "ylim": [
+        0.0,
+        0.8816710599918046
+      ],
+      "xscale": "linear",
+      "yscale": "linear",
+      "title": "(a)",
+      "lines": 21,
+      "patches": 0,
+      "collections": 0
+    },
+    {
+      "xlim": [
+        0.0,
+        164.5821976067859
+      ],
+      "ylim": [
+        0.0,
+        0.8552886102394375
+      ],
+      "xscale": "linear",
+      "yscale": "linear",
+      "title": "(b)",
+      "lines": 18,
+      "patches": 0,
+      "collections": 0
+    }
+  ],
+  "fonts": [
+    "CGMMQU+Cmr10",
+    "GYUURQ+Cmmi10"
+  ],
+  "size_mm": [
+    159.79700916666667,
+    81.3126374078171
+  ],
+  "output_sha256": {
+    "S3.pdf": "40e8dcb000e412828794b407f36b2c3f7da8a1b2036b3ce9ecf7cc031e873099",
+    "S3.png": "bd64214eb9476ae3dd07bce8d10297d3ac71b62e2ef6668fd81230d8b1d55bd4"
+  },
+  "text_bounds_px": [
+    {
+      "text": "$t$",
+      "bounds": [
+        172.274556953125,
+        19.863076035521146,
+        177.258931953125,
+        29.863076035521146
+      ]
+    },
+    {
+      "text": "$\\mathdefault{0}$",
+      "bounds": [
+        43.805034166666665,
+        33.640853813298925,
+        49.305034166666665,
+        43.640853813298925
+      ]
+    },
+    {
+      "text": "$\\mathdefault{5}$",
+      "bounds": [
+        100.1382055193014,
+        32.640853813298925,
+        105.5132055193014,
+        43.640853813298925
+      ]
+    },
+    {
+      "text": "$\\mathdefault{10}$",
+      "bounds": [
+        154.43670890318612,
+        33.640853813298925,
+        163.75604484068612,
+        43.640853813298925
+      ]
+    },
+    {
+      "text": "$\\mathdefault{15}$",
+      "bounds": [
+        210.76988025582085,
+        32.640853813298925,
+        219.96421619332085,
+        43.640853813298925
+      ]
+    },
+    {
+      "text": "$\\mathdefault{20}$",
+      "bounds": [
+        266.9780516084556,
+        33.640853813298925,
+        276.2973875459556,
+        43.640853813298925
+      ]
+    },
+    {
+      "text": "$q_c(t)$",
+      "bounds": [
+        16.37783554470486,
+        162.71033124985598,
+        29.37783554470486,
+        181.42779951157473
+      ]
+    },
+    {
+      "text": "$\\mathdefault{0.0}$",
+      "bounds": [
+        32.34311332248264,
+        40.418631591076704,
+        43.77725638888889,
+        50.418631591076704
+      ]
+    },
+    {
+      "text": "$\\mathdefault{0.1}$",
+      "bounds": [
+        32.59311332248264,
+        68.92142350324555,
+        43.77725638888889,
+        78.92142350324555
+      ]
+    },
+    {
+      "text": "$\\mathdefault{0.2}$",
+      "bounds": [
+        32.42123832248264,
+        97.42421541541438,
+        43.77725638888889,
+        107.42421541541438
+      ]
+    },
+    {
+      "text": "$\\mathdefault{0.3}$",
+      "bounds": [
+        32.21811332248264,
+        125.92700732758323,
+        43.77725638888889,
+        135.92700732758323
+      ]
+    },
+    {
+      "text": "$\\mathdefault{0.4}$",
+      "bounds": [
+        32.21811332248264,
+        154.42979923975207,
+        43.77725638888889,
+        164.42979923975207
+      ]
+    },
+    {
+      "text": "$\\mathdefault{0.5}$",
+      "bounds": [
+        32.46811332248264,
+        182.43259115192092,
+        43.77725638888889,
+        193.43259115192092
+      ]
+    },
+    {
+      "text": "$\\mathdefault{0.6}$",
+      "bounds": [
+        32.34311332248264,
+        211.43538306408976,
+        43.77725638888889,
+        221.43538306408976
+      ]
+    },
+    {
+      "text": "$\\mathdefault{0.7}$",
+      "bounds": [
+        32.15561332248264,
+        239.9381749762586,
+        43.77725638888889,
+        249.9381749762586
+      ]
+    },
+    {
+      "text": "$\\mathdefault{0.8}$",
+      "bounds": [
+        32.34311332248264,
+        268.44096688842745,
+        43.77725638888889,
+        278.44096688842745
+      ]
+    },
+    {
+      "text": "$\\mathdefault{0.9}$",
+      "bounds": [
+        32.34311332248264,
+        296.94375880059624,
+        43.77725638888889,
+        306.94375880059624
+      ]
+    },
+    {
+      "text": "(a)",
+      "bounds": [
+        168.454244453125,
+        299.8861658370207,
+        181.079244453125,
+        308.8861658370207
+      ]
+    },
+    {
+      "text": "$c_0=4$",
+      "bounds": [
+        274.0740914040798,
+        280.9412873647985,
+        293.09607626736107,
+        291.1222769481318
+      ]
+    },
+    {
+      "text": "$c_0=5$",
+      "bounds": [
+        274.0740914040798,
+        269.2325200036874,
+        292.78357626736107,
+        279.4135095870207
+      ]
+    },
+    {
+      "text": "$c_0=8$",
+      "bounds": [
+        274.0740914040798,
+        257.52375264257626,
+        292.90857626736107,
+        267.70474222590957
+      ]
+    },
+    {
+      "text": "$c_0=10$",
+      "bounds": [
+        274.0740914040798,
+        245.8149852814651,
+        296.38123251736107,
+        255.99597486479846
+      ]
+    },
+    {
+      "text": "$c_0=12$",
+      "bounds": [
+        274.0740914040798,
+        234.106217920354,
+        296.36560751736107,
+        244.28720750368734
+      ]
+    },
+    {
+      "text": "$q_{\\rm inf}$",
+      "bounds": [
+        274.0740914040798,
+        224.37844014257624,
+        284.94977957546655,
+        232.57844014257626
+      ]
+    },
+    {
+      "text": "$q_0$",
+      "bounds": [
+        274.0740914040798,
+        214.6696727814651,
+        281.46718832790793,
+        222.85066236479844
+      ]
+    },
+    {
+      "text": "$t$",
+      "bounds": [
+        490.2395984635416,
+        19.863076035521146,
+        495.2239734635416,
+        29.863076035521146
+      ]
+    },
+    {
+      "text": "$\\mathdefault{0}$",
+      "bounds": [
+        361.7700756770833,
+        33.640853813298925,
+        367.2700756770833,
+        43.640853813298925
+      ]
+    },
+    {
+      "text": "$\\mathdefault{50}$",
+      "bounds": [
+        437.7617312723662,
+        32.640853813298925,
+        447.0810672098662,
+        43.640853813298925
+      ]
+    },
+    {
+      "text": "$\\mathdefault{100}$",
+      "bounds": [
+        513.7533868676492,
+        33.640853813298925,
+        526.8920587426492,
+        43.640853813298925
+      ]
+    },
+    {
+      "text": "$\\mathdefault{150}$",
+      "bounds": [
+        591.654710431682,
+        32.640853813298925,
+        604.793382306682,
+        43.640853813298925
+      ]
+    },
+    {
+      "text": "$q_c(t)$",
+      "bounds": [
+        334.3428770551215,
+        162.71033124985598,
+        347.3428770551215,
+        181.42779951157473
+      ]
+    },
+    {
+      "text": "$\\mathdefault{0.0}$",
+      "bounds": [
+        350.3081548328993,
+        40.418631591076704,
+        361.7422978993055,
+        50.418631591076704
+      ]
+    },
+    {
+      "text": "$\\mathdefault{0.1}$",
+      "bounds": [
+        350.5581548328993,
+        69.80062786353096,
+        361.7422978993055,
+        79.80062786353096
+      ]
+    },
+    {
+      "text": "$\\mathdefault{0.2}$",
+      "bounds": [
+        350.3862798328993,
+        99.18262413598522,
+        361.7422978993055,
+        109.18262413598522
+      ]
+    },
+    {
+      "text": "$\\mathdefault{0.3}$",
+      "bounds": [
+        350.1831548328993,
+        128.56462040843948,
+        361.7422978993055,
+        138.56462040843948
+      ]
+    },
+    {
+      "text": "$\\mathdefault{0.4}$",
+      "bounds": [
+        350.1831548328993,
+        157.94661668089373,
+        361.7422978993055,
+        167.94661668089373
+      ]
+    },
+    {
+      "text": "$\\mathdefault{0.5}$",
+      "bounds": [
+        350.4331548328993,
+        186.828612953348,
+        361.7422978993055,
+        197.828612953348
+      ]
+    },
+    {
+      "text": "$\\mathdefault{0.6}$",
+      "bounds": [
+        350.3081548328993,
+        216.71060922580227,
+        361.7422978993055,
+        226.71060922580227
+      ]
+    },
+    {
+      "text": "$\\mathdefault{0.7}$",
+      "bounds": [
+        350.1206548328993,
+        246.0926054982565,
+        361.7422978993055,
+        256.0926054982565
+      ]
+    },
+    {
+      "text": "$\\mathdefault{0.8}$",
+      "bounds": [
+        350.3081548328993,
+        275.47460177071076,
+        361.7422978993055,
+        285.47460177071076
+      ]
+    },
+    {
+      "text": "$\\mathdefault{0.9}$",
+      "bounds": [
+        350.3081548328993,
+        304.856598043165,
+        361.7422978993055,
+        314.856598043165
+      ]
+    },
+    {
+      "text": "(b)",
+      "bounds": [
+        486.1692859635416,
+        299.8861658370207,
+        499.2942859635416,
+        308.8861658370207
+      ]
+    },
+    {
+      "text": "$\\eta/N=0.2\\%$",
+      "bounds": [
+        577.7718263959418,
+        280.9660269481318,
+        614.3462740277778,
+        291.1222769481318
+      ]
+    },
+    {
+      "text": "$\\eta/N=0.6\\%$",
+      "bounds": [
+        577.7718263959418,
+        269.281999170354,
+        614.3462740277778,
+        279.438249170354
+      ]
+    },
+    {
+      "text": "$\\eta/N=1\\%$",
+      "bounds": [
+        577.7718263959418,
+        257.59797139257626,
+        608.9507814740668,
+        267.75422139257626
+      ]
+    },
+    {
+      "text": "$\\eta/N=2\\%$",
+      "bounds": [
+        577.7718263959418,
+        245.91394361479846,
+        608.9507814740668,
+        256.0701936147984
+      ]
+    },
+    {
+      "text": "$q_{\\rm inf}$",
+      "bounds": [
+        577.7718263959418,
+        236.18616583702067,
+        588.6475145673286,
+        244.38616583702068
+      ]
+    },
+    {
+      "text": "$q_0$",
+      "bounds": [
+        577.7718263959418,
+        226.47739847590955,
+        585.16492331977,
+        234.6583880592429
+      ]
+    }
+  ]
+}

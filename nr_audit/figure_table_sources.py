@@ -11,28 +11,29 @@ E='reproducibility/results/20261005_sec7_v2_refinement/joint_extra'
 A='nr_audit/results'
 L='git:pipeline-final-20261006:latex/revision_layout_v5'
 H='pipeline-final-20261006:reproducibility/release_reports/20261005_sec7_v2_refinement/collection/run_1/validation/figure_generation.json'
+ADOPT='nr_audit/adopt_new4t_figures.py；绘图：'
 
 # 输入数据有独立CSV/NPZ时列实际数据；公式驱动轨迹列源入口及参数，不把PDF当作输入证据。
 FIG={
 'fig:model_schematic':('reproducibility/assets/SIQR模型示意图_复现修正版.pptx','reproducibility/figures.py:_export_model'),
 'fig:scenario1:single-sim':('code/scenario1_q_control_with_quarantine_panels.m:参数与轨迹方程','code/scenario1_q_control_with_quarantine_panels.m'),
 'fig:scenario1_summary_eta':(f'{D}/baseline/landscape_summary.csv;{D}/baseline/eta_sensitivity_c0_10.csv','nr_audit/plot_new4r_tradeoff.py'),
-'fig:sup:eta-summary':(f'{D}/baseline/eta_sensitivity_c0_10.csv;{D}/baseline/main_eta_summary.csv',f'{L}/layout_matlab.m'),
-'fig:scenario1_summary_c0':(f'{D}/baseline/c0_sensitivity_selected_eta.csv;{D}/baseline/main_c0_summary.csv',f'{L}/layout_matlab.m'),
+'fig:sup:eta-summary':(f'{D}/baseline/eta_sensitivity_c0_10.csv;{D}/baseline/main_eta_summary.csv;{L}/qa/eta_sensitivity_selected_c0.matlab_geometry.json',ADOPT+'nr_audit/preview_style_curves.py:metric_summaries'),
+'fig:scenario1_summary_c0':(f'{D}/baseline/c0_sensitivity_selected_eta.csv;{D}/baseline/main_c0_summary.csv;{L}/qa/c0_sensitivity_selected_eta.matlab_geometry.json',ADOPT+'nr_audit/preview_style_curves.py:metric_summaries'),
 'fig:joint:compare':(f'{E}/trajectories_baseline.csv;{E}/compare_baseline.csv;{E}/input_manifest.json','nr_audit/plot_new4s_figures.py:joint_compare'),
 'fig:joint:capacity':(f'{E}/capacity_baseline.npz;{E}/capacity.json;{E}/capacity_traj_baseline.csv;{E}/input_manifest.json','nr_audit/plot_new4p_figures.py:capacity_baseline'),
-'fig:joint:phase':(f'{A}/new4d_cost_structure.json;nr_audit/allocation.py;nr_audit/params.py','nr_audit/plot_figure7_contour.py；NEW-4p版面：nr_audit/plot_new4p_figures.py:phase_baseline'),
-'fig:xian:joint':(f'{E}/capacity_xian.npz;{E}/capacity.json;{A}/new4d_figure7.json;{A}/new4d_figure7.npz','nr_audit/plot_new4p_figures.py:xian_joint'),
-'fig:sup:phase-detail':(f'{E}/phase_baseline.npz;{E}/phase_xian.npz;{E}/phase.json;{A}/weight_brackets.json;{A}/new_figure7.json;{A}/new_figure7.npz;{A}/new4d_cost_structure.json','nr_audit/plot_figure7_detail.py'),
+'fig:joint:phase':(f'{A}/new4d_figure7.json;{A}/new4d_figure7.npz;{A}/new4d_figure7_render.json;{E}/input_manifest.json',ADOPT+'nr_audit/preview_supplement_style.py:main_figures'),
+'fig:xian:joint':(f'{E}/capacity_xian.npz;{E}/capacity.json;{A}/new4d_figure7.json;{A}/new4d_figure7.npz;{A}/new4d_figure7_render.json',ADOPT+'nr_audit/preview_supplement_style.py:main_figures'),
+'fig:sup:phase-detail':(f'{E}/phase_baseline.npz;{E}/phase_xian.npz;{E}/phase.json;{A}/weight_brackets.json;{A}/new_figure7.json;{A}/new_figure7.npz;{A}/new4d_cost_structure.json',ADOPT+'nr_audit/preview_style_heatmaps.py:preview_s6'),
 'fig:joint:frontier':(f'{E}/frontier_baseline.csv;{E}/alpha_family_baseline.csv','reproducibility/joint_extra/figures.py:fig_duration'),
 'fig:xian:observed-fit':(f'{D}/xian/observed.csv;{D}/xian/timeseries.csv;{D}/xian/fit.json;真实数据/Xianguankong.xlsx','nr_audit/plot_new4p_figures.py:observed_fit'),
 'fig:xian:strategy-process':(f'{D}/xian/timeseries.csv;{D}/xian/observed.csv;{D}/xian/summary.csv;{E}/trajectories_xian.csv;{E}/input_manifest.json','nr_audit/plot_new4p_figures.py:strategy_process'),
-'fig:baseline:q-joint':(f'{D}/baseline/main_c0_summary.csv;{D}/baseline/main_eta_summary.csv;scenario1_threshold_landscape/common/compute_trajectory.m',f'{L}/layout_matlab.m'),
-'fig:scenario1_heatmaps_c0_eta':(f'{D}/baseline/landscape_summary.csv','scenario1_threshold_landscape/scripts/plot_heatmaps.m'),
-'fig:s1:lambda-sensitivity':('scenario1_inflection/inflection_analysis.py:解析式;scenario1_inflection/fig_lambda_sensitivity.py:BASE与specs','scenario1_inflection/fig_lambda_sensitivity.py'),
+'fig:baseline:q-joint':(f'{D}/baseline/main_c0_summary.csv;{D}/baseline/main_eta_summary.csv;{L}/qa/baseline_q_joint.matlab_geometry.json',ADOPT+'nr_audit/preview_style_curves.py:quarantine_trajectories'),
+'fig:scenario1_heatmaps_c0_eta':(f'{D}/baseline/landscape_summary.csv;scenario1_threshold_landscape/common/critical_c0_for_eta.m;{A}/new4t_figures/S4_boundary_display.json',ADOPT+'nr_audit/preview_style_heatmaps.py:preview_s4'),
+'fig:s1:lambda-sensitivity':(f'{L}/data/scenario1_inflection_lambda_sensitivity.pickle',ADOPT+'nr_audit/preview_style_curves.py:lambda_sensitivity'),
 'fig:s1:inflection-scan':('scenario1_inflection/inflection_analysis.py:解析式;scenario1_inflection/fig_scan_t.py:base与sweeps','scenario1_inflection/fig_scan_t.py'),
 'fig:xian_eta_sens':(f'{D}/xian/eta_scan.csv;{D}/xian/reference.json',f'{L}/layout_python.py'),
-'fig:xian_heatmaps':(f'{D}/xian/heatmap.csv;{D}/xian/reference.json',f'{L}/layout_python.py'),
+'fig:xian_heatmaps':(f'{D}/xian/heatmap.csv;{D}/xian/reference.json',ADOPT+'nr_audit/preview_style_heatmaps.py:preview_s8'),
 'fig:c0-panel':(f'{D}/c0/timeseries.csv;{D}/c0/representative_summary.csv;{D}/c0/parameters.json',f'{L}/layout_python.py'),
 'fig:c0-scan':(f'{D}/c0/scan.csv;{D}/c0/extended_scan.csv;{D}/c0/cumulative_curve.csv;{D}/c0/extrema.json','reproducibility/c0.py:run_c0'),
 'fig:c0-phase':(f'{D}/c0/phase.npz;{D}/c0/parameters.json',f'{L}/layout_python.py'),
@@ -93,6 +94,9 @@ def main():
                         status='NEW-4r只读既有基准扫描按图2风格绘制阈值取舍图；见new4r_tradeoff.json'
                     if artifact.startswith('paper/figures/new4s/'):
                         status='NEW-4s只读既有轨迹按图2风格重绘；见new4s_figures.json'
+                    if artifact.startswith('paper/figures/new4t/'):
+                        inputs+=';nr_audit/results/new4t_figures.json;nr_audit/results/new4t_figures/parula256.json'
+                        status='NEW-4t原字节接收作者确认的九图预览；入稿时未重新绘图或求解；见new4t_figures.json'
                 rows.append(dict(labels='|'.join(labels),kind=kind,tex=file.relative_to(ROOT).as_posix(),
                     artifact=artifact,inputs=inputs,generation_or_audit_entry=entry,
                     historical_report=H if kind=='figure' else 'nr_audit/results/regression.json或所列理论/专项结果',

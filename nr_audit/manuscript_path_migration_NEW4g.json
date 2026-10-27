@@ -16,7 +16,7 @@
       "new4g_baseline_sha256": "4ada262f80854fc6a78bdc27ee133a5d035ec9025f629553f6a397bea8bad2b8",
       "current_path": "paper/sections/06_numerics.tex",
       "current_sha256": "c3bc8f0d35ab96db36723ffec28618d89ef8d8e68d60053a8ad9009d62a3f2a2",
-      "current_content_sha256": "b44d264765de0f64f1406fe001db258d5383df1020b3dfaf3ba7b658f336173d"
+      "current_content_sha256": "3e331ff4f2cf8b9d608e2949dc99a6e7143125e2c1ae0f11ae273ca194334eab"
     },
     "model_section": {
       "historical_path": "paper/sections/02_model.tex",
@@ -32,7 +32,7 @@
       "new4g_baseline_sha256": "acdc0210ebf693f1ddc4675965e86c1a1cc1045f17758ead21d4352967b63686",
       "current_path": "paper/supplement_sections/S2_single_control.tex",
       "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-      "current_content_sha256": "64db6d5099512c4fe81f905072056ce49ac6b39c790612c9f3efa9aa868b91d5"
+      "current_content_sha256": "7f4a2ec69a1d912db855b5324b6a90597545b1eb93feb605f47dfca5fc301a47"
     },
     "numerics_S2": {
       "historical_path": "paper/supplement_sections/S2_inflection.tex",
@@ -40,7 +40,7 @@
       "new4g_baseline_sha256": "10cda56cfca71407f2c695b6bd9c491a6ff8cafdf6079405838f0a5437543f38",
       "current_path": "paper/supplement_sections/S3_inflection.tex",
       "current_sha256": "10cda56cfca71407f2c695b6bd9c491a6ff8cafdf6079405838f0a5437543f38",
-      "current_content_sha256": "96f2b33906157af1ebb255c2eab61cb64ec16960078693d9b6471073fb064345"
+      "current_content_sha256": "791a03921ee4bfb0744f354d926779fc50c50caa7ea5f94b58bbcab7fe831ca0"
     },
     "xian_S3": {
       "historical_path": "paper/supplement_sections/S3_xian.tex",
@@ -48,7 +48,7 @@
       "new4g_baseline_sha256": "104ecd6d90f9202f84c5be060062b19a867e757a90b15d14cf30e352698d5eb0",
       "current_path": "paper/supplement_sections/S6_xian.tex",
       "current_sha256": "6ef1a648e304e298c4b514be7265ea4d9d9d1fb5212558ad21da8493a51e5cfa",
-      "current_content_sha256": "78593de2e78527bdde11a4ddb772e57a246a896d7d76b0742d73d96b0bb338f3"
+      "current_content_sha256": "8175493344843b8b5c20de2b7c9c1b6f097cd98be5130a9a07188ebb23739017"
     },
     "contact_S5": {
       "historical_path": "paper/supplement_sections/S5_contact.tex",
@@ -56,7 +56,7 @@
       "new4g_baseline_sha256": "3830ad9ec1c172373ea3a648b63c08af93ec7c389212352e152066b281db121d",
       "current_path": "paper/supplement_sections/S2_single_control.tex",
       "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-      "current_content_sha256": "64db6d5099512c4fe81f905072056ce49ac6b39c790612c9f3efa9aa868b91d5"
+      "current_content_sha256": "7f4a2ec69a1d912db855b5324b6a90597545b1eb93feb605f47dfca5fc301a47"
     },
     "numerics_S6": {
       "historical_path": "paper/supplement_sections/S6_numerics.tex",
@@ -72,7 +72,7 @@
       "new4g_baseline_sha256": "011979ea924660315492a0d2aaf120579f8cbc7f3821147f53b4158762a1c3a3",
       "current_path": "paper/sections/07_xian.tex",
       "current_sha256": "4952f88ad903d47e8adb831b47d1d1db6357765e06ea1ab6050eea24918f1210",
-      "current_content_sha256": "c10860079d6a867ff04591a6824de34d91b7cee285487e19b73db1ea3db6eef2"
+      "current_content_sha256": "a7dbd3486b3ccc65a834f1554fbe561a8141e13e964d676b36970b4d04d948b0"
     }
   },
   "file_fragments": [
@@ -90,7 +90,7 @@
             "eq:small-threshold"
           ],
           "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-          "current_content_sha256": "64db6d5099512c4fe81f905072056ce49ac6b39c790612c9f3efa9aa868b91d5"
+          "current_content_sha256": "7f4a2ec69a1d912db855b5324b6a90597545b1eb93feb605f47dfca5fc301a47"
         }
       ]
     },
@@ -108,7 +108,7 @@
             "app:lambda"
           ],
           "current_sha256": "10cda56cfca71407f2c695b6bd9c491a6ff8cafdf6079405838f0a5437543f38",
-          "current_content_sha256": "96f2b33906157af1ebb255c2eab61cb64ec16960078693d9b6471073fb064345"
+          "current_content_sha256": "791a03921ee4bfb0744f354d926779fc50c50caa7ea5f94b58bbcab7fe831ca0"
         }
       ]
     },
@@ -139,7 +139,7 @@
             "sec:sup:threshold-scale"
           ],
           "current_sha256": "6ef1a648e304e298c4b514be7265ea4d9d9d1fb5212558ad21da8493a51e5cfa",
-          "current_content_sha256": "78593de2e78527bdde11a4ddb772e57a246a896d7d76b0742d73d96b0bb338f3"
+          "current_content_sha256": "8175493344843b8b5c20de2b7c9c1b6f097cd98be5130a9a07188ebb23739017"
         }
       ]
     },
@@ -160,7 +160,7 @@
             "fig:c0-beta-existence"
           ],
           "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-          "current_content_sha256": "64db6d5099512c4fe81f905072056ce49ac6b39c790612c9f3efa9aa868b91d5"
+          "current_content_sha256": "7f4a2ec69a1d912db855b5324b6a90597545b1eb93feb605f47dfca5fc301a47"
         }
       ]
     },
@@ -176,7 +176,7 @@
             "fig:sup:phase-detail"
           ],
           "current_sha256": "5b7db9952e30df4c07d9993f321269b85034dba83d810ff376b81c9e4d90b541",
-          "current_content_sha256": "8c1286a14709b1477c7f4eaaed79d23b282a9025b5626fcf2ff2ea490b2dce92"
+          "current_content_sha256": "05ff21e3403cee6fb1810fe433cea072bb9b53f566b1c85bb5a5772b652c3474"
         },
         {
           "path": "paper/supplement_sections/S8_numerics.tex",
@@ -203,7 +203,7 @@
             "eq:duration-c0"
           ],
           "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-          "current_content_sha256": "64db6d5099512c4fe81f905072056ce49ac6b39c790612c9f3efa9aa868b91d5"
+          "current_content_sha256": "7f4a2ec69a1d912db855b5324b6a90597545b1eb93feb605f47dfca5fc301a47"
         }
       ]
     },
@@ -237,7 +237,7 @@
             "fig:scenario1_summary_c0"
           ],
           "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-          "current_content_sha256": "64db6d5099512c4fe81f905072056ce49ac6b39c790612c9f3efa9aa868b91d5"
+          "current_content_sha256": "7f4a2ec69a1d912db855b5324b6a90597545b1eb93feb605f47dfca5fc301a47"
         }
       ]
     },
@@ -251,7 +251,7 @@
             "sec:proof:contact-effects"
           ],
           "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-          "current_content_sha256": "64db6d5099512c4fe81f905072056ce49ac6b39c790612c9f3efa9aa868b91d5"
+          "current_content_sha256": "7f4a2ec69a1d912db855b5324b6a90597545b1eb93feb605f47dfca5fc301a47"
         }
       ]
     }

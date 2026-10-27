@@ -1,0 +1,1069 @@
+{
+  "figure": "S6",
+  "preview_only": true,
+  "style": {
+    "tick": 5.5,
+    "label": 6.5,
+    "title": 7.0,
+    "legend": 5.0,
+    "note": 5.5,
+    "lw_main": 1.5,
+    "lw_ref": 1.0,
+    "lw_vline": 0.6,
+    "lw_axes": 0.4,
+    "ref_alpha": 0.7
+  },
+  "old_pdf": "paper/figures/joint_v2/joint_phase_detail.pdf",
+  "old_pdf_sha256": "a5d17c40b1722616af176fbfd9db76a624619d056b4cef4f92fc555f52c3a32e",
+  "inputs": {
+    "nr_audit/results/new_figure7.json": "f786ec80f86c39fafbd2cd7a0984e543eee44001a1cbc8c52da205920a52b4fb",
+    "nr_audit/results/new_figure7.npz": "719d07962df7bb607ad6fd8a73cbc454be10254dc15d7543f0819ed36ecd963f",
+    "nr_audit/results/new4d_cost_structure.json": "47f513417c2fbd0bedbbdc67fe5fb434ace27d5676b9c5d47710f46ca1857d29"
+  },
+  "checks": {
+    "cache_validation_passed": true,
+    "new_classifications": 0,
+    "new_background_solves": 0,
+    "new_ode_solves": 0,
+    "panels": {
+      "base": {
+        "z": {
+          "shape": [
+            241
+          ],
+          "sha256": "48158e2f82e0fa53a853133c7d17d3bfb2c01f9a3390ac018c3be48feef00cfb",
+          "finite_count": 241,
+          "nan_count": 0,
+          "min": 2.25286038609431,
+          "max": 2.2744306594056694
+        },
+        "r": {
+          "shape": [
+            21
+          ],
+          "sha256": "df0ef7931f64d87232f56b54f792a35a4756c5a7c85adbbf23a20e0f528f1535",
+          "finite_count": 21,
+          "nan_count": 0,
+          "min": 3.130902166914483,
+          "max": 3.236316106646128
+        },
+        "background_r": {
+          "shape": [
+            21
+          ],
+          "sha256": "df0ef7931f64d87232f56b54f792a35a4756c5a7c85adbbf23a20e0f528f1535",
+          "finite_count": 21,
+          "nan_count": 0,
+          "min": 3.130902166914483,
+          "max": 3.236316106646128
+        },
+        "background": {
+          "source": {
+            "shape": [
+              21,
+              241
+            ],
+            "sha256": "f61886483ad418870af78284a3a652ae46f5105805e3004b8fd703af35d38a30",
+            "finite_count": 5061,
+            "nan_count": 0,
+            "min": 0.0,
+            "max": 0.4641969083452557
+          },
+          "plotted": {
+            "shape": [
+              21,
+              241
+            ],
+            "sha256": "f61886483ad418870af78284a3a652ae46f5105805e3004b8fd703af35d38a30",
+            "finite_count": 5061,
+            "nan_count": 0,
+            "min": 0.0,
+            "max": 0.4641969083452557
+          },
+          "exact_match": true
+        },
+        "boundaries": {
+          "continuous": {
+            "x": {
+              "shape": [
+                21
+              ],
+              "sha256": "0cb97f9662c94d66dfe4edb95c708b4f1192ef28f06fa47dc240f6a459714413",
+              "finite_count": 15,
+              "nan_count": 6,
+              "min": 2.265368799991218,
+              "max": 2.2653687999912213
+            },
+            "y": {
+              "shape": [
+                21
+              ],
+              "sha256": "df0ef7931f64d87232f56b54f792a35a4756c5a7c85adbbf23a20e0f528f1535",
+              "finite_count": 21,
+              "nan_count": 0,
+              "min": 3.130902166914483,
+              "max": 3.236316106646128
+            },
+            "plotted_exactly": true
+          },
+          "endpoint": {
+            "x": {
+              "shape": [
+                21
+              ],
+              "sha256": "10ef57cad449bcb5c17e50093924c2c508f6863866726b127e82f52a79187c9e",
+              "finite_count": 6,
+              "nan_count": 15,
+              "min": 2.265795780446993,
+              "max": 2.2684306594056696
+            },
+            "y": {
+              "shape": [
+                21
+              ],
+              "sha256": "df0ef7931f64d87232f56b54f792a35a4756c5a7c85adbbf23a20e0f528f1535",
+              "finite_count": 21,
+              "nan_count": 0,
+              "min": 3.130902166914483,
+              "max": 3.236316106646128
+            },
+            "plotted_exactly": true
+          },
+          "internal": {
+            "x": {
+              "shape": [
+                21
+              ],
+              "sha256": "c4fcd3ac97f2b0e2d1db6c6f44221f74eeb2c651f2c5c74938208a818b60226b",
+              "finite_count": 14,
+              "nan_count": 7,
+              "min": 2.2588603860943097,
+              "max": 2.2652946918356784
+            },
+            "y": {
+              "shape": [
+                21
+              ],
+              "sha256": "df0ef7931f64d87232f56b54f792a35a4756c5a7c85adbbf23a20e0f528f1535",
+              "finite_count": 21,
+              "nan_count": 0,
+              "min": 3.130902166914483,
+              "max": 3.236316106646128
+            },
+            "plotted_exactly": true
+          }
+        },
+        "display_interpolation": "NonUniformImage bilinear：原非均匀坐标/原节点RGB的矩形显示插值，不新增数值网格或分类",
+        "background_rasterized": true,
+        "white_line_outline": false,
+        "known_endpoint_connectors": {
+          "endpoint": {
+            "from_": [
+              2.265795780446993,
+              3.2096344685044085
+            ],
+            "to": [
+              2.26536879999122,
+              3.205114772545149
+            ],
+            "scope": "仅连接既存边界采样端点与已存闭式菱形点，原节点数组不变"
+          },
+          "continuous": {
+            "from_": [
+              2.26536879999122,
+              3.204324596170475
+            ],
+            "to": [
+              2.26536879999122,
+              3.205114772545149
+            ],
+            "scope": "仅连接既存边界采样端点与已存闭式菱形点，原节点数组不变"
+          }
+        },
+        "zero_region_mask": {
+          "boundary_nodes": {
+            "shape": [
+              22,
+              2
+            ],
+            "sha256": "6725d6e846efdbcf06149b83b99fde995c19629a48c8e310fdee07f71c0b3c66",
+            "finite_count": 44,
+            "nan_count": 0,
+            "min": 2.265368799991218,
+            "max": 3.236316106646128
+          },
+          "polygon": {
+            "shape": [
+              24,
+              2
+            ],
+            "sha256": "82584fdf4b60521edefd33d3a75c3d1abb158eec8cefaae7a6153870b3824435",
+            "finite_count": 48,
+            "nan_count": 0,
+            "min": 2.265368799991218,
+            "max": 3.236316106646128
+          },
+          "source": "已存continuous/endpoint节点及(z_sw,r_hat)闭式端点",
+          "facecolor": [
+            0.2422,
+            0.1504,
+            0.6603,
+            1.0
+          ],
+          "vector": true,
+          "new_classifications": 0,
+          "covered_original_nodes": 2007,
+          "covered_nonzero_nodes": 0,
+          "covered_max_nonzero_y": 0.0,
+          "zero_tolerance": 1e-12
+        },
+        "branch_display_partitions": {
+          "method": "原节点RGB矩形双线性插值，按缓存跳变折线作显示分区clip；不是新增科学分类",
+          "new_classifications": 0,
+          "new_grid_nodes": 0,
+          "new_solves": 0,
+          "jump_nodes": {
+            "shape": [
+              16,
+              2
+            ],
+            "sha256": "0afef204ee10793fd77f0f6cc5163407b2f72fd12c00f6ca9debcee5ff49a320",
+            "finite_count": 32,
+            "nan_count": 0,
+            "min": 2.2588347173346572,
+            "max": 3.205114772545149
+          },
+          "cached_side_values": {
+            "shape": [
+              14,
+              4
+            ],
+            "sha256": "b2c51857a77ea048eb34c207f602599d576b0d6b8442174dc57abc98d19e3a1f",
+            "finite_count": 56,
+            "nan_count": 0,
+            "min": 0.0012760700182253058,
+            "max": 3.204324596170475
+          },
+          "continuous_field_below_r_cont": "原场保留，共边使用同一原缓存RGB",
+          "thin_weak_rows_using_cached_side_colors": [],
+          "layers": {
+            "strong": {
+              "display_array": {
+                "shape": [
+                  21,
+                  241
+                ],
+                "sha256": "6fec86964cc6a092bae6dbbeb284f0fb6f72e0b08c87e236ba77385030df3567",
+                "finite_count": 5061,
+                "nan_count": 0,
+                "min": 0.0,
+                "max": 0.4641969083452557
+              },
+              "clip_polygon": {
+                "shape": [
+                  24,
+                  2
+                ],
+                "sha256": "4094351c63255567d88b98a0af1402d21c2cef24a7e88e7b95e8ac5a3838b103",
+                "finite_count": 48,
+                "nan_count": 0,
+                "min": 2.25286038609431,
+                "max": 3.236316106646128
+              },
+              "retained_original_node_count": 2637,
+              "retained_original_values_exact": true,
+              "extrapolation": "仅clip外采用同分支最近节点，显示区无节点时用缓存x_right侧颜色约束"
+            },
+            "weak": {
+              "display_array": {
+                "shape": [
+                  21,
+                  241
+                ],
+                "sha256": "43aaa459185b456bed9cdfddce935a51f05ab6c5bb1c27d3fd60f0dc3fa57375",
+                "finite_count": 5061,
+                "nan_count": 0,
+                "min": 0.0,
+                "max": 0.35674835602336014
+              },
+              "clip_polygon": {
+                "shape": [
+                  31,
+                  2
+                ],
+                "sha256": "2547750046bab087e40262e4d4ad996b490768120f4cf297c93ba0701d517b8c",
+                "finite_count": 62,
+                "nan_count": 0,
+                "min": 2.2588347173346572,
+                "max": 3.205114772545149
+              },
+              "retained_original_node_count": 759,
+              "retained_original_values_exact": true,
+              "extrapolation": "仅clip外采用同分支最近节点，显示区无节点时用缓存x_right侧颜色约束"
+            }
+          }
+        },
+        "xlim": [
+          2.2744306594056694,
+          2.25286038609431
+        ],
+        "ylim": [
+          3.130902166914483,
+          3.236316106646128
+        ],
+        "normalization": "linear",
+        "color_limits": [
+          0,
+          1
+        ],
+        "cusp": [
+          2.2588347173346572,
+          3.1358196310216817
+        ],
+        "switch": [
+          2.26536879999122,
+          3.205114772545149
+        ]
+      },
+      "xian": {
+        "z": {
+          "shape": [
+            241
+          ],
+          "sha256": "1101753f0a26d744b05efa2c001432316a4903cff929a2221a292c77d1f2b299",
+          "finite_count": 241,
+          "nan_count": 0,
+          "min": 2.500528726199004,
+          "max": 2.5631286765453902
+        },
+        "r": {
+          "shape": [
+            42
+          ],
+          "sha256": "abf1c79209209ec646429a23edfe3ec3cbb383c9126e0a91cd974e0bdb34c00d",
+          "finite_count": 42,
+          "nan_count": 0,
+          "min": 2.48312987410347,
+          "max": 2.7424817567620727
+        },
+        "background_r": {
+          "shape": [
+            61
+          ],
+          "sha256": "51ad3785312dadc4753a5b285aec3e1ad94756209fa932457e3e8686ae49eb0a",
+          "finite_count": 61,
+          "nan_count": 0,
+          "min": 2.48312987410347,
+          "max": 2.7424817567620727
+        },
+        "background": {
+          "source": {
+            "shape": [
+              61,
+              241
+            ],
+            "sha256": "86d8bea18c53b23f08e1fa35e15f9be582a0a38917b4dbc2fd99fa9687fc285a",
+            "finite_count": 14701,
+            "nan_count": 0,
+            "min": 0.0,
+            "max": 0.6430818995243714
+          },
+          "plotted": {
+            "shape": [
+              61,
+              241
+            ],
+            "sha256": "86d8bea18c53b23f08e1fa35e15f9be582a0a38917b4dbc2fd99fa9687fc285a",
+            "finite_count": 14701,
+            "nan_count": 0,
+            "min": 0.0,
+            "max": 0.6430818995243714
+          },
+          "exact_match": true
+        },
+        "boundaries": {
+          "continuous": {
+            "x": {
+              "shape": [
+                42
+              ],
+              "sha256": "6fb20c1cd02a49f545413de947703c2c1e44d7a6d72215a70730c12cd0ec039a",
+              "finite_count": 34,
+              "nan_count": 8,
+              "min": 2.5482505425708095,
+              "max": 2.5482505425708126
+            },
+            "y": {
+              "shape": [
+                42
+              ],
+              "sha256": "abf1c79209209ec646429a23edfe3ec3cbb383c9126e0a91cd974e0bdb34c00d",
+              "finite_count": 42,
+              "nan_count": 0,
+              "min": 2.48312987410347,
+              "max": 2.7424817567620727
+            },
+            "plotted_exactly": true
+          },
+          "endpoint": {
+            "x": {
+              "shape": [
+                42
+              ],
+              "sha256": "27788e0845bb3cde88c5487b4faa601150e38aab4f8a753800995fca0c99876d",
+              "finite_count": 8,
+              "nan_count": 34,
+              "min": 2.54874749412975,
+              "max": 2.5570706168344497
+            },
+            "y": {
+              "shape": [
+                42
+              ],
+              "sha256": "abf1c79209209ec646429a23edfe3ec3cbb383c9126e0a91cd974e0bdb34c00d",
+              "finite_count": 42,
+              "nan_count": 0,
+              "min": 2.48312987410347,
+              "max": 2.7424817567620727
+            },
+            "plotted_exactly": true
+          },
+          "internal": {
+            "x": {
+              "shape": [
+                42
+              ],
+              "sha256": "a951bf263257864abea497c0e970363a64df3d79a914ccbed92acd7b3541a905",
+              "finite_count": 18,
+              "nan_count": 24,
+              "min": 2.5065867859099447,
+              "max": 2.54759027548398
+            },
+            "y": {
+              "shape": [
+                42
+              ],
+              "sha256": "abf1c79209209ec646429a23edfe3ec3cbb383c9126e0a91cd974e0bdb34c00d",
+              "finite_count": 42,
+              "nan_count": 0,
+              "min": 2.48312987410347,
+              "max": 2.7424817567620727
+            },
+            "plotted_exactly": true
+          }
+        },
+        "display_interpolation": "NonUniformImage bilinear：原非均匀坐标/原节点RGB的矩形显示插值，不新增数值网格或分类",
+        "background_rasterized": true,
+        "white_line_outline": false,
+        "known_endpoint_connectors": {
+          "endpoint": {
+            "from_": [
+              2.54874749412975,
+              2.710879692129427
+            ],
+            "to": [
+              2.548250542570811,
+              2.7089548638662406
+            ],
+            "scope": "仅连接既存边界采样端点与已存闭式菱形点，原节点数组不变"
+          },
+          "continuous": {
+            "from_": [
+              2.548250542570811,
+              2.7063949368655145
+            ],
+            "to": [
+              2.548250542570811,
+              2.7089548638662406
+            ],
+            "scope": "仅连接既存边界采样端点与已存闭式菱形点，原节点数组不变"
+          }
+        },
+        "zero_region_mask": {
+          "boundary_nodes": {
+            "shape": [
+              43,
+              2
+            ],
+            "sha256": "077a1b96eaa3983591c08f10496152cf2b01c7fe965b5e7c6aaa778e69f60842",
+            "finite_count": 86,
+            "nan_count": 0,
+            "min": 2.48312987410347,
+            "max": 2.7424817567620727
+          },
+          "polygon": {
+            "shape": [
+              45,
+              2
+            ],
+            "sha256": "69f221af7deaeb9cdc550ee5829226509ee1eddae6df763e48d1e67f0b30d61c",
+            "finite_count": 90,
+            "nan_count": 0,
+            "min": 2.48312987410347,
+            "max": 2.7424817567620727
+          },
+          "source": "已存continuous/endpoint节点及(z_sw,r_hat)闭式端点",
+          "facecolor": [
+            0.2422,
+            0.1504,
+            0.6603,
+            1.0
+          ],
+          "vector": true,
+          "new_classifications": 0,
+          "covered_original_nodes": 3393,
+          "covered_nonzero_nodes": 0,
+          "covered_max_nonzero_y": 0.0,
+          "zero_tolerance": 1e-12
+        },
+        "branch_display_partitions": {
+          "method": "原节点RGB矩形双线性插值，按缓存跳变折线作显示分区clip；不是新增科学分类",
+          "new_classifications": 0,
+          "new_grid_nodes": 0,
+          "new_solves": 0,
+          "jump_nodes": {
+            "shape": [
+              20,
+              2
+            ],
+            "sha256": "e0b34805c69f2102f91875afbcdd918e3ccabea79e4f5225788bd5d035dddd69",
+            "finite_count": 40,
+            "nan_count": 0,
+            "min": 2.506029740739499,
+            "max": 2.7089548638662406
+          },
+          "cached_side_values": {
+            "shape": [
+              18,
+              4
+            ],
+            "sha256": "ef8d03315989352fdeabfbae0a9d5a499291e632e121e8b44c61906f71512152",
+            "finite_count": 72,
+            "nan_count": 0,
+            "min": 0.0029835581694232644,
+            "max": 2.7063949368655145
+          },
+          "continuous_field_below_r_cont": "原场保留，共边使用同一原缓存RGB",
+          "thin_weak_rows_using_cached_side_colors": [],
+          "layers": {
+            "strong": {
+              "display_array": {
+                "shape": [
+                  61,
+                  241
+                ],
+                "sha256": "125e00da8e4bef328044a0fd581d87f960a79de493eb1afaf46897eb7c2e8527",
+                "finite_count": 14701,
+                "nan_count": 0,
+                "min": 0.0,
+                "max": 0.6430818995243714
+              },
+              "clip_polygon": {
+                "shape": [
+                  30,
+                  2
+                ],
+                "sha256": "013c165f99d1225baf4a106d45698d2dd7bdc99baaa4556d112884a7374a351c",
+                "finite_count": 60,
+                "nan_count": 0,
+                "min": 2.500528726199004,
+                "max": 2.7424817567620727
+              },
+              "retained_original_node_count": 9239,
+              "retained_original_values_exact": true,
+              "extrapolation": "仅clip外采用同分支最近节点，显示区无节点时用缓存x_right侧颜色约束"
+            },
+            "weak": {
+              "display_array": {
+                "shape": [
+                  61,
+                  241
+                ],
+                "sha256": "520edd3f00d6f368acef5f9051cb000b1a12967aecb5c0e378f9ba6ff3c4d9f0",
+                "finite_count": 14701,
+                "nan_count": 0,
+                "min": 0.0,
+                "max": 0.5004643906431943
+              },
+              "clip_polygon": {
+                "shape": [
+                  39,
+                  2
+                ],
+                "sha256": "ffb51626e27521f9742f8b14f5874dcef89dcc1822badd4cce5a6caa7e3769c3",
+                "finite_count": 78,
+                "nan_count": 0,
+                "min": 2.506029740739499,
+                "max": 2.7089548638662406
+              },
+              "retained_original_node_count": 6853,
+              "retained_original_values_exact": true,
+              "extrapolation": "仅clip外采用同分支最近节点，显示区无节点时用缓存x_right侧颜色约束"
+            }
+          }
+        },
+        "xlim": [
+          2.5631286765453902,
+          2.500528726199004
+        ],
+        "ylim": [
+          2.48312987410347,
+          2.7424817567620727
+        ],
+        "normalization": "linear",
+        "color_limits": [
+          0,
+          1
+        ],
+        "cusp": [
+          2.506029740739499,
+          2.5476956241561206
+        ],
+        "switch": [
+          2.548250542570811,
+          2.7089548638662406
+        ]
+      }
+    },
+    "legend": {
+      "panel": "b",
+      "position": "upper right",
+      "entries": 5,
+      "fallback": "若遮挡边界则删除图内图例，由现有图注说明"
+    }
+  },
+  "axes": [
+    {
+      "xlim": [
+        2.2744306594056694,
+        2.25286038609431
+      ],
+      "ylim": [
+        3.130902166914483,
+        3.236316106646128
+      ],
+      "xscale": "linear",
+      "yscale": "linear",
+      "title": "(a)",
+      "lines": 8,
+      "patches": 1,
+      "collections": 3
+    },
+    {
+      "xlim": [
+        2.5631286765453902,
+        2.500528726199004
+      ],
+      "ylim": [
+        2.48312987410347,
+        2.7424817567620727
+      ],
+      "xscale": "linear",
+      "yscale": "linear",
+      "title": "(b)",
+      "lines": 8,
+      "patches": 1,
+      "collections": 3
+    },
+    {
+      "xlim": [
+        0.0,
+        1.0
+      ],
+      "ylim": [
+        0.0,
+        1.0
+      ],
+      "xscale": "linear",
+      "yscale": "linear",
+      "title": "$y$",
+      "lines": 0,
+      "patches": 0,
+      "collections": 2
+    }
+  ],
+  "fonts": [
+    "CGMMQU+Cmr10",
+    "CGMMQU+Cmsy10",
+    "GYUURQ+Cmmi10"
+  ],
+  "size_mm": [
+    159.79700916666667,
+    64.0
+  ],
+  "output_sha256": {
+    "S6.pdf": "df64148eeacb9a2526953e1df4121d426d3507009bf4601cd4500e70af18144d",
+    "S6.png": "12764fe283237c40f1a99a2853f4a3465685a0b67116f1be9efecce89708087a"
+  },
+  "text_bounds_px": [
+    {
+      "text": "$S/S_c$ (time $\\rightarrow$)",
+      "bounds": [
+        127.93172843023848,
+        7.038317475940509,
+        190.68479239508224,
+        20.03831747594051
+      ]
+    },
+    {
+      "text": "2.270",
+      "bounds": [
+        84.43354054230076,
+        22.816095253718288,
+        102.05854054230076,
+        31.237970253718288
+      ]
+    },
+    {
+      "text": "2.265",
+      "bounds": [
+        136.41438591416227,
+        22.816095253718288,
+        154.03938591416227,
+        31.237970253718288
+      ]
+    },
+    {
+      "text": "2.260",
+      "bounds": [
+        188.39523128603105,
+        22.816095253718288,
+        206.02023128603105,
+        31.237970253718288
+      ]
+    },
+    {
+      "text": "2.255",
+      "bounds": [
+        240.37607665789255,
+        22.816095253718288,
+        258.00107665789255,
+        31.237970253718288
+      ]
+    },
+    {
+      "text": "$r=w_q/w_c$",
+      "bounds": [
+        13.114835232204852,
+        111.7598100917546,
+        26.250121690538187,
+        151.54727652241866
+      ]
+    },
+    {
+      "text": "$\\mathdefault{3.12}$",
+      "bounds": [
+        29.231024468315965,
+        7.8198698778778635,
+        44.406378472222215,
+        17.819869877877863
+      ]
+    },
+    {
+      "text": "$\\mathdefault{3.14}$",
+      "bounds": [
+        29.027899468315965,
+        44.8691616600272,
+        44.406378472222215,
+        54.8691616600272
+      ]
+    },
+    {
+      "text": "$\\mathdefault{3.16}$",
+      "bounds": [
+        29.152899468315965,
+        81.91845344217654,
+        44.406378472222215,
+        91.91845344217654
+      ]
+    },
+    {
+      "text": "$\\mathdefault{3.18}$",
+      "bounds": [
+        29.152899468315965,
+        118.96774522432588,
+        44.406378472222215,
+        128.96774522432588
+      ]
+    },
+    {
+      "text": "$\\mathdefault{3.20}$",
+      "bounds": [
+        29.152899468315965,
+        156.01703700647613,
+        44.406378472222215,
+        166.01703700647613
+      ]
+    },
+    {
+      "text": "$\\mathdefault{3.22}$",
+      "bounds": [
+        29.231024468315965,
+        193.06632878862547,
+        44.406378472222215,
+        203.06632878862547
+      ]
+    },
+    {
+      "text": "$\\mathdefault{3.24}$",
+      "bounds": [
+        29.027899468315965,
+        230.1156205707748,
+        44.406378472222215,
+        240.1156205707748
+      ]
+    },
+    {
+      "text": "(a)",
+      "bounds": [
+        152.99576041266036,
+        231.45800524934384,
+        165.62076041266036,
+        240.45800524934384
+      ]
+    },
+    {
+      "text": "$S/S_c$ (time $\\rightarrow$)",
+      "bounds": [
+        394.98144478458545,
+        4.460192475940509,
+        457.73450874942915,
+        17.46019247594051
+      ]
+    },
+    {
+      "text": "$\\mathdefault{2.56}$",
+      "bounds": [
+        317.8148114767537,
+        20.237970253718288,
+        333.0682904806599,
+        31.237970253718288
+      ]
+    },
+    {
+      "text": "$\\mathdefault{2.55}$",
+      "bounds": [
+        353.69973738675617,
+        20.237970253718288,
+        368.8282163906624,
+        31.237970253718288
+      ]
+    },
+    {
+      "text": "$\\mathdefault{2.54}$",
+      "bounds": [
+        389.39716329675684,
+        20.237970253718288,
+        404.7756423006631,
+        31.237970253718288
+      ]
+    },
+    {
+      "text": "$\\mathdefault{2.53}$",
+      "bounds": [
+        425.21958920675934,
+        20.237970253718288,
+        440.5980682106656,
+        31.237970253718288
+      ]
+    },
+    {
+      "text": "$\\mathdefault{2.52}$",
+      "bounds": [
+        461.14357761676,
+        20.237970253718288,
+        476.31893162066626,
+        31.237970253718288
+      ]
+    },
+    {
+      "text": "$\\mathdefault{2.51}$",
+      "bounds": [
+        497.0519410267625,
+        20.237970253718288,
+        512.0554200306688,
+        31.237970253718288
+      ]
+    },
+    {
+      "text": "$\\mathdefault{2.45}$",
+      "bounds": [
+        296.32761582266295,
+        2.571044857864763,
+        311.4560948265692,
+        13.571044857864763
+      ]
+    },
+    {
+      "text": "$\\mathdefault{2.50}$",
+      "bounds": [
+        296.20261582266295,
+        40.21788754692102,
+        311.4560948265692,
+        51.21788754692102
+      ]
+    },
+    {
+      "text": "$\\mathdefault{2.55}$",
+      "bounds": [
+        296.32761582266295,
+        77.86473023597773,
+        311.4560948265692,
+        88.86473023597773
+      ]
+    },
+    {
+      "text": "$\\mathdefault{2.60}$",
+      "bounds": [
+        296.20261582266295,
+        116.01157292503422,
+        311.4560948265692,
+        126.01157292503422
+      ]
+    },
+    {
+      "text": "$\\mathdefault{2.65}$",
+      "bounds": [
+        296.32761582266295,
+        153.15841561409093,
+        311.4560948265692,
+        164.15841561409093
+      ]
+    },
+    {
+      "text": "$\\mathdefault{2.70}$",
+      "bounds": [
+        296.20261582266295,
+        191.30525830314718,
+        311.4560948265692,
+        201.30525830314718
+      ]
+    },
+    {
+      "text": "$\\mathdefault{2.75}$",
+      "bounds": [
+        296.32761582266295,
+        228.45210099220367,
+        311.4560948265692,
+        239.45210099220367
+      ]
+    },
+    {
+      "text": "(b)",
+      "bounds": [
+        419.7954767670073,
+        231.45800524934384,
+        432.9204767670073,
+        240.45800524934384
+      ]
+    },
+    {
+      "text": "Continuous entry",
+      "bounds": [
+        453.45430315188986,
+        217.27918580489938,
+        506.20430315188986,
+        223.38856080489938
+      ]
+    },
+    {
+      "text": "Endpoint-to-interior jump",
+      "bounds": [
+        453.45430315188986,
+        208.73925524934384,
+        532.5793031518899,
+        214.84863024934384
+      ]
+    },
+    {
+      "text": "Interior-to-interior jump",
+      "bounds": [
+        453.45430315188986,
+        200.19932469378827,
+        527.4543031518899,
+        206.30869969378827
+      ]
+    },
+    {
+      "text": "$r_{\\rm cont}$",
+      "bounds": [
+        453.45430315188986,
+        189.58777955489938,
+        467.5631578271828,
+        197.76876913823273
+      ]
+    },
+    {
+      "text": "$\\hat r$ at $S_{\\rm sw}$",
+      "bounds": [
+        453.45430315188986,
+        176.9762344160105,
+        478.9758256738625,
+        187.15722399934384
+      ]
+    },
+    {
+      "text": "$\\mathdefault{0.0}$",
+      "bounds": [
+        594.1525361111111,
+        28.015748031496067,
+        605.5866791775173,
+        38.01574803149607
+      ]
+    },
+    {
+      "text": "$\\mathdefault{0.2}$",
+      "bounds": [
+        594.1525361111111,
+        67.0708661417323,
+        605.5085541775173,
+        77.0708661417323
+      ]
+    },
+    {
+      "text": "$\\mathdefault{0.4}$",
+      "bounds": [
+        594.1525361111111,
+        106.12598425196853,
+        605.7116791775173,
+        116.12598425196853
+      ]
+    },
+    {
+      "text": "$\\mathdefault{0.6}$",
+      "bounds": [
+        594.1525361111111,
+        145.18110236220477,
+        605.5866791775173,
+        155.18110236220477
+      ]
+    },
+    {
+      "text": "$\\mathdefault{0.8}$",
+      "bounds": [
+        594.1525361111111,
+        184.23622047244098,
+        605.5866791775173,
+        194.23622047244098
+      ]
+    },
+    {
+      "text": "$\\mathdefault{1.0}$",
+      "bounds": [
+        594.1525361111111,
+        223.29133858267718,
+        605.5866791775173,
+        233.29133858267718
+      ]
+    },
+    {
+      "text": "$y$",
+      "bounds": [
+        583.0869861460135,
+        230.84689413823276,
+        589.5713611460135,
+        240.84689413823276
+      ]
+    }
+  ]
+}

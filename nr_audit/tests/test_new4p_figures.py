@@ -20,6 +20,7 @@ USES = {
     'xian_strategy_process': ('paper/sections/07_xian.tex', '135mm', 135.0),
     'xian_observed_fit': ('paper/sections/07_xian.tex', r'\textwidth', TEXT_WIDTH_MM),
 }
+ADOPTED_NEW4T = {'joint_phase_baseline': 'Main6', 'xian_joint': 'Main8'}
 
 
 @pytest.fixture(scope='module')
@@ -52,7 +53,15 @@ def test_outputs_registered_and_used(receipt, name):
     tex, width, width_mm = USES[name]
     assert abs(out['size_mm'][0] - width_mm) < 0.05
     text = (ROOT / tex).read_text(encoding='utf-8')
-    assert f'\\includegraphics[width={width}]{{figures/new4p/{name}.pdf}}' in text
+    adopted = SRC.HERE / 'results/new4t_figures.json'
+    if name in ADOPTED_NEW4T and adopted.exists():
+        # 保留以上NEW-4p历史图件校验，正式引用改核对已批准入稿的新图。
+        current_rel = f'paper/figures/new4t/{ADOPTED_NEW4T[name]}.pdf'
+        current = json.loads(adopted.read_text(encoding='utf-8'))['outputs'][current_rel]
+        assert sha((ROOT / current_rel).read_bytes()) == current['sha256'] == current['approved_preview_sha256']
+        assert f'\\includegraphics[width={width}]{{figures/new4t/{ADOPTED_NEW4T[name]}.pdf}}' in text
+    else:
+        assert f'\\includegraphics[width={width}]{{figures/new4p/{name}.pdf}}' in text
 
 
 def test_cost_optimal_trajectory_matches_tables(receipt):

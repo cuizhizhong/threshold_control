@@ -1,0 +1,17 @@
+{
+  "all_nine_pdfs_byte_identical": {
+    "Main6": true,
+    "Main8": true,
+    "S1": true,
+    "S2": true,
+    "S3": true,
+    "S4": true,
+    "S5": true,
+    "S6": true,
+    "S8": true
+  },
+  "new_root_calls": 0,
+  "materials_from_repository": true,
+  "temporary_preview_materials_required": false,
+  "external_EPS_required": false
+}

@@ -81,8 +81,8 @@ $\eta$ & 阈值（人） & $0.002N=\num{26326}$ & 设计情景（第~\ref{sec:xi
 能力约束与成本权重的作用也与基准算例一致（图~\ref{fig:xian:joint}）。代表能力组合同样只有联合控制可行：两种单控制都超出能力，能力约束下的成本最优控制给出 $J\approx 41.62$ d、$\Delta t\approx 116.8$ d，都高于表~\ref{tab:xian:joint-compare}中的值，结构与基准代表点相同（各段时长见补充材料第~\ref{sec:sup:numerics}~节）。成本权重的三档界限为 $r_{\rm cont}\approx\nrCostRcontXian$ 与 $\hat r\approx\nrCostRhatXian$，超过约 $\nrWtXianBToCApx$ 后仅隔离段消失；默认的 $r=2$ 仍在定理~\ref{thm:joint:cost-structure}的范围内。$r=1$ 时成本最优控制只比仅隔离控制节省约 $\nrCostGapOneXian\%$，隔离的相对代价不高于接触时，仅隔离控制在这组参数下也几乎不损失成本。
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\textwidth]{figures/new4p/xian_joint.pdf}
-\caption{西安参数下的能力约束与成本权重。(a) 能力约束的可行区域，坐标与颜色同图~\ref{fig:joint:capacity}(a)，红点为代表能力组合 $c_{\min}/c_0=0.5$、$q_{\rm cap}=0.75$。(b) 固定 $w_c=1$、改变 $r=w_q/w_c$ 时不考虑能力约束的成本最优控制，颜色、等高线、线型与标记同图~\ref{fig:joint:phase}(a)，点线为默认权重 $r=2$。随时间推进，$S$ 从左向右减小。}
+\includegraphics[width=\textwidth]{figures/new4t/Main8.pdf}
+\caption{西安参数下的能力约束与成本权重。(a) 能力约束的可行区域，坐标与颜色同图~\ref{fig:joint:capacity}(a)，红点为代表能力组合 $c_{\min}/c_0=0.5$、$q_{\rm cap}=0.75$。(b) 固定 $w_c=1$、改变 $r=w_q/w_c$ 时不考虑能力约束的成本最优控制，颜色、红色点划等高线、实线与标记同图~\ref{fig:joint:phase}(a)，黑色数字为等值，点线为默认权重 $r=2$。随时间推进，$S$ 从左向右减小。}
 \label{fig:xian:joint}
 \end{figure}
 

@@ -1,0 +1,42 @@
+{
+  "preview_only": true,
+  "changed_figures": [
+    "S6",
+    "S8"
+  ],
+  "input_hash_entries_verified": 56,
+  "formal_files_unchanged": 66,
+  "new_scientific_solves": 0,
+  "new_classifications": 0,
+  "new_scientific_grid_nodes": 0,
+  "S6_original_node_values_preserved": true,
+  "S6_legend": {
+    "panel": "b",
+    "position": "upper right",
+    "entries": 5,
+    "fallback": "若遮挡边界则删除图内图例，由现有图注说明"
+  },
+  "S6_zero_mask_covered_nonzero_nodes": {
+    "base": 0,
+    "xian": 0
+  },
+  "S8_hidden_after_inline_cut": 0,
+  "S8_contour_level_gap_checks": 23,
+  "S8_annotation_removed": "删除Δt约1.48×10^4 d≈40 yr的整段数值说明及箭头，仅预览",
+  "final_pdf_pages_visually_checked": {
+    "S6_S8_refinement_comparison.pdf": [
+      1,
+      2
+    ],
+    "preview_comparison.pdf": [
+      8,
+      9
+    ]
+  },
+  "output_sha256": {
+    "S6.pdf": "df64148eeacb9a2526953e1df4121d426d3507009bf4601cd4500e70af18144d",
+    "S8.pdf": "9efd92093b83d7ef6e558dbb99064bbb1447b810f5affac850fbf10839ac2809",
+    "S6_S8_refinement_comparison.pdf": "142de2c056644bfc761e986a0b361aaef3afcb13c1ada4f7d334aafad77a9f65",
+    "preview_comparison.pdf": "e17d3a3d9f08e9e1dc80896b9d53f08c2168460d70d23fe38eef6b96cfdc7e8b"
+  }
+}

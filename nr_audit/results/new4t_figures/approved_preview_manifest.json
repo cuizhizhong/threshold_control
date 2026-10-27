@@ -1,0 +1,54 @@
+{
+  "preview_only": true,
+  "figures": [
+    "Main6",
+    "Main8",
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S8"
+  ],
+  "comparison_pages": 9,
+  "formal_file_count": 67,
+  "unchanged_formal_files": 66,
+  "protected_figure_and_tex_files_unchanged": true,
+  "concurrent_committed_pdf_changes": [
+    {
+      "path": "paper/flatten_curve_analysis_cn.pdf",
+      "before_sha256": "4acc42d93fbc00c839a9e7138a8b234e66ea8b69b91ce49619e358fe7877098a",
+      "current_sha256": "bdf3f703669e46574065a44071ccbba6f2fecc085807312edd32209accb43453",
+      "matches_git_commit": "a4472d5b775975705fd7e8d2fc2b9c948e96029b",
+      "preview_script_writes_this_path": false
+    }
+  ],
+  "palette_sha256": "4436b6e0403ec89c9721e91bdd813273a06a9df21a8eee63bbf5e086fa0bdf5b",
+  "output_sha256": {
+    "preview_comparison.pdf": "e17d3a3d9f08e9e1dc80896b9d53f08c2168460d70d23fe38eef6b96cfdc7e8b",
+    "preview_overview.png": "33e30bb144bca82bfb62fa5821a5dac0edf134973197afbb6568d37570204ecb"
+  },
+  "scientific_model_optimizations": 0,
+  "fits": 0,
+  "phase_classification_solves": 0,
+  "auxiliary_S4_unique_boundary_points": 241,
+  "auxiliary_S4_actual_brentq_calls": 1205,
+  "preview_scripts_sha256": {
+    "preview_style_common.py": "1f2c5f9fcf8a64804b5ed6763787c9f6dc35ca0791002ada662356c2b78e917f",
+    "preview_style_compare.py": "dc9e473b865d80c6f279fb2ee252a2726b149eefe54756deba23d316649871be",
+    "preview_style_curves.py": "9d1f0554e411c7bd80e483356fa2d22bf102c470cde5d038aa8f440934a50d62",
+    "preview_style_heatmaps.py": "fa0f5d3eba05ec02623be1167c540c937e813fd6cd4009280b7283d0e124e2a9",
+    "preview_supplement_style.py": "ecaea9c43f441af47ffc745343b22efab50546212d1019a0737f0668a1d6c0d7"
+  },
+  "note": "S4的241个边界点为本轮授权的绘图辅助求根；其余图复用已有数据。",
+  "S6_S8_refinement_comparison_sha256": "142de2c056644bfc761e986a0b361aaef3afcb13c1ada4f7d334aafad77a9f65",
+  "S6_S8_refinement_details": {
+    "source_data_unchanged": true,
+    "S6_interpolation": "NonUniformImage bilinear：原非均匀坐标/原节点RGB的矩形显示插值，不新增数值网格或分类",
+    "S6_white_halo_removed": true,
+    "S8_annotation_40_years_removed": true,
+    "S8_contour_fix": "先设置对数横轴，再定位标注；不隐藏已切线的标签"
+  },
+  "refinement_validation": "S6_S8_refinement_validation.json"
+}
