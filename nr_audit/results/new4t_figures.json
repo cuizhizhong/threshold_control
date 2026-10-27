@@ -140,7 +140,7 @@
       "label": "fig:xian_heatmaps",
       "tex": "paper/supplement_sections/S6_xian.tex",
       "width": "0.8\\textwidth",
-      "sha256": "9efd92093b83d7ef6e558dbb99064bbb1447b810f5affac850fbf10839ac2809",
+      "sha256": "60ec03a3dd6029f78d05f2504c44e526100dec56bcfacad0aeeaac669957bcad",
       "approved_preview_sha256": "9efd92093b83d7ef6e558dbb99064bbb1447b810f5affac850fbf10839ac2809",
       "size_mm": [
         127.83760733333332,
@@ -150,7 +150,22 @@
         "CGMMQU+Cmr10",
         "CGMMQU+Cmsy10",
         "GYUURQ+Cmmi10"
-      ]
+      ],
+      "author_approved_reference_fix": true,
+      "reference_fix": {
+        "authorization": "作者2026-10-27确认按既有结果修正参照线，图注仍保留152.55",
+        "base_commit": "73fd5aa2aa240198339d94face4b5bcbcc9f4481",
+        "previous_pdf_sha256": "9efd92093b83d7ef6e558dbb99064bbb1447b810f5affac850fbf10839ac2809",
+        "previous_receipt": "nr_audit/results/new4t_figures/S8.receipt.json",
+        "original_position": 151.9,
+        "corrected_position": 152.54629678969766,
+        "source": {
+          "path": "reproducibility/results/20261003_release_final/xian/reference.json",
+          "field": "I_peak_T",
+          "value": 152.54629678969766
+        },
+        "new_scientific_solves": 0
+      }
     }
   },
   "inputs": {
@@ -254,7 +269,7 @@
     "S4": "nr_audit/results/new4t_figures/S4.receipt.json",
     "S5": "nr_audit/results/new4t_figures/S5.receipt.json",
     "S6": "nr_audit/results/new4t_figures/S6.receipt.json",
-    "S8": "nr_audit/results/new4t_figures/S8.receipt.json"
+    "S8": "nr_audit/results/new4t_figures/S8_reference_corrected.receipt.json"
   },
   "materials": {
     "nr_audit/results/new4t_figures/parula256.json": {
@@ -325,6 +340,9 @@
     },
     "nr_audit/results/new4t_figures/S8.receipt.json": {
       "sha256": "163c941f2b5e87f444d419e693454a6437d601bfe435b222d331217e54445568"
+    },
+    "nr_audit/results/new4t_figures/S8_reference_corrected.receipt.json": {
+      "sha256": "d3d84deb66b1d6bce871a4da255f7c464dbeb7827f7cc8f419395ef08a21074d"
     }
   },
   "style_reference_inputs": {

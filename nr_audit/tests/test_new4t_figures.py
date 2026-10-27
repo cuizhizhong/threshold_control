@@ -51,9 +51,17 @@ def test_approved_bytes_and_current_manuscript_use(adopted, name):
     out = adopted['outputs'][rel]
     assert out['figure'] == name and out['label'] == LABELS[name]
     actual = digest((ROOT / rel).read_bytes())
-    assert actual == out['sha256'] == out['approved_preview_sha256']
+    assert actual == out['sha256']
+    if out.get('author_approved_reference_fix'):
+        assert name == 'S8'
+        assert out['reference_fix']['previous_pdf_sha256'] == out['approved_preview_sha256']
+    else:
+        assert actual == out['approved_preview_sha256']
     receipt = figure_receipt(adopted, name)
-    assert receipt['approved_preview_sha256'] == actual
+    assert receipt['approved_preview_sha256'] == out['approved_preview_sha256']
+    if out.get('author_approved_reference_fix'):
+        assert receipt['author_approved_reference_fix'] is True
+        assert receipt['output_sha256']['S8.pdf'] == actual
     assert digest((ROOT / receipt['old_pdf']).read_bytes()) == receipt['old_pdf_sha256']
     assert out['fonts'] and all(re.search(r'cm(r|mi|sy|ex)10', f, re.I) for f in out['fonts'])
     factor = .8 if name in ('S4', 'S5', 'S8') else 1.
@@ -173,5 +181,11 @@ def test_s8_original_levels_paths_and_short_label_gaps(adopted):
     approved_fix = checks.get('author_approved_reference_fix', receipt.get('author_approved_reference_fix', False))
     if approved_fix:
         assert checks['reference_positions'][0] == reference['I_peak_T']
+        assert checks['reference_fix_source']['field'] == 'I_peak_T'
+        assert checks['reference_fix_source']['value'] == reference['I_peak_T']
+        assert all(row == [reference['I_peak_T'], 26326.]
+                   for row in checks['plotted_reference_positions'].values())
+        previous = json.loads((ASSETS / 'S8.receipt.json').read_text(encoding='utf-8'))
+        assert checks['metrics'] == previous['checks']['metrics']
     else:
         assert checks['reference_positions'][0] == checks['existing_reference_discrepancy']['original_plot_source']

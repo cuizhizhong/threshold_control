@@ -73,6 +73,10 @@ def remap_cache_paths(value):
 
 
 def adopt():
+    if MANIFEST.exists():
+        current_manifest = json.loads(MANIFEST.read_text(encoding='utf-8'))
+        if any(row.get('author_approved_reference_fix') for row in current_manifest['outputs'].values()):
+            raise ValueError('S8已接收作者确认的参照线纠错，不能用旧九图预览覆盖；请运行默认核验。')
     ASSETS.mkdir(parents=True, exist_ok=True)
     MATERIALS.mkdir(parents=True, exist_ok=True)
     imported = {}
@@ -159,17 +163,79 @@ def verify(manifest):
     for path, rec in manifest['materials'].items():
         require(path, rec)
     for path, rec in manifest['outputs'].items():
-        assert digest((ROOT / path).read_bytes()) == rec['sha256'] == rec['approved_preview_sha256'], path
+        assert digest((ROOT / path).read_bytes()) == rec['sha256'], path
+        if rec.get('author_approved_reference_fix'):
+            assert rec['figure'] == 'S8'
+            assert rec['reference_fix']['previous_pdf_sha256'] == rec['approved_preview_sha256']
+            receipt = json.loads((ROOT / manifest['figure_receipts']['S8']).read_text(encoding='utf-8'))
+            reference = json.loads((ROOT / receipt['checks']['reference_fix_source']['path']).read_text(encoding='utf-8'))
+            assert receipt['checks']['reference_positions'][0] == reference['I_peak_T']
+        else:
+            assert rec['sha256'] == rec['approved_preview_sha256'], path
         assert f"\\includegraphics[width={rec['width']}]{{{path.removeprefix('paper/')}}}" in (ROOT / rec['tex']).read_text(encoding='utf-8'), path
     return dict(figures=len(manifest['outputs']), portable_inputs=len(manifest['inputs']),
                 materials=len(manifest['materials']), new_scientific_solves=0)
 
 
+def adopt_s8_reference_fix(preview_dir):
+    """仅接收作者已批准的S8参照线纠错；原批准收据和其余八图保持。"""
+    manifest = json.loads(MANIFEST.read_text(encoding='utf-8'))
+    verify(manifest)
+    relative = 'paper/figures/new4t/S8.pdf'
+    current = manifest['outputs'][relative]
+    assert not current.get('author_approved_reference_fix'), 'S8参照线纠错已接收'
+    original_receipt = manifest['figure_receipts']['S8']
+    original = json.loads((ROOT / original_receipt).read_text(encoding='utf-8'))
+    receipt = json.loads((preview_dir / 'S8.receipt.json').read_text(encoding='utf-8'))
+    checks = receipt['checks']
+    assert checks['author_approved_reference_fix'] is True
+    for key in ('x', 'y', 'metrics', 'contour_style'):
+        assert checks[key] == original['checks'][key], f'S8参照线之外的绘图内容变化：{key}'
+    assert receipt['axes'] == original['axes']
+    inputs = {}
+    for path, expected in receipt['inputs'].items():
+        if Path(path).is_absolute():
+            assert original['style_reference_inputs'][path] == expected
+            continue
+        raw = raw_input(path)
+        assert digest(raw) == expected, path
+        inputs[path] = record(raw, text=path.startswith('nr_audit/') and Path(path).suffix in {'.json', '.py'})
+        assert inputs[path] == manifest['inputs'][path]
+    raw_pdf = (preview_dir / 'S8.pdf').read_bytes()
+    actual = digest(raw_pdf)
+    assert actual == receipt['output_sha256']['S8.pdf']
+    fix = dict(authorization='作者2026-10-27确认按既有结果修正参照线，图注仍保留152.55',
+               base_commit='73fd5aa2aa240198339d94face4b5bcbcc9f4481',
+               previous_pdf_sha256=current['sha256'], previous_receipt=original_receipt,
+               original_position=original['checks']['reference_positions'][0],
+               corrected_position=checks['reference_positions'][0],
+               source=checks['reference_fix_source'], new_scientific_solves=0)
+    receipt.update(preview_only=False, inputs=inputs,
+                   style_reference_inputs=original['style_reference_inputs'],
+                   formal_pdf=relative, approved_preview_sha256=current['approved_preview_sha256'],
+                   author_approved_reference_fix=True, reference_fix=fix)
+    final_receipt = MATERIALS / 'S8_reference_corrected.receipt.json'
+    write_json(final_receipt, receipt)
+    receipt_rel = final_receipt.relative_to(ROOT).as_posix()
+    manifest['materials'][receipt_rel] = record(final_receipt.read_bytes())
+    manifest['figure_receipts']['S8'] = receipt_rel
+    current.update(sha256=actual, author_approved_reference_fix=True, reference_fix=fix)
+    (ROOT / relative).write_bytes(raw_pdf)
+    write_json(MANIFEST, manifest)
+    return manifest
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--adopt', action='store_true', help='逐字节接收当前已确认的九图')
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument('--adopt', action='store_true', help='逐字节接收当前已确认的九图')
+    mode.add_argument('--fix-s8-reference', type=Path, metavar='PREVIEW_DIR',
+                      help='仅接收作者批准的S8参照线修正预览')
     args = parser.parse_args()
-    manifest = adopt() if args.adopt else json.loads(MANIFEST.read_text(encoding='utf-8'))
+    if args.fix_s8_reference:
+        manifest = adopt_s8_reference_fix(args.fix_s8_reference)
+    else:
+        manifest = adopt() if args.adopt else json.loads(MANIFEST.read_text(encoding='utf-8'))
     print(json.dumps(verify(manifest), ensure_ascii=False))
 
 

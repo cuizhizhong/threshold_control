@@ -463,7 +463,7 @@ def path_receipts(paths, levels):
             for level, path in zip(levels, paths)]
 
 
-def label_xian_contours(ax, contours, x, y, fmt):
+def label_xian_contours(ax, contours, x, y, fmt, reference_positions):
     """先在最终对数坐标内选点再切线；不事后隐藏已经切断等高线的标签。"""
     originals = [path.deepcopy() for path in contours.get_paths()]
     positions, labeled_levels = [], []
@@ -479,7 +479,7 @@ def label_xian_contours(ax, contours, x, y, fmt):
         v = (segment[:, 1] - y0) / (y1 - y0)
         inside = (u > .075) & (u < .925) & (v > .13) & (v < .87)
         # 与两条固定参照线留开小间距，避免数字落在黑色竖线上。
-        for reference in (151.90, 26326.):
+        for reference in reference_positions:
             inside &= np.abs(np.log10(segment[:, 0] / reference)) > .055
         candidates = segment[inside]
         if len(candidates):
@@ -519,18 +519,24 @@ def preview_s8():
     old_source = ROOT / 'xian_control_comparison/threshold_landscape_analysis/threshold_landscape_analysis.py'
     inputs = input_hashes([source, reference, old_source])
     inputs.update(contour_reference_inputs())
+    peak = float(json.loads(reference.read_text(encoding='utf-8'))['I_peak_T'])
+    reference_positions = [peak, 26326.]
     frame = pd.read_csv(source, float_precision='round_trip')
     x, y = np.sort(frame.eta.unique()), np.sort(frame.c0.unique())
     fields = [('control_duration', r'$\Delta t$'), ('clear_time', r'$t_{\rm end}$'),
               ('cum_total_infections', r'$I_{t_{\rm cum}}$'), ('J', r'$J$')]
     checks = dict(x=summarize(x), y=summarize(y), metrics={}, new_ode_solves=0,
-                  new_optimization_solves=0, reference_positions=[151.90, 26326.],
+                  new_optimization_solves=0, reference_positions=reference_positions,
+                  author_approved_reference_fix=True,
+                  reference_fix_source=dict(path=reference.relative_to(ROOT).as_posix(),
+                                            field='I_peak_T', value=peak),
+                  plotted_reference_positions={},
                   contour_style=dict(line_color='red', linestyle='-.', label_color='black',
                                      inline_gap=True, label_path_effects=[]),
                   removed_annotation='删除Δt约1.48×10^4 d≈40 yr的整段数值说明及箭头，仅预览',
                   existing_reference_discrepancy=dict(
                       original_plot_source=151.90, current_manuscript_caption=152.55,
-                      disposition='本轮仅改风格，保留正式旧图与原绘图源码的151.90；未调整数字'))
+                      disposition='作者2026-10-27确认按既有I_peak_T修正参照线，图注仍取152.55'))
     with plt.rc_context(RC):
         fig, axes, cbaxes = four_panel_grid(104)
         for k, (ax, cax, (metric, symbol)) in enumerate(zip(axes, cbaxes, fields)):
@@ -553,11 +559,17 @@ def preview_s8():
             contours = ax.contour(x, y, z, levels=levels, colors=[RED], linestyles='-.',
                                   linewidths=STYLE['lw_vline'])
             path_check = label_xian_contours(ax, contours, x, y,
-                                             '%.3g' if metric == 'cum_total_infections' else '%.0f')
-            for eta, dash in ((151.90, (0, (4, 2))), (26326., (0, (1.2, 2.)))):
-                ax.axvline(eta, color=BLACK, lw=STYLE['lw_vline'], ls=dash, alpha=.82, zorder=5)
+                                             '%.3g' if metric == 'cum_total_infections' else '%.0f',
+                                             reference_positions)
+            reference_lines = []
+            for eta, dash in ((peak, (0, (4, 2))), (26326., (0, (1.2, 2.)))):
+                reference_lines.append(ax.axvline(eta, color=BLACK, lw=STYLE['lw_vline'],
+                                                  ls=dash, alpha=.82, zorder=5))
+            checks['plotted_reference_positions'][metric] = [float(line.get_xdata()[0])
+                                                              for line in reference_lines]
+            assert checks['plotted_reference_positions'][metric] == reference_positions
             if metric == 'control_duration':
-                for eta, label in ((151.90, r'$I_{\rm peak}^{\rm T}$'), (26326., r'$\eta=0.002N$')):
+                for eta, label in ((peak, r'$I_{\rm peak}^{\rm T}$'), (26326., r'$\eta=0.002N$')):
                     ax.text(eta, float(y.max()) * .985, label, rotation=90, ha='right', va='top',
                             fontsize=STYLE['note'], color=BLACK, clip_on=False)
             if k >= 2:

@@ -1,0 +1,56 @@
+{
+  "base_commit": "73fd5aa2aa240198339d94face4b5bcbcc9f4481",
+  "author_authorized_reference_fix": true,
+  "original_position": 151.9,
+  "corrected_position": 152.54629678969766,
+  "caption_retained": 152.55,
+  "source": "reproducibility/results/20261003_release_final/xian/reference.json",
+  "source_field": "I_peak_T",
+  "all_S8_metric_records_unchanged": true,
+  "other_eight_figures_byte_identical": true,
+  "original_23_materials_byte_identical": true,
+  "new_scientific_solves": 0,
+  "build": {
+    "flatten_curve_analysis_cn": {
+      "pages": 36,
+      "warnings": {
+        "undefined": 0,
+        "duplicate_labels": 0,
+        "overfull": 0,
+        "missing_characters": 0,
+        "unstable_cross_references": 0
+      },
+      "pdf_sha256": "c8ca5f4740d02536dbd3835618da278ebb82a4d1e954d2ded85717192660f5fd",
+      "log_sha256": "b39e85a2c3b42a5388030a207fca062ce972fe7e9eb792937b211b533e906a8a"
+    },
+    "flatten_curve_supplement_cn": {
+      "pages": 20,
+      "warnings": {
+        "undefined": 0,
+        "duplicate_labels": 0,
+        "overfull": 0,
+        "missing_characters": 0,
+        "unstable_cross_references": 0
+      },
+      "pdf_sha256": "84481ae779d0e67fa6546eb01b36527b7d5cb1f5972e895cff092217c7decad8",
+      "log_sha256": "388ce4076555fc3aa95201c627497dbee3b7993f958dc0c501a409df95ad30cb"
+    }
+  },
+  "isolated_source": "git archive 73fd5aa paper + corrected S8.pdf",
+  "isolated_build_passes": 2,
+  "initial_supplement_external_references": 101,
+  "final_undefined": 0,
+  "supplement_extracted_text_identical": true,
+  "committed_manuscript_pdf": "paper/flatten_curve_supplement_cn.pdf",
+  "main_pdf_working_copy_excluded_due_to_concurrent_introduction_edit": true,
+  "pytest": {
+    "passed": 26,
+    "failed": 0,
+    "errors": 0,
+    "report": "paper/revision_notes/NEW_4t_S8_reference_pytest.xml"
+  },
+  "page_render": "supplement page 14",
+  "push_performed": false,
+  "visual_inspection_passed": true,
+  "concurrent_working_copy_build_preserved_in_tmp": true
+}
