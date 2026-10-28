@@ -9,7 +9,7 @@
 \dot S=-\frac{\eta}{N}\bigl[c_c(S)S-c_0\bar S\bigr],
 \label{eq:joint:Sdot}
 \end{equation}
-因此接触率越高，$S$ 下降越快：有效再生数固定为 $1$ 时，保留的接触越多，所需的隔离比例越高，被追踪隔离的未感染接触者也越多。状态函数 $c_c$ 的两个极端是仅隔离控制 $c_c\equiv c_0$ 和仅减少接触 $c_c=c_0S_c/S$。
+其中 $c_0\bar S\eta/N$ 是第~\ref{sec:s1}~节所述既未传播、也未被追踪的接触流，对所有控制组合都相同。因此接触率越高，$S$ 下降越快：有效再生数固定为 $1$ 时，保留的接触越多，所需的隔离比例越高，被追踪隔离的未感染接触者也越多。状态函数 $c_c$ 的两个极端是仅隔离控制 $c_c\equiv c_0$ 和仅减少接触 $c_c=c_0S_c/S$。
 \begin{theorem}
 \label{thm:joint:representation}
 设条件\eqref{eq:model:trigger}成立，则
@@ -228,4 +228,4 @@ t_{\rm end}^{(1)}-t_{\rm end}^{(2)}
 \]
 又 $-\dot S\ge0$，而由 $q\le1$，比例系数不小于 $\beta$；若 $q\le q_{\rm cap}$，它不小于 $\beta/[\beta+(1-\beta)q_{\rm cap}]$。在 $[0,T]$ 上积分即得 (i)(ii)。
 \end{proof}
-由定理~\ref{thm:s1:tend}，在常规传播临界值退出后保持常规控制，$S$、$I$ 严格递减，非隔离感染者不再上升；代价就是这一下界。控制组合只改变式\eqref{eq:joint:cumulative}中与 $\Delta t$ 成正比的一项，因此不能绕开它；西安参数下的下界见第~\ref{sec:xian:threshold-scale}~节。
+由定理~\ref{thm:s1:tend}，在常规传播临界值退出后保持常规控制，$S$、$I$ 严格递减，非隔离感染者不再上升；代价就是这一下界。$S_0\approx N$ 时，它约为 $\beta N(1-1/R_c)$，其中 $1-1/R_c$ 是使常规措施下的有效再生数降到 $1$ 所需移出的人口比例。控制组合只改变式\eqref{eq:joint:cumulative}中与 $\Delta t$ 成正比的一项，因此不能绕开它；西安参数下的下界见第~\ref{sec:xian:threshold-scale}~节。

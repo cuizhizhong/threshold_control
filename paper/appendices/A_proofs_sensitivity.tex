@@ -298,7 +298,7 @@ Q(w,\sigma)={}&(\sigma-1)(\sigma^2+1)w^3(w+2)+12(\sigma-1)w^2\\
 &-2(\sigma^3+3\sigma^2-11\sigma+3)w+(9\sigma^2+11\sigma-\sigma^3-27).
 \end{split}
 \]
-在 $\sigma\in(\sqrt2,2)$ 上，$Q$ 的常数项随 $\sigma$ 增，不小于 $9(\sqrt2-1)$；一次项系数随 $\sigma$ 减，不小于 $-2$；二次项系数大于 $12(\sqrt2-1)$；三、四次项非负。所以对 $w\ge0$ 有 $Q\ge9(\sqrt2-1)-2w+12(\sqrt2-1)w^2>0$（判别式为负），从而 $F(p;\sigma_c)\ge0$，等号仅在 $w=1$ 即 $p=2$ 成立。
+在 $\sigma\in(\sqrt2,2)$ 上逐项估计 $Q$ 的系数。常数项 $9\sigma^2+11\sigma-\sigma^3-27$ 的导数 $18\sigma+11-3\sigma^2$ 为正，故常数项随 $\sigma$ 增，不小于其在 $\sigma=\sqrt2$ 处的值 $9(\sqrt2-1)$。一次项系数为 $-2(\sigma^3+3\sigma^2-11\sigma+3)$，括号内的导数 $3\sigma^2+6\sigma-11$ 为正，故该系数随 $\sigma$ 减，不小于其在 $\sigma=2$ 处的值 $-2$。二次项系数 $12(\sigma-1)$ 大于 $12(\sqrt2-1)$，三、四次项非负。所以对 $w\ge0$ 有 $Q\ge9(\sqrt2-1)-2w+12(\sqrt2-1)w^2>0$（判别式为负），从而 $F(p;\sigma_c)\ge0$，等号仅在 $w=1$ 即 $p=2$ 成立。
 
 下证 $0<\sigma<\sigma_c$ 的情形。$F$ 是 $\sigma$ 的二次式，且 $F(p;0)=p^3>0$。若 $X(p)\le0$，$F$ 在 $\sigma>0$ 上严格减，故 $F(p;\sigma)>F(p;\sigma_c)\ge0$。若 $X(p)>0$ 且 $F$ 有实根 $\sigma_1\le\sigma_2$，则判别式非负给出 $X\le b^2w^2/p$，于是
 \[
@@ -310,7 +310,7 @@ Q(w,\sigma)={}&(\sigma-1)(\sigma^2+1)w^3(w+2)+12(\sigma-1)w^2\\
 \begin{proof}[\normalfont\bfseries 定理~\ref{thm:joint:cost-structure}的证明]
 分三步：内部驻点组成一条曲线 $\zeta=\zeta_s(p)$；由引理~\ref{lem:proof:fold-free}，这条曲线严格增；由此 $G(\cdot;\zeta)$ 单峰。
 
-\emph{第一步：内部驻点曲线。}由 $\varphi'(p)=-2(2p-3)(p-b)/p^4$，$\varphi$ 在 $(1,\zeta_{\rm sw})$ 上为正，最大值为 $\varphi(3/2)=(9-8b)/27$，在 $p\ge\zeta_{\rm sw}$ 时不为正。又 $(b+\sqrt{b^2-8b+8})^2\ge2(2-b)^2$，且 $8(9-8b)<27(2-b)^2$，故 $r_{\rm cont}<27/(9-8b)$。设 $r\le r_{\rm cont}$，则对所有 $p>1$ 有 $r\varphi(p)<1$。固定 $p>1$，由式\eqref{eq:proof:cost-E}，$E(p,\cdot)$ 在 $[p,\infty)$ 上严格减，且
+\emph{第一步：内部驻点曲线。}由 $\varphi'(p)=-2(2p-3)(p-b)/p^4$，$\varphi$ 在 $(1,\zeta_{\rm sw})$ 上为正，最大值为 $\varphi(3/2)=(9-8b)/27$，在 $p\ge\zeta_{\rm sw}$ 时不为正。又 $b^2-8b+8=2(2-b)^2-b^2$，展开得 $(b+\sqrt{b^2-8b+8})^2=2(2-b)^2+2b\sqrt{b^2-8b+8}\ge2(2-b)^2$，故 $r_{\rm cont}\le8/(2-b)^2$；而 $27(2-b)^2-8(9-8b)=27b^2-44b+36>0$（判别式为负），故 $r_{\rm cont}<27/(9-8b)$。设 $r\le r_{\rm cont}$，则对所有 $p>1$ 有 $r\varphi(p)<1$。固定 $p>1$，由式\eqref{eq:proof:cost-E}，$E(p,\cdot)$ 在 $[p,\infty)$ 上严格减，且
 \[
 E(p,p)=r\varphi(p),\qquad
 \lim_{\zeta\to\infty}E(p,\zeta)=r\varphi(p)-1<0.

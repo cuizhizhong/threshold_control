@@ -44,7 +44,7 @@ z_\eta=-e^{-1}\exp\!\left[-\frac{I_{\max}^{0}-\eta}{\rho_1}\right],
 \frac{\bar S}{S_c}=(1-\beta)(1-q_0)<1.
 \label{eq:s1:barS}
 \end{equation}
-下面的定理表明，阈值控制期内 $S$ 以指数速率 $c_0\eta/N$ 趋向 $\bar S$；由于 $\bar S<S_c$，$S$ 在有限时间内降到 $S_c$。$S$ 的下降速度与 $S-\bar S$ 成正比：易感者越多，维持阈值所需的隔离比例越高，每名感染者的接触中被追踪隔离的未感染者也越多。
+$\bar S$ 刻画维持阈值时保持不变的一股接触流。维持 $I=\eta$ 即保持 $R_e=1$：每名非隔离感染者单位时间须恰好引起 $\gamma$ 例未被隔离的新感染，未被追踪的接触以概率 $\beta$ 传播，所以每名感染者单位时间还有 $(1-\beta)\gamma/\beta$ 次未被追踪的接触落在未感染者身上，这些人留在 $S$ 中。这股既未传播、也未被追踪的接触流恒为 $c_0\bar S\eta/N$，$\bar S$ 就是它按常规接触率折算的易感者人数；比值 $\bar S/S_c=(1-\beta)(1-q_0)$ 则是常规控制下与易感者的接触中这类接触所占的比例。下面的定理表明，阈值控制期内 $S$ 以指数速率 $c_0\eta/N$ 趋向 $\bar S$；由于 $\bar S<S_c$，$S$ 在有限时间内降到 $S_c$。$S$ 的下降速度与 $S-\bar S$ 成正比：易感者越多，维持阈值所需的隔离比例越高，每名感染者的接触中被追踪隔离的未感染者也越多。
 \begin{theorem}
 \label{thm:s1:qc-structure}\label{thm:s1:platform}
 设条件\eqref{eq:model:trigger}成立，并固定 $c(t)=c_0$，则
@@ -141,7 +141,11 @@ q_{\max}\le q_{\rm cap}
 
 \subsection{隔离比例的拐点}
 \label{sec:s1:shape}
-拐点是隔离比例下降最快的时刻，也就是放松隔离最急的时刻。由式\eqref{eq:s1:qprime}，下降速度与 $(S-\bar S)/S^2$ 成正比；作为 $S$ 的函数，它在 $S=2\bar S$ 处取最大值，所以拐点出现在 $S$ 经过 $2\bar S$ 之时。
+拐点是隔离比例下降最快的时刻，也就是放松隔离最急的时刻。记 $\nu=\bar S/S$。由式\eqref{eq:s1:q-control}与\eqref{eq:s1:barS}，$\nu=(1-\beta)(1-q_c)$，即仅隔离控制下与易感者的接触中既未传播、也未被追踪的比例；由式\eqref{eq:s1:S-analytic}，
+\[
+\dot\nu=\frac{c_0\eta}{N}\,\nu(1-\nu).
+\]
+这一比例因而在阈值控制期内按 logistic 规律从 $\bar S/S^*$ 增长到 $\bar S/S_c$。隔离比例是 $\nu$ 的线性减函数，所以它在 $\nu$ 增长最快的 $\nu=1/2$ 处下降最快，即在 $S$ 经过 $2\bar S$ 之时。
 \begin{theorem}
 \label{thm:s1:inflection}
 设条件\eqref{eq:model:trigger}成立，则
@@ -182,7 +186,7 @@ S(t_{\rm inf})=2\bar S,\quad
 {\ln[(S^*-\bar S)/(S_c-\bar S)]}\in(0,1),
 \label{eq:s1:lambda}
 \end{equation}
-$\lambda$ 越大，下降最快的时刻在控制期内越靠后；其参数敏感性见补充材料第~\ref{sec:sup:inflection}~节。拐点处的隔离比例 $\qinf$ 则只依赖 $\beta$：只要内部拐点存在，隔离放松最急时的隔离水平就与阈值和常规接触率无关，二者只改变这一时刻出现的早晚。条件\eqref{eq:s1:inflection-condition}不成立时没有内部拐点：$q_c(t)$ 在整个控制期内严格凹（$2\bar S\le S_c$）或严格凸（$2\bar S\ge S^*$）。
+$\lambda$ 越大，下降最快的时刻在控制期内越靠后；其参数敏感性见补充材料第~\ref{sec:sup:inflection}~节。拐点处 $\nu=1/2$，即 $(1-\beta)(1-\qinf)=1/2$，所以拐点处的隔离比例 $\qinf$ 只依赖 $\beta$：只要内部拐点存在，隔离放松最急时的隔离水平就与阈值和常规接触率无关，二者只改变这一时刻出现的早晚。条件\eqref{eq:s1:inflection-condition}即 $\nu$ 在控制期内穿过 $1/2$：$\bar S/S_c=(1-\beta)(1-q_0)>1/2$ 要求传播概率与常规隔离比例都不太大，$S^*>2\bar S$ 要求干预启动时易感者足够多。否则没有内部拐点：$q_c(t)$ 在整个控制期内严格凹（$2\bar S\le S_c$）或严格凸（$2\bar S\ge S^*$）。
 
 \subsection{清零时间与累计感染}
 退出后 $S<S_c$，常规控制下的有效再生数小于 $1$，$I$ 从 $\eta$ 开始下降。由常规控制下的首次积分，剩余易感者人数可由 Lambert $W$ 函数写出，清零时间可化为一维积分。
