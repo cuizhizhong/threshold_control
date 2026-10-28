@@ -16,7 +16,7 @@
       "new4g_baseline_sha256": "4ada262f80854fc6a78bdc27ee133a5d035ec9025f629553f6a397bea8bad2b8",
       "current_path": "paper/sections/06_numerics.tex",
       "current_sha256": "c3bc8f0d35ab96db36723ffec28618d89ef8d8e68d60053a8ad9009d62a3f2a2",
-      "current_content_sha256": "f34b5d5a826239c0c3eb848a1d5fc6cef7e800c406ae960e9bf09a6bfadd9794"
+      "current_content_sha256": "4471ccbb5befb433d1f01225d401118718385b537010e79973a0ad4c10603273"
     },
     "model_section": {
       "historical_path": "paper/sections/02_model.tex",
@@ -24,7 +24,7 @@
       "new4g_baseline_sha256": "2c43997a5715c83c9ca1cc591b48d9fd6302c3d0ffc9e7f0a5e983583a2eac03",
       "current_path": "paper/sections/02_model.tex",
       "current_sha256": "df71ee4ba2d4fcffb2616fbe86605dc9ce9ca51d9bb635244049f1d33ac764ff",
-      "current_content_sha256": "6c1f586850577346c678efc330d3270295202095b329b1f2250630496d49a7e3"
+      "current_content_sha256": "c33c8b15402cafaef9fd1d4620ee3ac032bca54c5ba9ccea74d996e6da9d091c"
     },
     "numerics_S1": {
       "historical_path": "paper/supplement_sections/S1_baseline.tex",
@@ -72,7 +72,7 @@
       "new4g_baseline_sha256": "011979ea924660315492a0d2aaf120579f8cbc7f3821147f53b4158762a1c3a3",
       "current_path": "paper/sections/07_xian.tex",
       "current_sha256": "4952f88ad903d47e8adb831b47d1d1db6357765e06ea1ab6050eea24918f1210",
-      "current_content_sha256": "a316a0c8f8a8b03e62eabb86bc430064db4a0ad0c1a58a897e7fe8a9b5881b7c"
+      "current_content_sha256": "f839c9c9fa77e8c9d1343d38252fca30011701e0ace4a7315d5850ba5fe6a790"
     }
   },
   "file_fragments": [
@@ -122,7 +122,7 @@
             "sec:sup:medical-link"
           ],
           "current_sha256": "2d61ee3eead7a8f1b0db4352376fe64781f43a007d6a9ba0ea91c344e4a15b36",
-          "current_content_sha256": "f019a8b6a9d454e2e5343e303fcbc8b916b3bb897b98f75b190393274a78c374"
+          "current_content_sha256": "481e5f4ac225dfc9b16ffe86d21ea2f5cf0150c319ea8a8b87b64f6752dd385c"
         },
         {
           "path": "paper/supplement_sections/S6_xian.tex",

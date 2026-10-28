@@ -125,8 +125,10 @@ def test_return14_claims_in_text():
                  'tab:sup:return:cinf', 'nrRetTerm', '7,14,30'):
         assert gone not in s7
     assert r'\label{tab:sup:return:term}' in s7 and r'\label{eq:return:cut}' in s7 and r'\nrRwXianQDt' in s7
+    # NEW-4x：重新优化在退出后尾段网格上施加 I <= eta（collocation.py 的 postcap），S7 须写明
+    assert '尾段的积分网格上作为约束施加' in s7
     d83 = text('paper/sections/08_discussion.tex')
-    assert '仅隔离控制仍使控制时长最短' in d83 and 'eq:return:tail' not in d83
+    assert '仅隔离控制仍是控制时长最短的数值解' in d83 and 'eq:return:tail' not in d83
 
 
 def test_new_figures_used_and_registered():
