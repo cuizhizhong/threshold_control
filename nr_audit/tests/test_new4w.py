@@ -91,6 +91,44 @@ def test_unchanged_weight_brackets(w3):
     assert bc['width'] < 1e-3 and all(v == dict(lo='B', hi='C') for v in bc['check_fine'].values())
 
 
+def test_return14_macros_trace_to_summary():
+    f = RES / 'return14_summary.json'
+    if not f.exists():
+        pytest.skip('尚未运行 new4w_return14/run_all.py')
+    d = json.loads(f.read_text(encoding='utf-8'))
+    by = {m['macro']: m for m in json.loads((SRC.HERE / 'results/nr_numbers_map.json').read_text(encoding='utf-8'))['macros']}
+    for case, tag, scale in (('base', 'Base', 1.0), ('xian', 'Xian', 1e6)):
+        c = d['cases'][case]
+        for ct, r in (('Q', c['references']['q_only']), ('C', c['references']['c_only']),
+                      ('M', c['references']['opt_noreturn']), ('O', c['optimization']['cost']['final_replay'])):
+            assert by[f'\\nrRw{tag}{ct}Dt']['value'] == r['duration']
+            assert by[f'\\nrRw{tag}{ct}J']['value'] == r['J']
+            assert by[f'\\nrRw{tag}{ct}Inf']['value'] == r['C_Tcut'] / scale
+            assert r['feasible'] and r['U_Tcut_over_Sc'] < 1
+
+
+def test_return14_claims_in_text():
+    """补充 S7 与第 8.3 节所写的仍成立的结论：仅隔离最快、仅减少接触最慢，成本最优控制先仅隔离，退出后不越过阈值。"""
+    f = RES / 'return14_summary.json'
+    if not f.exists():
+        pytest.skip('尚未运行 new4w_return14/run_all.py')
+    d = json.loads(f.read_text(encoding='utf-8'))
+    for case in ('base', 'xian'):
+        a = d['cases'][case]['answers']
+        assert a['Q1_time_optimal_vs_q_only']['rel_diff'] < 1e-8 and a['Q1_time_optimal_vs_q_only']['c_only_slowest']
+        prof = a['Q3_cost']['profile']
+        assert prof['head'][0] > 0.999 and 0 < prof['first_tau_below_0p99'] < 0.5 and prof['min'] < 0.5
+        assert 0 < a['Q3_cost']['gap_noreturn_law_percent'] < 5
+        assert all(v in ('satisfied', 'boundary_roundoff') for v in a['Q4_threshold'].values())
+    s7 = text('paper/supplement_sections/S7_return.tex')
+    for gone in ('lem:return:U', 'prop:return:final-size', 'cor:return:right-discontinuity', 'eq:return:tail',
+                 'tab:sup:return:cinf', 'nrRetTerm', '7,14,30'):
+        assert gone not in s7
+    assert r'\label{tab:sup:return:term}' in s7 and r'\label{eq:return:cut}' in s7 and r'\nrRwXianQDt' in s7
+    d83 = text('paper/sections/08_discussion.tex')
+    assert '仅隔离控制仍使控制时长最短' in d83 and 'eq:return:tail' not in d83
+
+
 def test_new_figures_used_and_registered():
     f = RES / 'figures.json'
     if not f.exists():

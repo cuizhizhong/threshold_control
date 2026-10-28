@@ -114,3 +114,43 @@
 \newcommand{\nrCostRcontXian}{2.5477}  % xian：连续结构定理的权重界 r_cont(b) = 16/(b+sqrt(b^2-8b+8))^2
 \newcommand{\nrCostRhatXian}{2.7090}  % xian：前段仅隔离控制全局最优的权重界 r̂(b) = (S_sw/(S_sw-S_c))^2
 \newcommand{\nrCostGapOneXian}{3.0}  % xian（η = 0.001N）：r = 1 时 100(1 - J_min/J_q-only)
+\newcommand{\nrRwBaseQDt}{19.21}  % base，1/ω = 14 d：仅隔离控制的控制时长
+\newcommand{\nrRwBaseQJ}{2.823}  % base，1/ω = 14 d：仅隔离控制的成本 J（w_c = 1、w_q = 2）
+\newcommand{\nrRwBaseQInf}{619.48}  % base，1/ω = 14 d：仅隔离控制计至 T_cut 的累计新增感染
+\newcommand{\nrRwBaseODt}{20.69}  % base，1/ω = 14 d：回流下的成本最优控制的控制时长
+\newcommand{\nrRwBaseOJ}{2.765}  % base，1/ω = 14 d：回流下的成本最优控制的成本 J（w_c = 1、w_q = 2）
+\newcommand{\nrRwBaseOInf}{619.90}  % base，1/ω = 14 d：回流下的成本最优控制计至 T_cut 的累计新增感染
+\newcommand{\nrRwBaseMDt}{21.81}  % base，1/ω = 14 d：无回流成本最优律的控制时长
+\newcommand{\nrRwBaseMJ}{2.842}  % base，1/ω = 14 d：无回流成本最优律的成本 J（w_c = 1、w_q = 2）
+\newcommand{\nrRwBaseMInf}{620.50}  % base，1/ω = 14 d：无回流成本最优律计至 T_cut 的累计新增感染
+\newcommand{\nrRwBaseCDt}{38.47}  % base，1/ω = 14 d：仅减少接触的控制时长
+\newcommand{\nrRwBaseCJ}{12.579}  % base，1/ω = 14 d：仅减少接触的成本 J（w_c = 1、w_q = 2）
+\newcommand{\nrRwBaseCInf}{665.80}  % base，1/ω = 14 d：仅减少接触计至 T_cut 的累计新增感染
+\newcommand{\nrRwBaseFrontPct}{11}  % base：回流下成本最优控制 λ 首次低于 0.99 的控制期比例（仅隔离前段）
+\newcommand{\nrRwBaseMigGapPct}{2.8}  % base：沿用无回流成本最优律比回流下最低成本高出的百分比
+\newcommand{\nrRwBaseL}{587}  % base：U(0) - S_c
+\newcommand{\nrRwBaseDiffPct}{7.5}  % base，1/ω = 14 d：仅减少接触比仅隔离控制多出的累计感染（%）
+\newcommand{\nrRwBaseDiffPctNoret}{120}  % base，无回流：仅减少接触比仅隔离控制多出的累计感染（%，计至清零）
+\newcommand{\nrRwBaseQDtNoret}{5.90}  % base，无回流：仅隔离控制的控制时长
+\newcommand{\nrRwBaseUMin}{0.55}  % base：各轨迹终止时 (S+S_q)/S_c 的最小值
+\newcommand{\nrRwBaseUMax}{0.81}  % base：各轨迹终止时 (S+S_q)/S_c 的最大值
+\newcommand{\nrRwXianQDt}{815.3}  % xian，1/ω = 14 d：仅隔离控制的控制时长
+\newcommand{\nrRwXianQJ}{409.39}  % xian，1/ω = 14 d：仅隔离控制的成本 J（w_c = 1、w_q = 2）
+\newcommand{\nrRwXianQInf}{10.4172}  % xian，1/ω = 14 d：仅隔离控制计至 T_cut 的累计新增感染
+\newcommand{\nrRwXianODt}{1002.9}  % xian，1/ω = 14 d：回流下的成本最优控制的控制时长
+\newcommand{\nrRwXianOJ}{369.24}  % xian，1/ω = 14 d：回流下的成本最优控制的成本 J（w_c = 1、w_q = 2）
+\newcommand{\nrRwXianOInf}{10.4179}  % xian，1/ω = 14 d：回流下的成本最优控制计至 T_cut 的累计新增感染
+\newcommand{\nrRwXianMDt}{930.2}  % xian，1/ω = 14 d：无回流成本最优律的控制时长
+\newcommand{\nrRwXianMJ}{374.24}  % xian，1/ω = 14 d：无回流成本最优律的成本 J（w_c = 1、w_q = 2）
+\newcommand{\nrRwXianMInf}{10.4179}  % xian，1/ω = 14 d：无回流成本最优律计至 T_cut 的累计新增感染
+\newcommand{\nrRwXianCDt}{1744.5}  % xian，1/ω = 14 d：仅减少接触的控制时长
+\newcommand{\nrRwXianCJ}{616.64}  % xian，1/ω = 14 d：仅减少接触的成本 J（w_c = 1、w_q = 2）
+\newcommand{\nrRwXianCInf}{10.4184}  % xian，1/ω = 14 d：仅减少接触计至 T_cut 的累计新增感染
+\newcommand{\nrRwXianFrontPct}{17}  % xian：回流下成本最优控制 λ 首次低于 0.99 的控制期比例（仅隔离前段）
+\newcommand{\nrRwXianMigGapPct}{1.4}  % xian：沿用无回流成本最优律比回流下最低成本高出的百分比
+\newcommand{\nrRwXianL}{10.19}  % xian：U(0) - S_c
+\newcommand{\nrRwXianDiffPct}{0.01}  % xian，1/ω = 14 d：仅减少接触比仅隔离控制多出的累计感染（%）
+\newcommand{\nrRwXianDiffPctNoret}{65}  % xian，无回流：仅减少接触比仅隔离控制多出的累计感染（%，计至清零）
+\newcommand{\nrRwXianQDtNoret}{170.63}  % xian，无回流：仅隔离控制的控制时长
+\newcommand{\nrRwXianUMin}{0.92}  % xian：各轨迹终止时 (S+S_q)/S_c 的最小值
+\newcommand{\nrRwXianUMax}{0.92}  % xian：各轨迹终止时 (S+S_q)/S_c 的最大值

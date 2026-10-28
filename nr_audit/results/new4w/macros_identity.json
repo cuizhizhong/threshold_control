@@ -1,8 +1,8 @@
 {
  "path": "paper/generated/nr_numbers.tex",
- "raw_sha256": "e465d4a27052267d7047db05528741c906f9a1d1e98cc13dc07e8bb22550d12f",
- "content_sha256": "c6de1e453ac3fcbf6f06d1a1be8120d5ac154d97428388cb638cfbd41504a98f",
+ "raw_sha256": "db79fe9fe37efa447f1a33f28d331f16f54e368d202a181f747ad23a1c4ed3be",
+ "content_sha256": "81665f142f958099d14325d821731fb7130b454bbc76ec017dda871dcea555ae",
  "policy": "sha256(bytes.replace(CRLF, LF)); preserve all other bytes",
  "authorization": "AGENTS.md N33（NEW-4w）",
- "n_macros": 114
+ "n_macros": 154
 }

@@ -1,8 +1,8 @@
 {
- "generated": "2026-10-28T13:57:06",
- "git_head": "ebb7df5a2ac9e915b62a0d583d28a8c6fe22c3cb",
+ "generated": "2026-10-28T14:14:01",
+ "git_head": "8d7eb11ff2e77421777e10321ae923b80eb6ce3b",
  "tex": "paper/generated/nr_numbers.tex",
- "n_macros": 114,
+ "n_macros": 154,
  "macros": [
   {
    "macro": "\\nrICtOneLow",
@@ -1029,6 +1029,366 @@
    "source": "nr_audit/results/new4w/xian_theta001.json",
    "field": "weights.r1.gap_percent",
    "meaning": "xian（η = 0.001N）：r = 1 时 100(1 - J_min/J_q-only)"
+  },
+  {
+   "macro": "\\nrRwBaseQDt",
+   "value": 19.212783499643617,
+   "display": "19.21",
+   "unit": "d",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.base.references.q_only.duration",
+   "meaning": "base，1/ω = 14 d：仅隔离控制的控制时长"
+  },
+  {
+   "macro": "\\nrRwBaseQJ",
+   "value": 2.8228580547909035,
+   "display": "2.823",
+   "unit": "d",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.base.references.q_only.J",
+   "meaning": "base，1/ω = 14 d：仅隔离控制的成本 J（w_c = 1、w_q = 2）"
+  },
+  {
+   "macro": "\\nrRwBaseQInf",
+   "value": 619.4795455735936,
+   "display": "619.48",
+   "unit": "人",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.base.references.q_only.C_Tcut",
+   "meaning": "base，1/ω = 14 d：仅隔离控制计至 T_cut 的累计新增感染"
+  },
+  {
+   "macro": "\\nrRwBaseODt",
+   "value": 20.690880125793974,
+   "display": "20.69",
+   "unit": "d",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.base.optimization.cost.final_replay.duration",
+   "meaning": "base，1/ω = 14 d：回流下的成本最优控制的控制时长"
+  },
+  {
+   "macro": "\\nrRwBaseOJ",
+   "value": 2.7647035865453056,
+   "display": "2.765",
+   "unit": "d",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.base.optimization.cost.final_replay.J",
+   "meaning": "base，1/ω = 14 d：回流下的成本最优控制的成本 J（w_c = 1、w_q = 2）"
+  },
+  {
+   "macro": "\\nrRwBaseOInf",
+   "value": 619.8960081430679,
+   "display": "619.90",
+   "unit": "人",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.base.optimization.cost.final_replay.C_Tcut",
+   "meaning": "base，1/ω = 14 d：回流下的成本最优控制计至 T_cut 的累计新增感染"
+  },
+  {
+   "macro": "\\nrRwBaseMDt",
+   "value": 21.806882485259532,
+   "display": "21.81",
+   "unit": "d",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.base.references.opt_noreturn.duration",
+   "meaning": "base，1/ω = 14 d：无回流成本最优律的控制时长"
+  },
+  {
+   "macro": "\\nrRwBaseMJ",
+   "value": 2.84207653135605,
+   "display": "2.842",
+   "unit": "d",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.base.references.opt_noreturn.J",
+   "meaning": "base，1/ω = 14 d：无回流成本最优律的成本 J（w_c = 1、w_q = 2）"
+  },
+  {
+   "macro": "\\nrRwBaseMInf",
+   "value": 620.4966638560094,
+   "display": "620.50",
+   "unit": "人",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.base.references.opt_noreturn.C_Tcut",
+   "meaning": "base，1/ω = 14 d：无回流成本最优律计至 T_cut 的累计新增感染"
+  },
+  {
+   "macro": "\\nrRwBaseCDt",
+   "value": 38.47262190305344,
+   "display": "38.47",
+   "unit": "d",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.base.references.c_only.duration",
+   "meaning": "base，1/ω = 14 d：仅减少接触的控制时长"
+  },
+  {
+   "macro": "\\nrRwBaseCJ",
+   "value": 12.578614418190211,
+   "display": "12.579",
+   "unit": "d",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.base.references.c_only.J",
+   "meaning": "base，1/ω = 14 d：仅减少接触的成本 J（w_c = 1、w_q = 2）"
+  },
+  {
+   "macro": "\\nrRwBaseCInf",
+   "value": 665.8031347696569,
+   "display": "665.80",
+   "unit": "人",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.base.references.c_only.C_Tcut",
+   "meaning": "base，1/ω = 14 d：仅减少接触计至 T_cut 的累计新增感染"
+  },
+  {
+   "macro": "\\nrRwBaseFrontPct",
+   "value": 10.625000000000002,
+   "display": "11",
+   "unit": "%",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.base.optimization.cost.final.profile.first_tau_below_0p99",
+   "meaning": "base：回流下成本最优控制 λ 首次低于 0.99 的控制期比例（仅隔离前段）"
+  },
+  {
+   "macro": "\\nrRwBaseMigGapPct",
+   "value": 2.7985982000850784,
+   "display": "2.8",
+   "unit": "%",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.base.answers.Q3_cost.gap_noreturn_law_percent",
+   "meaning": "base：沿用无回流成本最优律比回流下最低成本高出的百分比"
+  },
+  {
+   "macro": "\\nrRwBaseL",
+   "value": 586.8398299993382,
+   "display": "587",
+   "unit": "人",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.base.L",
+   "meaning": "base：U(0) - S_c"
+  },
+  {
+   "macro": "\\nrRwBaseDiffPct",
+   "value": 7.477823848593923,
+   "display": "7.5",
+   "unit": "%",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.base.references.{c_only,q_only}.C_Tcut",
+   "meaning": "base，1/ω = 14 d：仅减少接触比仅隔离控制多出的累计感染（%）"
+  },
+  {
+   "macro": "\\nrRwBaseDiffPctNoret",
+   "value": 120.01742158225719,
+   "display": "120",
+   "unit": "%",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "noreturn.base.rows.{c_only,q_only}.total_to_clearance",
+   "meaning": "base，无回流：仅减少接触比仅隔离控制多出的累计感染（%，计至清零）"
+  },
+  {
+   "macro": "\\nrRwBaseQDtNoret",
+   "value": 5.902555851141787,
+   "display": "5.90",
+   "unit": "d",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "noreturn.base.rows.q_only.dt",
+   "meaning": "base，无回流：仅隔离控制的控制时长"
+  },
+  {
+   "macro": "\\nrRwBaseUMin",
+   "value": 0.5491937192683648,
+   "display": "0.55",
+   "unit": "",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.base.*.U_Tcut_over_Sc（最小）",
+   "meaning": "base：各轨迹终止时 (S+S_q)/S_c 的最小值"
+  },
+  {
+   "macro": "\\nrRwBaseUMax",
+   "value": 0.813657890523102,
+   "display": "0.81",
+   "unit": "",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.base.*.U_Tcut_over_Sc（最大）",
+   "meaning": "base：各轨迹终止时 (S+S_q)/S_c 的最大值"
+  },
+  {
+   "macro": "\\nrRwXianQDt",
+   "value": 815.2979305936747,
+   "display": "815.3",
+   "unit": "d",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.xian.references.q_only.duration",
+   "meaning": "xian，1/ω = 14 d：仅隔离控制的控制时长"
+  },
+  {
+   "macro": "\\nrRwXianQJ",
+   "value": 409.39004372219557,
+   "display": "409.39",
+   "unit": "d",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.xian.references.q_only.J",
+   "meaning": "xian，1/ω = 14 d：仅隔离控制的成本 J（w_c = 1、w_q = 2）"
+  },
+  {
+   "macro": "\\nrRwXianQInf",
+   "value": 10.41717508214007,
+   "display": "10.4172",
+   "unit": "10^6 人",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.xian.references.q_only.C_Tcut",
+   "meaning": "xian，1/ω = 14 d：仅隔离控制计至 T_cut 的累计新增感染"
+  },
+  {
+   "macro": "\\nrRwXianODt",
+   "value": 1002.8669793766059,
+   "display": "1002.9",
+   "unit": "d",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.xian.optimization.cost.final_replay.duration",
+   "meaning": "xian，1/ω = 14 d：回流下的成本最优控制的控制时长"
+  },
+  {
+   "macro": "\\nrRwXianOJ",
+   "value": 369.2355637932741,
+   "display": "369.24",
+   "unit": "d",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.xian.optimization.cost.final_replay.J",
+   "meaning": "xian，1/ω = 14 d：回流下的成本最优控制的成本 J（w_c = 1、w_q = 2）"
+  },
+  {
+   "macro": "\\nrRwXianOInf",
+   "value": 10.417908906310208,
+   "display": "10.4179",
+   "unit": "10^6 人",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.xian.optimization.cost.final_replay.C_Tcut",
+   "meaning": "xian，1/ω = 14 d：回流下的成本最优控制计至 T_cut 的累计新增感染"
+  },
+  {
+   "macro": "\\nrRwXianMDt",
+   "value": 930.2375564655371,
+   "display": "930.2",
+   "unit": "d",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.xian.references.opt_noreturn.duration",
+   "meaning": "xian，1/ω = 14 d：无回流成本最优律的控制时长"
+  },
+  {
+   "macro": "\\nrRwXianMJ",
+   "value": 374.23973226640925,
+   "display": "374.24",
+   "unit": "d",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.xian.references.opt_noreturn.J",
+   "meaning": "xian，1/ω = 14 d：无回流成本最优律的成本 J（w_c = 1、w_q = 2）"
+  },
+  {
+   "macro": "\\nrRwXianMInf",
+   "value": 10.417920866088615,
+   "display": "10.4179",
+   "unit": "10^6 人",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.xian.references.opt_noreturn.C_Tcut",
+   "meaning": "xian，1/ω = 14 d：无回流成本最优律计至 T_cut 的累计新增感染"
+  },
+  {
+   "macro": "\\nrRwXianCDt",
+   "value": 1744.5408745696955,
+   "display": "1744.5",
+   "unit": "d",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.xian.references.c_only.duration",
+   "meaning": "xian，1/ω = 14 d：仅减少接触的控制时长"
+  },
+  {
+   "macro": "\\nrRwXianCJ",
+   "value": 616.644728642859,
+   "display": "616.64",
+   "unit": "d",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.xian.references.c_only.J",
+   "meaning": "xian，1/ω = 14 d：仅减少接触的成本 J（w_c = 1、w_q = 2）"
+  },
+  {
+   "macro": "\\nrRwXianCInf",
+   "value": 10.41838396492014,
+   "display": "10.4184",
+   "unit": "10^6 人",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.xian.references.c_only.C_Tcut",
+   "meaning": "xian，1/ω = 14 d：仅减少接触计至 T_cut 的累计新增感染"
+  },
+  {
+   "macro": "\\nrRwXianFrontPct",
+   "value": 16.875,
+   "display": "17",
+   "unit": "%",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.xian.optimization.cost.final.profile.first_tau_below_0p99",
+   "meaning": "xian：回流下成本最优控制 λ 首次低于 0.99 的控制期比例（仅隔离前段）"
+  },
+  {
+   "macro": "\\nrRwXianMigGapPct",
+   "value": 1.3552780294849631,
+   "display": "1.4",
+   "unit": "%",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.xian.answers.Q3_cost.gap_noreturn_law_percent",
+   "meaning": "xian：沿用无回流成本最优律比回流下最低成本高出的百分比"
+  },
+  {
+   "macro": "\\nrRwXianL",
+   "value": 10.188874587407744,
+   "display": "10.19",
+   "unit": "10^6 人",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.xian.L",
+   "meaning": "xian：U(0) - S_c"
+  },
+  {
+   "macro": "\\nrRwXianDiffPct",
+   "value": 0.011604708287404897,
+   "display": "0.01",
+   "unit": "%",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.xian.references.{c_only,q_only}.C_Tcut",
+   "meaning": "xian，1/ω = 14 d：仅减少接触比仅隔离控制多出的累计感染（%）"
+  },
+  {
+   "macro": "\\nrRwXianDiffPctNoret",
+   "value": 65.02259351886102,
+   "display": "65",
+   "unit": "%",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "noreturn.xian.rows.{c_only,q_only}.total_to_clearance",
+   "meaning": "xian，无回流：仅减少接触比仅隔离控制多出的累计感染（%，计至清零）"
+  },
+  {
+   "macro": "\\nrRwXianQDtNoret",
+   "value": 170.63010963722596,
+   "display": "170.63",
+   "unit": "d",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "noreturn.xian.rows.q_only.dt",
+   "meaning": "xian，无回流：仅隔离控制的控制时长"
+  },
+  {
+   "macro": "\\nrRwXianUMin",
+   "value": 0.9228313047532295,
+   "display": "0.92",
+   "unit": "",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.xian.*.U_Tcut_over_Sc（最小）",
+   "meaning": "xian：各轨迹终止时 (S+S_q)/S_c 的最小值"
+  },
+  {
+   "macro": "\\nrRwXianUMax",
+   "value": 0.92323777139895,
+   "display": "0.92",
+   "unit": "",
+   "source": "nr_audit/results/new4w/return14_summary.json",
+   "field": "cases.xian.*.U_Tcut_over_Sc（最大）",
+   "meaning": "xian：各轨迹终止时 (S+S_q)/S_c 的最大值"
   }
  ]
 }

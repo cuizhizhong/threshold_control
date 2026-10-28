@@ -104,6 +104,60 @@ def new4w_overrides():
             'xian（η = 0.001N）：r = 1 时 100(1 - J_min/J_q-only)')
 
 
+def new4w_return14():
+    """NEW-4w（N33）：补充 S7 与第 8.3 节所用的 14 d 指数回流数值，取自 results/new4w/return14_summary.json（W5）。"""
+    src = 'new4w/return14_summary.json'
+    d = load(src)
+    ctrls = (('Q', 'references.q_only', lambda c: c['references']['q_only'], '仅隔离控制'),
+             ('O', 'optimization.cost.final_replay', lambda c: c['optimization']['cost']['final_replay'], '回流下的成本最优控制'),
+             ('M', 'references.opt_noreturn', lambda c: c['references']['opt_noreturn'], '无回流成本最优律'),
+             ('C', 'references.c_only', lambda c: c['references']['c_only'], '仅减少接触'))
+    fmt = dict(base=dict(Dt=2, J=3, Inf=2, scale=1.0, unit='人'), xian=dict(Dt=1, J=2, Inf=4, scale=1e6, unit='10^6 人'))
+    for case, tag in (('base', 'Base'), ('xian', 'Xian')):
+        c, f = d['cases'][case], fmt[case]
+        assert all(v.get('feasible') for v in c['references'].values())
+        assert c['optimization']['cost']['final_replay']['feasible'] and c['optimization']['time']['final_replay']['feasible']
+        q = c['references']['q_only']
+        for ct, path, get, name in ctrls:
+            r = get(c)
+            add(f'nrRw{tag}{ct}Dt', r['duration'], fixed(r['duration'], f['Dt']), 'd', src, f'cases.{case}.{path}.duration',
+                f'{case}，1/ω = 14 d：{name}的控制时长')
+            add(f'nrRw{tag}{ct}J', r['J'], fixed(r['J'], f['J']), 'd', src, f'cases.{case}.{path}.J',
+                f'{case}，1/ω = 14 d：{name}的成本 J（w_c = 1、w_q = 2）')
+            add(f'nrRw{tag}{ct}Inf', r['C_Tcut'] / f['scale'], fixed(r['C_Tcut'] / f['scale'], f['Inf']), f['unit'], src,
+                f'cases.{case}.{path}.C_Tcut', f'{case}，1/ω = 14 d：{name}计至 T_cut 的累计新增感染')
+        a = c['answers']
+        front = c['optimization']['cost']['final']['profile']['first_tau_below_0p99']
+        add(f'nrRw{tag}FrontPct', 100 * front, fixed(100 * front, 0), '%', src,
+            f'cases.{case}.optimization.cost.final.profile.first_tau_below_0p99',
+            f'{case}：回流下成本最优控制 λ 首次低于 0.99 的控制期比例（仅隔离前段）')
+        gap = a['Q3_cost']['gap_noreturn_law_percent']
+        add(f'nrRw{tag}MigGapPct', gap, fixed(gap, 1), '%', src, f'cases.{case}.answers.Q3_cost.gap_noreturn_law_percent',
+            f'{case}：沿用无回流成本最优律比回流下最低成本高出的百分比')
+        L = c['L'] / f['scale']
+        add(f'nrRw{tag}L', L, fixed(L, 0) if case == 'base' else fixed(L, 2), f['unit'], src, f'cases.{case}.L',
+            f'{case}：U(0) - S_c')
+        diff = 100 * (c['references']['c_only']['C_Tcut'] / q['C_Tcut'] - 1)
+        add(f'nrRw{tag}DiffPct', diff, fixed(diff, 1) if case == 'base' else fixed(diff, 2), '%', src,
+            f'cases.{case}.references.{{c_only,q_only}}.C_Tcut', f'{case}，1/ω = 14 d：仅减少接触比仅隔离控制多出的累计感染（%）')
+        nr = d['noreturn'][case]['rows']
+        diff0 = 100 * (nr['c_only']['total_to_clearance'] / nr['q_only']['total_to_clearance'] - 1)
+        add(f'nrRw{tag}DiffPctNoret', diff0, fixed(diff0, 0), '%', src, f'noreturn.{case}.rows.{{c_only,q_only}}.total_to_clearance',
+            f'{case}，无回流：仅减少接触比仅隔离控制多出的累计感染（%，计至清零）')
+        dt0 = nr['q_only']['dt']
+        add(f'nrRw{tag}QDtNoret', dt0, fixed(dt0, 2), 'd', src, f'noreturn.{case}.rows.q_only.dt',
+            f'{case}，无回流：仅隔离控制的控制时长')
+        us = [v['U_Tcut_over_Sc'] for v in c['references'].values()]
+        us += [c['optimization'][o]['final_replay']['U_Tcut_over_Sc'] for o in ('time', 'cost')]
+        assert max(us) < 1
+        add(f'nrRw{tag}UMin', min(us), fixed(min(us), 2), '', src, f'cases.{case}.*.U_Tcut_over_Sc（最小）',
+            f'{case}：各轨迹终止时 (S+S_q)/S_c 的最小值')
+        add(f'nrRw{tag}UMax', max(us), fixed(max(us), 2), '', src, f'cases.{case}.*.U_Tcut_over_Sc（最大）',
+            f'{case}：各轨迹终止时 (S+S_q)/S_c 的最大值')
+        assert a['Q1_time_optimal_vs_q_only']['rel_diff'] < 1e-8 and a['Q1_time_optimal_vs_q_only']['c_only_slowest']
+        assert all(v in ('satisfied', 'boundary_roundoff') for v in a['Q4_threshold'].values())
+
+
 def main():
     ic = load('initial_condition.json')
     rows = {(r['law'], r['factor']): r for r in ic['rows']}
@@ -254,6 +308,7 @@ def main():
             f'{case}：r = 1 时 100(1 - J_min/J_q-only)，即成本最优控制比仅隔离控制低的百分比')
 
     new4w_overrides()
+    new4w_return14()
 
     # 宏名不得与稿件中已有的定义重名
     existing = set()
