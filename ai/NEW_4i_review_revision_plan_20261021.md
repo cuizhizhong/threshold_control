@@ -49,6 +49,8 @@
 
 ## 2. 本轮不处理、留待后续专项的条目
 
+> 2026-10-28 补记：X1–X7 已由 NEW-4w（AGENTS.md N33，`ai/NEW_4w_eta_capacity_return_plan_20261028.md`）处理，逐项去向见该计划第 6 节末表与 `paper/revision_notes/NEW_4w_W7_closeout.md`。
+
 以下条目与无回流假设或医疗负担直接相关，本轮不改，记录在 `NEW_4i_*.md` 的“遗留”一节：
 
 | 编号 | 内容 | 所属 | 留待 |

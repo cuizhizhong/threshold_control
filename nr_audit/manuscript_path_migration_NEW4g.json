@@ -48,7 +48,7 @@
       "new4g_baseline_sha256": "104ecd6d90f9202f84c5be060062b19a867e757a90b15d14cf30e352698d5eb0",
       "current_path": "paper/supplement_sections/S6_xian.tex",
       "current_sha256": "6ef1a648e304e298c4b514be7265ea4d9d9d1fb5212558ad21da8493a51e5cfa",
-      "current_content_sha256": "542a558b4dbc33324e259e787522c441b95ff03d9a3116752a21d1d8ff8dec9a"
+      "current_content_sha256": "0815bc1558444ab9af81ceee6dac05c24af1aa5b00903305e57297ab0012bafd"
     },
     "contact_S5": {
       "historical_path": "paper/supplement_sections/S5_contact.tex",
@@ -139,7 +139,7 @@
             "sec:sup:threshold-scale"
           ],
           "current_sha256": "6ef1a648e304e298c4b514be7265ea4d9d9d1fb5212558ad21da8493a51e5cfa",
-          "current_content_sha256": "542a558b4dbc33324e259e787522c441b95ff03d9a3116752a21d1d8ff8dec9a"
+          "current_content_sha256": "0815bc1558444ab9af81ceee6dac05c24af1aa5b00903305e57297ab0012bafd"
         }
       ]
     },
