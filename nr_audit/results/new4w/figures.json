@@ -1,0 +1,158 @@
+{
+ "script": "nr_audit/plot_new4w_figures.py",
+ "git_head": "ebb7df5a2ac9e915b62a0d583d28a8c6fe22c3cb",
+ "authorization": "AGENTS.md N33（NEW-4w）",
+ "inputs": {
+  "nr_audit/results/new4w/xian_theta001.json": {
+   "sha256": "5a7cdb062aba4f9387efefaf2a08e107fb5cb2d62ae62f17e4cd11cfb4085f80",
+   "content_sha256": "5a7cdb062aba4f9387efefaf2a08e107fb5cb2d62ae62f17e4cd11cfb4085f80"
+  },
+  "nr_audit/results/new4w/xian_capacity.npz": {
+   "sha256": "8822dcbdaba0f396c79eb77b60dd85635f774572a7d237176e138326e575b52e",
+   "content_sha256": "8da5a7505772899ea2fd0eb86c98a386fabc71523d82bcea82cc765533b59951"
+  },
+  "nr_audit/results/new4w/xian_phase.npz": {
+   "sha256": "f161d67afe24cc972f9b4bd5d9224eca6bda3bc76287bee458ef9ddc2f9eedfb",
+   "content_sha256": "af05949a6d1dcb41ae04ffeb4c412f218e4b616d6c2dfc52a232f53a82ef9c92"
+  },
+  "nr_audit/results/new4w/xian_trajectories.csv": {
+   "sha256": "791b08fa5f4b1b2d400bda05b7fb49c8dc73c770a3d74e4c02086fe32b7d074c",
+   "content_sha256": "bd9f593da2ff2e536d213d8f8a02715d8b29097b0a82668ef0ecec6f55e4303b"
+  },
+  "reproducibility/results/20261003_release_final/xian/timeseries.csv": {
+   "sha256": "29014ddcba1d811e8f0cd8b164f7ed008bd143f1392e81fc4368bd52cd909bbe",
+   "content_sha256": "e29e2b52c8a400348f762aa9296be9c6e47f521f2ff5a6ac2594b3f9022b4456"
+  },
+  "reproducibility/results/20261003_release_final/xian/observed.csv": {
+   "sha256": "c634b0b4f637c71bbeaa91328adeba464aa74b18db0db26ae8a00489b79ce43a",
+   "content_sha256": "a0f71b961267689f6de51c3f973156abba83f92b1be5c150754cb24dad707467"
+  },
+  "reproducibility/results/20261003_release_final/xian/heatmap.csv": {
+   "sha256": "431ea0cb1b56a3387fe12ffaddd4a25ccff0df0f8a4acda56d1aa6ac27b4d2eb",
+   "content_sha256": "a86b399846271faf7feb0d1dc74316c1c6d80db2a0a6805d82e3088563154b31"
+  },
+  "reproducibility/results/20261003_release_final/xian/reference.json": {
+   "sha256": "b920deaf55f771958433ab27f32ca1606393c9ae7b96d3361aee053af097bc45",
+   "content_sha256": "cbc58d8aa103c95061215c8690713f28dde80417e040d83ec5adaf143aab67fa"
+  }
+ },
+ "Main8": {
+  "capacity": {
+   "q_line": 0.846202479700984,
+   "c_line": 0.7728249330886026,
+   "point": [
+    0.5,
+    0.75
+   ]
+  },
+  "phase": {
+   "r_cont": 2.5476956241561206,
+   "r_hat": 2.7089548638662406,
+   "r_C": 7.511379425954939,
+   "z_sw": 2.548250542570811,
+   "z_star": 4.401891517390941,
+   "gamma_points": 55,
+   "endpoint_tail": {
+    "last_sample": {
+     "z": 4.391532595464657,
+     "r": 7.48641242502682
+    },
+    "endpoint": {
+     "z": 4.401891517390941,
+     "r": 7.511379425954939
+    },
+    "z_extrapolated_at_r_C": 4.4018802687998795
+   }
+  },
+  "pdf_sha256": "41f6e98bb2f77dab15e8b1d201109545736638bbe1b5786a5c89d5c033e83443"
+ },
+ "strategy_process": {
+  "t1": 16.20457506824413,
+  "t2": 186.8346847054701,
+  "t2_opt": 234.307319400039,
+  "eta": 13163.0,
+  "t_obs_end": 39.0,
+  "xend": 436.7900297871556,
+  "q_only": {
+   "t1_traj": 16.204575068244097,
+   "t2_traj": 186.83468470542837,
+   "I_dev_max": 5.218048215738236e-15,
+   "Itcum_end": 2293938.6965223043,
+   "t_end": 389.3173950925421
+  },
+  "cost_optimal": {
+   "t1_traj": 16.204575068244097,
+   "t2_traj": 234.30731940004347,
+   "I_dev_max": 2.4424906541753444e-15,
+   "Itcum_end": 2450824.181393621,
+   "t_end": 436.7900297871556,
+   "c_min": 9.250144297170252
+  },
+  "pdf_sha256": "66cb9885254e1ebfa3d17d66d7cb751bdfd5dedd354a68c774007455e652a9a5"
+ },
+ "S8": {
+  "reference_positions": [
+   152.54629678969766,
+   13163.0
+  ],
+  "design_label": "$\\eta=0.001N$",
+  "metrics": {
+   "control_duration": {
+    "color_limits": [
+     55.592305615094936,
+     55158.018512809416
+    ],
+    "contour_levels": [
+     160.0,
+     640.0,
+     2560.0,
+     10240.0,
+     40960.0
+    ]
+   },
+   "clear_time": {
+    "color_limits": [
+     206.10216730094706,
+     57334.61553101378
+    ],
+    "contour_levels": [
+     400.0,
+     800.0,
+     1600.0,
+     3200.0,
+     6400.0,
+     12800.0,
+     25600.0,
+     51200.0
+    ]
+   },
+   "cum_total_infections": {
+    "color_limits": [
+     1722809.384406438,
+     2444936.621381559
+    ],
+    "contour_levels": [
+     1722809.38440644,
+     1867234.83180146,
+     2011660.27919649,
+     2156085.72659151,
+     2300511.17398653
+    ]
+   },
+   "J": {
+    "color_limits": [
+     11.792684989287704,
+     21825.270228532918
+    ],
+    "contour_levels": [
+     40.0,
+     160.0,
+     640.0,
+     2560.0,
+     10240.0
+    ]
+   }
+  },
+  "pdf_sha256": "6d9a0c5336cb4586af5650cb972ad72162b60778658da3c6c4cb6d2682a6224b"
+ }
+}

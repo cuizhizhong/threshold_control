@@ -21,6 +21,19 @@ USES = {
     'xian_observed_fit': ('paper/sections/07_xian.tex', r'\textwidth', TEXT_WIDTH_MM),
 }
 ADOPTED_NEW4T = {'joint_phase_baseline': 'Main6', 'xian_joint': 'Main8'}
+# NEW-4w（N33）：西安设计阈值改为 0.001N，图 8、图 9 由 plot_new4w_figures.py 重绘；历史图件与收据只读保留。
+NEW4W = SRC.HERE / 'results' / 'new4w' / 'figures.json'
+SUPERSEDED_NEW4W = {'xian_joint': ('Main8', 'Main8'), 'xian_strategy_process': ('xian_strategy_process', 'strategy_process')}
+PRE_NEW4W = 'ebb7df5'
+
+
+def xian_text():
+    """NEW-4p 收据记录的是 η = 0.002N 的数值；NEW-4w 之后与改表前的稿件对照。"""
+    if NEW4W.exists():
+        import subprocess
+        return subprocess.run(['git', 'show', f'{PRE_NEW4W}:paper/sections/07_xian.tex'], cwd=ROOT,
+                              capture_output=True, check=True).stdout.decode('utf-8')
+    return (ROOT / 'paper/sections/07_xian.tex').read_text(encoding='utf-8')
 
 
 @pytest.fixture(scope='module')
@@ -54,7 +67,12 @@ def test_outputs_registered_and_used(receipt, name):
     assert abs(out['size_mm'][0] - width_mm) < 0.05
     text = (ROOT / tex).read_text(encoding='utf-8')
     adopted = SRC.HERE / 'results/new4t_figures.json'
-    if name in ADOPTED_NEW4T and adopted.exists():
+    if name in SUPERSEDED_NEW4W and NEW4W.exists():
+        stem, key = SUPERSEDED_NEW4W[name]
+        rec = json.loads(NEW4W.read_text(encoding='utf-8'))[key]
+        assert sha((ROOT / f'paper/figures/new4w/{stem}.pdf').read_bytes()) == rec['pdf_sha256']
+        assert f'\\includegraphics[width={width}]{{figures/new4w/{stem}.pdf}}' in text
+    elif name in ADOPTED_NEW4T and adopted.exists():
         # 保留以上NEW-4p历史图件校验，正式引用改核对已批准入稿的新图。
         current_rel = f'paper/figures/new4t/{ADOPTED_NEW4T[name]}.pdf'
         current = json.loads(adopted.read_text(encoding='utf-8'))['outputs'][current_rel]
@@ -74,7 +92,7 @@ def test_cost_optimal_trajectory_matches_tables(receipt):
     qo = sp['quarantine_only_cross_check']
     assert abs(qo['t1_diff']) < 1e-9 and abs(qo['t2_diff']) < 1e-9 and abs(qo['Itcum_end_rel_diff']) < 1e-12
     co = sp['cost_optimal']
-    xian = (ROOT / 'paper/sections/07_xian.tex').read_text(encoding='utf-8')
+    xian = xian_text()
     assert f"成本最优控制 & 26326 & {round(co['Itcum_end'])} & {co['t_end']:.2f}\\\\" in xian
     assert f"成本最优控制 & {co['duration']:.2f} & {co['t_end']:.2f} & {co['Itcum_end'] / 1e6:.3f}" in xian
     assert f"{co['t1']:.2f}$、${co['t2']:.2f}$、${co['duration']:.2f}$ d" in xian
@@ -88,7 +106,7 @@ def test_capacity_points_match_text(receipt):
     assert (base['point']['u_max'], base['point']['q_cap']) == (0.5, 0.6)
     assert (xian['point']['u_max'], xian['point']['q_cap']) == (0.5, 0.75)
     num = (ROOT / 'paper/sections/06_numerics.tex').read_text(encoding='utf-8')
-    xt = (ROOT / 'paper/sections/07_xian.tex').read_text(encoding='utf-8')
+    xt = xian_text()
     assert f"J\\approx {base['J']:.3f}$ d、$\\Delta t\\approx {base['duration']:.2f}$ d" in num
     assert f"J\\approx {xian['J']:.2f}$ d、$\\Delta t\\approx {xian['duration']:.1f}$ d" in xt
     assert base['q_required_quarantine_only'] > base['point']['q_cap'] and xian['q_required_quarantine_only'] > xian['point']['q_cap']

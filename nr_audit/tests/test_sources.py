@@ -90,7 +90,7 @@ def test_manuscript_table1_display():
     assert '12.8872' in rows['c_0'] and '0.3230' in rows['q_0']
     assert r'\approx1.00659\times10^{-3}' in rows['I_0'] and f'{X.I0:.5e}' == '1.00659e-03'
     assert '$N-I_0$' in rows['S_0'] and B.S0 == 762.0
-    assert r'0.002N=\num{26326}' in rows[r'\eta']
+    assert r'0.001N=\num{13163}' in rows[r'\eta']          # NEW-4w（N33）：设计阈值改为 0.001N
     assert (B.N, B.S0, B.I0) == (763.0, 762.0, 1.0)
     assert (B.beta, B.gamma, B.delta_q, B.c0, B.q0) == (0.155, 0.3504, 0.3504, 10.0, 0.01526)
     assert (X.beta, X.gamma, X.delta_q, X.c0, X.q0) == (0.1498, 0.2953, 0.3531, 12.8872, 0.3230)

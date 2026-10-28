@@ -16,6 +16,7 @@ from audit_common import RESULTS, ROOT, dump
 from audit_return_endpoint import validate_endpoint_sources
 
 OUT_TEX = ROOT / 'paper' / 'generated' / 'nr_numbers.tex'
+CONV = 'new4w/convergence.json'          # NEW-4w：西安 η = 0.001N 后的收敛核验（原 convergence.json 只读保留）
 MACROS = []
 
 
@@ -54,6 +55,53 @@ def add(name, value, text, unit, src_file, field, meaning):
     assert re.fullmatch(r'nr[A-Za-z]+', name), name
     MACROS.append(dict(macro='\\' + name, value=value, display=text, unit=unit, source=f'nr_audit/results/{src_file}',
                        field=field, meaning=meaning))
+
+
+def replace(name, value, text, unit, src_file, field, meaning):
+    """NEW-4w：以新来源覆盖已登记的宏（宏名不变）。"""
+    for m in MACROS:
+        if m['macro'] == '\\' + name:
+            m.update(value=value, display=text, unit=unit, source=f'nr_audit/results/{src_file}', field=field,
+                     meaning=meaning)
+            return
+    raise KeyError(name)
+
+
+def new4w_overrides():
+    """NEW-4w（N33）：西安设计阈值改为 η = 0.001N 后依赖阈值的宏，取自 results/new4w/xian_theta001.json。"""
+    src = 'new4w/xian_theta001.json'
+    w = load(src)
+    assert w['precheck']['ok'], 'xian_theta001.json 的预检未通过'
+    ic = w['initial_condition']
+    rows = {(r['law'], r['factor']): r for r in ic['rows']}
+    for f, tag in ((0.1, 'Low'), (1.0, 'Fit'), (10.0, 'High')):
+        r = rows[('q_only', f)]
+        replace(f'nrICtOne{tag}', r['t1'], fixed(r['t1'], 2), 'd', src, f'initial_condition.rows[law=q_only,factor={f}].t1',
+                f'西安（η = 0.001N）仅隔离控制的启动时刻 t1，I0 为拟合值的 {f:g} 倍')
+        for law, lt in (('q_only', 'Q'), ('opt', 'O')):
+            st = rows[(law, f)]
+            for key, kt, d in (('t1', 'TOne', 2), ('dt', 'Dt', 4), ('J', 'J', 3), ('t_end', 'Tend', 2)):
+                replace(f'nrICtab{lt}{tag}{kt}', st[key], fixed(st[key], d), 'd', src,
+                        f'initial_condition.rows[law={law},factor={f}].{key}',
+                        f'西安（η = 0.001N）固定人口初值诊断：{law}，I0 为拟合值的 {f:g} 倍，{key}')
+    sh = ic['t1_max_abs_shift']
+    replace('nrICtOneShift', sh, fixed(sh, 2), 'd', src, 'initial_condition.t1_max_abs_shift',
+            'I0 改为 0.1 或 10 倍时 t1 的最大变化（η = 0.001N，两种控制相同）')
+    mr = ic['max_abs_relative_change']
+    for key, tag in (('S_star', 'Sstar'), ('dt', 'Dt'), ('J', 'J'), ('total_infections_to_clearance', 'Total')):
+        replace(f'nrICMaxRel{tag}', mr[key], sci(mr[key]), '', src, f'initial_condition.max_abs_relative_change.{key}',
+                f'六条轨迹中 {key} 相对拟合初值的最大相对变化（η = 0.001N）')
+    bc = w['weights']['B_to_C']
+    replace('nrWtXianBToCLo', bc['lo'], fixed(bc['lo'], 4), '', src, 'weights.B_to_C.lo',
+            'xian（η = 0.001N）：结构由 B 变为 C 的 r 括区下端（宽度 < 1e-3）')
+    replace('nrWtXianBToCHi', bc['hi'], fixed(bc['hi'], 4), '', src, 'weights.B_to_C.hi',
+            'xian（η = 0.001N）：结构由 B 变为 C 的 r 括区上端（宽度 < 1e-3）')
+    mid = 0.5 * (bc['lo'] + bc['hi'])
+    replace('nrWtXianBToCApx', mid, fixed(mid, 2), '', src, 'mean(weights.B_to_C.lo, hi)',
+            'xian（η = 0.001N）：结构由 B 变为 C 的 r 括区中点取两位小数（正文用语“约”）')
+    g = w['weights']['r1']['gap_percent']
+    replace('nrCostGapOneXian', g, fixed(g, 1), '%', src, 'weights.r1.gap_percent',
+            'xian（η = 0.001N）：r = 1 时 100(1 - J_min/J_q-only)')
 
 
 def main():
@@ -111,45 +159,45 @@ def main():
                     f"cases.{case}.changes[grid {c['grid'][1]:.6f}–{c['grid'][2]:.6f}].brackets[{b['from_']}->{b['to']}].(lo+hi)/2 取两位小数",
                     f"{case}：结构由 {b['from_']} 变为 {b['to']} 的 r 括区中点取两位小数（正文用语“约”，不是括区端点）")
 
-    cv = load('convergence.json')
+    cv = load(CONV)
     tol = max(max(r['max_rel_change_vs_base'].values()) for r in cv['tolerance_tiers'] if r['law'] not in ('tdinn', 'routine'))
-    add('nrConvTolMaxRel', tol, sci(tol, 1), '', 'convergence.json', 'max tolerance_tiers[阈值策略].max_rel_change_vs_base',
+    add('nrConvTolMaxRel', tol, sci(tol, 1), '', CONV, 'max tolerance_tiers[阈值策略].max_rel_change_vs_base',
         '积分容差三档间核心量的最大相对变化（阈值策略的全部轨迹）')
     nz = max(max(r['vs_8001']['4001']['dt_rel'], r['vs_8001']['4001']['J_rel']) for r in cv['state_grid'])
-    add('nrConvNzMaxRel', nz, sci(nz, 1), '', 'convergence.json', 'max state_grid[].vs_8001[4001].{dt_rel,J_rel}',
+    add('nrConvNzMaxRel', nz, sci(nz, 1), '', CONV, 'max state_grid[].vs_8001[4001].{dt_rel,J_rel}',
         'N_z = 4001 与 8001 的 Δt、J 最大相对差')
     gap = max(max(r['max_gap_rel'].values()) for r in cv['control_grid'])
-    add('nrConvNxMaxGap', gap, sci(gap, 1), '', 'convergence.json', 'max control_grid[].max_gap_rel',
+    add('nrConvNxMaxGap', gap, sci(gap, 1), '', CONV, 'max control_grid[].max_gap_rel',
         '控制网格上网格值低于根法值的最大相对量')
     for case, tag in (('base', 'Base'), ('xian', 'Xian')):
         r = next(r for r in cv['tolerance_tiers'] if r['case'] == case and r['law'] == 'q_only' and not r['capacity'])
         v = r['residuals']['base']['plateau_abs_dev']
-        add(f'nrPlateauDev{tag}', v, sci(v), '人', 'convergence.json',
+        add(f'nrPlateauDev{tag}', v, sci(v), '人', CONV,
             f'tolerance_tiers[{case},q_only].residuals.base.plateau_abs_dev', f'{case} 仅隔离控制开环完整方程阈值控制期的 max|I-η|（基准档）')
     nzall = max(max(r['vs_8001'][k]['dt_rel'], r['vs_8001'][k]['J_rel']) for r in cv['state_grid'] for k in ('1001', '2001', '4001'))
-    add('nrConvNzAllMaxRel', nzall, sci_up(nzall), '', 'convergence.json', 'max state_grid[].vs_8001[1001,2001,4001].{dt_rel,J_rel}',
+    add('nrConvNzAllMaxRel', nzall, sci_up(nzall), '', CONV, 'max state_grid[].vs_8001[1001,2001,4001].{dt_rel,J_rel}',
         'N_z = 1001、2001、4001 与 8001 的 Δt、J 最大相对差')
     nzq = max(max(abs(r['values']['8001']['dt'] - r['values']['8001']['dt_quad']) / abs(r['values']['8001']['dt_quad']),
                   abs(r['values']['8001']['J'] - r['values']['8001']['J_quad']) / abs(r['values']['8001']['J_quad']))
               for r in cv['state_grid'])
-    add('nrConvNzQuadMaxRel', nzq, sci_up(nzq), '', 'convergence.json', 'max state_grid[].values[8001] 与 quad 的 Δt、J 相对差',
+    add('nrConvNzQuadMaxRel', nzq, sci_up(nzq), '', CONV, 'max state_grid[].values[8001] 与 quad 的 Δt、J 相对差',
         'N_z = 8001 的 Simpson 与分段 quad 的 Δt、J 最大相对差')
     thr = [r for r in cv['tolerance_tiers'] if r['law'] not in ('tdinn', 'routine')]
     pl = max(t['plateau_abs_dev'] for r in thr for t in r['residuals'].values())
-    add('nrConvPlateauMax', pl, sci_up(pl), '人', 'convergence.json', 'max tolerance_tiers[阈值策略].residuals[*].plateau_abs_dev',
+    add('nrConvPlateauMax', pl, sci_up(pl), '人', CONV, 'max tolerance_tiers[阈值策略].residuals[*].plateau_abs_dev',
         '积分容差三档下阈值控制期 max|I-η| 的最大值')
     ex = max(abs(t['exit_S_error']) for r in thr for t in r['residuals'].values())
-    add('nrConvExitMax', ex, sci_up(ex), '人', 'convergence.json', 'max |tolerance_tiers[阈值策略].residuals[*].exit_S_error|',
+    add('nrConvExitMax', ex, sci_up(ex), '人', CONV, 'max |tolerance_tiers[阈值策略].residuals[*].exit_S_error|',
         '积分容差三档下退出时刻 S 与 S_c 之差的最大值')
     ms = max(t['mass_residual_persons'] for r in cv['tolerance_tiers'] for t in r['residuals'].values())
-    add('nrConvMassMax', ms, sci_up(ms), '人', 'convergence.json', 'max tolerance_tiers[].residuals[*].mass_residual_persons',
+    add('nrConvMassMax', ms, sci_up(ms), '人', CONV, 'max tolerance_tiers[].residuals[*].mass_residual_persons',
         '积分容差三档下人口守恒残差的最大值（含常规控制与 TDINN）')
     reg = load('regression.json')
     tv = reg['old_implementation_numbers']['S6_tdinn_tolerance']['nr_audit']
     add('nrTdinnTolChange', tv, sci_up(tv), '人', 'regression.json', 'old_implementation_numbers.S6_tdinn_tolerance.nr_audit',
         '本模块收紧容差并把最大步长减半后，TDINN 总累计新增感染（清零时间）的变化')
     idr = max(max(t['identity_residual_rel'] for t in r['residuals'].values()) for r in cv['tolerance_tiers'])
-    add('nrIdentityMaxRel', idr, sci(idr, 1), '', 'convergence.json', 'max tolerance_tiers[].residuals[*].identity_residual_rel',
+    add('nrIdentityMaxRel', idr, sci(idr, 1), '', CONV, 'max tolerance_tiers[].residuals[*].identity_residual_rel',
         '累计新增感染恒等式残差/初始易感者总数的最大值')
 
     # NR-7（G-N3 方案 B）：补充材料“隔离易感者回流”一节的数字。
@@ -205,6 +253,8 @@ def main():
             'new4d_cost_structure.json', f'cases.{case}.r1.gap_percent',
             f'{case}：r = 1 时 100(1 - J_min/J_q-only)，即成本最优控制比仅隔离控制低的百分比')
 
+    new4w_overrides()
+
     # 宏名不得与稿件中已有的定义重名
     existing = set()
     for f in list((ROOT / 'paper').glob('*.tex')) + list((ROOT / 'paper').glob('*/*.tex')) + list((ROOT / 'paper').glob('*.cls')):
@@ -220,6 +270,15 @@ def main():
     lines += [f"\\newcommand{{{m['macro']}}}{{{m['display']}}}  % {m['meaning']}" for m in MACROS]
     OUT_TEX.write_text('\n'.join(lines) + '\n', encoding='utf-8')
     dump('nr_numbers_map.json', dict(tex='paper/generated/nr_numbers.tex', n_macros=len(MACROS), macros=MACROS))
+    # NEW-4w（N33）：宏文件经授权更新后的内容身份，供 test_new4h_text_identity 作为基线（NEW-4g 基线只读保留）
+    from text_identity import content_sha256
+    raw = OUT_TEX.read_bytes()
+    (RESULTS / 'new4w').mkdir(parents=True, exist_ok=True)
+    (RESULTS / 'new4w' / 'macros_identity.json').write_text(json.dumps(dict(
+        path='paper/generated/nr_numbers.tex', raw_sha256=__import__('hashlib').sha256(raw).hexdigest(),
+        content_sha256=content_sha256(raw), policy='sha256(bytes.replace(CRLF, LF)); preserve all other bytes',
+        authorization='AGENTS.md N33（NEW-4w）', n_macros=len(MACROS)), ensure_ascii=False, indent=1),
+        encoding='utf-8', newline='\n')
     print(f'写出 {OUT_TEX.relative_to(ROOT)}：{len(MACROS)} 个宏')
 
 

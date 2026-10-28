@@ -33,7 +33,7 @@ $q_0$ & 常规隔离比例 & 0.3230 & 同上\\
 $I_0$ & 初始感染人数（人） & $\approx1.00659\times10^{-3}$ & 最小二乘拟合（见正文）\\
 $S_0$ & 初始易感人数（人） & $N-I_0$ & 总人口关系\\
 $S_q(0),I_q(0),R(0)$ & 其余初始仓室（人） & 0 & 本文设定\\
-$\eta$ & 阈值（人） & $0.002N=\num{26326}$ & 设计情景（第~\ref{sec:xian:threshold-scale}~节）\\
+$\eta$ & 阈值（人） & $0.001N=\num{13163}$ & 按重症监护床位与重症比例选取（补充材料第~\ref{sec:sup:threshold-scale}~节）\\
 \bottomrule
 \end{tabularx}
 \begin{tablenotes}[flushleft]\footnotesize
@@ -68,31 +68,31 @@ $\eta$ & 阈值（人） & $0.002N=\num{26326}$ & 设计情景（第~\ref{sec:xi
 \toprule
 控制 & $\Delta t$（d） & $t_{\rm end}$（d） & $\Itcum$ & $\Delta S_q$ & $J$（d） & $\max_t(I+I_q)/\eta$\\
 \midrule
-仅减少接触 & 308.79 & 481.83 & 3.857 & 6.500 & 109.36 & 1.46\\
-显式族 $\alpha=0.5$ & 124.57 & 297.60 & 2.639 & 7.718 & 44.53 & 3.20\\
-仅隔离控制 & 85.07 & 258.10 & 2.378 & 7.979 & 40.77 & 4.73\\
-成本最优控制 & 108.81 & 281.84 & 2.535 & 7.822 & 38.02 & 4.73\\
+仅减少接触 & 621.97 & 840.66 & 3.786 & 6.547 & 221.34 & 1.46\\
+显式族 $\alpha=0.5$ & 250.01 & 468.70 & 2.556 & 7.776 & 89.88 & 3.32\\
+仅隔离控制 & 170.63 & 389.32 & 2.294 & 8.038 & 82.12 & 5.06\\
+成本最优控制 & 218.10 & 436.79 & 2.451 & 7.881 & 76.62 & 5.06\\
 \bottomrule
 \end{tabular*}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：$\eta=0.002N$；$\Itcum$ 与 $\Delta S_q$ 以 $10^6$ 人计，峰值统计至 $t_{\rm end}$。四种控制采用同一完整初值（表~\ref{tab:xian_initial_fit}）。$S^*/S_c\approx 4.378$，$S_{\rm sw}/S_c\approx 2.548$。
+\item 注：$\eta=0.001N$；$\Itcum$ 与 $\Delta S_q$ 以 $10^6$ 人计，峰值统计至 $t_{\rm end}$。四种控制采用同一完整初值（表~\ref{tab:xian_initial_fit}）。$S^*/S_c\approx 4.402$，$S_{\rm sw}/S_c\approx 2.548$。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
-能力约束与成本权重的作用也与基准算例一致（图~\ref{fig:xian:joint}）。代表能力组合同样只有联合控制可行：两种单控制都超出能力，能力约束下的成本最优控制给出 $J\approx 41.62$ d、$\Delta t\approx 116.8$ d，都高于表~\ref{tab:xian:joint-compare}中的值，结构与基准代表点相同（各段时长见补充材料第~\ref{sec:sup:numerics}~节）。成本权重的三档界限为 $r_{\rm cont}\approx\nrCostRcontXian$ 与 $\hat r\approx\nrCostRhatXian$，超过约 $\nrWtXianBToCApx$ 后仅隔离段消失；默认的 $r=2$ 仍在定理~\ref{thm:joint:cost-structure}的范围内。$r=1$ 时成本最优控制只比仅隔离控制节省约 $\nrCostGapOneXian\%$。因此隔离的相对代价不高于接触时，仅隔离控制在这组参数下也几乎不损失成本。
+能力约束与成本权重的作用也与基准算例一致（图~\ref{fig:xian:joint}）。代表能力组合同样只有联合控制可行：两种单控制都超出能力，能力约束下的成本最优控制给出 $J\approx 84.06$ d、$\Delta t\approx 234.4$ d，都高于表~\ref{tab:xian:joint-compare}中的值，结构与基准代表点相同（各段时长见补充材料第~\ref{sec:sup:numerics}~节）。成本权重的三档界限为 $r_{\rm cont}\approx\nrCostRcontXian$ 与 $\hat r\approx\nrCostRhatXian$，超过约 $\nrWtXianBToCApx$ 后仅隔离段消失；默认的 $r=2$ 仍在定理~\ref{thm:joint:cost-structure}的范围内。$r=1$ 时成本最优控制只比仅隔离控制节省约 $\nrCostGapOneXian\%$。因此隔离的相对代价不高于接触时，仅隔离控制在这组参数下也几乎不损失成本。
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\textwidth]{figures/new4t/Main8.pdf}
+\includegraphics[width=\textwidth]{figures/new4w/Main8.pdf}
 \caption{西安参数下的能力约束与成本权重。(a) 能力约束的可行区域，坐标与颜色同图~\ref{fig:joint:capacity}(a)，红点为代表能力组合 $c_{\min}/c_0=0.5$、$q_{\rm cap}=0.75$。(b) 固定 $w_c=1$、改变 $r=w_q/w_c$ 时不考虑能力约束的成本最优控制，颜色、红色点划等高线、实线与标记同图~\ref{fig:joint:phase}(a)，黑色数字为等值，点线为默认权重 $r=2$。随时间推进，$S$ 从左向右减小。}
 \label{fig:xian:joint}
 \end{figure}
 
 \FloatBarrier
 \subsection{TDINN 参照}
-TDINN 重构是外部参照：它与阈值策略完成的是不同的控制任务。TDINN 控制按拟合函数同时降低接触率、提高隔离比例，既不把感染维持在某一阈值，也不要求在某一状态退出。仅隔离控制则保持 $c=c_0$，在 $I$ 首次达到设计阈值 $\eta=0.002N$ 时启动，维持 $I=\eta$ 直到 $S=S_c$；成本最优控制在同一阈值上运行，控制后期同时减少接触（第~\ref{sec:xian:joint}~节）。常规控制始终取 $(c_0,q_0)$，是不加额外干预的反事实基准。四种策略从表~\ref{tab:xian_initial_fit}的同一初值出发，各自计算至清零时间（图~\ref{fig:xian:strategy-process}，表~\ref{tab:xian_summary}）。
+TDINN 重构是外部参照：它与阈值策略完成的是不同的控制任务。TDINN 控制按拟合函数同时降低接触率、提高隔离比例，既不把感染维持在某一阈值，也不要求在某一状态退出。仅隔离控制则保持 $c=c_0$，在 $I$ 首次达到设计阈值 $\eta=0.001N$ 时启动，维持 $I=\eta$ 直到 $S=S_c$；成本最优控制在同一阈值上运行，控制后期同时减少接触（第~\ref{sec:xian:joint}~节）。常规控制始终取 $(c_0,q_0)$，是不加额外干预的反事实基准。四种策略从表~\ref{tab:xian_initial_fit}的同一初值出发，各自计算至清零时间（图~\ref{fig:xian:strategy-process}，表~\ref{tab:xian_summary}）。
 
-两者的感染结果相差悬殊：仅隔离控制的总累计新增感染约为 $2.38\times10^6$ 人、清零时间约为 $258.1$ d，TDINN 分别约为 $2106$ 人与 $45.29$ d。差别源于阈值策略把有效再生数维持在 $1$，而 TDINN 把它压到 $1$ 以下，即一为缓解、一为压制。常规控制下 $R_e(0)\approx4.43$（$R_e$ 的定义见第~\ref{sec:model:strategy}~节），感染迅速增长。
+两者的感染结果相差悬殊：仅隔离控制的总累计新增感染约为 $2.29\times10^6$ 人、清零时间约为 $389.3$ d，TDINN 分别约为 $2106$ 人与 $45.29$ d。差别源于阈值策略把有效再生数维持在 $1$，而 TDINN 把它压到 $1$ 以下，即一为缓解、一为压制。常规控制下 $R_e(0)\approx4.43$（$R_e$ 的定义见第~\ref{sec:model:strategy}~节），感染迅速增长。
 
 TDINN 控制强度高而持续短，仅隔离控制强度低而持续长。TDINN 控制同时使用两种高强度干预，接触率趋向常规水平的约 $27\%$，隔离比例趋向约 $0.98$；$R_e$ 因而较快降到 $1$ 以下，疫情在易感者仍接近全市人口时就结束了（图~\ref{fig:xian:strategy-process}(b)(c)(e)）。仅隔离控制只需保持 $R_e=1$（式\eqref{eq:model:balance}），隔离比例最高约 $0.85$，此后随易感者减少而下降（补充表~\ref*{tab:sup:eta}）。非隔离感染者人数 $I$ 因而停在 $\eta$，易感者不断被感染或作为未感染接触者被隔离，直到 $S$ 降到 $S_c$ 后 $I$ 才开始下降。前者在易感者几乎未减少时结束，后者要求 $S$ 降到 $S_c$，累计新增感染因而有下界，下一节给出这一下界。
 
@@ -103,8 +103,8 @@ TDINN 控制强度高而持续短，仅隔离控制强度低而持续长。TDINN
 \renewcommand{\textfraction}{0.1}
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=135mm]{figures/new4p/xian_strategy_process.pdf}
-\caption{$\eta=0.002N$ 时四种策略的全过程比较。(a) 非隔离感染者人数 $I(t)$，对数纵轴，水平虚线为 $\eta$；(b) 接触率 $c(t)$；(c) 隔离比例 $q(t)$；(d) 总累计新增感染 $\Itcum(t)$，对称对数纵轴（线性区阈值为 $100$ 人），散点为观测累计量；(e) 有效再生数 $R_e(t)$，水平虚线为 $R_e=1$。各轨迹画至自身的清零时间，$t$ 以天计；黑色竖点线标记两种阈值控制共同的启动 $t_1$ 与仅隔离控制的退出 $t_2$，紫色竖点线标记成本最优控制的退出，灰色竖点线标记观测窗口结束。}
+\includegraphics[width=135mm]{figures/new4w/xian_strategy_process.pdf}
+\caption{$\eta=0.001N$ 时四种策略的全过程比较。(a) 非隔离感染者人数 $I(t)$，对数纵轴，水平虚线为 $\eta$；(b) 接触率 $c(t)$；(c) 隔离比例 $q(t)$；(d) 总累计新增感染 $\Itcum(t)$，对称对数纵轴（线性区阈值为 $100$ 人），散点为观测累计量；(e) 有效再生数 $R_e(t)$，水平虚线为 $R_e=1$。各轨迹画至自身的清零时间，$t$ 以天计；黑色竖点线标记两种阈值控制共同的启动 $t_1$ 与仅隔离控制的退出 $t_2$，紫色竖点线标记成本最优控制的退出，灰色竖点线标记观测窗口结束。}
 \label{fig:xian:strategy-process}
 \end{figure}
 
@@ -120,13 +120,13 @@ TDINN 控制强度高而持续短，仅隔离控制强度低而持续长。TDINN
 策略 & {$\max_t I$（人）} & {$\Itcum$（人）} & {$t_{\rm end}$（d）}\\
 \midrule
 TDINN 控制 & 153 & 2106 & 45.29\\
-仅隔离控制 & 26326 & 2377943 & 258.10\\
-成本最优控制 & 26326 & 2534829 & 281.84\\
+仅隔离控制 & 13163 & 2293939 & 389.32\\
+成本最优控制 & 13163 & 2450824 & 436.79\\
 常规控制 & 1377552 & 4587183 & 75.57\\
 \bottomrule
 \end{tabular*}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：$\eta=0.002N$；各策略计算至自身的清零时间，人数取整。TDINN 与阈值策略完成的任务不同（见正文）。仅隔离控制的启动时刻、退出时刻与控制时长分别为 $16.90$、$101.97$、$85.07$ d，成本最优控制分别为 $16.90$、$125.70$、$108.81$ d；TDINN 的非隔离感染者峰值与总累计新增感染的未取整值为 $152.55$ 与 $2105.63$。
+\item 注：$\eta=0.001N$；各策略计算至自身的清零时间，人数取整。TDINN 与阈值策略完成的任务不同（见正文）。仅隔离控制的启动时刻、退出时刻与控制时长分别为 $16.20$、$186.83$、$170.63$ d，成本最优控制分别为 $16.20$、$234.31$、$218.10$ d；TDINN 的非隔离感染者峰值与总累计新增感染的未取整值为 $152.55$ 与 $2105.63$。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -135,7 +135,7 @@ TDINN 控制 & 153 & 2106 & 45.29\\
 \endgroup
 \subsection{低阈值与退出的代价}
 \label{sec:xian:threshold-scale}
-由命题~\ref{prop:threshold-tradeoff}，阈值越低，控制时长越长；在所算范围内，控制时长还近似与阈值成反比。设计阈值 $\eta=0.002N$ 只是其中一个情景，其量级参考见补充材料第~\ref{sec:sup:threshold-scale}~节。原因是阈值控制期内 $S$ 的下降速率 $c_0\eta(S-\bar S)/N$ 与 $\eta$ 成正比，而退出仍要求 $S$ 降到同一个 $S_c$：式\eqref{eq:s1:t2}中，$\Delta t$ 等于 $N/(c_0\eta)$ 乘一个只通过启动状态 $S^*$ 依赖 $\eta$ 的对数因子。在西安参数下把 $\eta/N$ 从 $0.01$ 降到 $0.0001$，控制时长由 $16.6$ d 增至 $1711$ d，与反比关系相符（补充表~\ref*{tab:sup:eta}，补充图~\ref{fig:xian_eta_sens}）。若把阈值降到 TDINN 的非隔离感染者峰值 $152.55$ 人，控制时长约为 $40.5$ 年，按每年 $365$ d 计（补充图~\ref{fig:xian_heatmaps}）。
+由命题~\ref{prop:threshold-tradeoff}，阈值越低，控制时长越长；在所算范围内，控制时长还近似与阈值成反比。设计阈值 $\eta=0.001N$ 按西安的重症监护床位与需要重症监护的比例选取（补充材料第~\ref{sec:sup:threshold-scale}~节）。原因是阈值控制期内 $S$ 的下降速率 $c_0\eta(S-\bar S)/N$ 与 $\eta$ 成正比，而退出仍要求 $S$ 降到同一个 $S_c$：式\eqref{eq:s1:t2}中，$\Delta t$ 等于 $N/(c_0\eta)$ 乘一个只通过启动状态 $S^*$ 依赖 $\eta$ 的对数因子。在西安参数下把 $\eta/N$ 从 $0.01$ 降到 $0.0001$，控制时长由 $16.6$ d 增至 $1711$ d，与反比关系相符（补充表~\ref*{tab:sup:eta}，补充图~\ref{fig:xian_eta_sens}）。若把阈值降到 TDINN 的非隔离感染者峰值 $152.55$ 人，控制时长约为 $40.5$ 年，按每年 $365$ d 计（补充图~\ref{fig:xian_heatmaps}）。
 
 在常规传播临界值退出本身就要求大量感染。由命题~\ref{prop:exit-infection-lower-bound}，从初始时刻到退出时刻的累计新增感染满足
 \[
@@ -148,7 +148,7 @@ TDINN 控制 & 153 & 2106 & 45.29\\
 \subsection{有效人口}
 \label{sec:dominance}
 \label{sec:dom:region}
-全市结果依赖有效混合人口 $N_{\rm eff}$，即实际相互接触、共同参与传播的人口。达到退出状态所需减少的易感者人数大致与 $N_{\rm eff}$ 成正比，而这次疫情的 $N_{\rm eff}$ 未知；例如封控把城市分割成许多相对隔离的区域时，$N_{\rm eff}$ 可能远小于全市人口。由补充命题~\ref{prop:scaling}与\ref{prop:reference-population}，固定归一化初值与阈值比例 $\theta=\eta/N$ 时，仅隔离控制的控制时长与二次干预强度成本不随 $N$ 单独改变，以 $I=1$ 为终点的清零时间与计算至该终点的累计新增感染则仍含人口尺度，且随 $N$ 严格增加。固定绝对阈值 $\eta$ 时，减小有效人口会提高 $\theta$；$J$ 含因子 $1/\theta$，其余只通过启动状态依赖 $\theta$，在所考察的低阈值范围内控制时长也近似与 $\theta$ 成反比（第~\ref{sec:xian:threshold-scale}~节）。沿用全市拟合的绝对初值 $I_0$ 时，初始感染比例 $I_0/N$ 随人口改变，这两条命题不能直接套用；在 $\theta=0.002$ 下取六个人口规模、不重新拟合，控制时长均约为 $85.07$ d，启动时刻则由 $11.39$ d 增至 $16.90$ d（补充材料第~\ref{sec:sup:xian:settings}~节）。
+全市结果依赖有效混合人口 $N_{\rm eff}$，即实际相互接触、共同参与传播的人口。达到退出状态所需减少的易感者人数大致与 $N_{\rm eff}$ 成正比，而这次疫情的 $N_{\rm eff}$ 未知；例如封控把城市分割成许多相对隔离的区域时，$N_{\rm eff}$ 可能远小于全市人口。由补充命题~\ref{prop:scaling}与\ref{prop:reference-population}，固定归一化初值与阈值比例 $\theta=\eta/N$ 时，仅隔离控制的控制时长与二次干预强度成本不随 $N$ 单独改变，以 $I=1$ 为终点的清零时间与计算至该终点的累计新增感染则仍含人口尺度，且随 $N$ 严格增加。固定绝对阈值 $\eta$ 时，减小有效人口会提高 $\theta$；$J$ 含因子 $1/\theta$，其余只通过启动状态依赖 $\theta$，在所考察的低阈值范围内控制时长也近似与 $\theta$ 成反比（第~\ref{sec:xian:threshold-scale}~节）。沿用全市拟合的绝对初值 $I_0$ 时，初始感染比例 $I_0/N$ 随人口改变，这两条命题不能直接套用；在 $\theta=0.001$ 下取六个人口规模、不重新拟合，控制时长均约为 $170.63$ d，启动时刻则由 $10.70$ d 增至 $16.20$ d（补充材料第~\ref{sec:sup:xian:settings}~节）。
 
 TDINN 轨迹本身给出有效人口的一个必要下界。易感者离开 $S$ 只有三条去路：成为非隔离感染者、成为隔离感染者，或作为未感染接触者被隔离。记重构轨迹在其清零时间的社区与隔离累计新增感染为 $I_{\rm cum}^{\rm T}$、$I_{q_{\rm cum}}^{\rm T}$。
 \begin{proposition}

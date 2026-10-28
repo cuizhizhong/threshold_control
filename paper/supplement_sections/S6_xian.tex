@@ -77,14 +77,14 @@ J=\frac{w_q}{c_0\theta}\int_{s_c}^{s^*}
 
 人口缩放情景取 $N=N_{\rm eff}$、$S_0=N-I_0$，沿用全市拟合的绝对初值 $I_0$ 与传播参数，其余初始仓室为零，不重新拟合。它同时改变 $N$、$i_0=I_0/N$ 与 $\eta=\theta N$。
 
-固定 $\theta=0.002$、取 $N\in\{5\times10^4,10^5,5\times10^5,10^6,5\times10^6,1.3163\times10^7\}$ 的六个人口规模，仅隔离控制的控制时长均约为 $85.07$ d，$\Delta t$ 和 $J$ 的相对极差分别为 $4.71\times10^{-8}$ 和 $1.17\times10^{-7}$；以 $t-t_1$ 为时间变量时，归一化感染轨迹和隔离比例近似重合。启动时间由 $11.39$ d 增加至 $16.90$ d，这是固定绝对初值时，初始感染比例 $i_0=I_0/N$ 随 $N$ 增大而减小的结果。初期近似指数增长，$t_1\approx g^{-1}\ln(\theta/i_0)$，其中 $g=\beta c_0(1-q_0)-\gamma$ 为初期增长率。
+固定 $\theta=0.001$、取 $N\in\{5\times10^4,10^5,5\times10^5,10^6,5\times10^6,1.3163\times10^7\}$ 的六个人口规模，仅隔离控制的控制时长均约为 $170.63$ d，$\Delta t$ 和 $J$ 的相对极差分别为 $4.66\times10^{-8}$ 和 $1.16\times10^{-7}$；以 $t-t_1$ 为时间变量时，归一化感染轨迹和隔离比例近似重合。启动时间由 $10.70$ d 增加至 $16.20$ d，这是固定绝对初值时，初始感染比例 $i_0=I_0/N$ 随 $N$ 增大而减小的结果。初期近似指数增长，$t_1\approx g^{-1}\ln(\theta/i_0)$，其中 $g=\beta c_0(1-q_0)-\gamma$ 为初期增长率。
 
 固定绝对阈值 $\eta=100$、把 $N$ 从 $1.3163\times10^7$ 降到 $5\times10^4$ 时，$\theta=\eta/N$ 增大，控制时长由约 $2.25\times10^4$ d 缩短到约 $85$ d。两组结果都符合命题~\ref{prop:scaling}证明中的控制时长表达式，其中对数因子在 $\theta\in[5\times10^{-4},8\times10^{-3}]$ 内仅由 $2.20$ 变到 $2.15$，因此 $\Delta t$ 近似与 $\theta$ 成反比。
 
 \FloatBarrier
 \subsection{阈值扫描}
 \label{sec:sup:xian:threshold-scan}
-表~\ref{tab:sup:eta}与图~\ref{fig:xian_eta_sens}给出 11 个阈值比例下仅隔离控制的结果，覆盖设计阈值 $\eta/N=0.002$ 的两侧。阈值从 $0.01N$ 降到 $0.0001N$ 时，$q_{\max}$ 只在 $0.838$ 与 $0.847$ 之间变化，控制时长与成本近似按阈值的反比增加，总累计新增感染则缓慢减少；正文第~\ref{sec:xian:threshold-scale}~节由此解释低阈值的代价。
+表~\ref{tab:sup:eta}与图~\ref{fig:xian_eta_sens}给出 11 个阈值比例下仅隔离控制的结果，覆盖设计阈值 $\eta/N=0.001$ 的两侧。阈值从 $0.01N$ 降到 $0.0001N$ 时，$q_{\max}$ 只在 $0.838$ 与 $0.847$ 之间变化，控制时长与成本近似按阈值的反比增加，总累计新增感染则缓慢减少；正文第~\ref{sec:xian:threshold-scale}~节由此解释低阈值的代价。
 \begin{table}[htbp]
 \centering\small
 \setlength{\tabcolsep}{3.5pt}
@@ -125,8 +125,8 @@ J=\frac{w_q}{c_0\theta}\int_{s_c}^{s^*}
 图~\ref{fig:xian_heatmaps}把扫描推广到 $(\eta,c_0)$ 平面。在图示的 $c_0$ 范围内，控制时长、清零时间与成本的等值线接近竖直，主要由阈值决定；正文第~\ref{sec:xian:threshold-scale}~节在 TDINN 峰值处的控制时长即取自子图 (a)。
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{figures/new4t/S8.pdf}
-    \caption{西安参数下仅隔离控制在 $(\eta,c_0)$ 平面上的指标：(a) 控制时长；(b) 清零时间；(c) 累计新增感染；(d) 成本 $J$。两条竖直参照线分别为 TDINN 的非隔离感染者峰值 $\eta=152.55$ 与设计阈值 $\eta=26326$；红色点划线为等值线，黑色数字为等值。}
+    \includegraphics[width=0.8\textwidth]{figures/new4w/S8.pdf}
+    \caption{西安参数下仅隔离控制在 $(\eta,c_0)$ 平面上的指标：(a) 控制时长；(b) 清零时间；(c) 累计新增感染；(d) 成本 $J$。两条竖直参照线分别为 TDINN 的非隔离感染者峰值 $\eta=152.55$ 与设计阈值 $\eta=13163$；红色点划线为等值线，黑色数字为等值。}
     \label{fig:xian_heatmaps}
 \end{figure}
 

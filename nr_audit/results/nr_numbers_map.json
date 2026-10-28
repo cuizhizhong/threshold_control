@@ -1,296 +1,296 @@
 {
- "generated": "2026-10-19T10:07:38",
- "git_head": "abe05812000a4399132ef9f2c941961c513a4d8a",
+ "generated": "2026-10-28T13:57:06",
+ "git_head": "ebb7df5a2ac9e915b62a0d583d28a8c6fe22c3cb",
  "tex": "paper/generated/nr_numbers.tex",
  "n_macros": 114,
  "macros": [
   {
    "macro": "\\nrICtOneLow",
-   "value": 19.172794097264166,
-   "display": "19.17",
+   "value": 18.480643440906373,
+   "display": "18.48",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "rows[law=q_only,factor=0.1].state.t1",
-   "meaning": "西安仅隔离控制的启动时刻 t1，I0 为拟合值的 0.1 倍"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.rows[law=q_only,factor=0.1].t1",
+   "meaning": "西安（η = 0.001N）仅隔离控制的启动时刻 t1，I0 为拟合值的 0.1 倍"
   },
   {
    "macro": "\\nrICtOneFit",
-   "value": 16.896725724327315,
-   "display": "16.90",
+   "value": 16.20457506824413,
+   "display": "16.20",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "rows[law=q_only,factor=1.0].state.t1",
-   "meaning": "西安仅隔离控制的启动时刻 t1，I0 为拟合值的 1 倍"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.rows[law=q_only,factor=1.0].t1",
+   "meaning": "西安（η = 0.001N）仅隔离控制的启动时刻 t1，I0 为拟合值的 1 倍"
   },
   {
    "macro": "\\nrICtOneHigh",
-   "value": 14.620657297281106,
-   "display": "14.62",
+   "value": 13.928506643943718,
+   "display": "13.93",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "rows[law=q_only,factor=10.0].state.t1",
-   "meaning": "西安仅隔离控制的启动时刻 t1，I0 为拟合值的 10 倍"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.rows[law=q_only,factor=10.0].t1",
+   "meaning": "西安（η = 0.001N）仅隔离控制的启动时刻 t1，I0 为拟合值的 10 倍"
   },
   {
    "macro": "\\nrICtOneShift",
-   "value": 2.2760684270462086,
+   "value": 2.2760684243004103,
    "display": "2.28",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "max |rows[].change_vs_fit.t1_abs_days|",
-   "meaning": "I0 改为 0.1 或 10 倍时 t1 的最大变化（两种控制相同）"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.t1_max_abs_shift",
+   "meaning": "I0 改为 0.1 或 10 倍时 t1 的最大变化（η = 0.001N，两种控制相同）"
   },
   {
    "macro": "\\nrICMaxRelSstar",
-   "value": 3.0757928277424936e-09,
+   "value": 3.054106343719143e-09,
    "display": "3.1\\times10^{-9}",
    "unit": "",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "max over laws of max_abs_relative_change[*].S_star",
-   "meaning": "六条轨迹中 S_star 相对拟合初值的最大相对变化"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.max_abs_relative_change.S_star",
+   "meaning": "六条轨迹中 S_star 相对拟合初值的最大相对变化（η = 0.001N）"
   },
   {
    "macro": "\\nrICMaxRelDt",
-   "value": 1.61511810902306e-09,
+   "value": 1.597826068391214e-09,
    "display": "1.6\\times10^{-9}",
    "unit": "",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "max over laws of max_abs_relative_change[*].dt",
-   "meaning": "六条轨迹中 dt 相对拟合初值的最大相对变化"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.max_abs_relative_change.dt",
+   "meaning": "六条轨迹中 dt 相对拟合初值的最大相对变化（η = 0.001N）"
   },
   {
    "macro": "\\nrICMaxRelJ",
-   "value": 4.302852796746866e-09,
+   "value": 4.2502511350731344e-09,
    "display": "4.3\\times10^{-9}",
    "unit": "",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "max over laws of max_abs_relative_change[*].J",
-   "meaning": "六条轨迹中 J 相对拟合初值的最大相对变化"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.max_abs_relative_change.J",
+   "meaning": "六条轨迹中 J 相对拟合初值的最大相对变化（η = 0.001N）"
   },
   {
    "macro": "\\nrICMaxRelTotal",
-   "value": 4.384235370588342e-09,
-   "display": "4.4\\times10^{-9}",
+   "value": 4.54219010477946e-09,
+   "display": "4.5\\times10^{-9}",
    "unit": "",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "max over laws of max_abs_relative_change[*].total_infections_to_clearance",
-   "meaning": "六条轨迹中计至清零的总累计新增感染的最大相对变化"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.max_abs_relative_change.total_infections_to_clearance",
+   "meaning": "六条轨迹中 total_infections_to_clearance 相对拟合初值的最大相对变化（η = 0.001N）"
   },
   {
    "macro": "\\nrICtabQLowTOne",
-   "value": 19.172794097264166,
-   "display": "19.17",
+   "value": 18.480643440906373,
+   "display": "18.48",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "rows[law=q_only,factor=0.1].state.t1",
-   "meaning": "西安固定人口初值诊断表：q_only，I0 为拟合值的 0.1 倍，t1"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.rows[law=q_only,factor=0.1].t1",
+   "meaning": "西安（η = 0.001N）固定人口初值诊断：q_only，I0 为拟合值的 0.1 倍，t1"
   },
   {
    "macro": "\\nrICtabQLowDt",
-   "value": 85.07107715266368,
-   "display": "85.0711",
+   "value": 170.6301096099622,
+   "display": "170.6301",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "rows[law=q_only,factor=0.1].state.dt",
-   "meaning": "西安固定人口初值诊断表：q_only，I0 为拟合值的 0.1 倍，dt"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.rows[law=q_only,factor=0.1].dt",
+   "meaning": "西安（η = 0.001N）固定人口初值诊断：q_only，I0 为拟合值的 0.1 倍，dt"
   },
   {
    "macro": "\\nrICtabQLowJ",
-   "value": 40.768649823745534,
-   "display": "40.769",
+   "value": 82.11923293714506,
+   "display": "82.119",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "rows[law=q_only,factor=0.1].state.J",
-   "meaning": "西安固定人口初值诊断表：q_only，I0 为拟合值的 0.1 倍，J"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.rows[law=q_only,factor=0.1].J",
+   "meaning": "西安（η = 0.001N）固定人口初值诊断：q_only，I0 为拟合值的 0.1 倍，J"
   },
   {
    "macro": "\\nrICtabQLowTend",
-   "value": 260.3804020491101,
-   "display": "260.38",
+   "value": 391.5934634373579,
+   "display": "391.59",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "rows[law=q_only,factor=0.1].state.t_end",
-   "meaning": "西安固定人口初值诊断表：q_only，I0 为拟合值的 0.1 倍，t_end"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.rows[law=q_only,factor=0.1].t_end",
+   "meaning": "西安（η = 0.001N）固定人口初值诊断：q_only，I0 为拟合值的 0.1 倍，t_end"
   },
   {
    "macro": "\\nrICtabQFitTOne",
-   "value": 16.896725724327315,
-   "display": "16.90",
+   "value": 16.20457506824413,
+   "display": "16.20",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "rows[law=q_only,factor=1.0].state.t1",
-   "meaning": "西安固定人口初值诊断表：q_only，I0 为拟合值的 1 倍，t1"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.rows[law=q_only,factor=1.0].t1",
+   "meaning": "西安（η = 0.001N）固定人口初值诊断：q_only，I0 为拟合值的 1 倍，t1"
   },
   {
    "macro": "\\nrICtabQFitDt",
-   "value": 85.07107716640367,
-   "display": "85.0711",
+   "value": 170.63010963722596,
+   "display": "170.6301",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "rows[law=q_only,factor=1.0].state.dt",
-   "meaning": "西安固定人口初值诊断表：q_only，I0 为拟合值的 1 倍，dt"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.rows[law=q_only,factor=1.0].dt",
+   "meaning": "西安（η = 0.001N）固定人口初值诊断：q_only，I0 为拟合值的 1 倍，dt"
   },
   {
    "macro": "\\nrICtabQFitJ",
-   "value": 40.76864984010535,
-   "display": "40.769",
+   "value": 82.119232969712,
+   "display": "82.119",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "rows[law=q_only,factor=1.0].state.J",
-   "meaning": "西安固定人口初值诊断表：q_only，I0 为拟合值的 1 倍，J"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.rows[law=q_only,factor=1.0].J",
+   "meaning": "西安（η = 0.001N）固定人口初值诊断：q_only，I0 为拟合值的 1 倍，J"
   },
   {
    "macro": "\\nrICtabQFitTend",
-   "value": 258.10433368991323,
-   "display": "258.10",
+   "value": 389.31739509195944,
+   "display": "389.32",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "rows[law=q_only,factor=1.0].state.t_end",
-   "meaning": "西安固定人口初值诊断表：q_only，I0 为拟合值的 1 倍，t_end"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.rows[law=q_only,factor=1.0].t_end",
+   "meaning": "西安（η = 0.001N）固定人口初值诊断：q_only，I0 为拟合值的 1 倍，t_end"
   },
   {
    "macro": "\\nrICtabQHighTOne",
-   "value": 14.620657297281106,
-   "display": "14.62",
+   "value": 13.928506643943718,
+   "display": "13.93",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "rows[law=q_only,factor=10.0].state.t1",
-   "meaning": "西安固定人口初值诊断表：q_only，I0 为拟合值的 10 倍，t1"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.rows[law=q_only,factor=10.0].t1",
+   "meaning": "西安（η = 0.001N）固定人口初值诊断：q_only，I0 为拟合值的 10 倍，t1"
   },
   {
    "macro": "\\nrICtabQHighDt",
-   "value": 85.0710773038035,
-   "display": "85.0711",
+   "value": 170.6301099098632,
+   "display": "170.6301",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "rows[law=q_only,factor=10.0].state.dt",
-   "meaning": "西安固定人口初值诊断表：q_only，I0 为拟合值的 10 倍，dt"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.rows[law=q_only,factor=10.0].dt",
+   "meaning": "西安（η = 0.001N）固定人口初值诊断：q_only，I0 为拟合值的 10 倍，dt"
   },
   {
    "macro": "\\nrICtabQHighJ",
-   "value": 40.76865000370351,
-   "display": "40.769",
+   "value": 82.11923329538179,
+   "display": "82.119",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "rows[law=q_only,factor=10.0].state.J",
-   "meaning": "西安固定人口初值诊断表：q_only，I0 为拟合值的 10 倍，J"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.rows[law=q_only,factor=10.0].J",
+   "meaning": "西安（η = 0.001N）固定人口初值诊断：q_only，I0 为拟合值的 10 倍，J"
   },
   {
    "macro": "\\nrICtabQHighTend",
-   "value": 255.8282654002669,
-   "display": "255.83",
+   "value": 387.04132694029624,
+   "display": "387.04",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "rows[law=q_only,factor=10.0].state.t_end",
-   "meaning": "西安固定人口初值诊断表：q_only，I0 为拟合值的 10 倍，t_end"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.rows[law=q_only,factor=10.0].t_end",
+   "meaning": "西安（η = 0.001N）固定人口初值诊断：q_only，I0 为拟合值的 10 倍，t_end"
   },
   {
    "macro": "\\nrICtabOLowTOne",
-   "value": 19.172794097264166,
-   "display": "19.17",
+   "value": 18.480643440906373,
+   "display": "18.48",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "rows[law=opt,factor=0.1].state.t1",
-   "meaning": "西安固定人口初值诊断表：opt，I0 为拟合值的 0.1 倍，t1"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.rows[law=opt,factor=0.1].t1",
+   "meaning": "西安（η = 0.001N）固定人口初值诊断：opt，I0 为拟合值的 0.1 倍，t1"
   },
   {
    "macro": "\\nrICtabOLowDt",
-   "value": 108.80739449994881,
-   "display": "108.8074",
+   "value": 218.10274430453117,
+   "display": "218.1027",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "rows[law=opt,factor=0.1].state.dt",
-   "meaning": "西安固定人口初值诊断表：opt，I0 为拟合值的 0.1 倍，dt"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.rows[law=opt,factor=0.1].dt",
+   "meaning": "西安（η = 0.001N）固定人口初值诊断：opt，I0 为拟合值的 0.1 倍，dt"
   },
   {
    "macro": "\\nrICtabOLowJ",
-   "value": 38.02086217867648,
-   "display": "38.021",
+   "value": 76.62365764700634,
+   "display": "76.624",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "rows[law=opt,factor=0.1].state.J",
-   "meaning": "西安固定人口初值诊断表：opt，I0 为拟合值的 0.1 倍，J"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.rows[law=opt,factor=0.1].J",
+   "meaning": "西安（η = 0.001N）固定人口初值诊断：opt，I0 为拟合值的 0.1 倍，J"
   },
   {
    "macro": "\\nrICtabOLowTend",
-   "value": 284.1167193963953,
-   "display": "284.12",
+   "value": 439.0660981319269,
+   "display": "439.07",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "rows[law=opt,factor=0.1].state.t_end",
-   "meaning": "西安固定人口初值诊断表：opt，I0 为拟合值的 0.1 倍，t_end"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.rows[law=opt,factor=0.1].t_end",
+   "meaning": "西安（η = 0.001N）固定人口初值诊断：opt，I0 为拟合值的 0.1 倍，t_end"
   },
   {
    "macro": "\\nrICtabOFitTOne",
-   "value": 16.896725724327315,
-   "display": "16.90",
+   "value": 16.20457506824413,
+   "display": "16.20",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "rows[law=opt,factor=1.0].state.t1",
-   "meaning": "西安固定人口初值诊断表：opt，I0 为拟合值的 1 倍，t1"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.rows[law=opt,factor=1.0].t1",
+   "meaning": "西安（η = 0.001N）固定人口初值诊断：opt，I0 为拟合值的 1 倍，t1"
   },
   {
    "macro": "\\nrICtabOFitDt",
-   "value": 108.80739451368878,
-   "display": "108.8074",
+   "value": 218.10274433179487,
+   "display": "218.1027",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "rows[law=opt,factor=1.0].state.dt",
-   "meaning": "西安固定人口初值诊断表：opt，I0 为拟合值的 1 倍，dt"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.rows[law=opt,factor=1.0].dt",
+   "meaning": "西安（η = 0.001N）固定人口初值诊断：opt，I0 为拟合值的 1 倍，dt"
   },
   {
    "macro": "\\nrICtabOFitJ",
-   "value": 38.02086219503629,
-   "display": "38.021",
+   "value": 76.6236576795733,
+   "display": "76.624",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "rows[law=opt,factor=1.0].state.J",
-   "meaning": "西安固定人口初值诊断表：opt，I0 为拟合值的 1 倍，J"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.rows[law=opt,factor=1.0].J",
+   "meaning": "西安（η = 0.001N）固定人口初值诊断：opt，I0 为拟合值的 1 倍，J"
   },
   {
    "macro": "\\nrICtabOFitTend",
-   "value": 281.84065103719837,
-   "display": "281.84",
+   "value": 436.79002978652835,
+   "display": "436.79",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "rows[law=opt,factor=1.0].state.t_end",
-   "meaning": "西安固定人口初值诊断表：opt，I0 为拟合值的 1 倍，t_end"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.rows[law=opt,factor=1.0].t_end",
+   "meaning": "西安（η = 0.001N）固定人口初值诊断：opt，I0 为拟合值的 1 倍，t_end"
   },
   {
    "macro": "\\nrICtabOHighTOne",
-   "value": 14.620657297281106,
-   "display": "14.62",
+   "value": 13.928506643943718,
+   "display": "13.93",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "rows[law=opt,factor=10.0].state.t1",
-   "meaning": "西安固定人口初值诊断表：opt，I0 为拟合值的 10 倍，t1"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.rows[law=opt,factor=10.0].t1",
+   "meaning": "西安（η = 0.001N）固定人口初值诊断：opt，I0 为拟合值的 10 倍，t1"
   },
   {
    "macro": "\\nrICtabOHighDt",
-   "value": 108.8073946510886,
-   "display": "108.8074",
+   "value": 218.10274460443216,
+   "display": "218.1027",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "rows[law=opt,factor=10.0].state.dt",
-   "meaning": "西安固定人口初值诊断表：opt，I0 为拟合值的 10 倍，dt"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.rows[law=opt,factor=10.0].dt",
+   "meaning": "西安（η = 0.001N）固定人口初值诊断：opt，I0 为拟合值的 10 倍，dt"
   },
   {
    "macro": "\\nrICtabOHighJ",
-   "value": 38.02086235863446,
-   "display": "38.021",
+   "value": 76.62365800524309,
+   "display": "76.624",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "rows[law=opt,factor=10.0].state.J",
-   "meaning": "西安固定人口初值诊断表：opt，I0 为拟合值的 10 倍，J"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.rows[law=opt,factor=10.0].J",
+   "meaning": "西安（η = 0.001N）固定人口初值诊断：opt，I0 为拟合值的 10 倍，J"
   },
   {
    "macro": "\\nrICtabOHighTend",
-   "value": 279.564582747552,
-   "display": "279.56",
+   "value": 434.5139616348652,
+   "display": "434.51",
    "unit": "d",
-   "source": "nr_audit/results/initial_condition.json",
-   "field": "rows[law=opt,factor=10.0].state.t_end",
-   "meaning": "西安固定人口初值诊断表：opt，I0 为拟合值的 10 倍，t_end"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "initial_condition.rows[law=opt,factor=10.0].t_end",
+   "meaning": "西安（η = 0.001N）固定人口初值诊断：opt，I0 为拟合值的 10 倍，t_end"
   },
   {
    "macro": "\\nrFitMseCommNew",
@@ -474,37 +474,37 @@
   },
   {
    "macro": "\\nrWtXianBToCLo",
-   "value": 7.452952150788069,
-   "display": "7.4530",
+   "value": 7.510836975957936,
+   "display": "7.5108",
    "unit": "",
-   "source": "nr_audit/results/weight_brackets.json",
-   "field": "cases.xian.changes[grid 7.406054–7.655407].brackets[B->C].lo",
-   "meaning": "xian：结构由 B 变为 C 的 r 括区下端（宽度 < 1e-3，所检验网格上）"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "weights.B_to_C.lo",
+   "meaning": "xian（η = 0.001N）：结构由 B 变为 C 的 r 括区下端（宽度 < 1e-3）"
   },
   {
    "macro": "\\nrWtXianBToCHi",
-   "value": 7.453723442761744,
-   "display": "7.4537",
+   "value": 7.5117587032625455,
+   "display": "7.5118",
    "unit": "",
-   "source": "nr_audit/results/weight_brackets.json",
-   "field": "cases.xian.changes[grid 7.406054–7.655407].brackets[B->C].hi",
-   "meaning": "xian：结构由 B 变为 C 的 r 括区上端（宽度 < 1e-3，所检验网格上）"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "weights.B_to_C.hi",
+   "meaning": "xian（η = 0.001N）：结构由 B 变为 C 的 r 括区上端（宽度 < 1e-3）"
   },
   {
    "macro": "\\nrWtXianBToCApx",
-   "value": 7.45,
-   "display": "7.45",
+   "value": 7.511297839610241,
+   "display": "7.51",
    "unit": "",
-   "source": "nr_audit/results/weight_brackets.json",
-   "field": "cases.xian.changes[grid 7.406054–7.655407].brackets[B->C].(lo+hi)/2 取两位小数",
-   "meaning": "xian：结构由 B 变为 C 的 r 括区中点取两位小数（正文用语“约”，不是括区端点）"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "mean(weights.B_to_C.lo, hi)",
+   "meaning": "xian（η = 0.001N）：结构由 B 变为 C 的 r 括区中点取两位小数（正文用语“约”）"
   },
   {
    "macro": "\\nrConvTolMaxRel",
-   "value": 8.550500143103477e-12,
-   "display": "9\\times10^{-12}",
+   "value": 2.552857812448992e-12,
+   "display": "3\\times10^{-12}",
    "unit": "",
-   "source": "nr_audit/results/convergence.json",
+   "source": "nr_audit/results/new4w/convergence.json",
    "field": "max tolerance_tiers[阈值策略].max_rel_change_vs_base",
    "meaning": "积分容差三档间核心量的最大相对变化（阈值策略的全部轨迹）"
   },
@@ -513,7 +513,7 @@
    "value": 1.406729163667633e-13,
    "display": "1\\times10^{-13}",
    "unit": "",
-   "source": "nr_audit/results/convergence.json",
+   "source": "nr_audit/results/new4w/convergence.json",
    "field": "max state_grid[].vs_8001[4001].{dt_rel,J_rel}",
    "meaning": "N_z = 4001 与 8001 的 Δt、J 最大相对差"
   },
@@ -522,7 +522,7 @@
    "value": 1.1816065115777686e-13,
    "display": "1\\times10^{-13}",
    "unit": "",
-   "source": "nr_audit/results/convergence.json",
+   "source": "nr_audit/results/new4w/convergence.json",
    "field": "max control_grid[].max_gap_rel",
    "meaning": "控制网格上网格值低于根法值的最大相对量"
   },
@@ -531,25 +531,25 @@
    "value": 2.086153472191654e-11,
    "display": "2.1\\times10^{-11}",
    "unit": "人",
-   "source": "nr_audit/results/convergence.json",
+   "source": "nr_audit/results/new4w/convergence.json",
    "field": "tolerance_tiers[base,q_only].residuals.base.plateau_abs_dev",
    "meaning": "base 仅隔离控制开环完整方程阈值控制期的 max|I-η|（基准档）"
   },
   {
    "macro": "\\nrPlateauDevXian",
-   "value": 5.929905455559492e-10,
-   "display": "5.9\\times10^{-10}",
+   "value": 6.912159733474255e-11,
+   "display": "6.9\\times10^{-11}",
    "unit": "人",
-   "source": "nr_audit/results/convergence.json",
+   "source": "nr_audit/results/new4w/convergence.json",
    "field": "tolerance_tiers[xian,q_only].residuals.base.plateau_abs_dev",
    "meaning": "xian 仅隔离控制开环完整方程阈值控制期的 max|I-η|（基准档）"
   },
   {
    "macro": "\\nrConvNzAllMaxRel",
-   "value": 5.390714599126295e-13,
-   "display": "5.4\\times10^{-13}",
+   "value": 7.295663513823641e-13,
+   "display": "7.3\\times10^{-13}",
    "unit": "",
-   "source": "nr_audit/results/convergence.json",
+   "source": "nr_audit/results/new4w/convergence.json",
    "field": "max state_grid[].vs_8001[1001,2001,4001].{dt_rel,J_rel}",
    "meaning": "N_z = 1001、2001、4001 与 8001 的 Δt、J 最大相对差"
   },
@@ -558,25 +558,25 @@
    "value": 1.9815304010467568e-13,
    "display": "2.0\\times10^{-13}",
    "unit": "",
-   "source": "nr_audit/results/convergence.json",
+   "source": "nr_audit/results/new4w/convergence.json",
    "field": "max state_grid[].values[8001] 与 quad 的 Δt、J 相对差",
    "meaning": "N_z = 8001 的 Simpson 与分段 quad 的 Δt、J 最大相对差"
   },
   {
    "macro": "\\nrConvPlateauMax",
-   "value": 4.453249857760966e-08,
-   "display": "4.5\\times10^{-8}",
+   "value": 4.580215318128467e-09,
+   "display": "4.6\\times10^{-9}",
    "unit": "人",
-   "source": "nr_audit/results/convergence.json",
+   "source": "nr_audit/results/new4w/convergence.json",
    "field": "max tolerance_tiers[阈值策略].residuals[*].plateau_abs_dev",
    "meaning": "积分容差三档下阈值控制期 max|I-η| 的最大值"
   },
   {
    "macro": "\\nrConvExitMax",
-   "value": 3.9311298660749117e-07,
-   "display": "4.0\\times10^{-7}",
+   "value": 1.750010414358627e-07,
+   "display": "1.8\\times10^{-7}",
    "unit": "人",
-   "source": "nr_audit/results/convergence.json",
+   "source": "nr_audit/results/new4w/convergence.json",
    "field": "max |tolerance_tiers[阈值策略].residuals[*].exit_S_error|",
    "meaning": "积分容差三档下退出时刻 S 与 S_c 之差的最大值"
   },
@@ -585,7 +585,7 @@
    "value": 1.2597152210247486e-06,
    "display": "1.3\\times10^{-6}",
    "unit": "人",
-   "source": "nr_audit/results/convergence.json",
+   "source": "nr_audit/results/new4w/convergence.json",
    "field": "max tolerance_tiers[].residuals[*].mass_residual_persons",
    "meaning": "积分容差三档下人口守恒残差的最大值（含常规控制与 TDINN）"
   },
@@ -600,10 +600,10 @@
   },
   {
    "macro": "\\nrIdentityMaxRel",
-   "value": 1.0880185642158555e-14,
-   "display": "1\\times10^{-14}",
+   "value": 3.72479824790224e-14,
+   "display": "4\\times10^{-14}",
    "unit": "",
-   "source": "nr_audit/results/convergence.json",
+   "source": "nr_audit/results/new4w/convergence.json",
    "field": "max tolerance_tiers[].residuals[*].identity_residual_rel",
    "meaning": "累计新增感染恒等式残差/初始易感者总数的最大值"
   },
@@ -1023,12 +1023,12 @@
   },
   {
    "macro": "\\nrCostGapOneXian",
-   "value": 3.02078962050345,
+   "value": 2.9993829660921456,
    "display": "3.0",
    "unit": "%",
-   "source": "nr_audit/results/new4d_cost_structure.json",
-   "field": "cases.xian.r1.gap_percent",
-   "meaning": "xian：r = 1 时 100(1 - J_min/J_q-only)，即成本最优控制比仅隔离控制低的百分比"
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "weights.r1.gap_percent",
+   "meaning": "xian（η = 0.001N）：r = 1 时 100(1 - J_min/J_q-only)"
   }
  ]
 }

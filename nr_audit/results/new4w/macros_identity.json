@@ -1,0 +1,8 @@
+{
+ "path": "paper/generated/nr_numbers.tex",
+ "raw_sha256": "e465d4a27052267d7047db05528741c906f9a1d1e98cc13dc07e8bb22550d12f",
+ "content_sha256": "c6de1e453ac3fcbf6f06d1a1be8120d5ac154d97428388cb638cfbd41504a98f",
+ "policy": "sha256(bytes.replace(CRLF, LF)); preserve all other bytes",
+ "authorization": "AGENTS.md N33（NEW-4w）",
+ "n_macros": 114
+}

@@ -32,7 +32,12 @@ def test_map_values_trace_to_results(mapping):
     fit = json.loads((RES / 'fit_reconstruction.json').read_text(encoding='utf-8'))
     by = {m['macro']: m for m in mapping['macros']}
     q1 = next(r for r in ic['rows'] if r['law'] == 'q_only' and r['factor'] == 1.0)
-    assert by['\\nrICtOneFit']['value'] == q1['state']['t1']
+    if 'new4w/' in by['\\nrICtOneFit']['source']:          # NEW-4w（N33）：西安 η = 0.001N 的初值诊断
+        w = json.loads((RES / 'new4w/xian_theta001.json').read_text(encoding='utf-8'))
+        fit1 = next(r for r in w['initial_condition']['rows'] if r['law'] == 'q_only' and r['factor'] == 1.0)
+        assert by['\\nrICtOneFit']['value'] == fit1['t1']
+    else:
+        assert by['\\nrICtOneFit']['value'] == q1['state']['t1']
     assert by['\\nrFitObjective']['value'] == fit['at_fit_I0']['objective']
     for m in mapping['macros']:
         assert m['source'].startswith('nr_audit/results/') and (SRC.ROOT / m['source']).exists()

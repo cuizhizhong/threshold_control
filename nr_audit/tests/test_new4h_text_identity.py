@@ -14,6 +14,14 @@ import text_identity as TI
 RECEIPT = json.loads((SRC.HERE / 'manuscript_path_migration_NEW4g.json').read_text(encoding='utf-8'))
 BASELINE = json.loads((SRC.ROOT / 'paper/revision_notes/NEW_4g_baseline.json').read_text(encoding='utf-8'))
 MACROS = (SRC.ROOT / LM.MACROS).read_bytes()
+# NEW-4w（N33）授权更新数字宏后，以 results/new4w/macros_identity.json 的内容身份为宏的基线；其余文件仍用 NEW-4g 基线。
+MACRO_BASELINE = copy.deepcopy(BASELINE)
+_NEW4W_MACROS = SRC.HERE / 'results/new4w/macros_identity.json'
+if _NEW4W_MACROS.exists():
+    _reg = json.loads(_NEW4W_MACROS.read_text(encoding='utf-8'))
+    assert _reg['path'] == LM.MACROS and _reg['policy'] == BASELINE['text_identity']['policy']
+    MACRO_BASELINE['text_identity']['content_sha256'][LM.MACROS] = _reg['content_sha256']
+    MACRO_BASELINE['files'][LM.MACROS] = _reg['raw_sha256']
 LOCATIONS = [('manifest', key) for key in RECEIPT['manifest_manuscript_locations']]
 LOCATIONS += [('fragment', i, j) for i, group in enumerate(RECEIPT['file_fragments'])
               for j, _ in enumerate(group['current_fragments'])]
@@ -55,15 +63,15 @@ def test_every_current_location_and_fragment_accepts_only_eol(checkout, where, n
 @pytest.mark.parametrize('before', [b'\n', b'\r\n'], ids=['base-LF', 'base-CRLF'])
 @pytest.mark.parametrize('after', [b'\n', b'\r\n'], ids=['current-LF', 'current-CRLF'])
 def test_number_macros_accept_all_eol_pairs(before, after):
-    result = LM.generated_macro_identity(eol(MACROS, before), eol(MACROS, after), BASELINE)
+    result = LM.generated_macro_identity(eol(MACROS, before), eol(MACROS, after), MACRO_BASELINE)
     assert result['unchanged'] is True
-    assert result['baseline_raw_sha256'] == BASELINE['files'][LM.MACROS]
+    assert result['baseline_raw_sha256'] == MACRO_BASELINE['files'][LM.MACROS]
     assert result['base_git_content_sha256'] == result['current_content_sha256']
 
 
 @pytest.mark.parametrize('damage', ['base', 'current', 'both', 'baseline_content_hash'])
 def test_number_macros_reject_content_damage_even_if_both_sides_match(damage):
-    old, current, baseline = MACROS, MACROS, copy.deepcopy(BASELINE)
+    old, current, baseline = MACROS, MACROS, copy.deepcopy(MACRO_BASELINE)
     if damage in ('base', 'both'):
         old += b' % changed\n'
     if damage in ('current', 'both'):

@@ -71,6 +71,13 @@ def test_approved_bytes_and_current_manuscript_use(adopted, name):
     assert abs(out['size_mm'][0] - factor * WIDTH_MM) < .05
     assert out['width'] == (r'0.8\textwidth' if factor == .8 else r'\textwidth')
     text = (ROOT / out['tex']).read_text(encoding='utf-8')
+    new4w = SRC.HERE / 'results/new4w/figures.json'
+    if name in ('Main8', 'S8') and new4w.exists():
+        # NEW-4w（N33）：西安设计阈值改为 0.001N 后重绘，正式引用改为 figures/new4w/；NEW-4t 字节与收据只读保留。
+        rec = json.loads(new4w.read_text(encoding='utf-8'))[name]
+        assert digest((ROOT / f'paper/figures/new4w/{name}.pdf').read_bytes()) == rec['pdf_sha256']
+        assert f'{{figures/new4w/{name}.pdf}}' in text
+        return
     blocks = re.findall(r'\\begin\{figure\*?\}([\s\S]*?)\\end\{figure\*?\}', text)
     block = next(b for b in blocks if f"\\label{{{out['label']}}}" in b)
     match = re.search(r'\\includegraphics\[([^]]*)\]\{([^}]+)\}', block)

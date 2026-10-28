@@ -48,7 +48,7 @@
       "new4g_baseline_sha256": "104ecd6d90f9202f84c5be060062b19a867e757a90b15d14cf30e352698d5eb0",
       "current_path": "paper/supplement_sections/S6_xian.tex",
       "current_sha256": "6ef1a648e304e298c4b514be7265ea4d9d9d1fb5212558ad21da8493a51e5cfa",
-      "current_content_sha256": "afdb26a6cb487020a776a544ccbb87d1dc5063937da46ffd1714f5a25a98c39d"
+      "current_content_sha256": "542a558b4dbc33324e259e787522c441b95ff03d9a3116752a21d1d8ff8dec9a"
     },
     "contact_S5": {
       "historical_path": "paper/supplement_sections/S5_contact.tex",
@@ -64,7 +64,7 @@
       "new4g_baseline_sha256": "2f14f06ba1180d614865ce7786e4e1299549b922e951befb75c7466d810a7ea0",
       "current_path": "paper/supplement_sections/S8_numerics.tex",
       "current_sha256": "161321ea36559bfcda8e8b7f8fe3537fb580a79cd2414bac41e2bb2985642446",
-      "current_content_sha256": "3d9bed7d5d6da8a83d3950d0fb667b20690e9ce066732ca41f34c844fdf980fd"
+      "current_content_sha256": "0b81c91edfda2a87279faa7429917fdb332c287e5d0b9df0683498a55f82dd97"
     },
     "xian_chapter": {
       "historical_path": "paper/sections/07_xian.tex",
@@ -72,7 +72,7 @@
       "new4g_baseline_sha256": "011979ea924660315492a0d2aaf120579f8cbc7f3821147f53b4158762a1c3a3",
       "current_path": "paper/sections/07_xian.tex",
       "current_sha256": "4952f88ad903d47e8adb831b47d1d1db6357765e06ea1ab6050eea24918f1210",
-      "current_content_sha256": "daf926003d15d8441e4d95fcef04f7ca355990ed378233281b2d8464d75ca972"
+      "current_content_sha256": "a316a0c8f8a8b03e62eabb86bc430064db4a0ad0c1a58a897e7fe8a9b5881b7c"
     }
   },
   "file_fragments": [
@@ -139,7 +139,7 @@
             "sec:sup:threshold-scale"
           ],
           "current_sha256": "6ef1a648e304e298c4b514be7265ea4d9d9d1fb5212558ad21da8493a51e5cfa",
-          "current_content_sha256": "afdb26a6cb487020a776a544ccbb87d1dc5063937da46ffd1714f5a25a98c39d"
+          "current_content_sha256": "542a558b4dbc33324e259e787522c441b95ff03d9a3116752a21d1d8ff8dec9a"
         }
       ]
     },
@@ -185,7 +185,7 @@
             "tab:sup:convergence"
           ],
           "current_sha256": "161321ea36559bfcda8e8b7f8fe3537fb580a79cd2414bac41e2bb2985642446",
-          "current_content_sha256": "3d9bed7d5d6da8a83d3950d0fb667b20690e9ce066732ca41f34c844fdf980fd"
+          "current_content_sha256": "0b81c91edfda2a87279faa7429917fdb332c287e5d0b9df0683498a55f82dd97"
         }
       ]
     },
