@@ -306,11 +306,33 @@ Q(w,\sigma)={}&(\sigma-1)(\sigma^2+1)w^3(w+2)+12(\sigma-1)w^2\\
 \begin{proof}[\normalfont\bfseries 定理~\ref{thm:joint:cost-structure}的证明]
 分三步：内部驻点组成一条曲线 $\zeta=\zeta_s(p)$；由引理~\ref{lem:proof:fold-free}，这条曲线严格增；由此 $G(\cdot;\zeta)$ 单峰。
 
-\emph{第一步：内部驻点曲线。}由 $\varphi'(p)=-2(2p-3)(p-b)/p^4$，$\varphi$ 在 $(1,\zeta_{\rm sw})$ 上为正，最大值为 $\varphi(3/2)=(9-8b)/27$，在 $p\ge\zeta_{\rm sw}$ 时不为正。又 $(b+\sqrt{b^2-8b+8})^2\ge2(2-b)^2$，且 $8(9-8b)<27(2-b)^2$，故 $r_{\rm cont}<27/(9-8b)$。设 $r\le r_{\rm cont}$。固定 $p>1$，$E(p,\cdot)$ 在 $[p,\infty)$ 上严格减，由 $r\varphi(p)$ 降至 $r\varphi(p)-1<0$。因此满足 $1<p<\zeta$、$E(p,\zeta)=0$ 的点恰好组成一条曲线 $\zeta=\zeta_s(p)$，$p\in(1,\zeta_{\rm sw})$。由隐函数定理，$\zeta_s$ 连续可微，且 $\zeta_s'=-E_p/E_\zeta$，所以沿曲线 $\zeta_s'$ 与 $E_p$ 同号。$p\to1$ 或 $p\to\zeta_{\rm sw}$ 时 $E(p,p)=r\varphi(p)\to0$，而 $E_\zeta$ 在有界集上有负上界，故 $\zeta_s(p)-p\to0$，即 $\zeta_s(1+)=1$、$\zeta_s(\zeta_{\rm sw}-)=\zeta_{\rm sw}$。
+\emph{第一步：内部驻点曲线。}由 $\varphi'(p)=-2(2p-3)(p-b)/p^4$，$\varphi$ 在 $(1,\zeta_{\rm sw})$ 上为正，最大值为 $\varphi(3/2)=(9-8b)/27$，在 $p\ge\zeta_{\rm sw}$ 时不为正。又 $(b+\sqrt{b^2-8b+8})^2\ge2(2-b)^2$，且 $8(9-8b)<27(2-b)^2$，故 $r_{\rm cont}<27/(9-8b)$。设 $r\le r_{\rm cont}$，则对所有 $p>1$ 有 $r\varphi(p)<1$。固定 $p>1$，由式\eqref{eq:proof:cost-E}，$E(p,\cdot)$ 在 $[p,\infty)$ 上严格减，且
+\[
+E(p,p)=r\varphi(p),\qquad
+\lim_{\zeta\to\infty}E(p,\zeta)=r\varphi(p)-1<0.
+\]
+因此满足 $1<p<\zeta$、$E(p,\zeta)=0$ 的点恰好组成一条曲线 $\zeta=\zeta_s(p)$，$p\in(1,\zeta_{\rm sw})$。由隐函数定理，$\zeta_s$ 连续可微，且 $\zeta_s'=-E_p/E_\zeta$，所以沿曲线 $\zeta_s'$ 与 $E_p$ 同号。下面估计 $\zeta_s(p)-p$。记 $\kappa=2(1-b)^2/(\zeta_{\rm sw}+1)^3$。由式\eqref{eq:proof:cost-E}，当 $1<p<\zeta_{\rm sw}$、$p\le\zeta\le p+1$ 时 $E_\zeta\le-2(p-b)^2/\zeta^3<-\kappa$。若 $r\varphi(p)<\kappa$，取 $h=r\varphi(p)/\kappa\in(0,1)$，则 $E(p,p+h)<E(p,p)-\kappa h=0$，由 $E(p,\cdot)$ 严格减得 $\zeta_s(p)<p+h$，即
+\[
+0<\zeta_s(p)-p<\frac{r\varphi(p)}{\kappa}.
+\]
+又 $\varphi$ 连续，且 $\varphi(1)=\varphi(\zeta_{\rm sw})=0$，故
+\[
+\lim_{p\to1^{+}}\zeta_s(p)=1,\qquad
+\lim_{p\to\zeta_{\rm sw}^{-}}\zeta_s(p)=\zeta_{\rm sw}.
+\]
 
-\emph{第二步：曲线单调。}$p\le3/2$ 时 $\psi(p)\le0$，故 $E_p>0$。若曲线上某点 $p>3/2$ 处 $E_p=0$，则 $1/\zeta=\sqrt{r\psi(p)}$；代入 $E=0$ 并乘以 $-p^3$，得 $F(p;\sqrt r)=0$。由引理~\ref{lem:proof:fold-free}，$r<r_{\rm cont}$ 时曲线上处处 $E_p\ne0$；$p$ 接近 $1$ 时 $E_p>0$，由连续性曲线上处处 $E_p>0$。令 $r\uparrow r_{\rm cont}$ 取极限，$r=r_{\rm cont}$ 时曲线上 $E_p\ge0$，零点只可能在 $p=2$。两种情形下 $\zeta_s$ 都在 $(1,\zeta_{\rm sw})$ 上严格增，是该区间到自身的连续双射。
+\emph{第二步：曲线单调。}$p\le3/2$ 时 $\psi(p)\le0$，故 $E_p>0$。若曲线上某点 $p>3/2$ 处 $E_p=0$，则 $1/\zeta=\sqrt{r\psi(p)}$；代入 $E=0$ 并乘以 $-p^3$，得 $F(p;\sqrt r)=0$。先设 $r<r_{\rm cont}$。由引理~\ref{lem:proof:fold-free}，曲线上处处 $E_p\ne0$；而 $p\le3/2$ 时 $E_p>0$，由 $E_p$ 沿曲线连续，曲线上处处 $E_p>0$。再设 $r=r_{\rm cont}$。由引理~\ref{lem:proof:fold-free}，曲线上 $E_p$ 的零点只可能在 $p=2$。又 $E$ 关于 $r$ 连续且 $E_\zeta<0$，所以对每个 $p$，$\zeta_s(p)$ 随 $r$ 连续变化；在 $r<r_{\rm cont}$ 时的不等式 $E_p(p,\zeta_s(p))>0$ 中令 $r$ 从左侧趋于 $r_{\rm cont}$，得曲线上 $E_p\ge0$。两种情形下 $\zeta_s$ 都在 $(1,\zeta_{\rm sw})$ 上严格增；结合第一步的两个极限，它是该区间到自身的连续双射。
 
-\emph{第三步：单峰性。}对 $1<\zeta<\zeta_{\rm sw}$，$E(\cdot,\zeta)$ 在 $(1,\zeta)$ 内恰有一个零点 $p^*(\zeta)=\zeta_s^{-1}(\zeta)$；又 $E(1,\zeta)<0<E(\zeta,\zeta)$，所以 $E$ 在 $p^*$ 处由负变正，$G(\cdot;\zeta)$ 先严格减、后严格增，最小点唯一且在内部。对 $\zeta\ge\zeta_{\rm sw}$，$E(\cdot,\zeta)$ 在 $(1,\zeta)$ 内没有零点且 $E(1,\zeta)<0$，所以 $G$ 严格减，最小点为 $p=\zeta$。$p^*=\zeta_s^{-1}$ 连续，且 $\zeta\uparrow\zeta_{\rm sw}$ 时 $p^*\to\zeta_{\rm sw}$，$\zeta\downarrow1$ 时 $p^*\to1$。回到原变量，$c_c^*(S)=c_0S_cp^*(S/S_c)/S$（$S<S_{\rm sw}$）与 $c_c^*(S)=c_0$（$S\ge S_{\rm sw}$）即得 (i)(ii)。由定理~\ref{thm:joint:cost-minimum}(ii)，成本最优控制几乎处处等于 $c_c^*$，再由 (ii) 即得 (iii)。
+\emph{第三步：单峰性。}对 $1<\zeta<\zeta_{\rm sw}$，$E(\cdot,\zeta)$ 在 $(1,\zeta)$ 内恰有一个零点 $p^*(\zeta)=\zeta_s^{-1}(\zeta)$；又 $E(1,\zeta)<0<E(\zeta,\zeta)$，所以 $E$ 在 $p^*$ 处由负变正，$G(\cdot;\zeta)$ 先严格减、后严格增，最小点唯一且在内部。对 $\zeta\ge\zeta_{\rm sw}$，$E(\cdot,\zeta)$ 在 $(1,\zeta)$ 内没有零点且 $E(1,\zeta)<0$，所以 $G$ 严格减，最小点为 $p=\zeta$。由第二步，$p^*$ 是 $(1,\zeta_{\rm sw})$ 到自身的严格增连续双射，故
+\[
+\lim_{\zeta\to1^{+}}p^*(\zeta)=1,\qquad
+\lim_{\zeta\to\zeta_{\rm sw}^{-}}p^*(\zeta)=\zeta_{\rm sw}.
+\]
+回到原变量，$S_c<S<S_{\rm sw}$ 时 $c_c^*(S)=c_0S_cp^*(S/S_c)/S$，$S\ge S_{\rm sw}$ 时 $c_c^*(S)=c_0$。由上述两个极限，
+\[
+\lim_{S\to S_c^{+}}c_c^*(S)=\lim_{S\to S_{\rm sw}^{-}}c_c^*(S)=c_0,
+\]
+故 $c_c^*$ 在 $(S_c,\infty)$ 上连续，即得 (i)(ii)。由定理~\ref{thm:joint:cost-minimum}(ii)，成本最优控制几乎处处等于 $c_c^*$，再由 (ii) 即得 (iii)。
 \end{proof}
 
 \begin{proof}[\normalfont\bfseries 推论~\ref{cor:joint:capacity-clip}的证明]
