@@ -16,7 +16,7 @@
       "new4g_baseline_sha256": "4ada262f80854fc6a78bdc27ee133a5d035ec9025f629553f6a397bea8bad2b8",
       "current_path": "paper/sections/06_numerics.tex",
       "current_sha256": "c3bc8f0d35ab96db36723ffec28618d89ef8d8e68d60053a8ad9009d62a3f2a2",
-      "current_content_sha256": "bb219f08b324f268adf1185a5c87bf309f6c3c8b8be7eee33e78d49936487e1b"
+      "current_content_sha256": "cd05fd61f040961153e07ac745eb9f7b37b8ddc8392c491da337dc4f32fc975d"
     },
     "model_section": {
       "historical_path": "paper/sections/02_model.tex",
@@ -24,7 +24,7 @@
       "new4g_baseline_sha256": "2c43997a5715c83c9ca1cc591b48d9fd6302c3d0ffc9e7f0a5e983583a2eac03",
       "current_path": "paper/sections/02_model.tex",
       "current_sha256": "df71ee4ba2d4fcffb2616fbe86605dc9ce9ca51d9bb635244049f1d33ac764ff",
-      "current_content_sha256": "154b85611b3cca30ff432f2c1a6aa8dc3480a2d77dbc5e7656986abe09dc8216"
+      "current_content_sha256": "9d42dc007618f1a266239ada56439b601af7a5f6a173f4528359317f7be6b7f0"
     },
     "numerics_S1": {
       "historical_path": "paper/supplement_sections/S1_baseline.tex",
@@ -48,7 +48,7 @@
       "new4g_baseline_sha256": "104ecd6d90f9202f84c5be060062b19a867e757a90b15d14cf30e352698d5eb0",
       "current_path": "paper/supplement_sections/S6_xian.tex",
       "current_sha256": "6ef1a648e304e298c4b514be7265ea4d9d9d1fb5212558ad21da8493a51e5cfa",
-      "current_content_sha256": "1bc14c920ade3b1b5aa0f32944789ca2c85bed27d9ceaac90ae2afb6d15486d0"
+      "current_content_sha256": "afdb26a6cb487020a776a544ccbb87d1dc5063937da46ffd1714f5a25a98c39d"
     },
     "contact_S5": {
       "historical_path": "paper/supplement_sections/S5_contact.tex",
@@ -122,7 +122,7 @@
             "sec:sup:medical-link"
           ],
           "current_sha256": "2d61ee3eead7a8f1b0db4352376fe64781f43a007d6a9ba0ea91c344e4a15b36",
-          "current_content_sha256": "5919763626f185c9ed5f8c7f77058cbc9b027d4334882e2ae6fd9cca2ee391ab"
+          "current_content_sha256": "f019a8b6a9d454e2e5343e303fcbc8b916b3bb897b98f75b190393274a78c374"
         },
         {
           "path": "paper/supplement_sections/S6_xian.tex",
@@ -139,7 +139,7 @@
             "sec:sup:threshold-scale"
           ],
           "current_sha256": "6ef1a648e304e298c4b514be7265ea4d9d9d1fb5212558ad21da8493a51e5cfa",
-          "current_content_sha256": "1bc14c920ade3b1b5aa0f32944789ca2c85bed27d9ceaac90ae2afb6d15486d0"
+          "current_content_sha256": "afdb26a6cb487020a776a544ccbb87d1dc5063937da46ffd1714f5a25a98c39d"
         }
       ]
     },

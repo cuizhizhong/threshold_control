@@ -130,22 +130,14 @@ J=\frac{w_q}{c_0\theta}\int_{s_c}^{s^*}
     \label{fig:xian_heatmaps}
 \end{figure}
 
-\subsection{设计阈值的量级}
+\subsection{设计阈值的取值}
 \label{sec:sup:threshold-scale}
-正文西安算例取 $N=\num{13163000}$\cite{XianStat2021}、$\eta=0.002N=\num{26326}$。这一阈值来自下面的量级估计，它与第~\ref{sec:sup:medical-link}~节的充分条件是两种不同的依据。
-
-陈胤孜等\cite{Chen2021ICUForecast}基于既往资料预测，2021 年全国每10万人综合 ICU 床位约为 $4.37$ 张；这一数值为全国预测量，而非西安同期可用容量的实测值。Angulo 等\cite[补充材料 S4.1]{Angulo2021}对早期 COVID-19 采用需要重症监护的感染者比例名义值 $0.60\times0.15\times0.28=0.0252$。将前者作为人均容量参考、不扣除既有占用，并将后者移作参考系数 $\rho_{\mathrm{ICU}}$，按比例情景
-\[
-\eta=\frac{C}{\rho_{\mathrm{ICU}}},\qquad
-\theta=\frac{C/N}{\rho_{\mathrm{ICU}}}
-\]
-得到
-\[
-\theta=\frac{4.37/10^5}{0.0252}\approx1.73\times10^{-3},
-\qquad \eta\approx2.28\times10^4.
-\]
-正文在这一量级附近取 $\theta=0.002$ 作为设计情景。按相同的参考系数反算，它对应每10万人 $5.04$ 张、全市约 $663$ 张的名义容量。
-
-这一比例移植只给出阈值的量级，不是当地医疗容量的临床校准。以确诊病例或全部感染者为分母的 ICU 入院风险可能不同\cite{Pung2023Undetected}；参考系数 $\rho_{\mathrm{ICU}}$ 也没有依据共同的需求函数和初始负担估计，不等同于第~\ref{sec:sup:medical-link}~节中的 $p_{\rm ICU}L\beta c_0S_0/N$。
+西安情景按引理~\ref{lem:sup:infected-bound}选取阈值，所用名义值如下：
+\begin{enumerate}
+\item 重症监护床位：2021 年全国每 10 万人 $4.77$ 张\cite{Zheng2023ICUBeds}，按 $N=\num{13163000}$\cite{XianStat2021}对应西安约 $628$ 张；
+\item 需要重症监护的比例：西安市第四人民医院收治的 $699$ 例确诊中，重型和危重型共 $21$ 例，约占 $3.0\%$\cite{Wang2023XianSevere}；按 Angulo 等\cite[补充材料 S4.1]{Angulo2021}的假设，其中 $28\%$ 需要重症监护，得 $p_{\rm ICU}\approx0.0084$；
+\item 西安参数下 $\kappa_I\approx5.63$。
+\end{enumerate}
+于是 $C_{\rm ICU}/(p_{\rm ICU}\kappa_IN)\approx1.007\times10^{-3}$，正文取 $\theta=0.001$，即 $\eta=\num{13163}$。这些是名义值，用来确定阈值的量级，不是当地容量的临床标定。
 
 \FloatBarrier

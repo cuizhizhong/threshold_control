@@ -29,7 +29,7 @@
 \renewcommand{\thesection}{S\arabic{section}}
 \begin{document}
 \maketitle
-本补充材料给出正文未展开的推导、参数分析与数值核验：第~\ref{sec:sup:medical-link}~节说明阈值与医疗需求的联系；第~\ref{sec:sup:single-control}~节汇集仅隔离控制的参数影响与基准参数扫描；第~\ref{sec:sup:inflection}~节分析拐点的相对位置；第~\ref{sec:sup:explicit}~节给出显式控制族的轨迹、时长与能力范围；第~\ref{sec:sup:weight-structure}~节补充成本最优控制的权重结构；第~\ref{sec:sup:xian}~节给出西安算例的人口缩放、阈值扫描与设计阈值的量级；第~\ref{sec:sup:return}~节讨论隔离易感者回流；第~\ref{sec:sup:numerics}~节给出数值方法与核验。
+本补充材料给出正文未展开的推导、参数分析与数值核验：第~\ref{sec:sup:medical-link}~节说明阈值与医疗需求的联系；第~\ref{sec:sup:single-control}~节汇集仅隔离控制的参数影响与基准参数扫描；第~\ref{sec:sup:inflection}~节分析拐点的相对位置；第~\ref{sec:sup:explicit}~节给出显式控制族的轨迹、时长与能力范围；第~\ref{sec:sup:weight-structure}~节补充成本最优控制的权重结构；第~\ref{sec:sup:xian}~节给出西安算例的人口缩放、阈值扫描与设计阈值的取值；第~\ref{sec:sup:return}~节讨论隔离易感者回流；第~\ref{sec:sup:numerics}~节给出数值方法与核验。
 
 记号与正文相同：$\eta$ 为非隔离感染者 $I$ 的阈值，$\theta=\eta/N$ 为阈值比例，$S^*$、$S_c$ 分别为启动与退出时的易感者人数；归一化变量记为 $s=S/N$、$i=I/N$，并记 $s_0=S_0/N$、$i_0=I_0/N$、$s^*=S^*/N$、$s_c=S_c/N$、$\bar s=\bar S/N$。指标的定义与统计约定见正文第~\ref{sec:cost}~节，除另有说明外，成本取默认权重 $w_c=1$、$w_q=2$；数值方法见正文第~\ref{sec:num:methods}~节，各算例的数值设置见代码仓库。
 \input{supplement_sections/S1_medical}
