@@ -1,0 +1,52 @@
+{
+  "created_utc": "2026-10-27T13:52:27.478374+00:00",
+  "authorization": "作者于2026-10-27明确启动计划，仅数值研究核验，不改论文、不推送。",
+  "python": "3.10.20 | packaged by Anaconda, Inc. | (main, Jun 11 2026, 15:13:20) [MSC v.1942 64 bit (AMD64)]",
+  "executable": "E:\\anaconda\\envs\\thesis\\python.exe",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "git_head": "dc8f09968a2e92e9d56ec42f7f2b17552f2e740a",
+  "git_status_initial": "?? ai/return_optimal_control_numerical_plan_20261027.md\n?? nr_audit/return_optimal_control_14d/\n",
+  "packages": {
+    "numpy": "2.2.5",
+    "scipy": "1.15.3",
+    "matplotlib": "3.10.9",
+    "pytest": "9.1.1"
+  },
+  "sources": {
+    "r7_return/params.py": "7d31ebfa30fb3c005b9d1a483b423cc71805bb715f4b4d5addd9d2feceaad6b5",
+    "r7_return/model.py": "55034a2a690ac15b51293a401028543fbdb39fbc51dc7925e05a792f971f6d0c",
+    "r7_return/alloc.py": "975cde553bf53efa513a70d493d9edafa5ea921e469d4149d22d6817bfe1186d",
+    "r7_return/results/r7_3_exponential_return.json": "3ca0a3d245314230df83c0717e07ed73ab67129803c284ea46eab8921cdfb05f",
+    "r7_return/results/r7_3_convergence.json": "bbd7e4ea49a1d8e94623c3c2d27bdc67d690b592a5c189a01129a17f150b1d3b",
+    "nr_audit/results/return_import.json": "f71b20b241e2ac95b52e6b96e6e25630d0b5ea3c237cc44c0f2b2ae24110c215",
+    "ai/return_optimal_control_numerical_plan_20261027.md": "eaf8c448d485c77335345dce4115f5a4621d37221fbb916db2095c6e0cc61ce5"
+  },
+  "protected_file_count": 694,
+  "dependency_attempts": [
+    {
+      "action": "task-local pip install casadi --no-deps in sandbox",
+      "status": "failed",
+      "reason": "proxy 127.0.0.1:7897 WinError 10013"
+    },
+    {
+      "action": "same install with authorized network escalation",
+      "status": "succeeded",
+      "version": "3.8.2",
+      "location": "_runtime"
+    }
+  ],
+  "scope": {
+    "cases": [
+      "base",
+      "xian"
+    ],
+    "mean_stay_days": 14,
+    "objectives": [
+      "time",
+      "infections",
+      "cost"
+    ],
+    "postexit_threshold_required": true,
+    "new_scientific_optimization_calls": 0
+  }
+}

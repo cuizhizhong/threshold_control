@@ -1,0 +1,89 @@
+{
+  "created_utc": "2026-10-27T13:52:27.478374+00:00",
+  "authorization": "作者于2026-10-27明确启动计划，仅数值研究核验，不改论文、不推送。",
+  "python": "3.10.20 | packaged by Anaconda, Inc. | (main, Jun 11 2026, 15:13:20) [MSC v.1942 64 bit (AMD64)]",
+  "executable": "E:\\anaconda\\envs\\thesis\\python.exe",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "git_head": "dc8f09968a2e92e9d56ec42f7f2b17552f2e740a",
+  "git_status_initial": "?? ai/return_optimal_control_numerical_plan_20261027.md\n?? nr_audit/return_optimal_control_14d/\n",
+  "packages": {
+    "numpy": "2.2.5",
+    "scipy": "1.15.3",
+    "matplotlib": "3.10.9",
+    "pytest": "9.1.1"
+  },
+  "sources": {
+    "r7_return/params.py": "7d31ebfa30fb3c005b9d1a483b423cc71805bb715f4b4d5addd9d2feceaad6b5",
+    "r7_return/model.py": "55034a2a690ac15b51293a401028543fbdb39fbc51dc7925e05a792f971f6d0c",
+    "r7_return/alloc.py": "975cde553bf53efa513a70d493d9edafa5ea921e469d4149d22d6817bfe1186d",
+    "r7_return/results/r7_3_exponential_return.json": "3ca0a3d245314230df83c0717e07ed73ab67129803c284ea46eab8921cdfb05f",
+    "r7_return/results/r7_3_convergence.json": "bbd7e4ea49a1d8e94623c3c2d27bdc67d690b592a5c189a01129a17f150b1d3b",
+    "nr_audit/results/return_import.json": "f71b20b241e2ac95b52e6b96e6e25630d0b5ea3c237cc44c0f2b2ae24110c215",
+    "ai/return_optimal_control_numerical_plan_20261027.md": "eaf8c448d485c77335345dce4115f5a4621d37221fbb916db2095c6e0cc61ce5"
+  },
+  "protected_file_count": 694,
+  "dependency_attempts": [
+    {
+      "action": "task-local pip install casadi --no-deps in sandbox",
+      "status": "failed",
+      "reason": "proxy 127.0.0.1:7897 WinError 10013"
+    },
+    {
+      "action": "same install with authorized network escalation",
+      "status": "succeeded",
+      "version": "3.8.2",
+      "location": "_runtime"
+    }
+  ],
+  "scope": {
+    "cases": [
+      "base",
+      "xian"
+    ],
+    "mean_stay_days": 14,
+    "objectives": [
+      "time",
+      "infections",
+      "cost"
+    ],
+    "postexit_threshold_required": true,
+    "new_scientific_optimization_calls": 178
+  },
+  "preflight_snapshot": "results/manifest_preflight.json",
+  "execution_status": "completed",
+  "execution_counts": {
+    "primary_NLP_calls": 109,
+    "primary_solver_success": 109,
+    "shooting_NLP_calls": 69,
+    "shooting_solver_success": 68,
+    "evaluation_log_entries": 190,
+    "independent_solve_ivp_segment_calls": 6715,
+    "complete_trajectory_evaluations": 80,
+    "independent_start_integrations": 4,
+    "initial_guess_solve_ivp_calls": 109,
+    "count_note": "完整轨迹可由多次分段ODE调用组成；不把分段调用数等同疫情轨迹数。优化内CVODES及shooting尾段评价另见求解器日志，不冒充独立验证。",
+    "shooting_internal_tail_IVP": 4514,
+    "shooting_independent_start_IVP": 9,
+    "shooting_selfcheck_IVP": 36
+  },
+  "current_code_sha256": {
+    "collocation.py": "85d6eebbf1553b791add54c1647565c6a4cfaf28edcfdaa4904bfcaeb5908e2c",
+    "evaluate.py": "fc839938e1917a545a8f9bdc0cc3c66f5159f033fddb7423efb6b3f9ae4421b6",
+    "preflight.py": "0180435d39a1d7488d17538eca929fb20bd672547ce2c540c425fbb927a5fedf",
+    "refine_shooting.py": "fb9efd7754e2005359e76bcdb1c442049857a40da7362766f9c34f736398ff98",
+    "run_collocation.py": "df9319e5e05e658959581baf0c6b1529929195b921c02452a07db5f927ea543e",
+    "run_shooting.py": "b204606bed7d3993e5dd28d87b7020786ee8d4e4bdb17a13912739bf6cbd9b42",
+    "shooting.py": "767032008a00ec5f8f02ab12c2da7ea11be3bd95f849ef936d5d80edbb1fb109",
+    "shooting_selfcheck.py": "df3a395aefbb3b1af81a6c04e706b19bedbce9881faa8d9bbbcef68566ea9f8f",
+    "summarize.py": "39d86658140dcf661639f0ddb856b57275130a36b89c1bb4ed7ba858ebec6155",
+    "test_math.py": "a51fdc1db51d44a098e8d936331fa5e94b86a38978a934f9197ad147fdae4e5d",
+    "validate_candidates.py": "cb1abbcd56dea13b72ff197798824cc410b3a913e18832476df7e1d325a5a592",
+    "tests\\test_evaluate.py": "7582df6fd620adeb84dadb5e2cf52c214800c2f40e43ed038df7737f6e28f1ba"
+  },
+  "final_acceptance": "results/final_acceptance_v2.json",
+  "final_protection": {
+    "checked_files": 694,
+    "changed": [],
+    "pass": true
+  }
+}

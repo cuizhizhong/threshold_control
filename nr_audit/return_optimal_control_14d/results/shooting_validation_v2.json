@@ -1,0 +1,152 @@
+{
+  "complete": true,
+  "receipt_version": "2",
+  "evaluator_sha256": "fc839938e1917a545a8f9bdc0cc3c66f5159f033fddb7423efb6b3f9ae4421b6",
+  "run_id": "evalfc839938e1_shooting_1793110283189407500",
+  "evaluations": {
+    "base": {
+      "evaluation_id": "base_8b09229e8333",
+      "saved_path": "results\\validation\\v2\\evalfc839938e1_shooting_1793110283189407500\\base_cost_shooting_n80_DOP853.json",
+      "archive_path": "results\\evaluations\\base_8b09229e8333.json",
+      "case": "base",
+      "method": "DOP853",
+      "rtol": 1e-12,
+      "tail_tol_persons": 1e-07,
+      "evaluation_schema": "2",
+      "evaluator_sha256": "fc839938e1917a545a8f9bdc0cc3c66f5159f033fddb7423efb6b3f9ae4421b6",
+      "numeric_status": "satisfied",
+      "threshold_numeric_status": "satisfied",
+      "first_exit_assessment": {
+        "time": 23.866190028479124,
+        "status": "terminal_within_tolerance",
+        "early": false,
+        "time_tolerance_days": 1e-08,
+        "terminal_within_tolerance": true,
+        "note": "终端在状态容差内，未定位到严格变号根；此t2为数值端点身份，非精确事件证书"
+      },
+      "duration": 20.691071600413338,
+      "J": 2.764755291395983,
+      "C_arc": 373.59428743576535,
+      "C_exit": 423.1243433065678,
+      "C_cut": 623.5414294358234,
+      "C_infinity_interval": [
+        623.5414294358234,
+        623.5414295358233
+      ],
+      "tail_bound_persons": 1.0000000000000021e-07,
+      "Sq_exit": 163.71548669167376,
+      "exit_residual_normalized": 1.4364343048356432e-12,
+      "first_Sc_exit_time": 23.866190028479124,
+      "early_first_Sc_exit": false,
+      "platform_relative_deviation": 0.0,
+      "threshold_peak_ratio": 1.0,
+      "post_threshold_violation_relative": 0.0,
+      "mass_residual_normalized": 1.4432899320127035e-14,
+      "cumulative_identity_residual_normalized": 1.5543122344752192e-15,
+      "minimum_compartment_normalized": 5.301455784923772e-13,
+      "platform_min_S_minus_Sc_normalized": 1.4364343048356432e-12,
+      "control_bound_violation": 0.0,
+      "feasible": true,
+      "checks": {
+        "exit_match": true,
+        "first_exit_matched": true,
+        "no_early_exit": true,
+        "platform": true,
+        "post_threshold": true,
+        "nonnegative": true,
+        "mass": true,
+        "cumulative_identity": true,
+        "control_bounds": true,
+        "platform_domain": true,
+        "tail_reached": true
+      },
+      "ode_calls": 81,
+      "nfev": 6231,
+      "candidate_canonical_json_sha256": "89a0a48ad6ac9a2e9cfb74956cc21bde53daf4636e496799d6501f9e8bd3f8c1",
+      "candidate_source": "results\\shooting_attempts\\base_cost_n80_cross_collocation_best_1793109672999589500.json",
+      "candidate_raw_file_sha256": "089e3a373f7f36236e578da71def1643bfc95204552cbf35bd02e921e71a67a2",
+      "J_ODE_minus_shooting": 8.748557434046234e-14,
+      "comparison_with_main_n160": {
+        "J_difference": 5.170485067740316e-05,
+        "C_interval_difference_persons": [
+          4.83714871961638e-05,
+          4.8571487127446744e-05
+        ],
+        "note": "不同控制离散化的差异单独报告，尾界不代表离散化误差"
+      }
+    },
+    "xian": {
+      "evaluation_id": "xian_b86d0c30eeb7",
+      "saved_path": "results\\validation\\v2\\evalfc839938e1_shooting_1793110283189407500\\xian_cost_shooting_n80_DOP853.json",
+      "archive_path": "results\\evaluations\\xian_b86d0c30eeb7.json",
+      "case": "xian",
+      "method": "DOP853",
+      "rtol": 1e-12,
+      "tail_tol_persons": 1e-05,
+      "evaluation_schema": "2",
+      "evaluator_sha256": "fc839938e1917a545a8f9bdc0cc3c66f5159f033fddb7423efb6b3f9ae4421b6",
+      "numeric_status": "boundary_roundoff",
+      "threshold_numeric_status": "boundary_roundoff",
+      "first_exit_assessment": {
+        "time": 523.0093479164126,
+        "status": "root_at_terminal_roundoff",
+        "early": false,
+        "time_tolerance_days": 5.061132222731045e-08,
+        "terminal_within_tolerance": true
+      },
+      "duration": 506.11322227310444,
+      "J": 175.72557305631173,
+      "C_arc": 9827741.469242381,
+      "C_exit": 9878055.251385262,
+      "C_cut": 10451960.917635137,
+      "C_infinity_interval": [
+        10451960.917635137,
+        10451960.917645138
+      ],
+      "tail_bound_persons": 1.0000000000000006e-05,
+      "Sq_exit": 310819.3360224738,
+      "exit_residual_normalized": 4.440892098500626e-16,
+      "first_Sc_exit_time": 523.0093479164126,
+      "early_first_Sc_exit": false,
+      "platform_relative_deviation": 7.105427357601027e-15,
+      "threshold_peak_ratio": 1.000000000000007,
+      "post_threshold_violation_relative": 7.105427357601002e-15,
+      "mass_residual_normalized": 1.6653345369377348e-15,
+      "cumulative_identity_residual_normalized": 8.881784197001252e-16,
+      "minimum_compartment_normalized": 1.9603392834030738e-14,
+      "platform_min_S_minus_Sc_normalized": 4.440892098500626e-16,
+      "control_bound_violation": 0.0,
+      "feasible": true,
+      "checks": {
+        "exit_match": true,
+        "first_exit_matched": true,
+        "no_early_exit": true,
+        "platform": true,
+        "post_threshold": true,
+        "nonnegative": true,
+        "mass": true,
+        "cumulative_identity": true,
+        "control_bounds": true,
+        "platform_domain": true,
+        "tail_reached": true
+      },
+      "ode_calls": 81,
+      "nfev": 29481,
+      "candidate_canonical_json_sha256": "270dd394f2a3f328d8b6604ce211059706f643f5b957be0cf5f5827dbe5dcaa6",
+      "candidate_source": "results\\shooting_attempts\\xian_cost_n80_cross_collocation_best_1793109712136783900.json",
+      "candidate_raw_file_sha256": "7b55201c72bb4140460910eecffedd0170e8b0f22cd96decbd4d03d6313f5a89",
+      "J_ODE_minus_shooting": 2.6290081223123707e-11,
+      "comparison_with_main_n160": {
+        "J_difference": 0.0010099492891697537,
+        "C_interval_difference_persons": [
+          -1.5037322994321585,
+          -1.503712298348546
+        ],
+        "note": "不同控制离散化的差异单独报告，尾界不代表离散化误差"
+      }
+    }
+  },
+  "source": "results\\shooting_cross_n80.json",
+  "raw_file_sha256": "b367f7942ac773b89a0b0f1b52494994e965ea3bf853616788df5bb72d376bb4",
+  "all_scientific_checks_pass": true
+}

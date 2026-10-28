@@ -1,0 +1,648 @@
+{
+  "complete": true,
+  "protocol": "infection_scale10000_n160_independent_full_ODE",
+  "old_best_untouched": true,
+  "references": {
+    "base": {
+      "methods": {
+        "DOP853": {
+          "evaluation_id": "reference_base_q_only_52b60021",
+          "saved_path": "results\\validation\\refined_infections\\reference_base_q_only_DOP853_tail1e-07.json",
+          "archive_path": "results\\evaluations\\reference_base_q_only_52b60021.json",
+          "case": "base",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 1e-07,
+          "duration": 19.212783499643617,
+          "J": 2.8228580547909035,
+          "C_arc": 355.702759788721,
+          "C_exit": 405.23281565952345,
+          "C_cut": 623.1889631261861,
+          "C_infinity_interval": [
+            623.1889631261861,
+            623.188963226186
+          ],
+          "tail_bound_persons": 1.000000000000001e-07,
+          "Sq_exit": 181.60701433981447,
+          "exit_residual_normalized": 0.0,
+          "first_Sc_exit_time": 22.387901927709404,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 4.440892098500625e-16,
+          "threshold_peak_ratio": 1.0,
+          "post_threshold_violation_relative": 0.0,
+          "mass_residual_normalized": 1.4210854715202004e-14,
+          "cumulative_identity_residual_normalized": 6.661338147750939e-16,
+          "minimum_compartment_normalized": 5.237210797978973e-13,
+          "platform_min_S_minus_Sc_normalized": 0.0,
+          "control_bound_violation": 0.0,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 2,
+          "nfev": 4135
+        },
+        "Radau": {
+          "evaluation_id": "reference_base_q_only_febe746e",
+          "saved_path": "results\\validation\\refined_infections\\reference_base_q_only_Radau_tail1e-07.json",
+          "archive_path": "results\\evaluations\\reference_base_q_only_febe746e.json",
+          "case": "base",
+          "method": "Radau",
+          "rtol": 1e-12,
+          "tail_tol_persons": 1e-07,
+          "duration": 19.212783499635226,
+          "J": 2.8228580546485293,
+          "C_arc": 355.70275978860434,
+          "C_exit": 405.23281565941943,
+          "C_cut": 623.1889631261831,
+          "C_infinity_interval": [
+            623.1889631261831,
+            623.1889632261831
+          ],
+          "tail_bound_persons": 1.0000000000000007e-07,
+          "Sq_exit": 181.60701433991807,
+          "exit_residual_normalized": 0.0,
+          "first_Sc_exit_time": 22.387901927700963,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 0.0,
+          "threshold_peak_ratio": 1.0,
+          "post_threshold_violation_relative": 0.0,
+          "mass_residual_normalized": 1.6431300764452317e-14,
+          "cumulative_identity_residual_normalized": 3.6637359812630166e-15,
+          "minimum_compartment_normalized": 5.237210752376972e-13,
+          "platform_min_S_minus_Sc_normalized": 0.0,
+          "control_bound_violation": 0.0,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 2,
+          "nfev": 40407
+        }
+      },
+      "method_comparison": {
+        "J_absolute_difference": 1.4237411249951037e-10,
+        "C_cut_absolute_difference_persons": 2.9558577807620168e-12,
+        "C_intervals_overlap": true,
+        "exit_residual_difference_normalized": 0.0,
+        "both_numerically_feasible": true
+      }
+    },
+    "xian": {
+      "methods": {
+        "DOP853": {
+          "evaluation_id": "reference_xian_q_only_1d9e5ce6",
+          "saved_path": "results\\validation\\refined_infections\\reference_xian_q_only_DOP853_tail1e-05.json",
+          "archive_path": "results\\evaluations\\reference_xian_q_only_1d9e5ce6.json",
+          "case": "xian",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 1e-05,
+          "duration": 425.26444424469554,
+          "J": 192.88245206834412,
+          "C_arc": 9804885.001456266,
+          "C_exit": 9855198.783599148,
+          "C_cut": 10449837.723857308,
+          "C_infinity_interval": [
+            10449837.723857308,
+            10449837.723867308
+          ],
+          "tail_bound_persons": 9.999999999999962e-06,
+          "Sq_exit": 333675.80380858615,
+          "exit_residual_normalized": -2.7755575615628914e-17,
+          "first_Sc_exit_time": 442.16056988800364,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 6.2172489379008956e-15,
+          "threshold_peak_ratio": 1.0000000000000062,
+          "post_threshold_violation_relative": 6.217248937900877e-15,
+          "mass_residual_normalized": 3.9968028886505635e-15,
+          "cumulative_identity_residual_normalized": 3.552713678800501e-15,
+          "minimum_compartment_normalized": 1.9432658231083603e-14,
+          "platform_min_S_minus_Sc_normalized": -2.7755575615628914e-17,
+          "control_bound_violation": 1.6653345369377348e-16,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 2,
+          "nfev": 27139
+        },
+        "Radau": {
+          "evaluation_id": "reference_xian_q_only_91460fa6",
+          "saved_path": "results\\validation\\refined_infections\\reference_xian_q_only_Radau_tail1e-05.json",
+          "archive_path": "results\\evaluations\\reference_xian_q_only_91460fa6.json",
+          "case": "xian",
+          "method": "Radau",
+          "rtol": 1e-12,
+          "tail_tol_persons": 1e-05,
+          "duration": 425.264444244698,
+          "J": 192.8824520677752,
+          "C_arc": 9804885.001456335,
+          "C_exit": 9855198.783599196,
+          "C_cut": 10449837.723857462,
+          "C_infinity_interval": [
+            10449837.723857462,
+            10449837.723867463
+          ],
+          "tail_bound_persons": 9.999999999999975e-06,
+          "Sq_exit": 333675.80380858586,
+          "exit_residual_normalized": 0.0,
+          "first_Sc_exit_time": 442.16056988800614,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 1.776356839400252e-15,
+          "threshold_peak_ratio": 1.0000000000000018,
+          "post_threshold_violation_relative": 1.7763568394002505e-15,
+          "mass_residual_normalized": 5.10702591327572e-15,
+          "cumulative_identity_residual_normalized": 8.659739592076221e-15,
+          "minimum_compartment_normalized": 1.9432658231225753e-14,
+          "platform_min_S_minus_Sc_normalized": 0.0,
+          "control_bound_violation": 5.551115123125783e-17,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 2,
+          "nfev": 64025
+        }
+      },
+      "method_comparison": {
+        "J_absolute_difference": 5.68917357668397e-10,
+        "C_cut_absolute_difference_persons": 1.5459954738616943e-07,
+        "C_intervals_overlap": true,
+        "exit_residual_difference_normalized": 2.7755575615628914e-17,
+        "both_numerically_feasible": true
+      }
+    }
+  },
+  "candidates": {
+    "base_infections_n160_c_only_1793109669043574000": {
+      "candidate_sha256": "e1c4136d58440c85abfda88c6fde612501a3759e7f13422f62dd5a2358302b4a",
+      "candidate_source": "results\\collocation\\base_infections_n160_c_only_1793109669043574000.json",
+      "attempt": "base_infections_n160_c_only_1793109669043574000",
+      "n": 160,
+      "objective": "infections",
+      "evaluation_id": "base_c751afb6e58a",
+      "saved_path": "results\\validation\\base_infections_n160_c_only_1793109669043574000_e1c4136d58_DOP853_tail1e-07.json",
+      "archive_path": "results\\evaluations\\base_c751afb6e58a.json",
+      "case": "base",
+      "method": "DOP853",
+      "rtol": 1e-12,
+      "tail_tol_persons": 1e-07,
+      "duration": 19.212783509532034,
+      "J": 2.8228580603720856,
+      "C_arc": 355.7027598003017,
+      "C_exit": 405.23281567110416,
+      "C_cut": 623.1889631263078,
+      "C_infinity_interval": [
+        623.1889631263078,
+        623.1889632263078
+      ],
+      "tail_bound_persons": 9.999999999999988e-08,
+      "Sq_exit": 181.60701432822574,
+      "exit_residual_normalized": 1.0436096431476471e-14,
+      "first_Sc_exit_time": 22.38790193759782,
+      "early_first_Sc_exit": false,
+      "platform_relative_deviation": 0.0,
+      "threshold_peak_ratio": 1.0,
+      "post_threshold_violation_relative": 0.0,
+      "mass_residual_normalized": 1.4210854715202004e-14,
+      "cumulative_identity_residual_normalized": 7.771561172376096e-16,
+      "minimum_compartment_normalized": 5.237210798000799e-13,
+      "platform_min_S_minus_Sc_normalized": 1.0436096431476471e-14,
+      "control_bound_violation": 0.0,
+      "feasible": true,
+      "checks": {
+        "exit_match": true,
+        "no_early_exit": true,
+        "platform": true,
+        "post_threshold": true,
+        "nonnegative": true,
+        "mass": true,
+        "cumulative_identity": true,
+        "control_bounds": true,
+        "platform_domain": true,
+        "tail_reached": true
+      },
+      "ode_calls": 161,
+      "nfev": 8608,
+      "collocation_comparison": {
+        "J_ODE_minus_collocation": 1.6294388061055542e-10,
+        "C_interval_minus_collocation": [
+          -7.745518360025017e-08,
+          2.254478204122279e-08
+        ],
+        "exit_state_N_ODE_minus_collocation": [
+          1.04638520070921e-14,
+          2.334799020786704e-13
+        ]
+      },
+      "comparison_with_q_only": {
+        "C_interval_difference_persons": [
+          -9.98782070382731e-08,
+          1.001217242446728e-07
+        ],
+        "C_intervals_overlap": true,
+        "duration_difference_days": 9.888417196179944e-09,
+        "J_difference": 5.581182183078681e-09,
+        "both_numerically_feasible": true
+      }
+    },
+    "base_infections_n160_migrated_1793109671771437100": {
+      "candidate_sha256": "a07b5ff6a4e6e8d3868c40aa0fab8990f834bd6332838738d396516d186b9410",
+      "candidate_source": "results\\collocation\\base_infections_n160_migrated_1793109671771437100.json",
+      "attempt": "base_infections_n160_migrated_1793109671771437100",
+      "n": 160,
+      "objective": "infections",
+      "evaluation_id": "base_ba691b814cbd",
+      "saved_path": "results\\validation\\base_infections_n160_migrated_1793109671771437100_a07b5ff6a4_DOP853_tail1e-07.json",
+      "archive_path": "results\\evaluations\\base_ba691b814cbd.json",
+      "case": "base",
+      "method": "DOP853",
+      "rtol": 1e-12,
+      "tail_tol_persons": 1e-07,
+      "duration": 19.212783509532073,
+      "J": 2.8228580603722646,
+      "C_arc": 355.70275980030107,
+      "C_exit": 405.23281567110354,
+      "C_cut": 623.1889631263069,
+      "C_infinity_interval": [
+        623.1889631263069,
+        623.1889632263069
+      ],
+      "tail_bound_persons": 1.0000000000000001e-07,
+      "Sq_exit": 181.60701432822628,
+      "exit_residual_normalized": 1.0547118733938987e-14,
+      "first_Sc_exit_time": 22.38790193759786,
+      "early_first_Sc_exit": false,
+      "platform_relative_deviation": 0.0,
+      "threshold_peak_ratio": 1.0,
+      "post_threshold_violation_relative": 0.0,
+      "mass_residual_normalized": 1.4432899320127035e-14,
+      "cumulative_identity_residual_normalized": 9.992007221626409e-16,
+      "minimum_compartment_normalized": 5.237210798001036e-13,
+      "platform_min_S_minus_Sc_normalized": 1.0547118733938987e-14,
+      "control_bound_violation": 0.0,
+      "feasible": true,
+      "checks": {
+        "exit_match": true,
+        "no_early_exit": true,
+        "platform": true,
+        "post_threshold": true,
+        "nonnegative": true,
+        "mass": true,
+        "cumulative_identity": true,
+        "control_bounds": true,
+        "platform_domain": true,
+        "tail_reached": true
+      },
+      "ode_calls": 161,
+      "nfev": 8608,
+      "collocation_comparison": {
+        "J_ODE_minus_collocation": 1.6315526707444405e-10,
+        "C_interval_minus_collocation": [
+          -7.745677521597827e-08,
+          2.2543190425494686e-08
+        ],
+        "exit_state_N_ODE_minus_collocation": [
+          1.0574874309554616e-14,
+          2.333688797762079e-13
+        ]
+      },
+      "comparison_with_q_only": {
+        "C_interval_difference_persons": [
+          -9.987911653297488e-08,
+          1.0012081474997103e-07
+        ],
+        "C_intervals_overlap": true,
+        "duration_difference_days": 9.88845627603041e-09,
+        "J_difference": 5.581361151030251e-09,
+        "both_numerically_feasible": true
+      }
+    },
+    "base_infections_n160_q_only_1793109668443288600": {
+      "candidate_sha256": "f447ef9896052f52e229b8f905bb054cce8839be743707eb249e2215f9d87130",
+      "candidate_source": "results\\collocation\\base_infections_n160_q_only_1793109668443288600.json",
+      "attempt": "base_infections_n160_q_only_1793109668443288600",
+      "n": 160,
+      "objective": "infections",
+      "evaluation_id": "base_ebc017a1c990",
+      "saved_path": "results\\validation\\base_infections_n160_q_only_1793109668443288600_f447ef9896_DOP853_tail1e-07.json",
+      "archive_path": "results\\evaluations\\base_ebc017a1c990.json",
+      "case": "base",
+      "method": "DOP853",
+      "rtol": 1e-12,
+      "tail_tol_persons": 1e-07,
+      "duration": 19.2127835095427,
+      "J": 2.8228580603779743,
+      "C_arc": 355.70275980031556,
+      "C_exit": 405.23281567111803,
+      "C_cut": 623.1889631263064,
+      "C_infinity_interval": [
+        623.1889631263064,
+        623.1889632263063
+      ],
+      "tail_bound_persons": 1.0000000000000001e-07,
+      "Sq_exit": 181.60701432821108,
+      "exit_residual_normalized": 1.021405182655144e-14,
+      "first_Sc_exit_time": 22.387901937608486,
+      "early_first_Sc_exit": false,
+      "platform_relative_deviation": 0.0,
+      "threshold_peak_ratio": 1.0,
+      "post_threshold_violation_relative": 0.0,
+      "mass_residual_normalized": 1.3988810110276972e-14,
+      "cumulative_identity_residual_normalized": 1.7763568394002505e-15,
+      "minimum_compartment_normalized": 5.237210798001294e-13,
+      "platform_min_S_minus_Sc_normalized": 1.021405182655144e-14,
+      "control_bound_violation": 0.0,
+      "feasible": true,
+      "checks": {
+        "exit_match": true,
+        "no_early_exit": true,
+        "platform": true,
+        "post_threshold": true,
+        "nonnegative": true,
+        "mass": true,
+        "cumulative_identity": true,
+        "control_bounds": true,
+        "platform_domain": true,
+        "tail_reached": true
+      },
+      "ode_calls": 161,
+      "nfev": 8608,
+      "collocation_comparison": {
+        "J_ODE_minus_collocation": 1.6265166991047408e-10,
+        "C_interval_minus_collocation": [
+          -7.745700258965371e-08,
+          2.2542963051819243e-08
+        ],
+        "exit_state_N_ODE_minus_collocation": [
+          1.021405182655144e-14,
+          2.311484337269576e-13
+        ]
+      },
+      "comparison_with_q_only": {
+        "C_interval_difference_persons": [
+          -9.987968496716348e-08,
+          1.0012024631578242e-07
+        ],
+        "C_intervals_overlap": true,
+        "duration_difference_days": 9.899082442643703e-09,
+        "J_difference": 5.587070806001293e-09,
+        "both_numerically_feasible": true
+      }
+    },
+    "xian_infections_n160_c_only_1793109629862014600": {
+      "candidate_sha256": "6e5787ab024e4835042faf587399b27b6856684b9ff2175160aa9cabf8fd6ddf",
+      "candidate_source": "results\\collocation\\xian_infections_n160_c_only_1793109629862014600.json",
+      "attempt": "xian_infections_n160_c_only_1793109629862014600",
+      "n": 160,
+      "objective": "infections",
+      "evaluation_id": "xian_6b3c52cd8440",
+      "saved_path": "results\\validation\\xian_infections_n160_c_only_1793109629862014600_6e5787ab02_DOP853_tail1e-05.json",
+      "archive_path": "results\\evaluations\\xian_6b3c52cd8440.json",
+      "case": "xian",
+      "method": "DOP853",
+      "rtol": 1e-12,
+      "tail_tol_persons": 1e-05,
+      "duration": 512.9332873394877,
+      "J": 206.5446455543359,
+      "C_arc": 9804884.998186314,
+      "C_exit": 9855198.780329198,
+      "C_cut": 10449837.723858679,
+      "C_infinity_interval": [
+        10449837.723858679,
+        10449837.72386868
+      ],
+      "tail_bound_persons": 9.999999999999999e-06,
+      "Sq_exit": 333675.80458880414,
+      "exit_residual_normalized": 1.8914800281599753e-10,
+      "first_Sc_exit_time": null,
+      "early_first_Sc_exit": false,
+      "platform_relative_deviation": 7.105427357601027e-15,
+      "threshold_peak_ratio": 1.000000000000007,
+      "post_threshold_violation_relative": 7.105427357601002e-15,
+      "mass_residual_normalized": 2.220446049250313e-15,
+      "cumulative_identity_residual_normalized": 1.4432899320127035e-15,
+      "minimum_compartment_normalized": 1.9432658231191485e-14,
+      "platform_min_S_minus_Sc_normalized": 1.8914800281599753e-10,
+      "control_bound_violation": 0.0,
+      "feasible": true,
+      "checks": {
+        "exit_match": true,
+        "no_early_exit": true,
+        "platform": true,
+        "post_threshold": true,
+        "nonnegative": true,
+        "mass": true,
+        "cumulative_identity": true,
+        "control_bounds": true,
+        "platform_domain": true,
+        "tail_reached": true
+      },
+      "ode_calls": 161,
+      "nfev": 31783,
+      "collocation_comparison": {
+        "J_ODE_minus_collocation": 5.124055348915135e-07,
+        "C_interval_minus_collocation": [
+          9.588897228240967e-06,
+          1.9589439034461975e-05
+        ],
+        "exit_state_N_ODE_minus_collocation": [
+          1.8914800281599753e-10,
+          6.041411468316049e-11
+        ]
+      },
+      "comparison_with_q_only": {
+        "C_interval_difference_persons": [
+          -8.629634976387024e-06,
+          1.1371448636054993e-05
+        ],
+        "C_intervals_overlap": true,
+        "duration_difference_days": 87.66884309479218,
+        "J_difference": 13.662193485991764,
+        "both_numerically_feasible": true
+      }
+    },
+    "xian_infections_n160_migrated_1793109642707488000": {
+      "candidate_sha256": "b8e48d49b5544f67960da38f2482d3015008566a4b5a87b62a2a2c5db736b948",
+      "candidate_source": "results\\collocation\\xian_infections_n160_migrated_1793109642707488000.json",
+      "attempt": "xian_infections_n160_migrated_1793109642707488000",
+      "n": 160,
+      "objective": "infections",
+      "evaluation_id": "xian_b5e51b98b1b2",
+      "saved_path": "results\\validation\\xian_infections_n160_migrated_1793109642707488000_b8e48d49b5_DOP853_tail1e-05.json",
+      "archive_path": "results\\evaluations\\xian_b5e51b98b1b2.json",
+      "case": "xian",
+      "method": "DOP853",
+      "rtol": 1e-12,
+      "tail_tol_persons": 1e-05,
+      "duration": 503.1698395682149,
+      "J": 203.38066146349135,
+      "C_arc": 9804885.000026232,
+      "C_exit": 9855198.782169113,
+      "C_cut": 10449837.723859,
+      "C_infinity_interval": [
+        10449837.723859,
+        10449837.723869
+      ],
+      "tail_bound_persons": 1.0000000000000006e-05,
+      "Sq_exit": 333675.80414035445,
+      "exit_residual_normalized": 8.343789548170832e-11,
+      "first_Sc_exit_time": null,
+      "early_first_Sc_exit": false,
+      "platform_relative_deviation": 1.5099033134902243e-14,
+      "threshold_peak_ratio": 1.000000000000015,
+      "post_threshold_violation_relative": 1.509903313490213e-14,
+      "mass_residual_normalized": 2.1094237467877974e-15,
+      "cumulative_identity_residual_normalized": 3.219646771412954e-15,
+      "minimum_compartment_normalized": 1.9432658231212317e-14,
+      "platform_min_S_minus_Sc_normalized": 8.343789548170832e-11,
+      "control_bound_violation": 0.0,
+      "feasible": true,
+      "checks": {
+        "exit_match": true,
+        "no_early_exit": true,
+        "platform": true,
+        "post_threshold": true,
+        "nonnegative": true,
+        "mass": true,
+        "cumulative_identity": true,
+        "control_bounds": true,
+        "platform_domain": true,
+        "tail_reached": true
+      },
+      "ode_calls": 161,
+      "nfev": 31753,
+      "collocation_comparison": {
+        "J_ODE_minus_collocation": 2.3967058382368123e-07,
+        "C_interval_minus_collocation": [
+          9.385868906974792e-06,
+          1.93864107131958e-05
+        ],
+        "exit_state_N_ODE_minus_collocation": [
+          8.343792323728394e-11,
+          2.6690594179257232e-11
+        ]
+      },
+      "comparison_with_q_only": {
+        "C_interval_difference_persons": [
+          -8.3092600107193e-06,
+          1.1691823601722717e-05
+        ],
+        "C_intervals_overlap": true,
+        "duration_difference_days": 77.90539532351937,
+        "J_difference": 10.498209395147228,
+        "both_numerically_feasible": true
+      }
+    },
+    "xian_infections_n160_q_only_1793109575926876300": {
+      "candidate_sha256": "712cdbbc3844d35a4477970e529cd471053d0c08287084968137740e5d48ca81",
+      "candidate_source": "results\\collocation\\xian_infections_n160_q_only_1793109575926876300.json",
+      "attempt": "xian_infections_n160_q_only_1793109575926876300",
+      "n": 160,
+      "objective": "infections",
+      "evaluation_id": "xian_4b8ef62ce48f",
+      "saved_path": "results\\validation\\xian_infections_n160_q_only_1793109575926876300_712cdbbc38_DOP853_tail1e-05.json",
+      "archive_path": "results\\evaluations\\xian_4b8ef62ce48f.json",
+      "case": "xian",
+      "method": "DOP853",
+      "rtol": 1e-12,
+      "tail_tol_persons": 1e-05,
+      "duration": 514.8573183129197,
+      "J": 206.92294767686195,
+      "C_arc": 9804884.999376638,
+      "C_exit": 9855198.78151952,
+      "C_cut": 10449837.723858695,
+      "C_infinity_interval": [
+        10449837.723858695,
+        10449837.723868696
+      ],
+      "tail_bound_persons": 1.0000000000000008e-05,
+      "Sq_exit": 333675.8043003237,
+      "exit_residual_normalized": 1.2063389176475425e-10,
+      "first_Sc_exit_time": null,
+      "early_first_Sc_exit": false,
+      "platform_relative_deviation": 1.8651746813702803e-14,
+      "threshold_peak_ratio": 1.0000000000000187,
+      "post_threshold_violation_relative": 1.865174681370263e-14,
+      "mass_residual_normalized": 1.3322676295501878e-15,
+      "cumulative_identity_residual_normalized": 1.2212453270876722e-15,
+      "minimum_compartment_normalized": 1.943265823119262e-14,
+      "platform_min_S_minus_Sc_normalized": 1.2063389176475425e-10,
+      "control_bound_violation": 0.0,
+      "feasible": true,
+      "checks": {
+        "exit_match": true,
+        "no_early_exit": true,
+        "platform": true,
+        "post_threshold": true,
+        "nonnegative": true,
+        "mass": true,
+        "cumulative_identity": true,
+        "control_bounds": true,
+        "platform_domain": true,
+        "tail_reached": true
+      },
+      "ode_calls": 161,
+      "nfev": 31738,
+      "collocation_comparison": {
+        "J_ODE_minus_collocation": 4.2042663039865147e-07,
+        "C_interval_minus_collocation": [
+          9.482726454734802e-06,
+          1.948326826095581e-05
+        ],
+        "exit_state_N_ODE_minus_collocation": [
+          1.2063389176475425e-10,
+          3.858088848396335e-11
+        ]
+      },
+      "comparison_with_q_only": {
+        "C_interval_difference_persons": [
+          -8.612871170043945e-06,
+          1.1388212442398071e-05
+        ],
+        "C_intervals_overlap": true,
+        "duration_difference_days": 89.59287406822415,
+        "J_difference": 14.04049560851783,
+        "both_numerically_feasible": true
+      }
+    }
+  },
+  "missing": []
+}

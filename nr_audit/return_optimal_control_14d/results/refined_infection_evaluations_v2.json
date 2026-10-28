@@ -1,0 +1,451 @@
+{
+  "complete": true,
+  "receipt_version": "2",
+  "evaluator_sha256": "fc839938e1917a545a8f9bdc0cc3c66f5159f033fddb7423efb6b3f9ae4421b6",
+  "run_id": "evalfc839938e1_1793110167120683800",
+  "candidates": {
+    "base_infections_n160_c_only_1793109669043574000": {
+      "evaluation_id": "base_411a7897d409",
+      "saved_path": "results\\validation\\v2\\evalfc839938e1_1793110167120683800\\base_infections_n160_c_only_1793109669043574000_DOP853.json",
+      "archive_path": "results\\evaluations\\base_411a7897d409.json",
+      "case": "base",
+      "method": "DOP853",
+      "rtol": 1e-12,
+      "tail_tol_persons": 1e-07,
+      "evaluation_schema": "2",
+      "evaluator_sha256": "fc839938e1917a545a8f9bdc0cc3c66f5159f033fddb7423efb6b3f9ae4421b6",
+      "numeric_status": "satisfied",
+      "threshold_numeric_status": "satisfied",
+      "first_exit_assessment": {
+        "time": 22.38790193759782,
+        "status": "root_at_terminal_roundoff",
+        "early": false,
+        "time_tolerance_days": 1e-08,
+        "terminal_within_tolerance": true
+      },
+      "duration": 19.212783509532034,
+      "J": 2.8228580603720856,
+      "C_arc": 355.7027598003017,
+      "C_exit": 405.23281567110416,
+      "C_cut": 623.1889631263078,
+      "C_infinity_interval": [
+        623.1889631263078,
+        623.1889632263078
+      ],
+      "tail_bound_persons": 9.999999999999988e-08,
+      "Sq_exit": 181.60701432822574,
+      "exit_residual_normalized": 1.0436096431476471e-14,
+      "first_Sc_exit_time": 22.38790193759782,
+      "early_first_Sc_exit": false,
+      "platform_relative_deviation": 0.0,
+      "threshold_peak_ratio": 1.0,
+      "post_threshold_violation_relative": 0.0,
+      "mass_residual_normalized": 1.4210854715202004e-14,
+      "cumulative_identity_residual_normalized": 7.771561172376096e-16,
+      "minimum_compartment_normalized": 5.237210798000799e-13,
+      "platform_min_S_minus_Sc_normalized": 1.0436096431476471e-14,
+      "control_bound_violation": 0.0,
+      "feasible": true,
+      "checks": {
+        "exit_match": true,
+        "first_exit_matched": true,
+        "no_early_exit": true,
+        "platform": true,
+        "post_threshold": true,
+        "nonnegative": true,
+        "mass": true,
+        "cumulative_identity": true,
+        "control_bounds": true,
+        "platform_domain": true,
+        "tail_reached": true
+      },
+      "ode_calls": 161,
+      "nfev": 8608,
+      "candidate_identity": {
+        "source": "results\\collocation\\base_infections_n160_c_only_1793109669043574000.json",
+        "raw_file_sha256": "c2d1ff5154fa7a6e677075fc10c09d5bee67a476dca7a1e1a7aaf372bb8cbf20",
+        "canonical_json_sha256": "e1c4136d58440c85abfda88c6fde612501a3759e7f13422f62dd5a2358302b4a",
+        "attempt": "base_infections_n160_c_only_1793109669043574000"
+      },
+      "J_ODE_minus_candidate": 1.6294388061055542e-10,
+      "comparison_with_q_only": {
+        "C_intervals_overlap": true,
+        "C_interval_difference_persons": [
+          -9.98782070382731e-08,
+          1.001217242446728e-07
+        ],
+        "duration_difference_days": 9.888417196179944e-09
+      }
+    },
+    "base_infections_n160_migrated_1793109671771437100": {
+      "evaluation_id": "base_266831b2d4ac",
+      "saved_path": "results\\validation\\v2\\evalfc839938e1_1793110167120683800\\base_infections_n160_migrated_1793109671771437100_DOP853.json",
+      "archive_path": "results\\evaluations\\base_266831b2d4ac.json",
+      "case": "base",
+      "method": "DOP853",
+      "rtol": 1e-12,
+      "tail_tol_persons": 1e-07,
+      "evaluation_schema": "2",
+      "evaluator_sha256": "fc839938e1917a545a8f9bdc0cc3c66f5159f033fddb7423efb6b3f9ae4421b6",
+      "numeric_status": "satisfied",
+      "threshold_numeric_status": "satisfied",
+      "first_exit_assessment": {
+        "time": 22.38790193759786,
+        "status": "root_at_terminal_roundoff",
+        "early": false,
+        "time_tolerance_days": 1e-08,
+        "terminal_within_tolerance": true
+      },
+      "duration": 19.212783509532073,
+      "J": 2.8228580603722646,
+      "C_arc": 355.70275980030107,
+      "C_exit": 405.23281567110354,
+      "C_cut": 623.1889631263069,
+      "C_infinity_interval": [
+        623.1889631263069,
+        623.1889632263069
+      ],
+      "tail_bound_persons": 1.0000000000000001e-07,
+      "Sq_exit": 181.60701432822628,
+      "exit_residual_normalized": 1.0547118733938987e-14,
+      "first_Sc_exit_time": 22.38790193759786,
+      "early_first_Sc_exit": false,
+      "platform_relative_deviation": 0.0,
+      "threshold_peak_ratio": 1.0,
+      "post_threshold_violation_relative": 0.0,
+      "mass_residual_normalized": 1.4432899320127035e-14,
+      "cumulative_identity_residual_normalized": 9.992007221626409e-16,
+      "minimum_compartment_normalized": 5.237210798001036e-13,
+      "platform_min_S_minus_Sc_normalized": 1.0547118733938987e-14,
+      "control_bound_violation": 0.0,
+      "feasible": true,
+      "checks": {
+        "exit_match": true,
+        "first_exit_matched": true,
+        "no_early_exit": true,
+        "platform": true,
+        "post_threshold": true,
+        "nonnegative": true,
+        "mass": true,
+        "cumulative_identity": true,
+        "control_bounds": true,
+        "platform_domain": true,
+        "tail_reached": true
+      },
+      "ode_calls": 161,
+      "nfev": 8608,
+      "candidate_identity": {
+        "source": "results\\collocation\\base_infections_n160_migrated_1793109671771437100.json",
+        "raw_file_sha256": "5d27a61929e20bb40cf23cb6933708cab3fd35d860ef8ebcd52d3225b976418a",
+        "canonical_json_sha256": "a07b5ff6a4e6e8d3868c40aa0fab8990f834bd6332838738d396516d186b9410",
+        "attempt": "base_infections_n160_migrated_1793109671771437100"
+      },
+      "J_ODE_minus_candidate": 1.6315526707444405e-10,
+      "comparison_with_q_only": {
+        "C_intervals_overlap": true,
+        "C_interval_difference_persons": [
+          -9.987911653297488e-08,
+          1.0012081474997103e-07
+        ],
+        "duration_difference_days": 9.88845627603041e-09
+      }
+    },
+    "base_infections_n160_q_only_1793109668443288600": {
+      "evaluation_id": "base_3f2e2a5d7d00",
+      "saved_path": "results\\validation\\v2\\evalfc839938e1_1793110167120683800\\base_infections_n160_q_only_1793109668443288600_DOP853.json",
+      "archive_path": "results\\evaluations\\base_3f2e2a5d7d00.json",
+      "case": "base",
+      "method": "DOP853",
+      "rtol": 1e-12,
+      "tail_tol_persons": 1e-07,
+      "evaluation_schema": "2",
+      "evaluator_sha256": "fc839938e1917a545a8f9bdc0cc3c66f5159f033fddb7423efb6b3f9ae4421b6",
+      "numeric_status": "satisfied",
+      "threshold_numeric_status": "satisfied",
+      "first_exit_assessment": {
+        "time": 22.387901937608486,
+        "status": "root_at_terminal_roundoff",
+        "early": false,
+        "time_tolerance_days": 1e-08,
+        "terminal_within_tolerance": true
+      },
+      "duration": 19.2127835095427,
+      "J": 2.8228580603779743,
+      "C_arc": 355.70275980031556,
+      "C_exit": 405.23281567111803,
+      "C_cut": 623.1889631263064,
+      "C_infinity_interval": [
+        623.1889631263064,
+        623.1889632263063
+      ],
+      "tail_bound_persons": 1.0000000000000001e-07,
+      "Sq_exit": 181.60701432821108,
+      "exit_residual_normalized": 1.021405182655144e-14,
+      "first_Sc_exit_time": 22.387901937608486,
+      "early_first_Sc_exit": false,
+      "platform_relative_deviation": 0.0,
+      "threshold_peak_ratio": 1.0,
+      "post_threshold_violation_relative": 0.0,
+      "mass_residual_normalized": 1.3988810110276972e-14,
+      "cumulative_identity_residual_normalized": 1.7763568394002505e-15,
+      "minimum_compartment_normalized": 5.237210798001294e-13,
+      "platform_min_S_minus_Sc_normalized": 1.021405182655144e-14,
+      "control_bound_violation": 0.0,
+      "feasible": true,
+      "checks": {
+        "exit_match": true,
+        "first_exit_matched": true,
+        "no_early_exit": true,
+        "platform": true,
+        "post_threshold": true,
+        "nonnegative": true,
+        "mass": true,
+        "cumulative_identity": true,
+        "control_bounds": true,
+        "platform_domain": true,
+        "tail_reached": true
+      },
+      "ode_calls": 161,
+      "nfev": 8608,
+      "candidate_identity": {
+        "source": "results\\collocation\\base_infections_n160_q_only_1793109668443288600.json",
+        "raw_file_sha256": "465a150fac583b7fa6b5cb4dc5fd1d93d8bd1bedc2ba94164e2e371073c20e21",
+        "canonical_json_sha256": "f447ef9896052f52e229b8f905bb054cce8839be743707eb249e2215f9d87130",
+        "attempt": "base_infections_n160_q_only_1793109668443288600"
+      },
+      "J_ODE_minus_candidate": 1.6265166991047408e-10,
+      "comparison_with_q_only": {
+        "C_intervals_overlap": true,
+        "C_interval_difference_persons": [
+          -9.987968496716348e-08,
+          1.0012024631578242e-07
+        ],
+        "duration_difference_days": 9.899082442643703e-09
+      }
+    },
+    "xian_infections_n160_c_only_1793109629862014600": {
+      "evaluation_id": "xian_f5cb41ad0e6c",
+      "saved_path": "results\\validation\\v2\\evalfc839938e1_1793110167120683800\\xian_infections_n160_c_only_1793109629862014600_DOP853.json",
+      "archive_path": "results\\evaluations\\xian_f5cb41ad0e6c.json",
+      "case": "xian",
+      "method": "DOP853",
+      "rtol": 1e-12,
+      "tail_tol_persons": 1e-05,
+      "evaluation_schema": "2",
+      "evaluator_sha256": "fc839938e1917a545a8f9bdc0cc3c66f5159f033fddb7423efb6b3f9ae4421b6",
+      "numeric_status": "boundary_roundoff",
+      "threshold_numeric_status": "boundary_roundoff",
+      "first_exit_assessment": {
+        "time": 529.8294129827958,
+        "status": "terminal_within_tolerance",
+        "early": false,
+        "time_tolerance_days": 5.1293328733948775e-08,
+        "terminal_within_tolerance": true,
+        "note": "终端在状态容差内，未定位到严格变号根；此t2为数值端点身份，非精确事件证书"
+      },
+      "duration": 512.9332873394877,
+      "J": 206.5446455543359,
+      "C_arc": 9804884.998186314,
+      "C_exit": 9855198.780329198,
+      "C_cut": 10449837.723858679,
+      "C_infinity_interval": [
+        10449837.723858679,
+        10449837.72386868
+      ],
+      "tail_bound_persons": 9.999999999999999e-06,
+      "Sq_exit": 333675.80458880414,
+      "exit_residual_normalized": 1.8914800281599753e-10,
+      "first_Sc_exit_time": 529.8294129827958,
+      "early_first_Sc_exit": false,
+      "platform_relative_deviation": 7.105427357601027e-15,
+      "threshold_peak_ratio": 1.000000000000007,
+      "post_threshold_violation_relative": 7.105427357601002e-15,
+      "mass_residual_normalized": 2.220446049250313e-15,
+      "cumulative_identity_residual_normalized": 1.4432899320127035e-15,
+      "minimum_compartment_normalized": 1.9432658231191485e-14,
+      "platform_min_S_minus_Sc_normalized": 1.8914800281599753e-10,
+      "control_bound_violation": 0.0,
+      "feasible": true,
+      "checks": {
+        "exit_match": true,
+        "first_exit_matched": true,
+        "no_early_exit": true,
+        "platform": true,
+        "post_threshold": true,
+        "nonnegative": true,
+        "mass": true,
+        "cumulative_identity": true,
+        "control_bounds": true,
+        "platform_domain": true,
+        "tail_reached": true
+      },
+      "ode_calls": 161,
+      "nfev": 31783,
+      "candidate_identity": {
+        "source": "results\\collocation\\xian_infections_n160_c_only_1793109629862014600.json",
+        "raw_file_sha256": "bcf8540db39873d47194012f1adf059bad3fc025309faa5c9d3cc67b13ed2fb1",
+        "canonical_json_sha256": "6e5787ab024e4835042faf587399b27b6856684b9ff2175160aa9cabf8fd6ddf",
+        "attempt": "xian_infections_n160_c_only_1793109629862014600"
+      },
+      "J_ODE_minus_candidate": 5.124055348915135e-07,
+      "comparison_with_q_only": {
+        "C_intervals_overlap": true,
+        "C_interval_difference_persons": [
+          -8.629634976387024e-06,
+          1.1371448636054993e-05
+        ],
+        "duration_difference_days": 87.66884309479218
+      }
+    },
+    "xian_infections_n160_migrated_1793109642707488000": {
+      "evaluation_id": "xian_0410c0f30cf0",
+      "saved_path": "results\\validation\\v2\\evalfc839938e1_1793110167120683800\\xian_infections_n160_migrated_1793109642707488000_DOP853.json",
+      "archive_path": "results\\evaluations\\xian_0410c0f30cf0.json",
+      "case": "xian",
+      "method": "DOP853",
+      "rtol": 1e-12,
+      "tail_tol_persons": 1e-05,
+      "evaluation_schema": "2",
+      "evaluator_sha256": "fc839938e1917a545a8f9bdc0cc3c66f5159f033fddb7423efb6b3f9ae4421b6",
+      "numeric_status": "boundary_roundoff",
+      "threshold_numeric_status": "boundary_roundoff",
+      "first_exit_assessment": {
+        "time": 520.065965211523,
+        "status": "terminal_within_tolerance",
+        "early": false,
+        "time_tolerance_days": 5.031698395682149e-08,
+        "terminal_within_tolerance": true,
+        "note": "终端在状态容差内，未定位到严格变号根；此t2为数值端点身份，非精确事件证书"
+      },
+      "duration": 503.1698395682149,
+      "J": 203.38066146349135,
+      "C_arc": 9804885.000026232,
+      "C_exit": 9855198.782169113,
+      "C_cut": 10449837.723859,
+      "C_infinity_interval": [
+        10449837.723859,
+        10449837.723869
+      ],
+      "tail_bound_persons": 1.0000000000000006e-05,
+      "Sq_exit": 333675.80414035445,
+      "exit_residual_normalized": 8.343789548170832e-11,
+      "first_Sc_exit_time": 520.065965211523,
+      "early_first_Sc_exit": false,
+      "platform_relative_deviation": 1.5099033134902243e-14,
+      "threshold_peak_ratio": 1.000000000000015,
+      "post_threshold_violation_relative": 1.509903313490213e-14,
+      "mass_residual_normalized": 2.1094237467877974e-15,
+      "cumulative_identity_residual_normalized": 3.219646771412954e-15,
+      "minimum_compartment_normalized": 1.9432658231212317e-14,
+      "platform_min_S_minus_Sc_normalized": 8.343789548170832e-11,
+      "control_bound_violation": 0.0,
+      "feasible": true,
+      "checks": {
+        "exit_match": true,
+        "first_exit_matched": true,
+        "no_early_exit": true,
+        "platform": true,
+        "post_threshold": true,
+        "nonnegative": true,
+        "mass": true,
+        "cumulative_identity": true,
+        "control_bounds": true,
+        "platform_domain": true,
+        "tail_reached": true
+      },
+      "ode_calls": 161,
+      "nfev": 31753,
+      "candidate_identity": {
+        "source": "results\\collocation\\xian_infections_n160_migrated_1793109642707488000.json",
+        "raw_file_sha256": "b89f50f04654bc5607e5bb1dec84f698b9e3a95ff1747ca63340e052137ce3bf",
+        "canonical_json_sha256": "b8e48d49b5544f67960da38f2482d3015008566a4b5a87b62a2a2c5db736b948",
+        "attempt": "xian_infections_n160_migrated_1793109642707488000"
+      },
+      "J_ODE_minus_candidate": 2.3967058382368123e-07,
+      "comparison_with_q_only": {
+        "C_intervals_overlap": true,
+        "C_interval_difference_persons": [
+          -8.3092600107193e-06,
+          1.1691823601722717e-05
+        ],
+        "duration_difference_days": 77.90539532351937
+      }
+    },
+    "xian_infections_n160_q_only_1793109575926876300": {
+      "evaluation_id": "xian_a8619919a948",
+      "saved_path": "results\\validation\\v2\\evalfc839938e1_1793110167120683800\\xian_infections_n160_q_only_1793109575926876300_DOP853.json",
+      "archive_path": "results\\evaluations\\xian_a8619919a948.json",
+      "case": "xian",
+      "method": "DOP853",
+      "rtol": 1e-12,
+      "tail_tol_persons": 1e-05,
+      "evaluation_schema": "2",
+      "evaluator_sha256": "fc839938e1917a545a8f9bdc0cc3c66f5159f033fddb7423efb6b3f9ae4421b6",
+      "numeric_status": "boundary_roundoff",
+      "threshold_numeric_status": "boundary_roundoff",
+      "first_exit_assessment": {
+        "time": 531.7534439562278,
+        "status": "terminal_within_tolerance",
+        "early": false,
+        "time_tolerance_days": 5.148573183129197e-08,
+        "terminal_within_tolerance": true,
+        "note": "终端在状态容差内，未定位到严格变号根；此t2为数值端点身份，非精确事件证书"
+      },
+      "duration": 514.8573183129197,
+      "J": 206.92294767686195,
+      "C_arc": 9804884.999376638,
+      "C_exit": 9855198.78151952,
+      "C_cut": 10449837.723858695,
+      "C_infinity_interval": [
+        10449837.723858695,
+        10449837.723868696
+      ],
+      "tail_bound_persons": 1.0000000000000008e-05,
+      "Sq_exit": 333675.8043003237,
+      "exit_residual_normalized": 1.2063389176475425e-10,
+      "first_Sc_exit_time": 531.7534439562278,
+      "early_first_Sc_exit": false,
+      "platform_relative_deviation": 1.8651746813702803e-14,
+      "threshold_peak_ratio": 1.0000000000000187,
+      "post_threshold_violation_relative": 1.865174681370263e-14,
+      "mass_residual_normalized": 1.3322676295501878e-15,
+      "cumulative_identity_residual_normalized": 1.2212453270876722e-15,
+      "minimum_compartment_normalized": 1.943265823119262e-14,
+      "platform_min_S_minus_Sc_normalized": 1.2063389176475425e-10,
+      "control_bound_violation": 0.0,
+      "feasible": true,
+      "checks": {
+        "exit_match": true,
+        "first_exit_matched": true,
+        "no_early_exit": true,
+        "platform": true,
+        "post_threshold": true,
+        "nonnegative": true,
+        "mass": true,
+        "cumulative_identity": true,
+        "control_bounds": true,
+        "platform_domain": true,
+        "tail_reached": true
+      },
+      "ode_calls": 161,
+      "nfev": 31738,
+      "candidate_identity": {
+        "source": "results\\collocation\\xian_infections_n160_q_only_1793109575926876300.json",
+        "raw_file_sha256": "422daed7e1335e4dfc8961b962b59430484524f1b3af3a03a13d75128b31e56a",
+        "canonical_json_sha256": "712cdbbc3844d35a4477970e529cd471053d0c08287084968137740e5d48ca81",
+        "attempt": "xian_infections_n160_q_only_1793109575926876300"
+      },
+      "J_ODE_minus_candidate": 4.2042663039865147e-07,
+      "comparison_with_q_only": {
+        "C_intervals_overlap": true,
+        "C_interval_difference_persons": [
+          -8.612871170043945e-06,
+          1.1388212442398071e-05
+        ],
+        "duration_difference_days": 89.59287406822415
+      }
+    }
+  },
+  "old_results_untouched": true,
+  "all_scientific_checks_pass": true
+}

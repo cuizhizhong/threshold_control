@@ -1,0 +1,12 @@
+{
+  "stage": "v2_shooting_summary_control_lookup",
+  "exception": "KeyError: 'lambda_values'",
+  "cause": "shooting_cross_n80.json 是省略控制数组的汇总文件",
+  "new_ode_calls_in_failed_stage": 0,
+  "completed_evidence_preserved": [
+    "final_acceptance_v2.json",
+    "refined_infection_evaluations_v2.json"
+  ],
+  "correction": "按 case、objective、seed、duration 与 J 匹配完整 shooting_attempts JSON，再读取保存的 lambda_values",
+  "successful_followup": "shooting_validation_v2.json"
+}

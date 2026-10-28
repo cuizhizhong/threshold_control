@@ -1,0 +1,2571 @@
+{
+  "complete": true,
+  "pending": [],
+  "final": {
+    "base_time": {
+      "candidate": "results\\collocation\\base_time_best.json",
+      "candidate_sha256": "43af8512b42ab3b10e407d11d2c744bee5cdf6401145383d3e5c0ddd191bbf33",
+      "methods": {
+        "DOP853": {
+          "candidate_sha256": "43af8512b42ab3b10e407d11d2c744bee5cdf6401145383d3e5c0ddd191bbf33",
+          "candidate_source": "results\\collocation\\base_time_best.json",
+          "attempt": "base_time_n160_from80_0_from40_2_from20_2_c_only",
+          "n": 160,
+          "objective": "time",
+          "evaluation_id": "base_d69757c15e50",
+          "saved_path": "results\\validation\\base_time_n160_from80_0_from40_2_from20_2_c_only_43af8512b4_DOP853_tail1e-06.json",
+          "archive_path": "results\\evaluations\\base_d69757c15e50.json",
+          "case": "base",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 1e-06,
+          "duration": 19.21278350422604,
+          "J": 2.822858053599082,
+          "C_arc": 355.70275982375034,
+          "C_exit": 405.2328156945528,
+          "C_cut": 623.1889622265534,
+          "C_infinity_interval": [
+            623.1889622265534,
+            623.1889632265534
+          ],
+          "tail_bound_persons": 9.999999999999995e-07,
+          "Sq_exit": 181.60701430477766,
+          "exit_residual_normalized": 1.0297318553398327e-14,
+          "first_Sc_exit_time": 22.387901932291825,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 0.0,
+          "threshold_peak_ratio": 1.0,
+          "post_threshold_violation_relative": 0.0,
+          "mass_residual_normalized": 1.4210854715202004e-14,
+          "cumulative_identity_residual_normalized": 1.1102230246251565e-15,
+          "minimum_compartment_normalized": 5.237210645281134e-12,
+          "platform_min_S_minus_Sc_normalized": 1.0297318553398327e-14,
+          "control_bound_violation": 0.0,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 161,
+          "nfev": 8383,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 1.6264944946442483e-10,
+            "C_interval_minus_collocation": [
+              -9.7745521543402e-07,
+              2.254478204122279e-08
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              1.0297318553398327e-14,
+              2.318423231173483e-13
+            ]
+          }
+        },
+        "Radau": {
+          "candidate_sha256": "43af8512b42ab3b10e407d11d2c744bee5cdf6401145383d3e5c0ddd191bbf33",
+          "candidate_source": "results\\collocation\\base_time_best.json",
+          "attempt": "base_time_n160_from80_0_from40_2_from20_2_c_only",
+          "n": 160,
+          "objective": "time",
+          "evaluation_id": "base_16aa7b6e399c",
+          "saved_path": "results\\validation\\base_time_n160_from80_0_from40_2_from20_2_c_only_43af8512b4_Radau_tail1e-06.json",
+          "archive_path": "results\\evaluations\\base_16aa7b6e399c.json",
+          "case": "base",
+          "method": "Radau",
+          "rtol": 1e-12,
+          "tail_tol_persons": 1e-06,
+          "duration": 19.21278350422604,
+          "J": 2.8228580535990013,
+          "C_arc": 355.7027598237466,
+          "C_exit": 405.2328156945616,
+          "C_cut": 623.188962226554,
+          "C_infinity_interval": [
+            623.188962226554,
+            623.188963226554
+          ],
+          "tail_bound_persons": 9.999999999999972e-07,
+          "Sq_exit": 181.60701430476962,
+          "exit_residual_normalized": 8.770761894538737e-15,
+          "first_Sc_exit_time": 22.387901932291776,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 0.0,
+          "threshold_peak_ratio": 1.0,
+          "post_threshold_violation_relative": 0.0,
+          "mass_residual_normalized": 8.215650382226158e-15,
+          "cumulative_identity_residual_normalized": 3.1086244689504383e-15,
+          "minimum_compartment_normalized": 5.237210623261949e-12,
+          "platform_min_S_minus_Sc_normalized": 8.770761894538737e-15,
+          "control_bound_violation": 0.0,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 161,
+          "nfev": 42978,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 1.6256862522823212e-10,
+            "C_interval_minus_collocation": [
+              -9.774545333129936e-07,
+              2.2545464162249118e-08
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              8.770761894538737e-15,
+              2.2129520438340933e-13
+            ]
+          }
+        }
+      },
+      "method_comparison": {
+        "J_absolute_difference": 8.08242361927114e-14,
+        "C_cut_absolute_difference_persons": 6.821210263296962e-13,
+        "C_intervals_overlap": true,
+        "exit_residual_difference_normalized": 1.5265566588595902e-15,
+        "both_numerically_feasible": true
+      }
+    },
+    "base_infections": {
+      "candidate": "results\\collocation\\base_infections_best.json",
+      "candidate_sha256": "324365cc21a77e1232d8ee1d8a82049f961a131bc9692a29da86facb0d9a6a1d",
+      "methods": {
+        "DOP853": {
+          "candidate_sha256": "324365cc21a77e1232d8ee1d8a82049f961a131bc9692a29da86facb0d9a6a1d",
+          "candidate_source": "results\\collocation\\base_infections_best.json",
+          "attempt": "base_infections_n160_from80_2_from40_1_from20_1_c_then_q",
+          "n": 160,
+          "objective": "infections",
+          "evaluation_id": "base_fbc7fd12862c",
+          "saved_path": "results\\validation\\base_infections_n160_from80_2_from40_1_from20_1_c_then_q_324365cc21_DOP853_tail1e-06.json",
+          "archive_path": "results\\evaluations\\base_fbc7fd12862c.json",
+          "case": "base",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 1e-06,
+          "duration": 19.21288251725668,
+          "J": 2.8229152777780127,
+          "C_arc": 355.70287727874233,
+          "C_exit": 405.23293314954486,
+          "C_cut": 623.1889634547568,
+          "C_infinity_interval": [
+            623.1889634547568,
+            623.1889644547568
+          ],
+          "tail_bound_persons": 1.0000000000000044e-06,
+          "Sq_exit": 181.6068968497813,
+          "exit_residual_normalized": 1.457167719820518e-14,
+          "first_Sc_exit_time": 22.388000945322467,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 0.0,
+          "threshold_peak_ratio": 1.0,
+          "post_threshold_violation_relative": 0.0,
+          "mass_residual_normalized": 1.4210854715202004e-14,
+          "cumulative_identity_residual_normalized": 1.7208456881689926e-15,
+          "minimum_compartment_normalized": 5.237210868579874e-12,
+          "platform_min_S_minus_Sc_normalized": 1.457167719820518e-14,
+          "control_bound_violation": 0.0,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 161,
+          "nfev": 8383,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 1.6972379057733633e-10,
+            "C_interval_minus_collocation": [
+              -9.774558975550462e-07,
+              2.254409992019646e-08
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              1.457167719820518e-14,
+              2.601252546696742e-13
+            ]
+          }
+        },
+        "Radau": {
+          "candidate_sha256": "324365cc21a77e1232d8ee1d8a82049f961a131bc9692a29da86facb0d9a6a1d",
+          "candidate_source": "results\\collocation\\base_infections_best.json",
+          "attempt": "base_infections_n160_from80_2_from40_1_from20_1_c_then_q",
+          "n": 160,
+          "objective": "infections",
+          "evaluation_id": "base_17c2fb502003",
+          "saved_path": "results\\validation\\base_infections_n160_from80_2_from40_1_from20_1_c_then_q_324365cc21_Radau_tail1e-06.json",
+          "archive_path": "results\\evaluations\\base_17c2fb502003.json",
+          "case": "base",
+          "method": "Radau",
+          "rtol": 1e-12,
+          "tail_tol_persons": 1e-06,
+          "duration": 19.21288251725668,
+          "J": 2.8229152777779296,
+          "C_arc": 355.70287727873944,
+          "C_exit": 405.23293314955447,
+          "C_cut": 623.1889634547564,
+          "C_infinity_interval": [
+            623.1889634547564,
+            623.1889644547564
+          ],
+          "tail_bound_persons": 1.0000000000000002e-06,
+          "Sq_exit": 181.60689684977376,
+          "exit_residual_normalized": 1.304512053934559e-14,
+          "first_Sc_exit_time": 22.388000945322418,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 0.0,
+          "threshold_peak_ratio": 1.0,
+          "post_threshold_violation_relative": 0.0,
+          "mass_residual_normalized": 1.9761969838327786e-14,
+          "cumulative_identity_residual_normalized": 2.886579864025407e-15,
+          "minimum_compartment_normalized": 5.237210890468282e-12,
+          "platform_min_S_minus_Sc_normalized": 1.304512053934559e-14,
+          "control_bound_violation": 0.0,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 161,
+          "nfev": 43021,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 1.6964074589509437e-10,
+            "C_interval_minus_collocation": [
+              -9.774563523023971e-07,
+              2.2543645172845572e-08
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              1.304512053934559e-14,
+              2.502442697505103e-13
+            ]
+          }
+        }
+      },
+      "method_comparison": {
+        "J_absolute_difference": 8.304468224196171e-14,
+        "C_cut_absolute_difference_persons": 4.547473508864641e-13,
+        "C_intervals_overlap": true,
+        "exit_residual_difference_normalized": 1.5265566588595902e-15,
+        "both_numerically_feasible": true
+      }
+    },
+    "base_cost": {
+      "candidate": "results\\collocation\\base_cost_best.json",
+      "candidate_sha256": "26b191ba6db19f95ea6344ea3117bc5257b353871b70c29de1821a21c041a66e",
+      "methods": {
+        "DOP853": {
+          "candidate_sha256": "26b191ba6db19f95ea6344ea3117bc5257b353871b70c29de1821a21c041a66e",
+          "candidate_source": "results\\collocation\\base_cost_best.json",
+          "attempt": "base_cost_n160_from80_0_from40_0_from20_2_c_then_q",
+          "n": 160,
+          "objective": "cost",
+          "evaluation_id": "base_03204840e80a",
+          "saved_path": "results\\validation\\base_cost_n160_from80_0_from40_0_from20_2_c_then_q_26b191ba6d_DOP853_tail1e-06.json",
+          "archive_path": "results\\evaluations\\base_03204840e80a.json",
+          "case": "base",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 1e-06,
+          "duration": 20.690880125793974,
+          "J": 2.7647035865453056,
+          "C_arc": 373.59273453529596,
+          "C_exit": 423.12279040609843,
+          "C_cut": 623.5413800643362,
+          "C_infinity_interval": [
+            623.5413800643362,
+            623.5413810643362
+          ],
+          "tail_bound_persons": 1.0000000000000004e-06,
+          "Sq_exit": 163.71703959439708,
+          "exit_residual_normalized": -1.5158707622475731e-12,
+          "first_Sc_exit_time": 23.865998553475404,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 0.0,
+          "threshold_peak_ratio": 1.0,
+          "post_threshold_violation_relative": 0.0,
+          "mass_residual_normalized": 1.554312234475219e-14,
+          "cumulative_identity_residual_normalized": 1.3322676295501878e-15,
+          "minimum_compartment_normalized": 5.301446742048867e-12,
+          "platform_min_S_minus_Sc_normalized": -1.5158707622475731e-12,
+          "control_bound_violation": 4.3289816176184104e-11,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 161,
+          "nfev": 8296,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 2.4763524564264117e-10,
+            "C_interval_minus_collocation": [
+              -9.77513991529122e-07,
+              2.2486005946120713e-08
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              -1.5158707622475731e-12,
+              1.9335921752627883e-12
+            ]
+          }
+        },
+        "Radau": {
+          "candidate_sha256": "26b191ba6db19f95ea6344ea3117bc5257b353871b70c29de1821a21c041a66e",
+          "candidate_source": "results\\collocation\\base_cost_best.json",
+          "attempt": "base_cost_n160_from80_0_from40_0_from20_2_c_then_q",
+          "n": 160,
+          "objective": "cost",
+          "evaluation_id": "base_94957f9f9129",
+          "saved_path": "results\\validation\\base_cost_n160_from80_0_from40_0_from20_2_c_then_q_26b191ba6d_Radau_tail1e-06.json",
+          "archive_path": "results\\evaluations\\base_94957f9f9129.json",
+          "case": "base",
+          "method": "Radau",
+          "rtol": 1e-12,
+          "tail_tol_persons": 1e-06,
+          "duration": 20.690880125793974,
+          "J": 2.764703586545194,
+          "C_arc": 373.5927345352923,
+          "C_exit": 423.12279040610736,
+          "C_cut": 623.5413800643348,
+          "C_infinity_interval": [
+            623.5413800643348,
+            623.5413810643348
+          ],
+          "tail_bound_persons": 9.999999999999964e-07,
+          "Sq_exit": 163.71703959438895,
+          "exit_residual_normalized": -1.5197565428337612e-12,
+          "first_Sc_exit_time": 23.865998553474434,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 0.0,
+          "threshold_peak_ratio": 1.0,
+          "post_threshold_violation_relative": 0.0,
+          "mass_residual_normalized": 1.2434497875801753e-14,
+          "cumulative_identity_residual_normalized": 4.3298697960381105e-15,
+          "minimum_compartment_normalized": 5.301446761461538e-12,
+          "platform_min_S_minus_Sc_normalized": -1.5197565428337612e-12,
+          "control_bound_violation": 4.339995030022692e-11,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 161,
+          "nfev": 42127,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 2.475237792509688e-10,
+            "C_interval_minus_collocation": [
+              -9.775153557711747e-07,
+              2.2484641704068054e-08
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              -1.5197287872581455e-12,
+              1.9229617898020024e-12
+            ]
+          }
+        }
+      },
+      "method_comparison": {
+        "J_absolute_difference": 1.1146639167236572e-13,
+        "C_cut_absolute_difference_persons": 1.3642420526593924e-12,
+        "C_intervals_overlap": true,
+        "exit_residual_difference_normalized": 3.885780586188048e-15,
+        "both_numerically_feasible": true
+      }
+    },
+    "xian_time": {
+      "candidate": "results\\collocation\\xian_time_best.json",
+      "candidate_sha256": "fe42548ae1a2d58ed9fdb195bd1682de18279b7ee442569affec005e3c4f5e26",
+      "methods": {
+        "DOP853": {
+          "candidate_sha256": "fe42548ae1a2d58ed9fdb195bd1682de18279b7ee442569affec005e3c4f5e26",
+          "candidate_source": "results\\collocation\\xian_time_best.json",
+          "attempt": "xian_time_n160_from80_2_from40_2_from20_2_half",
+          "n": 160,
+          "objective": "time",
+          "evaluation_id": "xian_a3a406fa8c57",
+          "saved_path": "results\\validation\\xian_time_n160_from80_2_from40_2_from20_2_half_fe42548ae1_DOP853_tail1e-03.json",
+          "archive_path": "results\\evaluations\\xian_a3a406fa8c57.json",
+          "case": "xian",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 0.001,
+          "duration": 425.26444425001586,
+          "J": 192.88245206594584,
+          "C_arc": 9804885.001458716,
+          "C_exit": 9855198.783601597,
+          "C_cut": 10449837.722867675,
+          "C_infinity_interval": [
+            10449837.722867675,
+            10449837.723867675
+          ],
+          "tail_bound_persons": 0.0009999999999999974,
+          "Sq_exit": 333675.8038049684,
+          "exit_residual_normalized": 8.923417560424696e-14,
+          "first_Sc_exit_time": null,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 8.881784197001213e-15,
+          "threshold_peak_ratio": 1.0000000000000036,
+          "post_threshold_violation_relative": 3.552713678800501e-15,
+          "mass_residual_normalized": 1.5543122344752192e-15,
+          "cumulative_identity_residual_normalized": 9.992007221626409e-16,
+          "minimum_compartment_normalized": 1.9432658150386505e-12,
+          "platform_min_S_minus_Sc_normalized": 8.923417560424696e-14,
+          "control_bound_violation": 0.0,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 161,
+          "nfev": 27793,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 9.973206260838197e-09,
+            "C_interval_minus_collocation": [
+              -0.0009803958237171173,
+              1.9604340195655823e-05
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              8.923417560424696e-14,
+              2.795333409189027e-14
+            ]
+          }
+        },
+        "Radau": {
+          "candidate_sha256": "fe42548ae1a2d58ed9fdb195bd1682de18279b7ee442569affec005e3c4f5e26",
+          "candidate_source": "results\\collocation\\xian_time_best.json",
+          "attempt": "xian_time_n160_from80_2_from40_2_from20_2_half",
+          "n": 160,
+          "objective": "time",
+          "evaluation_id": "xian_02161ecfab6e",
+          "saved_path": "results\\validation\\xian_time_n160_from80_2_from40_2_from20_2_half_fe42548ae1_Radau_tail1e-03.json",
+          "archive_path": "results\\evaluations\\xian_02161ecfab6e.json",
+          "case": "xian",
+          "method": "Radau",
+          "rtol": 1e-12,
+          "tail_tol_persons": 0.001,
+          "duration": 425.26444425001586,
+          "J": 192.88245206594155,
+          "C_arc": 9804885.001458772,
+          "C_exit": 9855198.783601632,
+          "C_cut": 10449837.72286767,
+          "C_infinity_interval": [
+            10449837.72286767,
+            10449837.72386767
+          ],
+          "tail_bound_persons": 0.0010000000000000048,
+          "Sq_exit": 333675.8038049636,
+          "exit_residual_normalized": 8.765210779415611e-14,
+          "first_Sc_exit_time": null,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 1.776356839400252e-15,
+          "threshold_peak_ratio": 1.0000000000000018,
+          "post_threshold_violation_relative": 1.7763568394002505e-15,
+          "mass_residual_normalized": 2.6645352591003757e-15,
+          "cumulative_identity_residual_normalized": 2.4424906541753444e-15,
+          "minimum_compartment_normalized": 1.9432658150385148e-12,
+          "platform_min_S_minus_Sc_normalized": 8.765210779415611e-14,
+          "control_bound_violation": 0.0,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 161,
+          "nfev": 60019,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 9.968914582714206e-09,
+            "C_interval_minus_collocation": [
+              -0.000980401411652565,
+              1.959875226020813e-05
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              8.765210779415611e-14,
+              2.758904216193514e-14
+            ]
+          }
+        }
+      },
+      "method_comparison": {
+        "J_absolute_difference": 4.291678123991005e-12,
+        "C_cut_absolute_difference_persons": 5.587935447692871e-09,
+        "C_intervals_overlap": true,
+        "exit_residual_difference_normalized": 1.582067810090848e-15,
+        "both_numerically_feasible": true
+      }
+    },
+    "xian_infections": {
+      "candidate": "results\\collocation\\xian_infections_best.json",
+      "candidate_sha256": "285df36cc29ff141ef4fa1c8ec4fc9ef42a110fcb9026745d1f80509ea14924b",
+      "methods": {
+        "DOP853": {
+          "candidate_sha256": "285df36cc29ff141ef4fa1c8ec4fc9ef42a110fcb9026745d1f80509ea14924b",
+          "candidate_source": "results\\collocation\\xian_infections_best.json",
+          "attempt": "xian_infections_n160_from80_1_from40_1_from20_2_random1",
+          "n": 160,
+          "objective": "infections",
+          "evaluation_id": "xian_e14f6002a777",
+          "saved_path": "results\\validation\\xian_infections_n160_from80_1_from40_1_from20_2_random1_285df36cc2_DOP853_tail1e-03.json",
+          "archive_path": "results\\evaluations\\xian_e14f6002a777.json",
+          "case": "xian",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 0.001,
+          "duration": 500.15874280017505,
+          "J": 192.89812465998565,
+          "C_arc": 9804885.10063048,
+          "C_exit": 9855198.882773364,
+          "C_cut": 10449837.731052209,
+          "C_infinity_interval": [
+            10449837.731052209,
+            10449837.732052209
+          ],
+          "tail_bound_persons": 0.000999999999999997,
+          "Sq_exit": 333675.704331251,
+          "exit_residual_normalized": 2.3029272933072775e-11,
+          "first_Sc_exit_time": null,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 1.3322676295501967e-14,
+          "threshold_peak_ratio": 1.0000000000000133,
+          "post_threshold_violation_relative": 1.3322676295501878e-14,
+          "mass_residual_normalized": 1.4432899320127035e-15,
+          "cumulative_identity_residual_normalized": 1.3322676295501878e-15,
+          "minimum_compartment_normalized": 1.9432658808114363e-12,
+          "platform_min_S_minus_Sc_normalized": 2.3029272933072775e-11,
+          "control_bound_violation": 0.0,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 161,
+          "nfev": 28363,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 7.616637276441907e-08,
+            "C_interval_minus_collocation": [
+              -0.0009798742830753326,
+              2.012588083744049e-05
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              2.3029272933072775e-11,
+              7.386397049558013e-12
+            ]
+          }
+        },
+        "Radau": {
+          "candidate_sha256": "285df36cc29ff141ef4fa1c8ec4fc9ef42a110fcb9026745d1f80509ea14924b",
+          "candidate_source": "results\\collocation\\xian_infections_best.json",
+          "attempt": "xian_infections_n160_from80_1_from40_1_from20_2_random1",
+          "n": 160,
+          "objective": "infections",
+          "evaluation_id": "xian_537b20e25e63",
+          "saved_path": "results\\validation\\xian_infections_n160_from80_1_from40_1_from20_2_random1_285df36cc2_Radau_tail1e-03.json",
+          "archive_path": "results\\evaluations\\xian_537b20e25e63.json",
+          "case": "xian",
+          "method": "Radau",
+          "rtol": 1e-12,
+          "tail_tol_persons": 0.001,
+          "duration": 500.15874280017505,
+          "J": 192.89812465998773,
+          "C_arc": 9804885.100630471,
+          "C_exit": 9855198.88277333,
+          "C_cut": 10449837.73105219,
+          "C_infinity_interval": [
+            10449837.73105219,
+            10449837.73205219
+          ],
+          "tail_bound_persons": 0.0010000000000000009,
+          "Sq_exit": 333675.70433125325,
+          "exit_residual_normalized": 2.3030743978580404e-11,
+          "first_Sc_exit_time": null,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 1.776356839400252e-15,
+          "threshold_peak_ratio": 1.0000000000000018,
+          "post_threshold_violation_relative": 1.7763568394002505e-15,
+          "mass_residual_normalized": 3.1086244689504383e-15,
+          "cumulative_identity_residual_normalized": 3.552713678800501e-15,
+          "minimum_compartment_normalized": 1.943265880811396e-12,
+          "platform_min_S_minus_Sc_normalized": 2.3030743978580404e-11,
+          "control_bound_violation": 0.0,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 161,
+          "nfev": 87128,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 7.616844754920749e-08,
+            "C_interval_minus_collocation": [
+              -0.000979892909526825,
+              2.010725438594818e-05
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              2.3030743978580404e-11,
+              7.386570521905611e-12
+            ]
+          }
+        }
+      },
+      "method_comparison": {
+        "J_absolute_difference": 2.0747847884194925e-12,
+        "C_cut_absolute_difference_persons": 1.862645149230957e-08,
+        "C_intervals_overlap": true,
+        "exit_residual_difference_normalized": 1.4710455076283324e-15,
+        "both_numerically_feasible": true
+      }
+    },
+    "xian_cost": {
+      "candidate": "results\\collocation\\xian_cost_best.json",
+      "candidate_sha256": "5c3d727c2a97125476094480a91c92fe9965039ddd61cb1a52eac757e2a19554",
+      "methods": {
+        "DOP853": {
+          "candidate_sha256": "5c3d727c2a97125476094480a91c92fe9965039ddd61cb1a52eac757e2a19554",
+          "candidate_source": "results\\collocation\\xian_cost_best.json",
+          "attempt": "xian_cost_n160_from80_0_from40_0_from20_1_random1",
+          "n": 160,
+          "objective": "cost",
+          "evaluation_id": "xian_3cf03b2059ff",
+          "saved_path": "results\\validation\\xian_cost_n160_from80_0_from40_0_from20_1_random1_5c3d727c2a_DOP853_tail1e-03.json",
+          "archive_path": "results\\evaluations\\xian_3cf03b2059ff.json",
+          "case": "xian",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 0.001,
+          "duration": 506.1127466435787,
+          "J": 175.72456310702256,
+          "C_arc": 9827755.939319152,
+          "C_exit": 9878069.721462034,
+          "C_cut": 10451962.420367444,
+          "C_infinity_interval": [
+            10451962.420367444,
+            10451962.421367444
+          ],
+          "tail_bound_persons": 0.0009999999999999961,
+          "Sq_exit": 310804.8660707065,
+          "exit_residual_normalized": -9.493877906052717e-12,
+          "first_Sc_exit_time": 523.0088722747932,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 1.065814103640156e-14,
+          "threshold_peak_ratio": 1.0000000000000107,
+          "post_threshold_violation_relative": 1.0658141036401503e-14,
+          "mass_residual_normalized": 1.3322676295501878e-15,
+          "cumulative_identity_residual_normalized": 4.440892098500626e-15,
+          "minimum_compartment_normalized": 1.960351375165979e-12,
+          "platform_min_S_minus_Sc_normalized": -9.493877906052717e-12,
+          "control_bound_violation": 3.608935372767519e-10,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 161,
+          "nfev": 28201,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 2.2630047169514e-08,
+            "C_interval_minus_collocation": [
+              -0.0008462518453598022,
+              0.00015374831855297089
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              -9.493877906052717e-12,
+              7.794612177924876e-12
+            ]
+          }
+        },
+        "Radau": {
+          "candidate_sha256": "5c3d727c2a97125476094480a91c92fe9965039ddd61cb1a52eac757e2a19554",
+          "candidate_source": "results\\collocation\\xian_cost_best.json",
+          "attempt": "xian_cost_n160_from80_0_from40_0_from20_1_random1",
+          "n": 160,
+          "objective": "cost",
+          "evaluation_id": "xian_850223e40287",
+          "saved_path": "results\\validation\\xian_cost_n160_from80_0_from40_0_from20_1_random1_5c3d727c2a_Radau_tail1e-03.json",
+          "archive_path": "results\\evaluations\\xian_850223e40287.json",
+          "case": "xian",
+          "method": "Radau",
+          "rtol": 1e-12,
+          "tail_tol_persons": 0.001,
+          "duration": 506.1127466435787,
+          "J": 175.72456310702276,
+          "C_arc": 9827755.939319126,
+          "C_exit": 9878069.721461987,
+          "C_cut": 10451962.420367418,
+          "C_infinity_interval": [
+            10451962.420367418,
+            10451962.421367418
+          ],
+          "tail_bound_persons": 0.0009999999999999963,
+          "Sq_exit": 310804.8660707064,
+          "exit_residual_normalized": -9.493378305691635e-12,
+          "first_Sc_exit_time": 523.0088722747944,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 1.776356839400252e-15,
+          "threshold_peak_ratio": 1.0000000000000018,
+          "post_threshold_violation_relative": 1.7763568394002505e-15,
+          "mass_residual_normalized": 3.1086244689504383e-15,
+          "cumulative_identity_residual_normalized": 3.552713678800501e-15,
+          "minimum_compartment_normalized": 1.9603513751663362e-12,
+          "platform_min_S_minus_Sc_normalized": -9.493378305691635e-12,
+          "control_bound_violation": 3.608739973515185e-10,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 161,
+          "nfev": 86331,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 2.2630246121480013e-08,
+            "C_interval_minus_collocation": [
+              -0.0008462779223918915,
+              0.00015372224152088165
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              -9.493378305691635e-12,
+              7.794605239030972e-12
+            ]
+          }
+        }
+      },
+      "method_comparison": {
+        "J_absolute_difference": 1.9895196601282805e-13,
+        "C_cut_absolute_difference_persons": 2.60770320892334e-08,
+        "C_intervals_overlap": true,
+        "exit_residual_difference_normalized": 4.996003610813204e-16,
+        "both_numerically_feasible": true
+      }
+    }
+  },
+  "mesh": {
+    "base_time": {
+      "levels": [
+        {
+          "candidate_sha256": "9d3dea61976cfd2868c74c13f98f39bd154e7d79a7564628d9a9f1fb896f8ec0",
+          "candidate_source": "results\\collocation\\base_time_progress.json:n20",
+          "attempt": "base_time_n20_q_only",
+          "n": 20,
+          "objective": "time",
+          "evaluation_id": "base_54776534fa4b",
+          "saved_path": "results\\validation\\base_time_n20_q_only_9d3dea6197_DOP853_tail1e-05.json",
+          "archive_path": "results\\evaluations\\base_54776534fa4b.json",
+          "case": "base",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 1e-05,
+          "duration": 19.212783874382996,
+          "J": 2.82285805454302,
+          "C_arc": 355.70276487221184,
+          "C_exit": 405.2328207430143,
+          "C_cut": 623.1889532262397,
+          "C_infinity_interval": [
+            623.1889532262397,
+            623.1889632262397
+          ],
+          "tail_bound_persons": 1.0000000000000014e-05,
+          "Sq_exit": 181.60700990445983,
+          "exit_residual_normalized": -8.494575876039079e-10,
+          "first_Sc_exit_time": 22.387901928301584,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 8.881784197001249e-16,
+          "threshold_peak_ratio": 1.0,
+          "post_threshold_violation_relative": 0.0,
+          "mass_residual_normalized": 1.4876988529977098e-14,
+          "cumulative_identity_residual_normalized": 7.771561172376096e-16,
+          "minimum_compartment_normalized": 5.237209008958793e-11,
+          "platform_min_S_minus_Sc_normalized": -8.494575876039079e-10,
+          "control_bound_violation": 3.6437824459112367e-09,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 21,
+          "nfev": 4233,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 5.171559809280524e-06,
+            "C_interval_minus_collocation": [
+              -1.0029622217189171e-05,
+              -2.9622242436744273e-08
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              -8.494575876039079e-10,
+              7.322549788746358e-10
+            ]
+          }
+        },
+        {
+          "candidate_sha256": "b2dc892779acfa87bfdcf6566cb7f19bdcb7d3389ae928e6464a93741a2ef378",
+          "candidate_source": "results\\collocation\\base_time_progress.json:n40",
+          "attempt": "base_time_n40_from20_1_migrated",
+          "n": 40,
+          "objective": "time",
+          "evaluation_id": "base_2da973b2a27b",
+          "saved_path": "results\\validation\\base_time_n40_from20_1_migrated_b2dc892779_DOP853_tail1e-05.json",
+          "archive_path": "results\\evaluations\\base_2da973b2a27b.json",
+          "case": "base",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 1e-05,
+          "duration": 19.212783512924194,
+          "J": 2.8228580544068196,
+          "C_arc": 355.7027599620657,
+          "C_exit": 405.2328158328682,
+          "C_cut": 623.1889532262861,
+          "C_infinity_interval": [
+            623.1889532262861,
+            623.1889632262861
+          ],
+          "tail_bound_persons": 1.0000000000000013e-05,
+          "Sq_exit": 181.6070141874628,
+          "exit_residual_normalized": -2.7513130662626395e-11,
+          "first_Sc_exit_time": 22.387901928871706,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 0.0,
+          "threshold_peak_ratio": 1.0,
+          "post_threshold_violation_relative": 0.0,
+          "mass_residual_normalized": 1.4876988529977098e-14,
+          "cumulative_identity_residual_normalized": 6.661338147750939e-16,
+          "minimum_compartment_normalized": 5.237209008967067e-11,
+          "platform_min_S_minus_Sc_normalized": -2.7513130662626395e-11,
+          "control_bound_violation": 1.1801854285509172e-10,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 41,
+          "nfev": 4933,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 1.635689228507431e-07,
+            "C_interval_minus_collocation": [
+              -9.979136848414782e-06,
+              2.0863126337644644e-08
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              -2.7513130662626395e-11,
+              2.3777452229367668e-11
+            ]
+          }
+        },
+        {
+          "candidate_sha256": "b73b530abdcecce03a54e38f8cda5fabc2f72e8e5777954186a6a8b05d5dc70b",
+          "candidate_source": "results\\collocation\\base_time_progress.json:n80",
+          "attempt": "base_time_n80_from40_2_from20_2_c_only",
+          "n": 80,
+          "objective": "time",
+          "evaluation_id": "base_310b820b20a0",
+          "saved_path": "results\\validation\\base_time_n80_from40_2_from20_2_c_only_b73b530abd_DOP853_tail1e-05.json",
+          "archive_path": "results\\evaluations\\base_310b820b20a0.json",
+          "case": "base",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 1e-05,
+          "duration": 19.21278350232569,
+          "J": 2.8228580541370554,
+          "C_arc": 355.7027598114452,
+          "C_exit": 405.2328156822477,
+          "C_cut": 623.1889532263775,
+          "C_infinity_interval": [
+            623.1889532263775,
+            623.1889632263775
+          ],
+          "tail_bound_persons": 9.999999999999992e-06,
+          "Sq_exit": 181.60701431774598,
+          "exit_residual_normalized": -8.587019983963273e-13,
+          "first_Sc_exit_time": 22.38790193001329,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 0.0,
+          "threshold_peak_ratio": 1.0,
+          "post_threshold_violation_relative": 0.0,
+          "mass_residual_normalized": 1.4654943925052066e-14,
+          "cumulative_identity_residual_normalized": 5.551115123125783e-16,
+          "minimum_compartment_normalized": 5.237209008983725e-11,
+          "platform_min_S_minus_Sc_normalized": -8.587019983963273e-13,
+          "control_bound_violation": 3.6833348870946025e-12,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 81,
+          "nfev": 5748,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 5.158420801620878e-09,
+            "C_interval_minus_collocation": [
+              -9.977500667446293e-06,
+              2.2499307306134142e-08
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              -8.587019983963273e-13,
+              8.619494007433559e-13
+            ]
+          }
+        },
+        {
+          "candidate_sha256": "43af8512b42ab3b10e407d11d2c744bee5cdf6401145383d3e5c0ddd191bbf33",
+          "candidate_source": "results\\collocation\\base_time_progress.json:n160",
+          "attempt": "base_time_n160_from80_0_from40_2_from20_2_c_only",
+          "n": 160,
+          "objective": "time",
+          "evaluation_id": "base_85b8fe72212c",
+          "saved_path": "results\\validation\\base_time_n160_from80_0_from40_2_from20_2_c_only_43af8512b4_DOP853_tail1e-05.json",
+          "archive_path": "results\\evaluations\\base_85b8fe72212c.json",
+          "case": "base",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 1e-05,
+          "duration": 19.21278350422604,
+          "J": 2.822858053599082,
+          "C_arc": 355.70275982375034,
+          "C_exit": 405.2328156945528,
+          "C_cut": 623.1889532265609,
+          "C_infinity_interval": [
+            623.1889532265609,
+            623.1889632265609
+          ],
+          "tail_bound_persons": 9.999999999999987e-06,
+          "Sq_exit": 181.60701430477766,
+          "exit_residual_normalized": 1.0297318553398327e-14,
+          "first_Sc_exit_time": 22.387901932291825,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 0.0,
+          "threshold_peak_ratio": 1.0,
+          "post_threshold_violation_relative": 0.0,
+          "mass_residual_normalized": 1.4432899320127035e-14,
+          "cumulative_identity_residual_normalized": 1.1102230246251565e-15,
+          "minimum_compartment_normalized": 5.2372090090169705e-11,
+          "platform_min_S_minus_Sc_normalized": 1.0297318553398327e-14,
+          "control_bound_violation": 0.0,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 161,
+          "nfev": 8143,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 1.6264944946442483e-10,
+            "C_interval_minus_collocation": [
+              -9.977447689379915e-06,
+              2.2552285372512415e-08
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              1.0297318553398327e-14,
+              2.318423231173483e-13
+            ]
+          }
+        }
+      ],
+      "changes": [
+        {
+          "from_n": 20,
+          "to_n": 40,
+          "duration_relative_change": 1.881345314704711e-08,
+          "J_relative_change": 4.824910841391748e-11,
+          "C_cut_absolute_change_persons": 4.638422979041934e-11,
+          "C_interval_change_persons": [
+            -9.999953590522637e-06,
+            1.0000046358982217e-05
+          ],
+          "both_numerically_feasible": true
+        },
+        {
+          "from_n": 40,
+          "to_n": 80,
+          "duration_relative_change": 5.516381935655612e-10,
+          "J_relative_change": 9.556421392641949e-11,
+          "C_cut_absolute_change_persons": 9.140421752817929e-11,
+          "C_interval_change_persons": [
+            -9.999908570534899e-06,
+            1.0000091378969955e-05
+          ],
+          "both_numerically_feasible": true
+        },
+        {
+          "from_n": 80,
+          "to_n": 160,
+          "duration_relative_change": 9.891071218733434e-11,
+          "J_relative_change": 1.9057749674665383e-10,
+          "C_cut_absolute_change_persons": 1.8337686924496666e-10,
+          "C_interval_change_persons": [
+            -9.999816597883182e-06,
+            1.0000183351621672e-05
+          ],
+          "both_numerically_feasible": true
+        }
+      ]
+    },
+    "base_infections": {
+      "levels": [
+        {
+          "candidate_sha256": "515b107bea99c1afa98713a0cc779def6a1576a714251782dfd7f1c53ef3e8ec",
+          "candidate_source": "results\\collocation\\base_infections_progress.json:n20",
+          "attempt": "base_infections_n20_c_only",
+          "n": 20,
+          "objective": "infections",
+          "evaluation_id": "base_41394517391d",
+          "saved_path": "results\\validation\\base_infections_n20_c_only_515b107bea_DOP853_tail1e-05.json",
+          "archive_path": "results\\evaluations\\base_41394517391d.json",
+          "case": "base",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 1e-05,
+          "duration": 19.21279845280321,
+          "J": 2.8228685491070924,
+          "C_arc": 355.7027801914757,
+          "C_exit": 405.23283606227824,
+          "C_cut": 623.1889533864221,
+          "C_infinity_interval": [
+            623.1889533864221,
+            623.1889633864221
+          ],
+          "tail_bound_persons": 9.999999999999996e-06,
+          "Sq_exit": 181.60699458530524,
+          "exit_residual_normalized": -8.496000847291185e-10,
+          "first_Sc_exit_time": 22.387916506659266,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 4.440892098500625e-16,
+          "threshold_peak_ratio": 1.0,
+          "post_threshold_violation_relative": 0.0,
+          "mass_residual_normalized": 1.4654943925052066e-14,
+          "cumulative_identity_residual_normalized": 1.5543122344752192e-15,
+          "minimum_compartment_normalized": 5.237209038081203e-11,
+          "platform_min_S_minus_Sc_normalized": -8.496000847291185e-10,
+          "control_bound_violation": 3.644390515061824e-09,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 21,
+          "nfev": 4233,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 5.16989527632461e-06,
+            "C_interval_minus_collocation": [
+              -1.002962426355225e-05,
+              -2.9624288799823262e-08
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              -8.496000847291185e-10,
+              7.316995342954158e-10
+            ]
+          }
+        },
+        {
+          "candidate_sha256": "e133494ef484afc5fe2788c0cb9ac10fb12523556ded3a8e4f40b951aabed7de",
+          "candidate_source": "results\\collocation\\base_infections_progress.json:n40",
+          "attempt": "base_infections_n40_from20_0_c_only",
+          "n": 40,
+          "objective": "infections",
+          "evaluation_id": "base_698eb31fd019",
+          "saved_path": "results\\validation\\base_infections_n40_from20_0_c_only_e133494ef4_DOP853_tail1e-05.json",
+          "archive_path": "results\\evaluations\\base_698eb31fd019.json",
+          "case": "base",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 1e-05,
+          "duration": 19.212810438904484,
+          "J": 2.822875822246313,
+          "C_arc": 355.7027898704851,
+          "C_exit": 405.2328457412876,
+          "C_cut": 623.1889535390306,
+          "C_infinity_interval": [
+            623.1889535390306,
+            623.1889635390306
+          ],
+          "tail_bound_persons": 1.0000000000000003e-05,
+          "Sq_exit": 181.60698427905254,
+          "exit_residual_normalized": -2.7525592916077812e-11,
+          "first_Sc_exit_time": 22.38792885484652,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 0.0,
+          "threshold_peak_ratio": 1.0,
+          "post_threshold_violation_relative": 0.0,
+          "mass_residual_normalized": 1.4654943925052066e-14,
+          "cumulative_identity_residual_normalized": 4.996003610813204e-16,
+          "minimum_compartment_normalized": 5.237209065827054e-11,
+          "platform_min_S_minus_Sc_normalized": -2.7525592916077812e-11,
+          "control_bound_violation": 1.1807172253797127e-10,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 41,
+          "nfev": 4933,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 1.6346011433299168e-07,
+            "C_interval_minus_collocation": [
+              -9.979137303162133e-06,
+              2.0862671590293758e-08
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              -2.7525592916077812e-11,
+              2.3733265352987587e-11
+            ]
+          }
+        },
+        {
+          "candidate_sha256": "cdca8ca76678f8f6f9742b099a891bef04d085fe0681b3672f34c5fc7e8665d0",
+          "candidate_source": "results\\collocation\\base_infections_progress.json:n80",
+          "attempt": "base_infections_n80_from40_2_from20_2_random0",
+          "n": 80,
+          "objective": "infections",
+          "evaluation_id": "base_9d302ea962be",
+          "saved_path": "results\\validation\\base_infections_n80_from40_2_from20_2_random0_cdca8ca766_DOP853_tail1e-05.json",
+          "archive_path": "results\\evaluations\\base_9d302ea962be.json",
+          "case": "base",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 1e-05,
+          "duration": 19.212834566440556,
+          "J": 2.8228892013177953,
+          "C_arc": 355.7028189002342,
+          "C_exit": 405.2328747710367,
+          "C_cut": 623.1889538442563,
+          "C_infinity_interval": [
+            623.1889538442563,
+            623.1889638442563
+          ],
+          "tail_bound_persons": 1.0000000000000011e-05,
+          "Sq_exit": 181.60695522894605,
+          "exit_residual_normalized": -8.445744104079722e-13,
+          "first_Sc_exit_time": 22.38795299413438,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 0.0,
+          "threshold_peak_ratio": 1.0,
+          "post_threshold_violation_relative": 0.0,
+          "mass_residual_normalized": 1.4654943925052066e-14,
+          "cumulative_identity_residual_normalized": 8.881784197001252e-16,
+          "minimum_compartment_normalized": 5.2372091213201164e-11,
+          "platform_min_S_minus_Sc_normalized": -8.445744104079722e-13,
+          "control_bound_violation": 3.622716709950069e-12,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 81,
+          "nfev": 5748,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 5.180168738405655e-09,
+            "C_interval_minus_collocation": [
+              -9.977501008506806e-06,
+              2.2498966245620977e-08
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              -8.445744104079722e-13,
+              9.590939153980571e-13
+            ]
+          }
+        },
+        {
+          "candidate_sha256": "324365cc21a77e1232d8ee1d8a82049f961a131bc9692a29da86facb0d9a6a1d",
+          "candidate_source": "results\\collocation\\base_infections_progress.json:n160",
+          "attempt": "base_infections_n160_from80_2_from40_1_from20_1_c_then_q",
+          "n": 160,
+          "objective": "infections",
+          "evaluation_id": "base_201dbc8f4df3",
+          "saved_path": "results\\validation\\base_infections_n160_from80_2_from40_1_from20_1_c_then_q_324365cc21_DOP853_tail1e-05.json",
+          "archive_path": "results\\evaluations\\base_201dbc8f4df3.json",
+          "case": "base",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 1e-05,
+          "duration": 19.21288251725668,
+          "J": 2.8229152777780127,
+          "C_arc": 355.70287727874233,
+          "C_exit": 405.23293314954486,
+          "C_cut": 623.1889544547643,
+          "C_infinity_interval": [
+            623.1889544547643,
+            623.1889644547642
+          ],
+          "tail_bound_persons": 1.0000000000000035e-05,
+          "Sq_exit": 181.6068968497813,
+          "exit_residual_normalized": 1.457167719820518e-14,
+          "first_Sc_exit_time": 22.388000945322467,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 0.0,
+          "threshold_peak_ratio": 1.0,
+          "post_threshold_violation_relative": 0.0,
+          "mass_residual_normalized": 1.4210854715202004e-14,
+          "cumulative_identity_residual_normalized": 1.7208456881689926e-15,
+          "minimum_compartment_normalized": 5.237209232316256e-11,
+          "platform_min_S_minus_Sc_normalized": 1.457167719820518e-14,
+          "control_bound_violation": 0.0,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 161,
+          "nfev": 8143,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 1.6972379057733633e-10,
+            "C_interval_minus_collocation": [
+              -9.977448485187779e-06,
+              2.2551489564648364e-08
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              1.457167719820518e-14,
+              2.601252546696742e-13
+            ]
+          }
+        }
+      ],
+      "changes": [
+        {
+          "from_n": 20,
+          "to_n": 40,
+          "duration_relative_change": 6.238598622669046e-07,
+          "J_relative_change": 2.576499881201729e-06,
+          "C_cut_absolute_change_persons": 1.5260854979715077e-07,
+          "C_interval_change_persons": [
+            -9.847391424955276e-06,
+            1.0152608524549578e-05
+          ],
+          "both_numerically_feasible": true
+        },
+        {
+          "from_n": 40,
+          "to_n": 80,
+          "duration_relative_change": 1.2558030408649646e-06,
+          "J_relative_change": 4.739495788923955e-06,
+          "C_cut_absolute_change_persons": 3.0522562610713067e-07,
+          "C_interval_change_persons": [
+            -9.694774348645296e-06,
+            1.0305225600859558e-05
+          ],
+          "both_numerically_feasible": true
+        },
+        {
+          "from_n": 80,
+          "to_n": 160,
+          "duration_relative_change": 2.495763771093931e-06,
+          "J_relative_change": 9.237422186426952e-06,
+          "C_cut_absolute_change_persons": 6.105079819462844e-07,
+          "C_interval_change_persons": [
+            -9.389491992806143e-06,
+            1.0610507956698711e-05
+          ],
+          "both_numerically_feasible": true
+        }
+      ]
+    },
+    "base_cost": {
+      "levels": [
+        {
+          "candidate_sha256": "27652f7c8886358948f15b3723992fb071c099205f02ecca9feb2e19a05dd3e3",
+          "candidate_source": "results\\collocation\\base_cost_progress.json:n20",
+          "attempt": "base_cost_n20_random1",
+          "n": 20,
+          "objective": "cost",
+          "evaluation_id": "base_316dac39ac1f",
+          "saved_path": "results\\validation\\base_cost_n20_random1_27652f7c88_DOP853_tail1e-05.json",
+          "archive_path": "results\\evaluations\\base_316dac39ac1f.json",
+          "case": "base",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 1e-05,
+          "duration": 20.65012498800645,
+          "J": 2.7648083137712645,
+          "C_arc": 373.0805751237848,
+          "C_exit": 422.61063099458727,
+          "C_cut": 623.5255889806612,
+          "C_infinity_interval": [
+            623.5255889806612,
+            623.5255989806611
+          ],
+          "tail_bound_persons": 1.0000000000000008e-05,
+          "Sq_exit": 164.22919892308727,
+          "exit_residual_normalized": 1.0702988495481236e-10,
+          "first_Sc_exit_time": null,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 8.881784197001249e-16,
+          "threshold_peak_ratio": 1.0,
+          "post_threshold_violation_relative": 0.0,
+          "mass_residual_normalized": 1.4876988529977098e-14,
+          "cumulative_identity_residual_normalized": 5.551115123125783e-16,
+          "minimum_compartment_normalized": 5.298561478158425e-11,
+          "platform_min_S_minus_Sc_normalized": 1.0702988495481236e-10,
+          "control_bound_violation": 0.0,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 21,
+          "nfev": 4266,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 5.838752834108618e-06,
+            "C_interval_minus_collocation": [
+              -1.016131761844008e-05,
+              -1.613176436876529e-07
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              1.0702988495481236e-10,
+              8.287261599182472e-09
+            ]
+          }
+        },
+        {
+          "candidate_sha256": "bcdb7655238a959112a86a66fe9567dd865bab231d40360413219972687bf880",
+          "candidate_source": "results\\collocation\\base_cost_progress.json:n40",
+          "attempt": "base_cost_n40_from20_2_c_then_q",
+          "n": 40,
+          "objective": "cost",
+          "evaluation_id": "base_8d07fecdfef8",
+          "saved_path": "results\\validation\\base_cost_n40_from20_2_c_then_q_bcdb765523_DOP853_tail1e-05.json",
+          "archive_path": "results\\evaluations\\base_8d07fecdfef8.json",
+          "case": "base",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 1e-05,
+          "duration": 20.68448090030121,
+          "J": 2.764709071492788,
+          "C_arc": 373.5122191366301,
+          "C_exit": 423.0422750074326,
+          "C_cut": 623.5388630588129,
+          "C_infinity_interval": [
+            623.5388630588129,
+            623.5388730588129
+          ],
+          "tail_bound_persons": 1e-05,
+          "Sq_exit": 163.7975550074697,
+          "exit_residual_normalized": -2.039934887676509e-11,
+          "first_Sc_exit_time": 23.859599323186373,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 0.0,
+          "threshold_peak_ratio": 1.0,
+          "post_threshold_violation_relative": 0.0,
+          "mass_residual_normalized": 1.4210854715202004e-14,
+          "cumulative_identity_residual_normalized": 1.3322676295501878e-15,
+          "minimum_compartment_normalized": 5.300986815424988e-11,
+          "platform_min_S_minus_Sc_normalized": -2.039934887676509e-11,
+          "control_bound_violation": 5.495390809073797e-10,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 41,
+          "nfev": 4876,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 2.3311840724460353e-07,
+            "C_interval_minus_collocation": [
+              -9.988700298890762e-06,
+              1.1299675861664582e-08
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              -2.039934887676509e-11,
+              4.042137180526595e-10
+            ]
+          }
+        },
+        {
+          "candidate_sha256": "72a444dbf48030c2f5201f509336312e6e58d33a15c022986ed6458d4a1e25ab",
+          "candidate_source": "results\\collocation\\base_cost_progress.json:n80",
+          "attempt": "base_cost_n80_from40_0_from20_2_c_then_q",
+          "n": 80,
+          "objective": "cost",
+          "evaluation_id": "base_46d1195f56e6",
+          "saved_path": "results\\validation\\base_cost_n80_from40_0_from20_2_c_then_q_72a444dbf4_DOP853_tail1e-05.json",
+          "archive_path": "results\\evaluations\\base_46d1195f56e6.json",
+          "case": "base",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 1e-05,
+          "duration": 20.690052887020723,
+          "J": 2.7647038750364525,
+          "C_arc": 373.58232643817763,
+          "C_exit": 423.1123823089801,
+          "C_cut": 623.5410462896397,
+          "C_infinity_interval": [
+            623.5410462896397,
+            623.5410562896396
+          ],
+          "tail_bound_persons": 1.0000000000000006e-05,
+          "Sq_exit": 163.72744769555337,
+          "exit_residual_normalized": -6.809025565601701e-12,
+          "first_Sc_exit_time": 23.865171313360168,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 0.0,
+          "threshold_peak_ratio": 1.0,
+          "post_threshold_violation_relative": 0.0,
+          "mass_residual_normalized": 1.4432899320127035e-14,
+          "cumulative_identity_residual_normalized": 4.440892098500626e-16,
+          "minimum_compartment_normalized": 5.301385763314367e-11,
+          "platform_min_S_minus_Sc_normalized": -6.809025565601701e-12,
+          "control_bound_violation": 1.9272050622021197e-10,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 81,
+          "nfev": 5856,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 7.810429192289803e-09,
+            "C_interval_minus_collocation": [
+              -9.978362299989385e-06,
+              2.1637674763042014e-08
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              -6.808997810026085e-12,
+              1.8909901422503594e-11
+            ]
+          }
+        },
+        {
+          "candidate_sha256": "26b191ba6db19f95ea6344ea3117bc5257b353871b70c29de1821a21c041a66e",
+          "candidate_source": "results\\collocation\\base_cost_progress.json:n160",
+          "attempt": "base_cost_n160_from80_0_from40_0_from20_2_c_then_q",
+          "n": 160,
+          "objective": "cost",
+          "evaluation_id": "base_4615c2336c14",
+          "saved_path": "results\\validation\\base_cost_n160_from80_0_from40_0_from20_2_c_then_q_26b191ba6d_DOP853_tail1e-05.json",
+          "archive_path": "results\\evaluations\\base_4615c2336c14.json",
+          "case": "base",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 1e-05,
+          "duration": 20.690880125793974,
+          "J": 2.7647035865453056,
+          "C_arc": 373.59273453529596,
+          "C_exit": 423.12279040609843,
+          "C_cut": 623.5413710643446,
+          "C_infinity_interval": [
+            623.5413710643446,
+            623.5413810643446
+          ],
+          "tail_bound_persons": 9.999999999999989e-06,
+          "Sq_exit": 163.71703959439708,
+          "exit_residual_normalized": -1.5158707622475731e-12,
+          "first_Sc_exit_time": 23.865998553475404,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 0.0,
+          "threshold_peak_ratio": 1.0,
+          "post_threshold_violation_relative": 0.0,
+          "mass_residual_normalized": 1.554312234475219e-14,
+          "cumulative_identity_residual_normalized": 1.4432899320127035e-15,
+          "minimum_compartment_normalized": 5.3014451113801367e-11,
+          "platform_min_S_minus_Sc_normalized": -1.5158707622475731e-12,
+          "control_bound_violation": 4.3289816176184104e-11,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 161,
+          "nfev": 8071,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 2.4763524564264117e-10,
+            "C_interval_minus_collocation": [
+              -9.977505555980315e-06,
+              2.2494418772112112e-08
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              -1.5158707622475731e-12,
+              1.9335921752627883e-12
+            ]
+          }
+        }
+      ],
+      "changes": [
+        {
+          "from_n": 20,
+          "to_n": 40,
+          "duration_relative_change": 0.0016609511478849837,
+          "J_relative_change": 3.589610187189722e-05,
+          "C_cut_absolute_change_persons": 0.013274078151766844,
+          "C_interval_change_persons": [
+            0.013264078151792091,
+            0.013284078151741596
+          ],
+          "both_numerically_feasible": true
+        },
+        {
+          "from_n": 40,
+          "to_n": 80,
+          "duration_relative_change": 0.0002693075145790659,
+          "J_relative_change": 1.8795706774874753e-06,
+          "C_cut_absolute_change_persons": 0.0021832308267448752,
+          "C_interval_change_persons": [
+            0.002173230826770123,
+            0.0021932308267196277
+          ],
+          "both_numerically_feasible": true
+        },
+        {
+          "from_n": 80,
+          "to_n": 160,
+          "duration_relative_change": 3.9980840264973425e-05,
+          "J_relative_change": 1.0434794832088007e-07,
+          "C_cut_absolute_change_persons": 0.0003247747049499594,
+          "C_interval_change_persons": [
+            0.000314774704975207,
+            0.00033477470492471184
+          ],
+          "both_numerically_feasible": true
+        }
+      ]
+    },
+    "xian_time": {
+      "levels": [
+        {
+          "candidate_sha256": "656202e7b2875e9d828f8d4944cfc53539ab163def88c3841761edbc4c970b0d",
+          "candidate_source": "results\\collocation\\xian_time_progress.json:n20",
+          "attempt": "xian_time_n20_migrated",
+          "n": 20,
+          "objective": "time",
+          "evaluation_id": "xian_ee9137ce0c3f",
+          "saved_path": "results\\validation\\xian_time_n20_migrated_656202e7b2_DOP853_tail1e-03.json",
+          "archive_path": "results\\evaluations\\xian_ee9137ce0c3f.json",
+          "case": "xian",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 0.001,
+          "duration": 425.26444429980756,
+          "J": 192.8824520675665,
+          "C_arc": 9804885.002081582,
+          "C_exit": 9855198.784224465,
+          "C_cut": 10449837.722867414,
+          "C_infinity_interval": [
+            10449837.722867414,
+            10449837.723867415
+          ],
+          "tail_bound_persons": 0.0009999999999999985,
+          "Sq_exit": 333675.803656562,
+          "exit_residual_normalized": -3.595573838666155e-11,
+          "first_Sc_exit_time": 442.1605698887155,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 8.881784197001292e-15,
+          "threshold_peak_ratio": 1.0000000000000089,
+          "post_threshold_violation_relative": 8.881784197001252e-15,
+          "mass_residual_normalized": 1.3322676295501878e-15,
+          "cumulative_identity_residual_normalized": 1.1102230246251565e-15,
+          "minimum_compartment_normalized": 1.9432658150364755e-12,
+          "platform_min_S_minus_Sc_normalized": -3.595573838666155e-11,
+          "control_bound_violation": 1.0773398839702963e-10,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 21,
+          "nfev": 22053,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 0.00013994455221677526,
+            "C_interval_minus_collocation": [
+              -0.0009803902357816696,
+              1.9609928131103516e-05
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              -3.595573838666155e-11,
+              -1.1501848085071487e-11
+            ]
+          }
+        },
+        {
+          "candidate_sha256": "d1f430a93f8dc62c5e69a7f52d78eb4312392a692ab60706482abaf419588009",
+          "candidate_source": "results\\collocation\\xian_time_progress.json:n40",
+          "attempt": "xian_time_n40_from20_0_migrated",
+          "n": 40,
+          "objective": "time",
+          "evaluation_id": "xian_4f0b38403ddb",
+          "saved_path": "results\\validation\\xian_time_n40_from20_0_migrated_d1f430a93f_DOP853_tail1e-03.json",
+          "archive_path": "results\\evaluations\\xian_4f0b38403ddb.json",
+          "case": "xian",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 0.001,
+          "duration": 425.26444424776076,
+          "J": 192.8824520673364,
+          "C_arc": 9804885.001476625,
+          "C_exit": 9855198.783619508,
+          "C_cut": 10449837.722867453,
+          "C_infinity_interval": [
+            10449837.722867453,
+            10449837.723867454
+          ],
+          "tail_bound_persons": 0.0009999999999999998,
+          "Sq_exit": 333675.8038028076,
+          "exit_residual_normalized": -1.106892355551281e-12,
+          "first_Sc_exit_time": 442.16056988939414,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 6.2172489379008956e-15,
+          "threshold_peak_ratio": 1.0000000000000062,
+          "post_threshold_violation_relative": 6.217248937900877e-15,
+          "mass_residual_normalized": 1.6653345369377348e-15,
+          "cumulative_identity_residual_normalized": 8.881784197001252e-16,
+          "minimum_compartment_normalized": 1.943265815036814e-12,
+          "platform_min_S_minus_Sc_normalized": -1.106892355551281e-12,
+          "control_bound_violation": 3.3166247526139614e-12,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 41,
+          "nfev": 22813,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 8.49932300184264e-06,
+            "C_interval_minus_collocation": [
+              -0.0009808652102947235,
+              1.913495361804962e-05
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              -1.1069201111268967e-12,
+              -3.5436931167254215e-13
+            ]
+          }
+        },
+        {
+          "candidate_sha256": "b820a207717060dea017f1088e901096c18b55b31dfdfc7a183260e105eb813f",
+          "candidate_source": "results\\collocation\\xian_time_progress.json:n80",
+          "attempt": "xian_time_n80_from40_0_from20_0_migrated",
+          "n": 80,
+          "objective": "time",
+          "evaluation_id": "xian_7570fb668169",
+          "saved_path": "results\\validation\\xian_time_n80_from40_0_from20_0_migrated_b820a20771_DOP853_tail1e-03.json",
+          "archive_path": "results\\evaluations\\xian_7570fb668169.json",
+          "case": "xian",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 0.001,
+          "duration": 425.26444424742584,
+          "J": 192.8824520668723,
+          "C_arc": 9804885.00145822,
+          "C_exit": 9855198.783601103,
+          "C_cut": 10449837.722867548,
+          "C_infinity_interval": [
+            10449837.722867548,
+            10449837.723867549
+          ],
+          "tail_bound_persons": 0.0009999999999999994,
+          "Sq_exit": 333675.8038065461,
+          "exit_residual_normalized": 8.298917109073045e-15,
+          "first_Sc_exit_time": 442.16056989073394,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 9.769962616701425e-15,
+          "threshold_peak_ratio": 1.0000000000000098,
+          "post_threshold_violation_relative": 9.769962616701378e-15,
+          "mass_residual_normalized": 8.881784197001252e-16,
+          "cumulative_identity_residual_normalized": 2.1094237467877974e-15,
+          "minimum_compartment_normalized": 1.943265815037445e-12,
+          "platform_min_S_minus_Sc_normalized": 8.298917109073045e-15,
+          "control_bound_violation": 0.0,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 81,
+          "nfev": 24528,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 3.0851890642225044e-07,
+            "C_interval_minus_collocation": [
+              -0.0009806156158447266,
+              1.938454806804657e-05
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              8.298917109073045e-15,
+              2.5569824035898137e-15
+            ]
+          }
+        },
+        {
+          "candidate_sha256": "fe42548ae1a2d58ed9fdb195bd1682de18279b7ee442569affec005e3c4f5e26",
+          "candidate_source": "results\\collocation\\xian_time_best.json",
+          "attempt": "xian_time_n160_from80_2_from40_2_from20_2_half",
+          "n": 160,
+          "objective": "time",
+          "evaluation_id": "xian_a3a406fa8c57",
+          "saved_path": "results\\validation\\xian_time_n160_from80_2_from40_2_from20_2_half_fe42548ae1_DOP853_tail1e-03.json",
+          "archive_path": "results\\evaluations\\xian_a3a406fa8c57.json",
+          "case": "xian",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 0.001,
+          "duration": 425.26444425001586,
+          "J": 192.88245206594584,
+          "C_arc": 9804885.001458716,
+          "C_exit": 9855198.783601597,
+          "C_cut": 10449837.722867675,
+          "C_infinity_interval": [
+            10449837.722867675,
+            10449837.723867675
+          ],
+          "tail_bound_persons": 0.0009999999999999974,
+          "Sq_exit": 333675.8038049684,
+          "exit_residual_normalized": 8.923417560424696e-14,
+          "first_Sc_exit_time": null,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 8.881784197001213e-15,
+          "threshold_peak_ratio": 1.0000000000000036,
+          "post_threshold_violation_relative": 3.552713678800501e-15,
+          "mass_residual_normalized": 1.5543122344752192e-15,
+          "cumulative_identity_residual_normalized": 9.992007221626409e-16,
+          "minimum_compartment_normalized": 1.9432658150386505e-12,
+          "platform_min_S_minus_Sc_normalized": 8.923417560424696e-14,
+          "control_bound_violation": 0.0,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 161,
+          "nfev": 27793,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 9.973206260838197e-09,
+            "C_interval_minus_collocation": [
+              -0.0009803958237171173,
+              1.9604340195655823e-05
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              8.923417560424696e-14,
+              2.795333409189027e-14
+            ]
+          }
+        }
+      ],
+      "changes": [
+        {
+          "from_n": 20,
+          "to_n": 40,
+          "duration_relative_change": 1.2238690854849313e-10,
+          "J_relative_change": 1.1929657523651805e-12,
+          "C_cut_absolute_change_persons": 3.91155481338501e-08,
+          "C_interval_change_persons": [
+            -0.0009999610483646393,
+            0.001000039279460907
+          ],
+          "both_numerically_feasible": true
+        },
+        {
+          "from_n": 40,
+          "to_n": 80,
+          "duration_relative_change": 7.87560372042338e-13,
+          "J_relative_change": 2.4061187957531998e-12,
+          "C_cut_absolute_change_persons": 9.499490261077881e-08,
+          "C_interval_change_persons": [
+            -0.0009999051690101624,
+            0.001000095158815384
+          ],
+          "both_numerically_feasible": true
+        },
+        {
+          "from_n": 80,
+          "to_n": 160,
+          "duration_relative_change": 6.090359944249583e-12,
+          "J_relative_change": 4.803249089689741e-12,
+          "C_cut_absolute_change_persons": 1.2665987014770508e-07,
+          "C_interval_change_persons": [
+            -0.0009998735040426254,
+            0.0010001268237829208
+          ],
+          "both_numerically_feasible": true
+        }
+      ]
+    },
+    "xian_infections": {
+      "levels": [
+        {
+          "candidate_sha256": "7d21f1ba61f4ca9c2b3bb3d6d0878bcca523115dcac66629d10c89d42cc07240",
+          "candidate_source": "results\\collocation\\xian_infections_progress.json:n20",
+          "attempt": "xian_infections_n20_q_only",
+          "n": 20,
+          "objective": "infections",
+          "evaluation_id": "xian_ecef78bcbf02",
+          "saved_path": "results\\validation\\xian_infections_n20_q_only_7d21f1ba61_DOP853_tail1e-03.json",
+          "archive_path": "results\\evaluations\\xian_ecef78bcbf02.json",
+          "case": "xian",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 0.001,
+          "duration": 500.760204266742,
+          "J": 196.08769780094315,
+          "C_arc": 9804885.309532473,
+          "C_exit": 9855199.091675354,
+          "C_cut": 10449837.724041801,
+          "C_infinity_interval": [
+            10449837.724041801,
+            10449837.725041801
+          ],
+          "tail_bound_persons": 0.0009999999999999976,
+          "Sq_exit": 333675.71831829095,
+          "exit_residual_normalized": -1.6909967121003788e-08,
+          "first_Sc_exit_time": 517.6563043256606,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 7.993605777301159e-15,
+          "threshold_peak_ratio": 1.000000000000008,
+          "post_threshold_violation_relative": 7.993605777301127e-15,
+          "mass_residual_normalized": 9.992007221626409e-16,
+          "cumulative_identity_residual_normalized": 1.4432899320127035e-15,
+          "minimum_compartment_normalized": 1.94326582447421e-12,
+          "platform_min_S_minus_Sc_normalized": -1.6909967121003788e-08,
+          "control_bound_violation": 5.066721081581349e-08,
+          "feasible": false,
+          "checks": {
+            "exit_match": false,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": false,
+            "platform_domain": false,
+            "tail_reached": true
+          },
+          "ode_calls": 21,
+          "nfev": 23532,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": -6.734290465715276e-05,
+            "C_interval_minus_collocation": [
+              -0.0010573044419288635,
+              -5.730427801609039e-05
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              -1.6909967121003788e-08,
+              -5.338064212878635e-09
+            ]
+          }
+        },
+        {
+          "candidate_sha256": "33d8e54334af351b62e62e3a9efa1eda0acd7625c1e5ad8ab86bae4c1215c41e",
+          "candidate_source": "results\\collocation\\xian_infections_progress.json:n40",
+          "attempt": "xian_infections_n40_from20_1_c_then_q",
+          "n": 40,
+          "objective": "infections",
+          "evaluation_id": "xian_1bea4ec667ea",
+          "saved_path": "results\\validation\\xian_infections_n40_from20_1_c_then_q_33d8e54334_DOP853_tail1e-03.json",
+          "archive_path": "results\\evaluations\\xian_1bea4ec667ea.json",
+          "case": "xian",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 0.001,
+          "duration": 502.6014619215372,
+          "J": 194.86686947701315,
+          "C_arc": 9804885.055651806,
+          "C_exit": 9855198.837794688,
+          "C_cut": 10449837.725147014,
+          "C_infinity_interval": [
+            10449837.725147014,
+            10449837.726147015
+          ],
+          "tail_bound_persons": 0.0009999999999999985,
+          "Sq_exit": 333675.76966159,
+          "exit_residual_normalized": -1.523097870048673e-09,
+          "first_Sc_exit_time": 519.4975852604338,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 7.993605777301159e-15,
+          "threshold_peak_ratio": 1.000000000000008,
+          "post_threshold_violation_relative": 7.993605777301127e-15,
+          "mass_residual_normalized": 2.220446049250313e-15,
+          "cumulative_identity_residual_normalized": 2.1094237467877974e-15,
+          "minimum_compartment_normalized": 1.9432658333559448e-12,
+          "platform_min_S_minus_Sc_normalized": -1.523097870048673e-09,
+          "control_bound_violation": 4.563645628063995e-09,
+          "feasible": false,
+          "checks": {
+            "exit_match": false,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": false,
+            "tail_reached": true
+          },
+          "ode_calls": 41,
+          "nfev": 24277,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 3.204395682132599e-07,
+            "C_interval_minus_collocation": [
+              -0.0009852591902017593,
+              1.4740973711013794e-05
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              -1.523097870048673e-09,
+              -4.826201417673648e-10
+            ]
+          }
+        },
+        {
+          "candidate_sha256": "2b19183b67fffe8608c196f6c1222f64604b658ec65d7f755491b7e1612a1a64",
+          "candidate_source": "results\\collocation\\xian_infections_progress.json:n80",
+          "attempt": "xian_infections_n80_from40_0_from20_1_c_then_q",
+          "n": 80,
+          "objective": "infections",
+          "evaluation_id": "xian_c17574b60c3e",
+          "saved_path": "results\\validation\\xian_infections_n80_from40_0_from20_1_c_then_q_2b19183b67_DOP853_tail1e-03.json",
+          "archive_path": "results\\evaluations\\xian_c17574b60c3e.json",
+          "case": "xian",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 0.001,
+          "duration": 501.56904495699985,
+          "J": 193.81673715016848,
+          "C_arc": 9804885.049763754,
+          "C_exit": 9855198.831906635,
+          "C_cut": 10449837.72717241,
+          "C_infinity_interval": [
+            10449837.72717241,
+            10449837.72817241
+          ],
+          "tail_bound_persons": 0.0009999999999999916,
+          "Sq_exit": 333675.7524199171,
+          "exit_residual_normalized": 2.3407989435675347e-10,
+          "first_Sc_exit_time": null,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 7.993605777301159e-15,
+          "threshold_peak_ratio": 1.000000000000008,
+          "post_threshold_violation_relative": 7.993605777301127e-15,
+          "mass_residual_normalized": 1.4432899320127035e-15,
+          "cumulative_identity_residual_normalized": 3.1086244689504383e-15,
+          "minimum_compartment_normalized": 1.9432658496327283e-12,
+          "platform_min_S_minus_Sc_normalized": 2.3407989435675347e-10,
+          "control_bound_violation": 0.0,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 81,
+          "nfev": 25635,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 9.578641595453519e-07,
+            "C_interval_minus_collocation": [
+              -0.0009806044399738312,
+              1.9395723938941956e-05
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              2.3407989435675347e-10,
+              7.517322528349801e-11
+            ]
+          }
+        },
+        {
+          "candidate_sha256": "285df36cc29ff141ef4fa1c8ec4fc9ef42a110fcb9026745d1f80509ea14924b",
+          "candidate_source": "results\\collocation\\xian_infections_best.json",
+          "attempt": "xian_infections_n160_from80_1_from40_1_from20_2_random1",
+          "n": 160,
+          "objective": "infections",
+          "evaluation_id": "xian_e14f6002a777",
+          "saved_path": "results\\validation\\xian_infections_n160_from80_1_from40_1_from20_2_random1_285df36cc2_DOP853_tail1e-03.json",
+          "archive_path": "results\\evaluations\\xian_e14f6002a777.json",
+          "case": "xian",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 0.001,
+          "duration": 500.15874280017505,
+          "J": 192.89812465998565,
+          "C_arc": 9804885.10063048,
+          "C_exit": 9855198.882773364,
+          "C_cut": 10449837.731052209,
+          "C_infinity_interval": [
+            10449837.731052209,
+            10449837.732052209
+          ],
+          "tail_bound_persons": 0.000999999999999997,
+          "Sq_exit": 333675.704331251,
+          "exit_residual_normalized": 2.3029272933072775e-11,
+          "first_Sc_exit_time": null,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 1.3322676295501967e-14,
+          "threshold_peak_ratio": 1.0000000000000133,
+          "post_threshold_violation_relative": 1.3322676295501878e-14,
+          "mass_residual_normalized": 1.4432899320127035e-15,
+          "cumulative_identity_residual_normalized": 1.3322676295501878e-15,
+          "minimum_compartment_normalized": 1.9432658808114363e-12,
+          "platform_min_S_minus_Sc_normalized": 2.3029272933072775e-11,
+          "control_bound_violation": 0.0,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 161,
+          "nfev": 28363,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 7.616637276441907e-08,
+            "C_interval_minus_collocation": [
+              -0.0009798742830753326,
+              2.012588083744049e-05
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              2.3029272933072775e-11,
+              7.386397049558013e-12
+            ]
+          }
+        }
+      ],
+      "changes": [
+        {
+          "from_n": 20,
+          "to_n": 40,
+          "duration_relative_change": 0.0036634546341264536,
+          "J_relative_change": 0.006264935271996065,
+          "C_cut_absolute_change_persons": 0.001105213537812233,
+          "C_interval_change_persons": [
+            0.00010521337389945984,
+            0.002105213701725006
+          ],
+          "both_numerically_feasible": false
+        },
+        {
+          "from_n": 40,
+          "to_n": 80,
+          "duration_relative_change": 0.002058374564614217,
+          "J_relative_change": 0.005418171527833722,
+          "C_cut_absolute_change_persons": 0.002025395631790161,
+          "C_interval_change_persons": [
+            0.001025395467877388,
+            0.0030253957957029343
+          ],
+          "both_numerically_feasible": false
+        },
+        {
+          "from_n": 80,
+          "to_n": 160,
+          "duration_relative_change": 0.0028197090966142454,
+          "J_relative_change": 0.0047621639235841595,
+          "C_cut_absolute_change_persons": 0.003879798576235771,
+          "C_interval_change_persons": [
+            0.002879798412322998,
+            0.004879798740148544
+          ],
+          "both_numerically_feasible": true
+        }
+      ]
+    },
+    "xian_cost": {
+      "levels": [
+        {
+          "candidate_sha256": "1a94b09c619152e0a88ada011c3dbd524451148bcab6d211ed5b1c50b54182ee",
+          "candidate_source": "results\\collocation\\xian_cost_progress.json:n20",
+          "attempt": "xian_cost_n20_c_only",
+          "n": 20,
+          "objective": "cost",
+          "evaluation_id": "xian_e8510b28f90d",
+          "saved_path": "results\\validation\\xian_cost_n20_c_only_1a94b09c61_DOP853_tail1e-03.json",
+          "archive_path": "results\\evaluations\\xian_e8510b28f90d.json",
+          "case": "xian",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 0.001,
+          "duration": 506.1601213555779,
+          "J": 175.725376403535,
+          "C_arc": 9827740.88401161,
+          "C_exit": 9878054.66615449,
+          "C_cut": 10451960.602604838,
+          "C_infinity_interval": [
+            10451960.602604838,
+            10451960.603604838
+          ],
+          "tail_bound_persons": 0.0009999999999999987,
+          "Sq_exit": 310822.1140248743,
+          "exit_residual_normalized": -1.6658600823782344e-07,
+          "first_Sc_exit_time": 523.056034777123,
+          "early_first_Sc_exit": true,
+          "platform_relative_deviation": 5.3290705182007656e-15,
+          "threshold_peak_ratio": 1.0000000000000053,
+          "post_threshold_violation_relative": 5.329070518200751e-15,
+          "mass_residual_normalized": 3.219646771412954e-15,
+          "cumulative_identity_residual_normalized": 1.3322676295501878e-15,
+          "minimum_compartment_normalized": 1.9603367483723693e-12,
+          "platform_min_S_minus_Sc_normalized": -1.6658600823782344e-07,
+          "control_bound_violation": 6.253690290947134e-06,
+          "feasible": false,
+          "checks": {
+            "exit_match": false,
+            "no_early_exit": false,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": false,
+            "platform_domain": false,
+            "tail_reached": true
+          },
+          "ode_calls": 21,
+          "nfev": 23373,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 0.00019770780343719707,
+            "C_interval_minus_collocation": [
+              -0.1725373063236475,
+              -0.17153730615973473
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              -1.6658600823782344e-07,
+              1.0698330004874079e-07
+            ]
+          }
+        },
+        {
+          "candidate_sha256": "a2de3eb944b9952815fb17accd0c3ce2a83351252e195e5977597151e68f4a20",
+          "candidate_source": "results\\collocation\\xian_cost_progress.json:n40",
+          "attempt": "xian_cost_n40_from20_1_random1",
+          "n": 40,
+          "objective": "cost",
+          "evaluation_id": "xian_369b6ce2a049",
+          "saved_path": "results\\validation\\xian_cost_n40_from20_1_random1_a2de3eb944_DOP853_tail1e-03.json",
+          "archive_path": "results\\evaluations\\xian_369b6ce2a049.json",
+          "case": "xian",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 0.001,
+          "duration": 506.1187498908267,
+          "J": 175.7247948910291,
+          "C_arc": 9827753.957485896,
+          "C_exit": 9878067.739628777,
+          "C_cut": 10451962.20266394,
+          "C_infinity_interval": [
+            10451962.20266394,
+            10451962.20366394
+          ],
+          "tail_bound_persons": 0.0009999999999999994,
+          "Sq_exit": 310806.94954506564,
+          "exit_residual_normalized": -7.731223800044873e-09,
+          "first_Sc_exit_time": 523.0148656860138,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 6.217248937900858e-15,
+          "threshold_peak_ratio": 1.0000000000000053,
+          "post_threshold_violation_relative": 5.329070518200751e-15,
+          "mass_residual_normalized": 1.7763568394002505e-15,
+          "cumulative_identity_residual_normalized": 1.2212453270876722e-15,
+          "minimum_compartment_normalized": 1.9603496233941613e-12,
+          "platform_min_S_minus_Sc_normalized": -7.731223800044873e-09,
+          "control_bound_violation": 2.9277836155472414e-07,
+          "feasible": false,
+          "checks": {
+            "exit_match": false,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": false,
+            "platform_domain": false,
+            "tail_reached": true
+          },
+          "ode_calls": 41,
+          "nfev": 23899,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 1.750412931755818e-05,
+            "C_interval_minus_collocation": [
+              -0.010123098269104958,
+              -0.009123098105192184
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              -7.731223800044873e-09,
+              5.930192340658502e-09
+            ]
+          }
+        },
+        {
+          "candidate_sha256": "8b37c1a0e379ce793923318a6b1d45d10949558508244081ac3160b757c601b6",
+          "candidate_source": "results\\collocation\\xian_cost_progress.json:n80",
+          "attempt": "xian_cost_n80_from40_0_from20_1_random1",
+          "n": 80,
+          "objective": "cost",
+          "evaluation_id": "xian_b9cafebc5848",
+          "saved_path": "results\\validation\\xian_cost_n80_from40_0_from20_1_random1_8b37c1a0e3_DOP853_tail1e-03.json",
+          "archive_path": "results\\evaluations\\xian_b9cafebc5848.json",
+          "case": "xian",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 0.001,
+          "duration": 506.1126000361411,
+          "J": 175.72456331314638,
+          "C_arc": 9827755.646772679,
+          "C_exit": 9878069.42891556,
+          "C_cut": 10451962.389542524,
+          "C_infinity_interval": [
+            10451962.389542524,
+            10451962.390542524
+          ],
+          "tail_bound_persons": 0.0009999999999999953,
+          "Sq_exit": 310805.16226483264,
+          "exit_residual_normalized": -2.866105408561026e-10,
+          "first_Sc_exit_time": 523.008725314366,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 3.197442310920502e-14,
+          "threshold_peak_ratio": 1.000000000000032,
+          "post_threshold_violation_relative": 3.197442310920451e-14,
+          "mass_residual_normalized": 1.3322676295501878e-15,
+          "cumulative_identity_residual_normalized": 7.771561172376096e-16,
+          "minimum_compartment_normalized": 1.9603511271307232e-12,
+          "platform_min_S_minus_Sc_normalized": -2.866105408561026e-10,
+          "control_bound_violation": 1.0885329970733437e-08,
+          "feasible": false,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": false,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 81,
+          "nfev": 25383,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 6.907650629273121e-07,
+            "C_interval_minus_collocation": [
+              -0.001191137358546257,
+              -0.0001911371946334839
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              -2.866105408561026e-10,
+              2.290440719032727e-10
+            ]
+          }
+        },
+        {
+          "candidate_sha256": "5c3d727c2a97125476094480a91c92fe9965039ddd61cb1a52eac757e2a19554",
+          "candidate_source": "results\\collocation\\xian_cost_best.json",
+          "attempt": "xian_cost_n160_from80_0_from40_0_from20_1_random1",
+          "n": 160,
+          "objective": "cost",
+          "evaluation_id": "xian_3cf03b2059ff",
+          "saved_path": "results\\validation\\xian_cost_n160_from80_0_from40_0_from20_1_random1_5c3d727c2a_DOP853_tail1e-03.json",
+          "archive_path": "results\\evaluations\\xian_3cf03b2059ff.json",
+          "case": "xian",
+          "method": "DOP853",
+          "rtol": 1e-12,
+          "tail_tol_persons": 0.001,
+          "duration": 506.1127466435787,
+          "J": 175.72456310702256,
+          "C_arc": 9827755.939319152,
+          "C_exit": 9878069.721462034,
+          "C_cut": 10451962.420367444,
+          "C_infinity_interval": [
+            10451962.420367444,
+            10451962.421367444
+          ],
+          "tail_bound_persons": 0.0009999999999999961,
+          "Sq_exit": 310804.8660707065,
+          "exit_residual_normalized": -9.493877906052717e-12,
+          "first_Sc_exit_time": 523.0088722747932,
+          "early_first_Sc_exit": false,
+          "platform_relative_deviation": 1.065814103640156e-14,
+          "threshold_peak_ratio": 1.0000000000000107,
+          "post_threshold_violation_relative": 1.0658141036401503e-14,
+          "mass_residual_normalized": 1.3322676295501878e-15,
+          "cumulative_identity_residual_normalized": 4.440892098500626e-15,
+          "minimum_compartment_normalized": 1.960351375165979e-12,
+          "platform_min_S_minus_Sc_normalized": -9.493877906052717e-12,
+          "control_bound_violation": 3.608935372767519e-10,
+          "feasible": true,
+          "checks": {
+            "exit_match": true,
+            "no_early_exit": true,
+            "platform": true,
+            "post_threshold": true,
+            "nonnegative": true,
+            "mass": true,
+            "cumulative_identity": true,
+            "control_bounds": true,
+            "platform_domain": true,
+            "tail_reached": true
+          },
+          "ode_calls": 161,
+          "nfev": 28201,
+          "collocation_comparison": {
+            "J_ODE_minus_collocation": 2.2630047169514e-08,
+            "C_interval_minus_collocation": [
+              -0.0008462518453598022,
+              0.00015374831855297089
+            ],
+            "exit_state_N_ODE_minus_collocation": [
+              -9.493877906052717e-12,
+              7.794612177924876e-12
+            ]
+          }
+        }
+      ],
+      "changes": [
+        {
+          "from_n": 20,
+          "to_n": 40,
+          "duration_relative_change": 8.174260439901654e-05,
+          "J_relative_change": 3.3092228462329485e-06,
+          "C_cut_absolute_change_persons": 1.600059101358056,
+          "C_interval_change_persons": [
+            1.5990591011941433,
+            1.6010591015219688
+          ],
+          "both_numerically_feasible": false
+        },
+        {
+          "from_n": 40,
+          "to_n": 80,
+          "duration_relative_change": 1.2151159021035143e-05,
+          "J_relative_change": 1.31784582843236e-06,
+          "C_cut_absolute_change_persons": 0.18687858432531357,
+          "C_interval_change_persons": [
+            0.1858785841614008,
+            0.18787858448922634
+          ],
+          "both_numerically_feasible": false
+        },
+        {
+          "from_n": 80,
+          "to_n": 160,
+          "duration_relative_change": 2.8967347411467527e-07,
+          "J_relative_change": 1.1729937537521782e-09,
+          "C_cut_absolute_change_persons": 0.030824920162558556,
+          "C_interval_change_persons": [
+            0.029824919998645782,
+            0.03182492032647133
+          ],
+          "both_numerically_feasible": false
+        }
+      ]
+    }
+  },
+  "scope": "完整五仓 ODE 评价；不运行优化，不改候选；尾界区间不含浮点积分误差"
+}
