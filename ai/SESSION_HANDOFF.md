@@ -43,7 +43,7 @@
 ## 3. 待处理
 
 - **X1–X7 已在 NEW-4w 处理**（见第 1 节），作者 2026-10-28 确认引理 S1.1 与补充 S7 的新写法。
-- 待定：`nr_audit/params.py` 中 `XIAN.eta` 仍为 $0.002N$（历史审计与回归测试依赖它），是否改为 $0.001N$ 并重跑历史审计，未决定前保持不改。
+- `nr_audit/params.py` 中 `XIAN.eta` 按作者决定保持 $0.002N$（历史审计与回归测试依赖它）；稿件的设计阈值 $0.001N$ 只在 NEW-4w 入口（`new4w_xian_threshold.py`、`new4w_return14/`）中派生，新的西安计算须同样派生，不要直接用 `params.XIAN`。
 - 本地未入库：`nr_audit/return_optimal_control_14d/` 的运行目录与大结果（约 381 MB，含 CasADi `_runtime/`，W5 依赖它）、`nr_audit/new4w_return14/results/`（约 29 MB）。
 - **图表与声明（作者 2026-10-27 决定不再推迟到英文稿，在中文稿阶段处理）**：
   - 图 4 早期差异的局部放大：作者 2026-10-27 决定暂不做；
