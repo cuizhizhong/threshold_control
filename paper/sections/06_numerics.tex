@@ -76,7 +76,7 @@
 
 成本最优控制的结构按权重分为三档。$r\le r_{\rm cont}$（约 $\nrCostRcontBase$）时，由定理~\ref{thm:joint:cost-structure}，切换发生在 $S_{\rm sw}$ 处且控制连续，默认的 $r=2$ 属于这一档。$r_{\rm cont}<r\le\hat r$（$\hat r$ 约 $\nrCostRhatBase$，见补充命题~\ref*{prop:sup:rhat}）时，仅隔离段仍在 $S_{\rm sw}$ 处结束，此后跳变一次，$r=\hat r$ 时跳变即发生在 $S_{\rm sw}$ 处。跳变位置有闭式（补充命题~\ref*{prop:sup:jump}），放大图见补充图~\ref*{fig:sup:phase-detail}。$r>\hat r$ 时切换提前。仅隔离控制仍是局部最优，但另一个内部局部最优的成本更低，因此接触率在切换处由 $c_0$ 跳到内部值，此后连续变化直至退出。$r$ 越大，切换越早，超过约 $\nrWtBaseBToCApx$ 后仅隔离段消失，整个阈值控制期都两者并用；各转折所在的括区与闭式值见补充表~\ref*{tab:joint:weight-transitions}。
 
-图~\ref{fig:joint:phase}(b)(c) 给出几个权重的控制。由命题~\ref{prop:joint:weight-monotone}(i)，权重增大时，每个状态上的接触率与隔离比例都不增，在共同的仅隔离段上则相同。由命题~\ref{prop:joint:weight-monotone}(ii)，隔离比例在每个权重下都随时间不增；接触率的时间变化形态则依赖权重：$r=1,2,3.17$ 时在 $S_{\rm sw}$ 以下先降后回升，$r=5$ 时跳入两者并用后一直回升，$r=15$ 时从启动起一直回升。退出时 $y$ 对所有 $r$ 都趋于 $r/(1+r)$，即两种归一化强度之比趋于权重的反比（命题~\ref{prop:joint:terminal-allocation}）；图中的等高线因而在 $S\to S_c$ 处趋于水平线 $r=y/(1-y)$。
+图~\ref{fig:joint:phase}(b)(c) 给出几个权重的控制。由命题~\ref{prop:joint:weight-monotone}(i)，权重增大时，每个状态上的接触率与隔离比例都不增，在共同的仅隔离段上则相同。由命题~\ref{prop:joint:weight-monotone}(ii)，隔离比例在每个权重下都随时间不增；接触率的时间变化形态则依赖权重：$r=1,2,3.17$ 时在 $S_{\rm sw}$ 以下先降后回升，$r=5$ 时跳入两者并用后一直回升，$r=15$ 时从启动起一直回升。退出时 $y$ 对所有 $r$ 都趋于 $r/(1+r)$，即两种归一化强度之比趋于权重的反比（命题~\ref{prop:joint:terminal-allocation}）；图中的等高线因而在 $S_c$ 附近趋于水平线 $r=y/(1-y)$。
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/new4t/Main6.pdf}

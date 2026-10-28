@@ -48,12 +48,12 @@ I(t)&=I_0\exp\!\left[\int_0^t\left(\frac{\beta c(s)(1-q(s))}{N}S(s)-\gamma\right
 \[
 I(t)\le I(t_a)e^{-\varepsilon(t-t_a)},\qquad t\ge t_a.
 \]
-因此 $I\to0$、$\int_{t_a}^{\infty}I(t)\,dt<\infty$。将其代入附录~\ref{sec:proof:model-positive}中 $S$ 的指数表示，得到严格正的下界，故 $S_\infty\in(0,S_c)$。退出后的首次积分为
+因此 $\lim_{t\to\infty}I(t)=0$，且 $\int_{t_a}^{\infty}I(t)\,dt<\infty$。将其代入附录~\ref{sec:proof:model-positive}中 $S$ 的指数表示，得到严格正的下界，故 $S_\infty\in(0,S_c)$。退出后的首次积分为
 \begin{equation}
 I(t)=\eta+\frac{\beta_2^0}{\beta_1^0}(S_c-S(t))+\rho_1\ln\frac{S(t)}{S_c}.
 \label{eq:s1:post-orbit}
 \end{equation}
-令 $I\to0$，并由 $0<S<S_c$ 选择 $W_0$ 分支，得到式\eqref{eq:s1:Sinfty}。
+在该式中令 $t$ 趋于无穷，由 $\lim_{t\to\infty}I(t)=0$ 与 $0<S_\infty<S_c$ 选择 $W_0$ 分支，得到式\eqref{eq:s1:Sinfty}。
 
 (ii) 由 (i)，$I$ 从 $\eta>1$ 严格下降至零，故存在唯一有限的 $t_{\rm end}$。在式\eqref{eq:s1:post-orbit}中令 $I=1$，同样取 $W_0$ 分支，得到式\eqref{eq:s1:Send}。最后沿常规易感者方程分离变量积分，即得式\eqref{eq:s1:tend}。
 \end{proof}
@@ -166,7 +166,7 @@ c(t)(1-q(t))S(t)=\frac{\gamma N}{\beta}
 
 下证 (i) 中对应的另一方向。给定满足式\eqref{eq:joint:contact-range}的可测函数，可在零测集上修改使界限处处成立。式\eqref{eq:joint:time}右侧随积分下限严格递减；由上面的速度界，该时间变换及其逆函数均为 Lipschitz 函数，故定义唯一绝对连续的 $S(t)$，且保持零测集与可测性。用式\eqref{eq:joint:q}构造时间控制，令 $I=\eta$，则前两个状态方程几乎处处成立；其余仓室由原模型确定。所以 (i) 中的对应在几乎处处相等意义下成立。
 
-(iii) $t\uparrow t_2$ 时 $S(t)\downarrow S_c$。由 $c_0S_c/S\le c_c(S)\le c_0$，当 $S\downarrow S_c$ 时两界均趋于 $c_0$，故 $c(t)\to c_0$；式\eqref{eq:joint:q}继而给出 $q\to q_0$。若 $c_c$ 连续，则 $c(t)=c_c(S(t))$ 与由式\eqref{eq:joint:q}给出的 $q(t)$ 都是连续函数的复合，在阈值控制期内部连续。
+(iii) 由 (ii)，$S$ 连续且严格减，$S(t_2)=S_c$，故 $t<t_2$ 时 $S(t)>S_c$，且 $\lim_{t\to t_2^{-}}S(t)=S_c$。又 $c_0S_c/S(t)\le c(t)\le c_0$，由夹逼得 $\lim_{t\to t_2^{-}}c(t)=c_0$；再由式\eqref{eq:joint:q}，$\lim_{t\to t_2^{-}}q(t)=q_0$。若 $c_c$ 连续，则 $c(t)=c_c(S(t))$ 与由式\eqref{eq:joint:q}给出的 $q(t)$ 都是连续函数的复合，在阈值控制期内部连续。
 \end{proof}
 
 \subsection{最小值的存在性}
@@ -236,7 +236,7 @@ n'(c)(cS-c_0\bar S)-S n(c)
 \label{sec:proof:terminal-allocation}
 本小节证明命题~\ref{prop:joint:terminal-allocation}。
 \begin{proof}
-(i) 令 $\epsilon=1-S_c/S$，则 $S\downarrow S_c$ 等价于 $\epsilon\downarrow0$。把允许接触率写为
+(i) 令 $\epsilon=1-S_c/S$，则 $S>S_c$ 时 $0<\epsilon<1$，且 $\lim_{S\to S_c^{+}}\epsilon=0$。把允许接触率写为
 $c=c_0(1-\epsilon x)$、$0\le x\le1$，于是
 \[
 \frac{q_c-q_0}{1-q_0}=\frac{\epsilon(1-x)}{1-\epsilon x},\qquad
@@ -244,11 +244,15 @@ $c=c_0(1-\epsilon x)$、$0\le x\le1$，于是
 =\frac{w_cx^2+w_q(1-x)^2/(1-\epsilon x)^2}
 {c_0[S(1-\epsilon x)-\bar S]}.
 \]
-当 $S\downarrow S_c$ 时，右侧在 $x\in[0,1]$ 上一致收敛于
+记上式右侧为 $g_S(x)$，并记
 \[
-\frac{w_cx^2+w_q(1-x)^2}{c_0(S_c-\bar S)},
+g(x)=\frac{w_cx^2+w_q(1-x)^2}{c_0(S_c-\bar S)},
 \]
-该函数严格凸，唯一最小点为 $x=w_q/(w_c+w_q)$。由一致收敛和紧性，原问题最小点的任一序列都趋于 $w_q/(w_c+w_q)$：否则可取收敛子列，其极限将是极限函数的另一个最小点，矛盾。因此存在 $\delta>0$，使 $S_c<S<S_c+\delta$ 时所有最小点都位于 $x\in(0,1)$，即得式\eqref{eq:joint:terminal-interior}；比值的极限给出式\eqref{eq:joint:terminal-ratio}。
+则 $\lim_{S\to S_c^{+}}\sup_{0\le x\le1}|g_S(x)-g(x)|=0$。$g$ 严格凸，唯一最小点为 $x^*=w_q/(w_c+w_q)$。记 $X(S)$ 为 $g_S$ 在 $[0,1]$ 上的最小点集合，下证
+\[
+\lim_{S\to S_c^{+}}\sup_{x\in X(S)}|x-x^*|=0.
+\]
+否则存在 $S_n>S_c$ 与 $x_n\in X(S_n)$，使 $\lim_{n\to\infty}S_n=S_c$，而 $|x_n-x^*|$ 有正下界；取收敛子列，由一致收敛，其极限是 $g$ 的另一个最小点，与唯一性矛盾。因此存在 $\delta>0$，使 $S_c<S<S_c+\delta$ 时所有最小点都位于 $x\in(0,1)$，即得式\eqref{eq:joint:terminal-interior}。又由 $(c_0-c)/c_0=\epsilon x$ 与上面第一式，式\eqref{eq:joint:terminal-ratio}中的两个比值分别等于 $x$ 与 $(1-x)/(1-\epsilon x)$，令 $S$ 从右侧趋于 $S_c$ 即得式\eqref{eq:joint:terminal-ratio}。
 
 (ii) 在 $(S_c,S_c+\delta)$ 上，两种单控制分别对应 $x=0$ 和 $x=1$，均达不到逐状态最小值，其非负成本差的积分严格为正。
 

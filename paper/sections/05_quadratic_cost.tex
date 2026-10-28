@@ -99,9 +99,9 @@ $b$ 只依赖传播概率与常规隔离比例。由 $0<b<1$，$S_{\rm sw}$ 介�
 即两种干预均严格强于常规水平；并且
 \begin{equation}
 \begin{aligned}
-\lim_{S\downarrow S_c}
+\lim_{S\to S_c^{+}}
 \frac{(c_0-c_c^*(S))/c_0}{1-S_c/S}&=\frac{w_q}{w_c+w_q},\\
-\lim_{S\downarrow S_c}
+\lim_{S\to S_c^{+}}
 \frac{(q_c^*(S)-q_0)/(1-q_0)}{1-S_c/S}&=\frac{w_c}{w_c+w_q};
 \end{aligned}
 \label{eq:joint:terminal-ratio}
@@ -150,6 +150,6 @@ c_{\rm cap}^*(S)=\min\bigl\{c^{+}(S),\max\{c^{-}(S),c_c^*(S)\}\bigr\},
 \item 固定 $r$，$q_r^*(S)$ 随 $S$ 不减，即隔离比例在阈值控制期内随时间不增。
 \end{enumerate}
 \end{proposition}
-证明见附录~\ref{sec:proof:weight-monotone}。追踪隔离的相对代价提高时（例如流调人力或隔离场所紧张），成本最优控制在每个状态上不多用追踪隔离、不少减少接触，社区易感者的下降因而不会加快。接触率没有类似的时间单调性：在定理~\ref{thm:joint:cost-structure}的条件下，它在 $S_{\rm sw}$ 以下低于 $c_0$，退出时又回到 $c_0$。不考虑能力约束时，仅隔离控制的成本 $J[c_0]$ 与 $r$ 成正比，而 $J_{\min}/w_c$ 是凹函数且在 $r\to0^+$ 时趋于零，所以比值 $J_{\min}/J[c_0]$ 随 $r$ 不增：隔离的相对代价越低，仅隔离控制越接近成本最优。
+证明见附录~\ref{sec:proof:weight-monotone}。追踪隔离的相对代价提高时（例如流调人力或隔离场所紧张），成本最优控制在每个状态上不多用追踪隔离、不少减少接触，社区易感者的下降因而不会加快。接触率没有类似的时间单调性：在定理~\ref{thm:joint:cost-structure}的条件下，它在 $S_{\rm sw}$ 以下低于 $c_0$，退出时又回到 $c_0$。不考虑能力约束时，仅隔离控制的成本 $J[c_0]$ 与 $r$ 成正比，而 $J_{\min}/w_c$ 是 $r$ 的凹函数，且 $\lim_{r\to0^{+}}J_{\min}/w_c=0$，所以比值 $J_{\min}/J[c_0]$ 随 $r$ 不增：隔离的相对代价越低，仅隔离控制越接近成本最优。
 
 \FloatBarrier

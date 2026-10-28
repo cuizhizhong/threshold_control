@@ -22,7 +22,7 @@ I_{\max}^{0}\bigl(c_{0,\min}(\eta)\bigr)=\eta,
 =-\frac{\rho_1}{c_0}\ln\frac{S_c}{S_0}>0,
 \label{eq:s1:Imax-no-c0-derivative}
 \end{equation}
-峰值随 $c_0$ 严格增加，$c_0\to\infty$ 时趋于 $I_0+\beta_2^0S_0/\beta_1^0$（$\beta_2^0/\beta_1^0$ 不含 $c_0$）。由 $I_0<\eta<I_0+\beta_2^0S_0/\beta_1^0$ 以及连续性与严格单调性，$I_{\max}^{0}=\eta$ 恰有一个根，且该根大于 $\gamma N/[\beta(1-q_0)S_0]$。触发条件\eqref{eq:model:trigger}即 $I_{\max}^{0}>\eta$，恰在 $c_0$ 大于该根时成立。
+峰值随 $c_0$ 严格增加，且 $\lim_{c_0\to\infty}I_{\max}^{0}=I_0+\beta_2^0S_0/\beta_1^0$（$\beta_2^0/\beta_1^0$ 不含 $c_0$）。由 $I_0<\eta<I_0+\beta_2^0S_0/\beta_1^0$ 以及连续性与严格单调性，$I_{\max}^{0}=\eta$ 恰有一个根，且该根大于 $\gamma N/[\beta(1-q_0)S_0]$。触发条件\eqref{eq:model:trigger}即 $I_{\max}^{0}>\eta$，恰在 $c_0$ 大于该根时成立。
 \end{proof}
 \begin{proposition}
 \label{prop:contact-effects}\label{cor:s1:duration-sensitivity}
@@ -73,12 +73,13 @@ I_{\max}^{0}\bigl(c_{0,\min}(\eta)\bigr)=\eta,
 
 (ii) 利用 $\partial\bar S/\partial c_0=-\bar S/c_0$、$\partial S_c/\partial c_0=-S_c/c_0$ 及式\eqref{eq:s1:Sstar-eta-sign}，直接整理得到式\eqref{eq:duration-c0}。符号不定由 (iii) 的证明得到。
 
-(iii) 当 $c_0\downarrow c_{0,\min}$ 时，$S^*\to S_c$，所以 $\Delta t\to0$。当 $c_0\to\infty$ 时，启动方程给出
-$S^*\to S_0-(\beta_1^0/\beta_2^0)(\eta-I_0)>0$，而 $S_c,\bar S$ 均为 $O(c_0^{-1})$，故
+(iii) 当 $c_0$ 从右侧趋于 $c_{0,\min}$ 时，$S^*$ 趋于 $S_c$，故 $\Delta t$ 趋于零。由启动方程，
+$\lim_{c_0\to\infty}S^*=S_0-(\beta_1^0/\beta_2^0)(\eta-I_0)>0$，而 $S_c,\bar S$ 均为 $O(c_0^{-1})$，故
 \[
-\Delta t=\frac{N}{c_0\eta}[\ln c_0+O(1)]\longrightarrow0.
+\Delta t=\frac{N}{c_0\eta}[\ln c_0+O(1)],\qquad
+\lim_{c_0\to\infty}\Delta t=0.
 \]
-$\Delta t$ 在内部为正且连续，两端趋零，因此在内部达到正的最大值；中值定理同时保证其导数取正、负两种符号。
+$\Delta t$ 在内部为正且连续，两端极限为零，因此在内部达到正的最大值；中值定理同时保证其导数取正、负两种符号。
 \end{proof}
 接触率越高，$S^*$ 越大、$S_c$ 越小，控制期要消耗的易感者 $S^*-S_c$ 越多；但 $S$ 也下降得越快。两种作用方向相反，因此控制时长可增可减。
 
@@ -123,16 +124,16 @@ $\Delta t$ 在内部为正且连续，两端趋零，因此在内部达到正的
 
 \FloatBarrier
 \subsubsection{低阈值极限}
-记 $s=S/N$、$i=I/N$，并以 $s_0,i_0,s^*,s_c,\bar s$ 记 $S_0,I_0,S^*,S_c,\bar S$ 除以 $N$ 所得的值。阈值很低时，控制时长与成本按 $1/\theta$ 增长，但这一极限要求初值同时趋于零。固定 $i_0>0$ 时允许的阈值为 $\theta>i_0$，不能在这一问题中直接令 $\theta\to0$。沿同时满足 $i_0\to0$、$\theta\to0$、$0<i_0<\theta$ 的序列，且 $s_0$ 趋于某个大于 $s_c$ 的固定值时，有 $s^*\to s_0$，从而
+记 $s=S/N$、$i=I/N$，并以 $s_0,i_0,s^*,s_c,\bar s$ 记 $S_0,I_0,S^*,S_c,\bar S$ 除以 $N$ 所得的值。阈值很低时，控制时长与成本按 $1/\theta$ 增长，但这一极限要求初值同时趋于零。固定 $i_0>0$ 时允许的阈值为 $\theta>i_0$，不能在这一问题中直接令 $\theta$ 趋于零。令 $i_0$ 与 $\theta$ 同时趋于零并保持 $0<i_0<\theta$，且 $s_0$ 趋于某个大于 $s_c$ 的固定值，则 $s^*$ 与 $s_0$ 趋于同一极限，从而
 \begin{equation}
 \Delta t\sim\frac1{c_0\theta}\ln\frac{s_0-\bar s}{s_c-\bar s},\qquad
 J\sim\frac{w_q}{c_0\theta}\int_{s_c}^{s_0}\frac{(1-s_c/s)^2}{s-\bar s}\,ds.
 \label{eq:small-threshold}
 \end{equation}
 
-相反，固定 $i_0>0$ 而令 $\theta\downarrow i_0$ 时，控制几乎立即启动，控制时长趋于有限值
+相反，固定 $i_0>0$ 时，$\theta$ 接近 $i_0$ 的控制几乎立即启动，控制时长有有限极限
 \[
-\frac1{c_0i_0}\ln\frac{s_0-\bar s}{s_c-\bar s}.
+\lim_{\theta\to i_0^{+}}\Delta t=\frac1{c_0i_0}\ln\frac{s_0-\bar s}{s_c-\bar s}.
 \]
 因此，由控制时长或成本反解阈值只能在相应的值域内进行，联合小初值极限不能用于固定正初值的问题。
 
