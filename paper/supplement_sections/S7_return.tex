@@ -17,12 +17,11 @@
 \end{equation}
 回流率 $\omega$ 为常数，隔离易感者的停留时间服从均值 $1/\omega$ 的指数分布，$\omega=0$ 即式\eqref{eq:model:full}。本节取 $1/\omega=14$ d，与既有隔离时长研究涉及的时间尺度相近\cite{Ashcroft2021,Wells2021}。指数停留是简化的回流机制，与固定期限或检测后解除不同。
 
-阈值策略的实施方式与正文相同。$I$ 首次到达 $\eta$ 时启动；此后取 $c_0S_c/S\le c\le c_0$，隔离比例由平衡式\eqref{eq:model:balance}确定，从而维持 $I\equiv\eta$；$S$ 首次降到 $S_c$ 时恢复 $(c_0,q_0)$ 并一直保持。退出时不额外释放隔离易感者，$S_q$ 继续按回流机制演化，退出后也不重新启动干预；此后仍要求 $I$ 不超过 $\eta$，无回流时这由定理~\ref{thm:s1:tend}自动满足。有回流时阈值控制期内的 $S$ 可能回升，上述接触率范围对 $S\ge S_c$ 照样适用。两组参数的初值同正文，$S_q(0)=0$。累计新增感染计至退出后 $I$ 首次降到 $1$ 的时刻
+阈值策略的实施方式与正文相同。$I$ 首次到达 $\eta$ 时启动；此后取 $c_0S_c/S\le c\le c_0$，隔离比例由平衡式\eqref{eq:model:balance}确定，从而维持 $I\equiv\eta$；$S$ 首次降到 $S_c$ 时恢复 $(c_0,q_0)$ 并一直保持。退出时不额外释放隔离易感者，$S_q$ 继续按回流机制演化，退出后也不重新启动干预；此后仍要求 $I$ 不超过 $\eta$，无回流时这由定理~\ref{thm:s1:tend}自动满足。有回流时阈值控制期内的 $S$ 可能回升，上述接触率范围对 $S\ge S_c$ 照样适用。两组参数的初值同正文，$S_q(0)=0$。累计新增感染计至退出后 $I$ 首次降到 $1$ 的时刻，与正文清零时间的约定相同：
 \begin{equation}
-T_{\rm cut}=\inf\{t>t_2:I(t)=1,\ \dot I(t)<0\},
+T_{\rm cut}=\inf\{t>t_2:I(t)=1,\ \dot I(t)<0\}.
 \label{eq:return:cut}
 \end{equation}
-与正文清零时间的约定相同。
 
 追踪与回流只在 $S$ 与 $S_q$ 之间转移人数。两式相加，总易感者 $U=S+S_q$ 满足 $\dot U=-\beta cSI/N$，因此
 \begin{equation}
@@ -58,7 +57,7 @@ T_{\rm cut}=\inf\{t>t_2:I(t)=1,\ \dot I(t)<0\},
 \bottomrule
 \end{tabular*}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：$1/\omega=14$ d；$\Itcum(T_{\rm cut})$ 见式\eqref{eq:return:cut}；$J$ 取 $w_c=1$、$w_q=2$。
+\item 注：$1/\omega=14$ d；$T_{\rm cut}$ 见式\eqref{eq:return:cut}；$J$ 取 $w_c=1$、$w_q=2$。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -67,9 +66,9 @@ T_{\rm cut}=\inf\{t>t_2:I(t)=1,\ \dot I(t)<0\},
 \begin{itemize}
 \item 仅隔离控制的控制时长最短（见上），在所比较的控制中仅减少接触最长；
 \item 回流下的成本最优控制先仅隔离（基准约前 $\nrRwBaseFrontPct\%$、西安约前 $\nrRwXianFrontPct\%$ 的控制期），随后两种措施并用；直接沿用无回流成本最优律，成本只高约 $\nrRwBaseMigGapPct\%$ 与 $\nrRwXianMigGapPct\%$；
-\item 三种固定控制律退出后 $I$ 都未越过 $\eta$，重新优化的控制则由约束保证这一点。
+\item 三种固定控制律退出后 $I$ 都未越过 $\eta$；重新优化时显式施加这一要求，并用完整方程回放核验。
 \end{itemize}
 
 改变的是量级。仅隔离控制的控制时长由无回流的 $\nrRwBaseQDtNoret$ d 与 $\nrRwXianQDtNoret$ d 增至 $\nrRwBaseQDt$ d 与 $\nrRwXianQDt$ d。累计新增感染接近 $U(0)-S_c$，后者基准为 $\nrRwBaseL$ 人、西安为 $\nrRwXianL\times10^6$ 人。控制之间的感染差别也明显缩小：仅减少接触比仅隔离控制多出的感染，基准参数下由无回流时的约 $\nrRwBaseDiffPctNoret\%$ 降到约 $\nrRwBaseDiffPct\%$，西安参数下由约 $\nrRwXianDiffPctNoret\%$ 降到约 $\nrRwXianDiffPct\%$。
 
-原因在于终止时总易感者已低于常规传播临界值：各轨迹在 $T_{\rm cut}$ 时 $U/S_c$ 在基准参数下为 $\nrRwBaseUMin$--$\nrRwBaseUMax$，西安参数下约为 $\nrRwXianUMax$。由式\eqref{eq:return:U}，累计新增感染因而都超过 $U(0)-S_c$。无回流时，大量未感染接触者一直留在 $S_q$，退出时 $S$ 降到 $S_c$ 并不需要这么多感染；有回流时他们返回社区后仍会被感染，追踪隔离对他们的保护是暂时的。
+原因在于终止时总易感者已低于常规传播临界值：各轨迹在 $T_{\rm cut}$ 时 $U/S_c$ 在基准参数下为 $\nrRwBaseUMin$--$\nrRwBaseUMax$，西安参数下约为 $\nrRwXianUMax$。由式\eqref{eq:return:U}，累计新增感染因而都超过 $U(0)-S_c$。无回流时，大量未感染接触者一直留在 $S_q$，退出时 $S$ 降到 $S_c$ 并不需要这么多感染；有回流时他们返回社区后重新面临感染风险，追踪隔离对他们的保护是暂时的。

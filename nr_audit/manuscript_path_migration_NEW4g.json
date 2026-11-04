@@ -24,7 +24,7 @@
       "new4g_baseline_sha256": "2c43997a5715c83c9ca1cc591b48d9fd6302c3d0ffc9e7f0a5e983583a2eac03",
       "current_path": "paper/sections/02_model.tex",
       "current_sha256": "df71ee4ba2d4fcffb2616fbe86605dc9ce9ca51d9bb635244049f1d33ac764ff",
-      "current_content_sha256": "c33c8b15402cafaef9fd1d4620ee3ac032bca54c5ba9ccea74d996e6da9d091c"
+      "current_content_sha256": "08cacb5cf059121b750d5727f0a9b33cf9128ae7230c435ef9e3bc5015087c03"
     },
     "numerics_S1": {
       "historical_path": "paper/supplement_sections/S1_baseline.tex",
@@ -32,7 +32,7 @@
       "new4g_baseline_sha256": "acdc0210ebf693f1ddc4675965e86c1a1cc1045f17758ead21d4352967b63686",
       "current_path": "paper/supplement_sections/S2_single_control.tex",
       "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-      "current_content_sha256": "a8e641256d46f01336203435a400d47feeaeeb0d53d413b2fa56a2f93b4d4a4a"
+      "current_content_sha256": "defb70a3ff01805f32747514662299f6b54e401f9933936a7597179b2a053f56"
     },
     "numerics_S2": {
       "historical_path": "paper/supplement_sections/S2_inflection.tex",
@@ -56,7 +56,7 @@
       "new4g_baseline_sha256": "3830ad9ec1c172373ea3a648b63c08af93ec7c389212352e152066b281db121d",
       "current_path": "paper/supplement_sections/S2_single_control.tex",
       "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-      "current_content_sha256": "a8e641256d46f01336203435a400d47feeaeeb0d53d413b2fa56a2f93b4d4a4a"
+      "current_content_sha256": "defb70a3ff01805f32747514662299f6b54e401f9933936a7597179b2a053f56"
     },
     "numerics_S6": {
       "historical_path": "paper/supplement_sections/S6_numerics.tex",
@@ -72,7 +72,7 @@
       "new4g_baseline_sha256": "011979ea924660315492a0d2aaf120579f8cbc7f3821147f53b4158762a1c3a3",
       "current_path": "paper/sections/07_xian.tex",
       "current_sha256": "4952f88ad903d47e8adb831b47d1d1db6357765e06ea1ab6050eea24918f1210",
-      "current_content_sha256": "f839c9c9fa77e8c9d1343d38252fca30011701e0ace4a7315d5850ba5fe6a790"
+      "current_content_sha256": "9907130a7a5200cf11b7a51a329ac8de841bd35b7e07ef6be73b36d3ccf059af"
     }
   },
   "file_fragments": [
@@ -90,7 +90,7 @@
             "eq:small-threshold"
           ],
           "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-          "current_content_sha256": "a8e641256d46f01336203435a400d47feeaeeb0d53d413b2fa56a2f93b4d4a4a"
+          "current_content_sha256": "defb70a3ff01805f32747514662299f6b54e401f9933936a7597179b2a053f56"
         }
       ]
     },
@@ -160,7 +160,7 @@
             "fig:c0-beta-existence"
           ],
           "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-          "current_content_sha256": "a8e641256d46f01336203435a400d47feeaeeb0d53d413b2fa56a2f93b4d4a4a"
+          "current_content_sha256": "defb70a3ff01805f32747514662299f6b54e401f9933936a7597179b2a053f56"
         }
       ]
     },
@@ -203,7 +203,7 @@
             "eq:duration-c0"
           ],
           "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-          "current_content_sha256": "a8e641256d46f01336203435a400d47feeaeeb0d53d413b2fa56a2f93b4d4a4a"
+          "current_content_sha256": "defb70a3ff01805f32747514662299f6b54e401f9933936a7597179b2a053f56"
         }
       ]
     },
@@ -237,7 +237,7 @@
             "fig:scenario1_summary_c0"
           ],
           "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-          "current_content_sha256": "a8e641256d46f01336203435a400d47feeaeeb0d53d413b2fa56a2f93b4d4a4a"
+          "current_content_sha256": "defb70a3ff01805f32747514662299f6b54e401f9933936a7597179b2a053f56"
         }
       ]
     },
@@ -251,7 +251,7 @@
             "sec:proof:contact-effects"
           ],
           "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-          "current_content_sha256": "a8e641256d46f01336203435a400d47feeaeeb0d53d413b2fa56a2f93b4d4a4a"
+          "current_content_sha256": "defb70a3ff01805f32747514662299f6b54e401f9933936a7597179b2a053f56"
         }
       ]
     }
