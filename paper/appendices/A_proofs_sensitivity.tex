@@ -18,11 +18,11 @@ I(t)&=I_0\exp\!\left[\int_0^t\left(\frac{\beta c(s)(1-q(s))}{N}S(s)-\gamma\right
 \label{sec:proof:threshold-rationale}
 本小节证明命题~\ref{prop:model:threshold-rationale}。
 \begin{proof}
-(i) 由 $S^*>S_c$ 与式\eqref{eq:model:Sc}，常规轨迹在首次到达时满足
+(i) 由首次到达的定义，常规轨迹在 $[0,t_1)$ 上满足 $I<\eta$。由 $S^*>S_c$ 与式\eqref{eq:model:Sc}，
 \[
-\dot I(t_1)=\eta\left[\frac{\beta c_0(1-q_0)S^*}{N}-\gamma\right]>0.
+\dot I(t_1)=\eta\left[\frac{\beta c_0(1-q_0)S^*}{N}-\gamma\right]>0,
 \]
-设某策略在时刻 $\tau$ 首次加强干预。它在 $\tau$ 之前采用 $(c_0,q_0)$，由命题~\ref{prop:model:positive}中解的唯一性，它在 $[0,\tau]$ 上与常规轨迹重合。若 $\tau>t_1$，则它在 $t_1$ 之后的一段时间内仍沿常规轨迹运行，由 $\dot I(t_1)>0$，$I$ 立即超过 $\eta$，与 $I\le\eta$ 矛盾。故 $\tau\le t_1$。由首次到达的定义，常规轨迹在 $[0,t_1]$ 上满足 $I\le\eta$。
+故继续采用 $(c_0,q_0)$ 时，$I$ 在 $t_1$ 之后立即超过 $\eta$。
 
 (ii) 在 $I=\eta$ 处，由式\eqref{eq:model:full}的第二式，
 \[
