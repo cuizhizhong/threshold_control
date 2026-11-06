@@ -30,14 +30,14 @@ def test_precheck_reproduces_old_manuscript(w3):
 
 
 def test_threshold_value_from_supplement_inputs(w3):
-    """补充 S6.3：C/N = 4.77e-5、p_ICU = 21/699 × 0.28、κ_I = 1 + (βc0S0/N − γ)/δq，上限向下取整为 0.001。"""
+    """补充 S6.3：C/N = 4.75e-5、p_ICU = 0.03 × 0.28、κ_I = 1 + (βc0S0/N − γ)/δq，上限向下取整为 0.001。"""
     X = PR.XIAN
     kappa = 1 + (X.beta * X.c0 * X.S0 / X.N - X.gamma) / X.delta_q
-    theta_max = 4.77e-5 / (21 / 699 * 0.28 * kappa)
-    assert abs(kappa - 5.63) < 0.005 and abs(theta_max - 1.007e-3) < 5e-7
+    theta_max = 4.75e-5 / (0.03 * 0.28 * kappa)
+    assert abs(kappa - 5.63) < 0.005 and abs(theta_max - 1.004e-3) < 5e-7
     assert w3['settings']['theta'] == 0.001 <= theta_max and w3['settings']['eta'] == 0.001 * X.N
     s6 = text('paper/supplement_sections/S6_xian.tex')
-    assert r'$\kappa_I\approx5.63$' in s6 and r'\approx1.007\times10^{-3}' in s6 and r'$\theta=0.001$' in s6
+    assert r'$\kappa_I\approx5.63$' in s6 and r'\approx1.004\times10^{-3}' in s6 and r'$\theta=0.001$' in s6
     s1 = text('paper/supplement_sections/S1_medical.tex')
     assert r'\label{lem:sup:infected-bound}' in s1 and r'\kappa_I=1+\frac{\beta c_0S_0/N-\gamma}{\delta_q}' in s1
 
