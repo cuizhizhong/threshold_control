@@ -199,33 +199,3 @@ t_{\rm end}^{(1)}-t_{\rm end}^{(2)}
 由式\eqref{eq:s1:qmax}与\eqref{eq:model:Sc}，$1-q_{\max}=(1-q_0)S_c/S^*$，故 $q_{\rm cap}\ge q_{\max}$ 等价于 $(1-q_{\rm cap})S^*\le(1-q_0)S_c$，从而对 $S\le S^*$ 有 $c_0(1-q_0)S_c/[(1-q_{\rm cap})S]\ge c_0$，由式\eqref{eq:joint:bounds}得 $c^{+}\equiv c_0$。若 $c_{\min}\le c_0S_c/S^*$，则对 $S\le S^*$ 有 $c_0S_c/S\ge c_{\min}$，故 $c^{-}(S)=c_0S_c/S$。两种情形下式\eqref{eq:joint:feasibility}都成立，其余结论由推论~\ref{cor:joint:capped-comparison}、\ref{cor:joint:whole-epidemic}与式\eqref{eq:joint:quarantine}得到。
 \end{proof}
 此外，若只对控制时长、清零时间和累计新增感染设上限，则存在满足上限的控制当且仅当 $c^{+}$ 满足这些上限。
-
-\subsection{退出的感染下界}
-在常规传播临界值退出，还给退出时刻的累计新增感染设定了与控制组合无关的下界。易感者的每次移出要么是感染，要么是未感染接触者被隔离；感染在移出者中所占的比例至少为 $\beta$，全部接触者都被追踪时恰为 $\beta$。
-\begin{proposition}
-\label{prop:exit-infection-lower-bound}
-设控制满足命题~\ref{prop:model:positive}的条件，模型\eqref{eq:model:full}的解在某一有限时刻 $T$ 满足 $S(T)=S_c<S_0$，则
-\begin{enumerate}
-\renewcommand{\labelenumi}{(\roman{enumi})}
-\item 退出时刻的累计新增感染满足
-\begin{equation}
-\Itcum(T)\ge\beta(S_0-S_c);
-\label{eq:exit-infection-lower-bound}
-\end{equation}
-\item 若整个 $[0,T]$ 上另有 $q(t)\le q_{\rm cap}<1$，则
-\begin{equation}
-\Itcum(T)\ge
-\frac{\beta}{\beta+(1-\beta)q_{\rm cap}}(S_0-S_c).
-\label{eq:exit-infection-capped}
-\end{equation}
-\end{enumerate}
-\end{proposition}
-\begin{proof}
-由式\eqref{eq:model:full}的易感者方程与第~\ref{sec:cost}~节中累计新增感染的定义，总新增感染的流入为 $\beta cSI/N$，而 $-\dot S=c[\beta+(1-\beta)q]SI/N$，故
-\[
-\frac{d\Itcum}{dt}
-=\frac{\beta}{\beta+(1-\beta)q(t)}(-\dot S).
-\]
-又 $-\dot S\ge0$，而由 $q\le1$，比例系数不小于 $\beta$；若 $q\le q_{\rm cap}$，它不小于 $\beta/[\beta+(1-\beta)q_{\rm cap}]$。在 $[0,T]$ 上积分即得 (i)(ii)。
-\end{proof}
-由定理~\ref{thm:s1:tend}，在常规传播临界值退出后保持常规控制，$S$、$I$ 严格递减，非隔离感染者不再上升；代价就是这一下界。$S_0\approx N$ 时，它约为 $\beta N(1-1/R_c)$，其中 $1-1/R_c$ 是使常规措施下的有效再生数降到 $1$ 所需移出的人口比例。控制组合只改变式\eqref{eq:joint:cumulative}中与 $\Delta t$ 成正比的一项，因此不能绕开它；西安参数下的下界见第~\ref{sec:xian:threshold-scale}~节。
