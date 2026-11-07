@@ -48,14 +48,14 @@
 
 \subsection{常规轨迹}
 \label{sec:model:strategy}
-有效再生数 $R_e=\beta c(1-q)S/(\gamma N)$ 是一名非隔离感染者在移出前引起的、未被隔离的新感染数。常规控制下 $R_e=S/S_c$，其中
+有效再生数 $R_e=\beta c(1-q)S/(\gamma N)$ 是一名非隔离感染者在移出前平均引起的、未被隔离的新感染数。常规控制下 $R_e=S/S_c$，其中
 \begin{equation}
 S_c=\frac{\gamma N}{\beta c_0(1-q_0)}
 \label{eq:model:Sc}
 \end{equation}
-称为常规控制下的临界易感者人数。社区易感者多于 $S_c$ 时，仅靠常规控制疫情仍会增长；少于 $S_c$ 时，有效再生数小于 $1$，$I$ 下降。记 $R_c=\beta c_0(1-q_0)/\gamma$ 为全部人口易感时的控制再生数，则 $S_c=N/R_c$，常规控制下 $R_e=R_cS/N$。$S_c$ 在形式上与 SIR 模型的群体免疫阈值 $N/R_0$ 相同，只是基本再生数换成了控制再生数 $R_c$。
+称为常规控制下的临界易感者人数。社区易感者多于 $S_c$ 时 $R_e>1$，仅靠常规控制 $I$ 仍会增长；少于 $S_c$ 时 $R_e<1$，$I$ 下降。记 $R_c=\beta c_0(1-q_0)/\gamma$ 为全部人口易感时的控制再生数，则 $S_c=N/R_c$。$S_c$ 在形式上与 SIR 模型的群体免疫阈值 $N/R_0$ 相同，只是基本再生数换成了控制再生数 $R_c$。$q_0>0$ 时 $R_c$ 小于不追踪隔离时的基本再生数 $R_0=\beta c_0/\gamma$，$S_c$ 因而高于 $N/R_0$：常规的追踪隔离使疫情在易感者较多时就停止增长。
 
-$S$ 与 $I$ 的方程不依赖其余仓室，因此常规轨迹可以显式写出。记
+$S$ 与 $I$ 的方程不依赖其余仓室，下文称 $(S,I)$ 为状态。常规轨迹在 $(S,I)$ 平面上可以显式写出。记
 \begin{equation}
 \beta_1^0=\frac{c_0[\beta+q_0(1-\beta)]}{N},\quad
 \beta_2^0=\frac{\beta c_0(1-q_0)}{N},\quad
@@ -73,7 +73,7 @@ I(t)+\frac{\beta_2^0}{\beta_1^0}S(t)-\rho_1\ln S(t)=I_0+\frac{\beta_2^0}{\beta_1
 I(S)=I_0+\frac{\beta_2^0}{\beta_1^0}(S_0-S)+\rho_1\ln\frac{S}{S_0}.
 \label{eq:model:routine-orbit}
 \end{equation}
-$S_0>S_c$ 时 $I$ 先上升；这一阶段 $I\ge I_0$，故 $\dot S\le-\beta_1^0I_0S$，$S$ 在有限时间内降到 $S_c$，$I$ 在此时达到峰值。$S_0\le S_c$ 时，$I$ 则从一开始就下降。因此常规峰值为
+$S_0>S_c$ 时 $I$ 先上升。这一阶段 $I\ge I_0$，故 $\dot S\le-\beta_1^0I_0S$，$S$ 在有限时间内降到 $S_c$，$I$ 在此时达到峰值。$S_0\le S_c$ 时，$I$ 从一开始就下降。因此常规轨迹的峰值（简称常规峰值）为
 \begin{equation}
 I_{\max}^{0}=\begin{cases}
 I_0,&S_0\le S_c,\\
@@ -82,14 +82,14 @@ I_0+\frac{\beta_2^0}{\beta_1^0}(S_0-S_c)+\rho_1\ln(S_c/S_0),&S_0>S_c.
 \label{eq:s1:Imax-no}
 \end{equation}
 
-阈值 $\eta$ 约束的是仍在社区中传播的 $I$，而不是模型显式追踪的两个感染仓室之和 $I+I_q$，因为非隔离感染者是社区新传播的唯一来源。由于接触率不超过常规水平，限制 $I$ 也就限制了新增感染的速率：无论新感染者进入 $I$ 还是被追踪进入 $I_q$，单位时间的新增感染都不超过 $\beta c_0S_0\eta/N$（本模型中 $S\le S_0$）。补充材料第~\ref{sec:sup:medical-link}~节参照 Angulo 等的比例近似，由此给出重症监护需求不超过床位数的阈值选取条件。
+阈值 $\eta$ 约束的是仍在社区中传播的 $I$，而不是模型显式追踪的两个感染仓室之和 $I+I_q$，因为非隔离感染者是社区新传播的唯一来源。阈值策略下接触率不超过常规水平（第~\ref{sec:model:control-class}~节），因此限制 $I$ 也就限制了新增感染的速率：无论新感染者进入 $I$ 还是被追踪进入 $I_q$，单位时间的新增感染都不超过 $\beta c_0S_0\eta/N$（本模型中 $S\le S_0$）。补充材料第~\ref{sec:sup:medical-link}~节参照 Angulo 等的比例近似，据此给出重症监护需求不超过床位数时阈值应满足的条件。
 
-只有常规峰值超过阈值时才需要加强干预，因此后文都设
+只有常规峰值超过阈值时才需要加强干预，因此后文始终设
 \begin{equation}
 S_0>S_c,\qquad 0<I_0<\eta<I_{\max}^{0},
 \label{eq:model:trigger}
 \end{equation}
-即常规轨迹在达到峰值之前触及阈值。记首次触及的时刻为 $t_1$，$S^*=S(t_1)$，则 $S^*>S_c$。阈值 $\eta$ 以人数计，后文始终设 $\eta>1$，从而恢复常规控制后 $I$ 会降到 $1$，清零时间（第~\ref{sec:cost}~节）有定义；记 $\theta=\eta/N$ 为阈值比例。下面的命题给出启动与退出时刻的动力学含义。
+即常规轨迹在达到峰值之前触及阈值。记首次触及的时刻为 $t_1$，$S^*=S(t_1)$，则 $S^*>S_c$。阈值 $\eta$ 以人数计，后文还设 $\eta>1$，从而恢复常规控制后 $I$ 会降到 $1$，清零时间（第~\ref{sec:cost}~节）有定义。记 $\theta=\eta/N$ 为阈值比例。下面的命题给出启动与退出时刻的动力学含义。
 
 \begin{proposition}
 \label{prop:model:threshold-rationale}
@@ -102,10 +102,10 @@ S_0>S_c,\qquad 0<I_0<\eta<I_{\max}^{0},
 \frac{\beta c(1-q)S}{N}\le\gamma,
 \]
 且若在某个时间区间上 $I\equiv\eta$，则该区间上几乎处处取等号；
-\item 从状态 $(S,\eta)$ 恢复并保持 $(c_0,q_0)$ 后始终有 $I\le\eta$，当且仅当 $S\le S_c$，因此对任一从 $(S^*,\eta)$ 出发并持续维持 $I=\eta$ 的允许轨迹，$S$ 首次降到 $S_c$ 的时刻是该轨迹上可以直接恢复常规控制的最早时刻。
+\item 从状态 $(S,\eta)$ 起恢复并保持 $(c_0,q_0)$，此后始终有 $I\le\eta$，当且仅当 $S\le S_c$。因此，沿任一从 $(S^*,\eta)$ 出发并持续维持 $I=\eta$ 的轨迹，$S$ 首次降到 $S_c$ 的时刻是可以直接恢复常规控制的最早时刻。
 \end{enumerate}
 \end{proposition}
-证明见附录~\ref{sec:proof:threshold-rationale}。由 (i)，$t_1$ 是常规控制不能再维持阈值的时刻；由 (iii)，$S=S_c$ 是沿阈值运行时可以直接恢复常规控制的最早时刻。阈值策略的加强干预只在这两个时刻之间实施，对应引言所述沿容量运行的阶段。
+证明见附录~\ref{sec:proof:threshold-rationale}。由 (i)，常规控制在 $t_1$ 之前能使 $I$ 低于阈值，在 $t_1$ 之后则不能；由 (iii)，沿阈值运行时最早可在 $S$ 降到 $S_c$ 时恢复常规控制。阈值策略只在这两个时刻之间加强干预，对应引言所述沿容量运行的阶段。
 
 \subsection{允许控制}
 \label{sec:model:control-class}
