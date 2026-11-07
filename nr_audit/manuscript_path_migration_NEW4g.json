@@ -24,7 +24,7 @@
       "new4g_baseline_sha256": "2c43997a5715c83c9ca1cc591b48d9fd6302c3d0ffc9e7f0a5e983583a2eac03",
       "current_path": "paper/sections/02_model.tex",
       "current_sha256": "df71ee4ba2d4fcffb2616fbe86605dc9ce9ca51d9bb635244049f1d33ac764ff",
-      "current_content_sha256": "f0f3566d851781499fd71ce2f3d433d7304c9beee90e7bc2d174be8597ea45bb"
+      "current_content_sha256": "781344d7fdaa50948ba5275f26751538a26f46d54094e0ac14ad4fa235a97a45"
     },
     "numerics_S1": {
       "historical_path": "paper/supplement_sections/S1_baseline.tex",
@@ -72,7 +72,7 @@
       "new4g_baseline_sha256": "011979ea924660315492a0d2aaf120579f8cbc7f3821147f53b4158762a1c3a3",
       "current_path": "paper/sections/07_xian.tex",
       "current_sha256": "4952f88ad903d47e8adb831b47d1d1db6357765e06ea1ab6050eea24918f1210",
-      "current_content_sha256": "97963719fd5d2f4e25b0e79421c743d1e6385fababc49076c0a1813d86a4d47f"
+      "current_content_sha256": "71dbc4ad1473aa08270c8d788217c2fbc03d86e6ebb6f2a98b4ba73549083c69"
     }
   },
   "file_fragments": [

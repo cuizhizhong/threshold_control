@@ -137,7 +137,7 @@ TDINN 控制 & 153 & 2106 & 45.29\\
 \label{sec:xian:threshold-scale}
 由命题~\ref{prop:threshold-tradeoff}，阈值越低，控制时长越长；在所算范围内，控制时长还近似与阈值成反比。设计阈值 $\eta=0.001N$ 按全国人均重症监护床位折算的名义床位数与需要重症监护的比例选取（补充材料第~\ref{sec:sup:threshold-scale}~节）。原因是阈值控制期内 $S$ 的下降速率 $c_0\eta(S-\bar S)/N$ 与 $\eta$ 成正比，而退出仍要求 $S$ 降到同一个 $S_c$：式\eqref{eq:s1:t2}中，$\Delta t$ 等于 $N/(c_0\eta)$ 乘一个只通过启动状态 $S^*$ 依赖 $\eta$ 的对数因子。在西安参数下把 $\eta/N$ 从 $0.01$ 降到 $0.0001$，控制时长由 $16.6$ d 增至 $1711$ d，与反比关系相符（补充表~\ref*{tab:sup:eta}，补充图~\ref{fig:xian_eta_sens}）。若把阈值降到 TDINN 的非隔离感染者峰值 $152.55$ 人，控制时长约为 $40.5$ 年，按每年 $365$ d 计（补充图~\ref{fig:xian_heatmaps}）。
 
-在常规传播临界值退出本身就要求大量感染。由模型\eqref{eq:model:full}，总新增感染的流入为 $\beta cSI/N$，而 $-\dot S=c[\beta+(1-\beta)q]SI/N$，因此
+在 $S_c$ 退出本身就要求大量感染。由模型\eqref{eq:model:full}，总新增感染的流入为 $\beta cSI/N$，而 $-\dot S=c[\beta+(1-\beta)q]SI/N$，因此
 \[
 \frac{d\Itcum}{dt}=\frac{\beta}{\beta+(1-\beta)q(t)}(-\dot S)\ge\beta(-\dot S),
 \]
