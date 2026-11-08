@@ -20,7 +20,7 @@
 \label{eq:model:full}
 \end{equation}
 
-式~\eqref{eq:model:full}与 He 等\cite{He2023TDINN}模型的方程相同，Tang 等\cite{Tang2023Threshold}取 $c,q$ 为常数。Zhou 等\cite{Zhou2024SPCI}另设住院仓室，把它与康复仓室合并即得式~\eqref{eq:model:full}。由于 $R$ 包含确诊后隔离治疗的人，$I+I_q$ 不等于全部临床现存感染。
+式~\eqref{eq:model:full}与 He 等\cite{He2023TDINN}模型的方程相同，Tang 等\cite{Tang2023Threshold}取 $c,q$ 为常数。Zhou 等\cite{Zhou2024SPCI}另设住院仓室，把它与康复仓室合并即得式~\eqref{eq:model:full}。由于 $R$ 包含确诊后隔离治疗的人，$I+I_q$ 不等于全部临床现存感染。下文始终设 $N,\gamma,\delta_q>0$、$0<\beta<1$，初始仓室非负、总和为 $N$，且 $S_0,I_0>0$。人数以人计，$c,\gamma,\delta_q$ 的单位为时间的倒数，$\beta$ 与 $q$ 是无量纲比例。
 
 \begin{figure}[htbp]
 \centering
@@ -28,8 +28,6 @@
 \caption{含密切接触者追踪与隔离的 SIR 型模型。$S,S_q,I,I_q,R$ 分别为社区易感者、隔离易感者、非隔离感染者、隔离感染者和移出者。从 $S$ 出发的三条箭头上标注的是系数，相应流量等于该系数乘以 $SI/N$；移出流量为 $\gamma I$ 与 $\delta_qI_q$。}
 \label{fig:model_schematic}
 \end{figure}
-
-常规控制指不加强干预时实施的常规措施，即日常水平的接触和按常规比例进行的密切接触者追踪隔离，对应文献\cite{Zhou2024SPCI}中的常规防控阶段。常规控制下的接触率和隔离比例记为 $c_0,q_0$。下文始终设 $N,c_0,\gamma,\delta_q>0$、$0<\beta<1$、$0\le q_0<1$，初始仓室非负、总和为 $N$，且 $S_0,I_0>0$。人数以人计，$c,\gamma,\delta_q$ 的单位为时间的倒数，$\beta$ 与 $q$ 是无量纲比例。
 
 本文研究一波暴发，模型作三点简化。第一，不考虑再感染与免疫丧失。截至 2022 年 5 月，中国大陆的 101 波 COVID-19 疫情一般在约 40 天内实现动态清零\cite{Tang2023Threshold}，而感染者在发病后约两周内普遍产生抗体\cite{Zhao2020Antibody}，文献\cite{Zhou2024SPCI}据此认为一波疫情内再次感染的可能性很小。第二，模型只描述一次本地暴发的传播，不含输入病例；一波暴发持续时间较短，人口出生与自然死亡也忽略不计。
 
@@ -50,6 +48,8 @@
 
 \subsection{常规轨迹}
 \label{sec:model:strategy}
+防控措施的强度随疫情阶段变化。Zhou 等\cite{Zhou2024SPCI}把一波疫情分为三个阶段：常规防控阶段，加强干预阶段，以及加强干预结束后重新回到常规防控的阶段。常规控制指常规防控阶段实施的常规措施，即日常水平的接触和按常规比例进行的密切接触者追踪隔离，其接触率与隔离比例记为 $c_0$ 与 $q_0$，下文始终设 $c_0>0$、$0\le q_0<1$。本文的阈值策略（第~\ref{sec:model:control-class}~节）也由这三个阶段组成，加强干预在 $I$ 触及阈值时开始。本节先给出只实施常规控制时的轨迹，由此确定何时需要加强干预、何时可以恢复常规控制。
+
 若易感者人数与控制保持当前水平，一名非隔离感染者在移出前平均引起的、未被隔离的新感染数为 $R_e=\beta c(1-q)S/(\gamma N)$，称为有效再生数。由式~\eqref{eq:model:full}，$\dot I=\gamma(R_e-1)I$，因此 $R_e$ 与 $1$ 的大小关系决定 $I$ 当前的增减。常规控制下 $R_e=S/S_c$，其中
 \begin{equation}
 S_c=\frac{\gamma N}{\beta c_0(1-q_0)}
