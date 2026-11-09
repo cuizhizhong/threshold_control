@@ -8,13 +8,13 @@
 \Lambda_1=\ln\frac{S^*-\bar S}{\bar S},\qquad
 \Lambda_2=\ln\frac{\bar S}{S_c-\bar S},
 \]
-由式\eqref{eq:s1:lambda}，$\lambda=\Lambda_1/(\Lambda_1+\Lambda_2)$。下列偏导固定其余参数，启动状态 $S^*$ 随所考察的参数变化。
+由式\eqref{eq:s1:lambda}，$\lambda=\Lambda_1/(\Lambda_1+\Lambda_2)$。下列偏导数固定其余参数，启动时的易感者人数 $S^*$ 随所考察的参数变化。
 \begin{proposition}
 \label{prop:s1:lambda-sensitivity}
-设触发条件与 $S_c<2\bar S<S^*$ 成立，并固定其余参数，则
+设触发条件\eqref{eq:model:trigger}与内部拐点的存在条件\eqref{eq:s1:inflection-condition}成立，并固定其余参数，则
 \begin{enumerate}
 \renewcommand{\labelenumi}{(\roman{enumi})}
-\item 有
+\item 拐点的相对位置满足
 \[
 \frac{\partial\lambda}{\partial\eta}<0,\qquad
 \frac{\partial\lambda}{\partial c_0}>0,\qquad
@@ -50,7 +50,7 @@
 \frac{\partial\Lambda_2}{\partial\beta}
 =-\frac1{(1-\beta)[\beta+q_0(1-\beta)]}<0.
 \]
-这些符号给出 (i) 的三个结论。
+代入上式，三种情形的分子分别为负、正、正，即得 (i)。
 
 (ii) 由 $\bar S$ 不含 $q_0$、$\partial S_c/\partial q_0=S_c/(1-q_0)$，得
 \begin{equation}
@@ -60,13 +60,13 @@
 +\frac{\Lambda_1}{(1-q_0)[\beta+q_0(1-\beta)]}\right].
 \label{eq:lambda-q0-sign}
 \end{equation}
-令方括号为零得到驻点条件。两项异号本身不足以说明导数能取两种符号；第~\ref{app:lambda}~节给出两个满足全部条件的参数点，并分别证明其导数为正和负。
+令方括号为零即得驻点条件。方括号中两项异号，导数的符号取决于二者的大小；第~\ref{app:lambda}~节构造两个满足全部条件的参数点，分别证明导数为正和为负。
 \end{proof}
 
 拐点总出现在 $S=2\bar S$ 处，$\Lambda_1$、$\Lambda_2$ 分别与 $S$ 从 $S^*$ 降到 $2\bar S$、从 $2\bar S$ 降到 $S_c$ 所需的时间成正比。提高 $\eta$ 使 $S^*$ 减小、前一段缩短，拐点因而在控制期中提前。符号结果汇总于正文附录表~\ref{tab:sensitivity}。
 
 \subsection{数值结果}
-图~\ref{fig:s1:lambda-sensitivity}中，$\lambda$ 随 $\eta$ 增大而减小，随 $c_0$ 和 $\beta$ 增大而增大，与命题~\ref{prop:s1:lambda-sensitivity}一致。$\lambda$ 对 $q_0$ 的依赖不单调：取 $c_0=10$、$\eta/N=0.05$，其余参数取基准值，在 $q_0\in[0,0.39]$ 内 $\lambda$ 有局部极大值，其位置 $q_0^\dagger$ 随 $\beta$ 增大而增大：
+图~\ref{fig:s1:lambda-sensitivity}中，$\lambda$ 随 $\eta$ 增大而减小，随 $c_0$ 和 $\beta$ 增大而增大，与命题~\ref{prop:s1:lambda-sensitivity}一致。$\lambda$ 对 $q_0$ 的依赖不单调：取 $c_0=10$、$\eta/N=0.05$，$\beta$ 取下表三个值，其余参数取基准值，在 $q_0\in[0,0.39]$ 内 $\lambda$ 有局部极大值，其位置 $q_0^\dagger$ 随 $\beta$ 增大而增大：
 \begin{center}
 \begin{tabular}{@{}cccc@{}}
 \toprule
@@ -85,12 +85,12 @@ $q_0^\dagger$ & 0.0736525 & 0.1969606 & 0.3890712\\
 \label{fig:s1:lambda-sensitivity}
 \end{figure}
 
-图中的灰色区域由内部拐点的存在条件 $S_c<2\bar S<S^*$ 决定。改变 $\beta$ 时两侧的边界都可能出现，改变 $c_0$ 时内部拐点在 $S^*=2\bar S$ 处出现；在图示的 $q_0$ 与 $\eta/N$ 范围内，只要控制被触发，内部拐点就存在。不同 $c_0$ 与阈值下的隔离比例轨迹见图~\ref{fig:baseline:q-joint}。另一侧的边界 $2\bar S=S_c$ 等价于 $\qinf=q_0$。西安参数的 $q_0=0.3230$ 下由此得 $\beta_{\max}=0.261448$，$\beta$ 超过该值时 $\qinf<q_0$，内部拐点不再存在。
+图中的灰色区域由内部拐点的存在条件 $S_c<2\bar S<S^*$ 决定。它有两条边界：$S^*=2\bar S$，即启动时易感者不够多；$2\bar S=S_c$，它等价于 $\qinf=q_0$。改变 $c_0$ 时内部拐点在 $S^*=2\bar S$ 处出现，改变 $\beta$ 时两条边界都可能出现。在图示的 $q_0$ 与 $\eta/N$ 范围内，只要触发条件成立，内部拐点就存在。西安参数的 $q_0=0.3230$ 下，由 $\qinf=q_0$ 得 $\beta_{\max}=0.261448$，$\beta$ 超过该值时 $\qinf<q_0$，内部拐点不再存在。不同 $c_0$ 与阈值下的隔离比例轨迹见图~\ref{fig:baseline:q-joint}。
 
 \FloatBarrier
 \subsection{变号的构造}
 \label{app:lambda}
-为说明式\eqref{eq:lambda-q0-sign}确实可正可负，取
+下面构造两个参数点，说明式\eqref{eq:lambda-q0-sign}可正可负。取
 \[
 N=10^6,\quad \beta=\frac16,\quad q_0=\frac1{10},\quad
 \gamma=\frac1{10},\quad c_0=\frac{20}{3},\quad I_0=100.
@@ -100,7 +100,7 @@ N=10^6,\quad \beta=\frac16,\quad q_0=\frac1{10},\quad
 S_0=mS^*,\qquad
 \eta=I_0+\frac{\beta_2^0}{\beta_1^0}(S_0-S^*)+\rho_1\ln(S^*/S_0).
 \]
-两组参数均有 $S_0+I_0<N$、$I_0<\eta<I_{\max}^{0}$ 和 $S_c<2\bar S<S^*$，余下的初始人数置于不参与社区传播的仓室（如 $R(0)>0$）；正文第~\ref{sec:model}~节只要求初始仓室非负、总和为 $N$，因而允许这种初值。在每个构造出的参数点求偏导时，固定该点的 $S_0,\eta$；以上关系只用于构造参数点，不作为求导时的约束。
+两组参数均有 $S_0+I_0<N$、$I_0<\eta<I_{\max}^{0}$ 和 $S_c<2\bar S<S^*$。余下的初始人数置于不参与社区传播的仓室（如 $R(0)>0$），正文第~\ref{sec:model}~节只要求初始仓室非负、总和为 $N$，因而允许这种初值。在每个构造出的参数点求偏导时，固定该点的 $S_0$ 与 $\eta$，以上关系只用于构造参数点，不作为求导时的约束。
 
 代入式\eqref{eq:lambda-q0-sign}，得到
 \[
