@@ -73,7 +73,7 @@ q_0,&t>t_2
 \end{cases}
 \label{eq:s1:q-piecewise}
 \end{equation}
-使 $I(t)\le\eta$ 对一切 $t\ge0$ 成立。
+使 $I(t)=\eta$ 对 $t_1\le t\le t_2$ 成立，且 $I(t)\le\eta$ 对一切 $t\ge0$ 成立。
 \end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -83,7 +83,7 @@ q_0,&t>t_2
 \]
 故有式\eqref{eq:s1:S-analytic}。由定理~\ref{thm:s1:start}与式\eqref{eq:s1:barS}，$S^*>S_c>\bar S$，所以轨迹严格下降，并在式\eqref{eq:s1:t2}给出的有限时刻首次到达 $S_c$。该区间上 $q_c(S_c)=q_0$、$q_0\le q_c(S)<1$，控制满足界限。
 
-(iii) 反过来，把所得的时间函数 $q_c(t)$ 代回原方程，式\eqref{eq:s1:S-analytic}与 $I=\eta$ 满足前两个方程及启动初值，其余仓室由线性方程或积分确定。由命题~\ref{prop:model:positive}中解的唯一性，该控制确实使 $I\equiv\eta$。由 $t_1$ 的定义，启动前 $I<\eta$；退出时 $S=S_c$，由命题~\ref{prop:model:threshold-rationale}(iii)，退出后 $I\le\eta$。因此全程不超过阈值。
+(iii) 反过来，把所得的时间函数 $q_c(t)$ 代回原方程，式\eqref{eq:s1:S-analytic}与 $I=\eta$ 满足前两个方程及启动初值，其余仓室由线性方程或积分确定。由命题~\ref{prop:model:positive}中解的唯一性，该控制确实使 $[t_1,t_2]$ 上 $I\equiv\eta$。由 $t_1$ 的定义，启动前 $I<\eta$；退出时 $S=S_c$，由命题~\ref{prop:model:threshold-rationale}(iii)，退出后 $I\le\eta$。因此全程不超过阈值。
 \end{proof}
 
 定理~\ref{thm:s1:qc-structure}(iii) 中的 $q_c(t)$ 可以显式写出：
@@ -113,9 +113,8 @@ q_{\max}=1-\frac{\gamma N}{\beta c_0S^*}>q_0,
 \[
 q_{\max}\le q_{\rm cap}
 \quad\Longleftrightarrow\quad
-\frac{\beta c_0(1-q_{\rm cap})S^*}{N}\le\gamma,
+\frac{\beta c_0(1-q_{\rm cap})S^*}{N}\le\gamma.
 \]
-且该条件成立时，能力约束不改变上述控制轨迹、控制时长及成本公式。
 \end{enumerate}
 \end{corollaryn}
 \begin{proof}
@@ -127,7 +126,7 @@ q_{\max}\le q_{\rm cap}
 \end{equation}
 又 $q_c(S_c)=q_0$，故退出时连续。
 
-(ii) 由 (i)，隔离比例在启动时取得最大值，因此全时段的能力约束等价于检查这一最大值；由式\eqref{eq:s1:qmax}整理即得上述等价式。该条件成立时，原控制满足能力约束，故控制轨迹、控制时长与成本公式都不变。
+(ii) 由 (i)，隔离比例在启动时取得最大值，因此全时段的能力约束等价于检查这一最大值；由式\eqref{eq:s1:qmax}整理即得上述等价式。
 \end{proof}
 追踪隔离的需求在启动时最大。此时社区易感者最多，常规控制下的有效再生数最高，需要隔离的接触比例也最高。推论~\ref{cor:s1:qc-structure}(ii) 的条件即按 $(c_0,q_{\rm cap})$ 计算的启动时有效再生数不超过 $1$。若 $q_{\rm cap}<q_{\max}$，在启动状态上即使取 $q=q_{\rm cap}$ 也有 $\dot I>0$，因此只有同时减少接触才能维持 $I=\eta$；这时能否实施由推论~\ref{cor:joint:feasibility}判断。
 
