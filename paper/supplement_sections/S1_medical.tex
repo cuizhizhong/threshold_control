@@ -1,29 +1,30 @@
 \section{阈值与医疗需求}
 \label{sec:sup:medical-link}
-参照 Angulo 等\cite{Angulo2021}，设任一时刻需要重症监护的人数约为两个感染仓室人数的固定比例，即 $p_{\rm ICU}(I+I_q)$，并要求它不超过可用的重症监护床位数 $C_{\rm ICU}$。阈值策略只约束 $I$，下面的引理把 $I+I_q$ 与 $\eta$ 联系起来。记
+参照 Angulo 等\cite{Angulo2021}，设任一时刻需要重症监护的人数约为两个感染仓室人数之和的固定比例，即 $p_{\rm ICU}(I+I_q)$，并要求它不超过可用的重症监护床位数 $C_{\rm ICU}$。确诊后需要重症监护的人在模型中已归入 $R$，所以 $p_{\rm ICU}$ 是折算系数，把这些人的需求按比例折算到两个感染仓室。这一比例近似与 Angulo 等的处理相同，没有考虑入院延迟与重症监护时长。
+
+阈值策略只约束 $I$，下面的引理把 $I+I_q$ 与 $\eta$ 联系起来。记
 \[
 \kappa_I=1+\frac{\beta c_0S_0/N-\gamma}{\delta_q}.
 \]
+由条件\eqref{eq:model:trigger}中的 $S_0>S_c$ 得 $\beta c_0S_0/N>\gamma$，故 $\kappa_I>1$。
 
 \begin{lemma}
 \label{lem:sup:infected-bound}
-设条件\eqref{eq:model:trigger}成立，$I_q(0)\le(\kappa_I-1)\eta$。则对 $\mathcal A(\eta)$ 中任一控制和所有 $t\ge0$，有
+设条件\eqref{eq:model:trigger}成立，且 $I_q(0)\le(\kappa_I-1)\eta$，则对 $\mathcal A(\eta)$ 中任一控制和所有 $t\ge0$，有
 \[
 I(t)+I_q(t)\le\kappa_I\eta .
 \]
 \end{lemma}
 \begin{proof}
-$\mathcal A(\eta)$ 中始终有 $I\le\eta$（退出后由定理~\ref{thm:s1:tend}）、$c\le c_0$ 与 $S\le S_0$，故新增感染 $F=\beta cSI/N\le\beta c_0S_0\eta/N$。阈值控制期内，由式\eqref{eq:model:balance}，进入 $I_q$ 的流量为 $F-\gamma\eta$；其余时段控制为 $(c_0,q_0)$，流量为 $q_0F$，而 $S_0>S_c$ 给出 $q_0\beta c_0S_0/N\le\beta c_0S_0/N-\gamma$。两种情形下流量都不超过 $\delta_q(\kappa_I-1)\eta$，于是几乎处处有
+对 $\mathcal A(\eta)$ 中的控制，始终有 $I\le\eta$（退出后由定理~\ref{thm:s1:tend}）、$c\le c_0$ 与 $S\le S_0$，故单位时间的新增感染 $F=\beta cSI/N$ 满足 $F\le\beta c_0S_0\eta/N$，其中比例 $q$ 进入 $I_q$，其余进入 $I$。阈值控制期内，由式\eqref{eq:model:balance}，进入 $I$ 的流量为 $\gamma\eta$，进入 $I_q$ 的流量为 $F-\gamma\eta$。其余时段控制为 $(c_0,q_0)$，进入 $I_q$ 的流量为 $q_0F$，而 $S_0>S_c$ 给出 $q_0\beta c_0S_0/N\le\beta c_0S_0/N-\gamma$。两种情形下进入 $I_q$ 的流量都不超过 $\delta_q(\kappa_I-1)\eta$，于是几乎处处有
 \[
 \dot I_q\le\delta_q\bigl[(\kappa_I-1)\eta-I_q\bigr],
 \]
-由 $I_q(0)\le(\kappa_I-1)\eta$ 即得 $I_q\le(\kappa_I-1)\eta$。再与 $I\le\eta$ 相加。
+由比较原理与 $I_q(0)\le(\kappa_I-1)\eta$，对所有 $t\ge0$ 有 $I_q(t)\le(\kappa_I-1)\eta$，再与 $I\le\eta$ 相加即得结论。
 \end{proof}
 
-因此取
+因此在引理的条件下取
 \[
 \eta\le\frac{C_{\rm ICU}}{p_{\rm ICU}\kappa_I}
 \]
-时，阈值策略的各控制都满足 $p_{\rm ICU}(I+I_q)\le C_{\rm ICU}$。证明中的 $(\kappa_I-1)\eta$ 是隔离感染者人数的统一上界，等于进入 $I_q$ 的流量上界与移出率 $\delta_q$ 之比：阈值控制期内单位时间的新增感染不超过 $\beta c_0S_0\eta/N$，其中 $\gamma\eta$ 补充 $I$ 的移出，其余进入 $I_q$，每人平均停留 $1/\delta_q$。正文表~\ref{tab:joint:compare}与表~\ref{tab:xian:joint-compare}末列的 $\max_t(I+I_q)/\eta$ 即名义重症监护需求峰值与 $p_{\rm ICU}\eta$ 之比。
-
-这一比例近似与 Angulo 等的处理相同，没有考虑入院延迟与重症监护时长。这里 $p_{\rm ICU}$ 是折算系数：确诊后需要重症监护的人在模型中已归入 $R$，其需求按比例折算到两个感染仓室。基准算例的阈值 $0.05N$ 只用于演示机制，不由这一条件换算；西安情景的取值见第~\ref{sec:sup:threshold-scale}~节。
+时，阈值策略的各控制在所有时刻都满足 $p_{\rm ICU}(I+I_q)\le C_{\rm ICU}$。$(\kappa_I-1)\eta$ 是隔离感染者人数对各控制和各时刻都成立的上界，等于进入 $I_q$ 的流量上界与移出率 $\delta_q$ 之比：阈值控制期内单位时间的新增感染不超过 $\beta c_0S_0\eta/N$，其中 $\gamma\eta$ 补充 $I$ 的移出，其余进入 $I_q$，每人平均停留 $1/\delta_q$。正文表~\ref{tab:joint:compare}与表~\ref{tab:xian:joint-compare}末列的 $\max_t(I+I_q)/\eta$ 即名义重症监护需求峰值与 $p_{\rm ICU}\eta$ 之比，由引理~\ref{lem:sup:infected-bound}，它不超过 $\kappa_I$。基准算例的阈值 $0.05N$ 只用于演示机制，不由这一条件换算而来；西安情景的取值见第~\ref{sec:sup:threshold-scale}~节。
