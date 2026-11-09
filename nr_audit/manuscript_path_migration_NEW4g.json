@@ -24,7 +24,7 @@
       "new4g_baseline_sha256": "2c43997a5715c83c9ca1cc591b48d9fd6302c3d0ffc9e7f0a5e983583a2eac03",
       "current_path": "paper/sections/02_model.tex",
       "current_sha256": "df71ee4ba2d4fcffb2616fbe86605dc9ce9ca51d9bb635244049f1d33ac764ff",
-      "current_content_sha256": "7f2aeb93be7c2e0b4f6be8e5c4a5ffc4402d1a767f0a2127f99d00b42e058de2"
+      "current_content_sha256": "f135baebe5ccc4510c3deb28881b30bbdb7db55169286da39573ff93b4540ffb"
     },
     "numerics_S1": {
       "historical_path": "paper/supplement_sections/S1_baseline.tex",
@@ -122,7 +122,7 @@
             "sec:sup:medical-link"
           ],
           "current_sha256": "2d61ee3eead7a8f1b0db4352376fe64781f43a007d6a9ba0ea91c344e4a15b36",
-          "current_content_sha256": "57f53e8c2ca8c562de00af921aee6ed6c598fb54b0f225b9940e7f427b459e96"
+          "current_content_sha256": "5635005983908a6541c6e680fd5a97359199d2b7c6521be3ad5ee6cd24faeab0"
         },
         {
           "path": "paper/supplement_sections/S6_xian.tex",
