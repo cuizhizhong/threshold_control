@@ -140,22 +140,22 @@ q_{\max}\le q_{\rm cap}
 
 \subsection{隔离比例的拐点}
 \label{sec:s1:shape}
-拐点是隔离比例下降最快的时刻，也就是放松隔离最急的时刻。记 $\nu=\bar S/S$。由式\eqref{eq:s1:q-control}与\eqref{eq:s1:barS}，$\nu=(1-\beta)(1-q_c)$，即仅隔离控制下与易感者的接触中既未传播、也未被追踪的比例；由式\eqref{eq:s1:S-analytic}，
+隔离比例的拐点是它下降最快的时刻，也就是放松隔离最急的时刻。记 $\nu=\bar S/S$。由式\eqref{eq:s1:q-control}与\eqref{eq:s1:barS}，$\nu=(1-\beta)(1-q_c)$，即仅隔离控制下与易感者的接触中既未传播、也未被追踪的比例。由式\eqref{eq:s1:S-analytic}，
 \[
-\dot\nu=\frac{c_0\eta}{N}\,\nu(1-\nu).
+\dot\nu=\frac{c_0\eta}{N}\,\nu(1-\nu),
 \]
-这一比例因而在阈值控制期内按 logistic 规律从 $\bar S/S^*$ 增长到 $\bar S/S_c$。隔离比例是 $\nu$ 的线性减函数，所以它在 $\nu$ 增长最快的 $\nu=1/2$ 处下降最快，即在 $S$ 经过 $2\bar S$ 之时。
+因此 $\nu$ 在阈值控制期内按 logistic 规律从 $\bar S/S^*$ 增长到 $\bar S/S_c$，在 $\nu=1/2$ 即 $S=2\bar S$ 处增长最快。隔离比例是 $\nu$ 的线性减函数，所以只要控制期内 $S$ 经过 $2\bar S$，拐点就出现在这里。
 \begin{theorem}
 \label{thm:s1:inflection}
-设条件\eqref{eq:model:trigger}成立，则
+设条件\eqref{eq:model:trigger}成立，$q_c(t)$ 为定理~\ref{thm:s1:qc-structure}中的隔离比例，则
 \begin{enumerate}
 \renewcommand{\labelenumi}{(\roman{enumi})}
-\item $q_c(t)$ 在 $(t_1,t_2)$ 内存在唯一拐点，当且仅当
+\item $q_c(t)$ 在 $(t_1,t_2)$ 内存在唯一拐点（下称内部拐点），当且仅当
 \begin{equation}
 S_c<2\bar S<S^*,
 \label{eq:s1:inflection-condition}
 \end{equation}
-等价地，$\frac12<(1-\beta)(1-q_0)<-\frac12W_{-1}(z_\eta)$；
+等价地，$1/2<(1-\beta)(1-q_0)<-W_{-1}(z_\eta)/2$；
 \item 内部拐点存在时，
 \begin{equation}
 S(t_{\rm inf})=2\bar S,\quad
@@ -163,7 +163,8 @@ S(t_{\rm inf})=2\bar S,\quad
 \qinf=1-\frac1{2(1-\beta)},
 \label{eq:s1:inflection-values}
 \end{equation}
-且 $q_0<\qinf<q_{\max}$，隔离比例的下降速度在 $t_{\rm inf}$ 唯一达到最大值。
+且 $q_0<\qinf<q_{\max}$；
+\item 内部拐点存在时，隔离比例的下降速度 $|dq_c/dt|$ 在 $(t_1,t_2)$ 上于 $t_{\rm inf}$ 唯一取得最大值。
 \end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -174,9 +175,11 @@ S(t_{\rm inf})=2\bar S,\quad
 \frac{(S-\bar S)(2\bar S-S)}{S^3}.
 \label{eq:s1:qsecond}
 \end{equation}
-由式\eqref{eq:s1:barS}，阈值控制期内 $S\ge S_c>\bar S$，故其符号由 $2\bar S-S$ 决定。$S$ 从 $S^*$ 严格下降至 $S_c$，所以恰在式\eqref{eq:s1:inflection-condition}成立时穿过 $2\bar S$，且只穿过一次。由式\eqref{eq:s1:barS}与\eqref{eq:s1:Sstar-lambert}，$2\bar S/S_c=2(1-\beta)(1-q_0)$，$S^*/S_c=-W_{-1}(z_\eta)$，即得等价形式。
+由式\eqref{eq:s1:barS}，阈值控制期内 $S\ge S_c>\bar S$，故 $d^2q_c/dt^2$ 与 $2\bar S-S$ 同号。$S$ 在 $(t_1,t_2)$ 上从 $S^*$ 严格下降至 $S_c$。若式\eqref{eq:s1:inflection-condition}成立，$S$ 恰在一个时刻经过 $2\bar S$，$d^2q_c/dt^2$ 在该时刻由负变正，这是 $(t_1,t_2)$ 内唯一的拐点。否则 $2\bar S-S$ 在 $(t_1,t_2)$ 上不变号，没有拐点。由式\eqref{eq:s1:barS}与\eqref{eq:s1:Sstar-lambert}，$2\bar S/S_c=2(1-\beta)(1-q_0)$，$S^*/S_c=-W_{-1}(z_\eta)$，即得等价形式。
 
-(ii) 将 $S=2\bar S$ 代入式\eqref{eq:s1:S-analytic}及\eqref{eq:s1:q-control}，即得时间和隔离比例。由于 $q_c(S)$ 关于 $S$ 严格增加且 $S_c<2\bar S<S^*$，有 $q_0=q_c(S_c)<\qinf<q_c(S^*)=q_{\max}$。二阶导数先负后正，而一阶导数始终为负，故 $|dq_c/dt|$ 在该时刻唯一达到最大值。
+(ii) 将 $S=2\bar S$ 代入式\eqref{eq:s1:S-analytic}及\eqref{eq:s1:q-control}，即得时间和隔离比例。由于 $q_c(S)$ 关于 $S$ 严格增加且 $S_c<2\bar S<S^*$，有 $q_0=q_c(S_c)<\qinf<q_c(S^*)=q_{\max}$。
+
+(iii) 由 (i) 的证明，$d^2q_c/dt^2$ 在 $t_{\rm inf}$ 之前为负、之后为正；由式\eqref{eq:s1:qprime}，$dq_c/dt<0$。因此 $|dq_c/dt|$ 在 $(t_1,t_{\rm inf}]$ 上严格增加，在 $[t_{\rm inf},t_2)$ 上严格减少，于 $t_{\rm inf}$ 唯一取得最大值。
 \end{proof}
 拐点存在时，拐点前的时长占控制时长的比例为
 \begin{equation}
@@ -185,7 +188,9 @@ S(t_{\rm inf})=2\bar S,\quad
 {\ln[(S^*-\bar S)/(S_c-\bar S)]}\in(0,1),
 \label{eq:s1:lambda}
 \end{equation}
-$\lambda$ 越大，下降最快的时刻在控制期内越靠后；其参数敏感性见补充材料第~\ref{sec:sup:inflection}~节。拐点处 $\nu=1/2$，即 $(1-\beta)(1-\qinf)=1/2$，所以拐点处的隔离比例 $\qinf$ 只依赖 $\beta$：只要内部拐点存在，隔离放松最急时的隔离水平就与阈值和常规接触率无关，二者只改变这一时刻出现的早晚。条件\eqref{eq:s1:inflection-condition}即 $\nu$ 在控制期内穿过 $1/2$：$\bar S/S_c=(1-\beta)(1-q_0)>1/2$ 要求传播概率与常规隔离比例都不太大，$S^*>2\bar S$ 要求干预启动时易感者足够多。否则没有内部拐点：$q_c(t)$ 在整个控制期内严格凹（$2\bar S\le S_c$）或严格凸（$2\bar S\ge S^*$）。
+$\lambda$ 越大，下降最快的时刻在控制期内越靠后，其参数敏感性见补充材料第~\ref{sec:sup:inflection}~节。拐点处 $\nu=1/2$，即 $(1-\beta)(1-\qinf)=1/2$，所以拐点处的隔离比例 $\qinf$ 只依赖传播概率 $\beta$。只要内部拐点存在，放松隔离最急时的隔离水平就与阈值和常规接触率无关，二者只改变这一时刻出现的早晚。
+
+条件\eqref{eq:s1:inflection-condition}即 $\nu$ 在控制期内经过 $1/2$。其中 $\bar S/S_c=(1-\beta)(1-q_0)>1/2$ 要求传播概率与常规隔离比例都不太大，$S^*>2\bar S$ 要求干预启动时易感者足够多。条件不成立时没有内部拐点，$q_c(t)$ 在整个控制期内严格凹（$2\bar S\le S_c$）或严格凸（$2\bar S\ge S^*$）。
 
 \subsection{清零时间与累计感染}
 退出后 $S<S_c$，常规控制下的有效再生数小于 $1$，$I$ 从 $\eta$ 开始下降。由常规控制下的首次积分，剩余易感者人数可由 Lambert $W$ 函数写出，清零时间可化为一维积分。
