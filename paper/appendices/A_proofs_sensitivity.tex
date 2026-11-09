@@ -108,7 +108,7 @@ $\partial S^*/\partial\kappa=-(\partial F/\partial\kappa)/(\partial F/\partial S
 \label{sec:proof:threshold-tradeoff}
 本小节证明命题~\ref{prop:threshold-tradeoff}。
 \begin{proof}
-式\eqref{eq:s1:t1}的被积函数不含 $\eta$，$\eta$ 只通过下限 $S^*$ 进入。由 $I(S^*)=\eta$，
+(i) 式\eqref{eq:s1:t1}的被积函数不含 $\eta$，$\eta$ 只通过下限 $S^*$ 进入。由 $I(S^*)=\eta$，
 \[
 \frac{\partial t_1}{\partial\eta}
 =-\frac1{\beta_1^0 S^*\eta}\frac{\partial S^*}{\partial\eta}>0.
@@ -121,7 +121,8 @@ $\partial q_{\max}/\partial\eta=\gamma N[\beta c_0(S^*)^2]^{-1}\partial S^*/\par
 =-\frac{\Delta t}{\eta}
 +\frac{N}{c_0\eta(S^*-\bar S)}\frac{\partial S^*}{\partial\eta}<0.
 \]
-又 $(q_c(S)-q_0)/(1-q_0)=1-S_c/S$，$c=c_0$ 时接触项为零，且由式\eqref{eq:s1:S-analytic}，$dt=-N\,dS/[c_0\eta(S-\bar S)]$，故
+
+(ii) 仅隔离控制下 $(q_c(S)-q_0)/(1-q_0)=1-S_c/S$，$c=c_0$ 时接触项为零，且由式\eqref{eq:s1:S-analytic}，$dt=-N\,dS/[c_0\eta(S-\bar S)]$，故
 \begin{equation}
 J_q=\frac{N}{c_0\eta}\int_{S_c}^{S^*}\frac{1-S_c/S}{S-\bar S}\,dS,
 \qquad
@@ -130,7 +131,7 @@ J=\frac{w_qN}{c_0\eta}\int_{S_c}^{S^*}\frac{(1-S_c/S)^2}{S-\bar S}\,dS.
 \end{equation}
 被积函数不含 $\eta$ 且在区间内部为正，系数 $1/\eta$ 和上限 $S^*$ 均随 $\eta$ 增大而减小，故两个成本严格下降。两积分的初等表达列于附录~\ref{app:cost}。
 
-对累计新增感染，把式\eqref{eq:s1:post-orbit}中 $I=1$ 的条件对 $\eta$ 求导得
+(iii) 对累计新增感染，把式\eqref{eq:s1:post-orbit}中 $I=1$ 的条件对 $\eta$ 求导得
 \[
 \frac{\partial S_{\rm end}}{\partial\eta}
 =-\frac1{\rho_1(1/S_{\rm end}-1/S_c)}<0.
