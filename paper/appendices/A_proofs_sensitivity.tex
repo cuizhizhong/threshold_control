@@ -44,18 +44,18 @@ I(t)&=I_0\exp\!\left[\int_0^t\left(\frac{\beta c(s)(1-q(s))}{N}S(s)-\gamma\right
 \label{sec:proof:post-dynamics}
 本小节证明定理~\ref{thm:s1:tend}。
 \begin{proof}
-(i) 由命题~\ref{prop:model:positive}，$S,I>0$，故恢复常规后 $\dot S<0$；又 $\dot I=\gamma I(S/S_c-1)$，所以对一切 $t>t_2$ 有 $S<S_c$ 和 $\dot I<0$。任取 $t_a>t_2$，令 $\varepsilon=\gamma-\beta_2^0S(t_a)$。由 $S(t_a)<S_c=\gamma/\beta_2^0$，$\varepsilon>0$；又 $S$ 递减，故 $t\ge t_a$ 时 $\dot I\le-\varepsilon I$，从而
+(i) 由命题~\ref{prop:model:positive}，$S,I>0$，故恢复常规控制后 $\dot S=-\beta_1^0SI<0$。又由 $S_c=\gamma/\beta_2^0$，$\dot I=\gamma I(S/S_c-1)$，而 $S(t_2)=S_c$，所以对一切 $t>t_2$ 有 $S<S_c$ 和 $\dot I<0$。任取 $t_a>t_2$，令 $\varepsilon=\gamma-\beta_2^0S(t_a)$。由 $S(t_a)<S_c$，$\varepsilon>0$；又 $S$ 递减，故 $t\ge t_a$ 时 $\dot I\le-\varepsilon I$，从而
 \[
 I(t)\le I(t_a)e^{-\varepsilon(t-t_a)},\qquad t\ge t_a.
 \]
-因此 $\lim_{t\to\infty}I(t)=0$，且 $\int_{t_a}^{\infty}I(t)\,dt<\infty$。将其代入附录~\ref{sec:proof:model-positive}中 $S$ 的指数表示，得到严格正的下界，故 $S_\infty\in(0,S_c)$。退出后的首次积分为
+因此 $\lim_{t\to\infty}I(t)=0$，且 $\int_{t_a}^{\infty}I(t)\,dt<\infty$。$S$ 单调递减且有下界，极限 $S_\infty$ 存在，且 $S_\infty\le S(t_a)<S_c$。将上述积分有限代入附录~\ref{sec:proof:model-positive}中 $S$ 的指数表示，得到 $S$ 的严格正下界，故 $S_\infty\in(0,S_c)$。由常规控制下的首次积分\eqref{eq:model:first-integral}，以 $t_2$ 时的 $(S_c,\eta)$ 为初值，退出后有
 \begin{equation}
 I(t)=\eta+\frac{\beta_2^0}{\beta_1^0}(S_c-S(t))+\rho_1\ln\frac{S(t)}{S_c}.
 \label{eq:s1:post-orbit}
 \end{equation}
-在该式中令 $t$ 趋于无穷，由 $\lim_{t\to\infty}I(t)=0$ 与 $0<S_\infty<S_c$ 选择 $W_0$ 分支，得到式\eqref{eq:s1:Sinfty}。
+令 $t\to\infty$，并利用 $\beta_2^0/\beta_1^0=\rho_1/S_c$，得 $x=S_\infty/S_c$ 满足 $(-x)e^{-x}=-e^{-1-\eta/\rho_1}$。由 $0<x<1$，取 $W_0$ 分支，即得式\eqref{eq:s1:Sinfty}。
 
-(ii) 由 (i)，$I$ 从 $\eta>1$ 严格下降至零，故存在唯一有限的 $t_{\rm end}$。在式\eqref{eq:s1:post-orbit}中令 $I=1$，同样取 $W_0$ 分支，得到式\eqref{eq:s1:Send}。最后沿常规易感者方程分离变量积分，即得式\eqref{eq:s1:tend}。
+(ii) 由 (i)，$I$ 从 $\eta>1$ 严格下降至零，故恰有一个 $t_{\rm end}>t_2$ 使 $I(t_{\rm end})=1$，且 $\dot I(t_{\rm end})<0$。在式\eqref{eq:s1:post-orbit}中令 $I=1$，同样得 $x=S_{\rm end}/S_c\in(0,1)$ 满足 $(-x)e^{-x}=-e^{-1-(\eta-1)/\rho_1}$，取 $W_0$ 分支即得式\eqref{eq:s1:Send}。最后沿 $\dot S=-\beta_1^0SI$ 分离变量，以式\eqref{eq:s1:post-orbit}代入 $I$ 并从 $S_c$ 积分到 $S_{\rm end}$，即得式\eqref{eq:s1:tend}。
 \end{proof}
 
 \subsection{启动状态的导数}
@@ -67,11 +67,11 @@ I(t)=\eta+\frac{\beta_2^0}{\beta_1^0}(S_c-S(t))+\rho_1\ln\frac{S(t)}{S_c}.
 F(S;\eta,c_0,\beta,q_0)
 =I_0+\frac{\beta_2^0}{\beta_1^0}(S_0-S)+\rho_1\ln(S/S_0)-\eta.
 \]
-$F(S^*)=0$ 即启动条件 $I(S^*)=\eta$。利用 $\beta_2^0/\beta_1^0=\rho_1/S_c$，在 $S=S^*>S_c$ 处
+由式\eqref{eq:model:routine-orbit}，$F(S^*)=0$ 即启动条件 $I(S^*)=\eta$。利用 $\beta_2^0/\beta_1^0=\rho_1/S_c$，在 $S=S^*>S_c$ 处
 \[
 \frac{\partial F}{\partial S}=\rho_1\left(\frac1{S^*}-\frac1{S_c}\right)<0.
 \]
-因此隐函数定理适用。$\partial F/\partial\eta=-1$，而在固定 $S=S^*$ 时
+因此隐函数定理适用。$\partial F/\partial\eta=-1$。固定 $S=S^*$，对其余参数求导（其中 $\beta_2^0/\beta_1^0=\beta(1-q_0)/[\beta+q_0(1-\beta)]$ 不含 $c_0$，$\rho_1=\gamma N/\{c_0[\beta+q_0(1-\beta)]\}$），得
 \begin{align*}
 \frac{\partial F}{\partial c_0}
 &=-\frac{\rho_1}{c_0}\ln\frac{S^*}{S_0}>0,\\
@@ -81,7 +81,7 @@ $F(S^*)=0$ 即启动条件 $I(S^*)=\eta$。利用 $\beta_2^0/\beta_1^0=\rho_1/S_
 \frac{\partial F}{\partial q_0}
 &=-\frac{\beta}{[\beta+q_0(1-\beta)]^2}\left[(S_0-S^*)-\bar S\ln\frac{S_0}{S^*}\right]<0.
 \end{align*}
-最后一个符号使用 $\bar S<S^*<S_0$ 及 $\ln x<x-1$。记 $\kappa$ 为 $\eta,c_0,\beta,q_0$ 中的任一参数，由
+前两个符号由 $S^*<S_0$ 得到。最后一个符号由 $\ln x<x-1$（$x>1$）与 $\bar S<S^*<S_0$ 得到：$\bar S\ln(S_0/S^*)<\bar S(S_0-S^*)/S^*<S_0-S^*$。记 $\kappa$ 为 $\eta,c_0,\beta,q_0$ 中的任一参数，由
 $\partial S^*/\partial\kappa=-(\partial F/\partial\kappa)/(\partial F/\partial S)$ 即得所列符号。特别地，
 \begin{equation}
 \frac{\partial S^*}{\partial\eta}
@@ -108,19 +108,22 @@ $\partial S^*/\partial\kappa=-(\partial F/\partial\kappa)/(\partial F/\partial S
 \label{sec:proof:threshold-tradeoff}
 本小节证明命题~\ref{prop:threshold-tradeoff}。
 \begin{proof}
+下面各步都用到引理~\ref{lem:s1:Sstar-sensitivity}中的 $\partial S^*/\partial\eta<0$。
+
 (i) 式\eqref{eq:s1:t1}的被积函数不含 $\eta$，$\eta$ 只通过下限 $S^*$ 进入。由 $I(S^*)=\eta$，
 \[
 \frac{\partial t_1}{\partial\eta}
 =-\frac1{\beta_1^0 S^*\eta}\frac{\partial S^*}{\partial\eta}>0.
 \]
-式\eqref{eq:s1:qmax}给出
+对式\eqref{eq:s1:qmax}求导，得
 $\partial q_{\max}/\partial\eta=\gamma N[\beta c_0(S^*)^2]^{-1}\partial S^*/\partial\eta<0$。
-由式\eqref{eq:s1:t2}，控制时长满足
+对式\eqref{eq:s1:t2}求导，得
 \[
 \frac{\partial\Delta t}{\partial\eta}
 =-\frac{\Delta t}{\eta}
-+\frac{N}{c_0\eta(S^*-\bar S)}\frac{\partial S^*}{\partial\eta}<0.
++\frac{N}{c_0\eta(S^*-\bar S)}\frac{\partial S^*}{\partial\eta}<0,
 \]
+其中两项都为负。
 
 (ii) 仅隔离控制下 $(q_c(S)-q_0)/(1-q_0)=1-S_c/S$，$c=c_0$ 时接触项为零，且由式\eqref{eq:s1:S-analytic}，$dt=-N\,dS/[c_0\eta(S-\bar S)]$，故
 \begin{equation}
@@ -143,7 +146,7 @@ J=\frac{w_qN}{c_0\eta}\int_{S_c}^{S^*}\frac{(1-S_c/S)^2}{S-\bar S}\,dS.
 -\frac{\beta}{\beta+q_0(1-\beta)}\frac{\partial S_{\rm end}}{\partial\eta}>0.
 \label{eq:cumulative-eta}
 \end{equation}
-其中使用 $\beta S_c/(S_c-\bar S)=\beta/[\beta+q_0(1-\beta)]$，以及 $S/(S-\bar S)$ 在 $S>\bar S$ 上非增。因此方括号非正，其与 $\partial S^*/\partial\eta<0$ 的乘积非负，最后一项严格为正。将终点替换为 $I=0,S=S_\infty$，同样的隐式微分给出无限时刻的结论。
+由 $\beta S_c/(S_c-\bar S)=\beta/[\beta+q_0(1-\beta)]$，方括号等于 $\beta[S^*/(S^*-\bar S)-S_c/(S_c-\bar S)]$。函数 $S/(S-\bar S)$ 在 $S>\bar S$ 上非增，而 $S^*>S_c$，故方括号非正，它与 $\partial S^*/\partial\eta<0$ 的乘积非负；最后一项严格为正。计算至无限时刻时，终点条件改为式\eqref{eq:s1:post-orbit}中 $I=0$，$S_{\rm end}$ 换成 $S_\infty$。同样的隐式微分给出 $\partial S_\infty/\partial\eta<0$，式\eqref{eq:cumulative-eta}仍为正。
 \end{proof}
 
 \subsection{状态参数化}
@@ -383,14 +386,14 @@ J_{\min}(\eta)=\frac{N}{\eta}\int_{S_c}^{S^*(\eta)}m(S)\,dS.
 \toprule
 分析量 & $\beta$ & $q_0$ & $c_0$ & $\eta$ & 依据\\
 \midrule
-启动状态 $S^*$ & $>0$ & $<0$ & $>0$ & $<0$ & 引理~\ref{lem:s1:Sstar-sensitivity}\\
+启动时的易感者人数 $S^*$ & $>0$ & $<0$ & $>0$ & $<0$ & 引理~\ref{lem:s1:Sstar-sensitivity}\\
 控制时长 $\Delta t$ & $>0$ & $<0$ & 不定 & $<0$ & 命题~\ref{prop:threshold-tradeoff}、补充命题~\ref{prop:contact-effects}\\
 拐点处隔离比例 $\qinf$ & $<0$ & $=0$ & $=0$ & $=0$ & 定理~\ref{thm:s1:inflection}\\
 拐点相对位置 $\lambda$ & $>0$ & 不定 & $>0$ & $<0$ & 补充命题~\ref{prop:s1:lambda-sensitivity}\\
 \bottomrule
 \end{tabularx}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：各单元格表示对列示参数求偏导的符号，固定初始状态、人口及其余参数。前两行要求控制被触发；后两行还要求内部拐点存在。不定指在所述参数域内没有统一符号。固定 $N$ 时以 $\theta=\eta/N$ 替换 $\eta$ 不改变符号。
+\item 注：各单元格表示对该列参数求偏导的符号，固定初值、人口及其余参数。前两行要求触发条件\eqref{eq:model:trigger}成立，后两行还要求内部拐点存在。“不定”指在所述参数范围内没有统一的符号。固定 $N$ 时以 $\theta=\eta/N$ 替换 $\eta$ 不改变符号。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
