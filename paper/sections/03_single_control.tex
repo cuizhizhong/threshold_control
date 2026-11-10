@@ -195,7 +195,7 @@ q_c(2\bar S)=1-\frac{\gamma N}{2\beta c_0\bar S}=1-\frac{1}{2(1-\beta)}=\qinf.
 $\lambda$ 越大，放松最急的时刻越靠后，其参数敏感性见补充材料第~\ref{sec:sup:inflection}~节。
 
 \subsection{清零时间与累计感染}
-退出时 $S=S_c$。恢复常规控制后 $S$ 继续下降，有效再生数 $R_e=S/S_c$ 小于 $1$，$I$ 从 $\eta$ 开始下降。由常规控制下的首次积分，剩余易感者人数可以用 Lambert $W$ 函数写出，清零时间可以化为一维积分。
+求清零时间需要确定退出后 $I$ 从 $\eta$ 降至 $1$ 所需的时间。恢复常规控制后，$S$ 从 $S_c$ 继续下降，有效再生数 $R_e=S/S_c$ 随之降到 $1$ 以下，$I$ 开始下降。由常规轨迹的首次积分可求出清零时的易感者人数，进而将清零时间写成一维积分。
 \begin{theorem}
 \label{thm:s1:tend}\label{thm:s1:post}
 设 $t_2$ 时 $(S,I)=(S_c,\eta)$，此后恢复常规控制，则
@@ -207,7 +207,7 @@ $\lambda$ 越大，放松最急的时刻越靠后，其参数敏感性见补充�
 \lim_{t\to\infty}S(t)=S_\infty:=-S_cW_0\!\left(-e^{-1-\eta/\rho_1}\right)\in(0,S_c);
 \label{eq:s1:Sinfty}
 \end{equation}
-\item 存在唯一的 $t_{\rm end}>t_2$，满足 $I(t_{\rm end})=1$、$\dot I(t_{\rm end})<0$；记 $S_{\rm end}=S(t_{\rm end})$，则
+\item 在第~\ref{sec:cost}~节的约定 $\eta>1$ 下，存在唯一的清零时间 $t_{\rm end}>t_2$，满足 $I(t_{\rm end})=1$、$\dot I(t_{\rm end})<0$。记 $S_{\rm end}=S(t_{\rm end})$，则
 \begin{equation}
 S_{\rm end}=-S_cW_0\!\left(-e^{-1-(\eta-1)/\rho_1}\right),
 \label{eq:s1:Send}
@@ -219,9 +219,9 @@ t_{\rm end}=t_2+\frac{1}{\beta_1^0}\int_{S_{\rm end}}^{S_c}
 \end{equation}
 \end{enumerate}
 \end{theorem}
-证明见附录~\ref{sec:proof:post-dynamics}。退出后的动态只取决于退出状态 $(S_c,\eta)$，所以 $S_{\rm end}$、$S_\infty$ 以及从退出到清零所需的时间 $t_{\rm end}-t_2$ 对 $\mathcal A(\eta)$ 中的全部控制都相同。
+证明见附录~\ref{sec:proof:post-dynamics}。$\mathcal A(\eta)$ 中各控制均从 $(S_c,\eta)$ 恢复常规控制。以退出时刻为起点，后续的 $(S,I)$ 轨迹相同，因而 $S_{\rm end}$、$S_\infty$ 和从退出到清零所需的时间 $t_{\rm end}-t_2$ 也相同。
 
-累计新增感染可以分三段计算：前后两个常规阶段的感染流入与 $-\dot S$ 成正比，阈值控制期内则可以把时间积分换成对 $S$ 的积分。
+将启动前、阈值控制期和退出后的新增感染分别积分，可得仅隔离控制下的总累计新增感染。
 \begin{theorem}
 \label{thm:s1:Itcum}
 设条件\eqref{eq:model:trigger}成立，则对仅隔离控制，
@@ -243,7 +243,7 @@ t_{\rm end}=t_2+\frac{1}{\beta_1^0}\int_{S_{\rm end}}^{S_c}
 \[
 \frac{\beta c_0SI}{N}=\frac{\beta}{\beta+q_0(1-\beta)}(-\dot S).
 \]
-积分得两段的累计新增感染，分别为 $\beta/[\beta+q_0(1-\beta)]$ 乘以 $S_0-S^*$ 与 $S_c-S_{\rm end}$。阈值控制期内，由定理~\ref{thm:s1:qc-structure}的证明，$\dot S=-(c_0\eta/N)(S-\bar S)$，故 $dt=-N\,dS/[c_0\eta(S-\bar S)]$，得
+在两个常规阶段积分，$S$ 的减少量分别为 $S_0-S^*$ 和 $S_c-S_{\rm end}$，故两段之和为式\eqref{eq:s1:cumulative}的第一项。阈值控制期内，由定理~\ref{thm:s1:qc-structure}的证明，$\dot S=-(c_0\eta/N)(S-\bar S)$。用 $dt=-N\,dS/[c_0\eta(S-\bar S)]$ 换元，得
 \[
 \int_{t_1}^{t_2}\frac{\beta c_0S\eta}{N}\,dt
 =\beta\int_{S_c}^{S^*}\frac{S}{S-\bar S}\,dS
@@ -253,7 +253,7 @@ t_{\rm end}=t_2+\frac{1}{\beta_1^0}\int_{S_{\rm end}}^{S_c}
 
 (ii) 由定理~\ref{thm:s1:tend}(i)，$t\to\infty$ 时 $S(t)\to S_\infty$。退出后一段的累计新增感染因而以 $S_c-S_\infty$ 代替 $S_c-S_{\rm end}$，其余两段不变。
 \end{proof}
-式中第一项来自启动前和退出后，对 $\mathcal A(\eta)$ 中的全部控制相同。第二项是阈值控制期的新增感染，由式\eqref{eq:s1:t2}可写成 $\beta(S^*-S_c)+(1-\beta)\gamma\eta\Delta t$，其中前一部分只取决于启动和退出状态，后一部分与控制时长成正比。第~\ref{sec:joint}~节对全部控制证明了同一形式（式\eqref{eq:joint:cumulative}），由此得到控制时长与控制期累计新增感染的同序关系。
+式\eqref{eq:s1:cumulative}中两个常规阶段的累计新增感染对 $\mathcal A(\eta)$ 中的全部控制都相同。由式\eqref{eq:s1:t2}，阈值控制期的累计新增感染可写成 $\beta(S^*-S_c)+(1-\beta)\gamma\eta\Delta t$。前一项由启动和退出状态确定，后一项与控制时长成正比。第~\ref{sec:joint}~节将证明这一分解适用于 $\mathcal A(\eta)$ 中的任一控制，因而控制时长越短，阈值控制期的累计新增感染越少（式\eqref{eq:joint:cumulative}）。
 
 \subsection{参数的影响}
 \label{sec:scaling-theory}
