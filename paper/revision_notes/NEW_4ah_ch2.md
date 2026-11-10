@@ -184,3 +184,9 @@
 作者 2026-11-10 问 2.1 节标题是否仿照 Zhou 等（An SIR model with a close contact tracing strategy）改。Claude 建议保留“基本方程”（与章标题“模型与阈值策略”重复“模型”、超出小节标题字数、与后三节四字标题不平行），作者决定改为“含追踪隔离的 SIR 型模型”。这是对 `R1_storyline.md` 第 8 节所定标题“2.1 基本方程（Governing equations）”的调整，英文对应术语表中的 SIR-type model with contact tracing and quarantine。标题无 `\label`，全稿无其他引用“基本方程”之处。
 
 检查：标签缺失 0，悬空引用 0，数字缺 0、增 0（`NEW_4ah_r8_check.md`）；主 38/补 18 页，0 个未定义引用，主稿第 3 页已看过；已刷新稿件文本身份哈希；424 项测试通过（`NEW_4ah_r8_pytest_full.xml`）。
+
+## 13 2.1 节标题去掉“型”（基准 9245cb0）
+
+作者 2026-11-10 要求 2.1 节标题由“含追踪隔离的 SIR 型模型”改为“含追踪隔离的 SIR 模型”。只改标题；正文第一句与图 1 图注仍按术语表写“含密切接触者追踪与隔离的 SIR 型模型”。标题无 `\label`，全稿无其他引用。
+
+检查：标签缺失 0，悬空引用 0，数字缺 0、增 0（`NEW_4ah_r9_check.md`）；主 38/补 18 页，0 个未定义引用，主稿第 3 页已看过；已刷新稿件文本身份哈希；424 项测试通过（`NEW_4ah_r9_pytest_full.xml`）。
