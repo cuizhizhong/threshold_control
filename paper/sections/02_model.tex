@@ -36,7 +36,7 @@
 
 \subsection{常规轨迹}
 \label{sec:model:strategy}
-防控措施的强度随疫情阶段变化。Zhou 等\cite{Zhou2024SPCI}把一波疫情分为三个阶段：常规防控阶段、加强干预阶段，以及加强干预结束后重新回到常规防控的阶段。常规控制指常规防控阶段实施的常规措施，即日常水平的接触和按常规比例进行的密切接触者追踪隔离。常规控制的接触率与隔离比例记为 $c_0$ 与 $q_0$，下文始终设 $c_0>0$、$0\le q_0<1$。本文的阈值策略（第~\ref{sec:model:control-class}~节）也由这三个阶段组成（图~\ref{fig:model_schematic}(b)），加强干预在 $I$ 触及阈值时开始。本小节先给出只实施常规控制时的轨迹，由此确定何时需要加强干预、何时可以恢复常规控制。
+常规控制指常规防控阶段实施的常规措施，即日常水平的接触和按常规比例进行的密切接触者追踪隔离，其接触率与隔离比例记为 $c_0$ 与 $q_0$，下文始终设 $c_0>0$、$0\le q_0<1$。阈值策略（第~\ref{sec:model:control-class}~节）只在一段时间内加强干预，此前与此后都实施常规控制（图~\ref{fig:model_schematic}(b)）。需不需要加强干预、何时开始、在什么状态下可以恢复常规控制，都由常规控制下的动态决定，因此本小节先研究只实施常规控制时的轨迹（下称常规轨迹）。
 
 记 $R_e=\beta c(1-q)S/(\gamma N)$，称为有效再生数。由式\eqref{eq:model:full}，$\dot I=\gamma(R_e-1)I$，因此 $R_e$ 与 $1$ 的大小关系决定 $I$ 当前的增减。常规控制下 $R_e=S/S_c$，其中
 \begin{equation}
@@ -53,7 +53,7 @@ $S$ 与 $I$ 的方程不依赖其余仓室，下文称 $(S,I)$ 为状态。常�
 \frac{\beta_2^0}{\beta_1^0}=\frac{\rho_1}{S_c},
 \label{eq:model:beta12-baseline}
 \end{equation}
-则常规轨迹满足首次积分\cite{Zhou2024SPCI}
+则常规轨迹满足首次积分
 \begin{equation}
 I(t)+\frac{\beta_2^0}{\beta_1^0}S(t)-\rho_1\ln S(t)=I_0+\frac{\beta_2^0}{\beta_1^0}S_0-\rho_1\ln S_0=:C_0,
 \label{eq:model:first-integral}
@@ -95,7 +95,7 @@ S_0>S_c,\qquad 0<I_0<\eta<I_{\max}^{0},
 \item 从状态 $(S,\eta)$ 起恢复并保持 $(c_0,q_0)$，此后始终有 $I\le\eta$，当且仅当 $S\le S_c$。因此，沿任一从 $(S^*,\eta)$ 出发并持续维持 $I=\eta$ 的轨迹，$S$ 首次降到 $S_c$ 的时刻是可以直接恢复常规控制的最早时刻。
 \end{enumerate}
 \end{proposition}
-证明见附录~\ref{sec:proof:threshold-rationale}。由 (i)，常规控制在 $t_1$ 之前使 $I$ 低于阈值，在 $t_1$ 之后继续采用则会立即越过阈值；由 (iii)，沿阈值运行时最早可在 $S$ 降到 $S_c$ 时恢复常规控制。阈值策略只在这两个时刻之间加强干预（图~\ref{fig:model_schematic}(b)），对应引言所述沿容量运行的阶段。
+证明见附录~\ref{sec:proof:threshold-rationale}。由 (i)，$t_1$ 是必须加强干预的时刻；由 (iii)，$S$ 降到 $S_c$ 是最早可以恢复常规控制的时刻。阈值策略只在这两者之间加强干预（图~\ref{fig:model_schematic}(b)），对应引言所述沿容量运行的阶段。
 
 \subsection{允许控制}
 \label{sec:model:control-class}
