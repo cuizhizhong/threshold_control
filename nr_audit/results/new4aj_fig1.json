@@ -1,0 +1,51 @@
+{
+  "round": "NEW-4aj",
+  "label": "fig:model_schematic",
+  "script": "nr_audit/plot_fig1_combined.py",
+  "inputs": {
+    "paper/figures/Fig1.pdf": {
+      "sha256": "5dca4c5af0e16bc279b839fc7a09966e8c7e8cf86587da2091ba10dfaa457b19",
+      "use": "panel (a), included unchanged",
+      "trim_bp_left_bottom_right_top": [
+        32.5,
+        32.0,
+        2.5,
+        17.5
+      ]
+    }
+  },
+  "outputs": {
+    "paper/figures/new4aj/Fig1_combined.pdf": {
+      "sha256": "1f3c492df4150b9a779a99467906cc5c1334a12ef71343d9a6cfefc92d9d5ac4",
+      "fonts": [
+        "CMR7",
+        "Cmmi10",
+        "Cmr10",
+        "Cmsy10"
+      ]
+    }
+  },
+  "layout": {
+    "text_width_pt": 452.9679,
+    "width_fraction_a": 0.5,
+    "width_fraction_b": 0.48,
+    "panel_a_height_pt": 146.2109466808083,
+    "panel_b_height_pt": 167.2109466808083,
+    "note": "(b) 坐标框与 (a) 上下对齐"
+  },
+  "schematic": {
+    "formula": "I(S)=I_ref+(S_ref-S)/S_c+ln(S/S_ref) (rho1=1, S_c=1)",
+    "S_c": 1.0,
+    "S_star": 2.2,
+    "S0": 2.69,
+    "eta": 0.316,
+    "I0": 0.027083833249477746,
+    "s_axis": "increasing left to right; time runs right to left"
+  },
+  "scientific_activity": {
+    "ode_solves": 0,
+    "optimization_solves": 0,
+    "fits": 0,
+    "data_files_read": 0
+  }
+}

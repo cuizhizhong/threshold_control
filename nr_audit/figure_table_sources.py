@@ -15,7 +15,7 @@ ADOPT='nr_audit/adopt_new4t_figures.py；绘图：'
 
 # 输入数据有独立CSV/NPZ时列实际数据；公式驱动轨迹列源入口及参数，不把PDF当作输入证据。
 FIG={
-'fig:model_schematic':('reproducibility/assets/SIQR模型示意图_复现修正版.pptx','reproducibility/figures.py:_export_model'),
+'fig:model_schematic':('paper/figures/Fig1.pdf;reproducibility/assets/SIQR模型示意图_复现修正版.pptx','nr_audit/plot_fig1_combined.py；(a) 原图导出：reproducibility/figures.py:_export_model'),
 'fig:scenario1:single-sim':('code/scenario1_q_control_with_quarantine_panels.m:参数与轨迹方程','code/scenario1_q_control_with_quarantine_panels.m'),
 'fig:scenario1_summary_eta':(f'{D}/baseline/landscape_summary.csv;{D}/baseline/eta_sensitivity_c0_10.csv','nr_audit/plot_new4r_tradeoff.py'),
 'fig:sup:eta-summary':(f'{D}/baseline/eta_sensitivity_c0_10.csv;{D}/baseline/main_eta_summary.csv;{L}/qa/eta_sensitivity_selected_c0.matlab_geometry.json',ADOPT+'nr_audit/preview_style_curves.py:metric_summaries'),
@@ -94,6 +94,9 @@ def main():
                         status='NEW-4r只读既有基准扫描按图2风格绘制阈值取舍图；见new4r_tradeoff.json'
                     if artifact.startswith('paper/figures/new4s/'):
                         status='NEW-4s只读既有轨迹按图2风格重绘；见new4s_figures.json'
+                    if artifact.startswith('paper/figures/new4aj/'):
+                        inputs+=';nr_audit/results/new4aj_fig1.json'
+                        status='NEW-4aj (a) 原样引用 Fig1.pdf，(b) 按首次积分画示意，未解ODE或读取数值结果；见new4aj_fig1.json'
                     if artifact.startswith('paper/figures/new4t/'):
                         inputs+=';nr_audit/results/new4t_figures.json;nr_audit/results/new4t_figures/parula256.json'
                         status='NEW-4t原字节接收作者确认的九图预览；入稿时未重新绘图或求解；见new4t_figures.json'
