@@ -118,7 +118,7 @@ q_{\max}\le q_{\rm cap}
 \end{enumerate}
 \end{corollaryn}
 \begin{proof}
-(i) 由式\eqref{eq:s1:q-control}，$q_c(S)$ 关于 $S$ 严格增加，$S^*>S_c$ 给出启动时的跳升。由链式法则与式\eqref{eq:s1:S-analytic}，沿控制轨迹
+(i) 由式\eqref{eq:s1:q-control}，$q_c(S)$ 关于 $S$ 严格增加，$S^*>S_c$ 给出启动时的跳升。再由式\eqref{eq:s1:S-analytic}与链式法则，得
 \begin{equation}
 \frac{dq_c(t)}{dt}=-\frac{\gamma\eta}{\beta}
 \frac{S(t)-\bar S}{S(t)^2}<0.
@@ -257,7 +257,7 @@ t_{\rm end}=t_2+\frac{1}{\beta_1^0}\int_{S_{\rm end}}^{S_c}
 
 \subsection{参数的影响}
 \label{sec:scaling-theory}
-各参数都通过启动时的易感者人数 $S^*$ 影响控制过程，除 $\eta$ 外的参数还同时改变 $S_c$ 或 $\bar S$。以下偏导数都在满足触发条件\eqref{eq:model:trigger}的参数范围内计算，求导时固定 $N,S_0,I_0$ 与其余参数。对 $q_0$ 求导时，在端点 $q_0=0$ 处取右导数。各项符号汇总于附录表~\ref{tab:sensitivity}。
+本小节先考察阈值 $\eta$、常规接触率 $c_0$、传播概率 $\beta$ 和常规隔离比例 $q_0$ 如何影响启动时的易感者人数 $S^*$，再分析改变阈值对干预和累计新增感染的影响。以下偏导数均在触发条件\eqref{eq:model:trigger}下计算，固定 $N,S_0,I_0$ 与其余参数。在 $q_0=0$ 处对 $q_0$ 取右导数。主要结果汇总于附录表~\ref{tab:sensitivity}。
 \begin{lemma}
 \label{lem:s1:Sstar-sensitivity}
 设条件\eqref{eq:model:trigger}成立，则启动时的易感者人数满足
@@ -269,7 +269,7 @@ t_{\rm end}=t_2+\frac{1}{\beta_1^0}\int_{S_{\rm end}}^{S_c}
 \label{eq:s1:Sstar-signs}
 \end{equation}
 \end{lemma}
-证明见附录~\ref{sec:proof:start-sensitivity}。提高阈值使 $S^*$ 减小，也使阈值控制期内 $S$ 的下降速率 $c_0\eta(S-\bar S)/N$ 增大。两者都缩短控制期，前者还降低启动时所需的隔离比例，代价是社区中维持的非隔离感染者更多。
+证明见附录~\ref{sec:proof:start-sensitivity}。提高阈值后，启动时的易感者人数更接近退出所需的 $S_c$。在相同的 $S$ 处，易感者的下降速率 $c_0\eta(S-\bar S)/N$ 也更大。两者都缩短控制期。较小的 $S^*$ 还使启动时所需的隔离比例降低，代价是阈值控制期内社区中的非隔离感染者更多。
 \begin{proposition}
 \label{prop:threshold-tradeoff}\label{prop:s1:sensitivity}
 设条件\eqref{eq:model:trigger}成立，则对仅隔离控制，
@@ -282,13 +282,13 @@ t_{\rm end}=t_2+\frac{1}{\beta_1^0}\int_{S_{\rm end}}^{S_c}
 \frac{\partial\Delta t}{\partial\eta}<0;
 \label{eq:threshold-tradeoff}
 \end{equation}
-\item 成本满足 $\partial J_q/\partial\eta<0$、$\partial J/\partial\eta<0$；
+\item 隔离的线性强度积分 $J_q$ 与二次干预强度成本 $J$ 满足 $\partial J_q/\partial\eta<0$、$\partial J/\partial\eta<0$；
 \item $\partial\Itcum/\partial\eta>0$，计算至无限时刻的总累计新增感染也随 $\eta$ 严格增加。
 \end{enumerate}
 \end{proposition}
-证明见附录~\ref{sec:proof:threshold-tradeoff}。清零时间还包含退出后的下降过程，需由式\eqref{eq:s1:tend}单独判断；在所算范围内，它也随阈值提高而缩短（补充材料第~\ref{sec:sup:baseline-scan}~节）。其余参数同时改变 $S_c$ 或 $\bar S$，影响可能不单调。以常规接触率为例，接触率越高，控制期要消耗的易感者 $S^*-S_c$ 越多，但 $S$ 也下降得越快，控制时长因此可增可减。触发边界与完整的参数影响见补充材料第~\ref{sec:sup:contact-theory}~节。
+证明见附录~\ref{sec:proof:threshold-tradeoff}。清零时间还取决于启动时刻和退出后 $I$ 降至 $1$ 的历时，需由式\eqref{eq:s1:tend}单独判断。在补充材料第~\ref{sec:sup:baseline-scan}~节的参数范围内，清零时间随阈值提高而缩短。常规接触率越高，控制期内易感者人数需要减少的幅度 $S^*-S_c$ 越大，但在相同的 $S$ 处易感者也减少得更快，因此提高常规接触率可以延长或缩短控制时长。触发边界及 $c_0,\beta,q_0$ 对控制的影响见补充材料第~\ref{sec:sup:contact-theory}~节。
 
-降低阈值换来的感染减少有限，控制期与成本却成倍增加（图~\ref{fig:scenario1_summary_eta}）。图中以总累计新增感染为横轴，每条曲线对应一个常规接触率，沿曲线向左阈值降低。$c_0=10$ 时把 $\eta/N$ 从 $2\%$ 降到 $0.2\%$，控制时长由 $15.04$ d 增至 $152.1$ d，二次干预强度成本也增大约十倍，总累计新增感染却只由 $233.8$ 人减至 $173.0$ 人。原因在于，控制期内每天的新增感染 $\beta c_0S\eta/N$ 与 $\eta$ 成正比，控制时长却含因子 $N/(c_0\eta)$（式\eqref{eq:s1:t2}）。在上一小节的分解 $\beta(S^*-S_c)+(1-\beta)\gamma\eta\Delta t$ 中，二者相乘使 $\eta$ 相消，所以累计新增感染只通过 $S^*$ 与 $S_{\rm end}$ 依赖阈值（式\eqref{eq:s1:cumulative}），控制时长与成本则近似与阈值成反比。四个常规接触率下取舍的形态相同。各指标随阈值与常规接触率的完整扫描及低阈值下的渐近行为见补充材料第~\ref{sec:sup:baseline-scan}~节。
+图~\ref{fig:scenario1_summary_eta}中，降低阈值使控制时长和成本成倍增加，总累计新增感染的降幅却较小。沿同一条曲线向左，阈值逐渐降低。$c_0=10$ 时把 $\eta/N$ 从 $2\%$ 降到 $0.2\%$，控制时长由 $15.04$ d 增至 $152.1$ d，二次干预强度成本也增大约十倍，总累计新增感染却只由 $233.8$ 人减至 $173.0$ 人。阈值控制期内，在相同的 $S$ 处，新增感染速率 $\beta c_0S\eta/N$ 与 $\eta$ 成正比，而控制时长含因子 $N/(c_0\eta)$（式\eqref{eq:s1:t2}）。将控制时长代入上一小节分解式中的 $\eta\Delta t$，因子 $\eta$ 与 $1/\eta$ 相消。统计至清零时间的总累计新增感染只通过 $S^*$ 与 $S_{\rm end}$ 依赖阈值（式\eqref{eq:s1:cumulative}）。图中四个常规接触率下均有这一取舍，控制时长与成本近似与阈值成反比。各指标随阈值与常规接触率的完整扫描及低阈值下的渐近行为见补充材料第~\ref{sec:sup:baseline-scan}~节。
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.9\textwidth]{figures/new4r/threshold_tradeoff.pdf}
