@@ -140,7 +140,7 @@ q_{\max}\le q_{\rm cap}
 
 \subsection{隔离比例的拐点}
 \label{sec:s1:shape}
-隔离比例在控制期内单调下降（推论~\ref{cor:s1:qc-structure}），下降最快的时刻是 $q_c(t)$ 的拐点，即追踪隔离放松最急的时刻。记 $\nu=(1-\beta)(1-q_c)$，它是与易感者的接触中既未传播、也未被追踪的比例，即接触后易感者仍留在社区的比例；其余 $1-\nu$ 的接触使对方被感染或被隔离。由式\eqref{eq:s1:q-control}与\eqref{eq:s1:barS}，$\nu=\bar S/S$，再由式\eqref{eq:s1:S-analytic}，
+由推论~\ref{cor:s1:qc-structure}，隔离比例在阈值控制期内严格递减。本小节考察它在什么条件下有内部拐点，以及何时下降最快。记 $\nu=(1-\beta)(1-q_c)$，即非隔离感染者与易感者的接触中，既未传播、也未被追踪的比例。这些接触使对方仍留在社区，其余 $1-\nu$ 的接触使对方被感染或被隔离。由式\eqref{eq:s1:q-control}与\eqref{eq:s1:barS}，$\nu=\bar S/S$，再由式\eqref{eq:s1:S-analytic}，
 \[
 \dot\nu=\frac{c_0\eta}{N}\,\nu(1-\nu).
 \]
@@ -155,7 +155,7 @@ q_{\max}\le q_{\rm cap}
 S_c<2\bar S<S^*;
 \label{eq:s1:inflection-condition}
 \end{equation}
-\item 内部拐点存在时，
+\item 若内部拐点存在，记其时刻为 $t_{\rm inf}$，则
 \begin{equation}
 S(t_{\rm inf})=2\bar S,\quad
  t_{\rm inf}=t_1+\frac{N}{c_0\eta}\ln\frac{S^*-\bar S}{\bar S},\quad
@@ -179,13 +179,13 @@ q_c(2\bar S)=1-\frac{\gamma N}{2\beta c_0\bar S}=1-\frac{1}{2(1-\beta)}=\qinf.
 \]
 又 $q_c(S)$ 关于 $S$ 严格增加，且 $q_c(S_c)=q_0$、$q_c(S^*)=q_{\max}$，所以式\eqref{eq:s1:inflection-condition}等价于 $q_0<\qinf<q_{\max}$。
 
-(ii) 将 $S=2\bar S$ 代入式\eqref{eq:s1:S-analytic}即得 $t_{\rm inf}$；由 (i) 的证明，$q_c(t_{\rm inf})=q_c(2\bar S)=\qinf$。
+(ii) 由 (i)，$S(t_{\rm inf})=2\bar S$。代入式\eqref{eq:s1:S-analytic}即得拐点时刻，代入 $q_c(S)$ 即得 $q_c(t_{\rm inf})=\qinf$。
 
 (iii) 由 (i) 的证明，$d^2q_c/dt^2$ 在 $t_{\rm inf}$ 之前为负、之后为正；由式\eqref{eq:s1:qprime}，$dq_c/dt<0$。因此 $|dq_c/dt|$ 在 $(t_1,t_{\rm inf}]$ 上严格增加，在 $[t_{\rm inf},t_2)$ 上严格减少，于 $t_{\rm inf}$ 唯一取得最大值。
 \end{proof}
-拐点处与易感者的接触恰有一半使对方被感染或被隔离。$\qinf$ 只依赖传播概率；内部拐点存在时，阈值与常规接触率只改变它出现的早晚。拐点存在要求 $\nu$ 在控制期内越过 $1/2$，即常规控制下多于一半的接触让易感者留在社区（$q_0<\qinf$，传播概率与常规隔离比例都不太大），而启动时少于一半（$\qinf<q_{\max}$，启动时易感者足够多）。这时隔离比例的下降速度先增后减，曲线呈反 S 形。若 $\qinf\le q_0$，$q_c(t)$ 严格凹，在退出时下降最快；若 $\qinf\ge q_{\max}$，$q_c(t)$ 严格凸，在启动时下降最快。
+拐点处与易感者的接触恰有一半使对方被感染或被隔离。$\qinf$ 只依赖传播概率 $\beta$。内部拐点存在时，即使阈值或常规接触率改变了拐点时刻，对应的隔离比例仍相同。拐点存在要求 $\nu$ 在阈值控制期内越过 $1/2$。启动时易感者须足够多，使 $\qinf<q_{\max}$，此时少于一半的接触让易感者留在社区。传播概率与常规隔离比例还须足够低，使 $q_0<\qinf$，这样到退出时这一比例就超过一半。这时隔离比例的下降速度先增后减，曲线呈反 S 形。若 $\qinf\le q_0$，$q_c(t)$ 严格凹，下降速度在退出端最大（取左导数）。若 $\qinf\ge q_{\max}$，$q_c(t)$ 严格凸，下降速度在启动端最大（取右导数）。
 
-反 S 形的放松是追踪隔离特有的。隔离比例越高，被追踪移出社区的接触者越多，易感者减少得越快；隔离放松后，这部分移出随之减少，易感者的减少也随之放缓。仅减少接触时 $q=q_0$，由平衡式\eqref{eq:model:balance}，$cS$ 保持不变，$S$ 匀速下降，接触率的恢复速度单调增加，没有内部拐点。拐点前的时长占控制时长的比例为
+反 S 形的放松是追踪隔离特有的。隔离比例越高，被追踪移出社区的接触者越多，易感者减少得越快；隔离放松后，这部分移出随之减少，易感者的减少也随之放缓。仅减少接触时 $q=q_0$，由平衡式\eqref{eq:model:balance}，$cS$ 保持不变，$S$ 匀速下降，接触率的恢复速度单调增加，没有内部拐点。对有内部拐点的仅隔离控制，拐点前的时长占控制时长的比例为
 \begin{equation}
 \lambda=\frac{t_{\rm inf}-t_1}{t_2-t_1}
 =\frac{\ln[(S^*-\bar S)/\bar S]}
