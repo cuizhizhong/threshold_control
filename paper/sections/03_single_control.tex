@@ -77,13 +77,13 @@ q_0,&t>t_2
 \end{enumerate}
 \end{theorem}
 \begin{proof}
-(i)(ii) 由命题~\ref{prop:model:threshold-rationale}(ii)，维持 $I=\eta$ 时式\eqref{eq:model:balance}几乎处处成立；取 $c=c_0$，即几乎处处唯一地解出式\eqref{eq:s1:q-control}。利用 $\beta+(1-\beta)q_c(S)=1-\bar S/S$，代入 $S$ 的方程得
+(i)(ii) 由引理~\ref{lem:model:balance}，维持 $I=\eta$ 时式\eqref{eq:model:balance}几乎处处成立；取 $c=c_0$，即几乎处处唯一地解出式\eqref{eq:s1:q-control}。利用 $\beta+(1-\beta)q_c(S)=1-\bar S/S$，代入 $S$ 的方程得
 \[
 \dot S=-\frac{c_0\eta}{N}(S-\bar S),\qquad S(t_1)=S^*,
 \]
 解此初值问题得式\eqref{eq:s1:S-analytic}。由定理~\ref{thm:s1:start}与式\eqref{eq:s1:barS}，$S^*>S_c>\bar S$，故 $S$ 严格递减。令 $S(t_2)=S_c$，即得式\eqref{eq:s1:t2}中的控制时长。在 $[S_c,S^*]$ 上，$q_c(S_c)=q_0$ 且 $q_0\le q_c(S)<1$，满足隔离比例的界限。
 
-(iii) 反过来，把所得的时间函数 $q_c(t)$ 代回原方程，式\eqref{eq:s1:S-analytic}与 $I=\eta$ 满足前两个方程及启动初值，其余仓室由线性方程或积分确定。由命题~\ref{prop:model:positive}中解的唯一性，该控制确实使 $[t_1,t_2]$ 上 $I\equiv\eta$。由 $t_1$ 的定义，启动前 $I<\eta$；退出时 $S=S_c$，由命题~\ref{prop:model:threshold-rationale}(iii)，退出后 $I\le\eta$。因此全程不超过阈值。
+(iii) 反过来，把所得的时间函数 $q_c(t)$ 代回原方程，式\eqref{eq:s1:S-analytic}与 $I=\eta$ 满足前两个方程及启动初值，其余仓室由线性方程或积分确定。由命题~\ref{prop:model:positive}中解的唯一性，该控制确实使 $[t_1,t_2]$ 上 $I\equiv\eta$。由 $t_1$ 的定义，启动前 $I<\eta$；退出时 $S=S_c$，由命题~\ref{prop:model:threshold-rationale}(ii)，退出后 $I\le\eta$。因此全程不超过阈值。
 \end{proof}
 
 定理~\ref{thm:s1:qc-structure}(iii) 中的 $q_c(t)$ 可以显式写出：

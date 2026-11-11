@@ -1,7 +1,7 @@
 % ===== 02_model =====
 \section{模型与阈值策略}
 \label{sec:model}
-本文以社区中的非隔离感染者人数 $I$ 为控制对象，要求它不超过阈值 $\eta$。阈值 $\eta$ 是外生给定的设计参数，主要依据医疗资源（如重症监护床位）的承载能力选取\cite{Miclo2022ICU,Angulo2021}，目的是使医疗需求不超过这一承载能力。$\eta$ 的选取也可兼顾其他防控目标与社会经济因素。本节先建立含追踪隔离的模型，给出常规控制下的轨迹，再定义阈值策略下的允许控制与评价指标。
+本文以社区中的非隔离感染者人数 $I$ 为控制对象，要求它不超过阈值 $\eta$。阈值 $\eta$ 是外生给定的设计参数，主要依据医疗资源（如重症监护床位）的承载能力选取\cite{Miclo2022ICU,Angulo2021}，目的是使医疗需求不超过这一承载能力。$\eta$ 的选取也可兼顾其他防控目标与社会经济因素。本节先建立含追踪隔离的模型，再由常规控制下的动态确定何时必须加强干预、何时可以恢复常规控制，据此定义阈值策略，最后给出评价指标。
 
 \subsection{含追踪隔离的 SIR 模型}
 \label{sec:model:equations}
@@ -77,51 +77,62 @@ I_0+\frac{\beta_2^0}{\beta_1^0}(S_0-S_c)+\rho_1\ln(S_c/S_0),&S_0>S_c.
 S_0>S_c,\qquad 0<I_0<\eta<I_{\max}^{0},
 \label{eq:model:trigger}
 \end{equation}
-即常规轨迹在达到峰值之前触及阈值。记首次触及的时刻为 $t_1$，$S^*=S(t_1)$，则 $S^*>S_c$。记 $\theta=\eta/N$ 为阈值比例。下面的命题说明何时必须加强干预、加强期间控制须满足什么条件，以及何时可以恢复常规控制。
+即常规轨迹在达到峰值之前触及阈值。记 $\theta=\eta/N$ 为阈值比例，首次触及阈值的时刻为 $t_1$，$S^*=S(t_1)$，则 $t_1$ 之前 $I<\eta$，且 $S^*>S_c$。
 
 \begin{proposition}
 \label{prop:model:threshold-rationale}
-设常规轨迹在有限时刻 $t_1$ 首次由下方到达 $I=\eta$，且 $S(t_1)=S^*>S_c$，则
+设条件\eqref{eq:model:trigger}成立，则
 \begin{enumerate}
 \renewcommand{\labelenumi}{(\roman{enumi})}
-\item 常规轨迹在 $[0,t_1)$ 上满足 $I<\eta$，而 $\dot I(t_1)>0$，因此在 $t_1$ 之后继续采用 $(c_0,q_0)$ 会立即越过阈值；
-\item 在 $I=\eta$ 的状态上，$\dot I\le0$ 当且仅当
-\[
-\frac{\beta c(1-q)S}{N}\le\gamma,
-\]
-且若在某个时间区间上 $I\equiv\eta$，则该区间上几乎处处取等号；
-\item 从状态 $(S,\eta)$ 起恢复并保持 $(c_0,q_0)$，此后始终有 $I\le\eta$，当且仅当 $S\le S_c$。因此，沿任一从 $(S^*,\eta)$ 出发并持续维持 $I=\eta$ 的轨迹，$S$ 首次降到 $S_c$ 的时刻是可以直接恢复常规控制的最早时刻。
+\item 若自 $t_1$ 起继续实施常规控制，则存在 $\varepsilon>0$，使 $I$ 在 $(t_1,t_1+\varepsilon)$ 上大于 $\eta$；
+\item 设某一时刻 $t_a$ 有 $I(t_a)=\eta$，且自 $t_a$ 起实施常规控制，则对一切 $t\ge t_a$ 有 $I(t)\le\eta$，当且仅当 $S(t_a)\le S_c$。
 \end{enumerate}
 \end{proposition}
-证明见附录~\ref{sec:proof:threshold-rationale}。由 (i)，$t_1$ 是必须加强干预的时刻；由 (iii)，$S$ 降到 $S_c$ 是最早可以恢复常规控制的时刻。阈值策略只在这两者之间加强干预（图~\ref{fig:model_schematic}(b)），对应引言所述沿容量运行的阶段。
+证明见附录~\ref{sec:proof:threshold-rationale}。由 (i)，要使 $I$ 不超过阈值，最迟须在 $t_1$ 加强干预。由 (ii)，在阈值线上，只有 $S\le S_c$ 的状态可以恢复常规控制而不再越过阈值。
 
-\subsection{允许控制}
+\subsection{阈值策略}
 \label{sec:model:control-class}
-阈值策略在 $t_1$ 加强干预并维持 $I=\eta$，到 $S$ 首次降到 $S_c$ 的时刻 $t_2$ 恢复常规控制，$[t_1,t_2]$ 称为阈值控制期。退出时只恢复 $(c_0,q_0)$，不瞬时释放隔离易感者。维持 $I=\eta$ 只约束接触率与未隔离比例的乘积 $c(1-q)$：由命题~\ref{prop:model:threshold-rationale}(ii)，阈值控制期内几乎处处有
+由命题~\ref{prop:model:threshold-rationale}，阈值策略在 $t_1$ 加强干预，使 $I$ 保持在阈值，直到 $S$ 降到 $S_c$ 再恢复常规控制（图~\ref{fig:model_schematic}(b)）。退出时只恢复 $(c_0,q_0)$，不瞬时释放隔离易感者。保持 $I=\eta$ 对控制的要求由下面的引理给出。
+
+\begin{lemma}
+\label{lem:model:balance}
+设 $\tau<\tau'$ 且 $I(\tau)=\eta$，则在 $[\tau,\tau']$ 上 $I\equiv\eta$，当且仅当在该区间上几乎处处有
 \begin{equation}
-\frac{\beta c(t)(1-q(t))S(t)}{N}=\gamma,
+\frac{\beta c(t)(1-q(t))S(t)}{N}=\gamma;
 \label{eq:model:balance}
 \end{equation}
-即有效再生数保持为 $1$。此时进入 $I$ 的新增感染流量等于移出流量 $\gamma\eta$，$I$ 保持不变。随着易感者减少，式\eqref{eq:model:balance}要求的 $c(1-q)$ 增大，所需的传播削减随之减小；两种措施各自如何调整取决于控制组合。固定 $c=c_0$ 时，式\eqref{eq:model:balance}唯一确定隔离比例，所得控制称为仅隔离控制（第~\ref{sec:s1}~节）；固定 $q=q_0$ 时，它唯一确定接触率 $c=c_0S_c/S$，所得控制称为仅减少接触。两者之间还有无穷多种控制组合。
+此时 $S$ 在该区间上严格递减。
+\end{lemma}
 
-\begin{definition}
-设条件\eqref{eq:model:trigger}成立。阈值策略下的全部控制记为 $\mathcal A(\eta)$，它由满足以下条件的有界可测控制 $(c,q)$ 组成（几乎处处相等的控制视为同一控制）：
+式\eqref{eq:model:balance}即有效再生数保持为 $1$：进入 $I$ 的新增感染流量等于移出流量 $\gamma\eta$。随着易感者减少，式\eqref{eq:model:balance}要求的 $c(1-q)$ 增大，所需的传播削减随之减小。维持阈值只约束乘积 $c(1-q)$，两种措施各自如何调整取决于控制组合。固定 $c=c_0$ 时，式\eqref{eq:model:balance}唯一确定隔离比例，所得控制称为仅隔离控制（第~\ref{sec:s1}~节）；固定 $q=q_0$ 时，它唯一确定接触率 $c=c_0S_c/S$，所得控制称为仅减少接触。两者之间还有无穷多种控制组合，因此阈值策略对应一族控制。
+
+\begin{definition}[阈值策略]
+\label{def:model:threshold-strategy}
+设条件\eqref{eq:model:trigger}成立。若有界可测控制 $(c,q)$ 及相应的解满足：存在有限时刻 $t_2>t_1$，使得
 \begin{enumerate}
 \renewcommand{\labelenumi}{(\roman{enumi})}
-\item 启动前保持常规控制：$t<t_1$ 时 $(c,q)=(c_0,q_0)$；
-\item 维持阈值直到退出：相应的绝对连续解中，$S$ 在某个有限时刻 $t_2>t_1$ 首次降到 $S_c$，且在 $[t_1,t_2]$ 上 $I(t)\equiv\eta$；
-\item 控制强度有界：在 $[t_1,t_2]$ 上几乎处处有
+\item 启动前：$t<t_1$ 时 $(c,q)=(c_0,q_0)$；
+\item 阈值控制期：$t_2$ 是 $S$ 首次降到 $S_c$ 的时刻，在 $[t_1,t_2]$ 上 $I\equiv\eta$，且几乎处处有
 \begin{equation}
-0<c(t)\le c_0,\qquad q_0\le q(t)\le1;
+c(t)\le c_0,\qquad q(t)\ge q_0;
 \label{eq:model:plateau-requirement}
 \end{equation}
-\item 退出后恢复常规控制：$t>t_2$ 时 $(c,q)=(c_0,q_0)$。
+\item 退出后：$t>t_2$ 时 $(c,q)=(c_0,q_0)$，
 \end{enumerate}
+则称 $(c,q)$ 为阈值策略的允许控制，称 $[t_1,t_2]$ 为阈值控制期。允许控制的全体记为 $\mathcal A(\eta)$，几乎处处相等的控制视为同一控制。
 \end{definition}
 
-由条件 (i) 与 (ii)，$\mathcal A(\eta)$ 中的控制在 $t_1$ 时都处于状态 $(S^*,\eta)$，并都在状态 $(S_c,\eta)$ 退出（图~\ref{fig:model_schematic}(b)）。退出时刻 $t_2$ 与退出时的 $S_q,I_q,R$ 则可以不同，因为控制组合影响社区易感者的下降速度与被隔离的未感染者人数。比较全过程指标时，各控制还采用同一完整初值，即五个仓室的初值都相同。后文的比较与优化都在 $\mathcal A(\eta)$ 或其子类中进行。
+由定义~\ref{def:model:threshold-strategy}，$\mathcal A(\eta)$ 中的控制在 $t_1$ 时都处于状态 $(S^*,\eta)$，并都在状态 $(S_c,\eta)$ 退出；由命题~\ref{prop:model:threshold-rationale}(ii)，沿阈值运行时，$S$ 降到 $S_c$ 之前不能恢复常规控制。退出时刻 $t_2$ 与退出时的 $S_q,I_q,R$ 则可以不同，因为控制组合影响社区易感者的下降速度与被隔离的未感染者人数。比较全过程指标时，各控制还采用同一完整初值，即五个仓室的初值都相同。后文的比较与优化都在 $\mathcal A(\eta)$ 或其子类中进行。
 
-阈值 $\eta$ 约束仍在社区中传播的 $I$，而不是 $I+I_q$，因为社区传播只来自非隔离感染者。阈值策略下始终有 $c\le c_0$、$I\le\eta$（条件 (i)--(iv) 与命题~\ref{prop:model:threshold-rationale}(i)(iii)），又 $S\le S_0$，所以进入 $I$ 与 $I_q$ 的新增感染总流量 $\beta cSI/N$ 不超过 $\beta c_0S_0\eta/N$，限制 $I$ 也就限制了新增感染的速率。补充材料第~\ref{sec:sup:medical-link}~节据此并参照 Angulo 等的比例近似，给出使重症监护需求不超过床位数的一个充分条件。
+\begin{corollaryn}
+\label{cor:model:below-threshold}
+$\mathcal A(\eta)$ 中的任一控制使 $I(t)\le\eta$ 对一切 $t\ge0$ 成立。
+\end{corollaryn}
+\begin{proof}
+$t<t_1$ 时由 $t_1$ 的定义，在 $[t_1,t_2]$ 上由定义~\ref{def:model:threshold-strategy}(ii)，$t>t_2$ 时由 $S(t_2)=S_c$ 与命题~\ref{prop:model:threshold-rationale}(ii)。
+\end{proof}
+
+阈值 $\eta$ 约束仍在社区中传播的 $I$，而不是 $I+I_q$，因为社区传播只来自非隔离感染者。阈值策略下始终有 $c\le c_0$、$I\le\eta$（定义~\ref{def:model:threshold-strategy}与推论~\ref{cor:model:below-threshold}），又 $S\le S_0$，所以进入 $I$ 与 $I_q$ 的新增感染总流量 $\beta cSI/N$ 不超过 $\beta c_0S_0\eta/N$，限制 $I$ 也就限制了新增感染的速率。补充材料第~\ref{sec:sup:medical-link}~节据此并参照 Angulo 等的比例近似，给出使重症监护需求不超过床位数的一个充分条件。
 
 \subsection{评价指标}
 \label{sec:cost}

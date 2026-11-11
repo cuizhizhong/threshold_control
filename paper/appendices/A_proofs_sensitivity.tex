@@ -25,28 +25,29 @@ I(t)&=I_0\exp\!\left[\int_0^t\left(\frac{\beta c(s)(1-q(s))}{N}S(s)-\gamma\right
 
 \subsection{触发与退出}
 \label{sec:proof:threshold-rationale}
-本小节证明命题~\ref{prop:model:threshold-rationale}。
-\begin{proof}
-(i) 由首次到达的定义，常规轨迹在 $[0,t_1)$ 上满足 $I<\eta$。由 $S^*>S_c$ 与式\eqref{eq:model:Sc}，
+本小节证明命题~\ref{prop:model:threshold-rationale}与引理~\ref{lem:model:balance}。
+
+\begin{proof}[\normalfont\bfseries 命题~\ref{prop:model:threshold-rationale}的证明]
+(i) 由 $S^*>S_c$ 与式\eqref{eq:model:Sc}，
 \[
 \dot I(t_1)=\eta\left[\frac{\beta c_0(1-q_0)S^*}{N}-\gamma\right]>0,
 \]
-故继续采用 $(c_0,q_0)$ 时，$I$ 在 $t_1$ 之后立即超过 $\eta$。
+故继续采用 $(c_0,q_0)$ 时，存在 $\varepsilon>0$，使 $I$ 在 $(t_1,t_1+\varepsilon)$ 上大于 $\eta$。
 
-(ii) 在 $I=\eta$ 处，由式\eqref{eq:model:full}的第二式，
-\[
-\dot I=\eta\left[\frac{\beta c(1-q)S}{N}-\gamma\right],
-\]
-故 $\dot I\le0$ 当且仅当所列不等式成立。若 $I$ 在某个区间上恒等于 $\eta$，则 $\dot I$ 在该区间内恒为零。方程几乎处处成立，故上式右端在该区间上几乎处处为零，即等号几乎处处成立。
-
-(iii) 恢复常规控制后，由 $S,I>0$（命题~\ref{prop:model:positive}）得
+(ii) 自 $t_a$ 起实施常规控制，由 $S,I>0$（命题~\ref{prop:model:positive}）得
 \[
 \dot I=\gamma I\left(\frac{S}{S_c}-1\right),\qquad
 \dot S=-\frac{c_0[\beta+(1-\beta)q_0]}{N}SI<0.
 \]
-若恢复时 $S\le S_c$，则 $S$ 此后严格下降，恢复之后各时刻都有 $S<S_c$ 与 $\dot I<0$，$I$ 不再超过 $\eta$。若恢复时 $S>S_c$，则由连续性，恢复时刻的某个右邻域内仍有 $S>S_c$，从而 $\dot I>0$，$I$ 立即超过 $\eta$。故等价性成立。
+若 $S(t_a)\le S_c$，则 $S$ 此后严格下降，$t>t_a$ 时都有 $S<S_c$ 与 $\dot I<0$，$I$ 不再超过 $\eta$。若 $S(t_a)>S_c$，则由连续性，$t_a$ 的某个右邻域内仍有 $S>S_c$，从而 $\dot I>0$，$I$ 立即超过 $\eta$。故等价性成立。
+\end{proof}
 
-再证 (iii) 中关于最早时刻的结论。由 (ii)，在 $I\equiv\eta$ 的区间上几乎处处有 $c(1-q)=\gamma N/(\beta S)>0$，故几乎处处有 $c>0$ 与 $\dot S=-c[\beta+(1-\beta)q]S\eta/N<0$。由 $S$ 绝对连续，$S$ 严格下降，因此首次降到 $S_c$ 之前始终有 $S>S_c$。由上一段，此前不能直接恢复常规控制；首次降到 $S_c$ 时则可以恢复。
+\begin{proof}[\normalfont\bfseries 引理~\ref{lem:model:balance}的证明]
+由式\eqref{eq:model:full}的第二式，
+\[
+\dot I=I\left[\frac{\beta c(1-q)S}{N}-\gamma\right].
+\]
+$I$ 绝对连续且 $I(\tau)=\eta$，故 $I$ 在 $[\tau,\tau']$ 上恒等于 $\eta$，当且仅当 $\dot I$ 在该区间上几乎处处为零。由 $I>0$，这又等价于方括号内几乎处处为零，即式\eqref{eq:model:balance}几乎处处成立。此时几乎处处有 $c(1-q)=\gamma N/(\beta S)>0$，故几乎处处有 $c>0$ 与 $\dot S=-c[\beta+(1-\beta)q]S\eta/N<0$。由 $S$ 绝对连续，$S$ 在该区间上严格递减。
 \end{proof}
 
 \subsection{退出后的动态}
@@ -162,7 +163,7 @@ J=\frac{w_qN}{c_0\eta}\int_{S_c}^{S^*}\frac{(1-S_c/S)^2}{S-\bar S}\,dS.
 \label{sec:proof:representation}
 本小节证明定理~\ref{thm:joint:representation}。
 \begin{proof}
-(i) 由命题~\ref{prop:model:threshold-rationale}(ii)，在 $I=\eta>0$ 上几乎处处有
+(i) 由引理~\ref{lem:model:balance}，在 $I=\eta>0$ 上几乎处处有
 \begin{equation}
 c(t)(1-q(t))S(t)=\frac{\gamma N}{\beta}
 =c_0(1-q_0)S_c.
