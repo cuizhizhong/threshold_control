@@ -82,13 +82,13 @@ c_{\min}\le\frac{c_0(1-q_0)S_c}{(1-q_{\rm cap})S}.
 提高阈值使可行条件更容易满足。由引理~\ref{lem:s1:Sstar-sensitivity}，$S^*$ 随 $\eta$ 严格下降，式\eqref{eq:joint:feasibility}左端随之减小。因此，若某一阈值可行，则所有更高且仍触发控制的阈值都可行（其余参数与能力约束固定）。反过来，降低阈值使启动时的易感者人数 $S^*$ 增大，启动时所需的干预更强，可能超出能力约束。
 
 \subsection{显式控制族}
-常数 $\alpha\in[0,1]$ 给出一族连接两种单控制的控制：
+把两种单控制的接触率状态函数按常数权重 $\alpha\in[0,1]$ 线性组合，得到一族显式控制：
 \begin{align}
 c_c(S;\alpha)&=c_0\left[\alpha+(1-\alpha)\frac{S_c}{S}\right],\label{eq:joint:explicit-c}\\
 q_c(S;\alpha)&=1-\frac{(1-q_0)S_c}{S_c+\alpha(S-S_c)}.
 \label{eq:joint:explicit-q}
 \end{align}
-式\eqref{eq:joint:explicit-c}给出的接触率满足式\eqref{eq:joint:contact-range}。$\alpha=0$ 对应仅减少接触，$\alpha=1$ 对应仅隔离控制；第~\ref{sec:numerics}~节用 $\alpha=0.5$ 作对照，后文的最优控制则在全部允许的 $c_c(S)$ 中求取。完整状态轨迹、控制时长、能力约束下的参数范围及证明见补充材料第~\ref{sec:sup:explicit}~节。
+其中隔离比例由式\eqref{eq:joint:q}得到。$\alpha=0$ 为仅减少接触，$\alpha=1$ 为仅隔离控制；两端都满足式\eqref{eq:joint:contact-range}，它们的线性组合因而也满足。这一族的状态轨迹与控制时长都有闭式，它们与能力约束下 $\alpha$ 的允许范围见补充材料第~\ref{sec:sup:explicit}~节。第~\ref{sec:numerics}~节用 $\alpha=0.5$ 作对照；后文的最优控制则在全部满足式\eqref{eq:joint:contact-range}的 $c_c(S)$ 中求取。
 
 \subsection{不同目标的最优控制}
 \label{sec:joint:objectives}
