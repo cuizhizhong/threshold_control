@@ -3,7 +3,7 @@
 本节以仅隔离控制作为后文比较不同控制组合的基准。它的控制函数、控制时长和累计新增感染都有闭式表达。第~\ref{sec:joint}~节将证明，只要隔离能力允许，它在 $\mathcal A(\eta)$ 中控制时长最短、累计新增感染最少（定理~\ref{thm:joint:comparison}、推论~\ref{cor:joint:single-endpoints}）。
 
 \subsection{控制轨迹}
-为求启动时的易感者人数 $S^*$，在常规轨迹\eqref{eq:model:routine-orbit}上取 $I=\eta$。两个交点中，$I$ 上升时的交点对应控制启动。记
+为求启动时的易感者人数 $S^*$，在常规轨迹\eqref{eq:model:routine-orbit}上取 $I=\eta$。两个交点中，$I$ 上升时的交点对应控制启动，它可以用 Lambert $W$ 函数写出。记
 \begin{equation}
 z_\eta=-\frac{S_0}{S_c}\exp\!\left[-\frac{S_0}{S_c}+\frac{\eta-I_0}{\rho_1}\right].
 \label{eq:s1:lambert-argument}
@@ -42,7 +42,7 @@ z_\eta=-e^{-1}\exp\!\left[-\frac{I_{\max}^{0}-\eta}{\rho_1}\right],
 \frac{\bar S}{S_c}=(1-\beta)(1-q_0)<1.
 \label{eq:s1:barS}
 \end{equation}
-$\bar S$ 的含义来自维持阈值的流量平衡。维持 $I=\eta$ 即保持 $R_e=1$，每名非隔离感染者单位时间平均引起 $\gamma$ 例未被隔离的新感染。未被追踪的接触以概率 $\beta$ 传播，因此每名感染者单位时间另有 $(1-\beta)\gamma/\beta$ 次未被追踪的接触落在易感者身上却没有造成感染，这些易感者留在社区中。这股既未传播、也未被追踪的接触流合计为 $c_0\bar S\eta/N$，在整个阈值控制期内不变，$\bar S$ 就是它按常规接触率折算的易感者人数。比值 $\bar S/S_c=(1-\beta)(1-q_0)$ 则是常规控制下与易感者的接触中这类接触所占的比例。
+$\bar S$ 的含义来自维持阈值的流量平衡。维持 $I=\eta$ 即保持 $R_e=1$，每名非隔离感染者单位时间平均引起 $\gamma$ 例未被隔离的新感染。未被追踪的易感接触者中，被感染与未被感染之比为 $\beta:(1-\beta)$，因此每名感染者单位时间另有 $(1-\beta)\gamma/\beta$ 次未被追踪的接触没有造成感染，这些易感者留在社区中。这股既未传播、也未被追踪的接触流合计为 $c_0\bar S\eta/N$，在整个阈值控制期内不变，$\bar S$ 就是它按常规接触率折算的易感者人数。比值 $\bar S/S_c=(1-\beta)(1-q_0)$ 则是常规控制下与易感者的接触中这类接触所占的比例。
 
 阈值控制期内，$S-\bar S$ 以速率 $c_0\eta/N$ 指数衰减。由于 $\bar S<S_c$，$S$ 在有限时间内降到 $S_c$。$S$ 的下降速度与 $S-\bar S$ 成正比：易感者越多，维持阈值所需的隔离比例越高，每名感染者的接触中被追踪隔离的未感染者也越多。
 \begin{theorem}
@@ -130,7 +130,7 @@ q_{\max}\le q_{\rm cap}
 \end{proof}
 阈值控制期内，启动时的社区易感者最多，因此保持常规接触率所需的隔离比例也最高。推论~\ref{cor:s1:qc-structure}(ii) 的条件即按 $(c_0,q_{\rm cap})$ 计算的启动时有效再生数不超过 $1$。若 $q_{\rm cap}<q_{\max}$，只靠隔离不能维持阈值，必须同时减少接触，可行条件见推论~\ref{cor:joint:feasibility}。
 
-图~\ref{fig:scenario1:single-sim}给出基准参数下仅隔离控制的三阶段轨迹。基准参数取自 Zhou 等\cite{Zhou2024SPCI}图3的示例。该例另设住院仓室，其非隔离感染者的自然康复率 $\gamma_I=0.1$ 与确诊率 $\delta_I=0.2504$ 之和对应本模型的移出率 $\gamma$。该例没有给出 $\delta_q$，本文取 $\delta_q=\gamma$。常规峰值 $I_{\max}^{0}\approx 300.4$ 人，远高于阈值 $\eta=38.15$ 人。在 $t_1\approx3.175$ d 启动控制时，隔离比例跳升至 $q_{\max}\approx0.7565$。此后隔离比例随易感者减少而下降，经 $\Delta t\approx 5.903$ d 回到 $q_0$。
+图~\ref{fig:scenario1:single-sim}给出基准参数下仅隔离控制的三阶段轨迹。基准参数取自 Zhou 等\cite{Zhou2024SPCI}图3的示例，取值见图注。该例另设住院仓室，其非隔离感染者的自然康复率 $\gamma_I=0.1$ 与确诊率 $\delta_I=0.2504$ 之和对应本模型的移出率 $\gamma$。该例没有给出 $\delta_q$，本文取 $\delta_q=\gamma$。常规峰值 $I_{\max}^{0}\approx 300.4$ 人，远高于阈值 $\eta=38.15$ 人。在 $t_1\approx3.175$ d 启动控制时，隔离比例跳升至 $q_{\max}\approx0.7565$。此后隔离比例随易感者减少而下降，经 $\Delta t\approx 5.903$ d 回到 $q_0$。
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.7\textwidth]{figures/optimal_control_with_quarantine_panels.pdf}
@@ -140,7 +140,7 @@ q_{\max}\le q_{\rm cap}
 
 \subsection{隔离比例的拐点}
 \label{sec:s1:shape}
-由推论~\ref{cor:s1:qc-structure}，隔离比例在阈值控制期内严格递减。本小节考察它在什么条件下有内部拐点，以及何时下降最快。记 $\nu=(1-\beta)(1-q_c)$，即非隔离感染者与易感者的接触中，既未传播、也未被追踪的比例。这些接触使对方仍留在社区，其余 $1-\nu$ 的接触使对方被感染或被隔离。由式\eqref{eq:s1:q-control}与\eqref{eq:s1:barS}，$\nu=\bar S/S$，再由式\eqref{eq:s1:S-analytic}，
+由推论~\ref{cor:s1:qc-structure}，隔离比例在阈值控制期内严格递减。本小节考察它在什么条件下有内部拐点，以及何时下降最快，即追踪隔离何时放松最急。记 $\nu=(1-\beta)(1-q_c)$，即非隔离感染者与易感者的接触中，既未传播、也未被追踪的比例。这些接触使对方仍留在社区，其余 $1-\nu$ 的接触使对方被感染或被隔离。由式\eqref{eq:s1:q-control}与\eqref{eq:s1:barS}，$\nu=\bar S/S$，再由式\eqref{eq:s1:S-analytic}，
 \[
 \dot\nu=\frac{c_0\eta}{N}\,\nu(1-\nu).
 \]
@@ -183,9 +183,9 @@ q_c(2\bar S)=1-\frac{\gamma N}{2\beta c_0\bar S}=1-\frac{1}{2(1-\beta)}=\qinf.
 
 (iii) 由 (i) 的证明，$d^2q_c/dt^2$ 在 $t_{\rm inf}$ 之前为负、之后为正；由式\eqref{eq:s1:qprime}，$dq_c/dt<0$。因此 $|dq_c/dt|$ 在 $(t_1,t_{\rm inf}]$ 上严格增加，在 $[t_{\rm inf},t_2)$ 上严格减少，于 $t_{\rm inf}$ 唯一取得最大值。
 \end{proof}
-拐点处与易感者的接触恰有一半使对方被感染或被隔离。$\qinf$ 只依赖传播概率 $\beta$。内部拐点存在时，即使阈值或常规接触率改变了拐点时刻，对应的隔离比例仍相同。拐点存在要求 $\nu$ 在阈值控制期内越过 $1/2$。启动时易感者须足够多，使 $\qinf<q_{\max}$，此时少于一半的接触让易感者留在社区。传播概率与常规隔离比例还须足够低，使 $q_0<\qinf$，这样到退出时这一比例就超过一半。这时隔离比例的下降速度先增后减，曲线呈反 S 形。若 $\qinf\le q_0$，$q_c(t)$ 严格凹，下降速度在退出端最大（取左导数）。若 $\qinf\ge q_{\max}$，$q_c(t)$ 严格凸，下降速度在启动端最大（取右导数）。
+拐点处与易感者的接触恰有一半使对方被感染或被隔离。$\qinf$ 只依赖传播概率 $\beta$。内部拐点存在时，阈值与常规接触率只改变拐点出现的时刻，不改变拐点处的隔离比例。拐点存在要求 $\nu$ 在阈值控制期内越过 $1/2$。启动时易感者须足够多，使 $\qinf<q_{\max}$，此时少于一半的接触让易感者留在社区。传播概率与常规隔离比例还须足够低，使 $q_0<\qinf$，这样到退出时这一比例就超过一半。这时隔离比例的下降速度先增后减，曲线呈反 S 形。若 $\qinf\le q_0$，$q_c(t)$ 严格凹，在退出时下降最快。若 $\qinf\ge q_{\max}$，$q_c(t)$ 严格凸，在启动时下降最快。
 
-反 S 形的放松是追踪隔离特有的。隔离比例越高，被追踪移出社区的接触者越多，易感者减少得越快；隔离放松后，这部分移出随之减少，易感者的减少也随之放缓。仅减少接触时 $q=q_0$，由平衡式\eqref{eq:model:balance}，$cS$ 保持不变，$S$ 匀速下降，接触率的恢复速度单调增加，没有内部拐点。对有内部拐点的仅隔离控制，拐点前的时长占控制时长的比例为
+反 S 形的放松来自追踪隔离把未感染的接触者移出社区。隔离比例越高，被追踪移出社区的接触者越多，易感者减少得越快；隔离放松后，这部分移出随之减少，易感者的减少也随之放缓。仅减少接触时 $q=q_0$，由平衡式\eqref{eq:model:balance}，$cS$ 保持不变，$S$ 匀速下降，接触率的恢复速度单调增加，没有内部拐点。对有内部拐点的仅隔离控制，拐点前的时长占控制时长的比例为
 \begin{equation}
 \lambda=\frac{t_{\rm inf}-t_1}{t_2-t_1}
 =\frac{\ln[(S^*-\bar S)/\bar S]}
@@ -195,7 +195,7 @@ q_c(2\bar S)=1-\frac{\gamma N}{2\beta c_0\bar S}=1-\frac{1}{2(1-\beta)}=\qinf.
 $\lambda$ 越大，放松最急的时刻越靠后，其参数敏感性见补充材料第~\ref{sec:sup:inflection}~节。
 
 \subsection{清零时间与累计感染}
-求清零时间需要确定退出后 $I$ 从 $\eta$ 降至 $1$ 所需的时间。恢复常规控制后，$S$ 从 $S_c$ 继续下降，有效再生数 $R_e=S/S_c$ 随之降到 $1$ 以下，$I$ 开始下降。由常规轨迹的首次积分可求出清零时的易感者人数，进而将清零时间写成一维积分。
+求清零时间需要确定退出后 $I$ 从 $\eta$ 降至 $1$ 所需的时间。恢复常规控制后，$S$ 从 $S_c$ 继续下降，有效再生数 $R_e=S/S_c$ 随之降到 $1$ 以下，$I$ 开始下降。由常规控制下的首次积分可求出清零时的易感者人数，进而将清零时间写成一维积分。
 \begin{theorem}
 \label{thm:s1:tend}\label{thm:s1:post}
 设 $t_2$ 时 $(S,I)=(S_c,\eta)$，此后恢复常规控制，则
@@ -207,7 +207,7 @@ $\lambda$ 越大，放松最急的时刻越靠后，其参数敏感性见补充�
 \lim_{t\to\infty}S(t)=S_\infty:=-S_cW_0\!\left(-e^{-1-\eta/\rho_1}\right)\in(0,S_c);
 \label{eq:s1:Sinfty}
 \end{equation}
-\item 在第~\ref{sec:cost}~节的约定 $\eta>1$ 下，存在唯一的清零时间 $t_{\rm end}>t_2$，满足 $I(t_{\rm end})=1$、$\dot I(t_{\rm end})<0$。记 $S_{\rm end}=S(t_{\rm end})$，则
+\item 存在唯一的清零时间 $t_{\rm end}>t_2$，满足 $I(t_{\rm end})=1$、$\dot I(t_{\rm end})<0$。记 $S_{\rm end}=S(t_{\rm end})$，则
 \begin{equation}
 S_{\rm end}=-S_cW_0\!\left(-e^{-1-(\eta-1)/\rho_1}\right),
 \label{eq:s1:Send}
@@ -219,9 +219,9 @@ t_{\rm end}=t_2+\frac{1}{\beta_1^0}\int_{S_{\rm end}}^{S_c}
 \end{equation}
 \end{enumerate}
 \end{theorem}
-证明见附录~\ref{sec:proof:post-dynamics}。$\mathcal A(\eta)$ 中各控制均从 $(S_c,\eta)$ 恢复常规控制。以退出时刻为起点，后续的 $(S,I)$ 轨迹相同，因而 $S_{\rm end}$、$S_\infty$ 和从退出到清零所需的时间 $t_{\rm end}-t_2$ 也相同。
+证明见附录~\ref{sec:proof:post-dynamics}。退出后 $(S,I)$ 的动态只取决于退出状态 $(S_c,\eta)$，所以 $S_{\rm end}$、$S_\infty$ 和从退出到清零所需的时间 $t_{\rm end}-t_2$ 对 $\mathcal A(\eta)$ 中的全部控制都相同。
 
-将启动前、阈值控制期和退出后的新增感染分别积分，可得仅隔离控制下的总累计新增感染。
+总累计新增感染可分启动前、阈值控制期和退出后三段计算。
 \begin{theorem}
 \label{thm:s1:Itcum}
 设条件\eqref{eq:model:trigger}成立，则对仅隔离控制，
@@ -257,7 +257,7 @@ t_{\rm end}=t_2+\frac{1}{\beta_1^0}\int_{S_{\rm end}}^{S_c}
 
 \subsection{参数的影响}
 \label{sec:scaling-theory}
-本小节先考察阈值 $\eta$、常规接触率 $c_0$、传播概率 $\beta$ 和常规隔离比例 $q_0$ 如何影响启动时的易感者人数 $S^*$，再分析改变阈值对干预和累计新增感染的影响。以下偏导数均在触发条件\eqref{eq:model:trigger}下计算，固定 $N,S_0,I_0$ 与其余参数。在 $q_0=0$ 处对 $q_0$ 取右导数。主要结果汇总于附录表~\ref{tab:sensitivity}。
+阈值 $\eta$、常规接触率 $c_0$、传播概率 $\beta$ 与常规隔离比例 $q_0$ 都通过启动时的易感者人数 $S^*$ 影响控制过程；后三者还同时改变 $S_c$ 或 $\bar S$，影响因而可能不单调。本小节先给出 $S^*$ 对这四个参数的依赖，再分析改变阈值对干预和累计新增感染的影响。以下偏导数均在触发条件\eqref{eq:model:trigger}下计算，固定 $N,S_0,I_0$ 与其余参数，在 $q_0=0$ 处对 $q_0$ 取右导数。偏导数的符号汇总于附录表~\ref{tab:sensitivity}。
 \begin{lemma}
 \label{lem:s1:Sstar-sensitivity}
 设条件\eqref{eq:model:trigger}成立，则启动时的易感者人数满足
@@ -286,7 +286,7 @@ t_{\rm end}=t_2+\frac{1}{\beta_1^0}\int_{S_{\rm end}}^{S_c}
 \item $\partial\Itcum/\partial\eta>0$，计算至无限时刻的总累计新增感染也随 $\eta$ 严格增加。
 \end{enumerate}
 \end{proposition}
-证明见附录~\ref{sec:proof:threshold-tradeoff}。清零时间还取决于启动时刻和退出后 $I$ 降至 $1$ 的历时，需由式\eqref{eq:s1:tend}单独判断。在补充材料第~\ref{sec:sup:baseline-scan}~节的参数范围内，清零时间随阈值提高而缩短。常规接触率越高，控制期内易感者人数需要减少的幅度 $S^*-S_c$ 越大，但在相同的 $S$ 处易感者也减少得更快，因此提高常规接触率可以延长或缩短控制时长。触发边界及 $c_0,\beta,q_0$ 对控制的影响见补充材料第~\ref{sec:sup:contact-theory}~节。
+证明见附录~\ref{sec:proof:threshold-tradeoff}。清零时间还取决于启动时刻和退出后 $I$ 降至 $1$ 的历时，需由式\eqref{eq:s1:tend}单独判断。在补充材料第~\ref{sec:sup:baseline-scan}~节的参数范围内，清零时间随阈值提高而缩短。以常规接触率为例，$c_0$ 越高，控制期内易感者人数需要减少的幅度 $S^*-S_c$ 越大，但在相同的 $S$ 处易感者也减少得更快，因此提高常规接触率可以延长或缩短控制时长。触发边界及 $c_0,\beta,q_0$ 对控制的影响见补充材料第~\ref{sec:sup:contact-theory}~节。
 
 图~\ref{fig:scenario1_summary_eta}中，降低阈值使控制时长和成本成倍增加，总累计新增感染的降幅却较小。沿同一条曲线向左，阈值逐渐降低。$c_0=10$ 时把 $\eta/N$ 从 $2\%$ 降到 $0.2\%$，控制时长由 $15.04$ d 增至 $152.1$ d，二次干预强度成本也增大约十倍，总累计新增感染却只由 $233.8$ 人减至 $173.0$ 人。阈值控制期内，在相同的 $S$ 处，新增感染速率 $\beta c_0S\eta/N$ 与 $\eta$ 成正比，而控制时长含因子 $N/(c_0\eta)$（式\eqref{eq:s1:t2}）。将控制时长代入上一小节分解式中的 $\eta\Delta t$，因子 $\eta$ 与 $1/\eta$ 相消。统计至清零时间的总累计新增感染只通过 $S^*$ 与 $S_{\rm end}$ 依赖阈值（式\eqref{eq:s1:cumulative}）。图中四个常规接触率下均有这一取舍，控制时长与成本近似与阈值成反比。各指标随阈值与常规接触率的完整扫描及低阈值下的渐近行为见补充材料第~\ref{sec:sup:baseline-scan}~节。
 \begin{figure}[htbp]
