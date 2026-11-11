@@ -72,8 +72,6 @@ I_0+\frac{\beta_2^0}{\beta_1^0}(S_0-S_c)+\rho_1\ln(S_c/S_0),&S_0>S_c.
 \label{eq:s1:Imax-no}
 \end{equation}
 
-阈值 $\eta$ 约束的是仍在社区中传播的 $I$，而不是模型显式追踪的两个感染仓室之和 $I+I_q$，因为非隔离感染者是社区新传播的唯一来源。阈值策略下接触率不超过常规水平（第~\ref{sec:model:control-class}~节），因此限制 $I$ 也就限制了新增感染的速率：进入 $I$ 与 $I_q$ 的新增感染总流量不超过 $\beta c_0S_0\eta/N$（本模型中 $S\le S_0$）。补充材料第~\ref{sec:sup:medical-link}~节参照 Angulo 等的比例近似，据此给出使重症监护需求不超过床位数的一个充分条件。
-
 只有常规峰值超过阈值时才需要加强干预，因此后文始终设
 \begin{equation}
 S_0>S_c,\qquad 0<I_0<\eta<I_{\max}^{0},
@@ -122,6 +120,8 @@ S_0>S_c,\qquad 0<I_0<\eta<I_{\max}^{0},
 \end{definition}
 
 由条件 (i) 与 (ii)，$\mathcal A(\eta)$ 中的控制在 $t_1$ 时都处于状态 $(S^*,\eta)$，并都在状态 $(S_c,\eta)$ 退出（图~\ref{fig:model_schematic}(b)）。退出时刻 $t_2$ 与退出时的 $S_q,I_q,R$ 则可以不同，因为控制组合影响社区易感者的下降速度与被隔离的未感染者人数。比较全过程指标时，各控制还采用同一完整初值，即五个仓室的初值都相同。后文的比较与优化都在 $\mathcal A(\eta)$ 或其子类中进行。
+
+阈值 $\eta$ 约束仍在社区中传播的 $I$，而不是 $I+I_q$，因为社区传播只来自非隔离感染者。阈值策略下始终有 $c\le c_0$、$I\le\eta$（条件 (i)--(iv) 与命题~\ref{prop:model:threshold-rationale}(i)(iii)），又 $S\le S_0$，所以进入 $I$ 与 $I_q$ 的新增感染总流量 $\beta cSI/N$ 不超过 $\beta c_0S_0\eta/N$，限制 $I$ 也就限制了新增感染的速率。补充材料第~\ref{sec:sup:medical-link}~节据此并参照 Angulo 等的比例近似，给出使重症监护需求不超过床位数的一个充分条件。
 
 \subsection{评价指标}
 \label{sec:cost}
