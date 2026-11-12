@@ -138,12 +138,12 @@ $t<t_1$ 时由 $t_1$ 的定义，在 $[t_1,t_2]$ 上由定义~\ref{def:model:thr
 \label{sec:cost}
 本文从时间、人数和干预成本三方面比较 $\mathcal A(\eta)$ 中的控制。时间指标是控制时长 $\Delta t=t_2-t_1$ 与清零时间。由命题~\ref{prop:model:positive}，$I$ 始终为正，不会在有限时刻归零；非隔离感染者少于 $1$ 人并继续减少时，若无输入病例，社区传播即告结束。因此参照 Zhou 等\cite{Zhou2024SPCI}，把满足 $I(t_{\rm end})=1$、$\dot I(t_{\rm end})<0$ 的时刻 $t_{\rm end}$ 称为清零时间，它不要求 $I_q$ 同时归零。阈值以人数计，后文设 $\eta>1$，使 $I$ 在退出后能从 $\eta$ 降到 $1$。由定理~\ref{thm:s1:tend}，对 $\mathcal A(\eta)$ 中的控制，清零时间唯一且大于 $t_2$。
 
-人数指标是累计新增感染。对统计终点 $T$，进入 $I$ 和进入 $I_q$ 的累计新增感染分别为
+人数指标是累计新增感染。进入 $I$ 和进入 $I_q$ 的累计新增感染在 $T$ 时刻分别为
 \[
 I_{\rm cum}(T)=\int_0^T\frac{\beta c(1-q)}{N}SI\,dt,\qquad
 I_{q_{\rm cum}}(T)=\int_0^T\frac{\beta cq}{N}SI\,dt,
 \]
-总累计新增感染为 $\Itcum(T)=I_{\rm cum}(T)+I_{q_{\rm cum}}(T)$，不写终点时指 $\Itcum(t_{\rm end})$；阈值控制期的累计新增感染为 $\Itcum(t_2)-\Itcum(t_1)$。追踪隔离也把未感染的接触者移出社区，这一代价用阈值控制期内的新增隔离易感者人数 $\Delta S_q=S_q(t_2)-S_q(t_1)$ 衡量。
+总累计新增感染为 $\Itcum(T)=I_{\rm cum}(T)+I_{q_{\rm cum}}(T)$，阈值控制期的累计新增感染为 $\Itcum(t_2)-\Itcum(t_1)$。追踪隔离也把未感染的接触者移出社区，这一代价用阈值控制期内的新增隔离易感者人数 $\Delta S_q=S_q(t_2)-S_q(t_1)$ 衡量。
 
 干预成本只计相对于常规水平的额外强度。两种干预的线性强度积分为
 \begin{equation}

@@ -31,7 +31,7 @@
 \label{tab:joint:compare}
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccccc@{}}
 \toprule
-控制 & $\Delta t$（d） & $t_{\rm end}$（d） & $\Itcum$ & $\Delta S_q$ & $J$（d） & $\max_t(I+I_q)/\eta$\\
+控制 & $\Delta t$（d） & $t_{\rm end}$（d） & $\Itcum(t_{\rm end})$ & $\Delta S_q$ & $J$（d） & $\max_t(I+I_q)/\eta$\\
 \midrule
 仅减少接触 & 36.26 & 64.13 & 628.6 & 40.9 & 11.94 & 1.02\\
 显式族 $\alpha=0.5$ & 9.24 & 37.11 & 323.4 & 346.2 & 2.55 & 1.64\\
@@ -40,7 +40,7 @@
 \bottomrule
 \end{tabular*}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：$\Delta S_q=S_q(t_2)-S_q(t_1)$；$\Itcum$ 与 $\Delta S_q$ 以人计，峰值统计至 $t_{\rm end}$。四种控制采用同一完整初值（图~\ref{fig:scenario1:single-sim}）。$S^*/S_c\approx 4.044$，$S_{\rm sw}/S_c$（式\eqref{eq:joint:ssw}）$\approx 2.265$。
+\item 注：$\Delta S_q=S_q(t_2)-S_q(t_1)$；$\Itcum(t_{\rm end})$ 与 $\Delta S_q$ 以人计，峰值统计至 $t_{\rm end}$。四种控制采用同一完整初值（图~\ref{fig:scenario1:single-sim}）。$S^*/S_c\approx 4.044$，$S_{\rm sw}/S_c$（式\eqref{eq:joint:ssw}）$\approx 2.265$。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}

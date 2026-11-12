@@ -227,10 +227,10 @@ t_{\rm end}=t_2+\frac{1}{\beta_1^0}\int_{S_{\rm end}}^{S_c}
 设条件\eqref{eq:model:trigger}成立，则对仅隔离控制，
 \begin{enumerate}
 \renewcommand{\labelenumi}{(\roman{enumi})}
-\item 统计至 $t_{\rm end}$ 的总累计新增感染为
+\item 总累计新增感染为
 \begin{equation}
 \begin{split}
-\Itcum={}&\frac{\beta}{\beta+q_0(1-\beta)}(S_0-S^*+S_c-S_{\rm end})\\
+\Itcum(t_{\rm end})={}&\frac{\beta}{\beta+q_0(1-\beta)}(S_0-S^*+S_c-S_{\rm end})\\
 &+\beta\left[S^*-S_c+\bar S\ln\frac{S^*-\bar S}{S_c-\bar S}\right];
 \end{split}
 \label{eq:s1:cumulative}
@@ -283,7 +283,7 @@ t_{\rm end}=t_2+\frac{1}{\beta_1^0}\int_{S_{\rm end}}^{S_c}
 \label{eq:threshold-tradeoff}
 \end{equation}
 \item 隔离的线性强度积分 $J_q$ 与二次干预强度成本 $J$ 满足 $\partial J_q/\partial\eta<0$、$\partial J/\partial\eta<0$；
-\item $\partial\Itcum/\partial\eta>0$，计算至无限时刻的总累计新增感染也随 $\eta$ 严格增加。
+\item $\partial\Itcum(t_{\rm end})/\partial\eta>0$，计算至无限时刻的总累计新增感染也随 $\eta$ 严格增加。
 \end{enumerate}
 \end{proposition}
 证明见附录~\ref{sec:proof:threshold-tradeoff}。清零时间还取决于启动时刻和退出后 $I$ 降至 $1$ 的历时，需由式\eqref{eq:s1:tend}单独判断。在补充材料第~\ref{sec:sup:baseline-scan}~节的参数范围内，清零时间随阈值提高而缩短。以常规接触率为例，$c_0$ 越高，控制期内易感者人数需要减少的幅度 $S^*-S_c$ 越大，但在相同的 $S$ 处易感者也减少得更快，因此提高常规接触率可以延长或缩短控制时长。触发边界及 $c_0,\beta,q_0$ 对控制的影响见补充材料第~\ref{sec:sup:contact-theory}~节。

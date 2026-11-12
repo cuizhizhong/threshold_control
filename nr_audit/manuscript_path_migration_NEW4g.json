@@ -16,7 +16,7 @@
       "new4g_baseline_sha256": "4ada262f80854fc6a78bdc27ee133a5d035ec9025f629553f6a397bea8bad2b8",
       "current_path": "paper/sections/06_numerics.tex",
       "current_sha256": "c3bc8f0d35ab96db36723ffec28618d89ef8d8e68d60053a8ad9009d62a3f2a2",
-      "current_content_sha256": "4471ccbb5befb433d1f01225d401118718385b537010e79973a0ad4c10603273"
+      "current_content_sha256": "7113c7441e4011adb4fb113602915dcc800f36cc5013cdf58e8ecc0ba0c12067"
     },
     "model_section": {
       "historical_path": "paper/sections/02_model.tex",
@@ -24,7 +24,7 @@
       "new4g_baseline_sha256": "2c43997a5715c83c9ca1cc591b48d9fd6302c3d0ffc9e7f0a5e983583a2eac03",
       "current_path": "paper/sections/02_model.tex",
       "current_sha256": "df71ee4ba2d4fcffb2616fbe86605dc9ce9ca51d9bb635244049f1d33ac764ff",
-      "current_content_sha256": "cc06949571ffe5c854a318d0a6f6dd9b9983896e4ae2cb27788dc3729119ac8a"
+      "current_content_sha256": "943d633eb79a40bdb2d0e3157b511f96cff8072465fd4f11a4202092d258e0cd"
     },
     "numerics_S1": {
       "historical_path": "paper/supplement_sections/S1_baseline.tex",
@@ -48,7 +48,7 @@
       "new4g_baseline_sha256": "104ecd6d90f9202f84c5be060062b19a867e757a90b15d14cf30e352698d5eb0",
       "current_path": "paper/supplement_sections/S6_xian.tex",
       "current_sha256": "6ef1a648e304e298c4b514be7265ea4d9d9d1fb5212558ad21da8493a51e5cfa",
-      "current_content_sha256": "838a3fae1f0a773c508b816157108b0c12537418e5d3d584e1f65756595577a2"
+      "current_content_sha256": "145a0ecd27d96c7d8c8412d5fdad3f757558a22a859a45a26d602d79f19e6dca"
     },
     "contact_S5": {
       "historical_path": "paper/supplement_sections/S5_contact.tex",
@@ -72,7 +72,7 @@
       "new4g_baseline_sha256": "011979ea924660315492a0d2aaf120579f8cbc7f3821147f53b4158762a1c3a3",
       "current_path": "paper/sections/07_xian.tex",
       "current_sha256": "4952f88ad903d47e8adb831b47d1d1db6357765e06ea1ab6050eea24918f1210",
-      "current_content_sha256": "9206c4f9c11abfcc075e54c32e5c19a9ad224ad8443a231ffd79def56c6dbacc"
+      "current_content_sha256": "10291493c6813a1bd8e384da9c3c010be836644ea815ed7d331dafa2bfa60f91"
     }
   },
   "file_fragments": [
@@ -139,7 +139,7 @@
             "sec:sup:threshold-scale"
           ],
           "current_sha256": "6ef1a648e304e298c4b514be7265ea4d9d9d1fb5212558ad21da8493a51e5cfa",
-          "current_content_sha256": "838a3fae1f0a773c508b816157108b0c12537418e5d3d584e1f65756595577a2"
+          "current_content_sha256": "145a0ecd27d96c7d8c8412d5fdad3f757558a22a859a45a26d602d79f19e6dca"
         }
       ]
     },
