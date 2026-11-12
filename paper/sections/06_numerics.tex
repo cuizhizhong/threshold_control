@@ -57,7 +57,7 @@
 \subsection{能力约束}
 \label{sec:joint:capacity-numerics}
 \def\jointcapacitypostexitdays{1}
-能力约束把能力平面分成三个区域（图~\ref{fig:joint:capacity}(a)）：至少一种单控制可行，只有联合控制可行，以及阈值策略不可行。由推论~\ref{cor:s1:qc-structure}，仅隔离控制可行当且仅当 $q_{\rm cap}\ge q_{\max}$。仅减少接触的接触率 $c_0S_c/S$ 在 $S=S^*$ 处最低，因此它可行当且仅当 $c_{\min}\le c_0S_c/S^*$。两者都不成立时，联合控制是否可行由推论~\ref{cor:joint:feasibility}判断。
+能力约束把能力平面分成三个区域（图~\ref{fig:joint:capacity}(a)）：至少一种单控制可行，只有联合控制可行，以及阈值策略不可行。仅隔离控制的隔离比例在启动时最高（推论~\ref{cor:s1:qc-structure}），因此它可行当且仅当 $q_{\rm cap}\ge q_{\max}$。仅减少接触的接触率 $c_0S_c/S$ 在 $S=S^*$ 处最低，因此它可行当且仅当 $c_{\min}\le c_0S_c/S^*$。两者都不成立时，联合控制是否可行由推论~\ref{cor:joint:feasibility}判断。
 
 代表能力组合（图~\ref{fig:joint:capacity}(a) 中的红点）落在只有联合控制可行的区域。仅隔离控制需要 $q_{\max}\approx0.7565$，仅减少接触需要把接触率降低约 $75.3\%$，都超出能力，因此由推论~\ref{cor:joint:capped-comparison}，最快与最慢的控制 $c^{+}(S)$、$c^{-}(S)$ 都不是单控制。在这一点上，能力约束提高了最小成本，也延长了控制期：能力约束下的成本最优控制给出 $J\approx 2.361$ d、$\Delta t\approx 8.34$ d，都高于表~\ref{tab:joint:compare}中的值。最小成本的增加与命题~\ref{prop:joint:minimum-threshold}一致，控制时长的增加则是这一代表点上的数值结果。
 

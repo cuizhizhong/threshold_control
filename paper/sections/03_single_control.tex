@@ -97,35 +97,23 @@ q_c(t)
 两种写法分别以启动时刻和退出时刻为参照。
 \begin{corollaryn}
 \label{cor:s1:qc-structure}
-对定理~\ref{thm:s1:qc-structure}中的仅隔离控制，
-\begin{enumerate}
-\renewcommand{\labelenumi}{(\roman{enumi})}
-\item 隔离比例在 $t_1$ 从 $q_0$ 跳升至
+对定理~\ref{thm:s1:qc-structure}中的仅隔离控制，隔离比例在 $t_1$ 从 $q_0$ 跳升至
 \begin{equation}
 q_{\max}=1-\frac{\gamma N}{\beta c_0S^*}>q_0,
 \label{eq:s1:qmax}
 \end{equation}
-在 $(t_1,t_2)$ 上严格递减，并在 $t_2$ 连续恢复为 $q_0$；
-\item 设隔离比例受能力约束 $q\le q_{\rm cap}$，其中 $q_0\le q_{\rm cap}<1$，则上述仅隔离控制可实施（即全程 $q(t)\le q_{\rm cap}$），当且仅当
-\[
-q_{\max}\le q_{\rm cap}
-\quad\Longleftrightarrow\quad
-\frac{\beta c_0(1-q_{\rm cap})S^*}{N}\le\gamma.
-\]
-\end{enumerate}
+在 $(t_1,t_2)$ 上严格递减，并在 $t_2$ 连续恢复为 $q_0$。
 \end{corollaryn}
 \begin{proof}
-(i) 由式\eqref{eq:s1:q-control}，$q_c(S)$ 关于 $S$ 严格增加，$S^*>S_c$ 给出启动时的跳升。再由式\eqref{eq:s1:S-analytic}与链式法则，得
+由式\eqref{eq:s1:q-control}，$q_c(S)$ 关于 $S$ 严格增加，$S^*>S_c$ 给出启动时的跳升。再由式\eqref{eq:s1:S-analytic}与链式法则，得
 \begin{equation}
 \frac{dq_c(t)}{dt}=-\frac{\gamma\eta}{\beta}
 \frac{S(t)-\bar S}{S(t)^2}<0.
 \label{eq:s1:qprime}
 \end{equation}
 又 $q_c(S_c)=q_0$，故退出时连续。
-
-(ii) 由 (i)，隔离比例在启动时取得最大值，故全程可实施当且仅当 $q_{\max}\le q_{\rm cap}$。代入式\eqref{eq:s1:qmax}即得所述等价式。
 \end{proof}
-阈值控制期内，启动时的社区易感者最多，因此保持常规接触率所需的隔离比例也最高。推论~\ref{cor:s1:qc-structure}(ii) 的条件即按 $(c_0,q_{\rm cap})$ 计算的启动时有效再生数不超过 $1$。若 $q_{\rm cap}<q_{\max}$，只靠隔离不能维持阈值，必须同时减少接触，可行条件见推论~\ref{cor:joint:feasibility}。
+阈值控制期内，启动时的社区易感者最多，因此保持常规接触率所需的隔离比例也最高。追踪隔离能力达不到 $q_{\max}$ 时，只靠隔离不能维持阈值，必须同时减少接触（第~\ref{sec:joint:state}~节）。
 
 图~\ref{fig:scenario1:single-sim}给出基准参数下仅隔离控制的三阶段轨迹。基准参数取自 Zhou 等\cite{Zhou2024SPCI}图3的示例，取值见图注。该例另设住院仓室，其非隔离感染者的自然康复率 $\gamma_I=0.1$ 与确诊率 $\delta_I=0.2504$ 之和对应本模型的移出率 $\gamma$。该例没有给出 $\delta_q$，本文取 $\delta_q=\gamma$。常规峰值 $I_{\max}^{0}\approx 300.4$ 人，远高于阈值 $\eta=38.15$ 人。在 $t_1\approx3.175$ d 启动控制时，隔离比例跳升至 $q_{\max}\approx0.7565$。此后隔离比例随易感者减少而下降，经 $\Delta t\approx 5.903$ d 回到 $q_0$。
 \begin{figure}[htbp]

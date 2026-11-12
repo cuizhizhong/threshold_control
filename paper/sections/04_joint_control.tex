@@ -77,7 +77,7 @@ c_{\min}\le\frac{c_0(1-q_0)S_c}{(1-q_{\rm cap})S}.
 \]
 其最严格处为 $S=S^*$，即式\eqref{eq:joint:feasibility}。由式\eqref{eq:s1:qmax}，$\beta c_0(1-q_{\max})S^*/N=\gamma$，故该式等价于 $c_{\min}(1-q_{\rm cap})\le c_0(1-q_{\max})$。条件成立时取 $c_c=(c^{-}+c^{+})/2$，由定理~\ref{thm:joint:representation}得到可行控制；条件不成立时，启动状态附近不存在允许控制。
 \end{proof}
-减少接触扩大了可行范围：仅隔离控制的条件 $q_{\max}\le q_{\rm cap}$ 即 $c_0(1-q_{\rm cap})\le c_0(1-q_{\max})$，而推论中的条件只是把左端的 $c_0$ 换成 $c_{\min}$。当 $q_{\rm cap}<q_{\max}$ 而式\eqref{eq:joint:feasibility}成立时，启动后的一段时间内必须同时减少接触：由式\eqref{eq:joint:bounds}，只要 $S>(1-q_0)S_c/(1-q_{\rm cap})$，就有 $c^{+}(S)<c_0$。易感者降到这一水平以下后，$c_c=c_0$ 重新落入允许区间。若式\eqref{eq:joint:feasibility}不成立，等到 $I=\eta$ 才启动的阈值策略不可行；提前干预会改变启动状态，其可行性需另行分析。
+减少接触扩大了可行范围：仅隔离控制的隔离比例在启动时最高（推论~\ref{cor:s1:qc-structure}），其可行条件 $q_{\max}\le q_{\rm cap}$ 即 $c_0(1-q_{\rm cap})\le c_0(1-q_{\max})$，而推论中的条件只是把左端的 $c_0$ 换成 $c_{\min}$。当 $q_{\rm cap}<q_{\max}$ 而式\eqref{eq:joint:feasibility}成立时，启动后的一段时间内必须同时减少接触：由式\eqref{eq:joint:bounds}，只要 $S>(1-q_0)S_c/(1-q_{\rm cap})$，就有 $c^{+}(S)<c_0$。易感者降到这一水平以下后，$c_c=c_0$ 重新落入允许区间。若式\eqref{eq:joint:feasibility}不成立，等到 $I=\eta$ 才启动的阈值策略不可行；提前干预会改变启动状态，其可行性需另行分析。
 
 提高阈值使可行条件更容易满足。由引理~\ref{lem:s1:Sstar-sensitivity}，$S^*$ 随 $\eta$ 严格下降，式\eqref{eq:joint:feasibility}左端随之减小。因此，若某一阈值可行，则所有更高且仍触发控制的阈值都可行（其余参数与能力约束固定）。反过来，降低阈值使启动时的易感者人数 $S^*$ 增大，启动时所需的干预更强，可能超出能力约束。
 
