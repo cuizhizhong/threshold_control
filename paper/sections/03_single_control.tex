@@ -74,13 +74,13 @@ q_0,&t>t_2
 \end{enumerate}
 \end{theorem}
 \begin{proof}
-(i)(ii) 由引理~\ref{lem:model:balance}，维持 $I=\eta$ 时式\eqref{eq:model:balance}几乎处处成立；取 $c=c_0$，即几乎处处唯一地解出式\eqref{eq:s1:q-control}。利用 $\beta+(1-\beta)q_c(S)=1-\bar S/S$，代入 $S$ 的方程得
+(i)(ii) 由引理~\ref{lem:model:balance}，维持 $I=\eta$ 时式\eqref{eq:model:balance}几乎处处成立；取 $c=c_0$，即几乎处处唯一地解出式\eqref{eq:s1:q-control}。由式\eqref{eq:s1:barS}与\eqref{eq:s1:q-control}，$\beta+(1-\beta)q_c(S)=1-\bar S/S$，代入 $S$ 的方程得
 \[
 \dot S=-\frac{c_0\eta}{N}(S-\bar S),\qquad S(t_1)=S^*,
 \]
-解此初值问题得式\eqref{eq:s1:S-analytic}。由定理~\ref{thm:s1:start}与式\eqref{eq:s1:barS}，$S^*>S_c>\bar S$，故 $S$ 严格递减，首次降到 $S_c$ 的时刻 $t_2$ 由 $S(t_2)=S_c$ 确定，即得式\eqref{eq:s1:t2}中的控制时长。在 $[S_c,S^*]$ 上，$q_c(S_c)=q_0$ 且 $q_0\le q_c(S)<1$。
+解此初值问题得式\eqref{eq:s1:S-analytic}。由定理~\ref{thm:s1:start}与式\eqref{eq:s1:barS}，$S^*>S_c>\bar S$，故 $S$ 严格递减，首次降到 $S_c$ 的时刻 $t_2$ 由 $S(t_2)=S_c$ 确定，即得式\eqref{eq:s1:t2}中的控制时长。
 
-(iii) 逐条验证定义~\ref{def:model:threshold-strategy}。由 (ii) 的证明，$q_0\le q_c(t)<1$，所以式\eqref{eq:s1:q-piecewise}给出的控制有界可测，在 $t_1$ 之前和 $t_2$ 之后都是 $(c_0,q_0)$，并且满足条件\eqref{eq:model:plateau-requirement}。把 $q_c(t)$ 代回原方程，式\eqref{eq:s1:S-analytic}与 $I=\eta$ 满足前两个方程及启动初值，其余仓室由线性方程或积分确定。由命题~\ref{prop:model:positive}中解的唯一性，该控制使 $[t_1,t_2]$ 上 $I\equiv\eta$。由式\eqref{eq:s1:S-analytic}，$S$ 严格递减，$t_2$ 是 $S$ 首次降到 $S_c$ 的时刻。因此该控制属于 $\mathcal A(\eta)$，阈值控制期为 $[t_1,t_2]$。
+(iii) 逐条验证定义~\ref{def:model:threshold-strategy}。由式\eqref{eq:s1:q-control}，$q_c$ 关于 $S$ 严格递增，且 $q_c(S_c)=q_0$，故在 $[t_1,t_2]$ 上 $q_0\le q_c(t)<1$。所以式\eqref{eq:s1:q-piecewise}给出的控制有界可测，在 $t_1$ 之前和 $t_2$ 之后都是 $(c_0,q_0)$，并满足条件\eqref{eq:model:plateau-requirement}。把 $q_c(t)$ 代回原方程，式\eqref{eq:s1:S-analytic}与 $I=\eta$ 满足前两个方程及启动初值，其余仓室由线性方程或积分确定。由命题~\ref{prop:model:positive}中解的唯一性，该控制使 $[t_1,t_2]$ 上 $I\equiv\eta$。由 (ii) 的证明，$t_2$ 是 $S$ 首次降到 $S_c$ 的时刻。因此该控制属于 $\mathcal A(\eta)$，阈值控制期为 $[t_1,t_2]$。
 \end{proof}
 
 易感者越多，维持阈值所需的隔离比例越高，被追踪隔离的未感染接触者越多，$S$ 因而下降越快。定理~\ref{thm:s1:qc-structure}(iii) 中的 $q_c(t)$ 可以显式写出：
