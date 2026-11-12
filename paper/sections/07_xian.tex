@@ -165,11 +165,11 @@ N_{\rm eff}\ge N_{\rm floor}:=
 \end{equation}
 \end{proposition}
 \begin{proof}
-记该时刻为 $T$。由式\eqref{eq:count-identities}与 $S_q(0)=0$，$S_q(T)=(1-\beta)I_{q_{\rm cum}}(T)/\beta$。易感者的流出由上述三部分组成，故
+记该时刻为 $T$。由式\eqref{eq:model:full}，$\dot S_q$ 与进入 $I_q$ 的流量之比恒为 $(1-\beta)/\beta$，又 $S_q(0)=0$，故 $S_q(T)=(1-\beta)I_{q_{\rm cum}}(T)/\beta$。易感者的流出由上述三部分组成，故
 \[
 S_0-S(T)=I_{\rm cum}(T)+I_{q_{\rm cum}}(T)+S_q(T)
 =I_{\rm cum}(T)+\frac{I_{q_{\rm cum}}(T)}\beta.
 \]
 再由 $S(T)\ge0$ 与 $S_0\le N_{\rm eff}$ 即得。
 \end{proof}
-代入 TDINN 轨迹（$I_{\rm cum}^{\rm T}=607.96$、$I_{q_{\rm cum}}^{\rm T}=1497.67$）得 $N_{\rm floor}\approx1.06\times10^4$，约为其总累计新增感染 $2105.63$ 人的 $5.04$ 倍。多出的部分是被隔离的未感染者：平均每隔离一名感染者，就同时隔离 $(1-\beta)/\beta\approx5.7$ 名未感染者（式\eqref{eq:count-identities}）。这一下界是参照轨迹在无回流模型中成立的必要条件，而不是 $N_{\rm eff}$ 的估计；它说明，高强度追踪隔离涉及的人群远多于感染者本身。
+代入 TDINN 轨迹（$I_{\rm cum}^{\rm T}=607.96$、$I_{q_{\rm cum}}^{\rm T}=1497.67$）得 $N_{\rm floor}\approx1.06\times10^4$，约为其总累计新增感染 $2105.63$ 人的 $5.04$ 倍。多出的部分是被隔离的未感染者：平均每隔离一名感染者，就同时隔离 $(1-\beta)/\beta\approx5.7$ 名未感染者。这一下界是参照轨迹在无回流模型中成立的必要条件，而不是 $N_{\rm eff}$ 的估计；它说明，高强度追踪隔离涉及的人群远多于感染者本身。
