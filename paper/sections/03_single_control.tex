@@ -115,7 +115,7 @@ q_1=1-\frac{\gamma N}{\beta c_0S^*}>q_0,
 \end{proof}
 阈值控制期内，启动时的社区易感者最多，因此保持常规接触率所需的隔离比例也最高。追踪隔离能力达不到 $q_1$ 时，只靠隔离不能维持阈值，必须同时减少接触（第~\ref{sec:joint:state}~节）。
 
-图~\ref{fig:scenario1:single-sim}给出基准参数下仅隔离控制的三阶段轨迹。基准参数取自 Zhou 等\cite{Zhou2024SPCI}图3的示例，取值见图注。该例另设住院仓室，其非隔离感染者的自然康复率 $\gamma_I=0.1$ 与确诊率 $\delta_I=0.2504$ 之和对应本模型的移出率 $\gamma$。该例没有给出 $\delta_q$，本文取 $\delta_q=\gamma$。常规峰值 $I_{\max}^{0}\approx 300.4$ 人，远高于阈值 $\eta=38.15$ 人。在 $t_1\approx3.175$ d 启动控制时，隔离比例跳升至 $q_1\approx0.7565$。此后隔离比例随易感者减少而下降，经 $\Delta t\approx 5.903$ d 回到 $q_0$。
+图~\ref{fig:scenario1:single-sim}给出数值模拟中仅隔离控制的三阶段轨迹，参数取自 Zhou 等\cite{Zhou2024SPCI}图3的示例（下称基准参数），取值见图注。常规峰值 $I_{\max}^{0}\approx 300.4$ 人，远高于阈值 $\eta=38.15$ 人。在 $t_1\approx3.175$ d 启动控制时，隔离比例跳升至 $q_1\approx0.7565$。此后隔离比例随易感者减少而下降，经 $\Delta t\approx 5.903$ d 回到 $q_0$。
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.7\textwidth]{figures/optimal_control_with_quarantine_panels.pdf}
