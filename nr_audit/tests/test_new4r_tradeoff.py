@@ -45,7 +45,15 @@ def test_output_registered_and_used(receipt):
         current_rel = 'paper/figures/new4t/S2.pdf'
         current = json.loads(adopted.read_text(encoding='utf-8'))['outputs'][current_rel]
         assert sha(ROOT / current_rel) == current['sha256'] == current['approved_preview_sha256']
-        assert r'\includegraphics[width=\textwidth]{figures/new4t/S2.pdf}' in sup
+        new4al = SRC.HERE / 'results/new4al_notation.json'
+        if new4al.exists():
+            # NEW-4al（N40）：S2 只把面板 (d) 纵轴记号改为 q_1 后重绘，正式引用改为 figures/new4al/S2.pdf
+            rec = json.loads(new4al.read_text(encoding='utf-8'))['figures']['fig:sup:eta-summary']
+            assert rec['current_pdf'] == current_rel and rec['reproduced_sha256'] == current['sha256']
+            assert sha(ROOT / rec['pdf']) == rec['pdf_sha256']
+            assert r'\includegraphics[width=\textwidth]{figures/new4al/S2.pdf}' in sup
+        else:
+            assert r'\includegraphics[width=\textwidth]{figures/new4t/S2.pdf}' in sup
     else:
         assert 'eta_sensitivity_selected_c0.pdf' in sup
 

@@ -72,7 +72,14 @@ def test_approved_bytes_and_current_manuscript_use(adopted, name):
     assert out['width'] == (r'0.8\textwidth' if factor == .8 else r'\textwidth')
     text = (ROOT / out['tex']).read_text(encoding='utf-8')
     new4w = SRC.HERE / 'results/new4w/figures.json'
-    if name in ('Main8', 'S8') and new4w.exists():
+    new4al = SRC.HERE / 'results/new4al_notation.json'
+    rec4al = json.loads(new4al.read_text(encoding='utf-8'))['figures'].get(out['label']) if new4al.exists() else None
+    if rec4al:
+        # NEW-4al（N40）：隔离比例记号调换后只改坐标轴文字重绘，正式引用改为 figures/new4al/；被取代图件与收据只读保留。
+        assert digest((ROOT / rec4al['current_pdf']).read_bytes()) == rec4al['current_pdf_sha256'] == rec4al['reproduced_sha256']
+        assert digest((ROOT / rec4al['pdf']).read_bytes()) == rec4al['pdf_sha256']
+        rel = rec4al['pdf']
+    elif name in ('Main8', 'S8') and new4w.exists():
         # NEW-4w（N33）：西安设计阈值改为 0.001N 后重绘，正式引用改为 figures/new4w/；NEW-4t 字节与收据只读保留。
         rec = json.loads(new4w.read_text(encoding='utf-8'))[name]
         assert digest((ROOT / f'paper/figures/new4w/{name}.pdf').read_bytes()) == rec['pdf_sha256']

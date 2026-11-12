@@ -25,6 +25,9 @@ ADOPTED_NEW4T = {'joint_phase_baseline': 'Main6', 'xian_joint': 'Main8'}
 NEW4W = SRC.HERE / 'results' / 'new4w' / 'figures.json'
 SUPERSEDED_NEW4W = {'xian_joint': ('Main8', 'Main8'), 'xian_strategy_process': ('xian_strategy_process', 'strategy_process')}
 PRE_NEW4W = 'ebb7df5'
+# NEW-4al（N40）：隔离比例两个记号调换后，图 5 与图 8 只改纵轴记号重绘到 figures/new4al/；被取代图件与收据只读保留。
+NEW4AL = SRC.HERE / 'results' / 'new4al_notation.json'
+SUPERSEDED_NEW4AL = {'joint_capacity_baseline': 'fig:joint:capacity', 'xian_joint': 'fig:xian:joint'}
 
 
 def xian_text():
@@ -67,7 +70,12 @@ def test_outputs_registered_and_used(receipt, name):
     assert abs(out['size_mm'][0] - width_mm) < 0.05
     text = (ROOT / tex).read_text(encoding='utf-8')
     adopted = SRC.HERE / 'results/new4t_figures.json'
-    if name in SUPERSEDED_NEW4W and NEW4W.exists():
+    if name in SUPERSEDED_NEW4AL and NEW4AL.exists():
+        rec = json.loads(NEW4AL.read_text(encoding='utf-8'))['figures'][SUPERSEDED_NEW4AL[name]]
+        assert sha((ROOT / rec['current_pdf']).read_bytes()) == rec['current_pdf_sha256'] == rec['reproduced_sha256']
+        assert sha((ROOT / rec['pdf']).read_bytes()) == rec['pdf_sha256']
+        assert f"\\includegraphics[width={width}]{{{rec['pdf'].removeprefix('paper/')}}}" in text
+    elif name in SUPERSEDED_NEW4W and NEW4W.exists():
         stem, key = SUPERSEDED_NEW4W[name]
         rec = json.loads(NEW4W.read_text(encoding='utf-8'))[key]
         assert sha((ROOT / f'paper/figures/new4w/{stem}.pdf').read_bytes()) == rec['pdf_sha256']

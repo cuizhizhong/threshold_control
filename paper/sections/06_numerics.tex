@@ -57,15 +57,15 @@
 \subsection{能力约束}
 \label{sec:joint:capacity-numerics}
 \def\jointcapacitypostexitdays{1}
-能力约束把能力平面分成三个区域（图~\ref{fig:joint:capacity}(a)）：至少一种单控制可行，只有联合控制可行，以及阈值策略不可行。仅隔离控制的隔离比例在启动时最高（推论~\ref{cor:s1:qc-structure}），因此它可行当且仅当 $q_{\rm cap}\ge q_{\max}$。仅减少接触的接触率 $c_0S_c/S$ 在 $S=S^*$ 处最低，因此它可行当且仅当 $c_{\min}\le c_0S_c/S^*$。两者都不成立时，联合控制是否可行由推论~\ref{cor:joint:feasibility}判断。
+能力约束把能力平面分成三个区域（图~\ref{fig:joint:capacity}(a)）：至少一种单控制可行，只有联合控制可行，以及阈值策略不可行。仅隔离控制的隔离比例在启动时最高（推论~\ref{cor:s1:qc-structure}），因此它可行当且仅当 $q_{\max}\ge q_1$。仅减少接触的接触率 $c_0S_c/S$ 在 $S=S^*$ 处最低，因此它可行当且仅当 $c_{\min}\le c_0S_c/S^*$。两者都不成立时，联合控制是否可行由推论~\ref{cor:joint:feasibility}判断。
 
-代表能力组合（图~\ref{fig:joint:capacity}(a) 中的红点）落在只有联合控制可行的区域。仅隔离控制需要 $q_{\max}\approx0.7565$，仅减少接触需要把接触率降低约 $75.3\%$，都超出能力，因此由推论~\ref{cor:joint:capped-comparison}，最快与最慢的控制 $c^{+}(S)$、$c^{-}(S)$ 都不是单控制。在这一点上，能力约束提高了最小成本，也延长了控制期：能力约束下的成本最优控制给出 $J\approx 2.361$ d、$\Delta t\approx 8.34$ d，都高于表~\ref{tab:joint:compare}中的值。最小成本的增加与命题~\ref{prop:joint:minimum-threshold}一致，控制时长的增加则是这一代表点上的数值结果。
+代表能力组合（图~\ref{fig:joint:capacity}(a) 中的红点）落在只有联合控制可行的区域。仅隔离控制需要 $q_1\approx0.7565$，仅减少接触需要把接触率降低约 $75.3\%$，都超出能力，因此由推论~\ref{cor:joint:capped-comparison}，最快与最慢的控制 $c^{+}(S)$、$c^{-}(S)$ 都不是单控制。在这一点上，能力约束提高了最小成本，也延长了控制期：能力约束下的成本最优控制给出 $J\approx 2.361$ d、$\Delta t\approx 8.34$ d，都高于表~\ref{tab:joint:compare}中的值。最小成本的增加与命题~\ref{prop:joint:minimum-threshold}一致，控制时长的增加则是这一代表点上的数值结果。
 
-增加的成本与时长全部来自能力约束起作用的前一段。启动后的一段时间内，隔离比例停在上限，接触率同时降低，降幅随 $S$ 下降而减小（图~\ref{fig:joint:capacity}(b)）；易感者降到 $(1-q_0)S_c/(1-q_{\rm cap})$ 以下后，仅隔离控制重新可行（第~\ref{sec:joint:state}~节）。由推论~\ref{cor:joint:capacity-clip}，能力约束下的成本最优控制是把不考虑能力约束的控制截断到允许区间；在代表点上，后者此后也满足两项能力约束，因此能力约束下的控制在同一 $S$ 上与它取相同的 $c_c(S)$、$q_c(S)$，只是到达得更晚。由于 $J$ 与 $\Delta t$ 都是对 $S$ 的积分，增量只来自此前的一段（各段时长见补充材料第~\ref{sec:sup:numerics}~节）。
+增加的成本与时长全部来自能力约束起作用的前一段。启动后的一段时间内，隔离比例停在上限，接触率同时降低，降幅随 $S$ 下降而减小（图~\ref{fig:joint:capacity}(b)）；易感者降到 $(1-q_0)S_c/(1-q_{\max})$ 以下后，仅隔离控制重新可行（第~\ref{sec:joint:state}~节）。由推论~\ref{cor:joint:capacity-clip}，能力约束下的成本最优控制是把不考虑能力约束的控制截断到允许区间；在代表点上，后者此后也满足两项能力约束，因此能力约束下的控制在同一 $S$ 上与它取相同的 $c_c(S)$、$q_c(S)$，只是到达得更晚。由于 $J$ 与 $\Delta t$ 都是对 $S$ 的积分，增量只来自此前的一段（各段时长见补充材料第~\ref{sec:sup:numerics}~节）。
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.8\textwidth]{figures/new4p/joint_capacity_baseline.pdf}
-\caption{基准参数下能力约束的可行区域与代表轨迹。(a) 横轴为最大接触减少比例 $1-c_{\min}/c_0$，纵轴为隔离比例上限 $q_{\rm cap}$；灰色、浅红色、浅蓝色分别表示阈值策略不可行、只有联合控制可行、至少一种单控制可行，边界归入可行侧；红点为代表能力组合 $c_{\min}/c_0=0.5$、$q_{\rm cap}=0.6$。(b) 该代表点上能力约束下的成本最优控制：蓝线为隔离比例 $q$，绿线为接触减少比例 $1-c/c_0$，同色虚线为相应的能力上限 $q_{\rm cap}$ 与 $1-c_{\min}/c_0$；画至退出后\jointcapacitypostexitdays{}天，$t$ 以天计。}
+\includegraphics[width=0.8\textwidth]{figures/new4al/joint_capacity_baseline.pdf}
+\caption{基准参数下能力约束的可行区域与代表轨迹。(a) 横轴为最大接触减少比例 $1-c_{\min}/c_0$，纵轴为隔离比例上限 $q_{\max}$；灰色、浅红色、浅蓝色分别表示阈值策略不可行、只有联合控制可行、至少一种单控制可行，边界归入可行侧；红点为代表能力组合 $c_{\min}/c_0=0.5$、$q_{\max}=0.6$。(b) 该代表点上能力约束下的成本最优控制：蓝线为隔离比例 $q$，绿线为接触减少比例 $1-c/c_0$，同色虚线为相应的能力上限 $q_{\max}$ 与 $1-c_{\min}/c_0$；画至退出后\jointcapacitypostexitdays{}天，$t$ 以天计。}
 \label{fig:joint:capacity}
 \end{figure}
 

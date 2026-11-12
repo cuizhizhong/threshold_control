@@ -126,7 +126,7 @@ $\partial S^*/\partial\kappa=-(\partial F/\partial\kappa)/(\partial F/\partial S
 =-\frac1{\beta_1^0 S^*\eta}\frac{\partial S^*}{\partial\eta}>0.
 \]
 对式\eqref{eq:s1:qmax}求导，得
-$\partial q_{\max}/\partial\eta=\gamma N[\beta c_0(S^*)^2]^{-1}\partial S^*/\partial\eta<0$。
+$\partial q_1/\partial\eta=\gamma N[\beta c_0(S^*)^2]^{-1}\partial S^*/\partial\eta<0$。
 对式\eqref{eq:s1:t2}求导，得
 \[
 \frac{\partial\Delta t}{\partial\eta}
@@ -243,7 +243,7 @@ n'(c)(cS-c_0\bar S)-S n(c)
 
 (iii) 由定理~\ref{thm:joint:cost-minimum}(ii)，成本最优控制几乎处处取逐状态最小点；由 (i)(ii)，它不取左端点，在 $S_c<S<\min\{S_{\rm sw},S^*\}$ 上也不取右端点，故得 (iii) 的两条结论。
 
-(iv) 考虑能力约束时，由式\eqref{eq:joint:bounds}及 $c_{\min}<c_0$、$q_{\rm cap}>q_0$，对 $S\in(S_c,S^*)$ 有 $c^{-}(S)<c_0$、$c^{+}(S)>c_0S_c/S$，允许区间 $[c^-(S),c^+(S)]$ 不退化。若 $c^{-}(S)=c_0S_c/S$，左端点处向区间内部的单侧比较照旧，它不是最小点；若 $c^{-}(S)>c_0S_c/S$，区间内处处有 $q>q_0$。右端点的讨论相同，只需把 (i) 换成 (ii)：$S<S_{\rm sw}$ 时，若 $c^{+}(S)=c_0$，右端点不是最小点；若 $c^{+}(S)<c_0$，区间内处处有 $c<c_0$。再由定理~\ref{thm:joint:cost-minimum}，两条结论对 $\mathcal A(\eta;c_{\min},q_{\rm cap})$ 中的成本最优控制成立。
+(iv) 考虑能力约束时，由式\eqref{eq:joint:bounds}及 $c_{\min}<c_0$、$q_{\max}>q_0$，对 $S\in(S_c,S^*)$ 有 $c^{-}(S)<c_0$、$c^{+}(S)>c_0S_c/S$，允许区间 $[c^-(S),c^+(S)]$ 不退化。若 $c^{-}(S)=c_0S_c/S$，左端点处向区间内部的单侧比较照旧，它不是最小点；若 $c^{-}(S)>c_0S_c/S$，区间内处处有 $q>q_0$。右端点的讨论相同，只需把 (i) 换成 (ii)：$S<S_{\rm sw}$ 时，若 $c^{+}(S)=c_0$，右端点不是最小点；若 $c^{+}(S)<c_0$，区间内处处有 $c<c_0$。再由定理~\ref{thm:joint:cost-minimum}，两条结论对 $\mathcal A(\eta;c_{\min},q_{\max})$ 中的成本最优控制成立。
 \end{proof}
 
 \subsection{退出附近的控制组合}
@@ -270,7 +270,7 @@ g(x)=\frac{w_cx^2+w_q(1-x)^2}{c_0(S_c-\bar S)},
 
 (ii) 在 $(S_c,S_c+\delta)$ 上，两种单控制分别对应 $x=0$ 和 $x=1$，均达不到逐状态最小值，其非负成本差的积分严格为正。
 
-(iii) 考虑满足 $c_{\min}<c_0$、$q_{\rm cap}>q_0$ 的能力约束时，由式\eqref{eq:joint:bounds}，$S_c<S<\min\{c_0S_c/c_{\min},\,(1-q_0)S_c/(1-q_{\rm cap})\}$ 时允许区间仍为 $[c_0S_c/S,c_0]$；这一上限大于 $S_c$（$c_{\min}=0$ 时第一项理解为 $+\infty$），故 (i) 的论证照旧成立；单控制整段可行时，它是能力约束下的允许控制，(ii) 的论证也照旧成立。
+(iii) 考虑满足 $c_{\min}<c_0$、$q_{\max}>q_0$ 的能力约束时，由式\eqref{eq:joint:bounds}，$S_c<S<\min\{c_0S_c/c_{\min},\,(1-q_0)S_c/(1-q_{\max})\}$ 时允许区间仍为 $[c_0S_c/S,c_0]$；这一上限大于 $S_c$（$c_{\min}=0$ 时第一项理解为 $+\infty$），故 (i) 的论证照旧成立；单控制整段可行时，它是能力约束下的允许控制，(ii) 的论证也照旧成立。
 \end{proof}
 
 \subsection{连续结构}
@@ -363,7 +363,7 @@ E(p,p)=r\varphi(p),\qquad
 \begin{proof}
 (i) 由于 $A_p=-(\zeta-p)(\zeta+p-2b)/[\zeta^2(p-b)^2]$，$A$ 在 $[1,\zeta]$ 上严格减。固定 $S$，设 $p_1$、$p_2$ 分别是 $r_1<r_2$ 下的最小点，二者属于同一允许区间。两个最优性不等式相加，得 $(r_2-r_1)[B(p_2)-B(p_1)]\le0$，即 $B(p_2)\le B(p_1)$。若 $p_2>p_1$，则 $A(p_2)<A(p_1)$，于是 $A(p_2)+r_1B(p_2)<A(p_1)+r_1B(p_1)$，与 $p_1$ 在 $r_1$ 下最优矛盾。故 $p_2\le p_1$，而 $c$、$q$ 都随 $p$ 增，即得逐状态结论。由式\eqref{eq:joint:duration}，接触率处处不增时控制时长不减；再由式\eqref{eq:joint:cumulative}与\eqref{eq:joint:quarantine}得到感染与隔离的结论。对任一允许控制，$J/w_c$ 是 $r$ 的仿射函数，斜率为非负的隔离强度积分，所以其下确界 $J_{\min}/w_c$ 是 $r$ 的凹且不减的函数。
 
-(ii) 由式\eqref{eq:proof:cost-E}，$G_{p\zeta}=E_\zeta/(p-b)^2<0$。设 $\zeta_1<\zeta_2$，$p_i$ 是 $\zeta_i$ 下的最小点。反设 $p_2<p_1$。不考虑能力约束时允许区间为 $[1,\zeta]$，考虑时为 $[\max\{1,c_{\min}\zeta/c_0\},\min\{\zeta,(1-q_0)/(1-q_{\rm cap})\}]$，两端都随 $\zeta$ 不减，所以 $p_1$、$p_2$ 在两个状态上都允许。由最优性，
+(ii) 由式\eqref{eq:proof:cost-E}，$G_{p\zeta}=E_\zeta/(p-b)^2<0$。设 $\zeta_1<\zeta_2$，$p_i$ 是 $\zeta_i$ 下的最小点。反设 $p_2<p_1$。不考虑能力约束时允许区间为 $[1,\zeta]$，考虑时为 $[\max\{1,c_{\min}\zeta/c_0\},\min\{\zeta,(1-q_0)/(1-q_{\max})\}]$，两端都随 $\zeta$ 不减，所以 $p_1$、$p_2$ 在两个状态上都允许。由最优性，
 \[
 [G(p_1;\zeta_2)-G(p_2;\zeta_2)]-[G(p_1;\zeta_1)-G(p_2;\zeta_1)]\ge0,
 \]

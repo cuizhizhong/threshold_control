@@ -1,0 +1,165 @@
+{
+ "script": "nr_audit/plot_new4al_notation.py",
+ "git_head": "0e86fa7194a528fcebb4628f1d9ba5247b542e0c",
+ "authorization": "AGENTS.md N40（NEW-4al）",
+ "notation": {
+  "q_cap": "q_max（能力上限）",
+  "q_max": "q_1（仅隔离控制在 t1 跳升到的隔离比例）"
+ },
+ "scientific_activity": {
+  "ode_solves": 0,
+  "optimization_solves": 0,
+  "fits": 0,
+  "classification_solves": 0
+ },
+ "inputs": {
+  "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/capacity.json": {
+   "sha256": "1eec6f25f630dfe669ade76a4d683cfa509ab00f71ba65351cfd9b8fdad6a7f9",
+   "content_sha256": "a6e467fce31d34ebfde7e1223dcc0c62468377055e0471f58d217371bed7de3a"
+  },
+  "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/capacity_baseline.npz": {
+   "sha256": "4e3c239113f61238ddeeddf72bfeade58b5f5d2ef73fac4ef415d5568fae3c15",
+   "content_sha256": "4e3c239113f61238ddeeddf72bfeade58b5f5d2ef73fac4ef415d5568fae3c15"
+  },
+  "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/capacity_xian.npz": {
+   "sha256": "7337f70b5f2264940ef39c07e0c9db94ed3f713de09855b330dcf46fe8b14c0a",
+   "content_sha256": "7337f70b5f2264940ef39c07e0c9db94ed3f713de09855b330dcf46fe8b14c0a"
+  },
+  "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/capacity_traj_baseline.csv": {
+   "sha256": "f4eb0dbfdd7a0d7d4f08c2201241e28087a487940a66228a561825d3433bf45a",
+   "content_sha256": "9b51862a8c57830ac8d367bd91ee888864639b390a4e7346aff99e346ce7609e"
+  },
+  "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/input_manifest.json": {
+   "sha256": "33d2edd859ed11d364e523ebd4542ee368faca5bad97c51b9e89d1c1959d1835",
+   "content_sha256": "56e63c1042e3d3a4643ee537be0ed0b425da779755ba4e4673e549a344272fed"
+  },
+  "nr_audit/results/new4w/xian_theta001.json": {
+   "sha256": "f8d2e752d6e0eb42d6043aee361ed908b901d8be0bd7a3ae5ab7dc24861786c1",
+   "content_sha256": "f8d2e752d6e0eb42d6043aee361ed908b901d8be0bd7a3ae5ab7dc24861786c1"
+  },
+  "nr_audit/results/new4w/xian_capacity.npz": {
+   "sha256": "8822dcbdaba0f396c79eb77b60dd85635f774572a7d237176e138326e575b52e",
+   "content_sha256": "8da5a7505772899ea2fd0eb86c98a386fabc71523d82bcea82cc765533b59951"
+  },
+  "nr_audit/results/new4w/xian_phase.npz": {
+   "sha256": "f161d67afe24cc972f9b4bd5d9224eca6bda3bc76287bee458ef9ddc2f9eedfb",
+   "content_sha256": "af05949a6d1dcb41ae04ffeb4c412f218e4b616d6c2dfc52a232f53a82ef9c92"
+  }
+ },
+ "figures": {
+  "fig:joint:capacity": {
+   "current_pdf": "paper/figures/new4p/joint_capacity_baseline.pdf",
+   "current_pdf_sha256": "0d64351e291d05e56013ecb6c5ea0d6e4ae91517436a85b01c2b1c6bf47b92c6",
+   "reproduced_sha256": "0d64351e291d05e56013ecb6c5ea0d6e4ae91517436a85b01c2b1c6bf47b92c6",
+   "reproduced_identical": true,
+   "pdf": "paper/figures/new4al/joint_capacity_baseline.pdf",
+   "pdf_sha256": "cc7861deab095636e5823b32df3d5d6584d905620cfa240f314a97e1c3c99147",
+   "text_change": {
+    "old": "$q_{\\rm cap}$",
+    "new": "$q_{\\max}$",
+    "count": 1
+   },
+   "other_texts_unchanged": true,
+   "fonts": [
+    "CGMMQU+Cmr10",
+    "CGMMQU+Cmsy10",
+    "GYUURQ+Cmmi10"
+   ],
+   "size_mm": [
+    127.84,
+    50.0
+   ],
+   "environment": {
+    "python": "3.10.20",
+    "matplotlib": "3.10.9"
+   }
+  },
+  "fig:scenario1_summary_c0": {
+   "current_pdf": "paper/figures/new4t/S1.pdf",
+   "current_pdf_sha256": "1c53145a31ec7ed1a81d473958c1077f644e8be9d5f8da342d3ff4a26d64378a",
+   "reproduced_sha256": "1c53145a31ec7ed1a81d473958c1077f644e8be9d5f8da342d3ff4a26d64378a",
+   "reproduced_identical": true,
+   "pdf": "paper/figures/new4al/S1.pdf",
+   "pdf_sha256": "a9c3ffe021e1e51b4e12a1a6b2567d4199cab050e9ac10b49f37aa7adf1eebbc",
+   "text_change": {
+    "old": "$q_{\\max}$",
+    "new": "$q_1$",
+    "count": 1
+   },
+   "other_texts_unchanged": true,
+   "fonts": [
+    "CGMMQU+Cmr10",
+    "GYUURQ+Cmmi10"
+   ],
+   "size_mm": [
+    159.8,
+    88.58
+   ],
+   "environment": {
+    "python": "3.12.8",
+    "matplotlib": "3.9.2"
+   },
+   "source_inputs": {
+    "git:pipeline-final-20261006:latex/revision_layout_v5/qa/c0_sensitivity_selected_eta.matlab_geometry.json": "c7760908299da7089aa22c303970838f0ddc29d34c35b92799f73cd484f653e9",
+    "git:pipeline-final-20261006:latex/revision_layout_v5/layout_matlab.m": "5217fe263324f2241c770101d7c519d872ee1997808d131130857fd931ae7a15"
+   }
+  },
+  "fig:sup:eta-summary": {
+   "current_pdf": "paper/figures/new4t/S2.pdf",
+   "current_pdf_sha256": "c3d731096e919aa5d20d70f4f13c993f74f41d2de705e13c9bea903d53b98b8a",
+   "reproduced_sha256": "c3d731096e919aa5d20d70f4f13c993f74f41d2de705e13c9bea903d53b98b8a",
+   "reproduced_identical": true,
+   "pdf": "paper/figures/new4al/S2.pdf",
+   "pdf_sha256": "7754cc8b7172d5afb938fe978f331078683fd0abbec64239ab64b8ec95b13121",
+   "text_change": {
+    "old": "$q_{\\max}$",
+    "new": "$q_1$",
+    "count": 1
+   },
+   "other_texts_unchanged": true,
+   "fonts": [
+    "CGMMQU+Cmr10",
+    "GYUURQ+Cmmi10"
+   ],
+   "size_mm": [
+    159.8,
+    88.58
+   ],
+   "environment": {
+    "python": "3.12.8",
+    "matplotlib": "3.9.2"
+   },
+   "source_inputs": {
+    "git:pipeline-final-20261006:latex/revision_layout_v5/qa/eta_sensitivity_selected_c0.matlab_geometry.json": "9ca46213bb17c886ea692ddc69a6ceea925409d9ea282b570a1976123148f5be",
+    "git:pipeline-final-20261006:latex/revision_layout_v5/layout_matlab.m": "5217fe263324f2241c770101d7c519d872ee1997808d131130857fd931ae7a15"
+   }
+  },
+  "fig:xian:joint": {
+   "current_pdf": "paper/figures/new4w/Main8.pdf",
+   "current_pdf_sha256": "41f6e98bb2f77dab15e8b1d201109545736638bbe1b5786a5c89d5c033e83443",
+   "reproduced_sha256": "41f6e98bb2f77dab15e8b1d201109545736638bbe1b5786a5c89d5c033e83443",
+   "reproduced_identical": true,
+   "pdf": "paper/figures/new4al/Main8.pdf",
+   "pdf_sha256": "257011cf1ebfd2e9df2b18676f78fd26f06e84a8f02daaac072e32d8b1309efa",
+   "text_change": {
+    "old": "$q_{\\rm cap}$",
+    "new": "$q_{\\max}$",
+    "count": 1
+   },
+   "other_texts_unchanged": true,
+   "fonts": [
+    "CGMMQU+Cmr10",
+    "CGMMQU+Cmsy10",
+    "GYUURQ+Cmmi10"
+   ],
+   "size_mm": [
+    159.8,
+    68.0
+   ],
+   "environment": {
+    "python": "3.10.20",
+    "matplotlib": "3.10.9"
+   }
+  }
+ }
+}

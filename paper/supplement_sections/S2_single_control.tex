@@ -31,7 +31,7 @@ I_{\max}^{0}\bigl(c_{0,\min}(\eta)\bigr)=\eta,
 \item 启动时刻、最大隔离比例与控制时长满足
 \[
 \frac{\partial t_1}{\partial c_0}<0,\qquad
-\frac{\partial q_{\max}}{\partial c_0}>0,\qquad
+\frac{\partial q_1}{\partial c_0}>0,\qquad
 \frac{\partial\Delta t}{\partial\beta}>0,\qquad
 \frac{\partial\Delta t}{\partial q_0}<0;
 \]
@@ -57,7 +57,7 @@ I_{\max}^{0}\bigl(c_{0,\min}(\eta)\bigr)=\eta,
 \]
 在式\eqref{eq:s1:t1}中，前置系数 $1/\beta_1^0$ 随 $c_0$ 下降；由引理~\ref{lem:s1:Sstar-sensitivity}，下限 $S^*$ 随 $c_0$ 上升；由上式，被积函数 $1/[S\,I(S;c_0)]$ 也随 $c_0$ 下降。逐项求导均给出负项，故 $\partial t_1/\partial c_0<0$。对式\eqref{eq:s1:qmax}求导，得
 \[
-\frac{\partial q_{\max}}{\partial c_0}
+\frac{\partial q_1}{\partial c_0}
 =\frac{\gamma N}{\beta c_0^2(S^*)^2}
 \left(S^*+c_0\frac{\partial S^*}{\partial c_0}\right)>0.
 \]
@@ -87,23 +87,23 @@ $\Delta t$ 在 $(c_{0,\min}(\eta),\infty)$ 内为正且连续，两端极限为�
 
 \subsubsection{常规接触率}
 \label{sec:sup:baseline-contact-scan}
-常规接触率对控制时长的影响不是单调的（命题~\ref{prop:contact-effects}，图~\ref{fig:scenario1_summary_c0}）。$c_0$ 越大，常规轨迹越早触及阈值，$S^*$ 与 $q_{\max}$ 越高。在所考察的范围内，控制时长随 $c_0$ 先增后减，基准阈值 $\eta/N=5\%$ 下（图中未画出）在 $c_0\approx5.1$ 处取得数值极大值约 $7.579$ d。当 $c_0$ 不超过触发边界 $c_{0,\min}(\eta)$（式\eqref{eq:s1:c0-min-def}）时，无需加强干预。该边界随阈值升高，基准阈值下约为 $3.327$。相应的隔离比例轨迹与二维扫描见图~\ref{fig:baseline:q-joint}、\ref{fig:scenario1_heatmaps_c0_eta}。
+常规接触率对控制时长的影响不是单调的（命题~\ref{prop:contact-effects}，图~\ref{fig:scenario1_summary_c0}）。$c_0$ 越大，常规轨迹越早触及阈值，$S^*$ 与 $q_1$ 越高。在所考察的范围内，控制时长随 $c_0$ 先增后减，基准阈值 $\eta/N=5\%$ 下（图中未画出）在 $c_0\approx5.1$ 处取得数值极大值约 $7.579$ d。当 $c_0$ 不超过触发边界 $c_{0,\min}(\eta)$（式\eqref{eq:s1:c0-min-def}）时，无需加强干预。该边界随阈值升高，基准阈值下约为 $3.327$。相应的隔离比例轨迹与二维扫描见图~\ref{fig:baseline:q-joint}、\ref{fig:scenario1_heatmaps_c0_eta}。
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\textwidth]{figures/new4t/S1.pdf}
+\includegraphics[width=\textwidth]{figures/new4al/S1.pdf}
 \caption{基准参数下各指标随常规接触率 $c_0$ 的变化，$\eta/N=0.2\%,0.6\%,1\%,2\%$ 的曲线依次为绿色、品红色、蓝色和黑色，其余参数同正文图~\ref{fig:scenario1:single-sim}；红色圆点为 $\Delta t$ 的数值极大值。(a) 启动时间；(b) 控制时长；(c) 清零时间；(d) 最大隔离比例；(e) 成本 $J$；(f) 总累计新增感染。时间与成本以天计，累计新增感染以人计，$c_0$ 以 $\mathrm d^{-1}$ 计。}
 \label{fig:scenario1_summary_c0}
 \end{figure}
 
-图~\ref{fig:sup:eta-summary}给出同一组指标随阈值的变化，是正文图~\ref{fig:scenario1_summary_eta}的完整扫描。固定 $c_0$ 时，阈值提高使启动推迟，$q_{\max}$ 只略有下降，控制时长与成本近似与阈值成反比。在所算范围内，清零时间随阈值提高而缩短。由正文命题~\ref{prop:threshold-tradeoff}(iii)，总累计新增感染随阈值严格增加。
+图~\ref{fig:sup:eta-summary}给出同一组指标随阈值的变化，是正文图~\ref{fig:scenario1_summary_eta}的完整扫描。固定 $c_0$ 时，阈值提高使启动推迟，$q_1$ 只略有下降，控制时长与成本近似与阈值成反比。在所算范围内，清零时间随阈值提高而缩短。由正文命题~\ref{prop:threshold-tradeoff}(iii)，总累计新增感染随阈值严格增加。
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\textwidth]{figures/new4t/S2.pdf}
+\includegraphics[width=\textwidth]{figures/new4al/S2.pdf}
 \caption{基准参数下仅隔离控制的各指标随阈值比例 $\eta/N$ 的变化（横轴为对数刻度），$c_0=5,8,10,12\ \mathrm d^{-1}$ 的曲线依次为绿色、品红色、蓝色和黑色，其余参数同正文图~\ref{fig:scenario1:single-sim}。面板与单位同图~\ref{fig:scenario1_summary_c0}。}
 \label{fig:sup:eta-summary}
 \end{figure}
 
-图~\ref{fig:baseline:q-joint}给出 $\eta/N=5\%$ 时不同 $c_0$ 与 $c_0=10$ 时不同阈值下的隔离比例轨迹，图~\ref{fig:scenario1_heatmaps_c0_eta}给出 $(\eta/N,c_0)$ 平面上的四项指标。图~\ref{fig:baseline:q-joint}两幅子图中的内部拐点都在 $\qinf=1-1/[2(1-\beta)]\approx0.4083$ 的同一水平上（正文定理~\ref{thm:s1:inflection}）。$c_0=4$ 时 $q_{\max}=0.3413<\qinf$，即 $S^*<2\bar S$，隔离比例在整个控制期内低于拐点水平，没有内部拐点。
+图~\ref{fig:baseline:q-joint}给出 $\eta/N=5\%$ 时不同 $c_0$ 与 $c_0=10$ 时不同阈值下的隔离比例轨迹，图~\ref{fig:scenario1_heatmaps_c0_eta}给出 $(\eta/N,c_0)$ 平面上的四项指标。图~\ref{fig:baseline:q-joint}两幅子图中的内部拐点都在 $\qinf=1-1/[2(1-\beta)]\approx0.4083$ 的同一水平上（正文定理~\ref{thm:s1:inflection}）。$c_0=4$ 时 $q_1=0.3413<\qinf$，即 $S^*<2\bar S$，隔离比例在整个控制期内低于拐点水平，没有内部拐点。
 
 \begin{figure}[htbp]
 \centering

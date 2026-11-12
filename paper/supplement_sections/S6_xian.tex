@@ -11,7 +11,7 @@
 固定 $s_0,i_0$ 和 $\beta,\gamma,c_0,q_0$，并设条件\eqref{eq:model:trigger}成立，则仅隔离控制满足：
 \begin{enumerate}
 \renewcommand{\labelenumi}{(\roman{enumi})}
-\item $t_1,\Delta t,q_{\max},J$ 以及存在内部拐点时的 $\lambda$ 只通过 $\theta=\eta/N$ 依赖于 $N$ 和 $\eta$；
+\item $t_1,\Delta t,q_1,J$ 以及存在内部拐点时的 $\lambda$ 只通过 $\theta=\eta/N$ 依赖于 $N$ 和 $\eta$；
 \item 计算至无限时刻的累计新增感染除以 $N$ 后亦不依赖 $N$；
 \item 使用绝对终点 $I=1$ 时，终点条件 $i=1/N$ 含 $N$，$t_{\rm end}$ 及计算至该终点的累计新增感染比例的表达式因而仍含 $N$。
 \end{enumerate}
@@ -30,7 +30,7 @@ s_c=\frac{\gamma}{\beta c_0(1-q_0)},\qquad
 \bar s=\frac{(1-\beta)\gamma}{\beta c_0},\qquad
 \Delta t=\frac1{c_0\theta}\ln\frac{s^*-\bar s}{s_c-\bar s},
 \]
-且 $q_{\max}=1-\gamma/(\beta c_0s^*)$，正文式\eqref{eq:s1:lambda}中的 $\lambda$ 也只含 $s^*,s_c,\bar s$。由正文式\eqref{eq:cost:state}，二次干预强度成本的归一化表达为
+且 $q_1=1-\gamma/(\beta c_0s^*)$，正文式\eqref{eq:s1:lambda}中的 $\lambda$ 也只含 $s^*,s_c,\bar s$。由正文式\eqref{eq:cost:state}，二次干预强度成本的归一化表达为
 \begin{equation}
 J=\frac{w_q}{c_0\theta}\int_{s_c}^{s^*}
 \frac{(1-s_c/s)^2}{s-\bar s}\,ds,
@@ -84,7 +84,7 @@ J=\frac{w_q}{c_0\theta}\int_{s_c}^{s^*}
 \FloatBarrier
 \subsection{阈值扫描}
 \label{sec:sup:xian:threshold-scan}
-表~\ref{tab:sup:eta}与图~\ref{fig:xian_eta_sens}给出 11 个阈值比例下仅隔离控制的结果，覆盖设计阈值 $\eta/N=0.001$ 的两侧。阈值从 $0.01N$ 降到 $0.0001N$ 时，$q_{\max}$ 只在 $0.838$ 与 $0.847$ 之间变化，控制时长与成本近似按阈值的反比增加，总累计新增感染则缓慢减少；正文第~\ref{sec:xian:threshold-scale}~节由此解释低阈值的代价。
+表~\ref{tab:sup:eta}与图~\ref{fig:xian_eta_sens}给出 11 个阈值比例下仅隔离控制的结果，覆盖设计阈值 $\eta/N=0.001$ 的两侧。阈值从 $0.01N$ 降到 $0.0001N$ 时，$q_1$ 只在 $0.838$ 与 $0.847$ 之间变化，控制时长与成本近似按阈值的反比增加，总累计新增感染则缓慢减少；正文第~\ref{sec:xian:threshold-scale}~节由此解释低阈值的代价。
 \begin{table}[htbp]
 \centering\small
 \setlength{\tabcolsep}{3.5pt}
@@ -94,7 +94,7 @@ J=\frac{w_q}{c_0\theta}\int_{s_c}^{s^*}
 \label{tab:sup:eta}
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}S[table-format=1.4]S[table-format=1.4]S[table-format=4.2]S[table-format=4.2]S[table-format=3.4]S[table-format=7.0]@{}}
 \toprule
-{$\eta/N$} & {$q_{\max}$} & {$\Delta t$（d）} & {$t_{\rm end}$（d）} & {$J$（d）} & {\shortstack{总累计新增感染\\（人）}}\\
+{$\eta/N$} & {$q_1$} & {$\Delta t$（d）} & {$t_{\rm end}$（d）} & {$J$（d）} & {\shortstack{总累计新增感染\\（人）}}\\
 \midrule
 0.0001 & 0.8470 & 1710.66 & 2209.55 & 826.4066 & 2155649\\
 0.0002 & 0.8469 & 855.09 & 1243.15 & 412.9141 & 2182123\\
@@ -110,7 +110,7 @@ J=\frac{w_q}{c_0\theta}\int_{s_c}^{s^*}
 \bottomrule
 \end{tabular*}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：$q_{\max}=q_c(t_1)$；$\eta/N$ 为比例，$0.001$ 即 $0.1\%$；总累计新增感染计算至清零时间。
+\item 注：$q_1=q_c(t_1)$；$\eta/N$ 为比例，$0.001$ 即 $0.1\%$；总累计新增感染计算至清零时间。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}

@@ -141,6 +141,13 @@ def test_new_figures_used_and_registered():
                            ('S8', 'S8', 'paper/supplement_sections/S6_xian.tex')):
         pdf = ROOT / f'paper/figures/new4w/{stem}.pdf'
         assert hashlib.sha256(pdf.read_bytes()).hexdigest() == rec[key]['pdf_sha256']
+        new4al = ROOT / 'nr_audit/results/new4al_notation.json'
+        if key == 'Main8' and new4al.exists():
+            # NEW-4al（N40）：图 8 只把纵轴记号 q_cap 改为 q_max 后重绘，正式引用改为 figures/new4al/Main8.pdf
+            r4 = json.loads(new4al.read_text(encoding='utf-8'))['figures']['fig:xian:joint']
+            assert r4['current_pdf'] == 'paper/figures/new4w/Main8.pdf' and r4['reproduced_sha256'] == rec[key]['pdf_sha256']
+            assert '{figures/new4al/Main8.pdf}' in text(tex)
+            continue
         assert f'{{figures/new4w/{stem}.pdf}}' in text(tex)
     sp = rec['strategy_process']
     assert sp['q_only']['I_dev_max'] < 1e-9 and sp['cost_optimal']['I_dev_max'] < 1e-9

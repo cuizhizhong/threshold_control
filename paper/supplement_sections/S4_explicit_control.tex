@@ -53,13 +53,13 @@ S(t)=S^*-\frac{c_0\eta}{N}(S_c-\bar S)(t-t_1),\qquad
 \begin{equation}
 \max\!\left\{0,\frac{c_{\min}S^*-c_0S_c}{c_0(S^*-S_c)}\right\}
 \le\alpha\le
-\min\!\left\{1,\frac{S_c(q_{\rm cap}-q_0)}{(1-q_{\rm cap})(S^*-S_c)}\right\}.
+\min\!\left\{1,\frac{S_c(q_{\max}-q_0)}{(1-q_{\max})(S^*-S_c)}\right\}.
 \label{eq:joint:allocation-range}
 \end{equation}
 该区间非空当且仅当式\eqref{eq:joint:feasibility}成立。
 \end{corollaryn}
 \begin{proof}
-由定理~\ref{thm:joint:explicit}(iii)，显式族中 $c$ 随时间不减、$q$ 不增，故只需在 $S=S^*$ 处检查 $c\ge c_{\min}$ 和 $q\le q_{\rm cap}$。代入式\eqref{eq:joint:explicit-c}--\eqref{eq:joint:explicit-q}并与 $\alpha\in[0,1]$ 取交，得到式\eqref{eq:joint:allocation-range}。未截断的下界不超过 $1$，未截断的上界非负；二者的大小关系等价于
-$c_{\min}S^*\le c_0(1-q_0)S_c/(1-q_{\rm cap})$，
-即式\eqref{eq:joint:feasibility}，故该区间与 $\mathcal A(\eta;c_{\min},q_{\rm cap})$ 同时非空。
+由定理~\ref{thm:joint:explicit}(iii)，显式族中 $c$ 随时间不减、$q$ 不增，故只需在 $S=S^*$ 处检查 $c\ge c_{\min}$ 和 $q\le q_{\max}$。代入式\eqref{eq:joint:explicit-c}--\eqref{eq:joint:explicit-q}并与 $\alpha\in[0,1]$ 取交，得到式\eqref{eq:joint:allocation-range}。未截断的下界不超过 $1$，未截断的上界非负；二者的大小关系等价于
+$c_{\min}S^*\le c_0(1-q_0)S_c/(1-q_{\max})$，
+即式\eqref{eq:joint:feasibility}，故该区间与 $\mathcal A(\eta;c_{\min},q_{\max})$ 同时非空。
 \end{proof}
