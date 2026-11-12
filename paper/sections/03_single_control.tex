@@ -33,7 +33,7 @@ z_\eta=-e^{-1}\exp\!\left[-\frac{I_{\max}^{0}-\eta}{\rho_1}\right],
 \]
 由 $\eta<I_{\max}^{0}$，得 $z_\eta\in(-e^{-1},0)$。在此区间上，Lambert $W$ 函数的主实分支满足 $W_0(z)\in(-1,0)$，下实分支满足 $W_{-1}(z)<-1$（Corless 等\cite{Corless1996}）。$W_0$ 给出小于 $S_c$ 的根，对应 $I$ 下降时的交点。由式\eqref{eq:model:routine-orbit}，$I(S)$ 关于 $S$ 在 $[S_c,S_0]$ 上严格递减。由 $I(S_c)=I_{\max}^{0}>\eta>I_0=I(S_0)$，启动时的根唯一，取 $W_{-1}$ 分支即得式\eqref{eq:s1:Sstar-lambert}。
 
-(ii) 沿常规控制下的易感者方程 $\dot S=-\beta_1^0SI$ 分离变量，即得式\eqref{eq:s1:t1}。积分区间上 $I(S)\ge I_0>0$，被积函数为正且有界，又 $S^*<S_0$，所以 $0<t_1<\infty$。
+(ii) 由首次积分\eqref{eq:model:first-integral}，常规轨迹上 $I=I(S)$。代入常规控制下的易感者方程 $\dot S=-\beta_1^0SI$，分离变量后从 $S_0$ 积分到 $S^*$，即得式\eqref{eq:s1:t1}。积分区间上 $I(S)\ge I_0>0$，被积函数为正且有界，又 $S^*<S_0$，所以 $0<t_1<\infty$。
 \end{proof}
 
 启动时，按常规控制计算的有效再生数为 $S^*/S_c>1$。要在接触率保持 $c_0$ 时维持阈值，必须立即提高隔离比例。为求阈值控制期内的易感者轨迹，记
