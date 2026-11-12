@@ -36,15 +36,12 @@ z_\eta=-e^{-1}\exp\!\left[-\frac{I_{\max}^{0}-\eta}{\rho_1}\right],
 (ii) 由首次积分\eqref{eq:model:first-integral}，常规轨迹上 $I=I(S)$。代入常规控制下的易感者方程 $\dot S=-\beta_1^0SI$，分离变量后从 $S_0$ 积分到 $S^*$，即得式\eqref{eq:s1:t1}。积分区间上 $I(S)\ge I_0>0$，被积函数为正且有界，又 $S^*<S_0$，所以 $0<t_1<\infty$。
 \end{proof}
 
-由命题~\ref{prop:model:threshold-rationale}(i)，自 $t_1$ 起须加强干预。启动时按常规控制计算的有效再生数为 $S^*/S_c>1$，接触率保持 $c_0$ 时，只能立即提高隔离比例。为求阈值控制期内的易感者轨迹，记
+为写出阈值控制期内的易感者轨迹，记
 \begin{equation}
 \bar S=\frac{(1-\beta)\gamma N}{\beta c_0},\qquad
 \frac{\bar S}{S_c}=(1-\beta)(1-q_0)<1.
 \label{eq:s1:barS}
 \end{equation}
-$\bar S$ 的含义来自维持阈值的流量平衡。维持 $I=\eta$ 即保持 $R_e=1$，每名非隔离感染者单位时间平均引起 $\gamma$ 例未被隔离的新感染。未被追踪的易感接触者中，被感染与未被感染之比为 $\beta:(1-\beta)$，因此每名感染者单位时间另有 $(1-\beta)\gamma/\beta$ 次未被追踪的接触没有造成感染，这些易感者留在社区中。这股既未传播、也未被追踪的接触流合计为 $c_0\bar S\eta/N$，在整个阈值控制期内不变，$\bar S$ 就是它按常规接触率折算的易感者人数。比值 $\bar S/S_c=(1-\beta)(1-q_0)$ 则是常规控制下与易感者的接触中这类接触所占的比例。
-
-阈值控制期内，$S-\bar S$ 以速率 $c_0\eta/N$ 指数衰减。由于 $\bar S<S_c$，$S$ 在有限时间内降到 $S_c$。$S$ 的下降速度与 $S-\bar S$ 成正比：易感者越多，维持阈值所需的隔离比例越高，每名感染者的接触中被追踪隔离的未感染者也越多。
 \begin{theorem}
 \label{thm:s1:qc-structure}\label{thm:s1:platform}
 设条件\eqref{eq:model:trigger}成立，并固定 $c(t)=c_0$，则
@@ -86,7 +83,7 @@ q_0,&t>t_2
 (iii) 逐条验证定义~\ref{def:model:threshold-strategy}。由 (ii) 的证明，$q_0\le q_c(t)<1$，所以式\eqref{eq:s1:q-piecewise}给出的控制有界可测，在 $t_1$ 之前和 $t_2$ 之后都是 $(c_0,q_0)$，并且满足条件\eqref{eq:model:plateau-requirement}。把 $q_c(t)$ 代回原方程，式\eqref{eq:s1:S-analytic}与 $I=\eta$ 满足前两个方程及启动初值，其余仓室由线性方程或积分确定。由命题~\ref{prop:model:positive}中解的唯一性，该控制使 $[t_1,t_2]$ 上 $I\equiv\eta$。由式\eqref{eq:s1:S-analytic}，$S$ 严格递减，$t_2$ 是 $S$ 首次降到 $S_c$ 的时刻。因此该控制属于 $\mathcal A(\eta)$，阈值控制期为 $[t_1,t_2]$。
 \end{proof}
 
-定理~\ref{thm:s1:qc-structure}(iii) 中的 $q_c(t)$ 可以显式写出：
+易感者越多，维持阈值所需的隔离比例越高，被追踪隔离的未感染接触者越多，$S$ 因而下降越快。定理~\ref{thm:s1:qc-structure}(iii) 中的 $q_c(t)$ 可以显式写出：
 \begin{equation}
 \begin{split}
 q_c(t)
@@ -140,7 +137,7 @@ q_{\max}\le q_{\rm cap}
 
 \subsection{隔离比例的拐点}
 \label{sec:s1:shape}
-由推论~\ref{cor:s1:qc-structure}，隔离比例在阈值控制期内严格递减。本小节考察它在什么条件下有内部拐点，以及何时下降最快，即追踪隔离何时放松最急。记 $\nu=(1-\beta)(1-q_c)$，即非隔离感染者与易感者的接触中，既未传播、也未被追踪的比例。这些接触使对方仍留在社区，其余 $1-\nu$ 的接触使对方被感染或被隔离。由式\eqref{eq:s1:q-control}与\eqref{eq:s1:barS}，$\nu=\bar S/S$，再由式\eqref{eq:s1:S-analytic}，
+由推论~\ref{cor:s1:qc-structure}，隔离比例在阈值控制期内严格递减。本小节考察它在什么条件下有内部拐点，以及何时下降最快，即追踪隔离何时放松最急。记 $\nu=(1-\beta)(1-q_c)$，即非隔离感染者与易感者的接触中，未被追踪、也未造成感染的比例。这些接触使对方仍留在社区，其余 $1-\nu$ 的接触使对方被感染或被隔离。由式\eqref{eq:s1:q-control}与\eqref{eq:s1:barS}，$\nu=\bar S/S$，再由式\eqref{eq:s1:S-analytic}，
 \[
 \dot\nu=\frac{c_0\eta}{N}\,\nu(1-\nu).
 \]
