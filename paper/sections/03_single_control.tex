@@ -36,7 +36,7 @@ z_\eta=-e^{-1}\exp\!\left[-\frac{I_{\max}^{0}-\eta}{\rho_1}\right],
 (ii) 由首次积分\eqref{eq:model:first-integral}，常规轨迹上 $I=I(S)$。代入常规控制下的易感者方程 $\dot S=-\beta_1^0SI$，分离变量后从 $S_0$ 积分到 $S^*$，即得式\eqref{eq:s1:t1}。积分区间上 $I(S)\ge I_0>0$，被积函数为正且有界，又 $S^*<S_0$，所以 $0<t_1<\infty$。
 \end{proof}
 
-启动时，按常规控制计算的有效再生数为 $S^*/S_c>1$。要在接触率保持 $c_0$ 时维持阈值，必须立即提高隔离比例。为求阈值控制期内的易感者轨迹，记
+由命题~\ref{prop:model:threshold-rationale}(i)，自 $t_1$ 起须加强干预。启动时按常规控制计算的有效再生数为 $S^*/S_c>1$，接触率保持 $c_0$ 时，只能立即提高隔离比例。为求阈值控制期内的易感者轨迹，记
 \begin{equation}
 \bar S=\frac{(1-\beta)\gamma N}{\beta c_0},\qquad
 \frac{\bar S}{S_c}=(1-\beta)(1-q_0)<1.
@@ -73,7 +73,7 @@ q_0,&t>t_2
 \end{cases}
 \label{eq:s1:q-piecewise}
 \end{equation}
-使 $I(t)=\eta$ 对 $t_1\le t\le t_2$ 成立，且 $I(t)\le\eta$ 对一切 $t\ge0$ 成立。
+属于 $\mathcal A(\eta)$，阈值控制期为 $[t_1,t_2]$，期内 $I\equiv\eta$。
 \end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -81,9 +81,9 @@ q_0,&t>t_2
 \[
 \dot S=-\frac{c_0\eta}{N}(S-\bar S),\qquad S(t_1)=S^*,
 \]
-解此初值问题得式\eqref{eq:s1:S-analytic}。由定理~\ref{thm:s1:start}与式\eqref{eq:s1:barS}，$S^*>S_c>\bar S$，故 $S$ 严格递减。令 $S(t_2)=S_c$，即得式\eqref{eq:s1:t2}中的控制时长。在 $[S_c,S^*]$ 上，$q_c(S_c)=q_0$ 且 $q_0\le q_c(S)<1$，满足隔离比例的界限。
+解此初值问题得式\eqref{eq:s1:S-analytic}。由定理~\ref{thm:s1:start}与式\eqref{eq:s1:barS}，$S^*>S_c>\bar S$，故 $S$ 严格递减，首次降到 $S_c$ 的时刻 $t_2$ 由 $S(t_2)=S_c$ 确定，即得式\eqref{eq:s1:t2}中的控制时长。在 $[S_c,S^*]$ 上，$q_c(S_c)=q_0$ 且 $q_0\le q_c(S)<1$。
 
-(iii) 反过来，把所得的时间函数 $q_c(t)$ 代回原方程，式\eqref{eq:s1:S-analytic}与 $I=\eta$ 满足前两个方程及启动初值，其余仓室由线性方程或积分确定。由命题~\ref{prop:model:positive}中解的唯一性，该控制确实使 $[t_1,t_2]$ 上 $I\equiv\eta$。由 $t_1$ 的定义，启动前 $I<\eta$；退出时 $S=S_c$，由命题~\ref{prop:model:threshold-rationale}(ii)，退出后 $I\le\eta$。因此全程不超过阈值。
+(iii) 逐条验证定义~\ref{def:model:threshold-strategy}。由 (ii) 的证明，$q_0\le q_c(t)<1$，所以式\eqref{eq:s1:q-piecewise}给出的控制有界可测，在 $t_1$ 之前和 $t_2$ 之后都是 $(c_0,q_0)$，并且满足条件\eqref{eq:model:plateau-requirement}。把 $q_c(t)$ 代回原方程，式\eqref{eq:s1:S-analytic}与 $I=\eta$ 满足前两个方程及启动初值，其余仓室由线性方程或积分确定。由命题~\ref{prop:model:positive}中解的唯一性，该控制使 $[t_1,t_2]$ 上 $I\equiv\eta$。由式\eqref{eq:s1:S-analytic}，$S$ 严格递减，$t_2$ 是 $S$ 首次降到 $S_c$ 的时刻。因此该控制属于 $\mathcal A(\eta)$，阈值控制期为 $[t_1,t_2]$。
 \end{proof}
 
 定理~\ref{thm:s1:qc-structure}(iii) 中的 $q_c(t)$ 可以显式写出：
