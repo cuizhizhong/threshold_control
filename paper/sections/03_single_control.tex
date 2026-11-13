@@ -119,11 +119,14 @@ q_1=1-\frac{\gamma N}{\beta c_0S^*}>q_0,
 
 \subsection{隔离比例的拐点}
 \label{sec:s1:shape}
-由推论~\ref{cor:s1:qc-structure}，隔离比例在阈值控制期内严格递减。本小节考察它在什么条件下有内部拐点，以及何时下降最快，即追踪隔离何时放松最急。记 $\nu=(1-\beta)(1-q_c)$，即非隔离感染者与易感者的接触中，未被追踪、也未造成感染的比例。这些接触使对方仍留在社区，其余 $1-\nu$ 的接触使对方被感染或被隔离。由式\eqref{eq:s1:q-control}与\eqref{eq:s1:barS}，$\nu=\bar S/S$，再由式\eqref{eq:s1:S-analytic}，
+由推论~\ref{cor:s1:qc-structure}，隔离比例在阈值控制期内严格递减。本小节考察它何时下降最快，即追踪隔离何时放松最急。记 $\nu=(1-\beta)(1-q_c)$，即非隔离感染者与易感者的一次接触未被追踪、也未造成感染的概率，这样的接触使对方仍留在社区。由式\eqref{eq:s1:q-control}与\eqref{eq:s1:barS}，$\nu=\bar S/S$，再由式\eqref{eq:s1:S-analytic}，
 \[
 \dot\nu=\frac{c_0\eta}{N}\,\nu(1-\nu).
 \]
-因此 $\nu$ 在控制期内按 logistic 规律增长，在 $\nu=1/2$ 处增长最快。$q_c$ 是 $\nu$ 的线性减函数，所以只要 $\nu$ 在控制期内经过 $1/2$，隔离比例就在这一时刻下降最快，此时的隔离比例为 $\qinf=1-1/[2(1-\beta)]$。
+因此 $\nu$ 按 logistic 规律增长，而 $q_c=1-\nu/(1-\beta)$ 是 $\nu$ 的线性减函数，故 $q_c(t)$ 是一段反向的 logistic 曲线，至多在 $\nu=1/2$ 处有一个拐点。记该处的隔离比例为
+\[
+\qinf=1-\frac{1}{2(1-\beta)}.
+\]
 \begin{theorem}
 \label{thm:s1:inflection}
 设条件\eqref{eq:model:trigger}成立，$q_c(t)$ 为定理~\ref{thm:s1:qc-structure}中的隔离比例，则
