@@ -40,7 +40,7 @@
       "new4g_baseline_sha256": "10cda56cfca71407f2c695b6bd9c491a6ff8cafdf6079405838f0a5437543f38",
       "current_path": "paper/supplement_sections/S3_inflection.tex",
       "current_sha256": "10cda56cfca71407f2c695b6bd9c491a6ff8cafdf6079405838f0a5437543f38",
-      "current_content_sha256": "0ec8f14edc6b064e080a8a054bf7f8e14b2473065f02dc29372246af44e317c9"
+      "current_content_sha256": "a630f1bbabe55f93d019e150c6b73ddc7d1f592adebe0cb6301565953cc1c532"
     },
     "xian_S3": {
       "historical_path": "paper/supplement_sections/S3_xian.tex",
@@ -48,7 +48,7 @@
       "new4g_baseline_sha256": "104ecd6d90f9202f84c5be060062b19a867e757a90b15d14cf30e352698d5eb0",
       "current_path": "paper/supplement_sections/S6_xian.tex",
       "current_sha256": "6ef1a648e304e298c4b514be7265ea4d9d9d1fb5212558ad21da8493a51e5cfa",
-      "current_content_sha256": "b41a10c5686285b3d38edc7fe8132d4b1cdae9d6a380bfd6d540ee420dafaac6"
+      "current_content_sha256": "1afb5b6fafd64a31a23ab39dd24cd78fce8317debf4a6554c6ffe2a93edfe717"
     },
     "contact_S5": {
       "historical_path": "paper/supplement_sections/S5_contact.tex",
@@ -108,7 +108,7 @@
             "app:lambda"
           ],
           "current_sha256": "10cda56cfca71407f2c695b6bd9c491a6ff8cafdf6079405838f0a5437543f38",
-          "current_content_sha256": "0ec8f14edc6b064e080a8a054bf7f8e14b2473065f02dc29372246af44e317c9"
+          "current_content_sha256": "a630f1bbabe55f93d019e150c6b73ddc7d1f592adebe0cb6301565953cc1c532"
         }
       ]
     },
@@ -139,7 +139,7 @@
             "sec:sup:threshold-scale"
           ],
           "current_sha256": "6ef1a648e304e298c4b514be7265ea4d9d9d1fb5212558ad21da8493a51e5cfa",
-          "current_content_sha256": "b41a10c5686285b3d38edc7fe8132d4b1cdae9d6a380bfd6d540ee420dafaac6"
+          "current_content_sha256": "1afb5b6fafd64a31a23ab39dd24cd78fce8317debf4a6554c6ffe2a93edfe717"
         }
       ]
     },
