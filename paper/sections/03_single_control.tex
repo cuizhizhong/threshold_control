@@ -36,7 +36,11 @@ z_\eta=-e^{-1}\exp\!\left[-\frac{I_{\max}^{0}-\eta}{\rho_1}\right],
 (ii) 由首次积分\eqref{eq:model:first-integral}，常规轨迹上 $I=I(S)$。代入常规控制下的易感者方程 $\dot S=-\beta_1^0SI$，分离变量后从 $S_0$ 积分到 $S^*$，即得式\eqref{eq:s1:t1}。积分区间上 $I(S)\ge I_0>0$，被积函数为正且有界，又 $S^*<S_0$，所以 $0<t_1<\infty$。
 \end{proof}
 
-为写出阈值控制期内的易感者轨迹，记
+接触率保持 $c_0$ 时，由平衡式\eqref{eq:model:balance}，维持阈值所需的隔离比例只取决于 $S$。记
+\begin{equation}
+q_c(S)=1-\frac{\gamma N}{\beta c_0S},\qquad S_c\le S\le S^*,
+\label{eq:s1:q-control}
+\end{equation}
 \begin{equation}
 \bar S=\frac{(1-\beta)\gamma N}{\beta c_0},\qquad
 \frac{\bar S}{S_c}=(1-\beta)(1-q_0)<1.
@@ -44,46 +48,36 @@ z_\eta=-e^{-1}\exp\!\left[-\frac{I_{\max}^{0}-\eta}{\rho_1}\right],
 \end{equation}
 \begin{theorem}
 \label{thm:s1:qc-structure}\label{thm:s1:platform}
-设条件\eqref{eq:model:trigger}成立，并固定 $c(t)=c_0$，则
-\begin{enumerate}
-\renewcommand{\labelenumi}{(\roman{enumi})}
-\item 阈值控制期内保持 $I(t)=\eta$ 所需的隔离比例几乎处处唯一，为
+设条件\eqref{eq:model:trigger}成立，则 $\mathcal A(\eta)$ 中接触率恒为 $c_0$ 的控制存在且几乎处处唯一，即仅隔离控制。它的阈值控制期为 $[t_1,t_2]$，期内 $I\equiv\eta$，
 \begin{equation}
-q_c(S)=1-\frac{\gamma N}{\beta c_0S},\qquad S_c\le S\le S^*;
-\label{eq:s1:q-control}
-\end{equation}
-\item 相应的状态轨迹和控制时长为
-\begin{equation}
-S(t)=\bar S+(S^*-\bar S)e^{-c_0\eta(t-t_1)/N},\qquad I(t)=\eta,\qquad t_1\le t\le t_2,
+S(t)=\bar S+(S^*-\bar S)e^{-c_0\eta(t-t_1)/N},\qquad t_1\le t\le t_2,
 \label{eq:s1:S-analytic}
 \end{equation}
 \begin{equation}
-\Delta t=t_2-t_1=\frac{N}{c_0\eta}\ln\frac{S^*-\bar S}{S_c-\bar S};
+\Delta t=t_2-t_1=\frac{N}{c_0\eta}\ln\frac{S^*-\bar S}{S_c-\bar S},
 \label{eq:s1:t2}
 \end{equation}
-\item 以式\eqref{eq:s1:S-analytic}代入式\eqref{eq:s1:q-control}定义 $q_c(t)$，则完整控制
+隔离比例为
 \begin{equation}
-c(t)=c_0,\qquad q(t)=\begin{cases}
+q(t)=\begin{cases}
 q_0,&t<t_1,\\
-q_c(t),&t_1\le t\le t_2,\\
-q_0,&t>t_2
+q_c(S(t)),&t_1\le t\le t_2,\\
+q_0,&t>t_2.
 \end{cases}
 \label{eq:s1:q-piecewise}
 \end{equation}
-属于 $\mathcal A(\eta)$，阈值控制期为 $[t_1,t_2]$，期内 $I\equiv\eta$。
-\end{enumerate}
 \end{theorem}
 \begin{proof}
-(i)(ii) 由引理~\ref{lem:model:balance}，维持 $I=\eta$ 时式\eqref{eq:model:balance}几乎处处成立；取 $c=c_0$，即几乎处处唯一地解出式\eqref{eq:s1:q-control}。由式\eqref{eq:s1:barS}与\eqref{eq:s1:q-control}，$\beta+(1-\beta)q_c(S)=1-\bar S/S$，代入 $S$ 的方程得
+先设 $(c_0,q)\in\mathcal A(\eta)$。由引理~\ref{lem:model:balance}，阈值控制期内几乎处处有式\eqref{eq:model:balance}，取 $c=c_0$ 即得 $q=q_c(S)$。由式\eqref{eq:s1:q-control}与\eqref{eq:s1:barS}，$\beta+(1-\beta)q_c(S)=1-\bar S/S$，代入 $S$ 的方程得
 \[
 \dot S=-\frac{c_0\eta}{N}(S-\bar S),\qquad S(t_1)=S^*,
 \]
-解此初值问题得式\eqref{eq:s1:S-analytic}。由定理~\ref{thm:s1:start}与式\eqref{eq:s1:barS}，$S^*>S_c>\bar S$，故 $S$ 严格递减，首次降到 $S_c$ 的时刻 $t_2$ 由 $S(t_2)=S_c$ 确定，即得式\eqref{eq:s1:t2}中的控制时长。
+解此初值问题得式\eqref{eq:s1:S-analytic}。由定理~\ref{thm:s1:start}与式\eqref{eq:s1:barS}，$S^*>S_c>\bar S$，故 $S$ 严格递减，首次降到 $S_c$ 的时刻 $t_2$ 由 $S(t_2)=S_c$ 确定，即得式\eqref{eq:s1:t2}。再由定义~\ref{def:model:threshold-strategy}，$t_1$ 之前与 $t_2$ 之后 $q=q_0$，故 $q$ 几乎处处等于式\eqref{eq:s1:q-piecewise}。
 
-(iii) 逐条验证定义~\ref{def:model:threshold-strategy}。由式\eqref{eq:s1:q-control}，$q_c$ 关于 $S$ 严格递增，且 $q_c(S_c)=q_0$，故在 $[t_1,t_2]$ 上 $q_0\le q_c(t)<1$。所以式\eqref{eq:s1:q-piecewise}给出的控制有界可测，在 $t_1$ 之前和 $t_2$ 之后都是 $(c_0,q_0)$，并满足条件\eqref{eq:model:plateau-requirement}。把 $q_c(t)$ 代回原方程，式\eqref{eq:s1:S-analytic}与 $I=\eta$ 满足前两个方程及启动初值，其余仓室由线性方程或积分确定。由命题~\ref{prop:model:positive}中解的唯一性，该控制使 $[t_1,t_2]$ 上 $I\equiv\eta$。由 (ii) 的证明，$t_2$ 是 $S$ 首次降到 $S_c$ 的时刻。因此该控制属于 $\mathcal A(\eta)$，阈值控制期为 $[t_1,t_2]$。
+反过来验证式\eqref{eq:s1:q-piecewise}给出的控制属于 $\mathcal A(\eta)$。由式\eqref{eq:s1:q-control}，$q_c$ 关于 $S$ 严格递增，且 $q_c(S_c)=q_0$，故在 $[t_1,t_2]$ 上 $q_0\le q_c(S(t))<1$，该控制有界可测并满足条件\eqref{eq:model:plateau-requirement}。把它代回原方程，式\eqref{eq:s1:S-analytic}与 $I=\eta$ 满足前两个方程及启动初值，其余仓室由线性方程或积分确定；由命题~\ref{prop:model:positive}中解的唯一性，$[t_1,t_2]$ 上 $I\equiv\eta$。由上一段，$t_2$ 是 $S$ 首次降到 $S_c$ 的时刻。因此该控制属于 $\mathcal A(\eta)$，阈值控制期为 $[t_1,t_2]$。
 \end{proof}
 
-易感者越多，维持阈值所需的隔离比例越高，被追踪隔离的未感染接触者越多，$S$ 因而下降越快。定理~\ref{thm:s1:qc-structure}(iii) 中的 $q_c(t)$ 可以显式写出：
+易感者越多，维持阈值所需的隔离比例越高，被追踪隔离的未感染接触者越多，$S$ 因而下降越快。记 $q_c(t)=q_c(S(t))$，它可以显式写出：
 \begin{equation}
 \begin{split}
 q_c(t)
