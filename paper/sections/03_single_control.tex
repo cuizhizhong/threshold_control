@@ -208,7 +208,18 @@ t_{\rm end}=t_2+\frac{1}{\beta_1^0}\int_{S_{\rm end}}^{S_c}
 \]
 三段相加即得式\eqref{eq:s1:cumulative}。由定理~\ref{thm:s1:tend}(i)，$t\to\infty$ 时 $S(t)\to S_\infty$，退出后一段的累计新增感染因而以 $S_c-S_\infty$ 代替 $S_c-S_{\rm end}$，其余两段不变。
 \end{proof}
-式\eqref{eq:s1:cumulative}中两个常规阶段的累计新增感染对 $\mathcal A(\eta)$ 中的全部控制都相同。由式\eqref{eq:s1:t2}，阈值控制期的累计新增感染可写成 $\beta(S^*-S_c)+(1-\beta)\gamma\eta\Delta t$。前一项由启动和退出状态确定，后一项与控制时长成正比。第~\ref{sec:joint}~节将证明这一分解适用于 $\mathcal A(\eta)$ 中的任一控制，因而控制时长越短，阈值控制期的累计新增感染越少（式\eqref{eq:joint:cumulative}）。
+式\eqref{eq:s1:cumulative}中两个常规阶段的累计新增感染对 $\mathcal A(\eta)$ 中的全部控制都相同，控制组合只影响阈值控制期一项。这一项可以按控制时长分解。
+\begin{corollaryn}
+\label{cor:s1:threshold-infections}
+设条件\eqref{eq:model:trigger}成立，则仅隔离控制在阈值控制期的累计新增感染为
+\[
+\Itcum(t_2)-\Itcum(t_1)=\beta(S^*-S_c)+(1-\beta)\gamma\eta\Delta t.
+\]
+\end{corollaryn}
+\begin{proof}
+由定理~\ref{thm:s1:Itcum}的证明，左端等于 $\beta\bigl[S^*-S_c+\bar S\ln\frac{S^*-\bar S}{S_c-\bar S}\bigr]$。由式\eqref{eq:s1:t2}，$\ln\frac{S^*-\bar S}{S_c-\bar S}=c_0\eta\Delta t/N$；再由式\eqref{eq:s1:barS}，$\beta\bar Sc_0\eta/N=(1-\beta)\gamma\eta$，即得。
+\end{proof}
+前一项对全部控制相同，后一项与控制时长成正比。定理~\ref{thm:joint:comparison}将证明这一分解对 $\mathcal A(\eta)$ 中的任一控制都成立（式\eqref{eq:joint:cumulative}），因而控制时长越短，阈值控制期的累计新增感染越少。
 
 \subsection{参数的影响}
 \label{sec:scaling-theory}
@@ -243,7 +254,7 @@ t_{\rm end}=t_2+\frac{1}{\beta_1^0}\int_{S_{\rm end}}^{S_c}
 \end{proposition}
 证明见附录~\ref{sec:proof:threshold-tradeoff}。提高阈值后，启动时的易感者人数更接近退出所需的 $S_c$，在相同的 $S$ 处易感者的下降速率 $c_0\eta(S-\bar S)/N$ 也更大，两者都缩短控制期。较小的 $S^*$ 还使启动时所需的隔离比例降低，代价是阈值控制期内社区中的非隔离感染者更多。清零时间 $t_{\rm end}=t_1+\Delta t+(t_{\rm end}-t_2)$ 中，$t_1$ 随 $\eta$ 增加而 $\Delta t$ 随 $\eta$ 减少，其变化方向因而不定；在补充材料第~\ref{sec:sup:baseline-scan}~节的参数范围内，它随阈值提高而缩短。
 
-图~\ref{fig:scenario1_summary_eta}中，降低阈值使控制时长和成本成倍增加，总累计新增感染的降幅却较小。沿同一条曲线向左，阈值逐渐降低。$c_0=10$ 时把 $\eta/N$ 从 $2\%$ 降到 $0.2\%$，控制时长由 $15.04$ d 增至 $152.1$ d，二次干预强度成本也增大约十倍，总累计新增感染却只由 $233.8$ 人减至 $173.0$ 人。阈值控制期内新增感染速率 $\beta c_0S\eta/N$ 与 $\eta$ 成正比，控制时长却含因子 $N/(c_0\eta)$（式\eqref{eq:s1:t2}），二者在上一小节末的分解式 $(1-\beta)\gamma\eta\Delta t$ 中相消，所以总累计新增感染只通过 $S^*$ 与 $S_{\rm end}$ 依赖阈值（式\eqref{eq:s1:cumulative}）。图中四个常规接触率下均有这一取舍，控制时长与成本近似与阈值成反比。各指标随阈值与常规接触率的完整扫描及低阈值下的渐近行为见补充材料第~\ref{sec:sup:baseline-scan}~节。
+图~\ref{fig:scenario1_summary_eta}中，降低阈值使控制时长和成本成倍增加，总累计新增感染的降幅却较小。沿同一条曲线向左，阈值逐渐降低。$c_0=10$ 时把 $\eta/N$ 从 $2\%$ 降到 $0.2\%$，控制时长由 $15.04$ d 增至 $152.1$ d，二次干预强度成本也增大约十倍，总累计新增感染却只由 $233.8$ 人减至 $173.0$ 人。阈值控制期内新增感染速率 $\beta c_0S\eta/N$ 与 $\eta$ 成正比，控制时长却含因子 $N/(c_0\eta)$（式\eqref{eq:s1:t2}），二者在推论~\ref{cor:s1:threshold-infections}的 $(1-\beta)\gamma\eta\Delta t$ 中相消，所以总累计新增感染只通过 $S^*$ 与 $S_{\rm end}$ 依赖阈值（式\eqref{eq:s1:cumulative}）。图中四个常规接触率下均有这一取舍，控制时长与成本近似与阈值成反比。各指标随阈值与常规接触率的完整扫描及低阈值下的渐近行为见补充材料第~\ref{sec:sup:baseline-scan}~节。
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.9\textwidth]{figures/new4r/threshold_tradeoff.pdf}
