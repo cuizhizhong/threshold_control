@@ -158,6 +158,24 @@ def new4w_return14():
         assert all(v in ('satisfied', 'boundary_roundoff') for v in a['Q4_threshold'].values())
 
 
+def new4am_readings():
+    """NEW-4am（N41）：第 7.2 节新写出的两个西安读数，取自已登记的 results/new4w/xian_theta001.json，不新增计算。"""
+    src = 'new4w/xian_theta001.json'
+    w = load(src)
+    assert w['precheck']['ok'], 'xian_theta001.json 的预检未通过'
+    cut = 100 * w['region']['contact_line']
+    assert abs(w['region']['contact_line'] - (1 - 1 / w['start']['z_star'])) < 1e-12
+    add('nrXianCutContactPct', cut, fixed(cut, 1), '%', src, 'region.contact_line',
+        'xian（η = 0.001N）：仅减少接触在启动时须把接触率降低的百分比，100(1 - S_c/S^*)')
+    laws = w['laws']
+    d_inf = (laws['c_only']['total_to_clearance'] - laws['q_only']['total_to_clearance']) / 1e6
+    d_sq = (laws['q_only']['dSq'] - laws['c_only']['dSq']) / 1e6
+    assert abs(d_inf - d_sq) < 1e-6, (d_inf, d_sq)   # 控制期每少一例感染就多隔离一名未感染者；启动前与退出后两者相同
+    add('nrXianSingleDiffM', d_inf, fixed(d_inf, 2), '10^6 人', src,
+        'laws.c_only.total_to_clearance - laws.q_only.total_to_clearance（= laws.q_only.dSq - laws.c_only.dSq）',
+        'xian（η = 0.001N）：仅减少接触比仅隔离控制多出的总累计新增感染，也等于后者多隔离的未感染者人数')
+
+
 def main():
     ic = load('initial_condition.json')
     rows = {(r['law'], r['factor']): r for r in ic['rows']}
@@ -309,6 +327,7 @@ def main():
 
     new4w_overrides()
     new4w_return14()
+    new4am_readings()
 
     # 宏名不得与稿件中已有的定义重名
     existing = set()
@@ -332,7 +351,7 @@ def main():
     (RESULTS / 'new4w' / 'macros_identity.json').write_text(json.dumps(dict(
         path='paper/generated/nr_numbers.tex', raw_sha256=__import__('hashlib').sha256(raw).hexdigest(),
         content_sha256=content_sha256(raw), policy='sha256(bytes.replace(CRLF, LF)); preserve all other bytes',
-        authorization='AGENTS.md N33（NEW-4w）', n_macros=len(MACROS)), ensure_ascii=False, indent=1),
+        authorization='AGENTS.md N33（NEW-4w）；N41（NEW-4am）追加两个宏', n_macros=len(MACROS)), ensure_ascii=False, indent=1),
         encoding='utf-8', newline='\n')
     print(f'写出 {OUT_TEX.relative_to(ROOT)}：{len(MACROS)} 个宏')
 

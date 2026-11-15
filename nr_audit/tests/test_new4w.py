@@ -55,7 +55,9 @@ def test_table3_and_text_match_results(w3):
     assert (not cap['q_only_feasible']) and (not cap['c_only_feasible']) and cap['joint_feasible']
     assert rf"$J\approx {cap['J']:.2f}$ d、$\Delta t\approx {cap['dt']:.1f}$ d" in xt
     q = w3['laws']['q_only']
-    assert rf"约为 ${q['total_to_clearance'] / 1e6:.2f}\times10^6$ 人、清零时间约为 ${q['t_end']:.1f}$ d" in xt
+    # NEW-4am（N41）：第 7.3 节重写后的写法，数值不变
+    assert rf"仅隔离控制约 ${q['total_to_clearance'] / 1e6:.2f}\times10^6$ 人" in xt
+    assert rf"但要维持约 ${q['dt']:.0f}$ d，清零时间约 ${q['t_end']:.0f}$ d" in xt
     assert r'$0.001N=\num{13163}$' in xt and '0.002N' not in xt
 
 
@@ -75,9 +77,12 @@ def test_table4_matches_results(w3):
 def test_population_and_numerics_text(w3):
     pop = w3['population']
     xt, s6 = text('paper/sections/07_xian.tex'), text('paper/supplement_sections/S6_xian.tex')
+    # NEW-4am（N41）：六个人口规模的数值经作者授权不再入稿（第 7.5 节与补充 S6.1 的两段数值删去）；
+    # 结果文件只读保留，这里只核对结果本身与稿中不再出现相应文字。
+    assert round(pop['dt_max'] - pop['dt_min'], 4) == 0 and f"{pop['t1_min']:.2f}" == '10.70'
     for t in (xt, s6):
-        assert f"${pop['dt_min']:.2f}$ d" in t and f"${pop['t1_min']:.2f}$ d" in t and f"${pop['t1_max']:.2f}$ d" in t
-    assert round(pop['dt_max'] - pop['dt_min'], 4) == 0
+        assert f"${pop['t1_min']:.2f}$ d" not in t and 'prop:reference-population' not in t and 'sec:dominance' not in t
+    assert r'\label{prop:scaling}' in s6 and r'\lambda' not in s6.split(r'\end{proposition}')[0]
     s8 = text('paper/supplement_sections/S8_numerics.tex')
     assert f"隔离比例停在上限约 ${w3['capacity']['segments'][0]['duration']:.2f}$ d" in s8
     assert not w3['post_exit_upcross']
@@ -147,6 +152,13 @@ def test_new_figures_used_and_registered():
             r4 = json.loads(new4al.read_text(encoding='utf-8'))['figures']['fig:xian:joint']
             assert r4['current_pdf'] == 'paper/figures/new4w/Main8.pdf' and r4['reproduced_sha256'] == rec[key]['pdf_sha256']
             assert '{figures/new4al/Main8.pdf}' in text(tex)
+            continue
+        new4am = ROOT / 'nr_audit/results/new4am_scope.json'
+        if key == 'S8' and new4am.exists():
+            # NEW-4am（N41）：补充图 fig:xian_heatmaps 经作者授权不再入稿；图件字节只读保留
+            g = json.loads(new4am.read_text(encoding='utf-8'))['removed_figures']['S8']
+            assert g['pdf'] == f'paper/figures/new4w/{stem}.pdf' and g['pdf_sha256'] == rec[key]['pdf_sha256']
+            assert f'{{figures/new4w/{stem}.pdf}}' not in text(tex) and g['label'] not in text(tex)
             continue
         assert f'{{figures/new4w/{stem}.pdf}}' in text(tex)
     sp = rec['strategy_process']

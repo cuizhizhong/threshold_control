@@ -1,0 +1,84 @@
+{
+ "authorization": "AGENTS.md N41（NEW-4am）",
+ "pre_cut_tag": "pre-scope-cut-20261115",
+ "base_commit": "6c022c8",
+ "scientific_activity": {
+  "ode_solves": 0,
+  "optimization_solves": 0,
+  "fits": 0,
+  "redraws": 0
+ },
+ "current_inputs": {
+  "paper/flatten_curve_analysis_cn.tex": [
+   "paper/flatten_curve_analysis_cn.tex",
+   "paper/sections/01_introduction.tex",
+   "paper/sections/02_model.tex",
+   "paper/sections/03_single_control.tex",
+   "paper/sections/04_joint_control.tex",
+   "paper/sections/05_quadratic_cost.tex",
+   "paper/sections/06_numerics.tex",
+   "paper/sections/07_xian.tex",
+   "paper/sections/08_discussion.tex",
+   "paper/sections/09_conclusion.tex",
+   "paper/appendices/A_proofs_sensitivity.tex",
+   "paper/appendices/B_control_cost.tex"
+  ],
+  "paper/flatten_curve_supplement_cn.tex": [
+   "paper/flatten_curve_supplement_cn.tex",
+   "paper/supplement_sections/S1_medical.tex",
+   "paper/supplement_sections/S2_single_control.tex",
+   "paper/supplement_sections/S4_explicit_control.tex",
+   "paper/supplement_sections/S5_weight_structure.tex",
+   "paper/supplement_sections/S6_xian.tex",
+   "paper/supplement_sections/S7_return.tex",
+   "paper/supplement_sections/S8_numerics.tex"
+  ]
+ },
+ "archived_source": {
+  "path": "paper/supplement_sections/S3_inflection.tex",
+  "content_sha256": "a630f1bbabe55f93d019e150c6b73ddc7d1f592adebe0cb6301565953cc1c532",
+  "note": "原样保留，不再由补充主文件 \\input；恢复时加回该行并撤销三处连带改动"
+ },
+ "removed_figures": {
+  "S8": {
+   "label": "fig:xian_heatmaps",
+   "pdf": "paper/figures/new4w/S8.pdf",
+   "former_tex": "paper/supplement_sections/S6_xian.tex",
+   "pdf_sha256": "6d9a0c5336cb4586af5650cb972ad72162b60778658da3c6c4cb6d2682a6224b"
+  },
+  "S5": {
+   "label": "fig:s1:lambda-sensitivity",
+   "pdf": "paper/figures/new4t/S5.pdf",
+   "former_tex": "paper/supplement_sections/S3_inflection.tex",
+   "pdf_sha256": "0dcd29109522511158b582b8ed7bc09a3ef79345ed03fdcc519e9431762103ff"
+  }
+ },
+ "removed_statements": [
+  "prop:dom:floor",
+  "prop:reference-population",
+  "prop:s1:lambda-sensitivity"
+ ],
+ "removed_labels": [
+  "app:lambda",
+  "eq:dom:Nfloor",
+  "eq:lambda-q0-sign",
+  "eq:s1:lambda",
+  "eq:s1:lambda-q0-stationary",
+  "eq:small-threshold",
+  "fig:s1:lambda-sensitivity",
+  "fig:xian_heatmaps",
+  "prop:dom:floor",
+  "prop:reference-population",
+  "prop:s1:lambda-sensitivity",
+  "sec:dom:region",
+  "sec:dominance",
+  "sec:s1:inflection-position",
+  "sec:sup:baseline-contact-scan",
+  "sec:sup:inflection"
+ ],
+ "new_macros": [
+  "\\nrXianCutContactPct",
+  "\\nrXianSingleDiffM"
+ ],
+ "macro_source": "nr_audit/results/new4w/xian_theta001.json"
+}

@@ -71,6 +71,16 @@ def test_approved_bytes_and_current_manuscript_use(adopted, name):
     assert abs(out['size_mm'][0] - factor * WIDTH_MM) < .05
     assert out['width'] == (r'0.8\textwidth' if factor == .8 else r'\textwidth')
     text = (ROOT / out['tex']).read_text(encoding='utf-8')
+    new4am = SRC.HERE / 'results/new4am_scope.json'
+    gone = json.loads(new4am.read_text(encoding='utf-8')) if new4am.exists() else None
+    if gone and name in gone['removed_figures']:
+        # NEW-4am（N41）：经作者授权，该图不再入稿；图件字节与历史收据只读保留，现稿各输入文件中不再有其标签。
+        rec = gone['removed_figures'][name]
+        assert rec['label'] == out['label'] and digest((ROOT / rec['pdf']).read_bytes()) == rec['pdf_sha256']
+        current = [f for fs in gone['current_inputs'].values() for f in fs]
+        assert gone['archived_source']['path'] not in current
+        assert all(f"\\label{{{rec['label']}}}" not in (ROOT / f).read_text(encoding='utf-8') for f in current)
+        return
     new4w = SRC.HERE / 'results/new4w/figures.json'
     new4al = SRC.HERE / 'results/new4al_notation.json'
     rec4al = json.loads(new4al.read_text(encoding='utf-8'))['figures'].get(out['label']) if new4al.exists() else None

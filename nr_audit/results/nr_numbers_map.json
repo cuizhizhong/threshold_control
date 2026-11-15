@@ -1,8 +1,8 @@
 {
- "generated": "2026-10-28T14:14:01",
- "git_head": "8d7eb11ff2e77421777e10321ae923b80eb6ce3b",
+ "generated": "2026-11-15T18:12:26",
+ "git_head": "6c022c80824ea4755aa7287e6820df5a02354f45",
  "tex": "paper/generated/nr_numbers.tex",
- "n_macros": 154,
+ "n_macros": 156,
  "macros": [
   {
    "macro": "\\nrICtOneLow",
@@ -1389,6 +1389,24 @@
    "source": "nr_audit/results/new4w/return14_summary.json",
    "field": "cases.xian.*.U_Tcut_over_Sc（最大）",
    "meaning": "xian：各轨迹终止时 (S+S_q)/S_c 的最大值"
+  },
+  {
+   "macro": "\\nrXianCutContactPct",
+   "value": 77.28249330886025,
+   "display": "77.3",
+   "unit": "%",
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "region.contact_line",
+   "meaning": "xian（η = 0.001N）：仅减少接触在启动时须把接触率降低的百分比，100(1 - S_c/S^*)"
+  },
+  {
+   "macro": "\\nrXianSingleDiffM",
+   "value": 1.4915784342116494,
+   "display": "1.49",
+   "unit": "10^6 人",
+   "source": "nr_audit/results/new4w/xian_theta001.json",
+   "field": "laws.c_only.total_to_clearance - laws.q_only.total_to_clearance（= laws.q_only.dSq - laws.c_only.dSq）",
+   "meaning": "xian（η = 0.001N）：仅减少接触比仅隔离控制多出的总累计新增感染，也等于后者多隔离的未感染者人数"
   }
  ]
 }

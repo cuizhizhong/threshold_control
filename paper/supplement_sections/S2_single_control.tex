@@ -85,8 +85,6 @@ $\Delta t$ 在 $(c_{0,\min}(\eta),\infty)$ 内为正且连续，两端极限为�
 \label{sec:sup:baseline-scan}
 基准参数取自 Zhou 等\cite{Zhou2024SPCI}图 3 的示例。该例另设住院仓室，其非隔离感染者的自然康复率 $\gamma_I=0.1$ 与确诊率 $\delta_I=0.2504$ 之和对应本模型的移出率 $\gamma$；该例没有给出 $\delta_q$，取 $\delta_q=\gamma$。除 $c_0$ 与 $\eta/N$ 外，本小节参数取正文图~\ref{fig:scenario1:single-sim}的基准值。
 
-\subsubsection{常规接触率}
-\label{sec:sup:baseline-contact-scan}
 常规接触率对控制时长的影响不是单调的（命题~\ref{prop:contact-effects}，图~\ref{fig:scenario1_summary_c0}）。$c_0$ 越大，常规轨迹越早触及阈值，$S^*$ 与 $q_1$ 越高。在所考察的范围内，控制时长随 $c_0$ 先增后减，基准阈值 $\eta/N=5\%$ 下（图中未画出）在 $c_0\approx5.1$ 处取得数值极大值约 $7.579$ d。当 $c_0$ 不超过触发边界 $c_{0,\min}(\eta)$（式\eqref{eq:s1:c0-min-def}）时，无需加强干预。该边界随阈值升高，基准阈值下约为 $3.327$。相应的隔离比例轨迹与二维扫描见图~\ref{fig:baseline:q-joint}、\ref{fig:scenario1_heatmaps_c0_eta}。
 \begin{figure}[htbp]
 \centering
@@ -118,21 +116,5 @@ $\Delta t$ 在 $(c_{0,\min}(\eta),\infty)$ 内为正且连续，两端极限为�
 \caption{$(\eta/N,c_0)$ 平面上仅隔离控制的启动时间、控制时长、清零时间和累计新增感染，其余参数取基准值。黑色实线为触发边界 $c_{0,\min}(\eta)$，白色区域无需加强隔离；红色点划线为等值线，黑色数字为等值。}
 \label{fig:scenario1_heatmaps_c0_eta}
 \end{figure}
-
-\FloatBarrier
-\subsubsection{低阈值极限}
-记 $s=S/N$、$i=I/N$，并以 $s_0,i_0,s^*,s_c,\bar s$ 记 $S_0,I_0,S^*,S_c,\bar S$ 除以 $N$ 所得的值。阈值很低时，控制时长与成本按 $1/\theta$ 增长，但这一极限要求初值同时趋于零。固定 $i_0>0$ 时允许的阈值为 $\theta>i_0$，不能在这一问题中直接令 $\theta$ 趋于零。令 $i_0$ 与 $\theta$ 同时趋于零并保持 $0<i_0<\theta$，且 $s_0$ 趋于某个大于 $s_c$ 的固定值，则 $s^*$ 与 $s_0$ 趋于同一极限，从而
-\begin{equation}
-\Delta t\sim\frac1{c_0\theta}\ln\frac{s_0-\bar s}{s_c-\bar s},\qquad
-J\sim\frac{w_q}{c_0\theta}\int_{s_c}^{s_0}\frac{(1-s_c/s)^2}{s-\bar s}\,ds.
-\label{eq:small-threshold}
-\end{equation}
-由命题~\ref{prop:scaling}，$\Delta t$ 与 $J$ 只通过 $\theta$ 依赖于 $N$ 和 $\eta$，因此这一极限中可取 $N>1/\theta$，使正文约定的 $\eta>1$ 仍然成立。
-
-相反，固定 $i_0>0$ 时，$\theta$ 接近 $i_0$ 的控制几乎立即启动，控制时长有有限极限
-\[
-\lim_{\theta\to i_0^{+}}\Delta t=\frac1{c_0i_0}\ln\frac{s_0-\bar s}{s_c-\bar s}.
-\]
-因此，由控制时长或成本反推阈值只能在相应的值域内进行，初值与阈值同时趋于零的极限不能用于固定正初值的问题。
 
 \FloatBarrier
