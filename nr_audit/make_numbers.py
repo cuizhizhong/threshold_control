@@ -176,6 +176,28 @@ def new4am_readings():
         'xian（η = 0.001N）：仅减少接触比仅隔离控制多出的总累计新增感染，也等于后者多隔离的未感染者人数')
 
 
+def new4ap_readings():
+    """NEW-4ap（N44）：第 7.2 节图 8(b)(c) 的剖面读数，取自 plot_new4ap_fig8.py 写出的 results/new4ap_fig8.json。"""
+    src = 'new4ap_fig8.json'
+    d = load(src)
+    by = {r['r']: r for r in d['readings']}
+    j4 = by[4.0]['jumps']
+    assert len(j4) == 1 and j4[0]['kind'] == 'endpoint' and j4[0]['x_right'] == 1.0
+    z4 = j4[0]['z']
+    add('nrXianWtFourSwitch', z4, fixed(z4, 2), '', src, 'readings[r=4].jumps[0].z',
+        'xian：r = 4 时仅隔离段结束（由仅隔离控制跳入两者并用）处的 S/S_c')
+    cut4 = 100 * (1 - j4[0]['x_left'])
+    add('nrXianWtFourCutPct', cut4, fixed(cut4, 0), '%', src, '100(1 - readings[r=4].jumps[0].x_left)',
+        'xian：r = 4 时跳变后接触率比常规水平降低的百分比')
+    r10 = by[10.0]
+    assert not r10['quarantine_only_at_start'] and not r10['jumps']
+    cut10 = 100 * (1 - r10['start_c_over_c0'])
+    add('nrXianWtTenCutPct', cut10, fixed(cut10, 0), '%', src, '100(1 - readings[r=10].start_c_over_c0)',
+        'xian：r = 10 时启动时接触率比常规水平降低的百分比（没有仅隔离段）')
+    add('nrXianWtTenStartQ', r10['start_q'], fixed(r10['start_q'], 2), '', src, 'readings[r=10].start_q',
+        'xian：r = 10 时启动时的隔离比例')
+
+
 def main():
     ic = load('initial_condition.json')
     rows = {(r['law'], r['factor']): r for r in ic['rows']}
@@ -232,6 +254,12 @@ def main():
                     f"{case}：结构由 {b['from_']} 变为 {b['to']} 的 r 括区中点取两位小数（正文用语“约”，不是括区端点）")
 
     cv = load(CONV)
+    # NEW-4ap（N44）：稿件删去能力约束后，收敛宏只统计仍在稿中的轨迹，不计两组能力代表点（kind=cap、capacity=true 的行）；
+    # 结果文件本身不改。去掉后 nrConvPlateauMax、nrConvExitMax 变小，其余收敛宏不变。
+    cv['control_grid'] = [r for r in cv['control_grid'] if r['kind'] != 'cap']
+    cv['state_grid'] = [r for r in cv['state_grid'] if r['kind'] != 'cap']
+    cv['tolerance_tiers'] = [r for r in cv['tolerance_tiers'] if not r['capacity']]
+    assert len(cv['control_grid']) == len(cv['state_grid']) == 10
     tol = max(max(r['max_rel_change_vs_base'].values()) for r in cv['tolerance_tiers'] if r['law'] not in ('tdinn', 'routine'))
     add('nrConvTolMaxRel', tol, sci(tol, 1), '', CONV, 'max tolerance_tiers[阈值策略].max_rel_change_vs_base',
         '积分容差三档间核心量的最大相对变化（阈值策略的全部轨迹）')
@@ -328,6 +356,7 @@ def main():
     new4w_overrides()
     new4w_return14()
     new4am_readings()
+    new4ap_readings()
 
     # 宏名不得与稿件中已有的定义重名
     existing = set()
@@ -351,7 +380,7 @@ def main():
     (RESULTS / 'new4w' / 'macros_identity.json').write_text(json.dumps(dict(
         path='paper/generated/nr_numbers.tex', raw_sha256=__import__('hashlib').sha256(raw).hexdigest(),
         content_sha256=content_sha256(raw), policy='sha256(bytes.replace(CRLF, LF)); preserve all other bytes',
-        authorization='AGENTS.md N33（NEW-4w）；N41（NEW-4am）追加两个宏', n_macros=len(MACROS)), ensure_ascii=False, indent=1),
+        authorization='AGENTS.md N33（NEW-4w）；N41（NEW-4am）追加两个宏；N44（NEW-4ap）追加四个宏，收敛宏不再计入能力代表点', n_macros=len(MACROS)), ensure_ascii=False, indent=1),
         encoding='utf-8', newline='\n')
     print(f'写出 {OUT_TEX.relative_to(ROOT)}：{len(MACROS)} 个宏')
 

@@ -110,9 +110,10 @@ def test_capacity_points():
         assert pt['u_max'] == 0.5 and C.c_min / PR.CASES[case].c0 == 0.5
     num = (SRC.ROOT / 'paper/sections/06_numerics.tex').read_text(encoding='utf-8')
     xian = (SRC.ROOT / 'paper/sections/07_xian.tex').read_text(encoding='utf-8')
-    # NEW-4al（N40）：隔离比例上限的记号由 q_cap 改为 q_max
-    assert r'红点为代表能力组合 $c_{\min}/c_0=0.5$、$q_{\max}=0.6$' in num
-    assert r'红点为代表能力组合 $c_{\min}/c_0=0.5$、$q_{\max}=0.75$' in xian
+    # NEW-4al（N40）：隔离比例上限的记号由 q_cap 改为 q_max；NEW-4ap（N44）：删去能力约束后两图注不再入稿
+    present = not (SRC.HERE / 'results' / 'new4ap_scope.json').exists()
+    assert (r'红点为代表能力组合 $c_{\min}/c_0=0.5$、$q_{\max}=0.6$' in num) == present
+    assert (r'红点为代表能力组合 $c_{\min}/c_0=0.5$、$q_{\max}=0.75$' in xian) == present
 
 
 def test_reference_columns():

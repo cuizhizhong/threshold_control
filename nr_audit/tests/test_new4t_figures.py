@@ -84,6 +84,16 @@ def test_approved_bytes_and_current_manuscript_use(adopted, name):
     new4w = SRC.HERE / 'results/new4w/figures.json'
     new4al = SRC.HERE / 'results/new4al_notation.json'
     rec4al = json.loads(new4al.read_text(encoding='utf-8'))['figures'].get(out['label']) if new4al.exists() else None
+    new4ap = SRC.HERE / 'results/new4ap_scope.json'
+    rep4ap = json.loads(new4ap.read_text(encoding='utf-8'))['replaced_figures'] if new4ap.exists() else {}
+    if name in rep4ap:
+        # NEW-4ap（N44）：删去能力约束后图 8 改为权重相图加剖面，正式引用改为 figures/new4ap/；NEW-4al 图件只读保留。
+        rec = rep4ap[name]
+        assert rec['label'] == out['label'] and rec4al and rec['old_pdf'] == rec4al['pdf']
+        assert digest((ROOT / rec['old_pdf']).read_bytes()) == rec['old_pdf_sha256'] == rec4al['pdf_sha256']
+        assert digest((ROOT / rec['new_pdf']).read_bytes()) == rec['new_pdf_sha256']
+        assert f"{{{rec['new_pdf'].removeprefix('paper/')}}}" in text and f"\\label{{{out['label']}}}" in text
+        return
     if rec4al:
         # NEW-4al（N40）：隔离比例记号调换后只改坐标轴文字重绘，正式引用改为 figures/new4al/；被取代图件与收据只读保留。
         assert digest((ROOT / rec4al['current_pdf']).read_bytes()) == rec4al['current_pdf_sha256'] == rec4al['reproduced_sha256']

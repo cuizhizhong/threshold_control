@@ -1,6 +1,6 @@
 \section{联合控制}
 \label{sec:joint}
-第~\ref{sec:s1}~节固定接触率、只调整隔离比例。本节同时调整两种干预，研究它们在阈值控制期内应如何组合。阈值控制期内 $S$ 严格下降，因此可以用易感者人数代替时间：每个控制组合对应接触率的一个状态函数，控制时长化为对 $S$ 的积分，控制期的感染与隔离人数又由控制时长决定（第~\ref{sec:joint:objectives}~节）。本节及后文的最优控制都指阈值策略下的最优控制，即在 $\mathcal A(\eta)$ 或其能力约束下的控制类中取最优。
+第~\ref{sec:s1}~节固定接触率、只调整隔离比例。本节同时调整两种干预，研究它们在阈值控制期内应如何组合。阈值控制期内 $S$ 严格下降，因此可以用易感者人数代替时间：每个控制组合对应接触率的一个状态函数，控制时长化为对 $S$ 的积分，控制期的感染与隔离人数又由控制时长决定（第~\ref{sec:joint:objectives}~节）。本节及后文的最优控制都指阈值策略下的最优控制，即在 $\mathcal A(\eta)$ 中取最优。
 
 \subsection{状态参数化}
 \label{sec:joint:state}
@@ -38,48 +38,7 @@ t-t_1&=\frac{N}{\eta}\int_{S(t)}^{S^*}
 \item 选取满足式\eqref{eq:joint:contact-range}的逐点代表后，$c$ 与 $q$ 在 $t_2$ 处的左极限分别为 $c_0$ 与 $q_0$；若 $c_c(S)$ 连续，则两控制在阈值控制期内部连续。
 \end{enumerate}
 \end{theorem}
-证明见附录~\ref{sec:proof:representation}。
-
-现实中接触率不能无限压低，追踪隔离也有能力上限，本文把这两类限制统称为能力约束：接触率不低于 $c_{\min}$，隔离比例不超过 $q_{\max}$，其中 $0\le c_{\min}\le c_0$、$q_0\le q_{\max}<1$。能力约束只限制两种干预的强度，不限制调整速度。能力约束下的控制类为
-\[
-\mathcal A(\eta;c_{\min},q_{\max})
-=\left\{(c,q)\in\mathcal A(\eta):
-c(t)\ge c_{\min},\ q(t)\le q_{\max}
-\text{ 在 }[t_1,t_2]\text{ 上几乎处处成立}\right\}.
-\]
-由式\eqref{eq:joint:q}，给定 $S$ 后 $q$ 由 $c$ 唯一确定，因此两项能力约束把式\eqref{eq:joint:contact-range}收窄为逐状态区间 $[c^{-}(S),c^{+}(S)]$：
-\begin{equation}
-c^{-}(S)=\max\!\left\{c_{\min},\frac{c_0S_c}{S}\right\},\qquad
-c^{+}(S)=\min\!\left\{c_0,
-\frac{c_0(1-q_0)S_c}{(1-q_{\max})S}\right\}.
-\label{eq:joint:bounds}
-\end{equation}
-\begin{corollaryn}
-\label{cor:joint:feasibility}
-设条件\eqref{eq:model:trigger}成立，则
-\begin{enumerate}
-\renewcommand{\labelenumi}{(\roman{enumi})}
-\item 能力约束等价于 $c^{-}(S)\le c_c(S)\le c^{+}(S)$；
-\item $\mathcal A(\eta;c_{\min},q_{\max})$ 非空，即从 $S^*$ 到 $S_c$ 的整段阈值控制可行，当且仅当
-\begin{equation}
-\frac{\beta c_{\min}(1-q_{\max})S^*}{N}\le\gamma,
-\label{eq:joint:feasibility}
-\end{equation}
-或等价地 $c_{\min}(1-q_{\max})\le c_0(1-q_1)$，其中 $q_1$ 由式\eqref{eq:s1:qmax}给出。
-\end{enumerate}
-\end{corollaryn}
-\begin{proof}
-(i) 由 $c_c\ge c_{\min}$ 与式\eqref{eq:joint:contact-range}得下界 $c^{-}$。由式\eqref{eq:joint:q}，$q_c\le q_{\max}$ 等价于 $c_c(S)\le c_0(1-q_0)S_c/[(1-q_{\max})S]$，与式\eqref{eq:joint:contact-range}合起来得上界 $c^{+}$。
-
-(ii) 在 $S\in[S_c,S^*]$ 上已有 $c_0S_c/S\le c_0$、$c_0S_c/S\le c_0(1-q_0)S_c/[(1-q_{\max})S]$ 及 $c_{\min}\le c_0$，故只需检验
-\[
-c_{\min}\le\frac{c_0(1-q_0)S_c}{(1-q_{\max})S}.
-\]
-其最严格处为 $S=S^*$，即式\eqref{eq:joint:feasibility}。由式\eqref{eq:s1:qmax}，$\beta c_0(1-q_1)S^*/N=\gamma$，故该式等价于 $c_{\min}(1-q_{\max})\le c_0(1-q_1)$。条件成立时取 $c_c=(c^{-}+c^{+})/2$，由定理~\ref{thm:joint:representation}得到可行控制；条件不成立时，启动状态附近不存在允许控制。
-\end{proof}
-减少接触扩大了可行范围：仅隔离控制的隔离比例在启动时最高（推论~\ref{cor:s1:qc-structure}），其可行条件 $q_1\le q_{\max}$ 即 $c_0(1-q_{\max})\le c_0(1-q_1)$，而推论中的条件只是把左端的 $c_0$ 换成 $c_{\min}$。当 $q_{\max}<q_1$ 而式\eqref{eq:joint:feasibility}成立时，启动后的一段时间内必须同时减少接触：由式\eqref{eq:joint:bounds}，只要 $S>(1-q_0)S_c/(1-q_{\max})$，就有 $c^{+}(S)<c_0$。易感者降到这一水平以下后，$c_c=c_0$ 重新落入允许区间。若式\eqref{eq:joint:feasibility}不成立，等到 $I=\eta$ 才启动的阈值策略不可行；提前干预会改变启动状态，其可行性需另行分析。
-
-提高阈值使可行条件更容易满足。由引理~\ref{lem:s1:Sstar-sensitivity}，$S^*$ 随 $\eta$ 严格下降，式\eqref{eq:joint:feasibility}左端随之减小。因此，若某一阈值可行，则所有更高且仍触发控制的阈值都可行（其余参数与能力约束固定）。反过来，降低阈值使启动时的易感者人数 $S^*$ 增大，启动时所需的干预更强，可能超出能力约束。
+证明见附录~\ref{sec:proof:representation}。允许区间\eqref{eq:joint:contact-range}随 $S$ 增大而变宽，所以维持阈值所需的最强干预出现在启动时：由式\eqref{eq:joint:q}，任一控制的隔离比例都不超过仅隔离控制启动时的 $q_1$（式\eqref{eq:s1:qmax}），接触率的降幅都不超过仅减少接触启动时的 $1-S_c/S^*$。
 
 \subsection{显式控制族}
 把两种单控制的接触率状态函数按常数权重 $\alpha\in[0,1]$ 线性组合，得到一族显式控制：
@@ -88,7 +47,7 @@ c_c(S;\alpha)&=c_0\left[\alpha+(1-\alpha)\frac{S_c}{S}\right],\label{eq:joint:ex
 q_c(S;\alpha)&=1-\frac{(1-q_0)S_c}{S_c+\alpha(S-S_c)}.
 \label{eq:joint:explicit-q}
 \end{align}
-其中隔离比例由式\eqref{eq:joint:q}得到。$\alpha=0$ 为仅减少接触，$\alpha=1$ 为仅隔离控制；两端都满足式\eqref{eq:joint:contact-range}，它们的线性组合因而也满足。这一族的状态轨迹与控制时长都有闭式，它们与能力约束下 $\alpha$ 的允许范围见补充材料第~\ref{sec:sup:explicit}~节。第~\ref{sec:numerics}~节用 $\alpha=0.5$ 作对照；后文的最优控制则在全部满足式\eqref{eq:joint:contact-range}的 $c_c(S)$ 中求取。
+其中隔离比例由式\eqref{eq:joint:q}得到。$\alpha=0$ 为仅减少接触，$\alpha=1$ 为仅隔离控制；两端都满足式\eqref{eq:joint:contact-range}，它们的线性组合因而也满足。这一族的状态轨迹与控制时长都有闭式，见补充材料第~\ref{sec:sup:explicit}~节。第~\ref{sec:numerics}~节用 $\alpha=0.5$ 作对照；后文的最优控制则在全部满足式\eqref{eq:joint:contact-range}的 $c_c(S)$ 中求取。
 
 \subsection{不同目标的最优控制}
 \label{sec:joint:objectives}
@@ -143,26 +102,7 @@ S^*-S_c=\Itcum(t_2)-\Itcum(t_1)+S_q(t_2)-S_q(t_1),
 
 (iv) 由 $0<\beta<1$，式\eqref{eq:joint:cumulative}中 $\Delta t$ 的系数 $\gamma\eta(1-\beta)$ 为正，式\eqref{eq:joint:quarantine}中的系数 $-(1-\beta)\gamma\eta$ 为负，其余各项对所有控制相同。
 \end{proof}
-被追踪的接触者中比例 $\beta$ 已感染、$1-\beta$ 未感染，追踪隔离因而也把未感染者移出社区，加快 $S$ 的下降。控制越快，未被追踪的感染越少、被追踪的接触者越多，因而控制期感染越少、被隔离的未感染者越多；不考虑能力约束时，两端分别是仅隔离控制与仅减少接触。这两个单调关系依赖于两点。各控制在同一状态 $(S^*,\eta)$ 进入、在 $(S_c,\eta)$ 退出，$S$ 的总减少量因而相同；隔离易感者不返回社区，这一减少量因而只分为新感染者与被隔离的未感染者。
-\begin{corollaryn}
-\label{cor:joint:capped-comparison}
-设式\eqref{eq:joint:feasibility}成立，则
-\begin{enumerate}
-\renewcommand{\labelenumi}{(\roman{enumi})}
-\item $\mathcal A(\eta;c_{\min},q_{\max})$ 中的任一控制满足
-\begin{equation}
-\Delta t[c^{+}]\le\Delta t[c_c]\le\Delta t[c^{-}],
-\label{eq:joint:capped-duration}
-\end{equation}
-其中两端由式\eqref{eq:joint:duration}分别代入 $c^{+}(S)$、$c^{-}(S)$ 计算，均可达到，且达到左、右等号分别要求 $c_c=c^{+}$、$c_c=c^{-}$ 几乎处处成立；
-\item $c^{+}$ 与 $c^{-}$ 对应的控制分别使阈值控制期累计新增感染在该控制类中最少和最多。
-\end{enumerate}
-\end{corollaryn}
-\begin{proof}
-(i) 由推论~\ref{cor:joint:feasibility}(i)，可行控制满足 $c^{-}\le c_c\le c^{+}$；按定理~\ref{thm:joint:comparison}(i) 的方式在式\eqref{eq:joint:duration}中比较，即得式\eqref{eq:joint:capped-duration}及等号条件。两个边界函数连续且满足能力约束，由定理~\ref{thm:joint:representation}对应可行控制，故两端均可达到。
-
-(ii) 由 (i) 与定理~\ref{thm:joint:comparison}(iv) 得到。
-\end{proof}
+被追踪的接触者中比例 $\beta$ 已感染、$1-\beta$ 未感染，追踪隔离因而也把未感染者移出社区，加快 $S$ 的下降。控制越快，未被追踪的感染越少、被追踪的接触者越多，因而控制期感染越少、被隔离的未感染者越多；两端分别是仅隔离控制与仅减少接触。这两个单调关系依赖于两点。各控制在同一状态 $(S^*,\eta)$ 进入、在 $(S_c,\eta)$ 退出，$S$ 的总减少量因而相同；隔离易感者不返回社区，这一减少量因而只分为新感染者与被隔离的未感染者。
 \begin{corollaryn}
 \label{cor:joint:whole-epidemic}
 设两个允许控制在启动前及退出后均采用 $(c_0,q_0)$，并从同一初始状态首次到达同一阈值 $\eta$，则
@@ -177,24 +117,12 @@ t_{\rm end}^{(1)}-t_{\rm end}^{(2)}
 \label{eq:joint:whole-cumulative}
 \end{align}
 第二式对计算至无限时刻的累计新增感染同样成立；
-\item 设式\eqref{eq:joint:feasibility}成立，则在 $\mathcal A(\eta;c_{\min},q_{\max})$ 中，$c^{+}(S)$ 同时达到最短的控制时长、最早的清零时间和最少的全过程累计新增感染。
+\item 在 $\mathcal A(\eta)$ 中，仅隔离控制同时达到最短的控制时长、最早的清零时间和最少的总累计新增感染；仅减少接触同时达到最长的控制时长、最晚的清零时间和最多的总累计新增感染。
 \end{enumerate}
 \end{corollaryn}
 \begin{proof}
 (i) 两个控制在启动前相同，由命题~\ref{prop:model:positive}中解的唯一性，启动前两条轨迹相同，故 $t_1,S^*$ 相同。退出时的状态均为 $(S_c,\eta)$，由常规系统解的唯一性，退出后的 $S,I$ 轨迹只相差时间平移；因此两者从退出到 $I=1$ 所需的时间相同，退出后的新增感染积分也相同。消去两者共同的前后两段，再用式\eqref{eq:joint:cumulative}，即得所列等式。
 
-(ii) 由推论~\ref{cor:joint:capped-comparison}，$c^{+}$ 的控制时长最短，再由 (i) 即得。
+(ii) 由定理~\ref{thm:joint:comparison}(i)，仅隔离控制的控制时长最短，仅减少接触的最长，再由 (i) 即得。
 \end{proof}
-由以上两个推论，在能力约束下，以控制时长、清零时间或累计新增感染为目标的最优控制都是 $c^{+}(S)$。由式\eqref{eq:joint:quarantine}，它的代价是被隔离的未感染者最多，$c^{-}(S)$ 则使新增隔离易感者人数最少；两者都在几乎处处意义下唯一。两端之间的每个控制时长也都可以实现：取 $c_c=(1-x)c^{-}+xc^{+}$，控制时长随 $x\in[0,1]$ 连续变化。能力足够时，两端就是两种单控制。
-\begin{corollaryn}
-\label{cor:joint:single-endpoints}
-对能力约束下的控制类 $\mathcal A(\eta;c_{\min},q_{\max})$，
-\begin{enumerate}
-\renewcommand{\labelenumi}{(\roman{enumi})}
-\item 若 $q_{\max}\ge q_1$，则 $c^{+}(S)\equiv c_0$，因此无论 $c_{\min}$ 取何值，仅隔离控制都是该控制类中控制时长最短、累计新增感染最少的控制；
-\item 若 $c_{\min}\le c_0S_c/S^*$，则 $c^{-}(S)=c_0S_c/S$，因此无论 $q_{\max}$ 取何值，仅减少接触都使该控制类中的新增隔离易感者人数最少。
-\end{enumerate}
-\end{corollaryn}
-\begin{proof}
-由式\eqref{eq:s1:qmax}与\eqref{eq:model:Sc}，$1-q_1=(1-q_0)S_c/S^*$，故 $q_{\max}\ge q_1$ 等价于 $(1-q_{\max})S^*\le(1-q_0)S_c$，从而对 $S\le S^*$ 有 $c_0(1-q_0)S_c/[(1-q_{\max})S]\ge c_0$，由式\eqref{eq:joint:bounds}得 $c^{+}\equiv c_0$。若 $c_{\min}\le c_0S_c/S^*$，则对 $S\le S^*$ 有 $c_0S_c/S\ge c_{\min}$，故 $c^{-}(S)=c_0S_c/S$。两种情形下式\eqref{eq:joint:feasibility}都成立，其余结论由推论~\ref{cor:joint:capped-comparison}、\ref{cor:joint:whole-epidemic}与式\eqref{eq:joint:quarantine}得到。
-\end{proof}
+因此，以控制时长、清零时间或累计新增感染为目标的最优控制都是仅隔离控制。由式\eqref{eq:joint:quarantine}，它的代价是被隔离的未感染者最多，仅减少接触则使新增隔离易感者人数最少；由定理~\ref{thm:joint:comparison}(i) 的等号条件，两者都在几乎处处意义下唯一。两端之间的每个控制时长也都可以实现：取显式族，控制时长随 $\alpha\in[0,1]$ 连续变化。

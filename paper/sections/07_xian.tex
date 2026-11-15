@@ -66,7 +66,7 @@ $\eta$ & 阈值（人） & $0.001N=\num{13163}$ & 按重症监护床位与重症
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.25}
 \begin{threeparttable}
-\caption{西安参数下不考虑能力约束时四种控制的比较（$w_c=1,w_q=2$）}
+\caption{西安参数下四种控制的比较（$w_c=1,w_q=2$）}
 \label{tab:xian:joint-compare}
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccccc@{}}
 \toprule
@@ -84,13 +84,13 @@ $\eta$ & 阈值（人） & $0.001N=\num{13163}$ & 按重症监护床位与重症
 \end{threeparttable}
 \end{table}
 
-图~\ref{fig:xian:joint}(a) 给出能力约束下的可行区域。仅隔离控制可行要求 $q_{\max}\ge q_1\approx0.85$，仅减少接触可行要求接触率至少能降低约 $\nrXianCutContactPct\%$。代表能力组合（图中红点）两者都不满足，只有联合控制可行；能力约束下的成本最优控制给出 $J\approx 84.06$ d、$\Delta t\approx 234.4$ d，都高于表~\ref{tab:xian:joint-compare}中的值（启动后约 $61.64$ d 内隔离比例停在上限）。TDINN 重构的干预使隔离比例趋向约 $0.98$、接触率降低约 $73\%$（第~\ref{sec:xian:data}~节的控制函数）。以这两个值为能力上限时，仅隔离控制与成本最优控制都可行，只有仅减少接触所需的降幅略高于它。因此就强度而言，西安实际达到的干预足以实施阈值策略，差别在于要维持多久（第~\ref{sec:xian:threshold-scale}~节）。
+成本权重的界限低于基准算例（图~\ref{fig:xian:joint}(a)）。$r_{\rm cont}$ 与 $\hat r$ 只通过 $b=(1-\beta)(1-q_0)$ 依赖参数，$r_{\rm cont}$ 随 $b$ 增加（第~\ref{sec:joint:cost-structure}~节）。西安的常规隔离比例高，$b$ 较小，于是 $r_{\rm cont}\approx\nrCostRcontXian$、$\hat r\approx\nrCostRhatXian$，仅隔离段在 $r$ 超过约 $\nrWtXianBToCApx$ 后消失；基准算例中这三个值约为 $\nrCostRcontBase$、$\nrCostRhatBase$ 与 $\nrWtBaseBToCApx$。默认的 $r=2$ 仍满足定理~\ref{thm:joint:cost-structure}的条件。$r=1$ 时成本最优控制只比仅隔离控制节省约 $\nrCostGapOneXian\%$，因此隔离的相对代价不高于接触时，仅隔离控制在这组参数下也几乎不损失成本。
 
-成本权重的界限低于基准算例（图~\ref{fig:xian:joint}(b)）。$r_{\rm cont}$ 与 $\hat r$ 只通过 $b=(1-\beta)(1-q_0)$ 依赖参数，$r_{\rm cont}$ 随 $b$ 增加（第~\ref{sec:joint:cost-structure}~节）。西安的常规隔离比例高，$b$ 较小，于是 $r_{\rm cont}\approx\nrCostRcontXian$、$\hat r\approx\nrCostRhatXian$，仅隔离段在 $r$ 超过约 $\nrWtXianBToCApx$ 后消失；基准算例中这三个值约为 $\nrCostRcontBase$、$\nrCostRhatBase$ 与 $\nrWtBaseBToCApx$。默认的 $r=2$ 仍满足定理~\ref{thm:joint:cost-structure}的条件。$r=1$ 时成本最优控制只比仅隔离控制节省约 $\nrCostGapOneXian\%$，因此隔离的相对代价不高于接触时，仅隔离控制在这组参数下也几乎不损失成本。
+图~\ref{fig:xian:joint}(b)(c) 给出五个权重下的接触率与隔离比例，结构随权重的变化与基准算例相同（第~\ref{sec:joint:weights-numerics}~节）。$r=1,2$ 时控制连续，在 $S_{\rm sw}$ 处由仅隔离转为两者并用。$r=2.63$ 介于 $r_{\rm cont}$ 与 $\hat r$ 之间，仍在 $S_{\rm sw}$ 处连续地转入两者并用，随后在其稍下方跳变一次。$r=4$ 时仅隔离段提前到 $S/S_c\approx\nrXianWtFourSwitch$ 处结束，接触率在此一次降低约 $\nrXianWtFourCutPct\%$。$r=10$ 时没有仅隔离段，启动时接触率即降低约 $\nrXianWtTenCutPct\%$，隔离比例只升到约 $\nrXianWtTenStartQ$。权重增大时，每个状态上的接触率与隔离比例都不增，控制期不缩短（命题~\ref{prop:joint:weight-monotone}）：隔离的相对代价越高，控制越偏重减少接触。
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\textwidth]{figures/new4al/Main8.pdf}
-\caption{西安参数下的能力约束与成本权重。(a) 能力约束的可行区域，坐标与颜色同图~\ref{fig:joint:capacity}(a)，红点为代表能力组合 $c_{\min}/c_0=0.5$、$q_{\max}=0.75$。(b) 固定 $w_c=1$、改变 $r=w_q/w_c$ 时不考虑能力约束的成本最优控制，颜色、红色点划等高线、实线与标记同图~\ref{fig:joint:phase}(a)，黑色数字为等值，点线为默认权重 $r=2$。随时间推进，$S$ 从左向右减小。}
+\includegraphics[width=\textwidth]{figures/new4ap/Main8.pdf}
+\caption{西安参数下固定 $w_c=1$、改变 $r=w_q/w_c$ 时的成本最优控制。(a) 颜色、红色点划等高线、实线与标记同图~\ref{fig:joint:phase}(a)，黑色数字为等值，彩色虚线为 (b)(c) 所用的权重。(b)(c) 这些权重的接触率与隔离比例，竖直虚线为 $S_{\rm sw}/S_c$，竖直点线连接跳变两侧，点划线为 $q_0$。随时间推进，$S$ 从左向右减小。}
 \label{fig:xian:joint}
 \end{figure}
 
@@ -99,7 +99,7 @@ $\eta$ & 阈值（人） & $0.001N=\num{13163}$ & 按重症监护床位与重症
 \label{sec:xian:threshold-scale}
 TDINN 重构给出西安疫情中实际采取的干预。把它与阈值策略并列，是为了在同一组参数下比较压制与缓解各自的代价。TDINN 控制按拟合函数同时降低接触率、提高隔离比例，不把感染维持在某一阈值，也不要求在某一状态退出。阈值策略取仅隔离控制与成本最优控制，在 $I$ 首次达到 $\eta$ 时启动，在 $S=S_c$ 退出。常规控制始终取 $(c_0,q_0)$，是不加强干预的对照。四种策略从表~\ref{tab:xian_initial_fit}的同一初值出发，各自计算至清零时间（图~\ref{fig:xian:strategy-process}，表~\ref{tab:xian_summary}）。
 
-TDINN 控制强度高、持续短，阈值策略强度低、持续长（图~\ref{fig:xian:strategy-process}(b)(c)）。TDINN 控制同时使用两种高强度干预，有效再生数较快降到 $1$ 以下，清零时间约 $45$ d。仅隔离控制只需把有效再生数保持在 $1$，隔离比例最高约 $0.85$，此后随易感者减少而下降，但要维持约 $171$ d，清零时间约 $389$ d。成本最优控制在后期同时减少接触，$S$ 下降更慢，控制期约 $218$ d。
+TDINN 控制强度高、持续短，阈值策略强度低、持续长（图~\ref{fig:xian:strategy-process}(b)(c)）。TDINN 控制同时使用两种高强度干预，隔离比例趋向约 $0.98$、接触率降低约 $73\%$（第~\ref{sec:xian:data}~节的控制函数），有效再生数较快降到 $1$ 以下，清零时间约 $45$ d。仅隔离控制只需把有效再生数保持在 $1$，隔离比例最高约 $0.85$，此后随易感者减少而下降，但要维持约 $171$ d，清零时间约 $389$ d。成本最优控制在后期同时减少接触，$S$ 下降更慢，控制期约 $218$ d。就强度而言，TDINN 达到的干预足以实施阈值策略：仅隔离控制所需的隔离比例与成本最优控制后段的接触降幅都低于 TDINN 的水平，只有仅减少接触所需的降幅（约 $\nrXianCutContactPct\%$）略高于它。两类策略的差别不在强度，而在要维持多久。
 
 \begingroup
 \renewcommand{\topfraction}{0.9}

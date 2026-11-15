@@ -1,8 +1,8 @@
 {
  "path": "paper/generated/nr_numbers.tex",
- "raw_sha256": "86d5c44814f5f7f0cbef884b940e92b45995ea9e0dea341b9b343a9c5da6d18b",
- "content_sha256": "a375f37d293b899f6e36b459a11502fad3870ab31af0a2965793a3a4a4aecfde",
+ "raw_sha256": "45fd739930c40c5c87991b2b5e3ec867a3921a8301cbb46e081e7cdebed7b969",
+ "content_sha256": "f46c7049b3ed0b9059a245d0b6edb8bd93138de72e5983f56309470ba406e172",
  "policy": "sha256(bytes.replace(CRLF, LF)); preserve all other bytes",
- "authorization": "AGENTS.md N33（NEW-4w）；N41（NEW-4am）追加两个宏",
- "n_macros": 156
+ "authorization": "AGENTS.md N33（NEW-4w）；N41（NEW-4am）追加两个宏；N44（NEW-4ap）追加四个宏，收敛宏不再计入能力代表点",
+ "n_macros": 160
 }

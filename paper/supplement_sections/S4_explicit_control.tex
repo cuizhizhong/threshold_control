@@ -1,6 +1,6 @@
 \section{显式控制族}
 \label{sec:sup:explicit}
-正文式\eqref{eq:joint:explicit-c}--\eqref{eq:joint:explicit-q}定义了一族连接两种单控制的控制。本节给出这一族的状态轨迹、控制时长及能力约束下的允许范围。
+正文式\eqref{eq:joint:explicit-c}--\eqref{eq:joint:explicit-q}定义了一族连接两种单控制的控制。本节给出这一族的状态轨迹与控制时长。
 \begin{theorem}
 \label{thm:joint:explicit}
 设条件\eqref{eq:model:trigger}成立，考虑式\eqref{eq:joint:explicit-c}--\eqref{eq:joint:explicit-q}给出的显式族，则
@@ -47,19 +47,3 @@ S(t)=S^*-\frac{c_0\eta}{N}(S_c-\bar S)(t-t_1),\qquad
 结合 $\dot S<0$ 即得时间单调性。代入 $S=S_c$ 得到退出值，代入 $\alpha=0,1$ 分别恢复两种单控制。
 \end{proof}
 将上述 $S(t)$ 代入式\eqref{eq:joint:explicit-c}--\eqref{eq:joint:explicit-q}，即得到两个控制的时间表达。
-\begin{corollaryn}
-\label{cor:joint:allocation-range}
-设条件\eqref{eq:model:trigger}成立。在能力约束下，显式族中参数为 $\alpha$ 的控制可行，当且仅当
-\begin{equation}
-\max\!\left\{0,\frac{c_{\min}S^*-c_0S_c}{c_0(S^*-S_c)}\right\}
-\le\alpha\le
-\min\!\left\{1,\frac{S_c(q_{\max}-q_0)}{(1-q_{\max})(S^*-S_c)}\right\}.
-\label{eq:joint:allocation-range}
-\end{equation}
-该区间非空当且仅当式\eqref{eq:joint:feasibility}成立。
-\end{corollaryn}
-\begin{proof}
-由定理~\ref{thm:joint:explicit}(iii)，显式族中 $c$ 随时间不减、$q$ 不增，故只需在 $S=S^*$ 处检查 $c\ge c_{\min}$ 和 $q\le q_{\max}$。代入式\eqref{eq:joint:explicit-c}--\eqref{eq:joint:explicit-q}并与 $\alpha\in[0,1]$ 取交，得到式\eqref{eq:joint:allocation-range}。未截断的下界不超过 $1$，未截断的上界非负；二者的大小关系等价于
-$c_{\min}S^*\le c_0(1-q_0)S_c/(1-q_{\max})$，
-即式\eqref{eq:joint:feasibility}，故该区间与 $\mathcal A(\eta;c_{\min},q_{\max})$ 同时非空。
-\end{proof}

@@ -1,0 +1,111 @@
+{
+ "authorization": "AGENTS.md N44（NEW-4ap）",
+ "pre_cut_tag": "pre-capacity-cut-20261115",
+ "base_commit": "b1522b5",
+ "scientific_activity": {
+  "ode_solves": 0,
+  "fits": 0,
+  "phase_background_recomputed": false,
+  "new_computation": "图 8(b)(c) 五个权重的逐状态剖面，见 nr_audit/results/new4ap_fig8.json"
+ },
+ "current_inputs": {
+  "paper/flatten_curve_analysis_cn.tex": [
+   "paper/flatten_curve_analysis_cn.tex",
+   "paper/sections/01_introduction.tex",
+   "paper/sections/02_model.tex",
+   "paper/sections/03_single_control.tex",
+   "paper/sections/04_joint_control.tex",
+   "paper/sections/05_quadratic_cost.tex",
+   "paper/sections/06_numerics.tex",
+   "paper/sections/07_xian.tex",
+   "paper/sections/08_discussion.tex",
+   "paper/sections/09_conclusion.tex",
+   "paper/appendices/A_proofs_sensitivity.tex",
+   "paper/appendices/B_control_cost.tex"
+  ],
+  "paper/flatten_curve_supplement_cn.tex": [
+   "paper/flatten_curve_supplement_cn.tex",
+   "paper/supplement_sections/S1_medical.tex",
+   "paper/supplement_sections/S2_single_control.tex",
+   "paper/supplement_sections/S4_explicit_control.tex",
+   "paper/supplement_sections/S5_weight_structure.tex",
+   "paper/supplement_sections/S6_xian.tex",
+   "paper/supplement_sections/S7_return.tex",
+   "paper/supplement_sections/S8_numerics.tex"
+  ]
+ },
+ "removed_figures": {
+  "joint_capacity_baseline": {
+   "label": "fig:joint:capacity",
+   "pdf": "paper/figures/new4al/joint_capacity_baseline.pdf",
+   "former_tex": "paper/sections/06_numerics.tex",
+   "pdf_sha256": "cc7861deab095636e5823b32df3d5d6584d905620cfa240f314a97e1c3c99147"
+  }
+ },
+ "replaced_figures": {
+  "Main8": {
+   "label": "fig:xian:joint",
+   "old_pdf": "paper/figures/new4al/Main8.pdf",
+   "new_pdf": "paper/figures/new4ap/Main8.pdf",
+   "tex": "paper/sections/07_xian.tex",
+   "receipt": "nr_audit/results/new4ap_fig8.json",
+   "old_pdf_sha256": "257011cf1ebfd2e9df2b18676f78fd26f06e84a8f02daaac072e32d8b1309efa",
+   "new_pdf_sha256": "12166e5e753e0f7c385105ec1640af69e1efcebe2b669a8097d5d5a3bc6e6b32"
+  }
+ },
+ "removed_statements": [
+  "cor:joint:feasibility",
+  "cor:joint:capped-comparison",
+  "cor:joint:single-endpoints",
+  "cor:joint:capacity-clip",
+  "cor:joint:allocation-range"
+ ],
+ "removed_items": [
+  "prop:joint:global-structure(iv)",
+  "prop:joint:terminal-allocation(iii)",
+  "prop:joint:minimum-threshold(ii)"
+ ],
+ "removed_labels": [
+  "cor:joint:allocation-range",
+  "cor:joint:capacity-clip",
+  "cor:joint:capped-comparison",
+  "cor:joint:feasibility",
+  "cor:joint:single-endpoints",
+  "eq:joint:allocation-range",
+  "eq:joint:bounds",
+  "eq:joint:capacity-clip",
+  "eq:joint:capped-duration",
+  "eq:joint:feasibility",
+  "fig:joint:capacity",
+  "sec:joint:capacity-numerics"
+ ],
+ "removed_terms": [
+  "能力约束",
+  "不限制干预能力",
+  "干预能力有限",
+  "能力代表点",
+  "\\mathcal A(\\eta;",
+  "c^{+}(S)",
+  "c^{-}(S)",
+  "c_{\\min}",
+  "q_{\\max}",
+  "\\jointcapacitypostexitdays"
+ ],
+ "new_macros": [
+  "\\nrXianWtFourSwitch",
+  "\\nrXianWtFourCutPct",
+  "\\nrXianWtTenCutPct",
+  "\\nrXianWtTenStartQ"
+ ],
+ "changed_macros": {
+  "\\nrConvPlateauMax": [
+   "4.6\\times10^{-9}",
+   "1.3\\times10^{-9}"
+  ],
+  "\\nrConvExitMax": [
+   "1.8\\times10^{-7}",
+   "3.8\\times10^{-8}"
+  ]
+ },
+ "convergence_note": "收敛宏不再计入 new4w/convergence.json 中 kind=cap、capacity=true 的两组能力代表点，结果文件不改"
+}

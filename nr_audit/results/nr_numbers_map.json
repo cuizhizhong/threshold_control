@@ -1,8 +1,8 @@
 {
- "generated": "2026-11-15T18:12:26",
- "git_head": "6c022c80824ea4755aa7287e6820df5a02354f45",
+ "generated": "2026-11-15T22:30:48",
+ "git_head": "b1522b519372ec3d553cafe02a174e35d4c2bf80",
  "tex": "paper/generated/nr_numbers.tex",
- "n_macros": 156,
+ "n_macros": 160,
  "macros": [
   {
    "macro": "\\nrICtOneLow",
@@ -564,8 +564,8 @@
   },
   {
    "macro": "\\nrConvPlateauMax",
-   "value": 4.580215318128467e-09,
-   "display": "4.6\\times10^{-9}",
+   "value": 1.2951204553246498e-09,
+   "display": "1.3\\times10^{-9}",
    "unit": "人",
    "source": "nr_audit/results/new4w/convergence.json",
    "field": "max tolerance_tiers[阈值策略].residuals[*].plateau_abs_dev",
@@ -573,8 +573,8 @@
   },
   {
    "macro": "\\nrConvExitMax",
-   "value": 1.750010414358627e-07,
-   "display": "1.8\\times10^{-7}",
+   "value": 3.799605075016643e-08,
+   "display": "3.8\\times10^{-8}",
    "unit": "人",
    "source": "nr_audit/results/new4w/convergence.json",
    "field": "max |tolerance_tiers[阈值策略].residuals[*].exit_S_error|",
@@ -1407,6 +1407,42 @@
    "source": "nr_audit/results/new4w/xian_theta001.json",
    "field": "laws.c_only.total_to_clearance - laws.q_only.total_to_clearance（= laws.q_only.dSq - laws.c_only.dSq）",
    "meaning": "xian（η = 0.001N）：仅减少接触比仅隔离控制多出的总累计新增感染，也等于后者多隔离的未感染者人数"
+  },
+  {
+   "macro": "\\nrXianWtFourSwitch",
+   "value": 2.986504216815714,
+   "display": "2.99",
+   "unit": "",
+   "source": "nr_audit/results/new4ap_fig8.json",
+   "field": "readings[r=4].jumps[0].z",
+   "meaning": "xian：r = 4 时仅隔离段结束（由仅隔离控制跳入两者并用）处的 S/S_c"
+  },
+  {
+   "macro": "\\nrXianWtFourCutPct",
+   "value": 55.950503477952815,
+   "display": "56",
+   "unit": "%",
+   "source": "nr_audit/results/new4ap_fig8.json",
+   "field": "100(1 - readings[r=4].jumps[0].x_left)",
+   "meaning": "xian：r = 4 时跳变后接触率比常规水平降低的百分比"
+  },
+  {
+   "macro": "\\nrXianWtTenCutPct",
+   "value": 74.86737294658566,
+   "display": "75",
+   "unit": "%",
+   "source": "nr_audit/results/new4ap_fig8.json",
+   "field": "100(1 - readings[r=10].start_c_over_c0)",
+   "meaning": "xian：r = 10 时启动时接触率比常规水平降低的百分比（没有仅隔离段）"
+  },
+  {
+   "macro": "\\nrXianWtTenStartQ",
+   "value": 0.3880563302349951,
+   "display": "0.39",
+   "unit": "",
+   "source": "nr_audit/results/new4ap_fig8.json",
+   "field": "readings[r=10].start_q",
+   "meaning": "xian：r = 10 时启动时的隔离比例"
   }
  ]
 }

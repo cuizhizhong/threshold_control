@@ -1,0 +1,138 @@
+{
+ "generated": "2026-11-15T22:30:10",
+ "git_head": "b1522b519372ec3d553cafe02a174e35d4c2bf80",
+ "script": "nr_audit/plot_new4ap_fig8.py",
+ "authorization": "AGENTS.md N44（NEW-4ap）：作者 2026-11-15 决定删去能力约束，图 8 改为权重相图加两幅剖面",
+ "label": "fig:xian:joint",
+ "inputs": {
+  "nr_audit/results/new4w/xian_theta001.json": {
+   "sha256": "f8d2e752d6e0eb42d6043aee361ed908b901d8be0bd7a3ae5ab7dc24861786c1",
+   "content_sha256": "f8d2e752d6e0eb42d6043aee361ed908b901d8be0bd7a3ae5ab7dc24861786c1"
+  },
+  "nr_audit/results/new4w/xian_phase.npz": {
+   "sha256": "f161d67afe24cc972f9b4bd5d9224eca6bda3bc76287bee458ef9ddc2f9eedfb",
+   "content_sha256": "f161d67afe24cc972f9b4bd5d9224eca6bda3bc76287bee458ef9ddc2f9eedfb"
+  }
+ },
+ "code": {
+  "nr_audit/allocation.py": "ad1ba61f6d665519a7742ea994a1c3a267d19aab7aff3bc38c02c32bb9776801",
+  "nr_audit/plot_figure7_contour.py": "9c419cdbd5528d4bba094b218f6aa26f85868ca05ab2c1ae53d0ccb8b893cea2",
+  "nr_audit/plot_new4p_figures.py": "fe10a3515654a188efc03f3711d4b00902535db41a9c0dfe910ff83bbf97550a",
+  "nr_audit/preview_style_common.py": "02921e2fc21c85abbf5ba435c17602fc3d838b005cce5c3bf2e446fee313ba50",
+  "nr_audit/plot_xian_fig2_style.py": "4e5fd820b365d9efa946b93a4265590fc4a6ab11ddd6c20703f9cb2a672f0aca",
+  "nr_audit/params.py": "0db269fb16f92f2ee01f7a5d2586c38c683a906aecc732032c46c4620c74395f"
+ },
+ "scientific_activity": {
+  "ode_solves": 0,
+  "phase_background_recomputed": false,
+  "fits": 0,
+  "per_state_minimizations": 10000,
+  "note": "五个权重各 2000 个状态的逐状态有限比较（定理 5.1），另有 profile_jumps 的二分；不解 ODE"
+ },
+ "rep_weights": [
+  1.0,
+  2.0,
+  2.63,
+  4.0,
+  10.0
+ ],
+ "profile_points": 2001,
+ "case": {
+  "b": 0.5755854000000001,
+  "z_sw": 2.548250542570811,
+  "z_star": 4.401891517390941,
+  "r_cont": 2.5476956241561206,
+  "r_hat": 2.7089548638662406,
+  "r_C": 7.511379425954939
+ },
+ "zeta_j_closed_form_r263": 2.5277404343926966,
+ "readings": [
+  {
+   "r": 1.0,
+   "jumps": [],
+   "min_c_over_c0": 0.8622434482418988,
+   "z_at_min": 1.6446584425455832,
+   "start_c_over_c0": 1.0,
+   "start_q": 0.846202479700984,
+   "quarantine_only_at_start": true
+  },
+  {
+   "r": 2.0,
+   "jumps": [],
+   "min_c_over_c0": 0.7177778526480363,
+   "z_at_min": 1.9933523230781547,
+   "start_c_over_c0": 1.0,
+   "start_q": 0.846202479700984,
+   "quarantine_only_at_start": true
+  },
+  {
+   "r": 2.63,
+   "jumps": [
+    {
+     "z": 2.5277404343926957,
+     "x_left": 0.6846575377652755,
+     "x_right": 0.9370699362574042,
+     "kind": "internal"
+    }
+   ],
+   "min_c_over_c0": 0.6226732084133599,
+   "z_at_min": 2.309728234195512,
+   "start_c_over_c0": 1.0,
+   "start_q": 0.846202479700984,
+   "quarantine_only_at_start": true
+  },
+  {
+   "r": 4.0,
+   "jumps": [
+    {
+     "z": 2.986504216815714,
+     "x_left": 0.4404949652204718,
+     "x_right": 1.0,
+     "kind": "endpoint"
+    }
+   ],
+   "min_c_over_c0": 0.440634817975391,
+   "z_at_min": 2.9850037003976135,
+   "start_c_over_c0": 1.0,
+   "start_q": 0.846202479700984,
+   "quarantine_only_at_start": true
+  },
+  {
+   "r": 10.0,
+   "jumps": [],
+   "min_c_over_c0": 0.25132627053414336,
+   "z_at_min": 4.401891517390941,
+   "start_c_over_c0": 0.25132627053414336,
+   "start_q": 0.3880563302349951,
+   "quarantine_only_at_start": false
+  }
+ ],
+ "phase_checks": {
+  "r_cont": 2.5476956241561206,
+  "r_hat": 2.7089548638662406,
+  "r_C": 7.511379425954939,
+  "z_sw": 2.548250542570811,
+  "z_star": 4.401891517390941,
+  "gamma_points": 55,
+  "endpoint_tail": {
+   "last_sample": {
+    "z": 4.391532595464657,
+    "r": 7.48641242502682
+   },
+   "endpoint": {
+    "z": 4.401891517390941,
+    "r": 7.511379425954939
+   },
+   "z_extrapolated_at_r_C": 4.4018802687998795
+  }
+ },
+ "profiles_npz": {
+  "path": "nr_audit/results/new4ap_fig8_profiles.npz",
+  "sha256": "24c2c4350794bb1383d7f7de1b25f230db689149518d59f21207a175d7101e94"
+ },
+ "output": {
+  "pdf": "paper/figures/new4ap/Main8.pdf",
+  "pdf_sha256": "12166e5e753e0f7c385105ec1640af69e1efcebe2b669a8097d5d5a3bc6e6b32",
+  "replaces": "paper/figures/new4al/Main8.pdf（只读保留）"
+ }
+}

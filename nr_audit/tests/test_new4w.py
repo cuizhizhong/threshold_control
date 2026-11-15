@@ -9,6 +9,7 @@ from conftest import SRC
 
 ROOT = SRC.ROOT
 RES = SRC.HERE / 'results' / 'new4w'
+NEW4AP = SRC.HERE / 'results' / 'new4ap_scope.json'   # NEW-4ap（N44）：删去能力约束的收据
 
 
 @pytest.fixture(scope='module')
@@ -53,7 +54,8 @@ def test_table3_and_text_match_results(w3):
     assert rf"$S^*/S_c\approx {w3['start']['z_star']:.3f}$" in xt
     cap = w3['capacity']
     assert (not cap['q_only_feasible']) and (not cap['c_only_feasible']) and cap['joint_feasible']
-    assert rf"$J\approx {cap['J']:.2f}$ d、$\Delta t\approx {cap['dt']:.1f}$ d" in xt
+    # NEW-4ap（N44）：删去能力约束后，能力代表点的结果不再入稿；结果文件中的值不变
+    assert (rf"$J\approx {cap['J']:.2f}$ d、$\Delta t\approx {cap['dt']:.1f}$ d" in xt) == (not NEW4AP.exists())
     q = w3['laws']['q_only']
     # NEW-4am（N41）：第 7.3 节重写后的写法，数值不变
     assert rf"仅隔离控制约 ${q['total_to_clearance'] / 1e6:.2f}\times10^6$ 人" in xt
@@ -86,7 +88,8 @@ def test_population_and_numerics_text(w3):
     # NEW-4ao（N43）：能力约束起作用的前一段时长由补充 S8 末段移入第 7.2 节，数值不变。
     s8 = text('paper/supplement_sections/S8_numerics.tex')
     seg = f"{w3['capacity']['segments'][0]['duration']:.2f}"
-    assert seg == '61.64' and f"启动后约 ${seg}$ d 内隔离比例停在上限" in xt and seg not in s8
+    # NEW-4ap（N44）：第 7.2 节能力区域一段删去，该时长只留在结果文件中
+    assert seg == '61.64' and (f"启动后约 ${seg}$ d 内隔离比例停在上限" in xt) == (not NEW4AP.exists()) and seg not in s8
     assert not w3['post_exit_upcross']
 
 
@@ -149,6 +152,12 @@ def test_new_figures_used_and_registered():
         pdf = ROOT / f'paper/figures/new4w/{stem}.pdf'
         assert hashlib.sha256(pdf.read_bytes()).hexdigest() == rec[key]['pdf_sha256']
         new4al = ROOT / 'nr_audit/results/new4al_notation.json'
+        if key == 'Main8' and NEW4AP.exists():
+            # NEW-4ap（N44）：图 8 改为权重相图加剖面，正式引用改为 figures/new4ap/Main8.pdf；new4w、new4al 图件只读保留
+            rep = json.loads(NEW4AP.read_text(encoding='utf-8'))['replaced_figures']['Main8']
+            assert '{figures/new4ap/Main8.pdf}' in text(tex) and '{figures/new4al/Main8.pdf}' not in text(tex)
+            assert hashlib.sha256((ROOT / rep['new_pdf']).read_bytes()).hexdigest() == rep['new_pdf_sha256']
+            continue
         if key == 'Main8' and new4al.exists():
             # NEW-4al（N40）：图 8 只把纵轴记号 q_cap 改为 q_max 后重绘，正式引用改为 figures/new4al/Main8.pdf
             r4 = json.loads(new4al.read_text(encoding='utf-8'))['figures']['fig:xian:joint']

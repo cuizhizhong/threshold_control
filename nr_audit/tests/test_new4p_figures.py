@@ -28,6 +28,9 @@ PRE_NEW4W = 'ebb7df5'
 # NEW-4al（N40）：隔离比例两个记号调换后，图 5 与图 8 只改纵轴记号重绘到 figures/new4al/；被取代图件与收据只读保留。
 NEW4AL = SRC.HERE / 'results' / 'new4al_notation.json'
 SUPERSEDED_NEW4AL = {'joint_capacity_baseline': 'fig:joint:capacity', 'xian_joint': 'fig:xian:joint'}
+# NEW-4ap（N44）：删去能力约束，图 5 不再入稿，图 8 改为权重相图加剖面（figures/new4ap/）；NEW-4al 图件只读保留。
+NEW4AP = SRC.HERE / 'results' / 'new4ap_scope.json'
+SUPERSEDED_NEW4AP = SUPERSEDED_NEW4AL
 
 
 def xian_text():
@@ -70,7 +73,18 @@ def test_outputs_registered_and_used(receipt, name):
     assert abs(out['size_mm'][0] - width_mm) < 0.05
     text = (ROOT / tex).read_text(encoding='utf-8')
     adopted = SRC.HERE / 'results/new4t_figures.json'
-    if name in SUPERSEDED_NEW4AL and NEW4AL.exists():
+    if name in SUPERSEDED_NEW4AP and NEW4AP.exists():
+        scope = json.loads(NEW4AP.read_text(encoding='utf-8'))
+        rec = json.loads(NEW4AL.read_text(encoding='utf-8'))['figures'][SUPERSEDED_NEW4AP[name]]
+        assert sha((ROOT / rec['pdf']).read_bytes()) == rec['pdf_sha256'] and rec['pdf'].removeprefix('paper/') not in text
+        if name == 'joint_capacity_baseline':
+            assert scope['removed_figures'][name]['pdf_sha256'] == rec['pdf_sha256'] and 'fig:joint:capacity' not in text
+        else:
+            new = scope['replaced_figures']['Main8']
+            assert new['old_pdf_sha256'] == rec['pdf_sha256']
+            assert sha((ROOT / new['new_pdf']).read_bytes()) == new['new_pdf_sha256']
+            assert f"\\includegraphics[width={width}]{{{new['new_pdf'].removeprefix('paper/')}}}" in text
+    elif name in SUPERSEDED_NEW4AL and NEW4AL.exists():
         rec = json.loads(NEW4AL.read_text(encoding='utf-8'))['figures'][SUPERSEDED_NEW4AL[name]]
         assert sha((ROOT / rec['current_pdf']).read_bytes()) == rec['current_pdf_sha256'] == rec['reproduced_sha256']
         assert sha((ROOT / rec['pdf']).read_bytes()) == rec['pdf_sha256']
@@ -115,8 +129,10 @@ def test_capacity_points_match_text(receipt):
     assert (xian['point']['u_max'], xian['point']['q_cap']) == (0.5, 0.75)
     num = (ROOT / 'paper/sections/06_numerics.tex').read_text(encoding='utf-8')
     xt = xian_text()
-    assert f"J\\approx {base['J']:.3f}$ d、$\\Delta t\\approx {base['duration']:.2f}$ d" in num
-    assert f"J\\approx {xian['J']:.2f}$ d、$\\Delta t\\approx {xian['duration']:.1f}$ d" in xt
+    base_s = f"J\\approx {base['J']:.3f}$ d、$\\Delta t\\approx {base['duration']:.2f}$ d"
+    xian_s = f"J\\approx {xian['J']:.2f}$ d、$\\Delta t\\approx {xian['duration']:.1f}$ d"
+    # xian_text() 取 NEW-4w 之前的历史稿；NEW-4ap（N44）后基准代表点的结果不再入稿，收据中的值不变
+    assert xian_s in xt and (base_s in num) == (not NEW4AP.exists())
     assert base['q_required_quarantine_only'] > base['point']['q_cap'] and xian['q_required_quarantine_only'] > xian['point']['q_cap']
     assert base['u_required_contact_only'] > base['point']['u_max'] and xian['u_required_contact_only'] > xian['point']['u_max']
 
