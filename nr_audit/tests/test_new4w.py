@@ -83,8 +83,10 @@ def test_population_and_numerics_text(w3):
     for t in (xt, s6):
         assert f"${pop['t1_min']:.2f}$ d" not in t and 'prop:reference-population' not in t and 'sec:dominance' not in t
     assert r'\label{prop:scaling}' in s6 and r'\lambda' not in s6.split(r'\end{proposition}')[0]
+    # NEW-4ao（N43）：能力约束起作用的前一段时长由补充 S8 末段移入第 7.2 节，数值不变。
     s8 = text('paper/supplement_sections/S8_numerics.tex')
-    assert f"隔离比例停在上限约 ${w3['capacity']['segments'][0]['duration']:.2f}$ d" in s8
+    seg = f"{w3['capacity']['segments'][0]['duration']:.2f}"
+    assert seg == '61.64' and f"启动后约 ${seg}$ d 内隔离比例停在上限" in xt and seg not in s8
     assert not w3['post_exit_upcross']
 
 

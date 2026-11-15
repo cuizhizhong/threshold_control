@@ -126,7 +126,8 @@ def test_observed_fit_matches_text(receipt):
     of = receipt['checks']['xian_observed_fit']
     assert (of['observed_days'], of['observed_community'], of['observed_quarantine'], of['observed_total']) == (40, 583, 1467, 2050)
     s8 = (ROOT / 'paper/supplement_sections/S8_numerics.tex').read_text(encoding='utf-8')
-    assert f"在 $t=40$ d 为 ${of['model_total_40d']:.4f}$" in s8
+    # NEW-4ao（N43）：补充 S8 中 TDINN 在 t=40 d 与清零时的累计一句经作者同意删去；收据中的值不变，只核对它不再入稿。
+    assert f"{of['model_total_40d']:.4f}" == '2098.9747' and '2098.9747' not in s8
 
 
 def test_phase_panels_reuse_new4d_cache(receipt):

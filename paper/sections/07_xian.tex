@@ -84,7 +84,7 @@ $\eta$ & 阈值（人） & $0.001N=\num{13163}$ & 按重症监护床位与重症
 \end{threeparttable}
 \end{table}
 
-图~\ref{fig:xian:joint}(a) 给出能力约束下的可行区域。仅隔离控制可行要求 $q_{\max}\ge q_1\approx0.85$，仅减少接触可行要求接触率至少能降低约 $\nrXianCutContactPct\%$。代表能力组合（图中红点）两者都不满足，只有联合控制可行；能力约束下的成本最优控制给出 $J\approx 84.06$ d、$\Delta t\approx 234.4$ d，都高于表~\ref{tab:xian:joint-compare}中的值（各段时长见补充材料第~\ref{sec:sup:numerics}~节）。TDINN 重构的干预使隔离比例趋向约 $0.98$、接触率降低约 $73\%$（第~\ref{sec:xian:data}~节的控制函数）。以这两个值为能力上限时，仅隔离控制与成本最优控制都可行，只有仅减少接触所需的降幅略高于它。因此就强度而言，西安实际达到的干预足以实施阈值策略，差别在于要维持多久（第~\ref{sec:xian:threshold-scale}~节）。
+图~\ref{fig:xian:joint}(a) 给出能力约束下的可行区域。仅隔离控制可行要求 $q_{\max}\ge q_1\approx0.85$，仅减少接触可行要求接触率至少能降低约 $\nrXianCutContactPct\%$。代表能力组合（图中红点）两者都不满足，只有联合控制可行；能力约束下的成本最优控制给出 $J\approx 84.06$ d、$\Delta t\approx 234.4$ d，都高于表~\ref{tab:xian:joint-compare}中的值（启动后约 $61.64$ d 内隔离比例停在上限）。TDINN 重构的干预使隔离比例趋向约 $0.98$、接触率降低约 $73\%$（第~\ref{sec:xian:data}~节的控制函数）。以这两个值为能力上限时，仅隔离控制与成本最优控制都可行，只有仅减少接触所需的降幅略高于它。因此就强度而言，西安实际达到的干预足以实施阈值策略，差别在于要维持多久（第~\ref{sec:xian:threshold-scale}~节）。
 
 成本权重的界限低于基准算例（图~\ref{fig:xian:joint}(b)）。$r_{\rm cont}$ 与 $\hat r$ 只通过 $b=(1-\beta)(1-q_0)$ 依赖参数，$r_{\rm cont}$ 随 $b$ 增加（第~\ref{sec:joint:cost-structure}~节）。西安的常规隔离比例高，$b$ 较小，于是 $r_{\rm cont}\approx\nrCostRcontXian$、$\hat r\approx\nrCostRhatXian$，仅隔离段在 $r$ 超过约 $\nrWtXianBToCApx$ 后消失；基准算例中这三个值约为 $\nrCostRcontBase$、$\nrCostRhatBase$ 与 $\nrWtBaseBToCApx$。默认的 $r=2$ 仍满足定理~\ref{thm:joint:cost-structure}的条件。$r=1$ 时成本最优控制只比仅隔离控制节省约 $\nrCostGapOneXian\%$，因此隔离的相对代价不高于接触时，仅隔离控制在这组参数下也几乎不损失成本。
 \begin{figure}[htbp]
