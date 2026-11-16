@@ -222,29 +222,6 @@ $c^3(cS-c_0\bar S)^2/S$，驻点方程化为
 该多项式最高次系数为 $w_c/c_0^2>0$，至多有五个实根。连续可微函数在闭区间上的最小点只能是端点或内部驻点。
 \end{proof}
 
-\subsection{端点的局部性质}
-\label{sec:proof:endpoint-properties}
-本小节证明命题~\ref{prop:joint:global-structure}。
-\begin{proof}
-(i)(ii) 记 $n(c)=w_c(1-c/c_0)^2+w_q(1-c_0S_c/(cS))^2$。$f$ 关于 $c$ 的导数与
-\[
-n'(c)(cS-c_0\bar S)-S n(c)
-\]
-同号。在左端点 $c=c_0S_c/S$，该量为
-\[
--2w_c\left(1-\frac{S_c}{S}\right)(S_c-\bar S)
--Sw_c\left(1-\frac{S_c}{S}\right)^2<0,
-\]
-故向允许区间内部增大 $c$ 即可降低成本，得 (i)。在右端点 $c=c_0$，该量为
-\[
--\frac{w_q}{S}\left(1-\frac{S_c}{S}\right)
-\bigl(S^2-3S_cS+2S_c\bar S\bigr).
-\]
-由 $\bar S<S_c$，括号内二次式的较小根小于 $S_c$，较大根为 $S_{\rm sw}$，所以该量在 $S>S_{\rm sw}$ 时为负，在 $S_c<S<S_{\rm sw}$ 时为正；前者表示 $f(S,\cdot)$ 在 $c_0$ 左侧附近严格减，$c_0$ 是严格局部最小点；后者表示严格增，$c_0$ 不是局部最小点。这就是 (ii)。
-
-(iii) 由定理~\ref{thm:joint:cost-minimum}(ii)，成本最优控制几乎处处取逐状态最小点；由 (i)(ii)，它不取左端点，在 $S_c<S<\min\{S_{\rm sw},S^*\}$ 上也不取右端点，故得 (iii) 的两条结论。
-\end{proof}
-
 \subsection{退出附近的控制组合}
 \label{sec:proof:terminal-allocation}
 本小节证明命题~\ref{prop:joint:terminal-allocation}。
@@ -361,17 +338,6 @@ E(p,p)=r\varphi(p),\qquad
 [G(p_1;\zeta_2)-G(p_2;\zeta_2)]-[G(p_1;\zeta_1)-G(p_2;\zeta_1)]\ge0,
 \]
 而左侧等于 $\int_{\zeta_1}^{\zeta_2}\int_{p_2}^{p_1}G_{p\zeta}\,dp\,d\zeta<0$，矛盾。故 $p^*$ 随 $\zeta$ 不减，$q^*=1-(1-q_0)/p^*$ 亦然；阈值控制期内 $S$ 严格减，所以隔离比例随时间不增。
-\end{proof}
-
-\subsection{阈值的影响}
-\label{sec:proof:minimum-threshold}
-本小节证明命题~\ref{prop:joint:minimum-threshold}。
-\begin{proof}
-记 $m(S)=\min_{c_0S_c/S\le c\le c_0}f(S,c)$。被积函数与允许区间都不含 $\eta$，$m$ 连续；对 $S>S_c$，两项强度不能同时为零，故 $m(S)>0$。因此
-\[
-J_{\min}(\eta)=\frac{N}{\eta}\int_{S_c}^{S^*(\eta)}m(S)\,dS.
-\]
-由引理~\ref{lem:s1:Sstar-sensitivity}，$S^*$ 随 $\eta$ 严格减。对两个触发控制的阈值 $\eta_1<\eta_2$，有 $N/\eta_1>N/\eta_2$ 与 $S^*(\eta_1)>S^*(\eta_2)$，又 $m>0$，故 $J_{\min}(\eta_1)>J_{\min}(\eta_2)$。把较低阈值下的逐状态最小化选择限制到较高阈值经过的区间上，它在每个状态仍达到 $m(S)$，即得兼容的成本最优控制。
 \end{proof}
 
 \Needspace{12\baselineskip}

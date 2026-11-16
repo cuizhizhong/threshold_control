@@ -77,7 +77,26 @@ $b$ 是常规控制下非隔离感染者与易感者的一次接触未被追踪�
 \item 因此，$\mathcal A(\eta)$ 中的任一成本最优控制在几乎所有 $S\in(S_c,S^*]$ 上满足 $q_c^*(S)>q_0$，在几乎所有 $S\in(S_c,\min\{S_{\rm sw},S^*\})$ 上满足 $c_0S_c/S<c_c^*(S)<c_0$，即两种措施同时强于常规水平；
 \end{enumerate}
 \end{proposition}
-证明见附录~\ref{sec:proof:endpoint-properties}。前述两个一阶效应都与 $w_q$ 成正比，所以 $S_{\rm sw}$ 与权重无关；$S=S_{\rm sw}$ 时二者相抵，命题在此不作分类。(i) 的原因与此对称：在仅减少接触处，隔离项的成本及其导数都为零，略微加强隔离既减轻了接触限制，又加快 $S$ 的下降，总是降低成本。(ii) 只是局部结论，定理~\ref{thm:joint:cost-structure}在 $r\le r_{\rm cont}$ 时把它加强为全局最优。
+\begin{proof}
+(i)(ii) 记 $n(c)=w_c(1-c/c_0)^2+w_q(1-c_0S_c/(cS))^2$。$f$ 关于 $c$ 的导数与
+\[
+n'(c)(cS-c_0\bar S)-S n(c)
+\]
+同号。在左端点 $c=c_0S_c/S$，该量为
+\[
+-2w_c\left(1-\frac{S_c}{S}\right)(S_c-\bar S)
+-Sw_c\left(1-\frac{S_c}{S}\right)^2<0,
+\]
+故向允许区间内部增大 $c$ 即可降低成本，得 (i)。在右端点 $c=c_0$，该量为
+\[
+-\frac{w_q}{S}\left(1-\frac{S_c}{S}\right)
+\bigl(S^2-3S_cS+2S_c\bar S\bigr).
+\]
+由 $\bar S<S_c$，括号内二次式的较小根小于 $S_c$，较大根为 $S_{\rm sw}$，所以该量在 $S>S_{\rm sw}$ 时为负，在 $S_c<S<S_{\rm sw}$ 时为正；前者表示 $f(S,\cdot)$ 在 $c_0$ 左侧附近严格减，$c_0$ 是严格局部最小点；后者表示严格增，$c_0$ 不是局部最小点。这就是 (ii)。
+
+(iii) 由定理~\ref{thm:joint:cost-minimum}(ii)，成本最优控制几乎处处取逐状态最小点；由 (i)(ii)，它不取左端点，在 $S_c<S<\min\{S_{\rm sw},S^*\}$ 上也不取右端点，故得 (iii) 的两条结论。
+\end{proof}
+前述两个一阶效应都与 $w_q$ 成正比，所以 $S_{\rm sw}$ 与权重无关；$S=S_{\rm sw}$ 时二者相抵，命题在此不作分类。(i) 的原因与此对称：在仅减少接触处，隔离项的成本及其导数都为零，略微加强隔离既减轻了接触限制，又加快 $S$ 的下降，总是降低成本。(ii) 只是局部结论，定理~\ref{thm:joint:cost-structure}在 $r\le r_{\rm cont}$ 时把它加强为全局最优。
 
 补充命题~\ref*{prop:sup:jump}证明，对任意权重，成本最优控制在阈值控制期内部至多跳变一次，跳变时接触率与隔离比例同时下降。$r>r_{\rm cont}$ 时状态反馈函数恰有一次跳变，所以定理~\ref{thm:joint:cost-structure}的权重界限不能放宽；跳变位置随权重的变化见第~\ref{sec:joint:weights-numerics}~节。
 
@@ -117,7 +136,13 @@ $b$ 是常规控制下非隔离感染者与易感者的一次接触未被追踪�
 \label{prop:joint:minimum-threshold}
 固定 $N,S_0,I_0,\beta,\gamma,c_0,q_0$，记 $J_{\min}(\eta)$ 为阈值 $\eta$ 下式\eqref{eq:joint:minimum-cost}的最小值。则在控制被触发的阈值范围内，$J_{\min}$ 随 $\eta$ 严格下降；对其中任意两个阈值，可以选取成本最优控制，使二者在共同经过的易感者状态上取相同的 $c_c^*(S)$ 与 $q_c^*(S)$。
 \end{proposition}
-证明见附录~\ref{sec:proof:minimum-threshold}。
+\begin{proof}
+记 $m(S)=\min_{c_0S_c/S\le c\le c_0}f(S,c)$。被积函数与允许区间都不含 $\eta$，$m$ 连续；对 $S>S_c$，两项强度不能同时为零，故 $m(S)>0$。因此
+\[
+J_{\min}(\eta)=\frac{N}{\eta}\int_{S_c}^{S^*(\eta)}m(S)\,dS.
+\]
+由引理~\ref{lem:s1:Sstar-sensitivity}，$S^*$ 随 $\eta$ 严格减。对两个触发控制的阈值 $\eta_1<\eta_2$，有 $N/\eta_1>N/\eta_2$ 与 $S^*(\eta_1)>S^*(\eta_2)$，又 $m>0$，故 $J_{\min}(\eta_1)>J_{\min}(\eta_2)$。把较低阈值下的逐状态最小化选择限制到较高阈值经过的区间上，它在每个状态仍达到 $m(S)$，即得兼容的成本最优控制。
+\end{proof}
 
 成本权重的影响不需要单峰性也可以确定。
 \begin{proposition}
