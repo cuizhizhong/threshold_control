@@ -61,7 +61,7 @@ B$\to$C & 仅隔离段消失 & — & $[\nrWtBaseBToCLo,\nrWtBaseBToCHi]$ & — &
 \bottomrule
 \end{tabular*}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：$w_c=1$，$r=w_q/w_c$。结构 A：在 $S_{\rm sw}$ 处连续切换，此后控制连续；A$'$：在 $S_{\rm sw}$ 处连续切换，随后在 $S_{\rm jump}$（命题~\ref{prop:sup:jump}）处于两个内部取值之间跳变一次；B：切换提前到 $S_{\rm sw}$ 以上，接触率在切换处跳变，此后连续；C：没有仅隔离段。括区是所检验网格与精度下含该转折的 $r$ 括区，宽度小于 $10^{-3}$；闭式列中 $r_{\rm cont}$ 为状态反馈在 $(S_c,\infty)$ 上连续的最大权重比（正文定理~\ref{thm:joint:cost-structure}、命题~\ref{prop:sup:jump}），$\hat r$ 见命题~\ref{prop:sup:rhat}。
+\item 注：$w_c=1$，$r=w_q/w_c$。结构 A：在 $S_{\rm sw}$ 处连续切换，此后控制连续；A$'$：在 $S_{\rm sw}$ 处连续切换，随后在 $S_{\rm jump}$（命题~\ref{prop:sup:jump}）处于两个内部取值之间跳变一次；B：切换提前到 $S_{\rm sw}$ 以上，接触率在切换处跳变，此后连续；C：没有仅隔离段。括区是所检验网格与精度下含该转折的 $r$ 括区，宽度小于 $10^{-3}$；闭式列中 $r_{\rm cont}$ 为状态反馈函数在 $(S_c,\infty)$ 上连续的最大权重比（正文定理~\ref{thm:joint:cost-structure}、命题~\ref{prop:sup:jump}），$\hat r$ 见命题~\ref{prop:sup:rhat}。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -104,7 +104,7 @@ r+\frac{2\sqrt r}{\zeta}=1+r+\frac{2b(\sqrt r-1)}{\zeta},
 \end{proof}
 \begin{proposition}
 \label{prop:sup:jump}
-设 $w_c,w_q>0$，则 $G(\cdot;\zeta)$ 在 $[1,\zeta]$ 上的最小点除至多一个状态外唯一，并在其余状态上随 $\zeta$ 连续变化，因此成本最优控制几乎处处唯一，可取为除该状态外连续的状态反馈。具体地：
+设 $w_c,w_q>0$，则 $G(\cdot;\zeta)$ 在 $[1,\zeta]$ 上的最小点除至多一个状态外唯一，并在其余状态上随 $\zeta$ 连续变化，因此成本最优控制几乎处处唯一，可取为除该状态外连续的状态反馈函数。具体地：
 \begin{enumerate}
 \renewcommand{\labelenumi}{(\roman{enumi})}
 \item 若 $0<r\le r_{\rm cont}$，最小点处处唯一，没有跳变；
@@ -131,7 +131,7 @@ $1<\zeta<\zeta_0$ 时两端点都不是全局最小点。由引理~\ref{lem:sup:
 
 (iv) 在 (ii)(iii) 的跳变处，$\zeta$ 连续而最小点 $p$ 下降，故 $c/c_0=p/\zeta$ 与 $q=1-(1-q_0)/p$ 同时下降。
 \end{proof}
-因此，无论权重多大，成本最优控制在阈值控制期内部至多跳变一次，而且方向固定：减少接触突然加强，追踪隔离突然放松，控制由偏重隔离转向偏重减少接触。$r>r_{\rm cont}$ 时整条状态反馈恰有一次跳变，所以正文定理~\ref{thm:joint:cost-structure}的权重界限不能放宽。最优选择本身是五次方程的根，两个内部取值之间的跳变状态却有闭式\eqref{eq:sup:jump-state}。
+因此，无论权重多大，成本最优控制在阈值控制期内部至多跳变一次，而且方向固定：减少接触突然加强，追踪隔离突然放松，控制由偏重隔离转向偏重减少接触。$r>r_{\rm cont}$ 时状态反馈函数恰有一次跳变，所以正文定理~\ref{thm:joint:cost-structure}的权重界限不能放宽。最优选择本身是五次方程的根，两个内部取值之间的跳变状态却有闭式\eqref{eq:sup:jump-state}。
 
 对一次疫情，阈值控制期只经过 $S\in[S_c,S^*]$。$r_{\rm cont}<r<\hat r$ 时，控制期内部有跳变当且仅当 $S^*>S_{\rm jump}$；$r\ge\hat r$ 时，当且仅当 $S^*>S_c\zeta_0$，这也是存在仅隔离段的条件。由正文命题~\ref{prop:joint:weight-monotone}(i)，存在仅隔离段的权重构成一个区间；由 (iii) 证明中与 $p=1$ 的比较，$r\ge(S^*-\bar S)/(S_c-\bar S)$ 时没有仅隔离段。两组算例中仅隔离段消失处的权重见表~\ref{tab:joint:weight-transitions}的 B$\to$C 括区。
 

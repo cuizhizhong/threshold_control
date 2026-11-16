@@ -17,7 +17,7 @@ f(S,c)=
 \end{equation}
 被积项 $(N/\eta)f(S,c)$ 是 $S$ 每减少一人所付的成本：分子是两种归一化强度 $(c_0-c)/c_0$ 与 $(q-q_0)/(1-q_0)=1-c_0S_c/(cS)$ 的平方加权和，分母与 $S$ 的下降速度成正比（式\eqref{eq:joint:Sdot}）。
 
-称 $[c_0S_c/S,c_0]$ 为状态 $S$ 上的允许区间（式\eqref{eq:joint:contact-range}）。对每个 $S$ 取 $f(S,\cdot)$ 在允许区间上的一个最小点，所得函数称为\emph{逐状态最小化选择}，记为 $c_c^*$，相应的隔离比例记为 $q_c^*$（式\eqref{eq:joint:q}）。
+对每个 $S$ 取 $f(S,\cdot)$ 在允许区间（第~\ref{sec:joint:state}~节）上的一个最小点，所得函数称为\emph{逐状态最小化选择}，记为 $c_c^*$，相应的隔离比例记为 $q_c^*$（式\eqref{eq:joint:q}）。
 \begin{theorem}
 \label{thm:joint:cost-minimum}
 设条件\eqref{eq:model:trigger}成立，则在 $\mathcal A(\eta)$ 中：
@@ -57,7 +57,7 @@ $b$ 是常规控制下非隔离感染者与易感者的一次接触未被追踪�
 \renewcommand{\labelenumi}{(\roman{enumi})}
 \item 对每个 $S>S_c$，$f(S,\cdot)$ 在 $[c_0S_c/S,c_0]$ 上有唯一最小点 $c_c^*(S)$，$c_c^*$ 在 $(S_c,\infty)$ 上连续，且在 $S_c$ 处的右极限为 $c_0$；
 \item $S\ge S_{\rm sw}$ 时 $c_c^*(S)=c_0$，$S_c<S<S_{\rm sw}$ 时 $c_0S_c/S<c_c^*(S)<c_0$；
-\item 成本最优控制几乎处处等于连续的状态反馈 $c_c^*$，且 $S^*>S_{\rm sw}$ 时它在 $S\ge S_{\rm sw}$ 上为仅隔离控制，并在 $S_{\rm sw}$ 处连续地转为两种措施并用；$S^*\le S_{\rm sw}$ 时阈值控制期内部两种措施并用。
+\item 成本最优控制几乎处处等于连续的状态反馈函数 $c_c^*$，且 $S^*>S_{\rm sw}$ 时它在 $S\ge S_{\rm sw}$ 上为仅隔离控制，并在 $S_{\rm sw}$ 处连续地转为两种措施并用；$S^*\le S_{\rm sw}$ 时阈值控制期内部两种措施并用。
 \end{enumerate}
 \end{theorem}
 证明见附录~\ref{sec:proof:cost-structure}。权重条件保证每个状态上的成本单峰，成本最优控制因而唯一，并随易感者减少连续调整。
@@ -79,7 +79,7 @@ $b$ 是常规控制下非隔离感染者与易感者的一次接触未被追踪�
 \end{proposition}
 证明见附录~\ref{sec:proof:endpoint-properties}。前述两个一阶效应都与 $w_q$ 成正比，所以 $S_{\rm sw}$ 与权重无关；$S=S_{\rm sw}$ 时二者相抵，命题在此不作分类。(i) 的原因与此对称：在仅减少接触处，隔离项的成本及其导数都为零，略微加强隔离既减轻了接触限制，又加快 $S$ 的下降，总是降低成本。(ii) 只是局部结论，定理~\ref{thm:joint:cost-structure}在 $r\le r_{\rm cont}$ 时把它加强为全局最优。
 
-补充命题~\ref*{prop:sup:jump}证明，对任意权重，成本最优控制在阈值控制期内部至多跳变一次，跳变时接触率与隔离比例同时下降。$r>r_{\rm cont}$ 时状态反馈恰有一次跳变，所以定理~\ref{thm:joint:cost-structure}的权重界限不能放宽；跳变位置随权重的变化见第~\ref{sec:joint:weights-numerics}~节。
+补充命题~\ref*{prop:sup:jump}证明，对任意权重，成本最优控制在阈值控制期内部至多跳变一次，跳变时接触率与隔离比例同时下降。$r>r_{\rm cont}$ 时状态反馈函数恰有一次跳变，所以定理~\ref{thm:joint:cost-structure}的权重界限不能放宽；跳变位置随权重的变化见第~\ref{sec:joint:weights-numerics}~节。
 
 退出附近的组合则由权重直接决定。
 \begin{proposition}
