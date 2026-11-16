@@ -40,6 +40,13 @@ def test_manuscript_uses_new_figures():
     # NEW-4p 起，策略过程图改用 paper/figures/new4p/ 中加入成本最优控制的版本（见 test_new4p_figures.py）；
     # 这里只核对仍在稿件中使用的图 S11，NEW-4o 的策略过程图作为历史输出由 test_outputs_registered 核对。
     sup = (ROOT / 'paper' / 'supplement_sections' / 'S6_xian.tex').read_text(encoding='utf-8')
+    new4aq = ROOT / 'nr_audit' / 'results' / 'new4aq_ch7.json'
+    if new4aq.exists():
+        # NEW-4aq（N45）：图 S11 经作者同意不再入稿（只画了表 S2 的同一组点），图件文件只读保留
+        rec = json.loads(new4aq.read_text(encoding='utf-8'))['removed_figure']
+        assert hashlib.sha256((ROOT / rec['pdf']).read_bytes()).hexdigest() == rec['pdf_sha256']
+        assert 'xian_eta_sensitivity.pdf' not in sup and rec['label'] not in sup
+        return
     assert r'\includegraphics[width=0.7\textwidth]{new4o/xian_eta_sensitivity.pdf}' in sup
 
 

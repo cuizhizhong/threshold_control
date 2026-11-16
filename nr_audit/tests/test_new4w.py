@@ -10,6 +10,7 @@ from conftest import SRC
 ROOT = SRC.ROOT
 RES = SRC.HERE / 'results' / 'new4w'
 NEW4AP = SRC.HERE / 'results' / 'new4ap_scope.json'   # NEW-4ap（N44）：删去能力约束的收据
+NEW4AQ = SRC.HERE / 'results' / 'new4aq_ch7.json'     # NEW-4aq（N45）：第 7 章逐句修订的收据
 
 
 @pytest.fixture(scope='module')
@@ -59,7 +60,12 @@ def test_table3_and_text_match_results(w3):
     q = w3['laws']['q_only']
     # NEW-4am（N41）：第 7.3 节重写后的写法，数值不变
     assert rf"仅隔离控制约 ${q['total_to_clearance'] / 1e6:.2f}\times10^6$ 人" in xt
-    assert rf"但要维持约 ${q['dt']:.0f}$ d，清零时间约 ${q['t_end']:.0f}$ d" in xt
+    if NEW4AQ.exists():
+        # NEW-4aq（N45）：第 7.3 节第 2 段不再重复 7.2 节的控制时长，只留清零时间
+        o = w3['laws']['opt']
+        assert rf"清零约需 ${q['t_end']:.0f}$ d（仅隔离控制）至 ${o['t_end']:.0f}$ d（成本最优控制）" in xt
+    else:
+        assert rf"但要维持约 ${q['dt']:.0f}$ d，清零时间约 ${q['t_end']:.0f}$ d" in xt
     assert r'$0.001N=\num{13163}$' in xt and '0.002N' not in xt
 
 
@@ -72,6 +78,12 @@ def test_table4_matches_results(w3):
         s = st[law]
         assert f"{name} & 13163 & {round(s['total'])} & {s['t_end']:.2f}\\\\" in xt
     q, o = st['q_only'], st['opt']
+    if NEW4AQ.exists():
+        # NEW-4aq（N45）：表 4 注删去与表 3 重复的控制时长，只留启动与退出时刻
+        assert f"{q['t1']:.2f}" == f"{o['t1']:.2f}"
+        assert (f"两种阈值控制都在 ${q['t1']:.2f}$ d 启动，仅隔离控制与成本最优控制分别在 "
+                f"${q['t2']:.2f}$ d 与 ${o['t2']:.2f}$ d 退出") in xt
+        return
     assert (f"分别为 ${q['t1']:.2f}$、${q['t2']:.2f}$、${q['dt']:.2f}$ d，成本最优控制分别为 "
             f"${o['t1']:.2f}$、${o['t2']:.2f}$、${o['dt']:.2f}$ d") in xt
 

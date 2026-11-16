@@ -1,0 +1,32 @@
+{
+ "authorization": "AGENTS.md N45（NEW-4aq）",
+ "base_commit": "9a404b9",
+ "scientific_activity": {
+  "ode_solves": 0,
+  "optimization_solves": 0,
+  "fits": 0,
+  "redraws": 0
+ },
+ "removed_figure": {
+  "label": "fig:xian_eta_sens",
+  "pdf": "paper/figures/new4o/xian_eta_sensitivity.pdf",
+  "former_tex": "paper/supplement_sections/S6_xian.tex",
+  "pdf_sha256": "338bf2a7ebf28be78a4289674223c1165e053f272eed395396b7098b5f7f14cc"
+ },
+ "readings_source": {
+  "path": "nr_audit/results/new4w/xian_theta001.json",
+  "sha256": "f8d2e752d6e0eb42d6043aee361ed908b901d8be0bd7a3ae5ab7dc24861786c1"
+ },
+ "readings": {
+  "routine_peak_I": 1377552.4932901172,
+  "routine_peak_over_eta": 104.65338397706581,
+  "routine_total": 4587182.843167162,
+  "q_only_total": 2293938.6965224473,
+  "opt_total": 2450824.181393613,
+  "q_only_over_routine": 0.500075705493053,
+  "opt_over_routine": 0.5342765407845554,
+  "q_only_t_end": 389.31739509195944,
+  "opt_t_end": 436.79002978652835,
+  "tdinn_t_end": 45.287419359338145
+ }
+}

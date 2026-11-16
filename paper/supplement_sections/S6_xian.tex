@@ -1,8 +1,53 @@
 \Needspace{12\baselineskip}
 \section{西安算例的补充结果}
 \label{sec:sup:xian}
-西安参数见正文表~\ref{tab:xian_initial_fit}，计算使用 $I_0$ 的未取整值。
+西安参数见正文表~\ref{tab:xian_initial_fit}。
 
+\subsection{设计阈值的取值}
+\label{sec:sup:threshold-scale}
+西安情景按引理~\ref{lem:sup:infected-bound}选取阈值，所用名义值如下：
+\begin{enumerate}
+\item 重症监护床位：2021 年全国每 10 万人 $4.75$ 张\cite{Yuan2024ICUBeds}，陕西省 $3.57$ 张\cite[补充文件 1]{Chen2024ICUEquity}；按 $N=\num{13163000}$\cite{XianStat2021}，全国的床位密度对应西安约 $625$ 张；
+\item 需要重症监护的比例：西安定点医院的回顾性研究中，成人确诊者的重型和危重型比例为 $1.72\%$（$580$ 例）至 $4.3\%$（$651$ 例）\cite{Yang2022XianDelta,Lv2024XianDelta}，本文取 $3\%$；按 Angulo 等\cite[补充材料 S4.1]{Angulo2021}的假设，其中 $28\%$ 需要重症监护，得 $p_{\rm ICU}\approx0.0084$，这里把病例中的比例直接用作折算系数；
+\item 西安参数下 $\kappa_I\approx5.63$。
+\end{enumerate}
+于是 $C_{\rm ICU}/(p_{\rm ICU}\kappa_IN)\approx1.004\times10^{-3}$，正文取 $\theta=0.001$，即 $\eta=\num{13163}$。按陕西省的床位密度，这一比例约为 $7.55\times10^{-4}$，量级相同。这些是名义值，用来确定阈值的量级，不是当地容量的临床标定。
+
+\FloatBarrier
+\subsection{阈值扫描}
+\label{sec:sup:xian:threshold-scan}
+表~\ref{tab:sup:eta}给出 11 个阈值比例下仅隔离控制的结果，覆盖设计阈值 $\eta/N=0.001$ 的两侧。阈值从 $0.01N$ 降到 $0.0001N$ 时，$q_1$ 只在 $0.838$ 与 $0.847$ 之间变化，控制时长与成本近似按阈值的反比增加，总累计新增感染则缓慢减少；正文第~\ref{sec:xian:threshold-scale}~节据此说明，降低阈值不能把感染降到下界以下。
+\begin{table}[htbp]
+\centering\small
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{threeparttable}
+\caption{西安参数下不同阈值的仅隔离控制}
+\label{tab:sup:eta}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}S[table-format=1.4]S[table-format=1.4]S[table-format=4.2]S[table-format=4.2]S[table-format=3.4]S[table-format=7.0]@{}}
+\toprule
+{$\eta/N$} & {$q_1$} & {$\Delta t$（d）} & {$t_{\rm end}$（d）} & {$J$（d）} & {\shortstack{总累计新增感染\\（人）}}\\
+\midrule
+0.0001 & 0.8470 & 1710.66 & 2209.55 & 826.4066 & 2155649\\
+0.0002 & 0.8469 & 855.09 & 1243.15 & 412.9141 & 2182123\\
+0.0005 & 0.8466 & 341.75 & 620.77 & 164.8184 & 2234666\\
+0.0010 & 0.8462 & 170.63 & 389.32 & 82.1192 & 2293939\\
+0.0015 & 0.8458 & 113.59 & 304.01 & 54.5524 & 2339486\\
+0.0020 & 0.8454 & 85.07 & 258.10 & 40.7686 & 2377943\\
+0.0030 & 0.8445 & 56.55 & 208.39 & 26.9842 & 2442608\\
+0.0040 & 0.8436 & 42.29 & 181.18 & 20.0913 & 2497306\\
+0.0050 & 0.8428 & 33.73 & 163.65 & 15.9550 & 2545663\\
+0.0075 & 0.8405 & 22.32 & 138.10 & 10.4383 & 2649240\\
+0.0100 & 0.8382 & 16.61 & 123.89 & 7.6781 & 2737382\\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]\footnotesize
+\item 注：$q_1=q_c(t_1)$；$\eta/N$ 为比例，$0.001$ 即 $0.1\%$；总累计新增感染计算至清零时间。
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\FloatBarrier
 \subsection{人口缩放}
 \label{sec:sup:xian:settings}
 人口规模的影响取决于初值和阈值如何随 $N$ 缩放。下面固定归一化初值 $s_0,i_0$，说明仅隔离控制的哪些量只依赖阈值比例 $\theta=\eta/N$。
@@ -44,57 +89,5 @@ J=\frac{w_q}{c_0\theta}\int_{s_c}^{s^*}
 \end{proof}
 
 命题说明，固定归一化初值与阈值比例时，控制时长与成本不随人口规模改变；以 $I=1$ 为终点的清零时间和累计新增感染则仍含人口尺度。它不适用于固定绝对阈值或固定绝对初值 $I_0$ 的比较：这时改变人口规模同时改变 $\theta$ 或 $i_0$。
-
-\FloatBarrier
-\subsection{阈值扫描}
-\label{sec:sup:xian:threshold-scan}
-表~\ref{tab:sup:eta}与图~\ref{fig:xian_eta_sens}给出 11 个阈值比例下仅隔离控制的结果，覆盖设计阈值 $\eta/N=0.001$ 的两侧。阈值从 $0.01N$ 降到 $0.0001N$ 时，$q_1$ 只在 $0.838$ 与 $0.847$ 之间变化，控制时长与成本近似按阈值的反比增加，总累计新增感染则缓慢减少；正文第~\ref{sec:xian:threshold-scale}~节由此解释低阈值的代价。
-\begin{table}[htbp]
-\centering\small
-\setlength{\tabcolsep}{3.5pt}
-\renewcommand{\arraystretch}{1.25}
-\begin{threeparttable}
-\caption{西安参数下不同阈值的仅隔离控制}
-\label{tab:sup:eta}
-\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}S[table-format=1.4]S[table-format=1.4]S[table-format=4.2]S[table-format=4.2]S[table-format=3.4]S[table-format=7.0]@{}}
-\toprule
-{$\eta/N$} & {$q_1$} & {$\Delta t$（d）} & {$t_{\rm end}$（d）} & {$J$（d）} & {\shortstack{总累计新增感染\\（人）}}\\
-\midrule
-0.0001 & 0.8470 & 1710.66 & 2209.55 & 826.4066 & 2155649\\
-0.0002 & 0.8469 & 855.09 & 1243.15 & 412.9141 & 2182123\\
-0.0005 & 0.8466 & 341.75 & 620.77 & 164.8184 & 2234666\\
-0.0010 & 0.8462 & 170.63 & 389.32 & 82.1192 & 2293939\\
-0.0015 & 0.8458 & 113.59 & 304.01 & 54.5524 & 2339486\\
-0.0020 & 0.8454 & 85.07 & 258.10 & 40.7686 & 2377943\\
-0.0030 & 0.8445 & 56.55 & 208.39 & 26.9842 & 2442608\\
-0.0040 & 0.8436 & 42.29 & 181.18 & 20.0913 & 2497306\\
-0.0050 & 0.8428 & 33.73 & 163.65 & 15.9550 & 2545663\\
-0.0075 & 0.8405 & 22.32 & 138.10 & 10.4383 & 2649240\\
-0.0100 & 0.8382 & 16.61 & 123.89 & 7.6781 & 2737382\\
-\bottomrule
-\end{tabular*}
-\begin{tablenotes}[flushleft]\footnotesize
-\item 注：$q_1=q_c(t_1)$；$\eta/N$ 为比例，$0.001$ 即 $0.1\%$；总累计新增感染计算至清零时间。
-\end{tablenotes}
-\end{threeparttable}
-\end{table}
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=0.7\textwidth]{new4o/xian_eta_sensitivity.pdf}
-    \caption{西安参数下仅隔离控制的指标随 $\eta/N$ 的变化：(a) 启动时的隔离比例；(b) 成本 $J$；(c) 累计新增感染；(d) 控制时长与清零时间。水平虚线为 TDINN 参照值，其中 TDINN 的 $J$ 用同一二次强度被积函数与默认权重在 $[0,t_{\rm end}^{\rm T}]$ 上积分；(d) 中 TDINN 的控制时长与清零时间同为 $45.29$ d。}
-    \label{fig:xian_eta_sens}
-\end{figure}
-
-\FloatBarrier
-\subsection{设计阈值的取值}
-\label{sec:sup:threshold-scale}
-西安情景按引理~\ref{lem:sup:infected-bound}选取阈值，所用名义值如下：
-\begin{enumerate}
-\item 重症监护床位：2021 年全国每 10 万人 $4.75$ 张\cite{Yuan2024ICUBeds}，陕西省 $3.57$ 张\cite[补充文件 1]{Chen2024ICUEquity}；按 $N=\num{13163000}$\cite{XianStat2021}，全国的床位密度对应西安约 $625$ 张；
-\item 需要重症监护的比例：西安定点医院的回顾性研究中，成人确诊者的重型和危重型比例为 $1.72\%$（$580$ 例）至 $4.3\%$（$651$ 例）\cite{Yang2022XianDelta,Lv2024XianDelta}，本文取 $3\%$；按 Angulo 等\cite[补充材料 S4.1]{Angulo2021}的假设，其中 $28\%$ 需要重症监护，得 $p_{\rm ICU}\approx0.0084$，这里把病例中的比例直接用作折算系数；
-\item 西安参数下 $\kappa_I\approx5.63$。
-\end{enumerate}
-于是 $C_{\rm ICU}/(p_{\rm ICU}\kappa_IN)\approx1.004\times10^{-3}$，正文取 $\theta=0.001$，即 $\eta=\num{13163}$。按陕西省的床位密度，这一比例约为 $7.55\times10^{-4}$，量级相同。这些是名义值，用来确定阈值的量级，不是当地容量的临床标定。
 
 \FloatBarrier
