@@ -40,7 +40,7 @@ t-t_1&=\frac{N}{\eta}\int_{S(t)}^{S^*}
 \end{theorem}
 证明见附录~\ref{sec:proof:representation}。称 $[c_0S_c/S,c_0]$ 为状态 $S$ 上的允许区间（式\eqref{eq:joint:contact-range}）。取上端 $c_c\equiv c_0$ 是仅隔离控制，取下端 $c_c=c_0S_c/S$ 是仅减少接触，其余控制的接触率介于两者之间。允许区间随 $S$ 减小而收窄，在 $S_c$ 处缩为一点 $c_0$，所以任一控制都在退出时连续地恢复常规控制（定理~\ref{thm:joint:representation}(iii)）。启动时则至少一种措施跳变：由式\eqref{eq:joint:q}，$c(1-q)$ 在 $t_1$ 由 $c_0(1-q_0)$ 降到 $c_0(1-q_0)S_c/S^*$。$S$ 在启动时最大，允许区间最宽，所以阈值控制期内两种措施的最大强度都出现在启动时：由式\eqref{eq:joint:q}，任一控制的隔离比例都不超过仅隔离控制启动时的 $q_1$（式\eqref{eq:s1:qmax}），接触率的降幅都不超过仅减少接触启动时的 $1-S_c/S^*$。
 
-\subsection{不同目标的最优控制}
+\subsection{时长与感染目标}
 \label{sec:joint:objectives}
 本小节比较不同控制组合的控制时长、阈值控制期的累计新增感染与新增隔离易感者人数，并求以控制时长、清零时间或累计新增感染为目标的最优控制。三者由一个计数关系联系起来。阈值控制期内 $S$ 共减少 $S^*-S_c$，离开 $S$ 的人或是未被追踪的新感染者，或是被追踪的接触者。维持 $I=\eta$ 要求前者以恒定速率 $\gamma\eta$ 进入 $I$，共 $\gamma\eta\Delta t$ 人，其余都是被追踪的接触者。
 \begin{theorem}

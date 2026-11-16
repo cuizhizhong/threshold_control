@@ -38,7 +38,9 @@ def test_comparison_theorem_items():
     ch4 = text('paper/sections/04_joint_control.tex')
     thm = ch4[ch4.index(r'\label{thm:joint:comparison}'):ch4.index(r'\end{theorem}', ch4.index(r'\label{thm:joint:comparison}'))]
     assert thm.count(r'\item') == 3                       # 原 (ii) 删去，(iii)(iv) 顺延为 (ii)(iii)
-    assert re.findall(r'\\subsection\{([^}]*)\}', ch4) == ['状态参数化', '不同目标的最优控制']
+    # NEW-4au（N49）把 4.2 节标题改为“时长与感染目标”
+    second = '时长与感染目标' if (ROOT / 'paper/revision_notes/NEW_4au_ch4.md').exists() else '不同目标的最优控制'
+    assert re.findall(r'\\subsection\{([^}]*)\}', ch4) == ['状态参数化', second]
     num = text('paper/sections/06_numerics.tex')
     assert r'\ref{thm:joint:comparison}(iii)与推论' in num and r'\ref{thm:joint:comparison}(iv)' not in num
 
