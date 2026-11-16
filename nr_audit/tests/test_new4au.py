@@ -14,7 +14,9 @@ def text(rel):
 
 def current_text():
     scope = json.loads((RES / 'new4at_scope.json').read_text(encoding='utf-8'))
-    return ''.join(text(f) for fs in scope['current_inputs'].values() for f in fs)
+    # NEW-4av（N50）：第 9 章并入第 8 章，09_conclusion.tex 删去
+    return ''.join(text(f) for fs in scope['current_inputs'].values() for f in fs
+                   if f != 'paper/sections/09_conclusion.tex' or (ROOT / f).exists())
 
 
 def test_state_feedback_term_unified():

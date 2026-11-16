@@ -33,7 +33,9 @@ def test_removed_content_absent_and_archive_intact(scope):
     arch = scope['archived_source']
     assert arch['path'] not in supp and 'S3_inflection' not in text('paper/flatten_curve_supplement_cn.tex')
     assert content_sha256((ROOT / arch['path']).read_bytes()) == arch['content_sha256']
-    current = ''.join(text(f) for fs in scope['current_inputs'].values() for f in fs)
+    # NEW-4av（N50）：第 9 章并入第 8 章，09_conclusion.tex 删去
+    current = ''.join(text(f) for fs in scope['current_inputs'].values() for f in fs
+                      if f != 'paper/sections/09_conclusion.tex' or (ROOT / f).exists())
     for lab in scope['removed_labels']:
         assert f'\\label{{{lab}}}' not in current and f'{{{lab}}}' not in current, lab
     for gone in ('N_{\\rm floor}', 'N_{\\rm eff}', '40.5', '低阈值极限'):
@@ -48,7 +50,11 @@ def test_chapter7_structure():
                 'fig:xian:joint', 'fig:xian:strategy-process', 'tab:xian:joint-compare', 'tab:xian_summary'):
         assert xt.count(f'\\label{{{lab}}}') == 1, lab
     d = text('paper/sections/08_discussion.tex')
-    assert 'sec:xian:threshold-scale' in d and 'prop:scaling' in d
+    if (ROOT / 'paper/sections/09_conclusion.tex').exists():
+        assert 'sec:xian:threshold-scale' in d and 'prop:scaling' in d
+    else:
+        # NEW-4av（N50）：第 8、9 章合并，原 8.1 节第 3 段（退出下界，回指 7.3 节）删去，有效人口一句仍引 prop:scaling
+        assert 'sec:xian:threshold-scale' not in d and 'prop:scaling' in d
 
 
 def test_new_macros_trace_to_results(scope, w3):

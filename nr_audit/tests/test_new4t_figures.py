@@ -77,7 +77,9 @@ def test_approved_bytes_and_current_manuscript_use(adopted, name):
         # NEW-4am（N41）：经作者授权，该图不再入稿；图件字节与历史收据只读保留，现稿各输入文件中不再有其标签。
         rec = gone['removed_figures'][name]
         assert rec['label'] == out['label'] and digest((ROOT / rec['pdf']).read_bytes()) == rec['pdf_sha256']
-        current = [f for fs in gone['current_inputs'].values() for f in fs]
+        # NEW-4av（N50）：第 9 章并入第 8 章，09_conclusion.tex 删去
+        current = [f for fs in gone['current_inputs'].values() for f in fs
+                   if f != 'paper/sections/09_conclusion.tex' or (ROOT / f).exists()]
         assert gone['archived_source']['path'] not in current
         assert all(f"\\label{{{rec['label']}}}" not in (ROOT / f).read_text(encoding='utf-8') for f in current)
         return

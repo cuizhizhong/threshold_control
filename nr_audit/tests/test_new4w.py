@@ -154,7 +154,11 @@ def test_return14_claims_in_text():
     # NEW-4x：重新优化在退出后尾段网格上施加 I <= eta（collocation.py 的 postcap），S7 须写明
     assert '尾段的积分网格上作为约束施加' in s7
     d83 = text('paper/sections/08_discussion.tex')
-    assert '仅隔离控制仍是控制时长最短的数值解' in d83 and 'eq:return:tail' not in d83
+    if (ROOT / 'paper/sections/09_conclusion.tex').exists():
+        assert '仅隔离控制仍是控制时长最短的数值解' in d83 and 'eq:return:tail' not in d83
+    else:
+        # NEW-4av（N50）：第 8、9 章合并，回流数值一段改写为两句，排序结论不变
+        assert '仅隔离控制的控制时长仍最短，仅减少接触仍最长' in d83 and 'eq:return:tail' not in d83
 
 
 def test_new_figures_used_and_registered():

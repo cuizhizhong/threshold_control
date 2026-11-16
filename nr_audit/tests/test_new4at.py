@@ -22,7 +22,9 @@ def scope():
 
 
 def test_removed_content_absent_and_archive_intact(scope):
-    files = [f for fs in scope['current_inputs'].values() for f in fs]
+    # NEW-4av（N50）：第 9 章并入第 8 章，09_conclusion.tex 删去
+    files = [f for fs in scope['current_inputs'].values() for f in fs
+             if f != 'paper/sections/09_conclusion.tex' or (ROOT / f).exists()]
     arch = scope['archived_source']
     assert arch['path'] not in files and 'S4_explicit_control' not in text('paper/flatten_curve_supplement_cn.tex')
     assert content_sha256((ROOT / arch['path']).read_bytes()) == arch['content_sha256']

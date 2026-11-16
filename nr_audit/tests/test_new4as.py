@@ -32,6 +32,11 @@ def paragraphs(block):
 
 
 def test_discussion_and_conclusion_structure():
+    if not (ROOT / 'paper/sections/09_conclusion.tex').exists():
+        # NEW-4av（N50）：第 8、9 章合并为“结论与讨论”一章、不分小节，结构由 test_new4av.py 检查
+        s7 = text('paper/supplement_sections/S7_return.tex')
+        assert '\\begin{itemize}' not in s7 and '（见上）' not in s7
+        return
     d = text('paper/sections/08_discussion.tex')
     s83 = d.split('\\label{sec:discussion:return}')[1].split('\\subsection{')[0]
     s84 = d.split('\\label{sec:dom:limits}')[1].split('\\FloatBarrier')[0]
