@@ -259,6 +259,9 @@ def main():
     cv['control_grid'] = [r for r in cv['control_grid'] if r['kind'] != 'cap']
     cv['state_grid'] = [r for r in cv['state_grid'] if r['kind'] != 'cap']
     cv['tolerance_tiers'] = [r for r in cv['tolerance_tiers'] if not r['capacity']]
+    # NEW-4at（N48）：显式控制族删去后，也不计两组参数的 alpha = 0.5（law=alpha 的行）；结果文件不改。
+    # 去掉后 nrConvTolMaxRel 由 3e-12 变为 2e-12，其余收敛宏不变。
+    cv['tolerance_tiers'] = [r for r in cv['tolerance_tiers'] if r['law'] != 'alpha']
     assert len(cv['control_grid']) == len(cv['state_grid']) == 10
     tol = max(max(r['max_rel_change_vs_base'].values()) for r in cv['tolerance_tiers'] if r['law'] not in ('tdinn', 'routine'))
     add('nrConvTolMaxRel', tol, sci(tol, 1), '', CONV, 'max tolerance_tiers[阈值策略].max_rel_change_vs_base',
@@ -380,7 +383,7 @@ def main():
     (RESULTS / 'new4w' / 'macros_identity.json').write_text(json.dumps(dict(
         path='paper/generated/nr_numbers.tex', raw_sha256=__import__('hashlib').sha256(raw).hexdigest(),
         content_sha256=content_sha256(raw), policy='sha256(bytes.replace(CRLF, LF)); preserve all other bytes',
-        authorization='AGENTS.md N33（NEW-4w）；N41（NEW-4am）追加两个宏；N44（NEW-4ap）追加四个宏，收敛宏不再计入能力代表点', n_macros=len(MACROS)), ensure_ascii=False, indent=1),
+        authorization='AGENTS.md N33（NEW-4w）；N41（NEW-4am）追加两个宏；N44（NEW-4ap）追加四个宏，收敛宏不再计入能力代表点；N48（NEW-4at）收敛宏不再计入显式族 alpha = 0.5', n_macros=len(MACROS)), ensure_ascii=False, indent=1),
         encoding='utf-8', newline='\n')
     print(f'写出 {OUT_TEX.relative_to(ROOT)}：{len(MACROS)} 个宏')
 

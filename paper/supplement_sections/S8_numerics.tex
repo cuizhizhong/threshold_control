@@ -21,7 +21,7 @@
 \midrule
 控制网格 $N_x$ & $N_x=2001,4001,8001$；两组参数的 $r=2$、表~\ref{tab:joint:weight-transitions}转折附近的权重，共 $10$ 组，每组 $200$ 个状态 & 网格值低于根法值的最大相对量约 $\nrConvNxMaxGap$\\
 状态网格 $N_z$ & $N_z=1001,2001,4001$ 对 $8001$，同样 $10$ 组的成本最优控制 & $\Delta t$、$J$ 的最大相对差 $\nrConvNzAllMaxRel$；$N_z=8001$ 与分段 quad 的最大相对差 $\nrConvNzQuadMaxRel$\\
-积分容差 & 三档：基准（rtol $10^{-12}$、atol 比例 $1$、最大步长 $0.5$ d），收紧（$10^{-13}$、$0.1$、$0.25$ d），放宽（$10^{-11}$、$10$、$1$ d）；两组参数的四种控制、TDINN 与常规控制 & 阈值策略核心量（$t_1$、$\Delta t$、$J$、$t_{\rm end}$、总累计新增感染、新增隔离易感者、$\max(I+I_q)/\eta$）的最大相对变化约 $\nrConvTolMaxRel$\\
+积分容差 & 三档：基准（rtol $10^{-12}$、atol 比例 $1$、最大步长 $0.5$ d），收紧（$10^{-13}$、$0.1$、$0.25$ d），放宽（$10^{-11}$、$10$、$1$ d）；两组参数的三种控制、TDINN 与常规控制 & 阈值策略核心量（$t_1$、$\Delta t$、$J$、$t_{\rm end}$、总累计新增感染、新增隔离易感者、$\max(I+I_q)/\eta$）的最大相对变化约 $\nrConvTolMaxRel$\\
 \bottomrule
 \end{tabularx}
 \begin{tablenotes}[flushleft]\footnotesize

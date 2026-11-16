@@ -45,6 +45,8 @@ def test_chapter6_structure_and_pointers():
     expected = ['参数与方法', '四种控制的比较', '能力约束', '成本权重']
     if new4ap():
         expected.remove('能力约束')                    # NEW-4ap（N44）：6.3 节删去
+    if (RES / 'new4at_scope.json').exists():
+        expected[1] = '三种控制的比较'                  # NEW-4at（N48）：删去显式族
     assert re.findall(r'\\subsection\{([^}]*)\}', num) == expected
     # 6.4 节第 2 段的补充引用合为段末一句；单控制的可行条件改引第 4 章
     assert num.count(r'\ref{sec:sup:weight-structure}') == 1

@@ -11,6 +11,7 @@ ROOT = SRC.ROOT
 RES = SRC.HERE / 'results' / 'new4w'
 NEW4AP = SRC.HERE / 'results' / 'new4ap_scope.json'   # NEW-4ap（N44）：删去能力约束的收据
 NEW4AQ = SRC.HERE / 'results' / 'new4aq_ch7.json'     # NEW-4aq（N45）：第 7 章逐句修订的收据
+NEW4AT = SRC.HERE / 'results' / 'new4at_scope.json'   # NEW-4at（N48）：删去显式控制族的收据
 
 
 @pytest.fixture(scope='module')
@@ -49,6 +50,9 @@ def test_table3_and_text_match_results(w3):
     names = dict(c_only='仅减少接触', alpha=r'显式族 $\alpha=0.5$', q_only='仅隔离控制', opt='成本最优控制')
     for law, name in names.items():
         r = w3['laws'][law]
+        if law == 'alpha' and NEW4AT.exists():          # NEW-4at（N48）：表 3 删去 alpha = 0.5 一行，结果文件不变
+            assert f'{name} &' not in xt
+            continue
         row = (f"{name} & {r['dt']:.2f} & {r['t_end']:.2f} & {r['total_to_clearance'] / 1e6:.3f} & "
                f"{r['dSq'] / 1e6:.3f} & {r['J']:.2f} & {r['peak_ratio']:.2f}\\\\")
         assert row in xt, row

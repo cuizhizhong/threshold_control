@@ -66,20 +66,19 @@ $\eta$ & 阈值（人） & $0.001N=\num{13163}$ & 按重症监护床位与重症
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.25}
 \begin{threeparttable}
-\caption{西安参数下四种控制的比较（$w_c=1,w_q=2$）}
+\caption{西安参数下三种控制的比较（$w_c=1,w_q=2$）}
 \label{tab:xian:joint-compare}
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lcccccc@{}}
 \toprule
 控制 & $\Delta t$（d） & $t_{\rm end}$（d） & $\Itcum(t_{\rm end})$ & $\Delta S_q$ & $J$（d） & $\max_t(I+I_q)/\eta$\\
 \midrule
 仅减少接触 & 621.97 & 840.66 & 3.786 & 6.547 & 221.34 & 1.46\\
-显式族 $\alpha=0.5$ & 250.01 & 468.70 & 2.556 & 7.776 & 89.88 & 3.32\\
 仅隔离控制 & 170.63 & 389.32 & 2.294 & 8.038 & 82.12 & 5.06\\
 成本最优控制 & 218.10 & 436.79 & 2.451 & 7.881 & 76.62 & 5.06\\
 \bottomrule
 \end{tabular*}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：$\eta=0.001N$；$\Itcum(t_{\rm end})$ 与 $\Delta S_q$ 以 $10^6$ 人计，峰值统计至 $t_{\rm end}$。四种控制采用同一完整初值（表~\ref{tab:xian_initial_fit}）。$S^*/S_c\approx 4.402$，$S_{\rm sw}/S_c\approx 2.548$。
+\item 注：$\eta=0.001N$；$\Itcum(t_{\rm end})$ 与 $\Delta S_q$ 以 $10^6$ 人计，峰值统计至 $t_{\rm end}$。三种控制采用同一完整初值（表~\ref{tab:xian_initial_fit}）。$S^*/S_c\approx 4.402$，$S_{\rm sw}/S_c\approx 2.548$。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}

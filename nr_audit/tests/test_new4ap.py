@@ -45,7 +45,8 @@ def test_removed_content_absent(scope):
 
 def test_chapter_structure():
     num = text('paper/sections/06_numerics.tex')
-    assert re.findall(r'\\subsection\{([^}]*)\}', num) == ['参数与方法', '四种控制的比较', '成本权重']
+    second = '三种控制的比较' if (RES / 'new4at_scope.json').exists() else '四种控制的比较'   # NEW-4at（N48）
+    assert re.findall(r'\\subsection\{([^}]*)\}', num) == ['参数与方法', second, '成本权重']
     ch5 = text('paper/sections/05_quadratic_cost.tex')
     assert re.findall(r'\\subsection\{([^}]*)\}', ch5) == ['逐状态约化', '最优组合的结构', '阈值与权重的影响']
     ch4 = text('paper/sections/04_joint_control.tex')

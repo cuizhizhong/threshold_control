@@ -1,6 +1,6 @@
 {
- "generated": "2026-11-15T22:30:48",
- "git_head": "b1522b519372ec3d553cafe02a174e35d4c2bf80",
+ "generated": "2026-11-16T10:23:46",
+ "git_head": "fa7787aa864d2f38b5e3b4d007be2aab1ee9c0a3",
  "tex": "paper/generated/nr_numbers.tex",
  "n_macros": 160,
  "macros": [
@@ -501,8 +501,8 @@
   },
   {
    "macro": "\\nrConvTolMaxRel",
-   "value": 2.552857812448992e-12,
-   "display": "3\\times10^{-12}",
+   "value": 1.6615533985295904e-12,
+   "display": "2\\times10^{-12}",
    "unit": "",
    "source": "nr_audit/results/new4w/convergence.json",
    "field": "max tolerance_tiers[阈值策略].max_rel_change_vs_base",

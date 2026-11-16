@@ -13,6 +13,7 @@ RES = SRC.HERE / 'results' / 'new4s_figures.json'
 ROOT = SRC.HERE.parent
 FIG = 'paper/figures/new4s/joint_compare_baseline.pdf'
 WIDTH_MM = 0.85 * 452.9679 / 72 * 25.4
+NEW4AT = SRC.HERE / 'results' / 'new4at_fig4.json'   # NEW-4at（N48）：删去显式族后图 4 改用三种控制的新图
 
 
 @pytest.fixture(scope='module')
@@ -37,7 +38,8 @@ def test_output_registered_and_used(receipt):
     assert abs(out['size_mm'][0] - WIDTH_MM) < 0.05
     assert out['fonts'] and all(re.search(r'Cm(r|mi|sy|ex)10', f) for f in out['fonts'])
     text = (ROOT / 'paper/sections/06_numerics.tex').read_text(encoding='utf-8')
-    assert r'\includegraphics[width=0.85\textwidth]{figures/new4s/joint_compare_baseline.pdf}' in text
+    used = r'\includegraphics[width=0.85\textwidth]{figures/new4s/joint_compare_baseline.pdf}' in text
+    assert used != NEW4AT.exists()
 
 
 def test_trajectories_match_table(receipt):
@@ -47,6 +49,9 @@ def test_trajectories_match_table(receipt):
     for key, name in (('contact_only', '仅减少接触'), ('alpha_0.5', r'显式族 $\alpha=0.5$'),
                       ('quarantine_only', '仅隔离控制'), ('minimum_cost', '成本最优控制')):
         law = c['laws'][key]
+        if key == 'alpha_0.5' and NEW4AT.exists():       # NEW-4at（N48）：表 1 删去 alpha = 0.5 一行，结果文件不变
+            assert not any(line.startswith(name + ' &') for line in text.splitlines())
+            continue
         row = next(line for line in text.splitlines() if line.startswith(name + ' &'))
         assert row.split('&')[2].strip() == f"{law['t_end']:.2f}"                  # 表 1 的清零时间
         assert row.rstrip('\\ ').split('&')[-1].strip() == f"{law['peak_ratio_table']:.2f}"

@@ -1,0 +1,79 @@
+{
+ "authorization": "AGENTS.md N48（NEW-4at）",
+ "pre_cut_tag": "pre-explicit-cut-20261116",
+ "base_commit": "fa7787a",
+ "scientific_activity": {
+  "ode_solves": 0,
+  "optimization_solves": 0,
+  "fits": 0,
+  "redraws": 1
+ },
+ "current_inputs": {
+  "paper/flatten_curve_analysis_cn.tex": [
+   "paper/flatten_curve_analysis_cn.tex",
+   "paper/sections/01_introduction.tex",
+   "paper/sections/02_model.tex",
+   "paper/sections/03_single_control.tex",
+   "paper/sections/04_joint_control.tex",
+   "paper/sections/05_quadratic_cost.tex",
+   "paper/sections/06_numerics.tex",
+   "paper/sections/07_xian.tex",
+   "paper/sections/08_discussion.tex",
+   "paper/sections/09_conclusion.tex",
+   "paper/appendices/A_proofs_sensitivity.tex",
+   "paper/appendices/B_control_cost.tex"
+  ],
+  "paper/flatten_curve_supplement_cn.tex": [
+   "paper/flatten_curve_supplement_cn.tex",
+   "paper/supplement_sections/S1_medical.tex",
+   "paper/supplement_sections/S2_single_control.tex",
+   "paper/supplement_sections/S5_weight_structure.tex",
+   "paper/supplement_sections/S6_xian.tex",
+   "paper/supplement_sections/S7_return.tex",
+   "paper/supplement_sections/S8_numerics.tex"
+  ]
+ },
+ "archived_source": {
+  "path": "paper/supplement_sections/S4_explicit_control.tex",
+  "content_sha256": "71b8cc2e5a7c7b81e03cc04dd516d5322e24c971160cb18429f2fe383feb6b8f",
+  "note": "原样保留，不再由补充主文件 \\input；恢复时加回该行、导言中的指引句与第 4.2 节"
+ },
+ "removed_statements": [
+  "thm:joint:explicit",
+  "thm:joint:comparison(ii)：显式族的控制时长随 alpha 严格递减"
+ ],
+ "removed_labels": [
+  "eq:joint:explicit-S",
+  "eq:joint:explicit-c",
+  "eq:joint:explicit-duration",
+  "eq:joint:explicit-q",
+  "eq:joint:explicit-zero",
+  "sec:sup:explicit",
+  "thm:joint:explicit"
+ ],
+ "removed_table_rows": {
+  "tab:joint:compare": {
+   "row": "显式族 $\\alpha=0.5$ & 9.24 & 37.11 & 323.4 & 346.2 & 2.55 & 1.64",
+   "source": "reproducibility/results/20261005_sec7_v2_refinement/joint_extra/compare_baseline.csv（strategy=alpha_0.5）"
+  },
+  "tab:xian:joint-compare": {
+   "row": "显式族 $\\alpha=0.5$ & 250.01 & 468.70 & 2.556 & 7.776 & 89.88 & 3.32",
+   "source": "nr_audit/results/new4w/xian_theta001.json（laws.alpha）"
+  }
+ },
+ "figure4": {
+  "superseded": {
+   "path": "paper/figures/new4s/joint_compare_baseline.pdf",
+   "sha256": "b637d4577894d1c37d2b743c30f772868e2c7e8fb084c983f2eea09921354423"
+  },
+  "current": "paper/figures/new4at/joint_compare_baseline.pdf",
+  "current_sha256": "40fd92fe14752802c53b4b8d5f1a767976a4823a2ce4df244ce4957288150a9e"
+ },
+ "macro_changes": {
+  "\\nrConvTolMaxRel": {
+   "old": "3\\times10^{-12}",
+   "new": "2\\times10^{-12}",
+   "reason": "收敛宏不再计入两组参数的 alpha = 0.5"
+  }
+ }
+}

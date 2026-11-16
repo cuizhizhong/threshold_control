@@ -40,15 +40,6 @@ t-t_1&=\frac{N}{\eta}\int_{S(t)}^{S^*}
 \end{theorem}
 证明见附录~\ref{sec:proof:representation}。允许区间\eqref{eq:joint:contact-range}随 $S$ 增大而变宽，所以维持阈值所需的最强干预出现在启动时：由式\eqref{eq:joint:q}，任一控制的隔离比例都不超过仅隔离控制启动时的 $q_1$（式\eqref{eq:s1:qmax}），接触率的降幅都不超过仅减少接触启动时的 $1-S_c/S^*$。
 
-\subsection{显式控制族}
-把两种单控制的接触率状态函数按常数权重 $\alpha\in[0,1]$ 线性组合，得到一族显式控制：
-\begin{align}
-c_c(S;\alpha)&=c_0\left[\alpha+(1-\alpha)\frac{S_c}{S}\right],\label{eq:joint:explicit-c}\\
-q_c(S;\alpha)&=1-\frac{(1-q_0)S_c}{S_c+\alpha(S-S_c)}.
-\label{eq:joint:explicit-q}
-\end{align}
-其中隔离比例由式\eqref{eq:joint:q}得到。$\alpha=0$ 为仅减少接触，$\alpha=1$ 为仅隔离控制；两端都满足式\eqref{eq:joint:contact-range}，它们的线性组合因而也满足。这一族的状态轨迹与控制时长都有闭式，见补充材料第~\ref{sec:sup:explicit}~节。第~\ref{sec:numerics}~节用 $\alpha=0.5$ 作对照；后文的最优控制则在全部满足式\eqref{eq:joint:contact-range}的 $c_c(S)$ 中求取。
-
 \subsection{不同目标的最优控制}
 \label{sec:joint:objectives}
 本小节比较不同控制组合的控制时长、控制期累计新增感染与新增隔离易感者人数，并求以控制时长或累计新增感染为目标的最优控制。三者由一个计数关系联系起来。维持 $I=\eta$ 要求未被追踪的新感染以恒定速率 $\gamma\eta$ 进入 $I$。阈值控制期内 $S$ 共减少 $S^*-S_c$，对所有控制都相同，其中 $\gamma\eta\Delta t$ 是这类感染，其余是被追踪的接触者。
@@ -65,7 +56,6 @@ q_c(S;\alpha)&=1-\frac{(1-q_0)S_c}{S_c+\alpha(S-S_c)}.
 \label{eq:joint:duration-bounds}
 \end{equation}
 左侧等号成立当且仅当 $c_c(S)=c_0$ 几乎处处（仅隔离控制），右侧等号成立当且仅当 $c_c(S)=c_0S_c/S$ 几乎处处（仅减少接触）；
-\item 显式族的 $\Delta t(\alpha)$ 在 $[0,1]$ 上严格递减；
 \item 沿 $c_c$ 对应的控制，阈值控制期累计新增感染与新增隔离易感者人数分别满足
 \begin{align}
 \Itcum(t_2)-\Itcum(t_1)
@@ -87,9 +77,7 @@ S_q(t_2)-S_q(t_1)
 \]
 积分即得两界。等号成立要求相应非负积分差为零，即两个状态函数几乎处处相等。
 
-(ii) 显式族中 $c_c(S;\alpha)$ 对 $S>S_c$ 随 $\alpha$ 严格增加，由 (i)，其控制时长严格减少。
-
-(iii) 积分式\eqref{eq:joint:Sdot}，得
+(ii) 积分式\eqref{eq:joint:Sdot}，得
 \[
 S^*-S_c=\frac{\eta}{N}\int_{t_1}^{t_2}c(t)S(t)\,dt
 -\frac{c_0\eta\bar S}{N}\Delta t.
@@ -100,7 +88,7 @@ S^*-S_c=\Itcum(t_2)-\Itcum(t_1)+S_q(t_2)-S_q(t_1),
 \]
 代入前式得到式\eqref{eq:joint:quarantine}。
 
-(iv) 由 $0<\beta<1$，式\eqref{eq:joint:cumulative}中 $\Delta t$ 的系数 $\gamma\eta(1-\beta)$ 为正，式\eqref{eq:joint:quarantine}中的系数 $-(1-\beta)\gamma\eta$ 为负，其余各项对所有控制相同。
+(iii) 由 $0<\beta<1$，式\eqref{eq:joint:cumulative}中 $\Delta t$ 的系数 $\gamma\eta(1-\beta)$ 为正，式\eqref{eq:joint:quarantine}中的系数 $-(1-\beta)\gamma\eta$ 为负，其余各项对所有控制相同。
 \end{proof}
 被追踪的接触者中比例 $\beta$ 已感染、$1-\beta$ 未感染，追踪隔离因而也把未感染者移出社区，加快 $S$ 的下降。控制越快，未被追踪的感染越少、被追踪的接触者越多，因而控制期感染越少、被隔离的未感染者越多；两端分别是仅隔离控制与仅减少接触。这两个单调关系依赖于两点。各控制在同一状态 $(S^*,\eta)$ 进入、在 $(S_c,\eta)$ 退出，$S$ 的总减少量因而相同；隔离易感者不返回社区，这一减少量因而只分为新感染者与被隔离的未感染者。
 \begin{corollaryn}
@@ -125,4 +113,4 @@ t_{\rm end}^{(1)}-t_{\rm end}^{(2)}
 
 (ii) 由定理~\ref{thm:joint:comparison}(i)，仅隔离控制的控制时长最短，仅减少接触的最长，再由 (i) 即得。
 \end{proof}
-因此，以控制时长、清零时间或累计新增感染为目标的最优控制都是仅隔离控制。由式\eqref{eq:joint:quarantine}，它的代价是被隔离的未感染者最多，仅减少接触则使新增隔离易感者人数最少；由定理~\ref{thm:joint:comparison}(i) 的等号条件，两者都在几乎处处意义下唯一。两端之间的每个控制时长也都可以实现：取显式族，控制时长随 $\alpha\in[0,1]$ 连续变化。
+因此，以控制时长、清零时间或累计新增感染为目标的最优控制都是仅隔离控制。由式\eqref{eq:joint:quarantine}，它的代价是被隔离的未感染者最多，仅减少接触则使新增隔离易感者人数最少；由定理~\ref{thm:joint:comparison}(i) 的等号条件，两者都在几乎处处意义下唯一。两端之间的每个控制时长也都可以实现：取两种单控制的凸组合，控制时长随组合系数连续变化。
