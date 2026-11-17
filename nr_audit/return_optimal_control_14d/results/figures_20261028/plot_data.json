@@ -1,0 +1,62 @@
+{
+  "base": {
+    "q_only": {
+      "duration_days": 19.212783499643617,
+      "J_days": 2.8228580547909035,
+      "C_infinity_estimate": 623.188963226186,
+      "delta_C_relative_q_only": 0.0,
+      "evaluation_id": "reference_base_q_only_5bc43ec2"
+    },
+    "cost": {
+      "duration_days": 20.690880125793974,
+      "J_days": 2.7647035865453056,
+      "C_infinity_estimate": 623.5413810643362,
+      "delta_C_relative_q_only": 0.3524178381501315,
+      "evaluation_id": "base_65663e596fca"
+    },
+    "opt_noreturn": {
+      "duration_days": 21.806882485264737,
+      "J_days": 2.8420765313560463,
+      "C_infinity_estimate": 624.0571543041128,
+      "delta_C_relative_q_only": 0.868191077926781,
+      "evaluation_id": "reference_base_opt_noreturn_05fac2ce"
+    },
+    "c_only": {
+      "duration_days": 38.47262190305344,
+      "J_days": 12.578614418190211,
+      "C_infinity_estimate": 666.9448329946102,
+      "delta_C_relative_q_only": 43.75586976842419,
+      "evaluation_id": "reference_base_c_only_2f9beecf"
+    }
+  },
+  "xian": {
+    "q_only": {
+      "duration_days": 425.26444424469554,
+      "J_days": 192.88245206834412,
+      "C_infinity_estimate": 10449837.723867308,
+      "delta_C_relative_q_only": 0.0,
+      "evaluation_id": "reference_xian_q_only_0080ff1e"
+    },
+    "cost": {
+      "duration_days": 506.1127466435787,
+      "J_days": 175.72456310702256,
+      "C_infinity_estimate": 10451962.421367437,
+      "delta_C_relative_q_only": 2124.697500128299,
+      "evaluation_id": "xian_879e21e5d7b6"
+    },
+    "opt_noreturn": {
+      "duration_days": 484.64690603015623,
+      "J_days": 176.87147262967824,
+      "C_infinity_estimate": 10452046.072585605,
+      "delta_C_relative_q_only": 2208.3487182967365,
+      "evaluation_id": "reference_xian_opt_noreturn_2b382f2b"
+    },
+    "c_only": {
+      "duration_days": 857.245529678917,
+      "J_days": 299.48761239146023,
+      "C_infinity_estimate": 10453765.83934868,
+      "delta_C_relative_q_only": 3928.11548137106,
+      "evaluation_id": "reference_xian_c_only_f735ed88"
+    }
+  }
+}

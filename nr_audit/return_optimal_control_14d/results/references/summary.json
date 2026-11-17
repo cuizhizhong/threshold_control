@@ -1,0 +1,86 @@
+[
+  {
+    "case": "base",
+    "reference_kind": "q_only",
+    "duration": 19.212783499643617,
+    "J": 2.8228580547909035,
+    "C_infinity_interval": [
+      623.1888632268897,
+      623.1889632268897
+    ],
+    "threshold_peak_ratio": 1.0,
+    "exit_residual_normalized": 0.0,
+    "feasible": true,
+    "ode_calls": 2
+  },
+  {
+    "case": "base",
+    "reference_kind": "c_only",
+    "duration": 38.47262190305344,
+    "J": 12.578614418190211,
+    "C_infinity_interval": [
+      666.9447329946103,
+      666.9448329946102
+    ],
+    "threshold_peak_ratio": 1.0000000000000022,
+    "exit_residual_normalized": -5.551115123125783e-17,
+    "feasible": true,
+    "ode_calls": 2
+  },
+  {
+    "case": "base",
+    "reference_kind": "opt_noreturn",
+    "duration": 21.806882485264737,
+    "J": 2.8420765313560463,
+    "C_infinity_interval": [
+      624.0570543041129,
+      624.0571543041128
+    ],
+    "threshold_peak_ratio": 1.0000000000000018,
+    "exit_residual_normalized": 0.0,
+    "feasible": true,
+    "ode_calls": 2
+  },
+  {
+    "case": "xian",
+    "reference_kind": "q_only",
+    "duration": 425.26444424469554,
+    "J": 192.88245206834412,
+    "C_infinity_interval": [
+      10449837.713867322,
+      10449837.723867321
+    ],
+    "threshold_peak_ratio": 1.0000000000000027,
+    "exit_residual_normalized": -2.7755575615628914e-17,
+    "feasible": true,
+    "ode_calls": 2
+  },
+  {
+    "case": "xian",
+    "reference_kind": "c_only",
+    "duration": 857.245529678917,
+    "J": 299.48761239146023,
+    "C_infinity_interval": [
+      10453765.82934868,
+      10453765.83934868
+    ],
+    "threshold_peak_ratio": 1.0000000000000027,
+    "exit_residual_normalized": -2.7755575615628914e-17,
+    "feasible": true,
+    "ode_calls": 2
+  },
+  {
+    "case": "xian",
+    "reference_kind": "opt_noreturn",
+    "duration": 484.64690603015623,
+    "J": 176.87147262967824,
+    "C_infinity_interval": [
+      10452046.062585605,
+      10452046.072585605
+    ],
+    "threshold_peak_ratio": 1.0000000000000098,
+    "exit_residual_normalized": 0.0,
+    "feasible": true,
+    "ode_calls": 2
+  }
+]

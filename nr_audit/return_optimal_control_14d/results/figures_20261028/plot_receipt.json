@@ -1,0 +1,45 @@
+{
+  "created_utc": "2026-10-27T16:33:47.563807+00:00",
+  "script_sha256": "d9be8cf83b759b5e3d88c1f05aca0dc2958d31423db637fe1b05141cf157967b",
+  "inputs_sha256": {
+    "results/protected_initial.json": "904cbb321b808ff29fe74423140b798b7404894bd6a5ee887f95b0b5b0d396e9",
+    "results/summary.json": "7b6d863a8184671f43355ad8e697d3c2632242afce8c72842caf2addb701047b",
+    "results/final_acceptance_v2.json": "631bcc4c40b6494fdc1cee01d7b5fd063adf75a8845df0a24e24f7bb2efe12d4",
+    "results/validation/v2/evalfc839938e1_1793110167120683800/base_infections_q_only_DOP853.json": "960819b76318fab712eda2677e871ade92dd0336e63c7559aa8d88798c5f4e4e",
+    "results/validation/v2/evalfc839938e1_1793110167120683800/base_cost_n160_from80_0_from40_0_from20_2_c_then_q_DOP853.json": "2337c18c2eb139321ffeeaed4062e8fe10c65a84920213e755871892462c49ce",
+    "results/references/base_opt_noreturn.json": "198a19cc2f59937bbd8a83d05ca6feb9e73303a0dae458870ccb48aa52d5ee25",
+    "results/references/base_c_only.json": "6aef274b9ab0b5d86759b86b1cd4c37d9cfb355b8aed55d4c6d04ffb1dc0c281",
+    "results/validation/v2/evalfc839938e1_1793110167120683800/xian_infections_q_only_DOP853.json": "3d6836a2e8f9959b5c516cd0cff68539c2bc3102665309cbeb8b223399c0a7c7",
+    "results/validation/v2/evalfc839938e1_1793110167120683800/xian_cost_n160_from80_0_from40_0_from20_1_random1_DOP853.json": "c7c49b6f04067ef31aa7131463142c00a7990e187939d1932f9a4ea5895971cb",
+    "results/references/xian_opt_noreturn.json": "d5db4617ea2a76d5f4d250701e57db808c06f782e986bd83735b01802a22f1bf",
+    "results/references/xian_c_only.json": "1466ba3f0e11ebea9deb6c6823239fde4206630be9c9c9c3059c6ae5c62d3501"
+  },
+  "new_optimization_calls": 0,
+  "new_ODE_solves": 0,
+  "display_processing": [
+    "已有C∞作差",
+    "时间按启动或退出对齐",
+    "按c0、eta、Sc归一化",
+    "连接已存轨迹样点"
+  ],
+  "postexit_display_horizons_days": {
+    "base": 130.0,
+    "xian": 380.0
+  },
+  "protected_files_checked": 694,
+  "protected_files_changed": [],
+  "science_log_and_summary_unchanged": true,
+  "outputs": {
+    "01_objectives_comparison.pdf": "8eda3eee44e92f709c4806e6389cd5338c8c37714447b041303f8544a2b42cd2",
+    "01_objectives_comparison.png": "14d035a51690858289c1df3d7084bfcda7f47b15d7aee4a40f208497b1e3ab50",
+    "01_objectives_comparison.svg": "a9b9f440d983d8719718bae20fbd1e42345f102599a2909d66549be087b53a2b",
+    "02_control_profiles.pdf": "75d0f956d926ce4ac10235f670a04240dbedb485e6eac9c8de2114cc22082c23",
+    "02_control_profiles.png": "025b5b7d4fa444a1f2dda9881a192ec7093fb7572a2653a7d0528ada7555b23b",
+    "02_control_profiles.svg": "cf81bc5ca44b9182fbaad2852419a128535de40b42a264b9b2b9bf85ad5689ce",
+    "03_postexit_threshold.pdf": "a365d564f5ed577941aa244791d1dceb0c76ef89e5bb7eca90d1b991d088412b",
+    "03_postexit_threshold.png": "bc0a91b511a7c1961e7355f52cd9dfae6edb5584f90e9c4cf715e4127fa47665",
+    "03_postexit_threshold.svg": "2e6f9f375bddc00419d216e48d6806a80e6d52417790ea848eaeab580d1dbf71",
+    "plot_data.json": "b657e8af68477dc5fb630d1c4100dc4c7bb8515503b189c72cde75ae06877d6f",
+    "README.md": "364beb59986580a3edac76517e87c1f8ca14133f3a71447fcf84b9f889f497f9"
+  }
+}
