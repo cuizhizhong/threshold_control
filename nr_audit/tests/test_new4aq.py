@@ -49,8 +49,12 @@ def test_section73_no_longer_repeats_72_numbers():
 
 def test_supplement_order_and_removed_figure(rec):
     s6 = text('paper/supplement_sections/S6_xian.tex')
-    assert re.findall(r'\\subsection\{([^}]*)\}', s6) == ['设计阈值的取值', '阈值扫描', '人口缩放']
-    for lab in ('sec:sup:threshold-scale', 'sec:sup:xian:threshold-scan', 'sec:sup:xian:settings', 'prop:scaling', 'tab:sup:eta'):
+    # NEW-4ax（N52）：“人口缩放”一节（prop:scaling、sec:sup:xian:settings）删去
+    cut = (ROOT / 'nr_audit/results/new4ax_scope.json').exists()
+    subs = ['设计阈值的取值', '阈值扫描'] + ([] if cut else ['人口缩放'])
+    assert re.findall(r'\\subsection\{([^}]*)\}', s6) == subs
+    labs = ('sec:sup:threshold-scale', 'sec:sup:xian:threshold-scan', 'tab:sup:eta')
+    for lab in labs + (() if cut else ('sec:sup:xian:settings', 'prop:scaling')):
         assert s6.count('\\label{' + lab + '}') == 1, lab
     fig = rec['removed_figure']
     assert hashlib.sha256((ROOT / fig['pdf']).read_bytes()).hexdigest() == fig['pdf_sha256']

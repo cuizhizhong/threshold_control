@@ -115,4 +115,8 @@ def test_tdinn_intensity_moved_to_section_73():
     xt = text('paper/sections/07_xian.tex')
     s72, s73 = xt.split('\\subsection{控制组合}')[1].split('\\subsection{与实际干预的对照}')
     assert '0.98' not in s72 and '隔离比例趋向约 $0.98$、接触率降低约 $73\\%$' in s73
-    assert '两类策略的差别不在强度，而在要维持多久' in s73
+    # NEW-4ax（N52）：该句改为“不只在强度，更在要维持多久、涉及多少人”，并补每日追踪人数之比
+    if (SRC.HERE / 'results/new4ax_scope.json').exists():
+        assert '两类策略的差别因而不只在强度，更在要维持多久、涉及多少人' in s73
+    else:
+        assert '两类策略的差别不在强度，而在要维持多久' in s73

@@ -100,7 +100,11 @@ def test_population_and_numerics_text(w3):
     assert round(pop['dt_max'] - pop['dt_min'], 4) == 0 and f"{pop['t1_min']:.2f}" == '10.70'
     for t in (xt, s6):
         assert f"${pop['t1_min']:.2f}$ d" not in t and 'prop:reference-population' not in t and 'sec:dominance' not in t
-    assert r'\label{prop:scaling}' in s6 and r'\lambda' not in s6.split(r'\end{proposition}')[0]
+    # NEW-4ax（N52）：补充命题 prop:scaling 删去
+    if (SRC.HERE / 'results/new4ax_scope.json').exists():
+        assert 'prop:scaling' not in s6 and '人口缩放' not in s6
+    else:
+        assert r'\label{prop:scaling}' in s6 and r'\lambda' not in s6.split(r'\end{proposition}')[0]
     # NEW-4ao（N43）：能力约束起作用的前一段时长由补充 S8 末段移入第 7.2 节，数值不变。
     s8 = text('paper/supplement_sections/S8_numerics.tex')
     seg = f"{w3['capacity']['segments'][0]['duration']:.2f}"

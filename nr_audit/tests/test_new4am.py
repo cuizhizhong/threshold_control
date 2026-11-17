@@ -54,7 +54,9 @@ def test_chapter7_structure():
         assert 'sec:xian:threshold-scale' in d and 'prop:scaling' in d
     else:
         # NEW-4av（N50）：第 8、9 章合并，原 8.1 节第 3 段（退出下界，回指 7.3 节）删去，有效人口一句仍引 prop:scaling
-        assert 'sec:xian:threshold-scale' not in d and 'prop:scaling' in d
+        # NEW-4ax（N52）：补充命题 prop:scaling 删去，有效人口一句不再引用它
+        assert 'sec:xian:threshold-scale' not in d
+        assert ('prop:scaling' in d) == (not (RES / 'new4ax_scope.json').exists())
 
 
 def test_new_macros_trace_to_results(scope, w3):

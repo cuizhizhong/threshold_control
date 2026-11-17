@@ -1,0 +1,55 @@
+{
+  "round": "NEW-4ax (N52)",
+  "base_commit": "b6de083",
+  "pre_cut_tag": "pre-scaling-cut-20261117",
+  "removed_labels": [
+    "prop:scaling",
+    "sec:proof:scaling",
+    "eq:dom:Jtheta",
+    "sec:sup:xian:settings"
+  ],
+  "removed_source": {
+    "path": "paper/supplement_sections/S6_xian.tex",
+    "commit": "b6de083",
+    "content_sha256": "d12de0305cbdbcac70ae6ca2f1ba615218d91f1f0af3b66d474fcc9f88f46da8",
+    "section": "\\subsection{人口缩放}（原第 51–91 行）"
+  },
+  "removed_numbers": [
+    {
+      "value": "152.55",
+      "where": "表 tab:xian_summary 注",
+      "still_in": "表内 153；nr_audit/results/new4w/xian_theta001.json（TDINN 峰值）"
+    },
+    {
+      "value": "2105.63",
+      "where": "表 tab:xian_summary 注",
+      "still_in": "表内 2106；nr_audit/results/new4w/xian_theta001.json（TDINN total）"
+    }
+  ],
+  "new_readings": [
+    {
+      "text": "约为 TDINN 峰值 153 的 86 倍",
+      "derivation": "13163/153 = 86.03，两数均取自表 tab:xian_summary"
+    },
+    {
+      "text": "仅隔离控制的控制时长约为 171 至 342 d",
+      "derivation": "补充表 tab:sup:eta 中 eta/N=0.001 与 0.0005 两行的 170.63、341.75 d"
+    },
+    {
+      "text": "陕西口径 7.55e-4 介于 0.0005 与 0.001 之间",
+      "derivation": "补充 S4.1 已有数值与表 tab:sup:eta 的行"
+    }
+  ],
+  "reused_macros": [
+    "nrRwBaseDiffPctNoret",
+    "nrRwBaseDiffPct",
+    "nrRwXianDiffPctNoret",
+    "nrRwXianDiffPct"
+  ],
+  "scientific_activity": {
+    "ode_solves": 0,
+    "optimization_solves": 0,
+    "fits": 0,
+    "redraws": 0
+  }
+}
