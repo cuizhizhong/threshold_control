@@ -40,6 +40,15 @@ def test_ch6_wording():
     # 表值不变
     for v in ('1.92\\\\', '1.89\\\\', '1.02\\\\', '& 2.12 &', '& 7.75 &'):
         assert v in ch6, v
+    # 术语一轮
+    for s in ('表~\\ref{tab:joint:compare}中 $\\Delta t$', '维持阈值所需的隔离比例降低',
+              '这些感染者不参与社区传播', '两种权重只通过其比值 $r=w_q/w_c$ 影响最优控制',
+              '允许区间内部另一个局部最小点上的 $f(S,c)$ 更低', '跳到该点',
+              '接触率随时间的变化则依赖权重', '黑色数字标注等高线的 $y$ 值'):
+        assert s in ch6, s
+    for gone in ('比较三种控制。表中', '隔离强度降低', '不进入社区', '属于这一档', '内部局部最优的成本',
+                 '时间形态', '黑色数字为等值'):
+        assert gone not in ch6, gone
     # 第 7.2 节同步
     ch7 = text('paper/sections/07_xian.tex')
     assert '仅隔离控制在这组参数下的成本也接近最小成本' in ch7
