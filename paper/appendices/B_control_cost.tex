@@ -1,8 +1,8 @@
 \section{成本积分}
 \label{app:cost}
-取默认权重 $w_c=1$、$w_q=2$。
+本附录取 $w_c=1$、$w_q=2$，计算两种单控制的成本。
 \subsection{仅隔离控制}
-仅隔离控制下 $c=c_0$，接触项为零。由式\eqref{eq:s1:q-control}，隔离项的归一化强度为 $(q_c(S)-q_0)/(1-q_0)=1-S_c/S$；由式\eqref{eq:s1:S-analytic}，$dt=-N\,dS/[c_0\eta(S-\bar S)]$。代入式\eqref{eq:cost:linear}与\eqref{eq:cost:J}，得到状态积分\eqref{eq:cost:state}。由 $0<\bar S<S_c$，两个被积函数有部分分式
+仅隔离控制下 $c=c_0$，接触项为零。由式\eqref{eq:s1:q-control}，隔离项的归一化强度为 $(q_c(S)-q_0)/(1-q_0)=1-S_c/S$；由式\eqref{eq:s1:S-analytic}，$dt=-N\,dS/[c_0\eta(S-\bar S)]$。代入式\eqref{eq:cost:linear}与\eqref{eq:cost:J}，得到状态积分\eqref{eq:cost:state}。由式\eqref{eq:s1:barS}，$0<\bar S<S_c$。在 $[S_c,S^*]$ 上，两个被积函数的部分分式分解为
 \begin{align*}
 \frac{1-S_c/S}{S-\bar S}
 &=\frac{S_c/\bar S}{S}
@@ -32,9 +32,9 @@ J=\frac{2N}{c_0\eta}\bigg[&
 $\bar S$ 很小或 $S^*$ 接近 $S_c$ 时，闭式中有相近的量相减，数值计算宜直接用积分式\eqref{eq:cost:state}。
 
 \subsection{仅减少接触}
-仅减少接触时 $c_c(S)=c_0S_c/S$、$q\equiv q_0$，隔离项为零。由式\eqref{eq:joint:Sdot}，$c_c(S)S-c_0\bar S=c_0(S_c-\bar S)$，即 $S$ 的下降速度恒为 $c_0(S_c-\bar S)\eta/N$。接触项的归一化强度为 $1-c_c/c_0=1-S_c/S$，代入式\eqref{eq:joint:cost}与\eqref{eq:joint:cost-integrand}，得
+仅减少接触时 $c_c(S)=c_0S_c/S$、$q\equiv q_0$，隔离项为零。由式\eqref{eq:joint:Sdot}，$c_c(S)S-c_0\bar S=c_0(S_c-\bar S)$，即 $S$ 的下降速度恒为 $c_0(S_c-\bar S)\eta/N$，$dt=-N\,dS/[c_0\eta(S_c-\bar S)]$。接触项的归一化强度为 $1-c_c/c_0=1-S_c/S$，代入式\eqref{eq:joint:cost}与\eqref{eq:joint:cost-integrand}，得
 \[
-J=\frac{N}{c_0\eta(S_c-\bar S)}\int_{S_c}^{S^*}\left(1-\frac{S_c}{S}\right)^2dS.
+J=\frac{N}{c_0\eta(S_c-\bar S)}\int_{S_c}^{S^*}\left(1-\frac{S_c}{S}\right)^2\,dS.
 \]
 展开被积函数为 $1-2S_c/S+S_c^2/S^2$ 并逐项积分，即得
 \begin{equation}
