@@ -48,7 +48,9 @@ def test_new_readings_from_tables():
     s6 = text('paper/supplement_sections/S6_xian.tex')
     summ = xt.split('\\label{tab:xian_summary}')[1].split('\\end{table}')[0]
     assert re.search(r'TDINN 控制 & 153 &', summ) and r'0.001N=\num{13163}' in xt
-    assert round(13163 / 153) == 86 and '约为 TDINN 峰值 $153$ 的 $86$ 倍' in xt
+    # NEW-4ay（N53）：86 倍（感染者人数之比）改为每日追踪隔离人数的上下界
+    if not (RES / 'new4ay_scope.json').exists():
+        assert round(13163 / 153) == 86 and '约为 TDINN 峰值 $153$ 的 $86$ 倍' in xt
     assert '152.55' not in summ and '2105.63' not in summ
     rows = {r.split('&')[0].strip(): r.split('&')[2].strip() for r in s6.split('\\midrule')[1].split('\\bottomrule')[0].strip().split('\\\\') if r.strip()}
     assert rows['0.0010'] == '170.63' and rows['0.0005'] == '341.75'

@@ -4,7 +4,8 @@
 
 ## 1. 当前状态
 
-- **NEW-4ax（N52，2026-11-17）外部审阅意见的局部修订**：按作者对 ChatGPT 三轮审阅的取舍，改准 10 处（4.1 节上界句、第 8 章“先仅隔离”的权重条件与回流后的感染差别、7.1 节数据来源与 $I_0$ 敏感性的范围、7.3 节与 TDINN 的工作量比较与阈值扫描的控制方式、表 4 注、补充 S4.1 床位口径），删补充“人口缩放”一节（`prop:scaling`）。补充西安一节现在只有“设计阈值的取值”和“阈值扫描”。记录 `paper/revision_notes/NEW_4ax_review.md`，新测试 `nr_audit/tests/test_new4ax.py`。本地提交、未推送。
+- **NEW-4ay（N53，2026-11-18）第 7 章两处改准**：按 ChatGPT 对 NEW-4ax 的复核意见，7.3 节工作量句不再用 86 倍，改为每日追踪隔离人数 $cqSI/N$ 的上下界：对 $\mathcal A(\eta)$ 中任何控制不少于 $c_0q_0S_c\eta/N\approx1.24\times10^4$，TDINN 不超过约 810，至少 15 倍。7.1 节“从这些数据”改为“从西安的病例数据”。记录 `paper/revision_notes/NEW_4ay_workload.md`，收据 `nr_audit/results/new4ay_scope.json`，新测试 `nr_audit/tests/test_new4ay.py`。本地提交、未推送。
+- **NEW-4ax（N52，2026-11-17）外部审阅意见的局部修订**：按作者对 ChatGPT 三轮审阅的取舍，改准 10 处（4.1 节上界句、第 8 章“先仅隔离”的权重条件与回流后的感染差别、7.1 节数据来源与 $I_0$ 敏感性的范围、7.3 节与 TDINN 的工作量比较与阈值扫描的控制方式、表 4 注、补充 S4.1 床位口径），删补充“人口缩放”一节（`prop:scaling`）。补充西安一节现在只有“设计阈值的取值”和“阈值扫描”。记录 `paper/revision_notes/NEW_4ax_review.md`，新测试 `nr_audit/tests/test_new4ax.py`。已于 2026-11-18 推送（`97ebbd4`）。
 - **NEW-4aw（N51，2026-11-16）第 5 章两条证明移回正文**：命题 5.3（给出 $S_{\rm sw}$ 的来历）与命题 5.5 的证明由附录 A 移到正文命题之后，文字逐字不变；附录删两小节，现为 A.1–A.11（第 5 章其余四条证明仍在 A.7–A.10）。表 1 移到第 6.2 节首次引用处。正文定理的证明本来就都在主稿附录，补充材料只证自己的命题。记录 `paper/revision_notes/NEW_4aw_proofs.md`。本地提交、未推送。
 - **NEW-4av（N50，2026-11-16）第 8、9 章合并**：正文现为八章，末章“结论与讨论”（`08_discussion.tex`，不分小节，9 段：回顾与主要结果／成本最优控制／与沿容量运行的对应／与已有目标的对应／不回流的依赖／14 d 回流／其他模型前提／实施与成本／展望）；`09_conclusion.tex` 已删。记录 `paper/revision_notes/NEW_4av_merge.md`，新测试 `nr_audit/tests/test_new4av.py`。本地提交、未推送。定稿顺序中只剩摘要与引言（引言末段路线句已按八章同步）。
 - **NEW-4au（N49，2026-11-16）第 4 章再审**：删去能力约束与显式族后重审第 4 章，段落 4 项、逐句 26 项加第 27 条，作者“并入后写入”。$c_c$、$q_c$ 全稿称“状态反馈函数”（第 4.1 节首段定义），允许区间在定理 4.1 后定义（第 5.1 节改为引用）；推论 4.3 前有引导句，前提写成“$\mathcal A(\eta)$ 中两个控制”；附录 A.6 补全 (i) 的构造与可测性。记录 `paper/revision_notes/NEW_4au_ch4.md`，新测试 `nr_audit/tests/test_new4au.py`。本地提交、未推送。全量测试要连同 `nr_audit/return_optimal_control_14d` 一起跑才与前几轮的项数可比（453 项）。

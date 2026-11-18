@@ -1,0 +1,43 @@
+{
+  "round": "NEW-4ay (N53)",
+  "base_commit": "97ebbd4",
+  "replaced_readings": [
+    {
+      "text": "约为 TDINN 峰值 153 的 86 倍",
+      "where": "第 7.3 节第 2 段",
+      "reason": "13163/153 是感染者人数之比，不是每日追踪隔离人数之比（漏了 S/N，两类策略的 cq 也不相近）"
+    }
+  ],
+  "new_readings": [
+    {
+      "text": "c0 q0 S_c eta/N ≈ 1.24e4",
+      "derivation": "阈值控制期内 R_e=1 即 c(1-q)S=c0(1-q0)S_c；允许区间 cS≥c0 S_c；相减得 cqS≥c0 q0 S_c。S_c=γN/(βc0(1-q0))，西安参数（表 tab:xian_initial_fit），eta=0.001N",
+      "value": 12379.99
+    },
+    {
+      "text": "TDINN 下 cq ≤ 5.28",
+      "derivation": "第 7.1 节 c_TDINN(t) q_TDINN(t) 的最大值，在 t≈16.38 d 取到（函数求值，t∈[0,46]）",
+      "value": 5.2774
+    },
+    {
+      "text": "TDINN 每日追踪隔离人数不超过约 810",
+      "derivation": "max cq × 1 × max I = 5.2774 × 152.546（xian_theta001.json strategies/TDINN/peak_I）",
+      "value": 805.05
+    },
+    {
+      "text": "至少是 TDINN 的 15 倍",
+      "derivation": "12379.99 / 805.05 = 15.38",
+      "value": 15.38
+    }
+  ],
+  "inputs": {
+    "params": "nr_audit/params.py 中 XIAN（eta 改取 0.001N）",
+    "tdinn_peak": "nr_audit/results/new4w/xian_theta001.json strategies/TDINN/peak_I"
+  },
+  "scientific_activity": {
+    "ode_solves": 0,
+    "optimization_solves": 0,
+    "fits": 0,
+    "redraws": 0
+  }
+}
