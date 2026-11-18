@@ -30,10 +30,14 @@ def test_merged_chapter_structure():
     ps = paragraphs(d.split('\\label{sec:conclusion}')[1].split('\\FloatBarrier')[0])
     assert len(ps) == 9
     assert ps[0].startswith('本文在含密切接触者追踪与隔离的 SIR 型模型中')
-    assert ps[4].startswith('正文的解析结果依赖隔离易感者在清零前不释放。')
-    assert ps[6].startswith('其他模型前提') and ps[7].startswith('实施与成本') and ps[8].startswith('提前干预与安全余量')
-    # 第 5 章引用的局限一段：标签紧接在“其他模型前提”一段之前
-    assert '\\label{sec:dom:limits}\n其他模型前提' in d
+    # NEW-4bc（N57）：回流前提段改写，两个局限段删去段首提示句
+    bc = (ROOT / 'paper/revision_notes/NEW_4bc_ch8.md').exists()
+    assert ps[4].startswith('正文的解析结果以隔离易感者在清零前不返回社区为前提' if bc
+                            else '正文的解析结果依赖隔离易感者在清零前不释放。')
+    p6, p7 = ('$S_c$ 与退出时累计新增感染的下界', '控制若按模型预先计算') if bc else ('其他模型前提', '实施与成本')
+    assert ps[6].startswith(p6) and ps[7].startswith(p7) and ps[8].startswith('提前干预与安全余量')
+    # 第 5 章引用的局限一段：标签紧接在局限段之前
+    assert '\\label{sec:dom:limits}\n' + p6 in d
     # NEW-4az（N54）：第 5.1 节删去与第 8 章展望段重复的半句，第 5 章不再引用该标签
     if not (ROOT / 'paper/revision_notes/NEW_4az_ch5.md').exists():
         assert '第~\\ref{sec:dom:limits}~节' in text('paper/sections/05_quadratic_cost.tex')

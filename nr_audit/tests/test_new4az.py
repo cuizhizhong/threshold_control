@@ -35,8 +35,9 @@ def test_ch5_wording():
                  '退出附近的组合则由权重直接决定',
                  '成本单峰', '不作分类', '不需要单峰性', '不依赖 $r\\le r_{\\rm cont}$ 的部分'):
         assert gone not in ch5, gone
-    # 第 8 章仍完整说明逐状态分离的限制
-    assert '逐状态分离' in text('paper/sections/08_discussion.tex')
+    # 第 8 章仍完整说明逐状态分离的限制（NEW-4bc 改写为“逐状态最小化”）
+    d = text('paper/sections/08_discussion.tex')
+    assert ('逐状态最小化' if (ROOT / 'paper/revision_notes/NEW_4bc_ch8.md').exists() else '逐状态分离') in d
     # 命题 5.5 的证明仍给出阈值经 N/eta 与 S^* 进入成本
     assert re.search(r'有 \$N/\\eta_1>N/\\eta_2\$ 与 \$S\^\*\(\\eta_1\)>S\^\*\(\\eta_2\)\$', ch5)
     # 定理类陈述的列表项不再以分号收尾
