@@ -83,7 +83,7 @@ $\eta$ & 阈值（人） & $0.001N=\num{13163}$ & 按重症监护床位与重症
 \end{threeparttable}
 \end{table}
 
-西安参数下，成本最优控制的结构在较小的权重上就开始改变（图~\ref{fig:xian:joint}(a)）。$r_{\rm cont}$ 与 $\hat r$ 只通过 $b=(1-\beta)(1-q_0)$ 依赖参数，$r_{\rm cont}$ 随 $b$ 增加（第~\ref{sec:joint:cost-structure}~节）。西安的常规隔离比例高，$b$ 较小，于是 $r_{\rm cont}\approx\nrCostRcontXian$、$\hat r\approx\nrCostRhatXian$，仅隔离段在 $r$ 超过约 $\nrWtXianBToCApx$ 后消失；基准算例中这三个值约为 $\nrCostRcontBase$、$\nrCostRhatBase$ 与 $\nrWtBaseBToCApx$。$r=1$ 时成本最优控制只比仅隔离控制节省约 $\nrCostGapOneXian\%$，因此隔离的相对代价不高于接触时，仅隔离控制在这组参数下也几乎不损失成本。
+西安参数下，成本最优控制的结构在较小的权重上就开始改变（图~\ref{fig:xian:joint}(a)）。$r_{\rm cont}$ 与 $\hat r$ 只通过 $b=(1-\beta)(1-q_0)$ 依赖参数，$r_{\rm cont}$ 随 $b$ 增加（第~\ref{sec:joint:cost-structure}~节）。西安的常规隔离比例高，$b$ 较小，于是 $r_{\rm cont}\approx\nrCostRcontXian$、$\hat r\approx\nrCostRhatXian$，仅隔离段在 $r$ 超过约 $\nrWtXianBToCApx$ 后消失；基准算例中这三个值约为 $\nrCostRcontBase$、$\nrCostRhatBase$ 与 $\nrWtBaseBToCApx$。$r=1$ 时成本最优控制只比仅隔离控制节省约 $\nrCostGapOneXian\%$，因此隔离的相对代价不高于接触时，仅隔离控制在这组参数下的成本也接近最小成本。
 
 图~\ref{fig:xian:joint}(b)(c) 给出五个权重下的接触率与隔离比例，结构随权重的变化与基准算例相同（第~\ref{sec:joint:weights-numerics}~节）。$r=1,2$ 时控制连续，在 $S_{\rm sw}$ 处由仅隔离转为两者并用。$r=2.63$ 介于 $r_{\rm cont}$ 与 $\hat r$ 之间，仍在 $S_{\rm sw}$ 处连续地转入两者并用，随后在其稍下方跳变一次。$r=4$ 时仅隔离段提前到 $S/S_c\approx\nrXianWtFourSwitch$ 处结束，接触率在此一次降低约 $\nrXianWtFourCutPct\%$。$r=10$ 时没有仅隔离段，启动时接触率即降低约 $\nrXianWtTenCutPct\%$，隔离比例只升到约 $\nrXianWtTenStartQ$。权重增大时，每个状态上的接触率与隔离比例都不增，控制期不缩短（命题~\ref{prop:joint:weight-monotone}）：隔离的相对代价越高，控制越偏重减少接触。
 \begin{figure}[htbp]

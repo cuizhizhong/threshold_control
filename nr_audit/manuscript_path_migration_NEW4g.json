@@ -16,7 +16,7 @@
       "new4g_baseline_sha256": "4ada262f80854fc6a78bdc27ee133a5d035ec9025f629553f6a397bea8bad2b8",
       "current_path": "paper/sections/06_numerics.tex",
       "current_sha256": "c3bc8f0d35ab96db36723ffec28618d89ef8d8e68d60053a8ad9009d62a3f2a2",
-      "current_content_sha256": "ec58d9d43171dc5008586862ca3a28392603ab47ae65d39379a60b7ceedf352c"
+      "current_content_sha256": "f4a94f50407dbeab45b69bfdcd122b6bf79f43a76198eaa3ff78ee9499101543"
     },
     "model_section": {
       "historical_path": "paper/sections/02_model.tex",
@@ -72,7 +72,7 @@
       "new4g_baseline_sha256": "011979ea924660315492a0d2aaf120579f8cbc7f3821147f53b4158762a1c3a3",
       "current_path": "paper/sections/07_xian.tex",
       "current_sha256": "4952f88ad903d47e8adb831b47d1d1db6357765e06ea1ab6050eea24918f1210",
-      "current_content_sha256": "e754014bed9b1996e260756155239443097f917259b3da5622602f52f1d8e9c8"
+      "current_content_sha256": "ee113b41539f8b2b355b9ed9e5e2c4c149c9872a6d9a3251c1bc0b4f8697a8db"
     }
   },
   "file_fragments": [

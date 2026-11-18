@@ -44,7 +44,9 @@ def test_comparison_theorem_items():
     second = '时长与感染目标' if (ROOT / 'paper/revision_notes/NEW_4au_ch4.md').exists() else '不同目标的最优控制'
     assert re.findall(r'\\subsection\{([^}]*)\}', ch4) == ['状态参数化', second]
     num = text('paper/sections/06_numerics.tex')
-    assert r'\ref{thm:joint:comparison}(iii)与推论' in num and r'\ref{thm:joint:comparison}(iv)' not in num
+    # NEW-4ba（N55）把回指句的“与推论”改为“及推论”
+    link = '及推论' if (ROOT / 'paper/revision_notes/NEW_4ba_ch6.md').exists() else '与推论'
+    assert r'\ref{thm:joint:comparison}(iii)' + link in num and r'\ref{thm:joint:comparison}(iv)' not in num
 
 
 def test_removed_rows_trace_to_results(scope):

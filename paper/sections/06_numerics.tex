@@ -6,14 +6,14 @@
 本节用基准参数展示第~\ref{sec:joint}、\ref{sec:joint:cost}~节的结果：先比较三种控制，再给出不同成本权重下的成本最优控制。西安参数下的相应结果见第~\ref{sec:xian:joint}~节。
 \subsection{参数与方法}
 \label{sec:num:methods}
-本节采用基准参数（图~\ref{fig:scenario1:single-sim}），这是一个小人口算例，用来演示解析结果。阈值策略的比较采用无回流模型\eqref{eq:model:full}，控制属于 $\mathcal A(\eta)$；各指标的统计时段见第~\ref{sec:cost}~节，成本权重取默认值。
+本节采用基准参数（图~\ref{fig:scenario1:single-sim}），这是一个小人口算例。计算采用无回流模型\eqref{eq:model:full}，各指标的统计时段见第~\ref{sec:cost}~节；比较三种控制时，成本权重取默认值。
 
-控制时长、累计新增感染、新增隔离易感者人数与成本由第~\ref{sec:s1}--\ref{sec:joint:cost}~节的闭式解或对 $S$ 的一维积分（式\eqref{eq:joint:duration}、\eqref{eq:joint:cost}）得到，成本最优控制按定理~\ref{thm:joint:cost-minimum}逐状态选取。两感染仓室人数之和的峰值由完整仓室方程直接积分得到，控制以按名义模型预先算出的开环形式输入；求解器与核验见补充材料第~\ref{sec:sup:numerics}~节。第~\ref{sec:joint:weights-numerics}~节只在有限个网格点上计算。$\delta_q$ 只出现在 $I_q$ 与 $R$ 的方程中，不影响闭合的 $(S,I)$ 子系统，因而不改变控制律、控制时长、累计新增感染与 $J$；表中只有 $\max(I+I_q)/\eta$ 一列依赖 $\delta_q$。
+控制时长、累计新增感染、新增隔离易感者人数与成本由第~\ref{sec:s1}--\ref{sec:joint:cost}~节的闭式解或对 $S$ 的一维积分（式\eqref{eq:joint:duration}、\eqref{eq:joint:cost}）得到，成本最优控制按定理~\ref{thm:joint:cost-minimum}逐状态选取。两感染仓室人数之和的峰值由完整仓室方程的数值积分得到，积分时控制作为预先算出的时间函数输入；求解器与核验见补充材料第~\ref{sec:sup:numerics}~节。第~\ref{sec:joint:weights-numerics}~节的相图在 $(r,S)$ 网格上计算。$\delta_q$ 只出现在 $I_q$ 与 $R$ 的方程中，不影响闭合的 $(S,I)$ 子系统，因而不改变控制律、控制时长、累计新增感染与 $J$；表中只有 $\max(I+I_q)/\eta$ 一列依赖 $\delta_q$。
 
 \FloatBarrier
 \subsection{三种控制的比较}
 \label{sec:joint:compare-numerics}
-成本最低的控制不是最快的控制。表~\ref{tab:joint:compare}比较三种控制。控制时长从长到短依次为仅减少接触、成本最优控制与仅隔离控制；由定理~\ref{thm:joint:comparison}(iii)与推论~\ref{cor:joint:whole-epidemic}，这一排序同时决定了清零时间、累计新增感染与新增隔离易感者人数的排序。与最快的仅隔离控制相比，成本最优控制使 $J$ 降低约 $4.7\%$，控制时长与总累计新增感染分别增加约 $31.4\%$ 与 $7.3\%$。
+成本最低的控制不是最快的控制。表~\ref{tab:joint:compare}比较三种控制。表中 $\Delta t$、$t_{\rm end}$、$\Itcum(t_{\rm end})$ 与 $\Delta S_q$ 的排序与定理~\ref{thm:joint:comparison}(iii)及推论~\ref{cor:joint:whole-epidemic}一致。与最快的仅隔离控制相比，成本最优控制使 $J$ 降低约 $4.7\%$，控制时长与总累计新增感染分别增加约 $31.4\%$ 与 $7.3\%$。
 
 \begingroup
 \begin{table}[!htbp]
@@ -39,27 +39,27 @@
 \end{table}
 \endgroup
 
-启动状态 $S^*$ 高于 $S_{\rm sw}$（比值见表~\ref{tab:joint:compare}注），由定理~\ref{thm:joint:cost-structure}，成本最优控制先仅隔离、后两者并用。前段较短，约 $1.61$ d，却完成了阈值控制期 $S$ 下降的一半以上：$S$ 越大，下降越快，所以控制期的大部分时间落在两者并用的后段。
+启动时的易感者人数 $S^*$ 大于 $S_{\rm sw}$（比值见表~\ref{tab:joint:compare}注），由定理~\ref{thm:joint:cost-structure}，成本最优控制先仅隔离、后两者并用。前段较短，约 $1.61$ d，却完成了阈值控制期 $S$ 下降的一半以上：该段 $c=c_0$，$S$ 越大，下降越快，所以控制期的大部分时间落在两者并用的后段。
 
-成本最优控制与仅隔离控制在 $S\ge S_{\rm sw}$ 上相同，$J$ 与 $\Delta t$ 的差别全部来自 $S<S_{\rm sw}$ 一段。在这一段，成本最优控制略减接触：$S$ 下降变慢，控制期延长；所需的隔离强度降低，$J$ 因而下降（机制见第~\ref{sec:joint:cost-structure}~节）。接触减少的幅度不大，接触率最多降低约 $19.8\%$。
+成本最优控制与仅隔离控制在 $S\ge S_{\rm sw}$ 上相同，$J$ 与 $\Delta t$ 的差别全部来自 $S<S_{\rm sw}$ 一段。在这一段，成本最优控制略减接触：$S$ 下降变慢，控制期延长；所需的隔离强度降低，$J$ 因而下降（机制见第~\ref{sec:joint:cost-structure}~节）。接触率相对 $c_0$ 的最大降幅约为 $19.8\%$。
 
-追踪隔离越强的控制，两感染仓室人数之和 $I+I_q$ 在这组参数下越高：$I$ 维持在 $\eta$，被追踪的感染者则不断进入 $I_q$。追踪隔离把一部分感染者从社区转入隔离，控制了社区传播，隔离点的负荷则随之增加。仅隔离控制、成本最优控制与仅减少接触下，$\max(I+I_q)/\eta$ 分别约为 $1.92$、$1.89$ 与 $1.02$（表~\ref{tab:joint:compare}，图~\ref{fig:joint:compare}(c)）；这一峰值出现在后段，成本最优控制的隔离较弱，因此峰值略低。按补充材料第~\ref{sec:sup:medical-link}~节的比例近似，重症监护需求与 $I+I_q$ 成正比，偏重隔离的控制因而需要更多重症床位。补充引理~\ref*{lem:sup:infected-bound}给出 $I+I_q$ 对所有控制都成立的上界，阈值按这一上界选取时对各控制同样适用，因此本节在同一阈值下比较各控制。
+追踪隔离越强的控制，两感染仓室人数之和 $I+I_q$ 的峰值在这组参数下越高（表~\ref{tab:joint:compare}，图~\ref{fig:joint:compare}(c)）：$I$ 维持在 $\eta$，被追踪的新感染者直接进入 $I_q$。追踪隔离使一部分新感染者不进入社区，控制了社区传播，隔离点的负荷则随之增加。成本最优控制的峰值出现在转入两者并用后不久，此时它的隔离比例低于仅隔离控制，进入 $I_q$ 的流量较小，峰值因而略低。按补充材料第~\ref{sec:sup:medical-link}~节的比例近似，重症监护需求与 $I+I_q$ 成正比，偏重隔离的控制因而需要更多重症床位。补充引理~\ref*{lem:sup:infected-bound}给出各控制共用的 $I+I_q$ 上界，阈值可按这一上界选取，因此本节在同一阈值下比较各控制。
 
 \begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{figures/new4at/joint_compare_baseline.pdf}
-\caption{基准参数下三种控制的时间轨迹（$w_c=1,w_q=2$）。(a) 接触率；(b) 隔离比例；(c) 两感染仓室人数之和与阈值之比 $(I+I_q)/\eta$；(d) 社区易感者比例。红色虚线依次为 $q_0$、$1$ 与 $S_c/N$。各轨迹画至自身的清零时间，$t$ 以天计。}
+\caption{基准参数下三种控制的时间轨迹（$w_c=1,w_q=2$）。(a) 接触率；(b) 隔离比例；(c) 两感染仓室人数之和与阈值之比 $(I+I_q)/\eta$；(d) 社区易感者比例。(b)、(c)、(d) 中的红色虚线分别为 $q_0$、$1$ 与 $S_c/N$。各轨迹画至自身的清零时间，$t$ 以天计。}
 \label{fig:joint:compare}
 \end{figure}
 
 \FloatBarrier
 \subsection{成本权重}
 \label{sec:joint:weights-numerics}
-图~\ref{fig:joint:phase}给出 $r\in[1,20]$ 内的成本最优控制。最优选择只通过 $r=w_q/w_c$ 依赖权重，因此固定 $w_c=1$。图中颜色与等高线表示 $y$，即接触率降幅占仅减少接触时降幅的比例，$y=0$ 对应仅隔离控制。图只画 $r\ge1$，即加强隔离的相对代价不低于减少接触的情形；$r\le1$ 的情形可以直接判断。$r=1$ 时，成本最优控制只比仅隔离控制节省约 $\nrCostGapOneBase\%$；由于 $J_{\min}/J[c_0]$ 随 $r$ 不增（第~\ref{sec:joint:cost-sensitivity}~节），$r<1$ 时节省不超过这一比例。因此在这一算例中，隔离的相对代价不高于接触时，直接采用仅隔离控制几乎不损失成本。
+图~\ref{fig:joint:phase}给出 $r\in[1,20]$ 内的成本最优控制。最优选择只通过 $r=w_q/w_c$ 依赖权重，因此固定 $w_c=1$。图中颜色与等高线表示 $y$，即接触率降幅占仅减少接触时降幅的比例，$y=0$ 对应仅隔离控制。图只画 $r\ge1$，即加强隔离的相对代价不低于减少接触的情形。$r=1$ 时，成本最优控制只比仅隔离控制节省约 $\nrCostGapOneBase\%$；由于 $J_{\min}/J[c_0]$ 随 $r$ 不增（第~\ref{sec:joint:cost-sensitivity}~节），$r<1$ 时节省不超过这一比例。因此在这一算例中，隔离的相对代价不高于接触时，直接采用仅隔离控制，成本也接近最小成本。
 
-隔离的相对权重不大时，“先仅隔离、后两者并用”的结构不变；权重增大后，先在两者并用段内出现一次跳变，然后切换提前，最后仅隔离段消失。$r\le r_{\rm cont}$（约 $\nrCostRcontBase$）时，由定理~\ref{thm:joint:cost-structure}，切换发生在 $S_{\rm sw}$ 处且控制连续，默认的 $r=2$ 属于这一档。$r_{\rm cont}<r\le\hat r$（$\hat r$ 约 $\nrCostRhatBase$）时，仅隔离段仍在 $S_{\rm sw}$ 处结束，此后跳变一次；$r=\hat r$ 时跳变就发生在 $S_{\rm sw}$ 处。$r>\hat r$ 时切换提前：仅隔离控制仍是局部最优，但另一个内部局部最优的成本更低，接触率因而在切换处由 $c_0$ 跳到内部值，此后连续变化直至退出。$r$ 越大，切换越早，超过约 $\nrWtBaseBToCApx$ 后仅隔离段消失，整个阈值控制期都两者并用。$\hat r$ 与跳变位置的闭式、各转折的括区与放大图见补充材料第~\ref{sec:sup:weight-structure}~节。
+隔离的相对权重不大时，“先仅隔离、后两者并用”的结构不变；权重增大后，先在两者并用段内出现一次跳变，然后切换提前，最后仅隔离段消失。$r\le r_{\rm cont}$（约 $\nrCostRcontBase$）时，由定理~\ref{thm:joint:cost-structure}，切换发生在 $S_{\rm sw}$ 处且控制连续，默认的 $r=2$ 属于这一档。$r_{\rm cont}<r<\hat r$（$\hat r$ 约 $\nrCostRhatBase$）时，控制在 $S_{\rm sw}$ 处连续转为两者并用，随后在两者并用段内跳变一次；$r=\hat r$ 时，跳变恰好发生在 $S_{\rm sw}$ 处。$r>\hat r$ 且仍有仅隔离段时，切换提前：在切换状态与 $S_{\rm sw}$ 之间，仅隔离控制仍是局部最优，但另一个内部局部最优的成本更低，接触率因而在切换处由 $c_0$ 跳到内部值，此后连续变化直至退出。$r$ 越大，切换越早，超过约 $\nrWtBaseBToCApx$ 后仅隔离段消失，整个阈值控制期都两者并用。$\hat r$ 与两个内部取值之间跳变位置的闭式表达式、各转折权重的数值范围与放大图见补充材料第~\ref{sec:sup:weight-structure}~节。
 
-图~\ref{fig:joint:phase}(b)(c) 给出几个权重的控制。由命题~\ref{prop:joint:weight-monotone}(i)，权重增大时，每个状态上的接触率与隔离比例都不增，在共同的仅隔离段上则相同。由命题~\ref{prop:joint:weight-monotone}(ii)，隔离比例在每个权重下都随时间不增；接触率的时间形态则依赖权重：$r=1,2$ 时在 $S_{\rm sw}$ 以下先降后回升；$r=3.17$ 时也先降后回升，但在 $S_{\rm sw}$ 稍下方先向下跳变一次；$r=5$ 时跳入两者并用后一直回升，$r=15$ 时从启动起一直回升。退出时 $y$ 对所有 $r$ 都趋于 $r/(1+r)$，即两种归一化强度之比趋于权重的反比（命题~\ref{prop:joint:terminal-allocation}）；图中的等高线因而在 $S_c$ 附近趋于水平线 $r=y/(1-y)$。
+图~\ref{fig:joint:phase}(b)(c) 给出几个权重的控制。在同一 $S$ 上比较，权重增大时接触率与隔离比例都不增，在共同的仅隔离段上则相同（命题~\ref{prop:joint:weight-monotone}(i)）。由命题~\ref{prop:joint:weight-monotone}(ii)，隔离比例在每个权重下都随时间不增；接触率的时间形态则依赖权重：$r=1,2$ 时在 $S_{\rm sw}$ 以下先降后回升；$r=3.17$ 时也先降后回升，但在 $S_{\rm sw}$ 稍下方先向下跳变一次；$r=5$ 时跳入两者并用后一直回升，$r=15$ 时从启动起一直回升。退出时 $y$ 对所有 $r$ 都趋于 $r/(1+r)$，即两种归一化强度之比趋于权重的反比（命题~\ref{prop:joint:terminal-allocation}）；图中各条等高线在 $S_c$ 一端的 $r$ 值因而趋于 $y/(1-y)$。
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/new4t/Main6.pdf}
