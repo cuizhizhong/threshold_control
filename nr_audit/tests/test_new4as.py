@@ -21,7 +21,9 @@ def test_cost_ratios_in_section81():
     ratio = [d['c_only'] / d['opt'] for d in (base, xian)]
     assert [f'{g:.1f}' for g in gap] == ['4.7', '6.7'] and [f'{x:.1f}' for x in ratio] == ['5.6', '2.9']
     d = text('paper/sections/08_discussion.tex')
-    assert r'成本最优控制只比仅隔离控制低约 $4.7\%$ 与 $6.7\%$，仅减少接触的成本则约为最小成本的 $5.6$ 倍与 $2.9$ 倍' in d
+    # NEW-4be（N59）：补“的成本”
+    lead = '成本最优控制的成本只比' if (ROOT / 'paper/revision_notes/NEW_4be_terms.md').exists() else '成本最优控制只比'
+    assert lead + r'仅隔离控制低约 $4.7\%$ 与 $6.7\%$，仅减少接触的成本则约为最小成本的 $5.6$ 倍与 $2.9$ 倍' in d
     # 两个百分比与第 6.2、7.2 节的写法一致
     assert r'$J$ 降低约 $4.7\%$' in text('paper/sections/06_numerics.tex')
     assert r'$J$ 降低约 $6.7\%$' in text('paper/sections/07_xian.tex')
