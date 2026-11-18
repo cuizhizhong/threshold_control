@@ -11,6 +11,7 @@ from conftest import SRC
 from text_identity import content_sha256
 
 ROOT = SRC.ROOT
+BB = (ROOT / 'paper/revision_notes/NEW_4bb_ch7.md').exists()   # NEW-4bb（N56）第 7 章按外部意见改准
 RES = SRC.HERE / 'results'
 
 
@@ -71,18 +72,21 @@ def test_new_macros_trace_to_results(scope, w3):
     d_sq = (laws['q_only']['dSq'] - laws['c_only']['dSq']) / 1e6
     assert diff['value'] == d_inf and abs(d_inf - d_sq) < 1e-6 and diff['display'] == '1.49'
     xt = text('paper/sections/07_xian.tex')
-    assert xt.count('\\nrXianCutContactPct') == 2 and xt.count('\\nrXianSingleDiffM') == 1
+    # NEW-4bb（N56）：第 7.3 节不再重复 77.3%
+    n_cut = 1 if BB else 2
+    assert xt.count('\\nrXianCutContactPct') == n_cut and xt.count('\\nrXianSingleDiffM') == 1
 
 
 def test_new_readings_match_tables(w3):
     xt, s6 = text('paper/sections/07_xian.tex'), text('paper/supplement_sections/S6_xian.tex')
     laws = w3['laws']
-    assert rf"约 ${laws['c_only']['dSq'] / 1e6:.2f}\times10^6$ 名未感染者" in xt
+    # NEW-4bb（N56）：仅减少接触的 6.55 百万人、峰值 5.06 倍与三个控制时长只留在表 3
+    assert BB or rf"约 ${laws['c_only']['dSq'] / 1e6:.2f}\times10^6$ 名未感染者" in xt
     assert rf"未感染者约 ${laws['q_only']['dSq'] / 1e6:.2f}\times10^6$ 人" in xt
-    assert rf"约为 $\eta$ 的 ${laws['q_only']['peak_ratio']:.2f}$ 倍" in xt
+    assert BB or rf"约为 $\eta$ 的 ${laws['q_only']['peak_ratio']:.2f}$ 倍" in xt
     assert abs(laws['q_only']['peak_ratio'] - laws['opt']['peak_ratio']) < 1e-9
     for name, law in (('仅隔离控制', 'q_only'), ('成本最优控制', 'opt'), ('仅减少接触', 'c_only')):
-        assert f"{name}约 ${laws[law]['dt']:.0f}$ d" in xt
+        assert BB or f"{name}约 ${laws[law]['dt']:.0f}$ d" in xt
     # 阈值扫描两端（补充表 tab:sup:eta，数值不变）
     assert '0.0001 & 0.8470 & 1710.66 & 2209.55 & 826.4066 & 2155649' in s6
     assert '0.0100 & 0.8382 & 16.61 & 123.89 & 7.6781 & 2737382' in s6
@@ -101,10 +105,12 @@ def test_tdinn_intensity_claim(w3):
     cut_tdinn = 1 - c_inf / X.c0
     assert f'{100 * cut_tdinn:.0f}' == '73' and f'{q_inf:.2f}' == '0.98'
     xt = text('paper/sections/07_xian.tex')
-    assert r'隔离比例趋向约 $0.98$、接触率降低约 $73\%$' in xt
+    assert (r'隔离比例趋向约 $0.98$、接触率的降幅趋向约 $73\%$' if BB
+            else r'隔离比例趋向约 $0.98$、接触率降低约 $73\%$') in xt
     q1 = w3['start']['q_max']                    # 结果文件沿用旧字段名，即仅隔离控制启动时的隔离比例 q_1
     assert f'{q1:.2f}' == '0.85' and q1 < q_inf
-    opt_cut = float(re.search(r'后段接触率最多降低约 \$([0-9.]+)\\%\$', xt)[1]) / 100
+    pat = r'后段接触率相对 \$c_0\$ 的最大降幅约为 \$([0-9.]+)\\%\$' if BB else r'后段接触率最多降低约 \$([0-9.]+)\\%\$'
+    opt_cut = float(re.search(pat, xt)[1]) / 100
     assert opt_cut < cut_tdinn < w3['region']['contact_line']
 
 

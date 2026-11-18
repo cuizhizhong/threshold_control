@@ -65,6 +65,8 @@ def test_text_fixes():
     assert '隔离的相对权重不超过 $r_{\\rm cont}$ 且启动时易感者多于 $S_{\\rm sw}$ 时' in d
     for m in ('nrRwBaseDiffPctNoret', 'nrRwBaseDiffPct', 'nrRwXianDiffPctNoret', 'nrRwXianDiffPct'):
         assert '\\' + m + '\\%' in d, m
-    assert '对阈值策略，$I_0$ 的误差' in xt and '两种阈值控制的启动时刻' in xt
+    # NEW-4bb（N56）：“两种阈值控制”写明为仅隔离控制与成本最优控制
+    bb = (ROOT / 'paper/revision_notes/NEW_4bb_ch7.md').exists()
+    assert '对阈值策略，$I_0$ 的误差' in xt and ('仅隔离控制与成本最优控制的启动时刻' if bb else '两种阈值控制的启动时刻') in xt
     assert '不计感染到报告的延迟' in xt and '病例数据由 He、Tang 和 Xiao 提供' in xt
     assert '对仅隔离控制，把 $\\eta/N$' in xt and '两类策略的差别不在强度' not in xt

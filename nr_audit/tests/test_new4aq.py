@@ -40,8 +40,10 @@ def test_routine_readings_match_table4(rec):
 def test_section73_no_longer_repeats_72_numbers():
     xt = text('paper/sections/07_xian.tex')
     s72, s73 = xt.split('\\subsection{控制组合}')[1].split('\\subsection{与实际干预的对照}')
+    # NEW-4bb（N56）：171 d、218 d 不再写在第 7.2 节，只留在表 3
+    bb = (ROOT / 'paper/revision_notes/NEW_4bb_ch7.md').exists()
     for s in ('约 $0.85$', '约 $171$ d', '约 $218$ d'):
-        assert s in s72 and s not in s73, s
+        assert (bb and s != '约 $0.85$' or s in s72) and s not in s73, s
     assert '170.63' not in s73.split('\\begin{table}')[1].split('\\end{table}')[0].split('tablenotes')[1]
     # ⑫ 拆为两段：下界式之后另起一段
     assert '\\]\n\n这一下界是在 $S_c$ 退出必须付出的感染。' in s73
@@ -59,5 +61,7 @@ def test_supplement_order_and_removed_figure(rec):
     fig = rec['removed_figure']
     assert hashlib.sha256((ROOT / fig['pdf']).read_bytes()).hexdigest() == fig['pdf_sha256']
     assert fig['label'] not in s6 and '\\begin{figure}' not in s6
-    assert '据此说明，降低阈值不能把感染降到下界以下' in s6
+    # NEW-4bb（N56）：下界来自正文推导，扫描只与它一致
+    bb = (ROOT / 'paper/revision_notes/NEW_4bb_ch7.md').exists()
+    assert ('的下界一致：降低阈值不能把感染降到下界以下' if bb else '据此说明，降低阈值不能把感染降到下界以下') in s6
     assert rec['scientific_activity'] == dict(ode_solves=0, optimization_solves=0, fits=0, redraws=0)

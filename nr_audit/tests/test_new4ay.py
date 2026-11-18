@@ -41,4 +41,6 @@ def test_workload_bounds(rec):
 
 def test_data_source_wording():
     xt = text('paper/sections/07_xian.tex')
-    assert '从西安的病例数据重构' in xt and '从这些数据重构' not in xt
+    # NEW-4bb（N56）：写明 He 等先推断时间序列、再拟合函数的两步
+    bb = (ROOT / 'paper/revision_notes/NEW_4bb_ch7.md').exists()
+    assert ('从西安的病例数据推断' if bb else '从西安的病例数据重构') in xt and '从这些数据重构' not in xt
