@@ -4,6 +4,7 @@ import sympy as sp
 from conftest import SRC
 
 ROOT = SRC.ROOT
+BF = (ROOT / 'paper/revision_notes/NEW_4bf_terms.md').exists()   # NEW-4bf（N60）附录措辞一轮
 
 
 def text(rel):
@@ -21,9 +22,9 @@ def test_appendix_wording():
         '对式\\eqref{eq:cost:state}应用 Leibniz 公式',
         '方括号严格为负',
         '\\partial S_\\infty/\\partial\\eta=-[\\rho_1(1/S_\\infty-1/S_c)]^{-1}<0',
-        '先由速度界建立时间与状态之间的可测对应',
-        '因此在阈值控制期上几乎处处有 $q<1$',
-        '再证 (i) 的反方向',
+        # NEW-4bf（N60）改写的三句
+        *(('先由速度界建立时间控制与状态反馈函数的对应', '阈值控制期内几乎处处有 $q<1$ 和', '反过来，给定满足式')
+          if BF else ('先由速度界建立时间与状态之间的可测对应', '因此在阈值控制期上几乎处处有 $q<1$', '再证 (i) 的反方向')),
         '(iii) 取处处满足式\\eqref{eq:joint:contact-range}的代表',
         '每个状态上的最小点集均为非空紧集',
         '$f(S,c_c(S))-m(S)\\ge0$',
@@ -37,7 +38,7 @@ def test_appendix_wording():
         '\\emph{第三步：最小点及其连续性。}',
         '故在整个内部区间上 $G_p<0$',
         '任取 $\\zeta_i$ 下的最小点 $p_i$',
-        '隔离项归一化强度平方的时间积分',
+        '其斜率为 $\\int_{t_1}^{t_2}u_q(t)^2\\,dt\\ge0$' if BF else '隔离项归一化强度平方的时间积分',
         '补充命题~\\ref{prop:contact-effects}(i)(ii)；命题~\\ref{prop:threshold-tradeoff}(i)',
         '内部拐点条件\\eqref{eq:s1:inflection-condition}成立',
     ):

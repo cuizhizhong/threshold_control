@@ -4,7 +4,8 @@
 
 ## 1. 当前状态
 
-- **NEW-4be（N59，2026-11-19）第 7、8 章措辞一轮**：ChatGPT 读 331fd53 后的 11 条措辞意见全部照用，只改叙述。记录 `paper/revision_notes/NEW_4be_terms.md`，新测试 `nr_audit/tests/test_new4be.py`。本地提交、未推送。
+- **NEW-4bf（N60，2026-11-19）附录 A、B 措辞一轮**：11 处写准、6 处合并重复，只改叙述与证明连接文字。记录 `paper/revision_notes/NEW_4bf_terms.md`，新测试 `nr_audit/tests/test_new4bf.py`。与 NEW-4be 一并推送。
+- **NEW-4be（N59，2026-11-19）第 7、8 章措辞一轮**：ChatGPT 读 331fd53 后的 11 条措辞意见全部照用，只改叙述。记录 `paper/revision_notes/NEW_4be_terms.md`，新测试 `nr_audit/tests/test_new4be.py`。已推送。
 - **NEW-4bd（N58，2026-11-19）附录 A、B 按外部意见补证明与改准**：补四处证明步骤，A.9 两处局部换证（作者决定），其余写准量词与证明标题。记录 `paper/revision_notes/NEW_4bd_appendix.md`，新测试 `nr_audit/tests/test_new4bd.py`（含 sympy 恒等式）。已推送（331fd53）。
 - **NEW-4bc（N57，2026-11-19）第 8 章按外部意见逐句改准**：ChatGPT 审第 8 章 33 条，Claude 核对后照用 20、改后采用 7、不采用 6，作者“都按建议来”，第 28 条改为“强度成本之外另计其他费用，结果可能不同”。记录 `paper/revision_notes/NEW_4bc_ch8.md`，新测试 `nr_audit/tests/test_new4bc.py`。已推送（430d487）。正文第 5–8 章的外部审阅轮次至此完成；附录 A、B 的提示词已给作者。
 - **NEW-4bb（N56，2026-11-19）第 7 章按外部意见逐句改准**：ChatGPT 审第 7 章 35 条，Claude 核对后照用 19、改后采用 10、不采用 6，作者“Write them in”。7.1 节写明 He 等先推断时间序列、再拟合函数；7.2 节删表 3 已有的读数与对定理的复述，成本收益前置，删基准算例三个权重读数；7.3 节“清零快”、73% 为渐近降幅、删“足以实施”，工作量另成一段；图注写准；补充 S6 阈值扫描一句改为与正文下界一致。记录 `paper/revision_notes/NEW_4bb_ch7.md`，新测试 `nr_audit/tests/test_new4bb.py`。已推送（edf07b2）。下一步：第 8 章（含与第 7 章重复的 6.7% 等数字）。
