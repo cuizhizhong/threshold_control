@@ -34,7 +34,9 @@ def test_merged_chapter_structure():
     assert ps[6].startswith('其他模型前提') and ps[7].startswith('实施与成本') and ps[8].startswith('提前干预与安全余量')
     # 第 5 章引用的局限一段：标签紧接在“其他模型前提”一段之前
     assert '\\label{sec:dom:limits}\n其他模型前提' in d
-    assert '第~\\ref{sec:dom:limits}~节' in text('paper/sections/05_quadratic_cost.tex')
+    # NEW-4az（N54）：第 5.1 节删去与第 8 章展望段重复的半句，第 5 章不再引用该标签
+    if not (ROOT / 'paper/revision_notes/NEW_4az_ch5.md').exists():
+        assert '第~\\ref{sec:dom:limits}~节' in text('paper/sections/05_quadratic_cost.tex')
 
 
 def test_removed_text_kept_elsewhere():
