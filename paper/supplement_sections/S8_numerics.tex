@@ -6,7 +6,7 @@
 
 除上述峰值外，对正文表中及正文引用的阈值策略时长、成本和累计人数指标，分别用闭式表达式或对 $S$ 求积，以及完整五仓室方程积分进行核对。后一条路径将累计流量作为独立变量积分，两条路径的结果在显示精度内一致。
 
-证明中的代数恒等式另用符号计算核对，包括正文附录~\ref{sec:proof:cost-structure}中 $E$ 的偏导数、消元所得的 $F$ 及其在 $r=r_{\rm cont}$ 处的因式分解，补充引理~\ref{lem:sup:interior-tie}的系数比较与平方恒等式，以及命题~\ref{prop:sup:jump}证明中的因式分解。正文图~\ref{fig:joint:phase}、\ref{fig:xian:joint}与补充图~\ref{fig:sup:phase-detail}中，两个内部取值之间的跳变位置与式\eqref{eq:sup:jump-state}在舍入误差内一致。
+证明中的代数恒等式另用符号计算核对，包括正文附录~\ref{sec:proof:cost-structure}中 $E$ 的偏导数、消元所得的 $F$ 及其在 $r=r_*$ 处的因式分解，补充引理~\ref{lem:sup:interior-tie}的系数比较与平方恒等式，以及命题~\ref{prop:sup:jump}证明中的因式分解。正文图~\ref{fig:joint:phase}、\ref{fig:xian:joint}与补充图~\ref{fig:sup:phase-detail}中，两个内部取值之间的跳变位置与式\eqref{eq:sup:jump-state}在舍入误差内一致。
 
 逐状态最小化选择按正文定理~\ref{thm:joint:cost-minimum}，通过比较允许区间两个端点与五次驻点方程在该区间内全部实根的函数值确定。作为独立核对，另在允许区间内取 $N_x$ 个等距点，并在每个网格局部极小点相邻的区间内作有界一维最小化，再与求根法得到的最小值比较。状态积分采用分段复合 Simpson 公式，初始取 $N_z=4001$ 个点，在结构变化点及接触率随状态变化较快的位置分段。各子区间按 Richardson 误差估计细分，再与分段自适应求积（\texttt{quad}）的结果比较。表~\ref{tab:sup:convergence}给出三类收敛检查，数值结果在所列设置下稳定。
 \begin{table}[htbp]

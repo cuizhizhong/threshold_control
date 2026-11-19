@@ -5,11 +5,11 @@
 
 \subsection{数据与参数}
 \label{sec:xian:data}
-西安案例的病例数据由 He、Tang 和 Xiao 提供，TDINN 控制取自他们的工作\cite{He2023TDINN}。观测窗口为 2021 年 12 月 9 日至 2022 年 1 月 17 日的 40 个日区间，其间社区发现 583 例、隔离发现 1467 例，共 2050 例（图~\ref{fig:xian:observed-fit}）。他们先用 TDINN 方法从西安的病例数据推断接触率与隔离比例的时间序列，再用参数化函数拟合这些序列。本文采用其西安情景的拟合函数 $c_2(t),q_2(t)$，参数取自原文表 3：
+西安案例的病例数据由 He、Tang 和 Xiao 提供，TDINN 控制取自他们的工作\cite{He2023TDINN}。观测窗口为 2021 年 12 月 9 日至 2022 年 1 月 17 日的 40 个日区间，其间社区发现 583 例、隔离发现 1467 例，共 2050 例（图~\ref{fig:xian:observed-fit}）。他们先用 TDINN 方法从西安的病例数据推断接触率与隔离比例的时间序列，再用参数化函数拟合这些序列。本文采用其西安情景的拟合函数 $c_2(t),q_2(t)$（这里记为 $c_{\rm D}(t),q_{\rm D}(t)$），参数取自原文表 3：
 \[
 \begin{aligned}
-c_{\rm TDINN}(t)&=(12.8872-3.4625)e^{-(0.0463t)^2}+3.4625,\\
-q_{\rm TDINN}(t)&=(0.3230-0.9844)e^{-(0.0452t)^2}+0.9844.
+c_{\rm D}(t)&=(12.8872-3.4625)e^{-(0.0463t)^2}+3.4625,\\
+q_{\rm D}(t)&=(0.3230-0.9844)e^{-(0.0452t)^2}+0.9844.
 \end{aligned}
 \]
 两函数在 $t=0$ 的值取作常规控制水平 $c_0,q_0$（表~\ref{tab:xian_initial_fit}）。
@@ -83,9 +83,9 @@ $\eta$ & 阈值（人） & $0.001N=\num{13163}$ & 按重症监护床位与重症
 \end{threeparttable}
 \end{table}
 
-与基准算例相比，西安参数下成本最优控制的结构在更小的权重比上就开始改变（图~\ref{fig:xian:joint}(a)）。$r_{\rm cont}$ 与 $\hat r$ 只通过 $b=(1-\beta)(1-q_0)$ 依赖参数，$r_{\rm cont}$ 随 $b$ 增加（第~\ref{sec:joint:cost-structure}~节）。西安的常规隔离比例高，$b$ 较小，于是 $r_{\rm cont}\approx\nrCostRcontXian$、$\hat r\approx\nrCostRhatXian$。仅隔离段消失的权重还取决于启动时的易感者人数 $S^*$；在西安参数下，该权重约为 $\nrWtXianBToCApx$。$r=1$ 时成本最优控制只比仅隔离控制节省约 $\nrCostGapOneXian\%$，因此隔离的相对代价不高于接触时，仅隔离控制在这组参数下的成本也接近最小成本。
+与基准算例相比，西安参数下成本最优控制的结构在更小的权重比上就开始改变（图~\ref{fig:xian:joint}(a)）。$r_*$ 与 $\hat r$ 只通过 $b=(1-\beta)(1-q_0)$ 依赖参数，$r_*$ 随 $b$ 增加（第~\ref{sec:joint:cost-structure}~节）。西安的常规隔离比例高，$b$ 较小，于是 $r_*\approx\nrCostRcontXian$、$\hat r\approx\nrCostRhatXian$。仅隔离段消失的权重还取决于启动时的易感者人数 $S^*$；在西安参数下，该权重约为 $\nrWtXianBToCApx$。$r=1$ 时成本最优控制只比仅隔离控制节省约 $\nrCostGapOneXian\%$，因此隔离的相对代价不高于接触时，仅隔离控制在这组参数下的成本也接近最小成本。
 
-图~\ref{fig:xian:joint}(b)(c) 给出五个权重下的接触率与隔离比例，结构随权重的变化与基准算例相同（第~\ref{sec:joint:weights-numerics}~节）。$r=1,2$ 时，控制在 $S_{\rm sw}$ 处连续地转入两者并用；$r=2.63$ 介于 $r_{\rm cont}$ 与 $\hat r$ 之间，转入两者并用后又跳变一次。$r=4$ 时仅隔离段提前到 $S/S_c\approx\nrXianWtFourSwitch$ 处结束，接触率在此相对 $c_0$ 一次降低约 $\nrXianWtFourCutPct\%$。$r=10$ 时没有仅隔离段，启动时接触率相对 $c_0$ 即降低约 $\nrXianWtTenCutPct\%$，隔离比例升到约 $\nrXianWtTenStartQ$。隔离的相对代价越高，控制越偏重减少接触。
+图~\ref{fig:xian:joint}(b)(c) 给出五个权重下的接触率与隔离比例，结构随权重的变化与基准算例相同（第~\ref{sec:joint:weights-numerics}~节）。$r=1,2$ 时，控制在 $S_{\rm sw}$ 处连续地转入两者并用；$r=2.63$ 介于 $r_*$ 与 $\hat r$ 之间，转入两者并用后又跳变一次。$r=4$ 时仅隔离段提前到 $S/S_c\approx\nrXianWtFourSwitch$ 处结束，接触率在此相对 $c_0$ 一次降低约 $\nrXianWtFourCutPct\%$。$r=10$ 时没有仅隔离段，启动时接触率相对 $c_0$ 即降低约 $\nrXianWtTenCutPct\%$，隔离比例升到约 $\nrXianWtTenStartQ$。隔离的相对代价越高，控制越偏重减少接触。
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/new4ap/Main8.pdf}

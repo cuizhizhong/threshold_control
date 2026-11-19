@@ -86,6 +86,16 @@ def test_approved_bytes_and_current_manuscript_use(adopted, name):
     new4w = SRC.HERE / 'results/new4w/figures.json'
     new4al = SRC.HERE / 'results/new4al_notation.json'
     rec4al = json.loads(new4al.read_text(encoding='utf-8'))['figures'].get(out['label']) if new4al.exists() else None
+    new4bi = SRC.HERE / 'results/new4bi_notation.json'
+    rec4bi = json.loads(new4bi.read_text(encoding='utf-8'))['figures'].get(out['label']) if new4bi.exists() else None
+    if rec4bi:
+        # NEW-4bi（N63）：r_cont 改记 r_* 后只改图例文字重绘，正式引用改为 figures/new4bi/；被取代图件与收据只读保留。
+        assert rec4bi['current_pdf'] == rel and rec4bi['current_pdf_sha256'] == rec4bi['reproduced_sha256'] == actual
+        assert digest((ROOT / rec4bi['pdf']).read_bytes()) == rec4bi['pdf_sha256']
+        new_rel = rec4bi['pdf'].removeprefix('paper/')
+        assert f"{{{new_rel}}}" in text and f"{{{rel.removeprefix('paper/')}}}" not in text
+        assert f"\\label{{{out['label']}}}" in text
+        return
     new4ap = SRC.HERE / 'results/new4ap_scope.json'
     rep4ap = json.loads(new4ap.read_text(encoding='utf-8'))['replaced_figures'] if new4ap.exists() else {}
     if name in rep4ap:

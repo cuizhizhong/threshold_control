@@ -24,7 +24,7 @@ def test_ch6_wording():
         '各控制共用的 $I+I_q$ 上界',
         '(b)、(c)、(d) 中的红色虚线分别为',
         '成本也接近最小成本',
-        '$r_{\\rm cont}<r<\\hat r$',
+        '$r_*<r<\\hat r$' if (ROOT / 'paper/revision_notes/NEW_4bi_notation.md').exists() else '$r_{\\rm cont}<r<\\hat r$',   # NEW-4bi（N63）
         '$r>\\hat r$ 且仍有仅隔离段时，切换提前：在切换状态与 $S_{\\rm sw}$ 之间',
         '跳变位置的闭式表达式、各转折权重的数值范围',
         '在 $S_c$ 一端的 $r$ 值因而趋于 $y/(1-y)$',

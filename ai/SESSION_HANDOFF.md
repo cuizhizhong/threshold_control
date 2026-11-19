@@ -4,7 +4,8 @@
 
 ## 1. 当前状态
 
-- **NEW-4bh（N62，2026-11-19）补充材料与附录 A、B 措辞一轮**：ChatGPT 读 8a8de31 后的通读意见 19 条，照用 16、改后采用 3；跳变命题 (iii) 中 $\zeta_0$ 的定义只改措辞（作者确认），其余只改叙述。记录 `paper/revision_notes/NEW_4bh_terms.md`，新测试 `nr_audit/tests/test_new4bh.py`。本地提交、未推送。
+- **NEW-4bi（N63，2026-11-19）记号**：权重界限 $r_{\rm cont}$ 改记 $r_*$（38 处），TDINN 控制函数记为 $c_{\rm D},q_{\rm D}$；补充图 S5 图例经逐字节复现后只改该记号（`paper/figures/new4bi/S6.pdf`）。$S_{\rm sw}$ 不改。记录 `paper/revision_notes/NEW_4bi_notation.md`，新测试 `nr_audit/tests/test_new4bi.py`。本地提交、未推送。
+- **NEW-4bh（N62，2026-11-19）补充材料与附录 A、B 措辞一轮**：ChatGPT 读 8a8de31 后的通读意见 19 条，照用 16、改后采用 3；跳变命题 (iii) 中 $\zeta_0$ 的定义只改措辞（作者确认），其余只改叙述。记录 `paper/revision_notes/NEW_4bh_terms.md`，新测试 `nr_audit/tests/test_new4bh.py`。已推送（92be471）。
 - **NEW-4bg（N61，2026-11-19）补充材料按外部意见改准**：上集性引理补 S>S_c，r-hat 命题换证，S5、S6 方法说明按 nr_audit 实现写准，39 条逐句去重。记录 `paper/revision_notes/NEW_4bg_supp.md`，新测试 `nr_audit/tests/test_new4bg.py`。已推送（8a8de31）。
 - **NEW-4bf（N60，2026-11-19）附录 A、B 措辞一轮**：11 处写准、6 处合并重复，只改叙述与证明连接文字。记录 `paper/revision_notes/NEW_4bf_terms.md`，新测试 `nr_audit/tests/test_new4bf.py`。与 NEW-4be 一并推送。
 - **NEW-4be（N59，2026-11-19）第 7、8 章措辞一轮**：ChatGPT 读 331fd53 后的 11 条措辞意见全部照用，只改叙述。记录 `paper/revision_notes/NEW_4be_terms.md`，新测试 `nr_audit/tests/test_new4be.py`。已推送。

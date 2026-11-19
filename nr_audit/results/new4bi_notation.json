@@ -1,0 +1,55 @@
+{
+ "script": "nr_audit/plot_new4bi_notation.py",
+ "git_head": "92be471b6f7254434937a073b3fd3e12cfe177da",
+ "authorization": "AGENTS.md N63（NEW-4bi）",
+ "notation": {
+  "r_cont": "r_*（连续结构的权重界限）",
+  "c_TDINN, q_TDINN": "c_D, q_D（只在正文式 7.1，不涉及图件）"
+ },
+ "scientific_activity": {
+  "ode_solves": 0,
+  "optimization_solves": 0,
+  "fits": 0,
+  "classification_solves": 0
+ },
+ "figures": {
+  "fig:sup:phase-detail": {
+   "current_pdf": "paper/figures/new4t/S6.pdf",
+   "current_pdf_sha256": "b2cd01a69b9112b71cf11d6b30dc0e14dc051a6ab0ec76401514155244b358bb",
+   "reproduced_sha256": "b2cd01a69b9112b71cf11d6b30dc0e14dc051a6ab0ec76401514155244b358bb",
+   "reproduced_identical": true,
+   "pdf": "paper/figures/new4bi/S6.pdf",
+   "pdf_sha256": "0627a3d0a0de9e7d1cb6d31883fb69625612a86df9d3d6bb36266b4e50c45a33",
+   "text_change": {
+    "old": "$r_{\\rm cont}$",
+    "new": "$r_*$",
+    "count": 1
+   },
+   "other_texts_unchanged": true,
+   "fonts": [
+    "CGMMQU+Cmr10",
+    "CGMMQU+Cmsy10",
+    "GYUURQ+Cmmi10"
+   ],
+   "size_mm": [
+    159.8,
+    64.0
+   ],
+   "environment": {
+    "python": "3.12.8",
+    "matplotlib": "3.9.2"
+   },
+   "source_inputs": {
+    "nr_audit/results/new_figure7.json": "f786ec80f86c39fafbd2cd7a0984e543eee44001a1cbc8c52da205920a52b4fb",
+    "nr_audit/results/new_figure7.npz": "719d07962df7bb607ad6fd8a73cbc454be10254dc15d7543f0819ed36ecd963f",
+    "nr_audit/results/new4d_cost_structure.json": "47f513417c2fbd0bedbbdc67fe5fb434ace27d5676b9c5d47710f46ca1857d29"
+   },
+   "source_checks": {
+    "new_classifications": 0,
+    "new_background_solves": 0,
+    "new_ode_solves": 0,
+    "cache_validation_passed": true
+   }
+  }
+ }
+}

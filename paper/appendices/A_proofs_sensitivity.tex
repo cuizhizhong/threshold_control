@@ -277,7 +277,7 @@ E_\zeta=-\frac{2[(p-b)^2+b(\zeta-b)]}{\zeta^3}<0.
 两端的值为 $E(1,\zeta)=-(\zeta-1)(\zeta+1-2b)/\zeta^2<0$ 与 $E(\zeta,\zeta)=r\varphi(\zeta)$。后者在 $1<\zeta<\zeta_{\rm sw}$ 时为正，在 $\zeta=\zeta_{\rm sw}$ 时为零，在 $\zeta>\zeta_{\rm sw}$ 时为负（命题~\ref{prop:joint:global-structure}）。下面的引理用于证明内部驻点曲线单调。
 \begin{lemma}
 \label{lem:proof:fold-free}
-设 $0<b<1$，$\sigma_c=\sqrt{r_{\rm cont}}$。对 $p>3/2$ 与 $\sigma>0$，记
+设 $0<b<1$，$\sigma_c=\sqrt{r_*}$。对 $p>3/2$ 与 $\sigma>0$，记
 \[
 F(p;\sigma)=\sigma^2X(p)-2\sigma bp\sqrt{2p-3}+p^3,\qquad X(p)=p^3-6p^2+6p+2b(3p-4).
 \]
@@ -309,7 +309,7 @@ Q(w,\sigma)={}&(\sigma-1)(\sigma^2+1)w^3(w+2)+12(\sigma-1)w^2\\
 \begin{proof}[\normalfont\bfseries 定理~\ref{thm:joint:cost-structure}的证明]
 先刻画内部驻点曲线 $\zeta=\zeta_s(p)$，再由引理~\ref{lem:proof:fold-free}证明它严格递增，最后确定各状态上的唯一最小点及其连续性。
 
-\emph{第一步：内部驻点曲线。}由 $\varphi'(p)=-2(2p-3)(p-b)/p^4$，$\varphi$ 在 $(1,\zeta_{\rm sw})$ 上为正，最大值为 $\varphi(3/2)=(9-8b)/27$，在 $p\ge\zeta_{\rm sw}$ 时不为正。又 $b^2-8b+8=2(2-b)^2-b^2$，展开得 $(b+\sqrt{b^2-8b+8})^2=2(2-b)^2+2b\sqrt{b^2-8b+8}\ge2(2-b)^2$，故 $r_{\rm cont}\le8/(2-b)^2$；而 $27(2-b)^2-8(9-8b)=27b^2-44b+36>0$（判别式为负），故 $r_{\rm cont}<27/(9-8b)$。设 $r\le r_{\rm cont}$，则对所有 $p>1$ 有 $r\varphi(p)<1$。固定 $p>1$，由式\eqref{eq:proof:cost-E}，$E(p,\cdot)$ 在 $[p,\infty)$ 上严格减，且
+\emph{第一步：内部驻点曲线。}由 $\varphi'(p)=-2(2p-3)(p-b)/p^4$，$\varphi$ 在 $(1,\zeta_{\rm sw})$ 上为正，最大值为 $\varphi(3/2)=(9-8b)/27$，在 $p\ge\zeta_{\rm sw}$ 时不为正。又 $b^2-8b+8=2(2-b)^2-b^2$，展开得 $(b+\sqrt{b^2-8b+8})^2=2(2-b)^2+2b\sqrt{b^2-8b+8}\ge2(2-b)^2$，故 $r_*\le8/(2-b)^2$；而 $27(2-b)^2-8(9-8b)=27b^2-44b+36>0$（判别式为负），故 $r_*<27/(9-8b)$。设 $r\le r_*$，则对所有 $p>1$ 有 $r\varphi(p)<1$。固定 $p>1$，由式\eqref{eq:proof:cost-E}，$E(p,\cdot)$ 在 $[p,\infty)$ 上严格减，且
 \[
 E(p,p)=r\varphi(p),\qquad
 \lim_{\zeta\to\infty}E(p,\zeta)=r\varphi(p)-1<0.
@@ -325,7 +325,7 @@ E_\zeta(\zeta_{\rm sw},\zeta_{\rm sw})=-\frac{2(\zeta_{\rm sw}-b)}{\zeta_{\rm sw
 \lim_{p\to\zeta_{\rm sw}^{-}}\zeta_s(p)=\zeta_{\rm sw}.
 \]
 
-\emph{第二步：曲线单调。}$p\le3/2$ 时 $\psi(p)\le0$，故 $E_p>0$。若曲线上某点 $p>3/2$ 处 $E_p=0$，则 $1/\zeta=\sqrt{r\psi(p)}$；代入 $E=0$ 并乘以 $-p^3$，得 $F(p;\sqrt r)=0$。先设 $r<r_{\rm cont}$。由引理~\ref{lem:proof:fold-free}，曲线上处处 $E_p\ne0$；而 $p\le3/2$ 时 $E_p>0$，由 $E_p$ 沿曲线连续，曲线上处处 $E_p>0$。再设 $r=r_{\rm cont}$。由引理~\ref{lem:proof:fold-free}，曲线上 $E_p$ 的零点只可能在 $p=2$。由隐函数定理及 $E_\zeta<0$，对每个固定的 $p$，$\zeta_s(p)$ 随 $r$ 连续变化；在 $r<r_{\rm cont}$ 时的不等式 $E_p(p,\zeta_s(p))>0$ 中令 $r$ 从左侧趋于 $r_{\rm cont}$，得曲线上 $E_p\ge0$，因而 $\zeta_s'\ge0$，且至多在 $p=2$ 处为零。于是对 $1<p_1<p_2<\zeta_{\rm sw}$，$\zeta_s(p_2)-\zeta_s(p_1)=\int_{p_1}^{p_2}\zeta_s'(p)\,dp>0$。结合第一步的两个端点极限，$\zeta_s$ 在两种情形下都是 $(1,\zeta_{\rm sw})$ 到自身的严格递增连续双射。
+\emph{第二步：曲线单调。}$p\le3/2$ 时 $\psi(p)\le0$，故 $E_p>0$。若曲线上某点 $p>3/2$ 处 $E_p=0$，则 $1/\zeta=\sqrt{r\psi(p)}$；代入 $E=0$ 并乘以 $-p^3$，得 $F(p;\sqrt r)=0$。先设 $r<r_*$。由引理~\ref{lem:proof:fold-free}，曲线上处处 $E_p\ne0$；而 $p\le3/2$ 时 $E_p>0$，由 $E_p$ 沿曲线连续，曲线上处处 $E_p>0$。再设 $r=r_*$。由引理~\ref{lem:proof:fold-free}，曲线上 $E_p$ 的零点只可能在 $p=2$。由隐函数定理及 $E_\zeta<0$，对每个固定的 $p$，$\zeta_s(p)$ 随 $r$ 连续变化；在 $r<r_*$ 时的不等式 $E_p(p,\zeta_s(p))>0$ 中令 $r$ 从左侧趋于 $r_*$，得曲线上 $E_p\ge0$，因而 $\zeta_s'\ge0$，且至多在 $p=2$ 处为零。于是对 $1<p_1<p_2<\zeta_{\rm sw}$，$\zeta_s(p_2)-\zeta_s(p_1)=\int_{p_1}^{p_2}\zeta_s'(p)\,dp>0$。结合第一步的两个端点极限，$\zeta_s$ 在两种情形下都是 $(1,\zeta_{\rm sw})$ 到自身的严格递增连续双射。
 
 \emph{第三步：最小点及其连续性。}对 $1<\zeta<\zeta_{\rm sw}$，$E(\cdot,\zeta)$ 在 $(1,\zeta)$ 内恰有一个零点 $p^*(\zeta)=\zeta_s^{-1}(\zeta)$；又 $E(1,\zeta)<0<E(\zeta,\zeta)$，所以 $E$ 在 $p^*$ 处由负变正，$G(\cdot;\zeta)$ 先严格减、后严格增，最小点唯一且在内部。对 $\zeta\ge\zeta_{\rm sw}$，$E(\cdot,\zeta)$ 在 $(1,\zeta)$ 内没有零点且 $E(1,\zeta)<0$，故在整个内部区间上 $G_p<0$。因此，$G$ 在 $[1,\zeta]$ 上严格递减，唯一最小点为 $p=\zeta$。由第二步，$p^*$ 是 $(1,\zeta_{\rm sw})$ 到自身的严格增连续双射，故
 \[

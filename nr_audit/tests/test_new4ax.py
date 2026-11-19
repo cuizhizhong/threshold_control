@@ -64,7 +64,9 @@ def test_text_fixes():
     d = text('paper/sections/08_discussion.tex')
     j = text('paper/sections/04_joint_control.tex')
     assert '两种措施的最大强度都出现在启动时' not in j and '两种措施的强度有共同的上界' in j
-    assert '隔离的相对权重不超过 $r_{\\rm cont}$ 且启动时易感者多于 $S_{\\rm sw}$ 时' in d
+    # NEW-4bi（N63）：r_cont 改记 r_*
+    rc = '$r_*$' if (ROOT / 'paper/revision_notes/NEW_4bi_notation.md').exists() else '$r_{\\rm cont}$'
+    assert '隔离的相对权重不超过 ' + rc + ' 且启动时易感者多于 $S_{\\rm sw}$ 时' in d
     for m in ('nrRwBaseDiffPctNoret', 'nrRwBaseDiffPct', 'nrRwXianDiffPctNoret', 'nrRwXianDiffPct'):
         assert '\\' + m + '\\%' in d, m
     # NEW-4bb（N56）：“两种阈值控制”写明为仅隔离控制与成本最优控制

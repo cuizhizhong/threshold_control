@@ -45,14 +45,14 @@ S_{\rm sw}=\frac{3S_c+\sqrt{9S_c^2-8S_c\bar S}}{2}
 \end{equation}
 与权重界限
 \begin{equation}
-r_{\rm cont}(b)=\frac{16}{\bigl(b+\sqrt{b^2-8b+8}\bigr)^2},\qquad
+r_*(b)=\frac{16}{\bigl(b+\sqrt{b^2-8b+8}\bigr)^2},\qquad
 b=\frac{\bar S}{S_c}=(1-\beta)(1-q_0).
 \label{eq:joint:rcont}
 \end{equation}
-$b$ 是常规控制下非隔离感染者与易感者的一次接触未被追踪、也未造成感染的概率，即第~\ref{sec:s1:shape}~节的 $\nu$ 在 $q=q_0$ 时的值。由 $0<b<1$，$S_{\rm sw}$ 介于 $2S_c$ 与 $3S_c$ 之间；$r_{\rm cont}$ 随 $b$ 严格增，且 $2<r_{\rm cont}<4$，默认的 $r=2$ 因而总满足 $r\le r_{\rm cont}$。
+$b$ 是常规控制下非隔离感染者与易感者的一次接触未被追踪、也未造成感染的概率，即第~\ref{sec:s1:shape}~节的 $\nu$ 在 $q=q_0$ 时的值。由 $0<b<1$，$S_{\rm sw}$ 介于 $2S_c$ 与 $3S_c$ 之间；$r_*$ 随 $b$ 严格增，且 $2<r_*<4$，默认的 $r=2$ 因而总满足 $r\le r_*$。
 \begin{theorem}
 \label{thm:joint:cost-structure}
-设条件\eqref{eq:model:trigger}成立，$0<r\le r_{\rm cont}$，则
+设条件\eqref{eq:model:trigger}成立，$0<r\le r_*$，则
 \begin{enumerate}
 \renewcommand{\labelenumi}{(\roman{enumi})}
 \item 对每个 $S>S_c$，$f(S,\cdot)$ 在 $[c_0S_c/S,c_0]$ 上有唯一最小点 $c_c^*(S)$，$c_c^*$ 在 $(S_c,\infty)$ 上连续，且在 $S_c$ 处的右极限为 $c_0$；
@@ -96,9 +96,9 @@ n'(c)(cS-c_0\bar S)-S n(c)
 
 (iii) 由定理~\ref{thm:joint:cost-minimum}(ii)，成本最优控制几乎处处取逐状态最小点；由 (i)(ii)，它不取左端点，在 $S_c<S<\min\{S_{\rm sw},S^*\}$ 上也不取右端点，故得 (iii) 的两条结论。
 \end{proof}
-前述两个一阶效应都与 $w_q$ 成正比，所以 $S_{\rm sw}$ 与权重无关；$S=S_{\rm sw}$ 时二者相抵，一阶比较不能判定 $c_0$ 是否局部最优。(i) 的原因与此对称：在仅减少接触处，隔离项的成本及其导数都为零，略微加强隔离既减轻了接触限制，又加快 $S$ 的下降，总是降低成本。(ii) 只是局部结论，定理~\ref{thm:joint:cost-structure}在 $r\le r_{\rm cont}$ 时把它加强为全局最优。
+前述两个一阶效应都与 $w_q$ 成正比，所以 $S_{\rm sw}$ 与权重无关；$S=S_{\rm sw}$ 时二者相抵，一阶比较不能判定 $c_0$ 是否局部最优。(i) 的原因与此对称：在仅减少接触处，隔离项的成本及其导数都为零，略微加强隔离既减轻了接触限制，又加快 $S$ 的下降，总是降低成本。(ii) 只是局部结论，定理~\ref{thm:joint:cost-structure}在 $r\le r_*$ 时把它加强为全局最优。
 
-补充命题~\ref*{prop:sup:jump}证明，对任意权重，成本最优控制在阈值控制期内部至多跳变一次，跳变时接触率与隔离比例同时下降。$r>r_{\rm cont}$ 时，状态反馈函数在 $(S_c,\infty)$ 上恰有一次跳变，所以定理~\ref{thm:joint:cost-structure}的权重界限不能放宽。跳变位置随权重的变化见第~\ref{sec:joint:weights-numerics}~节。
+补充命题~\ref*{prop:sup:jump}证明，对任意权重，成本最优控制在阈值控制期内部至多跳变一次，跳变时接触率与隔离比例同时下降。$r>r_*$ 时，状态反馈函数在 $(S_c,\infty)$ 上恰有一次跳变，所以定理~\ref{thm:joint:cost-structure}的权重界限不能放宽。跳变位置随权重的变化见第~\ref{sec:joint:weights-numerics}~节。
 
 退出附近，两种归一化强度的渐近比例由权重决定。
 \begin{proposition}
@@ -153,7 +153,7 @@ J_{\min}(\eta)=\frac{N}{\eta}\int_{S_c}^{S^*(\eta)}m(S)\,dS.
 \item 固定 $r$，$q_r^*(S)$ 随 $S$ 不减，即隔离比例在阈值控制期内随时间不增。
 \end{enumerate}
 \end{proposition}
-证明见附录~\ref{sec:proof:weight-monotone}。追踪隔离的相对代价提高时（例如流调人力或隔离场所紧张），成本最优控制在每个状态上都不加强隔离、不放松接触限制，社区易感者的下降因而不会加快。接触率没有类似的时间单调性：$r\le r_{\rm cont}$ 且 $S^*>S_{\rm sw}$ 时，它从 $c_0$ 出发，在 $S_{\rm sw}$ 以下低于 $c_0$，退出时又回到 $c_0$。
+证明见附录~\ref{sec:proof:weight-monotone}。追踪隔离的相对代价提高时（例如流调人力或隔离场所紧张），成本最优控制在每个状态上都不加强隔离、不放松接触限制，社区易感者的下降因而不会加快。接触率没有类似的时间单调性：$r\le r_*$ 且 $S^*>S_{\rm sw}$ 时，它从 $c_0$ 出发，在 $S_{\rm sw}$ 以下低于 $c_0$，退出时又回到 $c_0$。
 
 隔离的相对代价越低，仅隔离控制越接近成本最优。仅隔离控制的成本 $J[c_0]$ 与 $r$ 成正比；$J_{\min}/w_c$ 是 $r$ 的凹函数，又由 $0\le J_{\min}\le J[c_0]$，它在 $r\to0^{+}$ 时趋于零。所以比值 $J_{\min}/J[c_0]$ 随 $r$ 不增。
 
