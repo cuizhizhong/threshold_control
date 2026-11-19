@@ -1,22 +1,20 @@
 \Needspace{12\baselineskip}
 \section{西安算例的补充结果}
 \label{sec:sup:xian}
-西安参数见正文表~\ref{tab:xian_initial_fit}。
-
 \subsection{设计阈值的取值}
 \label{sec:sup:threshold-scale}
-西安情景按引理~\ref{lem:sup:infected-bound}选取阈值，所用名义值如下：
+西安参数见正文表~\ref{tab:xian_initial_fit}。西安情景按引理~\ref{lem:sup:infected-bound}选取阈值，所用名义值如下：
 \begin{enumerate}
 \item 重症监护床位：2021 年全国每 10 万人 $4.75$ 张\cite{Yuan2024ICUBeds}，陕西省 $3.57$ 张\cite[补充文件 1]{Chen2024ICUEquity}；按 $N=\num{13163000}$\cite{XianStat2021}，全国的床位密度对应西安约 $625$ 张；
-\item 需要重症监护的比例：西安定点医院的回顾性研究中，成人确诊者的重型和危重型比例为 $1.72\%$（$580$ 例）至 $4.3\%$（$651$ 例）\cite{Yang2022XianDelta,Lv2024XianDelta}，本文取 $3\%$；按 Angulo 等\cite[补充材料 S4.1]{Angulo2021}的假设，其中 $28\%$ 需要重症监护，得 $p_{\rm ICU}\approx0.0084$，这里把病例中的比例直接用作折算系数；
+\item 需要重症监护的比例：西安定点医院的两项回顾性研究分别纳入 $580$ 例和 $651$ 例成人确诊者，重型和危重型比例分别为 $1.72\%$ 和 $4.3\%$\cite{Yang2022XianDelta,Lv2024XianDelta}。本文取 $3\%$，并按 Angulo 等\cite[补充材料 S4.1]{Angulo2021}的假设，其中 $28\%$ 需要重症监护，得 $p_{\rm ICU}\approx0.0084$。这里把病例中的比例直接用作折算系数；
 \item 西安参数下 $\kappa_I\approx5.63$。
 \end{enumerate}
-于是 $C_{\rm ICU}/(p_{\rm ICU}\kappa_IN)\approx1.004\times10^{-3}$，正文取 $\theta=0.001$，即 $\eta=\num{13163}$。这里采用全国的床位密度。按陕西省的床位密度，这一比例约为 $7.55\times10^{-4}$，介于表~\ref{tab:sup:eta}中 $\eta/N=0.0005$ 与 $0.001$ 两行之间，仅隔离控制的控制时长约为 $171$ 至 $342$ d。这些是名义值，用来确定阈值的量级，不是当地容量的临床标定。
+按全国的床位密度换算，$C_{\rm ICU}/(p_{\rm ICU}\kappa_IN)\approx1.004\times10^{-3}$，正文取 $\theta=0.001$，即 $\eta=\num{13163}$。按陕西省的床位密度，这一比例约为 $7.55\times10^{-4}$，介于表~\ref{tab:sup:eta}中 $\eta/N=0.0005$ 与 $0.001$ 两行之间，仅隔离控制的控制时长约为 $171$ 至 $342$ d。这些是名义值，用来确定阈值的量级，不是当地容量的临床标定。
 
 \FloatBarrier
 \subsection{阈值扫描}
 \label{sec:sup:xian:threshold-scan}
-表~\ref{tab:sup:eta}给出 11 个阈值比例下仅隔离控制的结果，覆盖设计阈值 $\eta/N=0.001$ 的两侧。阈值从 $0.01N$ 降到 $0.0001N$ 时，$q_1$ 只在 $0.838$ 与 $0.847$ 之间变化，控制时长与成本近似按阈值的反比增加，总累计新增感染则缓慢减少；这与正文第~\ref{sec:xian:threshold-scale}~节的下界一致：降低阈值不能把感染降到下界以下。
+表~\ref{tab:sup:eta}给出 11 个阈值比例下仅隔离控制的结果，覆盖设计阈值 $\eta/N=0.001$ 的两侧。阈值降低时，启动时的隔离比例变化较小，控制时长与成本近似按阈值的反比增加。
 \begin{table}[htbp]
 \centering\small
 \setlength{\tabcolsep}{3.5pt}
@@ -42,7 +40,7 @@
 \bottomrule
 \end{tabular*}
 \begin{tablenotes}[flushleft]\footnotesize
-\item 注：$q_1=q_c(t_1)$；$\eta/N$ 为比例，$0.001$ 即 $0.1\%$；总累计新增感染计算至清零时间。
+\item 注：$q_1=q_c(t_1)$，总累计新增感染计算至清零时间。
 \end{tablenotes}
 \end{threeparttable}
 \end{table}

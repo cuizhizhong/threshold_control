@@ -54,7 +54,9 @@ def test_new_readings_from_tables():
     assert '152.55' not in summ and '2105.63' not in summ
     rows = {r.split('&')[0].strip(): r.split('&')[2].strip() for r in s6.split('\\midrule')[1].split('\\bottomrule')[0].strip().split('\\\\') if r.strip()}
     assert rows['0.0010'] == '170.63' and rows['0.0005'] == '341.75'
-    assert '约为 $171$ 至 $342$ d' in s6 and '量级相同' not in s6 and '这里采用全国的床位密度' in s6
+    # NEW-4bg（N61）：“这里采用全国的床位密度”改为“按全国的床位密度换算”
+    national = '按全国的床位密度换算' if (ROOT / 'paper/revision_notes/NEW_4bg_supp.md').exists() else '这里采用全国的床位密度'
+    assert '约为 $171$ 至 $342$ d' in s6 and '量级相同' not in s6 and national in s6
 
 
 def test_text_fixes():

@@ -1,6 +1,6 @@
 \section{阈值与医疗需求}
 \label{sec:sup:medical-link}
-参照 Angulo 等\cite{Angulo2021}，设任一时刻需要重症监护的人数约为两个感染仓室人数之和的固定比例，即 $p_{\rm ICU}(I+I_q)$，并要求它不超过可用的重症监护床位数 $C_{\rm ICU}$。确诊后需要重症监护的人在模型中已归入 $R$，所以 $p_{\rm ICU}$ 是折算系数，把这些人的需求按比例折算到两个感染仓室。这一比例近似与 Angulo 等的处理相同，没有考虑入院延迟与重症监护时长。
+参照 Angulo 等\cite{Angulo2021}，设任一时刻需要重症监护的人数约为两个感染仓室人数之和的固定比例，即 $p_{\rm ICU}(I+I_q)$，并要求它不超过可用的重症监护床位数 $C_{\rm ICU}$。确诊后需要重症监护的人在模型中已归入 $R$，所以 $p_{\rm ICU}$ 是折算系数，把这些人的需求按比例折算到两个感染仓室。这一比例近似没有考虑入院延迟与重症监护时长。
 
 阈值策略只约束 $I$，下面的引理把 $I+I_q$ 与 $\eta$ 联系起来。记
 \[
@@ -27,4 +27,6 @@ I(t)+I_q(t)\le\kappa_I\eta .
 \[
 \eta\le\frac{C_{\rm ICU}}{p_{\rm ICU}\kappa_I}
 \]
-时，阈值策略的各控制在所有时刻都满足 $p_{\rm ICU}(I+I_q)\le C_{\rm ICU}$。$(\kappa_I-1)\eta$ 是隔离感染者人数对各控制和各时刻都成立的上界，等于进入 $I_q$ 的流量上界与移出率 $\delta_q$ 之比：阈值控制期内单位时间的新增感染不超过 $\beta c_0S_0\eta/N$，其中 $\gamma\eta$ 补充 $I$ 的移出，其余进入 $I_q$，每人平均停留 $1/\delta_q$。正文表~\ref{tab:joint:compare}与表~\ref{tab:xian:joint-compare}末列的 $\max_t(I+I_q)/\eta$ 即名义重症监护需求峰值与 $p_{\rm ICU}\eta$ 之比，由引理~\ref{lem:sup:infected-bound}，它不超过 $\kappa_I$。这一上界在西安情景中接近取到，在基准算例中偏宽。西安情景仅隔离控制的阈值控制期远长于平均隔离停留时间 $1/\delta_q$，$I_q$ 来得及接近进入流量与 $\delta_q$ 之比，末列为 $5.06$，而 $\kappa_I\approx5.63$。基准算例的阈值控制期只有数天，末列最大为 $1.92$，而 $\kappa_I\approx4.42$。基准算例的阈值 $0.05N$ 只用于演示机制，不由这一条件换算而来；西安情景的取值见第~\ref{sec:sup:threshold-scale}~节。
+时，阈值策略的各控制在所有时刻都满足 $p_{\rm ICU}(I+I_q)\le C_{\rm ICU}$。$(\kappa_I-1)\eta$ 是隔离感染者人数对各控制和各时刻都成立的上界，等于进入 $I_q$ 的流量上界乘以感染者在该仓室中的平均停留时间 $1/\delta_q$。
+
+正文表~\ref{tab:joint:compare}与表~\ref{tab:xian:joint-compare}末列的 $\max_t(I+I_q)/\eta$ 即名义重症监护需求峰值与 $p_{\rm ICU}\eta$ 之比，由引理~\ref{lem:sup:infected-bound}，它不超过 $\kappa_I$。这一上界在西安情景中接近取到，在基准算例中偏宽。西安情景中，仅隔离控制的阈值控制期远长于感染者在 $I_q$ 中的平均停留时间 $1/\delta_q$，$I_q$ 来得及接近进入流量与 $\delta_q$ 之比。基准算例中，仅隔离控制的控制时长只有数天，所得峰值与上界 $\kappa_I\approx4.42$ 相距较大。基准算例的阈值 $0.05N$ 只用于演示机制，不由这一条件换算而来；西安情景的取值见第~\ref{sec:sup:threshold-scale}~节。

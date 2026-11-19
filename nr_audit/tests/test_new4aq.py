@@ -63,5 +63,7 @@ def test_supplement_order_and_removed_figure(rec):
     assert fig['label'] not in s6 and '\\begin{figure}' not in s6
     # NEW-4bb（N56）：下界来自正文推导，扫描只与它一致
     bb = (ROOT / 'paper/revision_notes/NEW_4bb_ch7.md').exists()
-    assert ('的下界一致：降低阈值不能把感染降到下界以下' if bb else '据此说明，降低阈值不能把感染降到下界以下') in s6
+    # NEW-4bg（N61）：下界解释留在正文第 7.3 节，补充材料不再重复
+    if not (ROOT / 'paper/revision_notes/NEW_4bg_supp.md').exists():
+        assert ('的下界一致：降低阈值不能把感染降到下界以下' if bb else '据此说明，降低阈值不能把感染降到下界以下') in s6
     assert rec['scientific_activity'] == dict(ode_solves=0, optimization_solves=0, fits=0, redraws=0)

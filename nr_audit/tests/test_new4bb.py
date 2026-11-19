@@ -54,4 +54,6 @@ def test_ch7_wording():
     for v in ('621.97 & 840.66', '170.63 & 389.32', '218.10 & 436.79', '& 5.06\\\\'):
         assert v in xt, v
     s6 = text('paper/supplement_sections/S6_xian.tex')
-    assert '的下界一致：降低阈值不能把感染降到下界以下' in s6 and '据此说明' not in s6
+    assert '据此说明' not in s6
+    if not (ROOT / 'paper/revision_notes/NEW_4bg_supp.md').exists():   # NEW-4bg（N61）删去这一重复
+        assert '的下界一致：降低阈值不能把感染降到下界以下' in s6

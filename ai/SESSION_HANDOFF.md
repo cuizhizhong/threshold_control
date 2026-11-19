@@ -4,6 +4,7 @@
 
 ## 1. 当前状态
 
+- **NEW-4bg（N61，2026-11-19）补充材料按外部意见改准**：上集性引理补 S>S_c，r-hat 命题换证，S5、S6 方法说明按 nr_audit 实现写准，39 条逐句去重。记录 `paper/revision_notes/NEW_4bg_supp.md`，新测试 `nr_audit/tests/test_new4bg.py`。本地提交、未推送。
 - **NEW-4bf（N60，2026-11-19）附录 A、B 措辞一轮**：11 处写准、6 处合并重复，只改叙述与证明连接文字。记录 `paper/revision_notes/NEW_4bf_terms.md`，新测试 `nr_audit/tests/test_new4bf.py`。与 NEW-4be 一并推送。
 - **NEW-4be（N59，2026-11-19）第 7、8 章措辞一轮**：ChatGPT 读 331fd53 后的 11 条措辞意见全部照用，只改叙述。记录 `paper/revision_notes/NEW_4be_terms.md`，新测试 `nr_audit/tests/test_new4be.py`。已推送。
 - **NEW-4bd（N58，2026-11-19）附录 A、B 按外部意见补证明与改准**：补四处证明步骤，A.9 两处局部换证（作者决定），其余写准量词与证明标题。记录 `paper/revision_notes/NEW_4bd_appendix.md`，新测试 `nr_audit/tests/test_new4bd.py`（含 sympy 恒等式）。已推送（331fd53）。

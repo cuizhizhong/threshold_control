@@ -71,13 +71,13 @@ I_{\max}^{0}\bigl(c_{0,\min}(\eta)\bigr)=\eta,
 
 (ii) 利用 $\partial\bar S/\partial c_0=-\bar S/c_0$、$\partial S_c/\partial c_0=-S_c/c_0$ 及式\eqref{eq:s1:Sstar-eta-sign}中的 $\partial S^*/\partial c_0$，对式\eqref{eq:s1:t2}求导并整理，即得式\eqref{eq:duration-c0}。符号不定由 (iii) 的证明得到。
 
-(iii) 当 $c_0$ 从右侧趋于 $c_{0,\min}(\eta)$ 时，$\eta$ 趋于常规峰值，$S^*$ 趋于 $S_c$，故 $\Delta t$ 趋于零。$\beta_1^0/\beta_2^0$ 不含 $c_0$，由启动方程 $I(S^*)=\eta$，
+(iii) 当 $c_0$ 从右侧趋于 $c_{0,\min}(\eta)$ 时，常规峰值趋于 $\eta$，$S^*$ 趋于 $S_c$，故 $\Delta t$ 趋于零。$\beta_1^0/\beta_2^0$ 不含 $c_0$，由启动方程 $I(S^*)=\eta$，
 $\lim_{c_0\to\infty}S^*=S_0-(\beta_1^0/\beta_2^0)(\eta-I_0)>0$，而 $S_c,\bar S$ 均为 $O(c_0^{-1})$，故
 \[
 \Delta t=\frac{N}{c_0\eta}[\ln c_0+O(1)],\qquad
 \lim_{c_0\to\infty}\Delta t=0.
 \]
-$\Delta t$ 在 $(c_{0,\min}(\eta),\infty)$ 内为正且连续，两端极限为零，因此在内部取得正的最大值。由中值定理，其导数在最大值点两侧分别取正值与负值，这也给出 (ii) 中的符号不定。
+$\Delta t$ 在 $(c_{0,\min}(\eta),\infty)$ 内为正且连续，两端极限为零，因此在内部取得正的最大值。由中值定理，其导数在该最大值点左侧至少一处为正、右侧至少一处为负，这也给出 (ii) 中的符号不定。
 \end{proof}
 
 \FloatBarrier
@@ -93,7 +93,6 @@ $\Delta t$ 在 $(c_{0,\min}(\eta),\infty)$ 内为正且连续，两端极限为�
 \label{fig:scenario1_summary_c0}
 \end{figure}
 
-图~\ref{fig:sup:eta-summary}给出同一组指标随阈值的变化，是正文图~\ref{fig:scenario1_summary_eta}的完整扫描。固定 $c_0$ 时，阈值提高使启动推迟，$q_1$ 只略有下降，控制时长与成本近似与阈值成反比。在所算范围内，清零时间随阈值提高而缩短。由正文命题~\ref{prop:threshold-tradeoff}(iii)，总累计新增感染随阈值严格增加。
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/new4al/S2.pdf}
@@ -101,7 +100,7 @@ $\Delta t$ 在 $(c_{0,\min}(\eta),\infty)$ 内为正且连续，两端极限为�
 \label{fig:sup:eta-summary}
 \end{figure}
 
-图~\ref{fig:baseline:q-joint}给出 $\eta/N=5\%$ 时不同 $c_0$ 与 $c_0=10$ 时不同阈值下的隔离比例轨迹，图~\ref{fig:scenario1_heatmaps_c0_eta}给出 $(\eta/N,c_0)$ 平面上的四项指标。图~\ref{fig:baseline:q-joint}两幅子图中的内部拐点都在 $\qinf=1-1/[2(1-\beta)]\approx0.4083$ 的同一水平上（正文定理~\ref{thm:s1:inflection}）。$c_0=4$ 时 $q_1=0.3413<\qinf$，即 $S^*<2\bar S$，隔离比例在整个控制期内低于拐点水平，没有内部拐点。
+图~\ref{fig:baseline:q-joint}给出 $\eta/N=5\%$ 时不同 $c_0$ 与 $c_0=10$ 时不同阈值下的隔离比例轨迹，图~\ref{fig:scenario1_heatmaps_c0_eta}给出 $(\eta/N,c_0)$ 平面上的四项指标。图~\ref{fig:baseline:q-joint}两幅子图中的内部拐点均位于 $q=\qinf$，与正文定理~\ref{thm:s1:inflection}一致。$c_0=4$ 时 $q_1=0.3413<\qinf$，即 $S^*<2\bar S$，隔离比例在整个控制期内低于拐点水平，没有内部拐点。
 
 \begin{figure}[htbp]
 \centering
@@ -113,7 +112,7 @@ $\Delta t$ 在 $(c_{0,\min}(\eta),\infty)$ 内为正且连续，两端极限为�
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.8\textwidth]{figures/new4t/S4.pdf}
-\caption{$(\eta/N,c_0)$ 平面上仅隔离控制的启动时间、控制时长、清零时间和累计新增感染，其余参数取基准值。黑色实线为触发边界 $c_{0,\min}(\eta)$，白色区域无需加强隔离；红色点划线为等值线，黑色数字为等值。}
+\caption{$(\eta/N,c_0)$ 平面上仅隔离控制的启动时间、控制时长、清零时间和累计新增感染，其余参数取基准值。黑色实线为触发边界 $c_{0,\min}(\eta)$，白色区域无需加强隔离；红色点划线为等值线，黑色数字标注相应的指标值。}
 \label{fig:scenario1_heatmaps_c0_eta}
 \end{figure}
 
