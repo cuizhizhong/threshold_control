@@ -2,7 +2,7 @@
 \label{sec:sup:weight-structure}
 
 \subsection{结构边界}
-本节补充正文第~\ref{sec:joint:cost-structure}~节的权重分析，刻画仅隔离控制在 $S>S_{\rm sw}$ 时保持全局最优的权重界限 $\hat r$。表~\ref{tab:joint:weight-transitions}将前两处结构变化的解析界限与数值区间比较：正文定理~\ref{thm:joint:cost-structure}的权重界限 $r_{\rm cont}$（式\eqref{eq:joint:rcont}）保证控制连续，两组参数下的值都落在 A$\to$A$'$ 的数值区间内；A$'\to$B 的转折由命题~\ref{prop:sup:rhat}给出，其证明先用下面的引理。
+本节补充正文第~\ref{sec:joint:cost-structure}~节的权重分析，刻画仅隔离控制在 $S>S_{\rm sw}$ 时保持全局最优的权重界限 $\hat r$。表~\ref{tab:joint:weight-transitions}比较前两处结构变化的解析界限与数值区间。A$\to$A$'$ 的界限是正文定理~\ref{thm:joint:cost-structure}的权重界限 $r_{\rm cont}$（式\eqref{eq:joint:rcont}），它保证控制连续；A$'\to$B 的界限 $\hat r$ 由命题~\ref{prop:sup:rhat}给出，其证明先用下面的引理。
 \begin{lemma}
 \label{lem:sup:upper-set}
 设 $w_c,w_q>0$ 且 $S>S_c$。若 $c=c_0$ 是 $f(S,\cdot)$ 在 $[c_0S_c/S,c_0]$ 上的全局最小点，则对任意 $S'>S$，$c=c_0$ 是 $f(S',\cdot)$ 在 $[c_0S_c/S',c_0]$ 上的唯一全局最小点。
@@ -31,7 +31,7 @@ G(p;\zeta)-G(\zeta;\zeta)=\frac{(\zeta-p)^2}{\zeta^2p^2(p-b)}\Bigl[(p-a)^2+(\hat
 \]
 对 $1\le p<\zeta$，$2(\zeta-1)p/\zeta-1\ge(\zeta-2)/\zeta>0$；又 $\zeta\in(2,3)$ 给出 $1<a<\zeta$。
 
-(ii) 由此，若 $r<\hat r$，方括号对一切 $p\in[1,\zeta)$ 严格为正，$p=\zeta_{\rm sw}$（即 $c_0$）是 $S_{\rm sw}$ 处的唯一全局最小点；若 $r=\hat r$，方括号只在 $p=a$ 处为零，$c_0$ 与 $p=a$ 并列，$p=a$ 对应 $c=c_0S_c/(S_{\rm sw}-S_c)$。
+(ii) 由此，若 $r<\hat r$，方括号对一切 $p\in[1,\zeta)$ 严格为正，$p=\zeta_{\rm sw}$（即 $c_0$）是 $S_{\rm sw}$ 处的唯一全局最小点；若 $r=\hat r$，方括号只在 $p=a$ 处为零，此时 $p=\zeta_{\rm sw}$ 与 $p=a$ 是两个全局最小点，分别对应 $c=c_0$ 与 $c=c_0S_c/(S_{\rm sw}-S_c)$。
 
 (i) $r\le\hat r$ 时，由 (ii) 与引理~\ref{lem:sup:upper-set}，对一切 $S>S_{\rm sw}$，$c_0$ 都是唯一全局最小点。若 $r>\hat r$，取 $p=a$，由上式 $G(a;\zeta_{\rm sw})<G(\zeta_{\rm sw};\zeta_{\rm sw})$；由连续性，这一严格不等式在 $S_{\rm sw}$ 稍上方仍成立，$c_0$ 在那里不是全局最小点。
 
@@ -104,7 +104,7 @@ r+\frac{2\sqrt r}{\zeta}=1+r+\frac{2b(\sqrt r-1)}{\zeta},
 \renewcommand{\labelenumi}{(\roman{enumi})}
 \item 若 $0<r\le r_{\rm cont}$，最小点处处唯一，没有跳变；
 \item 若 $r_{\rm cont}<r<\hat r$，则 $b+\sqrt{b^2-8b+8}<\zeta_{\rm j}<\zeta_{\rm sw}$；在 $\zeta_{\rm j}$ 上恰有两个全局最小点 $p_\pm=\bigl(k\pm\sqrt{k(k-4)}\bigr)/2$，$k=\sqrt r\,\zeta_{\rm j}$，满足 $1<p_-<2<p_+<\zeta_{\rm j}$；其余状态上最小点唯一；随 $S$ 减小，最优选择在 $S_{\rm jump}$ 处由 $p_+$ 跳到 $p_-$；
-\item 若 $r\ge\hat r$，记 $\zeta_0$ 为仅隔离控制取全局最小的最小状态，则 $\zeta_0\ge\max\{\zeta_{\rm sw},\,b+r(1-b)\}$，且 $\zeta_0=\zeta_{\rm sw}$ 当且仅当 $r=\hat r$；$\zeta>\zeta_0$ 时仅隔离控制唯一最优，$1<\zeta<\zeta_0$ 时最小点唯一且在 $(1,\zeta)$ 内；在 $\zeta_0$ 处仅隔离控制恰与一个内部取值并列；随 $S$ 减小，最优选择在 $S_c\zeta_0$ 处由 $p=\zeta_0$ 跳到该内部取值；
+\item 若 $r\ge\hat r$，记 $\zeta_0$ 为使仅隔离控制成为全局最小点的最小 $\zeta$，则 $\zeta_0\ge\max\{\zeta_{\rm sw},\,b+r(1-b)\}$，且 $\zeta_0=\zeta_{\rm sw}$ 当且仅当 $r=\hat r$；$\zeta>\zeta_0$ 时仅隔离控制唯一最优，$1<\zeta<\zeta_0$ 时最小点唯一且在 $(1,\zeta)$ 内；在 $\zeta_0$ 处仅隔离控制恰与一个内部取值并列；随 $S$ 减小，最优选择在 $S_c\zeta_0$ 处由 $p=\zeta_0$ 跳到该内部取值；
 \item 在 (ii)(iii) 的跳变处，沿时间方向接触率与隔离比例同时下降。
 \end{enumerate}
 \end{proposition}
@@ -134,7 +134,7 @@ $1<\zeta<\zeta_0$ 时两端点都不是全局最小点。由引理~\ref{lem:sup:
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/new4t/S6.pdf}
-\caption{正文图~\ref{fig:joint:phase}(a) 与图~\ref{fig:xian:joint}(a) 转折区的局部加密。(a) 基准参数；(b) 西安参数。背景颜色表示 $y$，在各分支内作双线性插值；点为表~\ref{tab:joint:weight-transitions}所涉加密权重及西安两处补充计算点上的局部分类，黑线为连续进入内部分支的边界，红线为端点到内部的跳变，紫线为两个内部取值之间的跳变，各结构边界由相应的离散节点连接。空心圆位于 $r=r_{\rm cont}$（正文式\eqref{eq:joint:rcont}）、$S/S_c=b+\sqrt{b^2-8b+8}$，空心菱形为 $(S_{\rm sw}/S_c,\hat r)$（命题~\ref{prop:sup:rhat}）。随时间推进，$S$ 从左向右减小。}
+\caption{正文图~\ref{fig:joint:phase}(a) 与图~\ref{fig:xian:joint}(a) 转折区的局部加密。(a) 基准参数；(b) 西安参数。背景颜色表示 $y$，在各分支内作双线性插值；点为表~\ref{tab:joint:weight-transitions}所涉加密权重及西安两处补充计算点上的局部分类，黑线表示由仅隔离控制连续转为两者并用的边界，红线表示由仅隔离控制跳变为两者并用的位置，紫线表示两者并用时两个取值之间的跳变。各结构边界由相应的离散节点连接。空心圆位于 $r=r_{\rm cont}$（正文式\eqref{eq:joint:rcont}）、$S/S_c=b+\sqrt{b^2-8b+8}$，空心菱形为 $(S_{\rm sw}/S_c,\hat r)$（命题~\ref{prop:sup:rhat}）。随时间推进，$S$ 从左向右减小。}
 \label{fig:sup:phase-detail}
 \end{figure}
 \FloatBarrier

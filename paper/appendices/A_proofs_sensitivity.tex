@@ -47,7 +47,7 @@ I(t)&=I_0\exp\!\left[\int_0^t\left(\frac{\beta c(s)(1-q(s))}{N}S(s)-\gamma\right
 \[
 \dot I=I\left[\frac{\beta c(1-q)S}{N}-\gamma\right].
 \]
-$I$ 绝对连续且 $I(\tau)=\eta$，故 $I$ 在 $[\tau,\tau']$ 上恒等于 $\eta$，当且仅当 $\dot I$ 在该区间上几乎处处为零。由 $I>0$，这又等价于方括号内几乎处处为零，即式\eqref{eq:model:balance}几乎处处成立。此时几乎处处有 $c(1-q)=\gamma N/(\beta S)>0$，故几乎处处有 $c>0$ 与 $\dot S=-c[\beta+(1-\beta)q]S\eta/N<0$。任取 $\tau\le u<v\le\tau'$，由 $S$ 的绝对连续性，$S(v)-S(u)=\int_u^v\dot S(t)\,dt<0$，故 $S$ 在该区间上严格递减。
+$I$ 绝对连续且 $I(\tau)=\eta$，故 $I$ 在 $[\tau,\tau']$ 上恒等于 $\eta$，当且仅当 $\dot I$ 在该区间上几乎处处为零。由 $I>0$，这又等价于方括号内几乎处处为零，即式\eqref{eq:model:balance}几乎处处成立。此时，在该区间上几乎处处有 $c(1-q)=\gamma N/(\beta S)>0$，从而 $c>0$ 且 $\dot S=-c[\beta+(1-\beta)q]S\eta/N<0$。任取 $\tau\le u<v\le\tau'$，由 $S$ 的绝对连续性，$S(v)-S(u)=\int_u^v\dot S(t)\,dt<0$，故 $S$ 在该区间上严格递减。
 \end{proof}
 
 \subsection{退出后的动态}
@@ -232,7 +232,7 @@ $c^3(cS-c_0\bar S)^2/S$，驻点方程化为
 \subsection{退出附近的控制组合}
 \label{sec:proof:terminal-allocation}
 \begin{proof}[\normalfont\bfseries 命题~\ref{prop:joint:terminal-allocation}的证明]
-先由归一化成本的一致收敛确定退出附近的最优组合，再比较两种单控制的成本。
+先由归一化后的被积函数的一致收敛确定退出附近的最优组合，再比较两种单控制的成本。
 
 (i) 令 $\epsilon=1-S_c/S$，则 $S>S_c$ 时 $0<\epsilon<1$，且 $\lim_{S\to S_c^{+}}\epsilon=0$。把允许接触率写为
 $c=c_0(1-\epsilon x)$、$0\le x\le1$，于是

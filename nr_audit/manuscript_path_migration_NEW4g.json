@@ -32,7 +32,7 @@
       "new4g_baseline_sha256": "acdc0210ebf693f1ddc4675965e86c1a1cc1045f17758ead21d4352967b63686",
       "current_path": "paper/supplement_sections/S2_single_control.tex",
       "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-      "current_content_sha256": "87bed568e3b3771be5c2ac5a03e3bede3a880e77cab27961f737a28750ef6d73"
+      "current_content_sha256": "2c76034b34d18c66f6d0abdd99d9b0a9d6bcdf42c0302d5752d64d21f62a6e26"
     },
     "numerics_S2": {
       "historical_path": "paper/supplement_sections/S2_inflection.tex",
@@ -56,7 +56,7 @@
       "new4g_baseline_sha256": "3830ad9ec1c172373ea3a648b63c08af93ec7c389212352e152066b281db121d",
       "current_path": "paper/supplement_sections/S2_single_control.tex",
       "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-      "current_content_sha256": "87bed568e3b3771be5c2ac5a03e3bede3a880e77cab27961f737a28750ef6d73"
+      "current_content_sha256": "2c76034b34d18c66f6d0abdd99d9b0a9d6bcdf42c0302d5752d64d21f62a6e26"
     },
     "numerics_S6": {
       "historical_path": "paper/supplement_sections/S6_numerics.tex",
@@ -64,7 +64,7 @@
       "new4g_baseline_sha256": "2f14f06ba1180d614865ce7786e4e1299549b922e951befb75c7466d810a7ea0",
       "current_path": "paper/supplement_sections/S8_numerics.tex",
       "current_sha256": "161321ea36559bfcda8e8b7f8fe3537fb580a79cd2414bac41e2bb2985642446",
-      "current_content_sha256": "6f542ce35c50a25818a9bdbda345077cdff6a74d54ccdd276c9c622a09603d49"
+      "current_content_sha256": "d692ca27a3b7380bc4d3908b02f0718d4aee1e13f460986b951f26daf5b1d20c"
     },
     "xian_chapter": {
       "historical_path": "paper/sections/07_xian.tex",
@@ -90,7 +90,7 @@
             "eq:small-threshold"
           ],
           "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-          "current_content_sha256": "87bed568e3b3771be5c2ac5a03e3bede3a880e77cab27961f737a28750ef6d73"
+          "current_content_sha256": "2c76034b34d18c66f6d0abdd99d9b0a9d6bcdf42c0302d5752d64d21f62a6e26"
         }
       ]
     },
@@ -160,7 +160,7 @@
             "fig:c0-beta-existence"
           ],
           "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-          "current_content_sha256": "87bed568e3b3771be5c2ac5a03e3bede3a880e77cab27961f737a28750ef6d73"
+          "current_content_sha256": "2c76034b34d18c66f6d0abdd99d9b0a9d6bcdf42c0302d5752d64d21f62a6e26"
         }
       ]
     },
@@ -176,7 +176,7 @@
             "fig:sup:phase-detail"
           ],
           "current_sha256": "5b7db9952e30df4c07d9993f321269b85034dba83d810ff376b81c9e4d90b541",
-          "current_content_sha256": "db1d45c469a290c9898f67a1a71edc01dce72ae3bb95b7d822a362e1febf53c0"
+          "current_content_sha256": "3a3ccc7a310385101e2a0364af42b1f4a280fe5a3db1818d151c7707fe877173"
         },
         {
           "path": "paper/supplement_sections/S8_numerics.tex",
@@ -185,7 +185,7 @@
             "tab:sup:convergence"
           ],
           "current_sha256": "161321ea36559bfcda8e8b7f8fe3537fb580a79cd2414bac41e2bb2985642446",
-          "current_content_sha256": "6f542ce35c50a25818a9bdbda345077cdff6a74d54ccdd276c9c622a09603d49"
+          "current_content_sha256": "d692ca27a3b7380bc4d3908b02f0718d4aee1e13f460986b951f26daf5b1d20c"
         }
       ]
     },
@@ -203,7 +203,7 @@
             "eq:duration-c0"
           ],
           "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-          "current_content_sha256": "87bed568e3b3771be5c2ac5a03e3bede3a880e77cab27961f737a28750ef6d73"
+          "current_content_sha256": "2c76034b34d18c66f6d0abdd99d9b0a9d6bcdf42c0302d5752d64d21f62a6e26"
         }
       ]
     },
@@ -237,7 +237,7 @@
             "fig:scenario1_summary_c0"
           ],
           "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-          "current_content_sha256": "87bed568e3b3771be5c2ac5a03e3bede3a880e77cab27961f737a28750ef6d73"
+          "current_content_sha256": "2c76034b34d18c66f6d0abdd99d9b0a9d6bcdf42c0302d5752d64d21f62a6e26"
         }
       ]
     },
@@ -251,7 +251,7 @@
             "sec:proof:contact-effects"
           ],
           "current_sha256": "04e96a12e4375a8b1f813920795dd606a36165b4a2fd95f703f3e159bb1fc6c1",
-          "current_content_sha256": "87bed568e3b3771be5c2ac5a03e3bede3a880e77cab27961f737a28750ef6d73"
+          "current_content_sha256": "2c76034b34d18c66f6d0abdd99d9b0a9d6bcdf42c0302d5752d64d21f62a6e26"
         }
       ]
     }

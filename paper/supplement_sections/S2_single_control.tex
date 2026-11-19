@@ -55,13 +55,13 @@ I_{\max}^{0}\bigl(c_{0,\min}(\eta)\bigr)=\eta,
 \[
 \frac{\partial I(S;c_0)}{\partial c_0}=-\frac{\rho_1}{c_0}\ln\frac{S}{S_0}>0.
 \]
-在式\eqref{eq:s1:t1}中，前置系数 $1/\beta_1^0$ 随 $c_0$ 下降；由引理~\ref{lem:s1:Sstar-sensitivity}，下限 $S^*$ 随 $c_0$ 上升；由上式，被积函数 $1/[S\,I(S;c_0)]$ 也随 $c_0$ 下降。逐项求导均给出负项，故 $\partial t_1/\partial c_0<0$。对式\eqref{eq:s1:qmax}求导，得
+在式\eqref{eq:s1:t1}中，积分前的系数 $1/\beta_1^0$ 随 $c_0$ 下降；由引理~\ref{lem:s1:Sstar-sensitivity}，下限 $S^*$ 随 $c_0$ 上升；由上式，被积函数 $1/[S\,I(S;c_0)]$ 也随 $c_0$ 下降。逐项求导均给出负项，故 $\partial t_1/\partial c_0<0$。对式\eqref{eq:s1:qmax}求导，得
 \[
 \frac{\partial q_1}{\partial c_0}
 =\frac{\gamma N}{\beta c_0^2(S^*)^2}
 \left(S^*+c_0\frac{\partial S^*}{\partial c_0}\right)>0.
 \]
-由式\eqref{eq:s1:t2}，$\Delta t=[N/(c_0\eta)]\ln[(S^*-\bar S)/(S_c-\bar S)]$，前置系数不含 $\beta,q_0$。对 $\beta$ 求导时，
+由式\eqref{eq:s1:t2}，$\Delta t=[N/(c_0\eta)]\ln[(S^*-\bar S)/(S_c-\bar S)]$，其中系数 $N/(c_0\eta)$ 不含 $\beta,q_0$。对 $\beta$ 求导时，
 \[
 \frac{\partial\bar S}{\partial\beta}=-\frac{\gamma N}{c_0\beta^2}<0,
 \qquad
@@ -85,7 +85,7 @@ $\Delta t$ 在 $(c_{0,\min}(\eta),\infty)$ 内为正且连续，两端极限为�
 \label{sec:sup:baseline-scan}
 基准参数取自 Zhou 等\cite{Zhou2024SPCI}图 3 的示例。该例另设住院仓室，其非隔离感染者的自然康复率 $\gamma_I=0.1$ 与确诊率 $\delta_I=0.2504$ 之和对应本模型的移出率 $\gamma$；该例没有给出 $\delta_q$，取 $\delta_q=\gamma$。除 $c_0$ 与 $\eta/N$ 外，本小节参数取正文图~\ref{fig:scenario1:single-sim}的基准值。
 
-常规接触率对控制时长的影响不是单调的（命题~\ref{prop:contact-effects}，图~\ref{fig:scenario1_summary_c0}）。$c_0$ 越大，常规轨迹越早触及阈值，$S^*$ 与 $q_1$ 越高。在所考察的范围内，控制时长随 $c_0$ 先增后减，基准阈值 $\eta/N=5\%$ 下（图中未画出）在 $c_0\approx5.1$ 处取得数值极大值约 $7.579$ d。当 $c_0$ 不超过触发边界 $c_{0,\min}(\eta)$（式\eqref{eq:s1:c0-min-def}）时，无需加强干预。该边界随阈值升高，基准阈值下约为 $3.327$。相应的隔离比例轨迹与二维扫描见图~\ref{fig:baseline:q-joint}、\ref{fig:scenario1_heatmaps_c0_eta}。
+常规接触率对控制时长的影响不是单调的（命题~\ref{prop:contact-effects}，图~\ref{fig:scenario1_summary_c0}）。$c_0$ 越大，常规轨迹越早触及阈值，$S^*$ 与 $q_1$ 越高。在所考察的范围内，控制时长随 $c_0$ 先增后减，基准阈值 $\eta/N=5\%$ 下（图中未画出）在 $c_0\approx5.1$ 处取得数值极大值约 $7.579$ d。当 $c_0$ 不超过触发边界 $c_{0,\min}(\eta)$（式\eqref{eq:s1:c0-min-def}）时，无需加强干预。该边界随阈值升高，基准阈值下约为 $3.327$。
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{figures/new4al/S1.pdf}
